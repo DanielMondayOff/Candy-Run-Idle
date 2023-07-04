@@ -19,7 +19,6 @@ public class JoyStickController : MonoBehaviour
     public float JoyStickBound;
     [Header("움직일 물체 (Rigidbody필요)")]
     public Rigidbody MoveObjectRig;
-
     public float Threshold = 10;
 
 

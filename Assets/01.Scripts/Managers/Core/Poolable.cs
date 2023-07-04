@@ -22,6 +22,7 @@ public class Poolable : MonoBehaviour
     {
         timerCor = StartCoroutine(TimerCor(timer));
     }
+    
     IEnumerator TimerCor(float timer)
     {
         yield return Util.WaitGet(timer);
