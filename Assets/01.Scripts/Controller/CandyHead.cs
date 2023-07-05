@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class CandyHead : MonoBehaviour
 {
@@ -9,17 +10,17 @@ public class CandyHead : MonoBehaviour
 
     public bool fireBullet = false;
 
-
-    // Start is called before the first frame update
     void Start()
     {
-        this.TaskWhile(RunManager.instance.GetCurrentFireRate(), 1, GenerateBulletbullet, () => fireBullet);
+        this.TaskWhile(RunManager.instance.GetCurrentFireRate(), 1, GenerateBullet, () => fireBullet);
     }
 
-    void GenerateBulletbullet()
+    void GenerateBullet()
     {
         var bullet = Instantiate(bulletPrefab, firePos.transform.position, Quaternion.identity);
 
-        bullet.
+        bullet.transform.DOMoveZ(2000, 100);
+
+        this.TaskDelay(RunManager.instance.GetBulletLength(),() =>  Destroy(bullet));
     }
 }

@@ -14,11 +14,18 @@ public enum PillerType
 
 public class Piller : MonoBehaviour
 {
+    public Text nameText;
+
     public Text valueText;
 
     public PillerType type;
 
     public float value;
+
+    private void Start()
+    {
+        Init();
+    }
 
     public void Init()
     {
@@ -26,18 +33,25 @@ public class Piller : MonoBehaviour
         {
             case PillerType.Length:
                 value = RunManager.defaultCandyLength;
+                nameText.text = "Length";
                 break;
 
             case PillerType.FireRate:
                 value = RunManager.DefaultBulletFireRate;
+                nameText.text = "FireRate";
+
                 break;
 
             case PillerType.Range:
                 value = RunManager.defaultBulletRange;
+                nameText.text = "Range";
+
                 break;
 
             case PillerType.Candy:
                 value = RunManager.defaultCandyCount;
+                nameText.text = "Candy";
+
                 break;
         }
 
