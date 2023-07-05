@@ -13,7 +13,7 @@ public class CandyHead : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        this.TaskWhile(RunManager.instance.GetCurrentFireRate(), 1, )
+        this.TaskWhile(RunManager.instance.GetCurrentFireRate(), 1, GenerateBulletbullet, () => fireBullet);
     }
 
     void GenerateBulletbullet()
