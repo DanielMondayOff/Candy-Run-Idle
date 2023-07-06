@@ -2,45 +2,76 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 
 public class RunManager : MonoBehaviour
 {
     public static RunManager instance;
 
-    public static float DefaultBulletFireRate = 1f;
+    public static float DefaultBulletFireRate = 0.7f;
     public float plusFireRate = 0f;
     public float addFireRateValue = 1f;
+    public float defaultPillerFireRateValue = 100f;
 
     [Space]
 
-    public static float defaultCandyLength = 0.2f;
-    public float plusCandyLength = 0f;
-    public float addCandyLengthValue = 0.1f;
+    public static float defaultCandyLength = 30f;
+    public float plusCandyLength = 1f;
+    public float addCandyLengthValue = 1f;
+
+    public float defaultPillerLengthValue = 100f;
 
     [Space]
 
-    public static float defaultBulletRange = 3f;
+    public static float defaultBulletRange = 100f;
     public float plusBulletRange = 0f;
-    public float addBulletRangeValue = 1f;
+    public float addBulletRangeValue = 100f;
 
     [Space]
 
     public static int defaultCandyCount = 1;
     public int plusCandyCount = 0;
 
-    public float GetCurrentFireRate() => DefaultBulletFireRate + plusFireRate;
+    public int currentMoney;
+
+    public float GetCurrentFireRate()
+    {
+        var result = DefaultBulletFireRate - plusFireRate;
+
+        return Mathf.Clamp(result, 0.1f, 1);
+    }
+
     public float GetCurrentCandyLength() => defaultCandyLength + plusCandyLength;
-    public float GetBulletLength() => defaultBulletRange + plusBulletRange;
+    public float GetBulletRange() => defaultBulletRange + plusBulletRange;
 
 
     public List<GameObject> candyList = new List<GameObject>();
 
+    public Material[] jellyBeanMats;
+
     public Transform runPlayer;
     public GameObject candyPrefab;
+
+    TaskUtil.WhileTaskMethod fireTask;
+
+    public bool fireBullet = false;
+
+    public bool isGameStart = false;
+    public GameObject startUI;
+
 
     private void Awake()
     {
         instance = this;
+    }
+
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    private void Start()
+    {
+        fireTask = this.TaskWhile(RunManager.instance.GetCurrentFireRate(), 1, () => { if (fireBullet) { candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().GenerateBullet()); } });
     }
 
     /// <summary>
@@ -50,6 +81,12 @@ public class RunManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
             AddCandy();
+    }
+
+    public void RunGameStart()
+    {
+        startUI.SetActive(false);
+        isGameStart = true;
     }
 
 
@@ -70,7 +107,7 @@ public class RunManager : MonoBehaviour
 
     public void AddCandy()
     {
-        var newCandy = Instantiate(candyPrefab, new Vector3(runPlayer.transform.position.x, 0.5f, runPlayer.transform.position.z), Quaternion.identity, runPlayer);
+        var newCandy = Instantiate(candyPrefab, new Vector3(runPlayer.transform.position.x, 0.5f, runPlayer.transform.position.z), Quaternion.Euler(0, 180, 0), runPlayer);
         candyList.Add(newCandy);
 
         ArrangeCandy();
@@ -88,15 +125,19 @@ public class RunManager : MonoBehaviour
             case PillerType.Length:
                 plusCandyLength += value;
 
-                candyList.ForEach((n) => n.transform.localScale = new Vector3(1, 1, GetCurrentCandyLength() / 100f));
+                candyList.ForEach((n) => n.transform.localScale = new Vector3(1, 1, GetCurrentCandyLength() / 1000f));
                 break;
 
             case PillerType.FireRate:
-                plusFireRate += value;
+                plusFireRate += (value / 1000f);
+
+                ChangeFireRate(GetCurrentFireRate());
+
                 break;
 
             case PillerType.Range:
-                plusBulletRange += value;
+                plusBulletRange += (value / 1000f);
+
                 break;
 
             case PillerType.Candy:
@@ -148,4 +189,17 @@ public class RunManager : MonoBehaviour
             // }
         }
     }
+
+    public void TakeDamage()
+    {
+
+    }
+
+    public void ChangeFireRate(float rate) => fireTask.SetIntervalTime(rate);
+
+    public void GetMoney(int value)
+    {
+        currentMoney += value;
+    }
+
 }

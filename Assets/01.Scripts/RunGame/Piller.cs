@@ -32,12 +32,12 @@ public class Piller : MonoBehaviour
         switch (type)
         {
             case PillerType.Length:
-                value = RunManager.defaultCandyLength;
+                value = RunManager.instance.defaultPillerLengthValue;
                 nameText.text = "Length";
                 break;
 
             case PillerType.FireRate:
-                value = RunManager.DefaultBulletFireRate;
+                value = RunManager.instance.defaultPillerFireRateValue;
                 nameText.text = "FireRate";
 
                 break;
@@ -69,11 +69,11 @@ public class Piller : MonoBehaviour
                     break;
 
                 case PillerType.FireRate:
-                    value += RunManager.instance.plusFireRate;
+                    value += RunManager.instance.addFireRateValue;
                     break;
 
                 case PillerType.Range:
-                    value += RunManager.instance.plusBulletRange;
+                    value += RunManager.instance.addBulletRangeValue;
                     break;
 
                     // case PillerType.Candy:
@@ -82,16 +82,27 @@ public class Piller : MonoBehaviour
             }
 
             OnChangeValue();
+            Destroy(other.gameObject);
         }
 
         if (other.CompareTag("Player"))
         {
             RunManager.instance.PillerPass(type, value);
+            gameObject.SetActive(false);
         }
     }
 
     private void OnChangeValue()
     {
         valueText.text = "+" + value.ToString();
+    }
+
+    /// <summary>
+    /// Called when the script is loaded or a value is changed in the
+    /// inspector (Called in the editor only).
+    /// </summary>
+    private void OnValidate()
+    {
+        OnChangeValue();
     }
 }

@@ -65,8 +65,26 @@ public class JoyStickController : MonoBehaviour
         _joystickImage.enabled = false;
         _joystickHandleImage.enabled = false;
 
-        AddDownEvent(() => isMouseDown = true);
-        AddUpEvent(() => isMouseDown = false);
+        AddDownEvent(() =>
+        {
+            isMouseDown = true;
+            if (!RunManager.instance.isGameStart)
+                RunManager.instance.RunGameStart();
+
+
+            if (RunManager.instance.isGameStart)
+            {
+                RunManager.instance.fireBullet = true;
+            }
+        });
+
+        AddUpEvent(() =>
+        {
+            isMouseDown = false;
+
+            if (RunManager.instance.isGameStart)
+                RunManager.instance.fireBullet = false;
+        });
 
         switch (joyStickMethod)
         {

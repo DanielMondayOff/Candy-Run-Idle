@@ -45,6 +45,9 @@ MonoBehaviour:
     - Nementic.SelectionUtility.Editor
     - Nementic.SelectionUtility.Runtime
     - PPv2URPConverters
+    - Sirenix.OdinInspector.Modules.UnityLocalization
+    - Sirenix.OdinInspector.Modules.UnityLocalization.Editor
+    - Sirenix.OdinInspector.Modules.UnityMathematics
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1
