@@ -65,7 +65,7 @@ public class Piller : MonoBehaviour
             switch (type)
             {
                 case PillerType.Length:
-                    value += RunManager.instance.plusCandyLength;
+                    value += RunManager.instance.addCandyLengthValue;
                     break;
 
                 case PillerType.FireRate:

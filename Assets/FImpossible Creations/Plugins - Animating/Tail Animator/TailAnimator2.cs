@@ -174,7 +174,6 @@ namespace FIMSpace.FTail
         {
             if (!updateTailAnimator) return;
 
-
             #region Support second solution for animate physics mode -----
 
             if (AnimatePhysics == EFixedMode.Late)
@@ -275,6 +274,11 @@ namespace FIMSpace.FTail
             ShapingEndUpdate();
             ExpertCurvesEndUpdate();
             previousWorldPosition = BaseTransform.position;
+        }
+
+        public void OnChangeTailList()
+        {
+            
         }
 
     }

@@ -15,7 +15,7 @@ public class RunManager : MonoBehaviour
 
     [Space]
 
-    public static float defaultCandyLength = 30f;
+    public static float defaultCandyLength = 200f;
     public float plusCandyLength = 1f;
     public float addCandyLengthValue = 1f;
 
@@ -57,7 +57,10 @@ public class RunManager : MonoBehaviour
     public bool fireBullet = false;
 
     public bool isGameStart = false;
+    public bool isGameEnd = false;
     public GameObject startUI;
+
+    public Transform cuttingStartPoint;
 
 
     private void Awake()
@@ -81,12 +84,27 @@ public class RunManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
             AddCandy();
+
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            plusCandyLength += 100;
+
+            ChangeCandysLength();
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            plusCandyLength -= 100;
+
+            ChangeCandysLength();
+        }
     }
 
     public void RunGameStart()
     {
         startUI.SetActive(false);
         isGameStart = true;
+
+        ChangeCandysLength();
     }
 
 
@@ -102,12 +120,15 @@ public class RunManager : MonoBehaviour
 
     public void ChangeCandysLength()
     {
+        // candyList.ForEach((n) => n.transform.localScale = new Vector3(n.transform.localScale.x, n.transform.localScale.y, GetCurrentCandyLength() / 1000f));
 
+        // candyList.ForEach((n) => n.GetComponentInChildren<FIMSpace.FTail.TailAnimator2>().TailAnimatorAmount = GetCurrentCandyLength());
+        candyList.ForEach((n) => n.GetComponentInChildren<CandyTailController>().ChangeCandyLength(GetCurrentCandyLength()));
     }
 
     public void AddCandy()
     {
-        var newCandy = Instantiate(candyPrefab, new Vector3(runPlayer.transform.position.x, 0.5f, runPlayer.transform.position.z), Quaternion.Euler(0, 180, 0), runPlayer);
+        var newCandy = Instantiate(candyPrefab, new Vector3(runPlayer.transform.position.x, candyPrefab.transform.position.y, runPlayer.transform.position.z), Quaternion.Euler(0, 180, 0), runPlayer);
         candyList.Add(newCandy);
 
         ArrangeCandy();
@@ -125,7 +146,7 @@ public class RunManager : MonoBehaviour
             case PillerType.Length:
                 plusCandyLength += value;
 
-                candyList.ForEach((n) => n.transform.localScale = new Vector3(1, 1, GetCurrentCandyLength() / 1000f));
+                ChangeCandysLength();
                 break;
 
             case PillerType.FireRate:
@@ -200,6 +221,13 @@ public class RunManager : MonoBehaviour
     public void GetMoney(int value)
     {
         currentMoney += value;
+    }
+
+    public void StartCuttingCandy()
+    {
+        isGameEnd = true;
+
+        CameraManager.instance.ChangeCamera("cutting");
     }
 
 }

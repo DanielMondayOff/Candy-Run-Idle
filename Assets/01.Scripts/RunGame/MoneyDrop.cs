@@ -13,6 +13,11 @@ public class MoneyDrop : MonoBehaviour
             RunManager.instance.GetMoney(moneyValue);
 
             Managers.Pool.Push(GetComponent<Poolable>());
+
+            var particle = Managers.Pool.Pop(Managers.Resource.Load<GameObject>("Particles/DollarbillDirectional"));
+
+            particle.transform.position = transform.position;
+            particle.GetComponentInChildren<ParticleSystem>().Play();
         }
     }
 }
