@@ -179,36 +179,57 @@ public class RunManager : MonoBehaviour
             return;
         }
 
-        float xOffset = 1.15f; // X축으로 이동할 간격
+        float xOffset = 1.3f; // X축으로 이동할 간격
         int midValue = count / 2;
 
-        // List의 요소들을 중앙 기준으로 배치합니다.
-        for (int i = 0; i < count; i++)
-        {
-            float xPos = (i - midValue) * xOffset;
+        float spacing = 1.3f;
 
-            // 요소의 개수가 홀수일 때 중앙에 배치
-            if (count % 2 == 1 && i == count / 2)
+        float startX = -spacing * (count / 2); // 시작 X 좌표 계산
+
+        if (count % 2 == 1)
+        {
+            for (int i = 0; i < count; i++)
             {
-                candyList[i].transform.DOLocalMove(new Vector3(0f, candyList[i].transform.localPosition.y, 0), 0.2f);
+                Vector3 position = new Vector3((startX + i * spacing), candyList[i].transform.localPosition.y, 0f);
+                candyList[i].transform.localPosition = position;
             }
-            else
-            {
-                candyList[i].transform.DOLocalMove(new Vector3(xPos, candyList[i].transform.localPosition.y, 0), 0.2f);
-            }
-            // else
-            // {
-            //     // 요소의 개수가 짝수일 때 대칭적으로 배치
-            //     if (i < count / 2)
-            //     {
-            //         candyList[i].transform.DOLocalMove(new Vector3(-xPos, candyList[i].transform.localPosition.y, 0), 1f);
-            //     }
-            //     else
-            //     {
-            //         candyList[i].transform.DOLocalMove(new Vector3(xPos - xOffset, candyList[i].transform.localPosition.y, 0), 1f);
-            //     }
-            // }
         }
+        else
+        {
+            for (int i = 0; i < count; i++)
+            {
+                Vector3 position = new Vector3(startX + i * spacing + (spacing / 2f), candyList[i].transform.localPosition.y, 0f);
+                candyList[i].transform.localPosition = position;
+            }
+        }
+
+        // List의 요소들을 중앙 기준으로 배치합니다.
+        // for (int i = 0; i < count; i++)
+        // {
+        //     float xPos = (i - midValue) * xOffset;
+
+        //     // 요소의 개수가 홀수일 때 중앙에 배치
+        //     if (count % 2 == 1 && i == count / 2)
+        //     {
+        //         candyList[i].transform.DOLocalMove(new Vector3(0f, candyList[i].transform.localPosition.y, 0), 0.2f);
+        //     }
+        //     else
+        //     {
+        //         candyList[i].transform.DOLocalMove(new Vector3(xPos, candyList[i].transform.localPosition.y, 0), 0.2f);
+        //     }
+        //     // else
+        //     // {
+        //     //     // 요소의 개수가 짝수일 때 대칭적으로 배치
+        //     //     if (i < count / 2)
+        //     //     {
+        //     //         candyList[i].transform.DOLocalMove(new Vector3(-xPos, candyList[i].transform.localPosition.y, 0), 1f);
+        //     //     }
+        //     //     else
+        //     //     {
+        //     //         candyList[i].transform.DOLocalMove(new Vector3(xPos - xOffset, candyList[i].transform.localPosition.y, 0), 1f);
+        //     //     }
+        //     // }
+        // }
     }
 
     public void TakeDamage()

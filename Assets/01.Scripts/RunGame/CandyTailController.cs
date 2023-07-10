@@ -37,29 +37,31 @@ public class CandyTailController : MonoBehaviour
     {
         var tailAnimator = GetComponent<FIMSpace.FTail.TailAnimator2>();
 
-        tailAnimator._TransformsGhostChain.Clear();
+        tailAnimator.LengthMultiplier = currentLength / 1000f;
 
-        for (int i = 0; i < candyTailParts.Count; i++)
-        {
-            if (i < Mathf.FloorToInt(currentLength / 100))
-            {
-                tailAnimator._TransformsGhostChain.Add(candyTailParts[i].tailTrans);
-                candyTailParts[i].tailTrans.transform.localPosition = candyTailParts[i].trailLocalPos;
-            }
-            else if (i == Mathf.FloorToInt(currentLength / 100))
-            {
-                tailAnimator._TransformsGhostChain.Add(candyTailParts[i].tailTrans);
-                candyTailParts[i].tailTrans.transform.localPosition = candyTailParts[i].trailLocalPos;
-            }
-            else
-            {
-                candyTailParts[i].tailTrans.transform.localPosition = Vector3.zero;
-            }
-        }
+        // tailAnimator._TransformsGhostChain.Clear();
 
-        tailAnimator.EndBone = candyTailParts[Mathf.FloorToInt(currentLength / 100)].tailTrans;
+        // for (int i = 0; i < candyTailParts.Count; i++)
+        // {
+        //     if (i < Mathf.FloorToInt(currentLength / 100))
+        //     {
+        //         tailAnimator._TransformsGhostChain.Add(candyTailParts[i].tailTrans);
+        //         candyTailParts[i].tailTrans.transform.localPosition = candyTailParts[i].trailLocalPos;
+        //     }
+        //     else if (i == Mathf.FloorToInt(currentLength / 100))
+        //     {
+        //         tailAnimator._TransformsGhostChain.Add(candyTailParts[i].tailTrans);
+        //         candyTailParts[i].tailTrans.transform.localPosition = candyTailParts[i].trailLocalPos;
+        //     }
+        //     else
+        //     {
+        //         candyTailParts[i].tailTrans.transform.localPosition = Vector3.zero;
+        //     }
+        // }
 
-        tailAnimator.CheckForNullsInGhostChain();
+        // tailAnimator.EndBone = candyTailParts[Mathf.FloorToInt(currentLength / 100)].tailTrans;
+
+        // tailAnimator.CheckForNullsInGhostChain();
 
     }
 }

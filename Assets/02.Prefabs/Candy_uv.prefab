@@ -835,7 +835,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   DeflectOnlyCollisions: 1
-  _Editor_Category: 1
+  _Editor_Category: 0
   _Editor_FeaturesCategory: 0
   DrawGizmos: 1
   StartBone: {fileID: 8581912423935151813}
@@ -870,7 +870,7 @@ MonoBehaviour:
   Slithery: 0.607
   Curling: 0.463
   Springiness: 0
-  MaxStretching: 0.375
+  MaxStretching: 0
   AngleLimit: 181
   AngleLimitAxis: {x: 0, y: 0, z: 0}
   LimitAxisRange: {x: 0, y: 0}
@@ -879,7 +879,7 @@ MonoBehaviour:
   MotionInfluenceInY: 1
   IncludeParent: 1
   UnifyBendiness: 0
-  ReactionSpeed: 0.9
+  ReactionSpeed: 1
   Sustain: 0
   RotationRelevancy: 0
   SmoothingStyle: 1
