@@ -8,13 +8,22 @@ public class CandyHead : MonoBehaviour
     public Transform firePos;
     public GameObject bulletPrefab;
 
+    public Transform cutCandyPos;
+    public GameObject cutCandyPrefab;
+
     public void GenerateBullet()
     {
         var bullet = Instantiate(bulletPrefab, firePos.transform.position, Quaternion.identity);
 
         bullet.transform.DOMoveZ(2500, 100);
 
-        this.TaskDelay(RunManager.instance.GetBulletRange() / 100f,() =>  Destroy(bullet));
+        this.TaskDelay(RunManager.instance.GetBulletRange() / 100f, () => Destroy(bullet));
     }
-  
+
+    public void CutCandy(float length = 100f)
+    {
+        var candy = Instantiate(cutCandyPrefab, cutCandyPos.position, Quaternion.identity);
+        candy.transform.GetChild(0).transform.localScale = new Vector3(candy.transform.GetChild(0).transform.localScale.x, candy.transform.GetChild(0).transform.localScale.y, length / 1000f);
+    }
+
 }

@@ -71,7 +71,6 @@ public class JoyStickController : MonoBehaviour
             if (!RunManager.instance.isGameStart)
                 RunManager.instance.RunGameStart();
 
-
             if (RunManager.instance.isGameStart)
             {
                 RunManager.instance.fireBullet = true;
@@ -124,6 +123,9 @@ public class JoyStickController : MonoBehaviour
     private void FixedUpdate()
     {
         if (!CanMove) return;
+
+        if (RunManager.instance.cuttingPhase)
+            return;
 
         if (UseAccelerate)
         {
