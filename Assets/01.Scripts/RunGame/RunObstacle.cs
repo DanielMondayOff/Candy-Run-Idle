@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class RunObstacle : MonoBehaviour
 {
     public int hp;
+
+    public float damage = 100;
 
     public bool isUsed = false;
     public bool isDestroyed = false;
@@ -18,7 +21,7 @@ public class RunObstacle : MonoBehaviour
 
         if (other.CompareTag("Player") && !isUsed)
         {
-            RunManager.instance.TakeDamage();
+            RunManager.instance.TakeDamage(100);
             isUsed = true;
         }
     }
@@ -26,6 +29,8 @@ public class RunObstacle : MonoBehaviour
     public void TakeDamage()
     {
         hp--;
+
+        
 
         if (hp <= 0)
         {
@@ -41,5 +46,7 @@ public class RunObstacle : MonoBehaviour
         var money = Managers.Pool.Pop(Managers.Resource.Load<GameObject>("Money"));
 
         money.transform.position = transform.position;
+
+        money.transform.DOJump(money.transform.position, 1.5f, 1, 0.5f);
     }
 }

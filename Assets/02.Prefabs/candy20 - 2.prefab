@@ -756,9 +756,11 @@ GameObject:
   - component: {fileID: 7999661405166961176}
   - component: {fileID: 7999661405166961177}
   - component: {fileID: 480387996576622033}
+  - component: {fileID: 919132149379642103}
+  - component: {fileID: 919132149379642102}
   m_Layer: 0
   m_Name: candy20 - 2
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1193,8 +1195,8 @@ MonoBehaviour:
   _gizmosEditorEndPreview: {fileID: 0}
   _gizmospeep: {fileID: 0}
   _editor_Title: Tail Animator 2
-  _editor_IsInspectorViewingColliders: 0
-  _editor_IsInspectorViewingIncludedColliders: 0
+  _editor_IsInspectorViewingColliders: 1
+  _editor_IsInspectorViewingIncludedColliders: 1
   _editor_animatorViewedCounter: 1
   TailSegments:
   - ProceduralPosition: {x: 0.31751835, y: 0.75, z: 130.05241}
@@ -2028,8 +2030,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   DeflectOnlyCollisions: 1
-  _Editor_Category: 1
-  _Editor_FeaturesCategory: 3
+  _Editor_Category: 2
+  _Editor_FeaturesCategory: 1
   DrawGizmos: 1
   StartBone: {fileID: 3772502752864489710}
   EndBone: {fileID: 0}
@@ -2120,6 +2122,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   candyParts: []
   candyTailParts: []
+--- !u!65 &919132149379642103
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189407983130212774}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 0.64857864}
+  m_Center: {x: 0, y: 0, z: 0.17571068}
+--- !u!54 &919132149379642102
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7189407983130212774}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8636922743257259181
 GameObject:
   m_ObjectHideFlags: 0

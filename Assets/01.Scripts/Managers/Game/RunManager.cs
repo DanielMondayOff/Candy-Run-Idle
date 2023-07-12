@@ -52,7 +52,6 @@ public class RunManager : MonoBehaviour
     [TitleGroup("Game Value")] public bool cuttingReady = false;
 
 
-
     [TitleGroup("Cutting Phase")] public Transform cuttingPoint1;
     [TitleGroup("Cutting Phase")] public Transform cuttingPoint2;
     [TitleGroup("Cutting Phase")] public Animator cutterAnimator;
@@ -200,9 +199,18 @@ public class RunManager : MonoBehaviour
         }
     }
 
-    public void TakeDamage()
+    public void TakeDamage(float damage)
     {
+        plusCandyLength -= damage;
 
+        ChangeCandysLength();
+
+        foreach(var candy in candyList)
+        {
+            var candypiece = Instantiate(Managers.Resource.Load<GameObject>("Candy_Piece"), candy.transform.position, Quaternion.identity);
+
+            candypiece.GetComponentInChildren<CandyPieces>().ExplosionPieces(candy.transform);
+        }
     }
 
     public void ChangeFireRate(float rate) => fireTask.SetIntervalTime(rate);
@@ -238,6 +246,7 @@ public class RunManager : MonoBehaviour
             defaultCandyLength = 0;
             plusCandyLength = 0;
 
+
             ChangeCandysLength();
 
             candyList.ForEach((n) => n.SetActive(false));
@@ -257,7 +266,7 @@ public class RunManager : MonoBehaviour
 
                 ChangeCandysLength();
 
-                runPlayer.transform.DOMove(cuttingPoint1.transform.position, 0.5f).OnComplete(() => { cuttingReady = true; });
+                runPlayer.transform.DOMove(cuttingPoint1.transform.position, 0.1f).OnComplete(() => { cuttingReady = true; });
             });
         }
     }
