@@ -243,6 +243,8 @@ MonoBehaviour:
   firePos: {fileID: 8581912423935151813}
   bulletPrefab: {fileID: 6965945388817896225, guid: b887f272ee83d454795e78a1a7c31e4c,
     type: 3}
+  cutCandyPos: {fileID: 0}
+  cutCandyPrefab: {fileID: 0}
 --- !u!114 &233663834586193256
 MonoBehaviour:
   m_ObjectHideFlags: 0

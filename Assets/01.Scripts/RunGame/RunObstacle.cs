@@ -30,8 +30,6 @@ public class RunObstacle : MonoBehaviour
     {
         hp--;
 
-        
-
         if (hp <= 0)
         {
             Destroy();

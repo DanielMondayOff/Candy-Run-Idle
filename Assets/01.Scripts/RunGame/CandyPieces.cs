@@ -9,11 +9,13 @@ public class CandyPieces : MonoBehaviour
 
     public void ExplosionPieces(Transform from)
     {
-        foreach(var rigid in rigidbodies)
+        foreach (var rigid in rigidbodies)
         {
             rigid.isKinematic = false;
-            rigid.AddForce((from.position - rigid.transform.position).normalized * force);
+            rigid.AddForce((from.position - rigid.transform.position).normalized * force, ForceMode.Impulse);
+
+            this.TaskDelay(5, () => Destroy(gameObject));
         }
-        
+
     }
 }

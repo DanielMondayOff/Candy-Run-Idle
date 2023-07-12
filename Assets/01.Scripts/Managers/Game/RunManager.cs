@@ -89,6 +89,11 @@ public class RunManager : MonoBehaviour
 
             ChangeCandysLength();
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            TakeDamage(100);
+        }
     }
 
     public void RunGameStart()
@@ -115,6 +120,8 @@ public class RunManager : MonoBehaviour
     public void AddCandyLength(float value)
     {
         plusCandyLength += value;
+
+        ChangeCandysLength();
     }
 
     public void ChangeCandysLength()
@@ -129,8 +136,10 @@ public class RunManager : MonoBehaviour
     {
         var newCandy = Instantiate(candyPrefab, new Vector3(runPlayer.transform.position.x, candyPrefab.transform.position.y, runPlayer.transform.position.z), Quaternion.Euler(0, 180, 0), runPlayer);
         candyList.Add(newCandy);
-
         ArrangeCandy();
+
+        // newCandy.GetComponentInChildren<FIMSpace.FTail.TailAnimator2>().enabled = true;
+        newCandy.transform.DOScaleZ(1, 1f);
 
         // for (int i = 0; i < candyList.Count; i++)
         // {
@@ -205,7 +214,9 @@ public class RunManager : MonoBehaviour
 
         ChangeCandysLength();
 
-        foreach(var candy in candyList)
+        runPlayer.transform.Translate(new Vector3(0, 0, -0.5f));
+
+        foreach (var candy in candyList)
         {
             var candypiece = Instantiate(Managers.Resource.Load<GameObject>("Candy_Piece"), candy.transform.position, Quaternion.identity);
 
