@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 881f9f8de38904dfabf587d9b5ac4bd5, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: b9fddab80064e4ce4ba40c5915c50c6c, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -8880,7 +8880,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 36d24c7898fb744ea9df5713b9853cbb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 26
+      value: 27
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36d24c7898fb744ea9df5713b9853cbb,
         type: 3}
@@ -9752,6 +9752,7 @@ MonoBehaviour:
   damage: 100
   isUsed: 0
   isDestroyed: 0
+  meshRenderer: {fileID: 0}
 --- !u!95 &1520021517
 Animator:
   serializedVersion: 5
@@ -9952,6 +9953,7 @@ MonoBehaviour:
   damage: 100
   isUsed: 0
   isDestroyed: 0
+  meshRenderer: {fileID: 0}
 --- !u!54 &1589193045
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10019,7 +10021,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 36d24c7898fb744ea9df5713b9853cbb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 27
+      value: 26
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 36d24c7898fb744ea9df5713b9853cbb,
         type: 3}
@@ -10988,7 +10990,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 4b227b6c1722f4d58ab6a2284b464cda, type: 2}
+  - {fileID: 2100000, guid: 76bb797a5ff4b42f99cc9dfd552499a1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -11043,7 +11045,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: dba9fc5f126ac4e46a712f7728a3e5e7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 24
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dba9fc5f126ac4e46a712f7728a3e5e7,
         type: 3}
@@ -14007,7 +14009,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: dba9fc5f126ac4e46a712f7728a3e5e7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 25
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dba9fc5f126ac4e46a712f7728a3e5e7,
         type: 3}

@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Skybox
-  m_Shader: {fileID: 4800000, guid: bb8fea35e03614fb3904a4af57d5517f, type: 3}
+  m_Shader: {fileID: 4800000, guid: 827b5912ace89419a92c54537f3a3f19, type: 3}
   m_ValidKeywords:
   - _SCREENSPACE_ON
   m_InvalidKeywords:
@@ -29,7 +29,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 200
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
