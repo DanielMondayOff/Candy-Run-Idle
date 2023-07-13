@@ -20,6 +20,10 @@ public class Piller : MonoBehaviour
 
     public PillerType type;
 
+    [SerializeField] private Material postiveMat;
+    [SerializeField] private Material negativeMat;
+    [SerializeField] private MeshRenderer plag;
+
     public float value;
 
     private void Start()
@@ -97,6 +101,17 @@ public class Piller : MonoBehaviour
     private void OnChangeValue()
     {
         valueText.text = "+" + value.ToString();
+
+        if (value > 0)
+        {
+            var mat = new Material[] { postiveMat };
+            plag.materials = mat;
+        }
+        else
+        {
+            var mat = new Material[] { postiveMat };
+            plag.materials = mat;
+        }
     }
 
     /// <summary>
