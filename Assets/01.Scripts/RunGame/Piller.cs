@@ -82,7 +82,9 @@ public class Piller : MonoBehaviour
             }
 
             OnChangeValue();
-            Destroy(other.gameObject);
+            // Destroy(other.gameObject);
+
+            other.GetComponentInChildren<Bullet>().Push();
         }
 
         if (other.CompareTag("Player"))

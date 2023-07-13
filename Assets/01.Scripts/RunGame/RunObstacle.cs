@@ -12,11 +12,15 @@ public class RunObstacle : MonoBehaviour
     public bool isUsed = false;
     public bool isDestroyed = false;
 
+    [SerializeField] MeshRenderer meshRenderer;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Bullet") && !isDestroyed)
         {
             TakeDamage();
+
+            other.GetComponentInChildren<Bullet>().Push();
         }
 
         if (other.CompareTag("Player") && !isUsed)
@@ -29,6 +33,8 @@ public class RunObstacle : MonoBehaviour
     public void TakeDamage()
     {
         hp--;
+
+        transform.DOPunchScale(Vector3.one * 0.07f, 0.2f, 2, 1);
 
         if (hp <= 0)
         {
@@ -46,5 +52,14 @@ public class RunObstacle : MonoBehaviour
         money.transform.position = transform.position;
 
         money.transform.DOJump(money.transform.position, 1.5f, 1, 0.5f);
+
+        var particle = Managers.Pool.Pop(Managers.Resource.Load<GameObject>("Particles/Obstacle Particle"));
+        var shape = particle.GetComponentInChildren<ParticleSystem>().shape;
+
+        shape.meshRenderer = meshRenderer;
+
+        particle.GetComponentInChildren<ParticleSystem>().Play();
+
+        this.TaskDelay(3f, () => Managers.Pool.Push(particle.GetComponentInChildren<Poolable>()));
     }
 }

@@ -35,4 +35,26 @@ public class Bullet : MonoBehaviour
             .SetEase(Ease.Linear)
             .OnComplete(StartRotation);
     }
+
+    public void Push(bool _particle = true)
+    {
+        if (_particle)
+        {
+            var particle = Managers.Pool.Pop(Managers.Resource.Load<GameObject>("Particles/Jelly Particle"));
+
+            particle.transform.position = transform.position;
+
+            // var shape = particle.GetComponentInChildren<ParticleSystem>().shape;
+            // shape.meshRenderer = meshRenderer;
+
+            var renderer = particle.GetComponentInChildren<ParticleSystemRenderer>();
+            renderer.material = meshRenderer.material;
+
+            particle.GetComponentInChildren<ParticleSystem>().Play();
+
+            RunManager.instance.TaskDelay(3, () => Managers.Pool.Push(particle.GetComponentInChildren<Poolable>()));
+        }
+
+        Managers.Pool.Push(GetComponentInChildren<Poolable>(Managers.Resource.Load<GameObject>("Jelly Bullet")));
+    }
 }

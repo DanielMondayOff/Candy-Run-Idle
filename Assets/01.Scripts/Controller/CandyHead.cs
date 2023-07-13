@@ -15,9 +15,9 @@ public class CandyHead : MonoBehaviour
     {
         var bullet = Instantiate(bulletPrefab, firePos.transform.position, Quaternion.identity);
 
-        bullet.transform.DOMoveZ(2500, 100);
+        bullet.transform.DOMoveZ(3000, 100);
 
-        this.TaskDelay(RunManager.instance.GetBulletRange() / 100f, () => Destroy(bullet));
+        this.TaskDelay(RunManager.instance.GetBulletRange() / 100f, () => bullet.GetComponentInChildren<Bullet>().Push());
     }
 
     public void CutCandy(float length = 100f)

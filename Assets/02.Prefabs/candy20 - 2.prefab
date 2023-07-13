@@ -799,7 +799,7 @@ MonoBehaviour:
   CollisionSpace: 1
   CollisionMode: 0
   CheapCollision: 0
-  DynamicWorldCollidersInclusion: 0
+  DynamicWorldCollidersInclusion: 1
   InclusionRadius: 1
   IgnoreMeshColliders: 1
   IncludedColliders: []
@@ -2030,7 +2030,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   DeflectOnlyCollisions: 1
-  _Editor_Category: 2
+  _Editor_Category: 3
   _Editor_FeaturesCategory: 1
   DrawGizmos: 1
   StartBone: {fileID: 3772502752864489710}
@@ -2120,7 +2120,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eafb1de9def1b43d992f36642751b199, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  candyParts: []
+  candyParts:
+  - {fileID: 3772502752864489710}
+  - {fileID: 5231479789678427237}
+  - {fileID: 6367809800253042592}
+  - {fileID: 4824676061877704640}
+  - {fileID: 5150089056388317052}
+  - {fileID: 1034563173217960273}
+  - {fileID: 8317849200507527221}
+  - {fileID: 2415571528387383622}
+  - {fileID: 6155461444593777619}
+  - {fileID: 4673813453572784264}
+  - {fileID: 231248617682170112}
+  - {fileID: 2856111890102809770}
+  - {fileID: 2576215204988318120}
+  - {fileID: 1773760450753380609}
+  - {fileID: 5852390069030513381}
+  - {fileID: 7937337208279959999}
+  - {fileID: 2432490439302145156}
+  - {fileID: 8044800446502433384}
+  - {fileID: 7351018772593239499}
+  - {fileID: 568989937453559881}
+  - {fileID: 6291711471879240330}
   candyTailParts: []
 --- !u!65 &919132149379642103
 BoxCollider:
@@ -2133,8 +2154,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 0.64857864}
-  m_Center: {x: 0, y: 0, z: 0.17571068}
+  m_Size: {x: 0.7, y: 0.7, z: 0.6502645}
+  m_Center: {x: 0, y: 0, z: 0.17655367}
 --- !u!54 &919132149379642102
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -94,6 +94,12 @@ public class RunManager : MonoBehaviour
         {
             TakeDamage(100);
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            candyList.ForEach((n) => StartCoroutine(n.GetComponentInChildren<CandyTailController>().TailWave()));
+
+        }
     }
 
     public void RunGameStart()
@@ -119,9 +125,15 @@ public class RunManager : MonoBehaviour
 
     public void AddCandyLength(float value)
     {
-        plusCandyLength += value;
 
-        ChangeCandysLength();
+
+        candyList.ForEach((n) => StartCoroutine(n.GetComponentInChildren<CandyTailController>().TailWave(() =>
+        {
+            plusCandyLength += value;
+
+            ChangeCandysLength();
+        })));
+
     }
 
     public void ChangeCandysLength()
