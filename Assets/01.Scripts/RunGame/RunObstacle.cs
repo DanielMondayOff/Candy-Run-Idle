@@ -14,6 +14,8 @@ public class RunObstacle : MonoBehaviour
 
     [SerializeField] MeshRenderer meshRenderer;
 
+    
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Bullet") && !isDestroyed)

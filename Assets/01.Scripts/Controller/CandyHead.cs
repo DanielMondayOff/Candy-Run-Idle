@@ -24,6 +24,9 @@ public class CandyHead : MonoBehaviour
     {
         var candy = Instantiate(cutCandyPrefab, cutCandyPos.position, Quaternion.identity);
         candy.transform.GetChild(0).transform.localScale = new Vector3(candy.transform.GetChild(0).transform.localScale.x, candy.transform.GetChild(0).transform.localScale.y, length / 1000f);
+        candy.GetComponentInChildren<Rigidbody>().AddTorque(Random.insideUnitSphere * Random.Range(100f, 500f));
+
+        //new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f)
     }
 
 }
