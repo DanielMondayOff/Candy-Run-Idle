@@ -54,6 +54,7 @@ public class JoyStickController : MonoBehaviour
     public System.Action DownAction;
     public System.Action<Vector2> JoystickMoveAction;
     public System.Action UpAction;
+    
     public void Awake()
     {
         _curSpeed = 0;
@@ -110,6 +111,7 @@ public class JoyStickController : MonoBehaviour
 
         Managers.Game.JoyStickController = this;
     }
+
     //JoyStickEditor 에서 활용함
     public void SetRigidBody()
     {

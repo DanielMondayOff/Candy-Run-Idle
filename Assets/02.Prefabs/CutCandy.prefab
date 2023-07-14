@@ -649,8 +649,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7633146798354503129}
-  - component: {fileID: 6071281367893946834}
   - component: {fileID: 1541556252377517455}
+  - component: {fileID: 7940817244819302949}
   m_Layer: 0
   m_Name: CutCandy
   m_TagString: Untagged
@@ -674,20 +674,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &6071281367893946834
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7633146798354503128}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 812695599402130866, guid: 3502588ea5d4f4e3185955af97c5aac5, type: 3}
 --- !u!54 &1541556252377517455
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -704,6 +690,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &7940817244819302949
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7633146798354503128}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0.81, z: 0}
 --- !u!1 &7839973301662441816
 GameObject:
   m_ObjectHideFlags: 0

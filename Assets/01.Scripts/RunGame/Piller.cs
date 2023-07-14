@@ -8,7 +8,7 @@ public enum PillerType
     Length = 1,
     FireRate = 2,
     Range = 3,
-    Candy = 4
+    Candy = 4,
 
 }
 
@@ -25,6 +25,7 @@ public class Piller : MonoBehaviour
     [SerializeField] private MeshRenderer plag;
 
     public float value;
+    public bool multiply = false;
 
     private void Start()
     {
@@ -36,24 +37,24 @@ public class Piller : MonoBehaviour
         switch (type)
         {
             case PillerType.Length:
-                value = RunManager.instance.defaultPillerLengthValue;
+                // value = RunManager.instance.defaultPillerLengthValue;
                 nameText.text = "Length";
                 break;
 
             case PillerType.FireRate:
-                value = RunManager.instance.defaultPillerFireRateValue;
+                // value = RunManager.instance.defaultPillerFireRateValue;
                 nameText.text = "FireRate";
 
                 break;
 
             case PillerType.Range:
-                value = RunManager.defaultBulletRange;
+                // value = RunManager.defaultBulletRange;
                 nameText.text = "Range";
 
                 break;
 
             case PillerType.Candy:
-                value = RunManager.defaultCandyCount;
+                // value = RunManager.defaultCandyCount;
                 nameText.text = "Candy";
 
                 break;
@@ -69,7 +70,8 @@ public class Piller : MonoBehaviour
             switch (type)
             {
                 case PillerType.Length:
-                    value += RunManager.instance.addCandyLengthValue;
+                    if (!multiply)
+                        value += RunManager.instance.addCandyLengthValue;
                     break;
 
                 case PillerType.FireRate:
@@ -100,17 +102,22 @@ public class Piller : MonoBehaviour
 
     private void OnChangeValue()
     {
-        valueText.text = "+" + value.ToString();
 
         if (value > 0)
         {
             var mat = new Material[] { postiveMat };
             plag.materials = mat;
+            if (multiply)
+                valueText.text = "x" + value.ToString();
+            else
+                valueText.text = "+" + value.ToString();
         }
         else
         {
-            var mat = new Material[] { postiveMat };
+            var mat = new Material[] { negativeMat };
             plag.materials = mat;
+            valueText.text = "" + value.ToString();
+
         }
     }
 

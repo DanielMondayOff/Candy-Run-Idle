@@ -14,7 +14,8 @@ public class RunObstacle : MonoBehaviour
 
     [SerializeField] MeshRenderer meshRenderer;
 
-    
+    Tweener hitTween = null;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -36,7 +37,16 @@ public class RunObstacle : MonoBehaviour
     {
         hp--;
 
-        transform.DOPunchScale(Vector3.one * 0.07f, 0.2f, 2, 1);
+        if (hitTween != null)
+        {
+            if (!hitTween.IsPlaying())
+            {
+                hitTween = transform.DOPunchScale(Vector3.one * 0.07f, 0.2f, 2, 1);
+            }
+        }
+        else
+            hitTween = transform.DOPunchScale(Vector3.one * 0.07f, 0.2f, 2, 1);
+
 
         if (hp <= 0)
         {

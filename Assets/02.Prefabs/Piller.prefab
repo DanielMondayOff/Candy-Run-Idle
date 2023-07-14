@@ -295,7 +295,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 3
-  m_Text: +0
+  m_Text: 0
 --- !u!114 &7297665466428500269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,6 +481,7 @@ MonoBehaviour:
   negativeMat: {fileID: 2100000, guid: 928cca69a2d2443129583956f9fac25b, type: 2}
   plag: {fileID: 1736631485170573147}
   value: 0
+  multiply: 0
 --- !u!65 &7297665466982425154
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -586,7 +587,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 85296626646444ff6af7713721ead300, type: 2}
+      objectReference: {fileID: 2100000, guid: 928cca69a2d2443129583956f9fac25b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7789e7dd1384e42c6ab4b1948d162189, type: 3}
 --- !u!4 &330000866718583246 stripped

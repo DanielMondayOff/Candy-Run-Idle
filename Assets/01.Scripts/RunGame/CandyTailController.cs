@@ -65,10 +65,14 @@ public class CandyTailController : MonoBehaviour
         // tailAnimator.CheckForNullsInGhostChain();
     }
 
-    public IEnumerator TailWave(System.Action onComplete = null)
+    public IEnumerator TailWave(float value, System.Action onComplete = null)
     {
         Transform centerPart = null;
         Transform nextPart = null;
+
+        float waveScale = 1f;
+
+        waveScale += value / 300f;
 
         for (int i = 0; i < candyParts.Length; i++)
         {
@@ -81,7 +85,7 @@ public class CandyTailController : MonoBehaviour
             centerPart = candyParts[i];
 
             // centerPart.transform.DOScale(new Vector3(1.5f, 1, 1.5f), 0.1f);
-            centerPart.transform.localScale = new Vector3(1.25f, 1, 1.25f);
+            centerPart.transform.localScale = new Vector3(waveScale, 1, waveScale);
 
 
             if (i + 1 < candyParts.Length)

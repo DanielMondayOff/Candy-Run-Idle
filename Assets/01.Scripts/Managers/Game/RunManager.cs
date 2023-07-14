@@ -97,7 +97,7 @@ public class RunManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
-            candyList.ForEach((n) => StartCoroutine(n.GetComponentInChildren<CandyTailController>().TailWave()));
+            candyList.ForEach((n) => StartCoroutine(n.GetComponentInChildren<CandyTailController>().TailWave(100)));
 
         }
     }
@@ -126,7 +126,7 @@ public class RunManager : MonoBehaviour
     public void AddCandyLength(float value)
     {
 
-        candyList.ForEach((n) => StartCoroutine(n.GetComponentInChildren<CandyTailController>().TailWave(() =>
+        candyList.ForEach((n) => StartCoroutine(n.GetComponentInChildren<CandyTailController>().TailWave(value, () =>
         {
             plusCandyLength += value;
 
@@ -165,9 +165,11 @@ public class RunManager : MonoBehaviour
         switch (type)
         {
             case PillerType.Length:
-                plusCandyLength += value;
 
-                ChangeCandysLength();
+                AddCandyLength(value);
+                // plusCandyLength += value;
+
+                // ChangeCandysLength();
                 break;
 
             case PillerType.FireRate:
@@ -227,7 +229,7 @@ public class RunManager : MonoBehaviour
 
         ChangeCandysLength();
 
-        runPlayer.transform.Translate(new Vector3(0, 0, -0.5f));
+        runPlayer.transform.Translate(new Vector3(0, 0, -1f));
 
         foreach (var candy in candyList)
         {
@@ -265,7 +267,7 @@ public class RunManager : MonoBehaviour
 
         if (GetCurrentCandyLength() < 100f)
         {
-            candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().CutCandy(GetCurrentCandyLength() * 10f));
+            candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().CutCandy(GetCurrentCandyLength()));
 
             defaultCandyLength = 0;
             plusCandyLength = 0;
