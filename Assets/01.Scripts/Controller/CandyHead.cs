@@ -23,6 +23,10 @@ public class CandyHead : MonoBehaviour
     public void CutCandy(float length = 100f, bool torque = true)
     {
         var candy = Instantiate(cutCandyPrefab, cutCandyPos.position, Quaternion.identity);
+
+        if (length < 50)
+            length = 50;
+
         candy.transform.GetChild(0).transform.localScale = new Vector3(candy.transform.GetChild(0).transform.localScale.x, candy.transform.GetChild(0).transform.localScale.y, length / 1000f);
 
         if (torque)

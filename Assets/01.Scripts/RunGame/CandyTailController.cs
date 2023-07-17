@@ -38,6 +38,15 @@ public class CandyTailController : MonoBehaviour
     {
         var tailAnimator = GetComponent<FIMSpace.FTail.TailAnimator2>();
 
+        if(currentLength < 100)
+        {
+            currentLength = currentLength * 0.25f;
+        }  
+        else
+        {
+            currentLength -= 50;
+        }
+
         tailAnimator.LengthMultiplier = currentLength / 1000f;
 
         // tailAnimator._TransformsGhostChain.Clear();

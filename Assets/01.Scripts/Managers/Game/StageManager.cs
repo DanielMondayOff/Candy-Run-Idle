@@ -14,7 +14,6 @@ public class StageManager : MonoBehaviour
     public Stage currentStage = null;
     public int currentStageNum = 0;
 
-
     public void GenerateNextStage()
     {
         if(currentStage == null)

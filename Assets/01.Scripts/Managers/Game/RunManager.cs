@@ -126,13 +126,20 @@ public class RunManager : MonoBehaviour
     public void AddCandyLength(float value)
     {
 
-        candyList.ForEach((n) => StartCoroutine(n.GetComponentInChildren<CandyTailController>().TailWave(value, () =>
+        if (value > 0)
+        {
+            candyList.ForEach((n) => StartCoroutine(n.GetComponentInChildren<CandyTailController>().TailWave(value, () =>
+            {
+                plusCandyLength += value;
+
+                ChangeCandysLength();
+            })));
+        }
+        else
         {
             plusCandyLength += value;
-
             ChangeCandysLength();
-        })));
-
+        }
     }
 
     public void ChangeCandysLength()
@@ -291,7 +298,11 @@ public class RunManager : MonoBehaviour
 
                 ChangeCandysLength();
 
-                runPlayer.transform.DOMove(cuttingPoint1.transform.position, 0.1f).OnComplete(() => { cuttingReady = true; });
+                this.TaskDelay(0.08f, () =>
+                {
+                    runPlayer.transform.DOMove(cuttingPoint1.transform.position, 0.2f).SetEase(Ease.InOutQuad).OnComplete(() => { cuttingReady = true; });
+                });
+
             });
         }
     }
