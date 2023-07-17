@@ -37,8 +37,8 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public Transform runPlayer;
     [FoldoutGroup("참조")] public GameObject candyPrefab;
     [FoldoutGroup("참조")] public GameObject cutCandyPrefab;
-
     [FoldoutGroup("참조")] public GameObject startUI;
+
 
 
     [TitleGroup("Game Value")] public int currentMoney;

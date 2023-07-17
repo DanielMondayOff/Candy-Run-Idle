@@ -18,6 +18,8 @@ public class MoneyDrop : MonoBehaviour
 
             particle.transform.position = transform.position;
             particle.GetComponentInChildren<ParticleSystem>().Play();
+
+            SaveManager.instance.GetMoney(moneyValue);
         }
     }
 }
