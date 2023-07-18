@@ -25,6 +25,7 @@ public class SaveManager : MonoBehaviour
             money = 0;
 
         OnChangeMoney();
+        
     }
 
     public int GetMoney() => money;

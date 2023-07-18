@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class IdlePlayer : MonoBehaviour
+public class IdleWorker : MonoBehaviour
 {
     [SerializeField] NavMeshAgent agent;
 
