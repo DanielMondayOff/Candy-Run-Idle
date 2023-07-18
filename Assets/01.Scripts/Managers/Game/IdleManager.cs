@@ -10,6 +10,15 @@ public class IdleManager : MonoBehaviour
     public List<CandyItem> candyInventory = new List<CandyItem>();
     public Queue<CandyOrder> orderQueue = new Queue<CandyOrder>();
 
+    private void Start()
+    {
+        StartIdleGame();
+    }
+
+    public void StartIdleGame()
+    {
+        this.TaskWhile(5, 0, () => GenenrateCustomer(), () => candyInventory.Count <= 0);
+    }
 
     public OrderLine FindEmptyOrderLine()
     {
@@ -39,12 +48,10 @@ public class IdleManager : MonoBehaviour
         return new CandyOrder() { candy = candyItem.candy, count = candyItem.count };
     }
 
-
     public CandyOrder TakeOrder()
     {
         return orderQueue.Dequeue();
     }
-
 
     public void GenenrateCustomer()
     {
