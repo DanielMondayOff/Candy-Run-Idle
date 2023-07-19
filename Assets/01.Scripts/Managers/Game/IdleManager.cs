@@ -18,14 +18,14 @@ public class IdleManager : MonoBehaviour
 
     public void StartIdleGame()
     {
-        this.TaskWhile(5, 0, () => GenenrateCustomer(), () => candyInventory.Count <= 0);
+        this.TaskWhile(5, 0, () => GenenrateCustomer());
     }
 
     public OrderLine FindEmptyOrderLine()
     {
         foreach (var order in currentMap.orderLines)
         {
-            if (order.currentOrder == null)
+            if (order.currentCustomer == null)
                 return order;
         }
 
@@ -36,10 +36,12 @@ public class IdleManager : MonoBehaviour
     {
         OrderLine orderLine = FindEmptyOrderLine();
 
+
         if (orderLine != null)
         {
+            print(orderLine);
             var newOrder = MakeOrder(customer);
-            orderLine.currentOrder = newOrder;
+            orderLine.currentCustomer = customer;
 
             customer.order = newOrder;
 
@@ -62,7 +64,9 @@ public class IdleManager : MonoBehaviour
     public void GenenrateCustomer()
     {
         var spawnPoint = currentMap.GetRandomSpawnPoint();
-        var customer = Instantiate(Managers.Resource.Load<GameObject>("Customer"), spawnPoint).GetComponentInChildren<IdleCustomer>();
+        var customer = Managers.Pool.Pop(Managers.Resource.Load<GameObject>("Customer")).GetComponentInChildren<IdleCustomer>();
+
+        customer.transform.position = spawnPoint.position;
 
         customer.Init(spawnPoint);
 
@@ -81,7 +85,7 @@ public class OrderLine
 {
     public Transform customerLine;
     public Transform workerLine;
-    public CandyOrder currentOrder = null;
+    public IdleCustomer currentCustomer = null;
 }
 
 [System.Serializable]

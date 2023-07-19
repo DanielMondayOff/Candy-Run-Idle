@@ -34,18 +34,19 @@ public class IdleCustomer : MonoBehaviour
         agent.SetDestination(pos);
         if (onComplete != null)
             this.TaskWaitUntil(onComplete, () => (agent.remainingDistance < 0.1f));
-            // this.nextAction = onComplete;
+        // this.nextAction = onComplete;
     }
 
     public void WaitUntilCandy()
     {
-        if (order.currentCount >= order.requestCount)
-            Exit();
+        this.TaskWaitUntil(() => Exit(), () => (order.currentCount >= order.requestCount));
+        // if (order.currentCount >= order.requestCount)
+        //     Exit();
     }
 
     public void Exit()
     {
-        SetDestination(spawnPoint.position, () => Managers.Pool.Push(GetComponentInChildren<Poolable>()));
+        SetDestination(spawnPoint.position, () => Managers.Pool.Push(transform.GetComponentInParent<Poolable>()));
     }
 }
 
