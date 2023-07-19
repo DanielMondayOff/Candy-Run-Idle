@@ -7,6 +7,18 @@ public class IdleWorker : MonoBehaviour
 {
     [SerializeField] NavMeshAgent agent;
 
+    [SerializeField] private CandyOrder currentOrder = null;
+
+    private void Update()
+    {
+        
+    }
+
+    void WaitNextOrder()
+    {
+        
+    }
+
     public void SetMoveSpeed (float speed) => agent.speed = speed;
 
 

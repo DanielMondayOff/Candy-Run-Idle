@@ -17,6 +17,7 @@ public class IdleCustomer : MonoBehaviour
     public void Init(Transform spawnPoint)
     {
         this.spawnPoint = spawnPoint;
+        agent.enabled = true;
     }
 
     private void Update()

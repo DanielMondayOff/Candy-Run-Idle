@@ -18,7 +18,7 @@ public class IdleManager : MonoBehaviour
 
     public void StartIdleGame()
     {
-        this.TaskWhile(5, 0, () => GenenrateCustomer());
+        this.TaskWhile(5, 2, () => GenenrateCustomer());
     }
 
     public OrderLine FindEmptyOrderLine()
@@ -36,11 +36,9 @@ public class IdleManager : MonoBehaviour
     {
         OrderLine orderLine = FindEmptyOrderLine();
 
-
         if (orderLine != null)
         {
-            print(orderLine);
-            var newOrder = MakeOrder(customer);
+            var newOrder = MakeOrder(customer, orderLine);
             orderLine.currentCustomer = customer;
 
             customer.order = newOrder;
@@ -49,11 +47,11 @@ public class IdleManager : MonoBehaviour
         }
     }
 
-    public CandyOrder MakeOrder(IdleCustomer customer)
+    public CandyOrder MakeOrder(IdleCustomer customer, OrderLine line)
     {
-        var candyItem = candyInventory[Random.Range(0, candyInventory.Count)].TakeCandy(0, 3);
+        var candyItem = candyInventory[Random.Range(0, candyInventory.Count)].TakeCandy(1, 3);
 
-        return new CandyOrder() { candy = candyItem.candy, requestCount = candyItem.count };
+        return new CandyOrder() { candy = candyItem.candy, requestCount = candyItem.count, currentCustomer = customer, currentLine = line };
     }
 
     public CandyOrder TakeOrder()
@@ -86,6 +84,7 @@ public class OrderLine
     public Transform customerLine;
     public Transform workerLine;
     public IdleCustomer currentCustomer = null;
+    public IdleWorker currentWorker = null;
 }
 
 [System.Serializable]
@@ -98,6 +97,13 @@ public class CandyOrder
     public IdleCustomer currentCustomer;
 
     public OrderLine currentLine;
+
+    public void CompleteOrder()
+    {
+        currentCustomer = null;
+
+        currentLine.currentCustomer = null;
+    }
 }
 
 [System.Serializable]
