@@ -11,6 +11,14 @@ public class IdleManager : MonoBehaviour
     public List<CandyItem> candyInventory = new List<CandyItem>();
     public Queue<CandyOrder> orderQueue = new Queue<CandyOrder>();
 
+
+    public static IdleManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Start()
     {
         StartIdleGame();
@@ -21,7 +29,7 @@ public class IdleManager : MonoBehaviour
         this.TaskWhile(5, 2, () => GenenrateCustomer());
     }
 
-    public OrderLine FindEmptyOrderLine()
+    public OrderLine FindEmptyOrderLine_Customer()
     {
         foreach (var order in currentMap.orderLines)
         {
@@ -32,9 +40,21 @@ public class IdleManager : MonoBehaviour
         return null;
     }
 
+    public OrderLine FindEmptyOrderLine_Worker()
+    {
+        foreach (var order in currentMap.orderLines)
+        {
+            if (order.currentCustomer != null)
+                if (order.workerLine != null)
+                    return order;
+        }
+
+        return null;
+    }
+
     public void BookTheLine(IdleCustomer customer)
     {
-        OrderLine orderLine = FindEmptyOrderLine();
+        OrderLine orderLine = FindEmptyOrderLine_Customer();
 
         if (orderLine != null)
         {
