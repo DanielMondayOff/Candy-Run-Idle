@@ -10146,6 +10146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentMap: {fileID: 1843623335}
+  workers:
+  - {fileID: 1979725481}
   candyInventory:
   - candy: {fileID: 11400000, guid: 94ee1247fd6c84869a5608d34343b33b, type: 2}
     count: 40
@@ -10500,60 +10502,340 @@ MonoBehaviour:
       candy: {fileID: 0}
       count: 0
       currentCustomer: {fileID: 0}
+      currentLine:
+        customerLine: {fileID: 0}
+        workerLine: {fileID: 0}
+        currentOrder:
+          candy: {fileID: 0}
+          count: 0
+          currentCustomer: {fileID: 0}
+          currentLine:
+            customerLine: {fileID: 0}
+            workerLine: {fileID: 0}
+            currentOrder:
+              candy: {fileID: 0}
+              count: 0
+              currentCustomer: {fileID: 0}
+              currentLine:
+                customerLine: {fileID: 0}
+                workerLine: {fileID: 0}
+                currentOrder:
+                  candy: {fileID: 0}
+                  count: 0
+                  currentCustomer: {fileID: 0}
+                  currentLine:
+                    customerLine: {fileID: 0}
+                    workerLine: {fileID: 0}
+                    currentOrder:
+                      candy: {fileID: 0}
+                      count: 0
+                      currentCustomer: {fileID: 0}
   - customerLine: {fileID: 915530496}
     workerLine: {fileID: 112415037}
     currentOrder:
       candy: {fileID: 0}
       count: 0
       currentCustomer: {fileID: 0}
+      currentLine:
+        customerLine: {fileID: 0}
+        workerLine: {fileID: 0}
+        currentOrder:
+          candy: {fileID: 0}
+          count: 0
+          currentCustomer: {fileID: 0}
+          currentLine:
+            customerLine: {fileID: 0}
+            workerLine: {fileID: 0}
+            currentOrder:
+              candy: {fileID: 0}
+              count: 0
+              currentCustomer: {fileID: 0}
+              currentLine:
+                customerLine: {fileID: 0}
+                workerLine: {fileID: 0}
+                currentOrder:
+                  candy: {fileID: 0}
+                  count: 0
+                  currentCustomer: {fileID: 0}
+                  currentLine:
+                    customerLine: {fileID: 0}
+                    workerLine: {fileID: 0}
+                    currentOrder:
+                      candy: {fileID: 0}
+                      count: 0
+                      currentCustomer: {fileID: 0}
   - customerLine: {fileID: 362028682}
     workerLine: {fileID: 1721029781}
     currentOrder:
       candy: {fileID: 0}
       count: 0
       currentCustomer: {fileID: 0}
+      currentLine:
+        customerLine: {fileID: 0}
+        workerLine: {fileID: 0}
+        currentOrder:
+          candy: {fileID: 0}
+          count: 0
+          currentCustomer: {fileID: 0}
+          currentLine:
+            customerLine: {fileID: 0}
+            workerLine: {fileID: 0}
+            currentOrder:
+              candy: {fileID: 0}
+              count: 0
+              currentCustomer: {fileID: 0}
+              currentLine:
+                customerLine: {fileID: 0}
+                workerLine: {fileID: 0}
+                currentOrder:
+                  candy: {fileID: 0}
+                  count: 0
+                  currentCustomer: {fileID: 0}
+                  currentLine:
+                    customerLine: {fileID: 0}
+                    workerLine: {fileID: 0}
+                    currentOrder:
+                      candy: {fileID: 0}
+                      count: 0
+                      currentCustomer: {fileID: 0}
   - customerLine: {fileID: 508568581}
     workerLine: {fileID: 237353325}
     currentOrder:
       candy: {fileID: 0}
       count: 0
       currentCustomer: {fileID: 0}
+      currentLine:
+        customerLine: {fileID: 0}
+        workerLine: {fileID: 0}
+        currentOrder:
+          candy: {fileID: 0}
+          count: 0
+          currentCustomer: {fileID: 0}
+          currentLine:
+            customerLine: {fileID: 0}
+            workerLine: {fileID: 0}
+            currentOrder:
+              candy: {fileID: 0}
+              count: 0
+              currentCustomer: {fileID: 0}
+              currentLine:
+                customerLine: {fileID: 0}
+                workerLine: {fileID: 0}
+                currentOrder:
+                  candy: {fileID: 0}
+                  count: 0
+                  currentCustomer: {fileID: 0}
+                  currentLine:
+                    customerLine: {fileID: 0}
+                    workerLine: {fileID: 0}
+                    currentOrder:
+                      candy: {fileID: 0}
+                      count: 0
+                      currentCustomer: {fileID: 0}
   - customerLine: {fileID: 973854916}
     workerLine: {fileID: 1386933142}
     currentOrder:
       candy: {fileID: 0}
       count: 0
       currentCustomer: {fileID: 0}
+      currentLine:
+        customerLine: {fileID: 0}
+        workerLine: {fileID: 0}
+        currentOrder:
+          candy: {fileID: 0}
+          count: 0
+          currentCustomer: {fileID: 0}
+          currentLine:
+            customerLine: {fileID: 0}
+            workerLine: {fileID: 0}
+            currentOrder:
+              candy: {fileID: 0}
+              count: 0
+              currentCustomer: {fileID: 0}
+              currentLine:
+                customerLine: {fileID: 0}
+                workerLine: {fileID: 0}
+                currentOrder:
+                  candy: {fileID: 0}
+                  count: 0
+                  currentCustomer: {fileID: 0}
+                  currentLine:
+                    customerLine: {fileID: 0}
+                    workerLine: {fileID: 0}
+                    currentOrder:
+                      candy: {fileID: 0}
+                      count: 0
+                      currentCustomer: {fileID: 0}
   - customerLine: {fileID: 912439453}
     workerLine: {fileID: 1471606325}
     currentOrder:
       candy: {fileID: 0}
       count: 0
       currentCustomer: {fileID: 0}
+      currentLine:
+        customerLine: {fileID: 0}
+        workerLine: {fileID: 0}
+        currentOrder:
+          candy: {fileID: 0}
+          count: 0
+          currentCustomer: {fileID: 0}
+          currentLine:
+            customerLine: {fileID: 0}
+            workerLine: {fileID: 0}
+            currentOrder:
+              candy: {fileID: 0}
+              count: 0
+              currentCustomer: {fileID: 0}
+              currentLine:
+                customerLine: {fileID: 0}
+                workerLine: {fileID: 0}
+                currentOrder:
+                  candy: {fileID: 0}
+                  count: 0
+                  currentCustomer: {fileID: 0}
+                  currentLine:
+                    customerLine: {fileID: 0}
+                    workerLine: {fileID: 0}
+                    currentOrder:
+                      candy: {fileID: 0}
+                      count: 0
+                      currentCustomer: {fileID: 0}
   - customerLine: {fileID: 2017357346}
     workerLine: {fileID: 1731325210}
     currentOrder:
       candy: {fileID: 0}
       count: 0
       currentCustomer: {fileID: 0}
+      currentLine:
+        customerLine: {fileID: 0}
+        workerLine: {fileID: 0}
+        currentOrder:
+          candy: {fileID: 0}
+          count: 0
+          currentCustomer: {fileID: 0}
+          currentLine:
+            customerLine: {fileID: 0}
+            workerLine: {fileID: 0}
+            currentOrder:
+              candy: {fileID: 0}
+              count: 0
+              currentCustomer: {fileID: 0}
+              currentLine:
+                customerLine: {fileID: 0}
+                workerLine: {fileID: 0}
+                currentOrder:
+                  candy: {fileID: 0}
+                  count: 0
+                  currentCustomer: {fileID: 0}
+                  currentLine:
+                    customerLine: {fileID: 0}
+                    workerLine: {fileID: 0}
+                    currentOrder:
+                      candy: {fileID: 0}
+                      count: 0
+                      currentCustomer: {fileID: 0}
   - customerLine: {fileID: 2086343811}
     workerLine: {fileID: 231351096}
     currentOrder:
       candy: {fileID: 0}
       count: 0
       currentCustomer: {fileID: 0}
+      currentLine:
+        customerLine: {fileID: 0}
+        workerLine: {fileID: 0}
+        currentOrder:
+          candy: {fileID: 0}
+          count: 0
+          currentCustomer: {fileID: 0}
+          currentLine:
+            customerLine: {fileID: 0}
+            workerLine: {fileID: 0}
+            currentOrder:
+              candy: {fileID: 0}
+              count: 0
+              currentCustomer: {fileID: 0}
+              currentLine:
+                customerLine: {fileID: 0}
+                workerLine: {fileID: 0}
+                currentOrder:
+                  candy: {fileID: 0}
+                  count: 0
+                  currentCustomer: {fileID: 0}
+                  currentLine:
+                    customerLine: {fileID: 0}
+                    workerLine: {fileID: 0}
+                    currentOrder:
+                      candy: {fileID: 0}
+                      count: 0
+                      currentCustomer: {fileID: 0}
   - customerLine: {fileID: 1618842369}
     workerLine: {fileID: 2037358274}
     currentOrder:
       candy: {fileID: 0}
       count: 0
       currentCustomer: {fileID: 0}
+      currentLine:
+        customerLine: {fileID: 0}
+        workerLine: {fileID: 0}
+        currentOrder:
+          candy: {fileID: 0}
+          count: 0
+          currentCustomer: {fileID: 0}
+          currentLine:
+            customerLine: {fileID: 0}
+            workerLine: {fileID: 0}
+            currentOrder:
+              candy: {fileID: 0}
+              count: 0
+              currentCustomer: {fileID: 0}
+              currentLine:
+                customerLine: {fileID: 0}
+                workerLine: {fileID: 0}
+                currentOrder:
+                  candy: {fileID: 0}
+                  count: 0
+                  currentCustomer: {fileID: 0}
+                  currentLine:
+                    customerLine: {fileID: 0}
+                    workerLine: {fileID: 0}
+                    currentOrder:
+                      candy: {fileID: 0}
+                      count: 0
+                      currentCustomer: {fileID: 0}
   - customerLine: {fileID: 546161650}
     workerLine: {fileID: 297017460}
     currentOrder:
       candy: {fileID: 0}
       count: 0
       currentCustomer: {fileID: 0}
+      currentLine:
+        customerLine: {fileID: 0}
+        workerLine: {fileID: 0}
+        currentOrder:
+          candy: {fileID: 0}
+          count: 0
+          currentCustomer: {fileID: 0}
+          currentLine:
+            customerLine: {fileID: 0}
+            workerLine: {fileID: 0}
+            currentOrder:
+              candy: {fileID: 0}
+              count: 0
+              currentCustomer: {fileID: 0}
+              currentLine:
+                customerLine: {fileID: 0}
+                workerLine: {fileID: 0}
+                currentOrder:
+                  candy: {fileID: 0}
+                  count: 0
+                  currentCustomer: {fileID: 0}
+                  currentLine:
+                    customerLine: {fileID: 0}
+                    workerLine: {fileID: 0}
+                    currentOrder:
+                      candy: {fileID: 0}
+                      count: 0
+                      currentCustomer: {fileID: 0}
   customerSpawnPoints:
   - {fileID: 1473283590}
   - {fileID: 1807136757}
@@ -15486,6 +15768,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Customer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7872019133252127138, guid: f7eaff3605af14030828e761595c1850,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7872019133252127139, guid: f7eaff3605af14030828e761595c1850,
         type: 3}

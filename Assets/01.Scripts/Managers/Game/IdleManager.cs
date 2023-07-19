@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class IdleManager : MonoBehaviour
 {
-    // public OrderLine[] orderLines;
     public IdleMap currentMap;
+
+    [SerializeField] private IdleWorker[] workers;
 
     public List<CandyItem> candyInventory = new List<CandyItem>();
     public Queue<CandyOrder> orderQueue = new Queue<CandyOrder>();
@@ -37,7 +38,12 @@ public class IdleManager : MonoBehaviour
 
         if (orderLine != null)
         {
-            orderLine.currentOrder = MakeOrder(customer);
+            var newOrder = MakeOrder(customer);
+            orderLine.currentOrder = newOrder;
+
+            customer.order = newOrder;
+
+            customer.SetDestination(orderLine.customerLine.position, () => customer.WaitUntilCandy());
         }
     }
 
@@ -45,7 +51,7 @@ public class IdleManager : MonoBehaviour
     {
         var candyItem = candyInventory[Random.Range(0, candyInventory.Count)].TakeCandy(0, 3);
 
-        return new CandyOrder() { candy = candyItem.candy, count = candyItem.count };
+        return new CandyOrder() { candy = candyItem.candy, requestCount = candyItem.count };
     }
 
     public CandyOrder TakeOrder()
@@ -55,13 +61,18 @@ public class IdleManager : MonoBehaviour
 
     public void GenenrateCustomer()
     {
-        var customer = Instantiate(Managers.Resource.Load<GameObject>("Customer"), currentMap.GetRandomSpawnPoint());
+        var spawnPoint = currentMap.GetRandomSpawnPoint();
+        var customer = Instantiate(Managers.Resource.Load<GameObject>("Customer"), spawnPoint).GetComponentInChildren<IdleCustomer>();
 
-        var order = MakeOrder(customer.GetComponentInChildren<IdleCustomer>());
+        customer.Init(spawnPoint);
 
-        var emptyLine = FindEmptyOrderLine();
+        // var order = MakeOrder(customer.GetComponentInChildren<IdleCustomer>());
 
-        order.currentLine = emptyLine;
+        // var emptyLine = FindEmptyOrderLine();
+
+        // order.currentLine = emptyLine;
+
+        BookTheLine(customer);
     }
 }
 
@@ -77,7 +88,8 @@ public class OrderLine
 public class CandyOrder
 {
     public CandyObject candy;
-    public int count;
+    public int requestCount;
+    public int currentCount = 0;
 
     public IdleCustomer currentCustomer;
 
