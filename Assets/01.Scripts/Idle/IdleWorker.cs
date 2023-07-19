@@ -15,7 +15,7 @@ public class IdleWorker : MonoBehaviour
 
     private void Update()
     {
-
+        WorkerStateMachine();
     }
 
     void WorkerStateMachine()
@@ -38,14 +38,42 @@ public class IdleWorker : MonoBehaviour
 
     void WaitNextOrder()
     {
-        var order = IdleManager.instance.FindEmptyOrderLine_Worker();
-        if (order != null)
+        var line = IdleManager.instance.FindEmptyOrderLine_Worker();
+        if (line != null)
         {
-            order.currentWorker = this;
-
-            currentWorkerStatus = WorkerStatus.MoveToCandy;
+            MoveToCandy(line);
         }
+    }
 
+    void MoveToCandy(OrderLine line)
+    {
+        line.currentWorker = this;
+
+        currentOrder = line.currentCustomer.order;
+
+        agent.SetDestination(IdleManager.instance.FindCandyJar(line.currentCustomer.order.candy.id).transform.position);
+
+        currentWorkerStatus = WorkerStatus.MoveToCandy;
+
+        this.TaskWaitUntil(() => MoveToCustomer(line), () => (agent.remainingDistance < 0.1f));
+    }
+
+    void MoveToCustomer(OrderLine line)
+    {
+        workerInventory = new CandyItem() {candy = line.currentCustomer.order.candy, count = 1};
+
+        agent.SetDestination(line.workerLine.position);
+
+        currentWorkerStatus = WorkerStatus.MoveToCustomer;
+
+        this.TaskWaitUntil(() => CompleteDelivery(line), () => (agent.remainingDistance < 0.1f));
+    }
+
+    void CompleteDelivery(OrderLine line)
+    {
+        line.currentCustomer.AddCandyToOrder(workerInventory);
+        
+        currentWorkerStatus = WorkerStatus.Wait;
     }
 
     public void SetMoveSpeed(float speed) => agent.speed = speed;

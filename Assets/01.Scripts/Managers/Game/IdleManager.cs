@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class IdleManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class IdleManager : MonoBehaviour
     public List<CandyItem> candyInventory = new List<CandyItem>();
     public Queue<CandyOrder> orderQueue = new Queue<CandyOrder>();
 
+    public List<CandyJar> candyJars = new List<CandyJar>();
 
     public static IdleManager instance;
 
@@ -26,6 +28,8 @@ public class IdleManager : MonoBehaviour
 
     public void StartIdleGame()
     {
+        GenerateCandyJar();
+
         this.TaskWhile(5, 2, () => GenenrateCustomer());
     }
 
@@ -95,6 +99,35 @@ public class IdleManager : MonoBehaviour
         // order.currentLine = emptyLine;
 
         BookTheLine(customer);
+    }
+
+    public void GenerateCandyJar()
+    {
+        for (int i = 0; i < candyInventory.Count; i++)
+        {
+            var candyJar = Instantiate(Managers.Resource.Load<GameObject>("CandyJar"), currentMap.candyJarSpawnPos[i].position, Quaternion.identity);
+
+            candyJar.GetComponentInChildren<CandyJar>().Init(candyInventory[i].candy.id, candyInventory[i].count);
+            candyJars.Add(candyJar.GetComponentInChildren<CandyJar>());
+        }
+    }
+
+    public CandyObject FindCandyObject(int id)
+    {
+        return Resources.LoadAll<CandyObject>("Candy").Where((n) => n.id == id).FirstOrDefault();
+    }
+
+    public CandyJar FindCandyJar(int id)
+    {
+        foreach (var jar in candyJars)
+        {
+            if (jar.candyItem.candy.id == id)
+                return jar;
+        }
+
+        print(1234);
+
+        return null;
     }
 }
 

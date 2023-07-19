@@ -45,6 +45,14 @@ public class IdleCustomer : MonoBehaviour
         //     Exit();
     }
 
+    public void AddCandyToOrder(CandyItem item)
+    {
+        if(order.candy.id == item.candy.id)
+        {
+            order.currentCount += item.count;
+        }
+    }
+
     public void Exit()
     {
         SetDestination(spawnPoint.position, () => Managers.Pool.Push(transform.GetComponentInParent<Poolable>()));
