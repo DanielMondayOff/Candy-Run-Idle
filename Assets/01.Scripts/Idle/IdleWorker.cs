@@ -8,6 +8,9 @@ public class IdleWorker : MonoBehaviour
     [SerializeField] NavMeshAgent agent;
 
     [SerializeField] private CandyOrder currentOrder = null;
+    [SerializeField]
+    private CandyJar candyJar;
+
 
     private CandyItem workerInventory;
 
@@ -66,6 +69,9 @@ public class IdleWorker : MonoBehaviour
 
         currentWorkerStatus = WorkerStatus.MoveToCustomer;
 
+        candyJar.Init(currentOrder.candy.id, 1);
+        candyJar.gameObject.SetActive(true);
+
         this.TaskWaitUntil(() => CompleteDelivery(line), () => (agent.remainingDistance < 0.1f));
     }
 
@@ -75,27 +81,10 @@ public class IdleWorker : MonoBehaviour
 
         line.currentWorker = null;
 
+        candyJar.gameObject.SetActive(false);
+
         currentWorkerStatus = WorkerStatus.Wait;
     }
-
-    public void SetMoveSpeed(float speed) => agent.speed = speed;
-
-
-    public void SetDestination(Transform target)
-    {
-
-    }
-
-    public void StartGetCandy()
-    {
-
-    }
-
-    public void EndGetCandy()
-    {
-
-    }
-
 
 }
 

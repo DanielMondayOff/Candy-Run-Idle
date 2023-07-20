@@ -22,6 +22,8 @@ public class IdleCustomer : MonoBehaviour
     [SerializeField] Text test_candyName;
     [SerializeField] Text test_candyCount;
 
+    [SerializeField] CandyJar candyJar;
+
 
     public void Init(Transform spawnPoint)
     {
@@ -80,6 +82,9 @@ public class IdleCustomer : MonoBehaviour
 
         CandyCanvas.gameObject.SetActive(false);
         SetDestination(spawnPoint.position, () => Destroy(transform.root.gameObject));
+
+        candyJar.Init(order.candy.id, 1);
+        candyJar.gameObject.SetActive(true);
 
         // Managers.Pool.Push(transform.GetComponentInParent<Poolable>()
     }
