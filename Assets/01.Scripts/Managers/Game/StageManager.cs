@@ -8,6 +8,7 @@ public class StageManager : MonoBehaviour
     public class Stage
     {
         public GameObject map;
+        public bool candyGun = true;
     }
 
     public Stage[] stages;

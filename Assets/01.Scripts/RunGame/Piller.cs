@@ -9,20 +9,26 @@ public enum PillerType
     FireRate = 2,
     Range = 3,
     Candy = 4,
-
+    TripleShot = 5
 }
 
 public class Piller : MonoBehaviour
 {
     public Text nameText;
-
     public Text valueText;
+    [SerializeField] Image skillImage;
 
     public PillerType type;
 
     [SerializeField] private Material postiveMat;
+    [SerializeField] private Material postivePillerCenterMat;
+
     [SerializeField] private Material negativeMat;
+    [SerializeField] private Material negativePillerCenterMat;
+
     [SerializeField] private MeshRenderer plag;
+    [SerializeField] private MeshRenderer pillerCenter;
+
 
     public float value;
     public bool multiply = false;
@@ -44,19 +50,29 @@ public class Piller : MonoBehaviour
             case PillerType.FireRate:
                 // value = RunManager.instance.defaultPillerFireRateValue;
                 nameText.text = "FireRate";
-
                 break;
 
             case PillerType.Range:
                 // value = RunManager.defaultBulletRange;
                 nameText.text = "Range";
-
                 break;
 
             case PillerType.Candy:
                 // value = RunManager.defaultCandyCount;
-                nameText.text = "Candy";
+                nameText.text = "More Candy!";
+                valueText.gameObject.SetActive(false);
+                // nameText.enabled = false;
+                skillImage.sprite = Resources.Load<Sprite>("UI/CandyPlus");
+                skillImage.gameObject.SetActive(true);
+                break;
 
+            case PillerType.TripleShot:
+                // value = RunManager.defaultCandyCount;
+                nameText.text = "Triple Shot!";
+                valueText.gameObject.SetActive(false);
+                // nameText.enabled = false;
+                skillImage.sprite = Resources.Load<Sprite>("UI/TripleShot");
+                skillImage.gameObject.SetActive(true);
                 break;
         }
 
@@ -102,11 +118,14 @@ public class Piller : MonoBehaviour
 
     private void OnChangeValue()
     {
-
         if (value > 0)
         {
             var mat = new Material[] { postiveMat };
             plag.materials = mat;
+
+            var mat2 = new Material[] { postivePillerCenterMat };
+            pillerCenter.materials = mat2;
+
             if (multiply)
                 valueText.text = "x" + value.ToString();
             else
@@ -118,6 +137,8 @@ public class Piller : MonoBehaviour
             plag.materials = mat;
             valueText.text = "" + value.ToString();
 
+            var mat2 = new Material[] { negativePillerCenterMat };
+            pillerCenter.materials = mat2;
         }
     }
 

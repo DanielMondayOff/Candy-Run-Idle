@@ -8,7 +8,7 @@ public class RunManager : MonoBehaviour
 {
     public static RunManager instance;
 
-    [TitleGroup("setting Value")] public static float DefaultBulletFireRate = 0.7f;
+    [TitleGroup("setting Value")] public static float DefaultBulletFireRate = 0.5f;
     [TitleGroup("setting Value")] public float plusFireRate = 0f;
     [TitleGroup("setting Value")] public float addFireRateValue = 1f;
     [TitleGroup("setting Value")] public float defaultPillerFireRateValue = 100f;
@@ -98,7 +98,6 @@ public class RunManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             candyList.ForEach((n) => StartCoroutine(n.GetComponentInChildren<CandyTailController>().TailWave(100)));
-
         }
     }
 
@@ -125,7 +124,6 @@ public class RunManager : MonoBehaviour
 
     public void AddCandyLength(float value)
     {
-
         if (value > 0)
         {
             candyList.ForEach((n) => StartCoroutine(n.GetComponentInChildren<CandyTailController>().TailWave(value, () =>
