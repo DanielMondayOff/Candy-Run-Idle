@@ -46,11 +46,12 @@ public class IdleManager : MonoBehaviour
 
     public OrderLine FindEmptyOrderLine_Worker()
     {
-        foreach (var order in currentMap.orderLines)
+        foreach (var line in currentMap.orderLines)
         {
-            if (order.currentCustomer != null)
-                if (order.workerLine != null)
-                    return order;
+            if (line.currentCustomer != null)
+                if (line.currentWorker == null)
+                    if (line.currentCustomer.waitForCandy)
+                        return line;
         }
 
         return null;
@@ -64,10 +65,13 @@ public class IdleManager : MonoBehaviour
         {
             var newOrder = MakeOrder(customer, orderLine);
             orderLine.currentCustomer = customer;
+            orderLine.currentCustomer.line = orderLine;
 
-            customer.order = newOrder;
-
-            customer.SetDestination(orderLine.customerLine.position, () => customer.WaitUntilCandy());
+            customer.SetDestination(orderLine.customerLine.position, () =>
+            {
+                customer.order = newOrder;
+                customer.WaitUntilCandy();
+            });
         }
     }
 
@@ -86,7 +90,7 @@ public class IdleManager : MonoBehaviour
     public void GenenrateCustomer()
     {
         var spawnPoint = currentMap.GetRandomSpawnPoint();
-        var customer = Managers.Pool.Pop(Managers.Resource.Load<GameObject>("Customer")).GetComponentInChildren<IdleCustomer>();
+        var customer = Instantiate(Managers.Resource.Load<GameObject>("Customer")).GetComponentInChildren<IdleCustomer>();
 
         customer.transform.position = spawnPoint.position;
 

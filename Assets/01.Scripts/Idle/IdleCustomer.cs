@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class IdleCustomer : MonoBehaviour
 {
@@ -10,8 +12,15 @@ public class IdleCustomer : MonoBehaviour
     private Vector3 targetPos;
     private System.Action nextAction = null;
     private Transform spawnPoint;
+    public OrderLine line;
 
     public CandyOrder order;
+
+    public bool waitForCandy = false;
+
+    [SerializeField] Canvas CandyCanvas;
+    [SerializeField] Text test_candyName;
+    [SerializeField] Text test_candyCount;
 
 
     public void Init(Transform spawnPoint)
@@ -40,22 +49,48 @@ public class IdleCustomer : MonoBehaviour
 
     public void WaitUntilCandy()
     {
-        this.TaskWaitUntil(() => Exit(), () => (order.currentCount >= order.requestCount));
+        waitForCandy = true;
+
+        OnChangeOrder();
+
+        CandyCanvas.transform.DOScale(new Vector3(0.002f, 0.002f, 0.002f), 0.4f);
+
+        // this.TaskWaitUntil(() => Exit(), () => (order.currentCount >= order.requestCount));
         // if (order.currentCount >= order.requestCount)
         //     Exit();
     }
 
     public void AddCandyToOrder(CandyItem item)
     {
-        if(order.candy.id == item.candy.id)
+        if (order.candy.id == item.candy.id)
         {
             order.currentCount += item.count;
+
+            OnChangeOrder(true);
+
+            if (order.currentCount >= order.requestCount)
+                Exit();
         }
     }
 
     public void Exit()
     {
-        SetDestination(spawnPoint.position, () => Managers.Pool.Push(transform.GetComponentInParent<Poolable>()));
+        waitForCandy = false;
+        line.currentCustomer = null;
+
+        CandyCanvas.gameObject.SetActive(false);
+        SetDestination(spawnPoint.position, () => Destroy(transform.root.gameObject));
+
+        // Managers.Pool.Push(transform.GetComponentInParent<Poolable>()
+    }
+
+    void OnChangeOrder(bool wiggle = false)
+    {
+        test_candyName.text = order.candy.name;
+        test_candyCount.text = "X " + (order.requestCount - order.currentCount);
+
+        if (wiggle)
+            CandyCanvas.transform.DOPunchScale(CandyCanvas.transform.localScale * 0.3f, 0.2f, 2);
     }
 }
 

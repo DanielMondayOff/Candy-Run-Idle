@@ -60,7 +60,7 @@ public class IdleWorker : MonoBehaviour
 
     void MoveToCustomer(OrderLine line)
     {
-        workerInventory = new CandyItem() {candy = line.currentCustomer.order.candy, count = 1};
+        workerInventory = new CandyItem() { candy = line.currentCustomer.order.candy, count = 1 };
 
         agent.SetDestination(line.workerLine.position);
 
@@ -72,7 +72,9 @@ public class IdleWorker : MonoBehaviour
     void CompleteDelivery(OrderLine line)
     {
         line.currentCustomer.AddCandyToOrder(workerInventory);
-        
+
+        line.currentWorker = null;
+
         currentWorkerStatus = WorkerStatus.Wait;
     }
 
