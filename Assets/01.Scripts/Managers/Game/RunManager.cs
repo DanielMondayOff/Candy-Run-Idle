@@ -143,12 +143,12 @@ public class RunManager : MonoBehaviour
         }
     }
 
-    public void ChangeCandysLength()
+    public void ChangeCandysLength(bool clamp = true)
     {
         // candyList.ForEach((n) => n.transform.localScale = new Vector3(n.transform.localScale.x, n.transform.localScale.y, GetCurrentCandyLength() / 1000f));
 
         // candyList.ForEach((n) => n.GetComponentInChildren<FIMSpace.FTail.TailAnimator2>().TailAnimatorAmount = GetCurrentCandyLength());
-        candyList.ForEach((n) => n.GetComponentInChildren<CandyTailController>().ChangeCandyLength(GetCurrentCandyLength()));
+        candyList.ForEach((n) => n.GetComponentInChildren<CandyTailController>().ChangeCandyLength(GetCurrentCandyLength(), clamp));
     }
 
     public void AddCandy()
@@ -280,7 +280,7 @@ public class RunManager : MonoBehaviour
             defaultCandyLength = 0;
             plusCandyLength = 0;
 
-            ChangeCandysLength();
+            ChangeCandysLength(false);
 
             candyList.ForEach((n) => n.SetActive(false));
 
@@ -297,7 +297,10 @@ public class RunManager : MonoBehaviour
                 runPlayer.transform.position = cuttingPoint2.position;
                 plusCandyLength -= 100f;
 
-                ChangeCandysLength();
+                if (GetCurrentCandyLength() < 100f)
+                    ChangeCandysLength(false);
+                else
+                    ChangeCandysLength();
 
                 this.TaskDelay(0.08f / candyCuttingSpeed, () =>
                 {

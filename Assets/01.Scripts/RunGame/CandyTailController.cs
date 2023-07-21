@@ -34,7 +34,7 @@ public class CandyTailController : MonoBehaviour
         }
     }
 
-    public void ChangeCandyLength(float currentLength)
+    public void ChangeCandyLength(float currentLength, bool clamp = true)
     {
         var tailAnimator = GetComponent<FIMSpace.FTail.TailAnimator2>();
 
@@ -49,7 +49,10 @@ public class CandyTailController : MonoBehaviour
 
         tailAnimator.LengthMultiplier = currentLength / 1000f;
 
-        tailAnimator.LengthMultiplier = Mathf.Clamp(tailAnimator.LengthMultiplier, 0.1f, 100);
+        print(tailAnimator.LengthMultiplier + " " + clamp);
+
+        if (clamp)
+            tailAnimator.LengthMultiplier = Mathf.Clamp(tailAnimator.LengthMultiplier, 0.1f, 100);
 
         // tailAnimator._TransformsGhostChain.Clear();
 
