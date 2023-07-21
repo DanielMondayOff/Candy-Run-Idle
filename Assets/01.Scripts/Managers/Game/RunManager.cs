@@ -42,8 +42,6 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject cutCandyPrefab;
     [FoldoutGroup("참조")] public GameObject startUI;
 
-
-
     [TitleGroup("Game Value")] public int currentMoney;
     [TitleGroup("Game Value")] public bool fireBullet = false;
     [TitleGroup("Game Value")] public bool isGameStart = false;
@@ -51,9 +49,7 @@ public class RunManager : MonoBehaviour
     [TitleGroup("Game Value")] public bool canMove = false;
 
     [TitleGroup("Game Value")] public bool cuttingPhase = false;
-
     [TitleGroup("Game Value")] public bool cuttingReady = false;
-
 
     [TitleGroup("Cutting Phase")] public Transform cuttingPoint1;
     [TitleGroup("Cutting Phase")] public Transform cuttingPoint2;
