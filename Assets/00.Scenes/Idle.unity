@@ -9677,6 +9677,7 @@ MonoBehaviour:
   addBulletRangeValue: 5
   plusCandyCount: 0
   cutCandyLength: 0.1
+  candyCuttingSpeed: 1.5
   candyList:
   - {fileID: 919132149379642098}
   jellyBeanMats:

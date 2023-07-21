@@ -30,6 +30,9 @@ public class RunManager : MonoBehaviour
     [Space]
     [TitleGroup("setting Value")] public float cutCandyLength = 0.1f;
 
+    [Space]
+    [TitleGroup("setting Value")] public float candyCuttingSpeed = 1f;
+
 
 
     [FoldoutGroup("참조")] public List<GameObject> candyList = new List<GameObject>();
@@ -288,7 +291,7 @@ public class RunManager : MonoBehaviour
             cutterAnimator.SetTrigger("Cut");
             cuttingReady = false;
 
-            this.TaskDelay(0.05f, () =>
+            this.TaskDelay(0.05f / candyCuttingSpeed, () =>
             {
                 candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().CutCandy());
                 runPlayer.transform.position = cuttingPoint2.position;
@@ -296,9 +299,9 @@ public class RunManager : MonoBehaviour
 
                 ChangeCandysLength();
 
-                this.TaskDelay(0.08f, () =>
+                this.TaskDelay(0.08f / candyCuttingSpeed, () =>
                 {
-                    runPlayer.transform.DOMove(cuttingPoint1.transform.position, 0.2f).SetEase(Ease.InOutQuad).OnComplete(() => { cuttingReady = true; });
+                    runPlayer.transform.DOMove(cuttingPoint1.transform.position, 0.2f / candyCuttingSpeed).SetEase(Ease.InOutQuad).OnComplete(() => { cuttingReady = true; });
                 });
 
             });
