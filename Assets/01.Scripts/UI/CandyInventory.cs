@@ -28,6 +28,17 @@ public class CandyInventory : MonoBehaviour
         }
     }
 
+    public void GenerateUIfromList(List<CandyItem> items)
+    {
+        foreach (var item in items)
+        {
+            var newItem = Instantiate(Resources.Load<GameObject>("UI/CandyItem"), transform).GetComponent<CandyInventoryItem>();
+
+            newItem.InitCandy(item.candy, item.count);
+            itemList.Add(newItem);
+        }
+    }
+
     public void CandyGetAnimation(List<CandyItem> candyItems)
     {
         foreach (var item in candyItems)
@@ -46,6 +57,8 @@ public class CandyInventory : MonoBehaviour
 
         itemList.Clear();
     }
+
+
 
     UnityAction GetCandyInventoryEvent(int id)
     {

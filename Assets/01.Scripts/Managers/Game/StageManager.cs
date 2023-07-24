@@ -15,6 +15,13 @@ public class StageManager : MonoBehaviour
     public Stage currentStage = null;
     public int currentStageNum = 0;
 
+    public static StageManager instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private void Start()
     {
         if (ES3.KeyExists("CurrentStageNum"))
@@ -25,8 +32,14 @@ public class StageManager : MonoBehaviour
 
     public void GenearteCurrentStage()
     {
+        if (currentStage != null)
+            currentStage.map.SetActive(false);
+
         if (stages.Length >= currentStageNum)
+        {
             stages[currentStageNum].map.SetActive(true);
+            currentStage = stages[currentStageNum];
+        }
         else
             GenerateRandomStage();
     }

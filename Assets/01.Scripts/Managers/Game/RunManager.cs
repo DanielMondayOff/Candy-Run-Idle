@@ -42,6 +42,8 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject startUI;
     [FoldoutGroup("참조")] public GameObject runEndUI;
     [FoldoutGroup("참조")] public Animator jarAnimator;
+    [FoldoutGroup("참조")] public CandyInventory EndCandyInventoryUI;
+
 
     [TitleGroup("Game Value")] public int currentMoney;
     [TitleGroup("Game Value")] public bool fireBullet = false;
@@ -320,12 +322,17 @@ public class RunManager : MonoBehaviour
 
         SaveManager.instance.AddCandy(temp.candyItems);
 
+        StageManager.instance.ClearStage();
+
         CandyInventory.instance.CandyGetAnimation(temp.candyItems);
 
         this.TaskDelay(3.5f, () =>
         {
             runEndUI.SetActive(true);
             jarAnimator.SetBool("Rotate", true);
+
+            EndCandyInventoryUI.ClearUI();
+            EndCandyInventoryUI.GenerateUIfromList(temp.candyItems);
         });
     }
 
@@ -333,5 +340,7 @@ public class RunManager : MonoBehaviour
     {
         runEndUI.SetActive(false);
         jarAnimator.SetBool("Rotate", false);
+
+        StageManager.instance.GenearteCurrentStage();
     }
 }
