@@ -1,0 +1,67 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Events;
+using System.Linq;
+
+public class CandyInventory : MonoBehaviour
+{
+    [SerializeField] List<CandyInventoryItem> itemList = new List<CandyInventoryItem>();
+
+    public static CandyInventory instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    public void SyncCurrentCandyUI()
+    {
+        ClearUI();
+
+        foreach (var candy in SaveManager.instance.candyInventory)
+        {
+            var newItem = Instantiate(Resources.Load<GameObject>("UI/CandyItem"), transform).GetComponent<CandyInventoryItem>();
+
+            newItem.InitCandy(candy.candy, candy.count);
+            itemList.Add(newItem);
+        }
+    }
+
+    public void CandyGetAnimation(List<CandyItem> candyItems)
+    {
+        foreach (var item in candyItems)
+        {
+            var attractor = Instantiate(Resources.Load<GameObject>("UI/UIAttractor"), transform.parent);
+
+            GetCandyInventoryEvent(item.candy.id);
+
+            attractor.GetComponent<UIAttractorCustom>().Init(itemList.Find((n) => n.candyItem.candy.id == item.candy.id).GetImageTrans, item, GetCandyInventoryEvent(item.candy.id), () => SyncCurrentCandyUI());
+        }
+    }
+
+    public void ClearUI()
+    {
+        itemList.ForEach((n) => Destroy(n.gameObject));
+
+        itemList.Clear();
+    }
+
+    UnityAction GetCandyInventoryEvent(int id)
+    {
+        foreach (var item in itemList)
+        {
+            if (item.candyItem.candy.id == id)
+            {
+                return () => item.AddCandyOne();
+            }
+        }
+
+        var newItem = Instantiate(Resources.Load<GameObject>("UI/CandyItem"), transform).GetComponentInChildren<CandyInventoryItem>();
+
+        newItem.InitCandy(IdleManager.instance.FindCandyObject(id), 0);
+        itemList.Add(newItem);
+
+        return () => newItem.AddCandyOne();
+    }
+}

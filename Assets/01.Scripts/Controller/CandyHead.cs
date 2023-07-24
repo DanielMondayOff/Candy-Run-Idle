@@ -11,6 +11,8 @@ public class CandyHead : MonoBehaviour
     public Transform cutCandyPos;
     public GameObject cutCandyPrefab;
 
+    public CandyObject candyObject;
+
     public void GenerateBullet()
     {
         var bullet = Instantiate(bulletPrefab, firePos.transform.position, Quaternion.identity);

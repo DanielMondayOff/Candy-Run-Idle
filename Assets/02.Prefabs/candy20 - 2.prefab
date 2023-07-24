@@ -2108,6 +2108,7 @@ MonoBehaviour:
   cutCandyPos: {fileID: 5843314630820579820}
   cutCandyPrefab: {fileID: 7633146798354503128, guid: 44c5b6b212ea74738a63e6674868daac,
     type: 3}
+  candyObject: {fileID: 11400000, guid: 94ee1247fd6c84869a5608d34343b33b, type: 2}
 --- !u!114 &480387996576622033
 MonoBehaviour:
   m_ObjectHideFlags: 0

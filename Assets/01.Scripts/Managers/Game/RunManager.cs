@@ -34,13 +34,14 @@ public class RunManager : MonoBehaviour
     [TitleGroup("setting Value")] public float candyCuttingSpeed = 1f;
 
 
-
     [FoldoutGroup("참조")] public List<GameObject> candyList = new List<GameObject>();
     [FoldoutGroup("참조")] public Material[] jellyBeanMats;
     [FoldoutGroup("참조")] public Transform runPlayer;
     [FoldoutGroup("참조")] public GameObject candyPrefab;
     [FoldoutGroup("참조")] public GameObject cutCandyPrefab;
     [FoldoutGroup("참조")] public GameObject startUI;
+    [FoldoutGroup("참조")] public GameObject runEndUI;
+    [FoldoutGroup("참조")] public Animator jarAnimator;
 
     [TitleGroup("Game Value")] public int currentMoney;
     [TitleGroup("Game Value")] public bool fireBullet = false;
@@ -61,6 +62,8 @@ public class RunManager : MonoBehaviour
     public float GetBulletRange() => defaultBulletRange + plusBulletRange;
 
     TaskUtil.WhileTaskMethod fireTask;
+
+    TempCandyInventory tempCandyInventory;
     private void Awake()
     {
         instance = this;
@@ -262,6 +265,8 @@ public class RunManager : MonoBehaviour
         runPlayer.transform.DORotate(new Vector3(30, 0, 0), 1f);
 
         CameraManager.instance.ChangeCamera("cutting");
+
+        tempCandyInventory = new TempCandyInventory();
     }
 
     public void CuttingCandy()
@@ -271,7 +276,7 @@ public class RunManager : MonoBehaviour
 
         if (GetCurrentCandyLength() < 100f)
         {
-            candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().CutCandy(GetCurrentCandyLength()));
+            candyList.ForEach((n) => { n.GetComponentInChildren<CandyHead>().CutCandy(GetCurrentCandyLength()); tempCandyInventory.AddCandy(new CandyItem() { candy = n.GetComponentInChildren<CandyHead>().candyObject, count = 1 }); });
 
             defaultCandyLength = 0;
             plusCandyLength = 0;
@@ -280,12 +285,14 @@ public class RunManager : MonoBehaviour
 
             candyList.ForEach((n) => n.SetActive(false));
 
-            EndCuttingCandy();
+            EndCuttingCandy(tempCandyInventory);
         }
         else
         {
             cutterAnimator.SetTrigger("Cut");
             cuttingReady = false;
+
+            candyList.ForEach((n) => tempCandyInventory.AddCandy(new CandyItem() { candy = n.GetComponentInChildren<CandyHead>().candyObject, count = 1 }));
 
             this.TaskDelay(0.05f / candyCuttingSpeed, () =>
             {
@@ -307,9 +314,24 @@ public class RunManager : MonoBehaviour
         }
     }
 
-    public void EndCuttingCandy()
+    public void EndCuttingCandy(TempCandyInventory temp)
     {
         cuttingPhase = false;
+
+        SaveManager.instance.AddCandy(temp.candyItems);
+
+        CandyInventory.instance.CandyGetAnimation(temp.candyItems);
+
+        this.TaskDelay(3.5f, () =>
+        {
+            runEndUI.SetActive(true);
+            jarAnimator.SetBool("Rotate", true);
+        });
     }
 
+    public void OnClickNextStage()
+    {
+        runEndUI.SetActive(false);
+        jarAnimator.SetBool("Rotate", false);
+    }
 }

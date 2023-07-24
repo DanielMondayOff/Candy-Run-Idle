@@ -49,7 +49,7 @@ public class CandyTailController : MonoBehaviour
 
         tailAnimator.LengthMultiplier = currentLength / 1000f;
 
-        print(tailAnimator.LengthMultiplier + " " + clamp);
+        // print(tailAnimator.LengthMultiplier + " " + clamp);
 
         if (clamp)
             tailAnimator.LengthMultiplier = Mathf.Clamp(tailAnimator.LengthMultiplier, 0.1f, 100);
