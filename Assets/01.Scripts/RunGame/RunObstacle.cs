@@ -28,7 +28,7 @@ public class RunObstacle : MonoBehaviour
 
         if (other.CompareTag("Player") && !isUsed)
         {
-            RunManager.instance.TakeDamage(100);
+            RunManager.instance.TakeDamage(100, GetComponent<Collider>().ClosestPointOnBounds(other.bounds.center));
             isUsed = true;
         }
     }

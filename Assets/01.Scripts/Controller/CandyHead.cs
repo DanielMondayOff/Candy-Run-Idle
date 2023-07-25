@@ -15,11 +15,29 @@ public class CandyHead : MonoBehaviour
 
     public void GenerateBullet()
     {
-        var bullet = Instantiate(bulletPrefab, firePos.transform.position, Quaternion.identity);
+        if (RunManager.instance.tripleShot)
+        {
+            Transform[] bullets = new Transform[3];
+            
+            for (int i = 0; i < 3; i++)
+            {
+                var bullet = Instantiate(bulletPrefab, firePos.transform.position, Quaternion.identity);
+                bullets[i] = bullet.transform;
+                this.TaskDelay(RunManager.instance.GetBulletRange() / 100f, () => { if (bullets[i] != null) bullets[i].GetComponentInChildren<Bullet>().Push(); });
+            }
 
-        bullet.transform.DOMoveZ(3000, 100);
+            bullets[0].transform.DOMove(bullets[0].transform.position + new Vector3(500, 0, 3000), 100);
+            bullets[1].transform.DOMove(bullets[0].transform.position + new Vector3(0, 0, 3000), 100);
+            bullets[2].transform.DOMove(bullets[0].transform.position + new Vector3(-500, 0, 3000), 100);
+        }
+        else
+        {
+            var bullet = Instantiate(bulletPrefab, firePos.transform.position, Quaternion.identity);
 
-        this.TaskDelay(RunManager.instance.GetBulletRange() / 100f, () => { if (bullet != null) bullet.GetComponentInChildren<Bullet>().Push(); });
+            bullet.transform.DOMoveZ(3000, 100);
+
+            this.TaskDelay(RunManager.instance.GetBulletRange() / 100f, () => { if (bullet != null) bullet.GetComponentInChildren<Bullet>().Push(); });
+        }
     }
 
     public void CutCandy(List<GameObject> list, float length = 100f, bool torque = true)

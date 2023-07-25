@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4687099617677411657
 RectTransform:
   m_ObjectHideFlags: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9c5b40a83294844cd8c2dc7d970be0dd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 40be81bdf2e554d37a0f62c0b5134fa7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -260,7 +260,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Length
+  m_Text: More Candy!
 --- !u!114 &7297665466127997397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,7 +310,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7297665466428500267
 RectTransform:
   m_ObjectHideFlags: 0
@@ -466,7 +466,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e61bb8d6c80e2402ab2c86e7a88b9701, type: 2}
+  - {fileID: 2100000, guid: f7d4755ac13934b12aab7a8e990903d5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -560,6 +560,8 @@ MonoBehaviour:
     type: 2}
   negativeMat: {fileID: 2100000, guid: 928cca69a2d2443129583956f9fac25b, type: 2}
   negativePillerCenterMat: {fileID: 2100000, guid: e61bb8d6c80e2402ab2c86e7a88b9701,
+    type: 2}
+  specialPillerCenterMat: {fileID: 2100000, guid: f7d4755ac13934b12aab7a8e990903d5,
     type: 2}
   plag: {fileID: 1736631485170573147}
   pillerCenter: {fileID: 7297665466869252096}

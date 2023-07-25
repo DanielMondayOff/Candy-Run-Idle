@@ -25,7 +25,10 @@ public class StageManager : MonoBehaviour
     private void Start()
     {
         if (ES3.KeyExists("CurrentStageNum"))
+        {
             currentStageNum = ES3.Load<int>("CurrentStageNum");
+            print(currentStageNum);
+        }
 
         GenearteCurrentStage();
     }
@@ -35,15 +38,16 @@ public class StageManager : MonoBehaviour
         if (currentStage.map != null)
             currentStage.map.SetActive(false);
 
-        if (stages.Length >= currentStageNum)
+        if (stages.Length <= currentStageNum)
+        {
+            GenerateRandomStage();
+        }
+        else
         {
             stages[currentStageNum].map.SetActive(true);
             currentStage = stages[currentStageNum];
 
-            print(currentStage.map);
         }
-        else
-            GenerateRandomStage();
     }
 
     public void TryStage()
@@ -57,11 +61,17 @@ public class StageManager : MonoBehaviour
 
         currentStageNum++;
 
-        ES3.Save<int>("CurerntStageNum", currentStageNum);
+        ES3.Save<int>("CurrentStageNum", currentStageNum);
     }
 
     public void GenerateRandomStage()
     {
+        if (currentStage.map != null)
+            currentStage.map.SetActive(false);
 
+        int num = Random.Range(0, stages.Length);
+
+        stages[num].map.SetActive(true);
+        currentStage = stages[num];
     }
 }

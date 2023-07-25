@@ -57,6 +57,9 @@ public class RunManager : MonoBehaviour
     [TitleGroup("Game Value")] public bool cuttingReady = false;
     [TitleGroup("Game Value")] public bool cuttingPressed = false;
 
+    [TitleGroup("Game Value")] public bool tripleShot = false;
+
+
 
     [TitleGroup("Cutting Phase")] public Transform cuttingPoint1;
     [TitleGroup("Cutting Phase")] public Transform cuttingPoint2;
@@ -94,6 +97,7 @@ public class RunManager : MonoBehaviour
 
             ChangeCandysLength();
         }
+        
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             plusCandyLength -= 100;
@@ -103,12 +107,17 @@ public class RunManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
-            TakeDamage(100);
+            TakeDamage(100, Vector3.zero);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             candyList.ForEach((n) => StartCoroutine(n.GetComponentInChildren<CandyTailController>().TailWave(100)));
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            tripleShot = true;
         }
 
         if (cuttingPressed && cuttingReady)
@@ -244,17 +253,17 @@ public class RunManager : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(float damage, Vector3 hitPoint)
     {
         plusCandyLength -= damage;
 
         ChangeCandysLength();
 
-        runPlayer.transform.Translate(new Vector3(0, 0, -1f));
+        // runPlayer.transform.Translate(new Vector3(0, 0, -1f));
 
         foreach (var candy in candyList)
         {
-            var candypiece = Instantiate(Managers.Resource.Load<GameObject>("Candy_Piece"), candy.transform.position, Quaternion.identity);
+            var candypiece = Instantiate(Managers.Resource.Load<GameObject>("Candy_Piece"), hitPoint, Quaternion.identity);
 
             candypiece.GetComponentInChildren<CandyPieces>().ExplosionPieces(candy.transform);
         }
@@ -391,5 +400,10 @@ public class RunManager : MonoBehaviour
 
         // cuttedCandys.
         // AddCandy();
+    }
+
+    public void TripleShot()
+    {
+        tripleShot = true;
     }
 }

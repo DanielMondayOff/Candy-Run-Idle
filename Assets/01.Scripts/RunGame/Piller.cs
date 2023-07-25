@@ -26,6 +26,8 @@ public class Piller : MonoBehaviour
     [SerializeField] private Material negativeMat;
     [SerializeField] private Material negativePillerCenterMat;
 
+    [SerializeField] private Material specialPillerCenterMat;
+
     [SerializeField] private MeshRenderer plag;
     [SerializeField] private MeshRenderer pillerCenter;
 
@@ -44,16 +46,26 @@ public class Piller : MonoBehaviour
         {
             case PillerType.Length:
                 // value = RunManager.instance.defaultPillerLengthValue;
+                valueText.gameObject.SetActive(true);
+                skillImage.gameObject.SetActive(false);
+
                 nameText.text = "Length";
                 break;
 
             case PillerType.FireRate:
                 // value = RunManager.instance.defaultPillerFireRateValue;
+                valueText.gameObject.SetActive(true);
+                skillImage.gameObject.SetActive(false);
+
                 nameText.text = "FireRate";
                 break;
 
+
             case PillerType.Range:
                 // value = RunManager.defaultBulletRange;
+                valueText.gameObject.SetActive(true);
+                skillImage.gameObject.SetActive(false);
+
                 nameText.text = "Range";
                 break;
 
@@ -64,6 +76,7 @@ public class Piller : MonoBehaviour
                 // nameText.enabled = false;
                 skillImage.sprite = Resources.Load<Sprite>("UI/CandyPlus");
                 skillImage.gameObject.SetActive(true);
+
                 break;
 
             case PillerType.TripleShot:
@@ -73,6 +86,9 @@ public class Piller : MonoBehaviour
                 // nameText.enabled = false;
                 skillImage.sprite = Resources.Load<Sprite>("UI/TripleShot");
                 skillImage.gameObject.SetActive(true);
+
+                RunManager.instance.tripleShot = true;
+
                 break;
         }
 
@@ -118,7 +134,11 @@ public class Piller : MonoBehaviour
 
     private void OnChangeValue()
     {
-        if (value > 0)
+        if (type == PillerType.Candy || type == PillerType.TripleShot)
+        {
+            pillerCenter.materials = new Material[] { specialPillerCenterMat };
+        }
+        else if (value > 0)
         {
             var mat = new Material[] { postiveMat };
             plag.materials = mat;
@@ -148,6 +168,7 @@ public class Piller : MonoBehaviour
     /// </summary>
     private void OnValidate()
     {
+        Init();
         OnChangeValue();
     }
 }
