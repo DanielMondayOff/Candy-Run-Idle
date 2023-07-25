@@ -32,13 +32,15 @@ public class StageManager : MonoBehaviour
 
     public void GenearteCurrentStage()
     {
-        if (currentStage != null)
+        if (currentStage.map != null)
             currentStage.map.SetActive(false);
 
         if (stages.Length >= currentStageNum)
         {
             stages[currentStageNum].map.SetActive(true);
             currentStage = stages[currentStageNum];
+
+            print(currentStage.map);
         }
         else
             GenerateRandomStage();

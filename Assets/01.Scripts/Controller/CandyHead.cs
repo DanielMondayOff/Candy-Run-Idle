@@ -22,7 +22,7 @@ public class CandyHead : MonoBehaviour
         this.TaskDelay(RunManager.instance.GetBulletRange() / 100f, () => { if (bullet != null) bullet.GetComponentInChildren<Bullet>().Push(); });
     }
 
-    public void CutCandy(float length = 100f, bool torque = true)
+    public void CutCandy(List<GameObject> list, float length = 100f, bool torque = true)
     {
         var candy = Instantiate(cutCandyPrefab, cutCandyPos.position, Quaternion.identity);
 
@@ -33,6 +33,8 @@ public class CandyHead : MonoBehaviour
 
         if (torque)
             candy.GetComponentInChildren<Rigidbody>().AddTorque(Random.insideUnitSphere * Random.Range(3f, 10f), ForceMode.Impulse);
+
+        list.Add(candy);
 
         //new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f)
     }

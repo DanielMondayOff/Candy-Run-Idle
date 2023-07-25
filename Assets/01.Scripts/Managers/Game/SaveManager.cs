@@ -27,6 +27,9 @@ public class SaveManager : MonoBehaviour
 
         OnChangeMoney();
 
+
+        if (ES3.KeyExists("CandyInventory"))
+            candyInventory = ES3.Load<List<CandyItem>>("CandyInventory");
     }
 
     public int GetMoney() => money;
@@ -47,8 +50,6 @@ public class SaveManager : MonoBehaviour
 
     public void AddCandy(List<CandyItem> newCandys)
     {
-        print(newCandys.Count);
-
         foreach (var newCandy in newCandys)
         {
             bool isNewCandy = true;
@@ -67,6 +68,8 @@ public class SaveManager : MonoBehaviour
             if (isNewCandy)
                 candyInventory.Add(new CandyItem() { candy = newCandy.candy, count = newCandy.count });
         }
+
+        ES3.Save<List<CandyItem>>("CandyInventory", candyInventory);
     }
 }
 

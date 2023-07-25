@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using Sirenix.OdinInspector;
+using UnityEngine.SceneManagement;
 
 public class RunManager : MonoBehaviour
 {
@@ -43,6 +44,7 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject runEndUI;
     [FoldoutGroup("참조")] public Animator jarAnimator;
     [FoldoutGroup("참조")] public CandyInventory EndCandyInventoryUI;
+    [FoldoutGroup("참조")] public Transform startPoint;
 
 
     [TitleGroup("Game Value")] public int currentMoney;
@@ -53,15 +55,19 @@ public class RunManager : MonoBehaviour
 
     [TitleGroup("Game Value")] public bool cuttingPhase = false;
     [TitleGroup("Game Value")] public bool cuttingReady = false;
+    [TitleGroup("Game Value")] public bool cuttingPressed = false;
+
 
     [TitleGroup("Cutting Phase")] public Transform cuttingPoint1;
     [TitleGroup("Cutting Phase")] public Transform cuttingPoint2;
     [TitleGroup("Cutting Phase")] public Animator cutterAnimator;
     [TitleGroup("Cutting Phase")] public GameObject touchToCutBtn;
-
+    [TitleGroup("Cutting Phase")] public GameObject touchToCutImage;
 
     public float GetCurrentCandyLength() => defaultCandyLength + plusCandyLength;
     public float GetBulletRange() => defaultBulletRange + plusBulletRange;
+
+    private List<GameObject> cuttedCandys = new List<GameObject>();
 
     TaskUtil.WhileTaskMethod fireTask;
 
@@ -74,6 +80,7 @@ public class RunManager : MonoBehaviour
     private void Start()
     {
         fireTask = this.TaskWhile(RunManager.instance.GetCurrentFireRate(), 1, () => { if (fireBullet && !cuttingPhase && !isGameEnd) { candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().GenerateBullet()); } });
+        CandyInventory.instance.SyncCurrentCandyUI();
     }
 
     private void Update()
@@ -102,6 +109,11 @@ public class RunManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             candyList.ForEach((n) => StartCoroutine(n.GetComponentInChildren<CandyTailController>().TailWave(100)));
+        }
+
+        if (cuttingPressed && cuttingReady)
+        {
+            CuttingCandy();
         }
     }
 
@@ -262,6 +274,7 @@ public class RunManager : MonoBehaviour
         cuttingPhase = true;
 
         touchToCutBtn.SetActive(true);
+        touchToCutImage.SetActive(true);
 
         runPlayer.transform.DOMove(cuttingPoint1.transform.position, 1f).OnComplete(() => { cuttingReady = true; });
         runPlayer.transform.DORotate(new Vector3(30, 0, 0), 1f);
@@ -271,14 +284,26 @@ public class RunManager : MonoBehaviour
         tempCandyInventory = new TempCandyInventory();
     }
 
+    public void OnPressDownCuttingBtn()
+    {
+        cuttingPressed = true;
+    }
+
+    public void OnPressUpCuttingBtn()
+    {
+        cuttingPressed = false;
+    }
+
     public void CuttingCandy()
     {
         if (!cuttingReady || !cuttingPhase)
             return;
 
+        touchToCutImage.SetActive(false);
+
         if (GetCurrentCandyLength() < 100f)
         {
-            candyList.ForEach((n) => { n.GetComponentInChildren<CandyHead>().CutCandy(GetCurrentCandyLength()); tempCandyInventory.AddCandy(new CandyItem() { candy = n.GetComponentInChildren<CandyHead>().candyObject, count = 1 }); });
+            candyList.ForEach((n) => { n.GetComponentInChildren<CandyHead>().CutCandy(cuttedCandys); tempCandyInventory.AddCandy(new CandyItem() { candy = n.GetComponentInChildren<CandyHead>().candyObject, count = 1 }); });
 
             defaultCandyLength = 0;
             plusCandyLength = 0;
@@ -298,7 +323,7 @@ public class RunManager : MonoBehaviour
 
             this.TaskDelay(0.05f / candyCuttingSpeed, () =>
             {
-                candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().CutCandy());
+                candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().CutCandy(cuttedCandys));
                 runPlayer.transform.position = cuttingPoint2.position;
                 plusCandyLength -= 100f;
 
@@ -338,9 +363,33 @@ public class RunManager : MonoBehaviour
 
     public void OnClickNextStage()
     {
-        runEndUI.SetActive(false);
-        jarAnimator.SetBool("Rotate", false);
+        // runEndUI.SetActive(false);
+        // jarAnimator.SetBool("Rotate", false);
 
-        StageManager.instance.GenearteCurrentStage();
+        // StageManager.instance.GenearteCurrentStage();
+
+        // CameraManager.instance.ChangeCamera("follow");
+        ResetRunGame();
+    }
+
+    public void ResetRunGame()
+    {
+        SceneManager.LoadScene("Idle");
+
+        // plusBulletRange = 0;
+        // plusCandyCount = 0;
+        // defaultCandyLength = 200;
+        // plusCandyLength = 0;
+        // plusFireRate = 0;
+
+        // ChangeCandysLength();
+
+        // runPlayer.position = startPoint.position;
+
+        // candyList.ForEach((n) => Destroy(n));
+        // candyList.Clear();
+
+        // cuttedCandys.
+        // AddCandy();
     }
 }
