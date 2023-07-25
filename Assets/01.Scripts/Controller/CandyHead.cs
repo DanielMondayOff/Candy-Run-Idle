@@ -15,15 +15,18 @@ public class CandyHead : MonoBehaviour
 
     public void GenerateBullet()
     {
+        if (!StageManager.instance.IsAllowJellyGun)
+            return;
+            
         if (RunManager.instance.tripleShot)
         {
             Transform[] bullets = new Transform[3];
-            
+
             for (int i = 0; i < 3; i++)
             {
                 var bullet = Instantiate(bulletPrefab, firePos.transform.position, Quaternion.identity);
                 bullets[i] = bullet.transform;
-                this.TaskDelay(RunManager.instance.GetBulletRange() / 100f, () => { if (bullets[i] != null) bullets[i].GetComponentInChildren<Bullet>().Push(); });
+                this.TaskDelay(RunManager.instance.GetBulletRange() / 100f, () => { if (bullet != null) bullet.GetComponentInChildren<Bullet>().Push(); });
             }
 
             bullets[0].transform.DOMove(bullets[0].transform.position + new Vector3(500, 0, 3000), 100);

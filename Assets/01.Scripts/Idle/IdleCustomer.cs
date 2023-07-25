@@ -20,6 +20,7 @@ public class IdleCustomer : MonoBehaviour
 
     [SerializeField] Canvas CandyCanvas;
     [SerializeField] Text test_candyName;
+    [SerializeField] Image candyImage;
     [SerializeField] Text test_candyCount;
 
     [SerializeField] CandyJar candyJar;
@@ -55,7 +56,7 @@ public class IdleCustomer : MonoBehaviour
 
         OnChangeOrder();
 
-        CandyCanvas.transform.DOScale(new Vector3(0.002f, 0.002f, 0.002f), 0.4f);
+        CandyCanvas.transform.DOScale(new Vector3(0.004f, 0.004f, 0.004f), 0.4f);
 
         // this.TaskWaitUntil(() => Exit(), () => (order.currentCount >= order.requestCount));
         // if (order.currentCount >= order.requestCount)
@@ -83,7 +84,7 @@ public class IdleCustomer : MonoBehaviour
         CandyCanvas.gameObject.SetActive(false);
         SetDestination(spawnPoint.position, () => Destroy(transform.root.gameObject));
 
-        candyJar.Init(order.candy.id, 1);
+        candyJar.ChangeJarModel(order.candy.id);
         candyJar.gameObject.SetActive(true);
 
         // Managers.Pool.Push(transform.GetComponentInParent<Poolable>()
@@ -91,7 +92,8 @@ public class IdleCustomer : MonoBehaviour
 
     void OnChangeOrder(bool wiggle = false)
     {
-        test_candyName.text = order.candy.name;
+        // test_candyName.text = order.candy.name;
+        candyImage.sprite = order.candy.icon;
         test_candyCount.text = "X " + (order.requestCount - order.currentCount);
 
         if (wiggle)

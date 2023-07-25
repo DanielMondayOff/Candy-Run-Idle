@@ -45,6 +45,8 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public Animator jarAnimator;
     [FoldoutGroup("참조")] public CandyInventory EndCandyInventoryUI;
     [FoldoutGroup("참조")] public Transform startPoint;
+    [FoldoutGroup("참조")] public GameObject jellyGunStartUI;
+    [FoldoutGroup("참조")] public GameObject swipeToStartUI;
 
 
     [TitleGroup("Game Value")] public int currentMoney;
@@ -52,6 +54,8 @@ public class RunManager : MonoBehaviour
     [TitleGroup("Game Value")] public bool isGameStart = false;
     [TitleGroup("Game Value")] public bool isGameEnd = false;
     [TitleGroup("Game Value")] public bool canMove = false;
+    [TitleGroup("Game Value")] public bool enableSwipe = true;
+
 
     [TitleGroup("Game Value")] public bool cuttingPhase = false;
     [TitleGroup("Game Value")] public bool cuttingReady = false;
@@ -84,6 +88,14 @@ public class RunManager : MonoBehaviour
     {
         fireTask = this.TaskWhile(RunManager.instance.GetCurrentFireRate(), 1, () => { if (fireBullet && !cuttingPhase && !isGameEnd) { candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().GenerateBullet()); } });
         CandyInventory.instance.SyncCurrentCandyUI();
+
+        if (StageManager.instance.currentStageNum == 1)
+        {
+            swipeToStartUI.SetActive(false);
+            jellyGunStartUI.SetActive(true);
+
+            enableSwipe = false;
+        }
     }
 
     private void Update()
@@ -97,7 +109,7 @@ public class RunManager : MonoBehaviour
 
             ChangeCandysLength();
         }
-        
+
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             plusCandyLength -= 100;
@@ -217,6 +229,10 @@ public class RunManager : MonoBehaviour
             case PillerType.Candy:
                 plusCandyCount += Mathf.FloorToInt(value);
                 AddCandy();
+                break;
+
+            case PillerType.TripleShot:
+                tripleShot = true;
                 break;
 
         }
@@ -405,5 +421,18 @@ public class RunManager : MonoBehaviour
     public void TripleShot()
     {
         tripleShot = true;
+    }
+
+    public void OnUpgradeJellyGun()
+    {
+        jellyGunStartUI.SetActive(false);
+
+        swipeToStartUI.SetActive(true);
+        enableSwipe = true;
+    }
+
+    public void ChangeToIdleGame()
+    {
+        CameraManager.instance.ChangeCamera("idle");
     }
 }

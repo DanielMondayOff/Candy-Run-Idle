@@ -58,7 +58,14 @@ public class IdleWorker : MonoBehaviour
 
         currentWorkerStatus = WorkerStatus.MoveToCandy;
 
-        this.TaskWaitUntil(() => MoveToCustomer(line), () => (agent.remainingDistance < 0.1f));
+        this.TaskWaitUntil(() => { MoveToCustomer(line); TakeCandy(); }, () => (agent.remainingDistance < 0.1f));
+
+        void TakeCandy()
+        {
+            SaveManager.instance.TakeCandy(line.currentCustomer.order.candy.id, 1);
+
+            IdleManager.instance.OnChangeInventory();
+        }
     }
 
     void MoveToCustomer(OrderLine line)
@@ -69,7 +76,7 @@ public class IdleWorker : MonoBehaviour
 
         currentWorkerStatus = WorkerStatus.MoveToCustomer;
 
-        candyJar.Init(currentOrder.candy.id, 1);
+        candyJar.ChangeJarModel(workerInventory.candy.id);
         candyJar.gameObject.SetActive(true);
 
         this.TaskWaitUntil(() => CompleteDelivery(line), () => (agent.remainingDistance < 0.1f));

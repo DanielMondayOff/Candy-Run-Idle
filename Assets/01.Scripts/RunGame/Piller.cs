@@ -87,8 +87,6 @@ public class Piller : MonoBehaviour
                 skillImage.sprite = Resources.Load<Sprite>("UI/TripleShot");
                 skillImage.gameObject.SetActive(true);
 
-                RunManager.instance.tripleShot = true;
-
                 break;
         }
 

@@ -15,20 +15,24 @@ public class StageManager : MonoBehaviour
     public Stage currentStage = null;
     public int currentStageNum = 0;
 
+    public bool IsAllowJellyGun => stages[currentStageNum].jellyGun;
+
     public static StageManager instance;
 
     private void Awake()
     {
         instance = this;
+
+        if (ES3.KeyExists("CurrentStageNum"))
+        {
+            currentStageNum = ES3.Load<int>("CurrentStageNum");
+            print("currentStage : " + currentStageNum);
+        }
     }
 
     private void Start()
     {
-        if (ES3.KeyExists("CurrentStageNum"))
-        {
-            currentStageNum = ES3.Load<int>("CurrentStageNum");
-            print(currentStageNum);
-        }
+        
 
         GenearteCurrentStage();
     }

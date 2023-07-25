@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Linq;
 
 public class SaveManager : MonoBehaviour
 {
@@ -70,6 +71,35 @@ public class SaveManager : MonoBehaviour
         }
 
         ES3.Save<List<CandyItem>>("CandyInventory", candyInventory);
+    }
+
+    public void TakeCandy(int id, int count)
+    {
+        for (int i = 0; i < candyInventory.Count; i++)
+        {
+            if (candyInventory[i].candy.id == id)
+            {
+                candyInventory[i].TakeCandy(count);
+
+                if (candyInventory[i].count <= 0)
+                    candyInventory.RemoveAt(i);
+
+                return;
+            }
+        }
+
+        foreach (var candy in candyInventory)
+        {
+            if (candy.candy.id == id)
+            {
+                candy.TakeCandy(count);
+            }
+        }
+    }
+
+    public CandyItem FindCandyItem(int id)
+    {
+        return candyInventory.Find((n => n.candy.id == id));
     }
 }
 

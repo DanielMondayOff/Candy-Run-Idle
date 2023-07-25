@@ -76,7 +76,7 @@ public class IdleManager : MonoBehaviour
 
     public CandyOrder MakeOrder(IdleCustomer customer, OrderLine line)
     {
-        var candyItem = SaveManager.instance.candyInventory[Random.Range(0, SaveManager.instance.candyInventory.Count)].TakeCandy(1, 3);
+        var candyItem = SaveManager.instance.candyInventory[Random.Range(0, SaveManager.instance.candyInventory.Count)].DuplicateCandy(1, 3);
 
         return new CandyOrder() { candy = candyItem.candy, requestCount = candyItem.count, currentCustomer = customer, currentLine = line };
     }
@@ -110,9 +110,14 @@ public class IdleManager : MonoBehaviour
         {
             var candyJar = Instantiate(Managers.Resource.Load<GameObject>("CandyJar"), currentMap.candyJarSpawnPos[i].position, Quaternion.identity);
 
-            candyJar.GetComponentInChildren<CandyJar>().Init(SaveManager.instance.candyInventory[i].candy.id, SaveManager.instance.candyInventory[i].count);
+            candyJar.GetComponentInChildren<CandyJar>().Init(SaveManager.instance.FindCandyItem(SaveManager.instance.candyInventory[i].candy.id));
             candyJars.Add(candyJar.GetComponentInChildren<CandyJar>());
         }
+    }
+
+    public void OnChangeInventory()
+    {
+        candyJars.ForEach((n) => n.OnChangeOrder());
     }
 
     public CandyObject FindCandyObject(int id)
@@ -131,6 +136,13 @@ public class IdleManager : MonoBehaviour
         print(1234);
 
         return null;
+    }
+
+
+    //모든 사탕 판매 완료
+    public void SellComplete()
+    {
+        
     }
 }
 
@@ -168,7 +180,7 @@ public class CandyItem
     public CandyObject candy;
     public int count;
 
-    public CandyItem TakeCandy(int minCount, int maxCount)
+    public CandyItem DuplicateCandy(int minCount, int maxCount)
     {
         int count = Random.Range(minCount, maxCount);
 
@@ -177,5 +189,10 @@ public class CandyItem
         count = Mathf.Clamp(count, 0, int.MaxValue);
 
         return new CandyItem() { candy = this.candy, count = count };
+    }
+
+    public void TakeCandy(int count)
+    {
+        this.count -= count;
     }
 }
