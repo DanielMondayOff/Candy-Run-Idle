@@ -106,7 +106,7 @@ public class CandyTailController : MonoBehaviour
                 nextPart = candyParts[i + 1];
 
             // nextPart.transform.DOScale(new Vector3(0.685f, 1, 0.685f), 0.1f);
-            nextPart.transform.localScale = new Vector3(0.8f, 1, 0.8f);
+            nextPart.transform.localScale = new Vector3(1f - (0.18f * waveScale), 1, 1f - (0.18f * waveScale));
 
 
             yield return new WaitForSeconds(0.02f);

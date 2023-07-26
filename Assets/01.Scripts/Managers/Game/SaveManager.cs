@@ -6,18 +6,25 @@ using System.Linq;
 
 public class SaveManager : MonoBehaviour
 {
-    [SerializeField] Text moneyText;
-
     public List<CandyItem> candyInventory = new List<CandyItem>();
     [SerializeField] int money;
 
-    public static SaveManager instance;
+    private List<Text> moneyTextList = new List<Text>();
+
+    public static SaveManager instance = null;
 
     private void Awake()
     {
-        instance = this;
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
-
 
     private void Start()
     {
@@ -46,7 +53,8 @@ public class SaveManager : MonoBehaviour
 
     public void OnChangeMoney()
     {
-        moneyText.text = money.ToString();
+        moneyTextList.ForEach((n) => n.text = money.ToString());
+
     }
 
     public void AddCandy(List<CandyItem> newCandys)
@@ -100,6 +108,21 @@ public class SaveManager : MonoBehaviour
     public CandyItem FindCandyItem(int id)
     {
         return candyInventory.Find((n => n.candy.id == id));
+    }
+
+    public CandyObject FindCandyObject(int id)
+    {
+        return Resources.LoadAll<CandyObject>("Candy").Where((n) => n.id == id).FirstOrDefault();
+    }
+
+    public void AddMoneyText(Text text)
+    {
+        moneyTextList.Add(text);
+    }
+
+    public void RemoveMoneyText(Text text)
+    {
+        moneyTextList.Remove(text);
     }
 }
 

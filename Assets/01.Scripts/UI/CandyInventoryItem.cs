@@ -13,7 +13,7 @@ public class CandyInventoryItem : MonoBehaviour
 
     public void InitCandy(CandyObject candy, int count)
     {
-        image.sprite = IdleManager.instance.FindCandyObject(candy.id).icon;
+        image.sprite = SaveManager.instance.FindCandyObject(candy.id).icon;
 
         candyItem.candy = candy;
         candyItem.count = count;

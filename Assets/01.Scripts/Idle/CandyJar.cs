@@ -32,7 +32,7 @@ public class CandyJar : MonoBehaviour
 
     public void ChangeJarModel(int id)
     {
-        var candy = IdleManager.instance.FindCandyObject(id);
+        var candy = SaveManager.instance.FindCandyObject(id);
 
         Material[] newMat = new Material[] { candy.mat };
 

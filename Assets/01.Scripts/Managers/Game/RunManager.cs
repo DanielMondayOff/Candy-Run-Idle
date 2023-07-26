@@ -47,6 +47,8 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public Transform startPoint;
     [FoldoutGroup("참조")] public GameObject jellyGunStartUI;
     [FoldoutGroup("참조")] public GameObject swipeToStartUI;
+    [FoldoutGroup("참조")] public UnityEngine.UI.Text moneyText;
+
 
 
     [TitleGroup("Game Value")] public int currentMoney;
@@ -98,6 +100,16 @@ public class RunManager : MonoBehaviour
         }
     }
 
+    private void OnEnable()
+    {
+        SaveManager.instance.AddMoneyText(moneyText);
+    }
+
+    private void OnDestroy()
+    {
+        SaveManager.instance.RemoveMoneyText(moneyText);
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -105,9 +117,7 @@ public class RunManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            plusCandyLength += 100;
-
-            ChangeCandysLength();
+            AddCandyLength(200);
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -161,6 +171,8 @@ public class RunManager : MonoBehaviour
 
     public void AddCandyLength(float value)
     {
+        value = Mathf.Clamp(value, -300, 300);
+
         if (value > 0)
         {
             candyList.ForEach((n) => StartCoroutine(n.GetComponentInChildren<CandyTailController>().TailWave(value, () =>
@@ -346,7 +358,7 @@ public class RunManager : MonoBehaviour
 
             candyList.ForEach((n) => tempCandyInventory.AddCandy(new CandyItem() { candy = n.GetComponentInChildren<CandyHead>().candyObject, count = 1 }));
 
-            this.TaskDelay(0.05f / candyCuttingSpeed, () =>
+            this.TaskDelay(0.07f / candyCuttingSpeed, () =>
             {
                 candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().CutCandy(cuttedCandys));
                 runPlayer.transform.position = cuttingPoint2.position;
@@ -361,7 +373,6 @@ public class RunManager : MonoBehaviour
                 {
                     runPlayer.transform.DOMove(cuttingPoint1.transform.position, 0.2f / candyCuttingSpeed).SetEase(Ease.InOutQuad).OnComplete(() => { cuttingReady = true; });
                 });
-
             });
         }
     }
@@ -399,7 +410,10 @@ public class RunManager : MonoBehaviour
 
     public void ResetRunGame()
     {
-        SceneManager.LoadScene("Idle");
+        if (StageManager.instance.currentStageNum == 3)
+            ChangeToIdleGame();
+        else
+            SceneManager.LoadScene("Run");
 
         // plusBulletRange = 0;
         // plusCandyCount = 0;
@@ -433,6 +447,7 @@ public class RunManager : MonoBehaviour
 
     public void ChangeToIdleGame()
     {
-        CameraManager.instance.ChangeCamera("idle");
+        // CameraManager.instance.ChangeCamera("idle");
+        SceneManager.LoadScene("Idle");
     }
 }

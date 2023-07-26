@@ -15,7 +15,7 @@ public class StageManager : MonoBehaviour
     public Stage currentStage = null;
     public int currentStageNum = 0;
 
-    public bool IsAllowJellyGun => stages[currentStageNum].jellyGun;
+    public bool IsAllowJellyGun => (currentStageNum >= stages.Length) ? true : stages[currentStageNum].jellyGun;
 
     public static StageManager instance;
 
@@ -32,8 +32,6 @@ public class StageManager : MonoBehaviour
 
     private void Start()
     {
-        
-
         GenearteCurrentStage();
     }
 

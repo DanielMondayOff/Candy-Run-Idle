@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Sirenix.OdinInspector;
+
 
 public class IdleManager : MonoBehaviour
 {
@@ -13,6 +15,9 @@ public class IdleManager : MonoBehaviour
 
     public List<CandyJar> candyJars = new List<CandyJar>();
 
+    [FoldoutGroup("참조")] public UnityEngine.UI.Text moneyText;
+
+
     public static IdleManager instance;
 
     private void Awake()
@@ -23,6 +28,16 @@ public class IdleManager : MonoBehaviour
     private void Start()
     {
         StartIdleGame();
+    }
+
+    private void OnEnable()
+    {
+        SaveManager.instance.AddMoneyText(moneyText);
+    }
+
+    private void OnDestroy()
+    {
+        SaveManager.instance.RemoveMoneyText(moneyText);
     }
 
     public void StartIdleGame()
@@ -120,11 +135,6 @@ public class IdleManager : MonoBehaviour
         candyJars.ForEach((n) => n.OnChangeOrder());
     }
 
-    public CandyObject FindCandyObject(int id)
-    {
-        return Resources.LoadAll<CandyObject>("Candy").Where((n) => n.id == id).FirstOrDefault();
-    }
-
     public CandyJar FindCandyJar(int id)
     {
         foreach (var jar in candyJars)
@@ -142,7 +152,7 @@ public class IdleManager : MonoBehaviour
     //모든 사탕 판매 완료
     public void SellComplete()
     {
-        
+
     }
 }
 

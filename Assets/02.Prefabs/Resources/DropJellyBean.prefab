@@ -78,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshRenderer: {fileID: 2298337197264879786}
   value: 25
-  maxValue: 200
+  maxValue: 150
 --- !u!1001 &586805100163947566
 PrefabInstance:
   m_ObjectHideFlags: 0

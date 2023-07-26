@@ -58,8 +58,6 @@ public class CandyInventory : MonoBehaviour
         itemList.Clear();
     }
 
-
-
     UnityAction GetCandyInventoryEvent(int id)
     {
         foreach (var item in itemList)
@@ -72,7 +70,7 @@ public class CandyInventory : MonoBehaviour
 
         var newItem = Instantiate(Resources.Load<GameObject>("UI/CandyItem"), transform).GetComponentInChildren<CandyInventoryItem>();
 
-        newItem.InitCandy(IdleManager.instance.FindCandyObject(id), 0);
+        newItem.InitCandy(SaveManager.instance.FindCandyObject(id), 0);
         itemList.Add(newItem);
 
         return () => newItem.AddCandyOne();
