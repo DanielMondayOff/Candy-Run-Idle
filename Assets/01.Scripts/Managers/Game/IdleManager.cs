@@ -16,6 +16,10 @@ public class IdleManager : MonoBehaviour
     public List<CandyJar> candyJars = new List<CandyJar>();
 
     [FoldoutGroup("참조")] public UnityEngine.UI.Text moneyText;
+    [FoldoutGroup("참조")] public GameObject idleUI;
+
+
+    private bool playIdle = false;
 
 
     public static IdleManager instance;
@@ -27,12 +31,13 @@ public class IdleManager : MonoBehaviour
 
     private void Start()
     {
-        StartIdleGame();
+        Init();
+        SaveManager.instance.AddMoneyText(moneyText);
     }
 
     private void OnEnable()
     {
-        SaveManager.instance.AddMoneyText(moneyText);
+        // print(SaveManager.instance);
     }
 
     private void OnDestroy()
@@ -40,11 +45,17 @@ public class IdleManager : MonoBehaviour
         SaveManager.instance.RemoveMoneyText(moneyText);
     }
 
-    public void StartIdleGame()
+    public void Init()
     {
         GenerateCandyJar();
 
         this.TaskWhile(5, 2, () => GenenrateCustomer());
+    }
+
+    public void StartIdle()
+    {
+        playIdle = true;
+        idleUI.SetActive(true);
     }
 
     public OrderLine FindEmptyOrderLine_Customer()
@@ -103,6 +114,9 @@ public class IdleManager : MonoBehaviour
 
     public void GenenrateCustomer()
     {
+        if (SaveManager.instance.candyInventory.Count <= 0 || !playIdle)
+            return;
+
         var spawnPoint = currentMap.GetRandomSpawnPoint();
         var customer = Instantiate(Managers.Resource.Load<GameObject>("Customer")).GetComponentInChildren<IdleCustomer>();
 
@@ -153,6 +167,12 @@ public class IdleManager : MonoBehaviour
     public void SellComplete()
     {
 
+    }
+
+    public void PlayRunGame()
+    {
+        idleUI.SetActive(false);
+        CameraManager.instance.ChangeCamera("follow");
     }
 }
 

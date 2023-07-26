@@ -146,6 +146,14 @@ public class RunManager : MonoBehaviour
         {
             CuttingCandy();
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha7))
+        {
+
+            SceneManager.UnloadScene("Run");
+            SceneManager.LoadScene("Run", LoadSceneMode.Additive);
+
+        }
     }
 
     public void RunGameStart()
@@ -413,7 +421,12 @@ public class RunManager : MonoBehaviour
         if (StageManager.instance.currentStageNum == 3)
             ChangeToIdleGame();
         else
-            SceneManager.LoadScene("Run");
+        {
+            cuttedCandys.ForEach((n) => Destroy(n));
+
+            SceneManager.UnloadScene("Run");
+            SceneManager.LoadScene("Run", LoadSceneMode.Additive);
+        }
 
         // plusBulletRange = 0;
         // plusCandyCount = 0;
@@ -447,7 +460,12 @@ public class RunManager : MonoBehaviour
 
     public void ChangeToIdleGame()
     {
-        // CameraManager.instance.ChangeCamera("idle");
-        SceneManager.LoadScene("Idle");
+        runEndUI.SetActive(false);
+        jarAnimator.SetBool("Rotate", false);
+
+        CameraManager.instance.ChangeCamera("idle");
+        IdleManager.instance.Init();
+        IdleManager.instance.StartIdle();
+        // SceneManager.LoadScene("Idle");
     }
 }

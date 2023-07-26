@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using UnityEditor;
 
 
-public class ColorManager : MonoBehaviour, IPointerDownHandler, IDragHandler
+public class ColorManager : MonoBehaviour
 {
 #if UNITY_EDITOR || UNITY_STANDALONE_OSX
     [SerializeField] Image circlePalette;
