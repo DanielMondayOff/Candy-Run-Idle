@@ -9,7 +9,7 @@ public class IdleManager : MonoBehaviour
 {
     public IdleMap currentMap;
 
-    [SerializeField] private IdleWorker[] workers;
+    [SerializeField] private List<IdleWorker> workers = new List<IdleWorker>();
 
     public Queue<CandyOrder> orderQueue = new Queue<CandyOrder>();
 
@@ -17,9 +17,21 @@ public class IdleManager : MonoBehaviour
 
     [FoldoutGroup("참조")] public UnityEngine.UI.Text moneyText;
     [FoldoutGroup("참조")] public GameObject idleUI;
+    [FoldoutGroup("참조")] public GameObject upgradePanel;
+
+
+
+    [FoldoutGroup("업그레이드")] public IdleUpgrade hireWorker;
+
+    [FoldoutGroup("업그레이드")] public IdleUpgrade workerSpeedUp;
+    public readonly float[] workerSpeed = { 6, 6.5f, 7f, 7.5f, 8f, 8.5f, 9f, 10f, 10.5f, 11f };
+    [FoldoutGroup("업그레이드")] public IdleUpgrade promotion;
+    public readonly float[] customerSpawnSpeed = { 5.5f, 5f, 4.5f, 4f, 3.5f, 3f, 2.5f, 2f, 1.5f, 1f };
 
 
     private bool playIdle = false;
+
+    private TaskUtil.WhileTaskMethod spawnCustomer = null;
 
 
     public static IdleManager instance;
@@ -31,6 +43,22 @@ public class IdleManager : MonoBehaviour
 
     private void Start()
     {
+
+        if (ES3.KeyExists("workerSpeedUp"))
+            hireWorker = ES3.Load<IdleUpgrade>("workerSpeedUp");
+
+        if (ES3.KeyExists("hireWorker"))
+        {
+            hireWorker = ES3.Load<IdleUpgrade>("hireWorker");
+            SpawnWorker(hireWorker.currentLevel + 1);
+        }
+
+        if (ES3.KeyExists("promotion"))
+        {
+            hireWorker = ES3.Load<IdleUpgrade>("promotion");
+            SetCustomerSpawnSpeed(customerSpawnSpeed[promotion.currentLevel]);
+        }
+
         if (ES3.KeyExists("enableShop"))
             if (ES3.Load<bool>("enableShop"))
                 StartIdle();
@@ -53,7 +81,7 @@ public class IdleManager : MonoBehaviour
         if (SaveManager.instance.candyInventory.Count >= 0 && !playIdle)
         {
             GenerateCandyJar();
-            this.TaskWhile(5, 2, () => GenenrateCustomer());
+            spawnCustomer = this.TaskWhile(customerSpawnSpeed[promotion.currentLevel], 2, () => GenenrateCustomer());
             playIdle = true;
         }
     }
@@ -194,6 +222,77 @@ public class IdleManager : MonoBehaviour
         CameraManager.instance.ChangeCamera("follow");
         RunManager.instance.ChangeToRunGame();
     }
+
+    public void Upgrade_HireWorker()
+    {
+        hireWorker.currentLevel++;
+
+        ES3.Save<IdleUpgrade>("hireWorker", hireWorker);
+
+        SpawnWorker(1);
+    }
+
+    public void SetCustomerSpawnSpeed(float speed)
+    {
+        spawnCustomer.SetIntervalTime(speed);
+    }
+
+    public void Upgrade_WorkerSpeedUp()
+    {
+        workerSpeedUp.currentLevel++;
+
+        ES3.Save<IdleUpgrade>("workerSpeedUp", workerSpeedUp);
+
+        workers.ForEach((n) => n.ChangeMoveSpeed(workerSpeed[workerSpeedUp.currentLevel]));
+    }
+
+    public void Upgrade_Promotion()
+    {
+        promotion.currentLevel++;
+
+        ES3.Save<IdleUpgrade>("promotion", promotion);
+
+        SetCustomerSpawnSpeed(customerSpawnSpeed[promotion.currentLevel]);
+    }
+
+    public void SpawnWorker(int count)
+    {
+        for (int i = 0; i < count; i++)
+        {
+            var worker = Instantiate(Resources.Load<GameObject>("Worker"), currentMap.workerSpawnPoint).GetComponentInChildren<IdleWorker>();
+
+            worker.ChangeMoveSpeed(workerSpeed[workerSpeedUp.currentLevel]);
+            workers.Add(worker);
+        }
+    }
+
+    public void OpenUpgradePanel()
+    {
+        upgradePanel.SetActive(true);
+    }
+
+    public void CloseUpgradePanel()
+    {
+        upgradePanel.SetActive(false);
+    }
+}
+
+public enum IdleUpgradeType
+{
+    HireWorker = 1,
+    WorkerSpeedUp = 2,
+    Promotion = 3
+}
+
+[System.Serializable]
+public class IdleUpgrade
+{
+    public IdleUpgradeType upgradeType;
+
+    public int maxLevel = 10;
+    public int currentLevel = 0;
+
+    public int[] cost;
 }
 
 [System.Serializable]

@@ -64,6 +64,9 @@ public class StageManager : MonoBehaviour
         currentStageNum++;
 
         ES3.Save<int>("CurrentStageNum", currentStageNum);
+
+        if (currentStageNum == 3)
+            ES3.Save("enableShop", true);
     }
 
     public void GenerateRandomStage()

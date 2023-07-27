@@ -16,6 +16,17 @@ public class IdleWorker : MonoBehaviour
 
     public WorkerStatus currentWorkerStatus;
 
+
+    private void Start()
+    {
+        ChangeMoveSpeed(IdleManager.instance.workerSpeed[IdleManager.instance.workerSpeedUp.currentLevel]);
+    }
+
+    public void ChangeMoveSpeed(float speed)
+    {
+        agent.speed = speed;
+    }
+
     private void Update()
     {
         WorkerStateMachine();

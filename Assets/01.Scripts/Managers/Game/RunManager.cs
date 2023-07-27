@@ -49,8 +49,10 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject swipeToStartUI;
     [FoldoutGroup("참조")] public UnityEngine.UI.Text moneyText;
     [FoldoutGroup("참조")] public GameObject runGameUI;
+    [FoldoutGroup("참조")] public GameObject particleUI;
     [FoldoutGroup("참조")] public GameObject goToShopBtn;
-
+    [FoldoutGroup("참조")] public GameObject nextStageBtn;
+    [FoldoutGroup("참조")] public GameObject sellCandyBtn;
 
 
     [TitleGroup("Game Value")] public int currentMoney;
@@ -101,13 +103,15 @@ public class RunManager : MonoBehaviour
             enableSwipe = false;
         }
 
-        if (SaveManager.instance.GetEnableShop)
-            goToShopBtn.SetActive(true);
+        if (ES3.KeyExists("enableShop"))
+            if (ES3.Load<bool>("enableShop"))
+                goToShopBtn.SetActive(true);
     }
 
     private void OnEnable()
     {
         SaveManager.instance.AddMoneyText(moneyText);
+        SaveManager.instance.OnChangeMoney();
     }
 
     private void OnDestroy()
@@ -402,11 +406,21 @@ public class RunManager : MonoBehaviour
 
         this.TaskDelay(3.5f, () =>
         {
+            if (StageManager.instance.currentStageNum == 3)
+            {
+                sellCandyBtn.SetActive(true);
+            }
+            else
+            {
+                nextStageBtn.SetActive(true);
+            }
+
             runEndUI.SetActive(true);
             jarAnimator.SetBool("Rotate", true);
 
             EndCandyInventoryUI.ClearUI();
             EndCandyInventoryUI.GenerateUIfromList(temp.candyItems);
+
         });
     }
 
@@ -421,24 +435,18 @@ public class RunManager : MonoBehaviour
         ResetRunGame();
     }
 
+    public void OnClickSellCandyBtn()
+    {
+        ChangeToIdleGame();
+    }
+
     public void ResetRunGame()
     {
-        if (StageManager.instance.currentStageNum == 3)
-        {
-            cuttedCandys.ForEach((n) => Destroy(n));
-            SceneManager.UnloadScene("Run");
-            SceneManager.LoadScene("Run", LoadSceneMode.Additive);
+        cuttedCandys.ForEach((n) => Destroy(n));
 
-            ES3.Save("enableShop", true);
-            ChangeToIdleGame();
-        }
-        else
-        {
-            cuttedCandys.ForEach((n) => Destroy(n));
+        SceneManager.UnloadScene("Run");
+        SceneManager.LoadScene("Run", LoadSceneMode.Additive);
 
-            SceneManager.UnloadScene("Run");
-            SceneManager.LoadScene("Run", LoadSceneMode.Additive);
-        }
 
         // plusBulletRange = 0;
         // plusCandyCount = 0;
@@ -474,6 +482,7 @@ public class RunManager : MonoBehaviour
     {
         runEndUI.SetActive(false);
         runGameUI.SetActive(false);
+        particleUI.SetActive(false);
         jarAnimator.SetBool("Rotate", false);
 
         CameraManager.instance.ChangeCamera("idle");
@@ -489,6 +498,12 @@ public class RunManager : MonoBehaviour
 
     public void ChangeToRunGame()
     {
+        cuttedCandys.ForEach((n) => Destroy(n));
+
+        SceneManager.UnloadScene("Run");
+        SceneManager.LoadScene("Run", LoadSceneMode.Additive);
+
         runGameUI.SetActive(true);
+        particleUI.SetActive(true);
     }
 }
