@@ -13,6 +13,8 @@ public class SaveManager : MonoBehaviour
 
     private List<Text> moneyTextList = new List<Text>();
 
+    public UnityEngine.Events.UnityEvent onMoneyChangeEvent = new UnityEngine.Events.UnityEvent();
+
     public static SaveManager instance = null;
 
     private void Awake()
@@ -52,10 +54,20 @@ public class SaveManager : MonoBehaviour
         OnChangeMoney();
     }
 
+    public void LossMoney(int value)
+    {
+        money -= value;
+
+        ES3.Save<int>("Money", money);
+
+        OnChangeMoney();
+    }
+
     public void OnChangeMoney()
     {
         moneyTextList.ForEach((n) => n.text = money.ToString());
 
+        onMoneyChangeEvent.Invoke();
     }
 
     public void AddCandy(List<CandyItem> newCandys)
@@ -124,6 +136,28 @@ public class SaveManager : MonoBehaviour
     public void RemoveMoneyText(Text text)
     {
         moneyTextList.Remove(text);
+    }
+
+    public bool CheckPossibleUpgrade(int cost)
+    {
+        if (money >= cost)
+            return true;
+        else
+            return false;
+    }
+
+    public bool CheckCandyExist(int id, int count = 1)
+    {
+        foreach (var candy in candyInventory)
+        {
+            if (candy.candy.id == id)
+                if (candy.count >= count)
+                    return true;
+                else
+                    return false;
+        }
+
+        return false;
     }
 }
 

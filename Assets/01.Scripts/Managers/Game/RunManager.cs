@@ -162,6 +162,16 @@ public class RunManager : MonoBehaviour
             SceneManager.UnloadScene("Run");
             SceneManager.LoadScene("Run", LoadSceneMode.Additive);
         }
+
+        if (Input.GetKeyDown(KeyCode.Alpha8))
+        {
+            SaveManager.instance.GetMoney(500);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha9))
+        {
+            SaveManager.instance.LossMoney(500);
+        }
     }
 
     public void RunGameStart()

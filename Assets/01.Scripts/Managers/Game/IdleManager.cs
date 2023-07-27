@@ -10,6 +10,8 @@ public class IdleManager : MonoBehaviour
     public IdleMap currentMap;
 
     [SerializeField] private List<IdleWorker> workers = new List<IdleWorker>();
+    [SerializeField] private List<GameObject> customers = new List<GameObject>();
+
 
     public Queue<CandyOrder> orderQueue = new Queue<CandyOrder>();
 
@@ -19,7 +21,11 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject idleUI;
     [FoldoutGroup("참조")] public GameObject upgradePanel;
 
+    [FoldoutGroup("Value")] public Color activeBtnColor;
+    [FoldoutGroup("Value")] public Color deactiveBtnColor;
 
+    [FoldoutGroup("Value")] public Color activeCostColor;
+    [FoldoutGroup("Value")] public Color deactiveCostColor;
 
     [FoldoutGroup("업그레이드")] public IdleUpgrade hireWorker;
 
@@ -27,7 +33,7 @@ public class IdleManager : MonoBehaviour
     public readonly float[] workerSpeed = { 6, 6.5f, 7f, 7.5f, 8f, 8.5f, 9f, 10f, 10.5f, 11f };
     [FoldoutGroup("업그레이드")] public IdleUpgrade promotion;
     public readonly float[] customerSpawnSpeed = { 5.5f, 5f, 4.5f, 4f, 3.5f, 3f, 2.5f, 2f, 1.5f, 1f };
-
+    public readonly float[] maxCustomerCount = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
 
     private bool playIdle = false;
 
@@ -43,25 +49,30 @@ public class IdleManager : MonoBehaviour
 
     private void Start()
     {
+        if (ES3.KeyExists("enableShop"))
+            if (ES3.Load<bool>("enableShop"))
+                StartIdle();
 
         if (ES3.KeyExists("workerSpeedUp"))
-            hireWorker = ES3.Load<IdleUpgrade>("workerSpeedUp");
+            workerSpeedUp = ES3.Load<IdleUpgrade>("workerSpeedUp");
 
         if (ES3.KeyExists("hireWorker"))
         {
             hireWorker = ES3.Load<IdleUpgrade>("hireWorker");
             SpawnWorker(hireWorker.currentLevel + 1);
         }
+        else
+        {
+            SpawnWorker(1);
+        }
 
         if (ES3.KeyExists("promotion"))
         {
-            hireWorker = ES3.Load<IdleUpgrade>("promotion");
+            promotion = ES3.Load<IdleUpgrade>("promotion");
+            print(customerSpawnSpeed);
             SetCustomerSpawnSpeed(customerSpawnSpeed[promotion.currentLevel]);
         }
 
-        if (ES3.KeyExists("enableShop"))
-            if (ES3.Load<bool>("enableShop"))
-                StartIdle();
 
         SaveManager.instance.AddMoneyText(moneyText);
     }
@@ -148,7 +159,7 @@ public class IdleManager : MonoBehaviour
 
     public void GenenrateCustomer()
     {
-        if (SaveManager.instance.candyInventory.Count <= 0 || CheckCandyJar() || !playIdle)
+        if (SaveManager.instance.candyInventory.Count <= 0 || CheckCandyJar() || !playIdle || maxCustomerCount[promotion.currentLevel] <= customers.Count)
             return;
 
         var spawnPoint = currentMap.GetRandomSpawnPoint();
@@ -157,6 +168,8 @@ public class IdleManager : MonoBehaviour
         customer.transform.position = spawnPoint.position;
 
         customer.Init(spawnPoint);
+
+        customers.Add(customer.transform.root.gameObject);
 
         // var order = MakeOrder(customer.GetComponentInChildren<IdleCustomer>());
 
@@ -225,6 +238,11 @@ public class IdleManager : MonoBehaviour
 
     public void Upgrade_HireWorker()
     {
+        if (hireWorker.cost[hireWorker.currentLevel] > SaveManager.instance.GetMoney())
+            return;
+
+        SaveManager.instance.LossMoney(hireWorker.cost[hireWorker.currentLevel]);
+
         hireWorker.currentLevel++;
 
         ES3.Save<IdleUpgrade>("hireWorker", hireWorker);
@@ -232,13 +250,13 @@ public class IdleManager : MonoBehaviour
         SpawnWorker(1);
     }
 
-    public void SetCustomerSpawnSpeed(float speed)
-    {
-        spawnCustomer.SetIntervalTime(speed);
-    }
-
     public void Upgrade_WorkerSpeedUp()
     {
+        if (workerSpeedUp.cost[workerSpeedUp.currentLevel] > SaveManager.instance.GetMoney())
+            return;
+
+        SaveManager.instance.LossMoney(workerSpeedUp.cost[workerSpeedUp.currentLevel]);
+
         workerSpeedUp.currentLevel++;
 
         ES3.Save<IdleUpgrade>("workerSpeedUp", workerSpeedUp);
@@ -248,6 +266,11 @@ public class IdleManager : MonoBehaviour
 
     public void Upgrade_Promotion()
     {
+        if (promotion.cost[promotion.currentLevel] > SaveManager.instance.GetMoney())
+            return;
+
+        SaveManager.instance.LossMoney(promotion.cost[promotion.currentLevel]);
+
         promotion.currentLevel++;
 
         ES3.Save<IdleUpgrade>("promotion", promotion);
@@ -255,11 +278,16 @@ public class IdleManager : MonoBehaviour
         SetCustomerSpawnSpeed(customerSpawnSpeed[promotion.currentLevel]);
     }
 
+    public void SetCustomerSpawnSpeed(float speed)
+    {
+        spawnCustomer.SetIntervalTime(speed);
+    }
+
     public void SpawnWorker(int count)
     {
         for (int i = 0; i < count; i++)
         {
-            var worker = Instantiate(Resources.Load<GameObject>("Worker"), currentMap.workerSpawnPoint).GetComponentInChildren<IdleWorker>();
+            var worker = Instantiate(Resources.Load<GameObject>("Worker"), currentMap.workerSpawnPoint.position, Quaternion.identity).GetComponentInChildren<IdleWorker>();
 
             worker.ChangeMoveSpeed(workerSpeed[workerSpeedUp.currentLevel]);
             workers.Add(worker);
@@ -275,8 +303,32 @@ public class IdleManager : MonoBehaviour
     {
         upgradePanel.SetActive(false);
     }
+
+    public void ExitCustomer(GameObject customer)
+    {
+        customers.Remove(customer);
+    }
+
+    public int GetCurrentUpgradeCost(IdleUpgradeType type)
+    {
+        switch (type)
+        {
+            case IdleUpgradeType.HireWorker:
+                return hireWorker.cost[hireWorker.currentLevel];
+
+            case IdleUpgradeType.WorkerSpeedUp:
+                return workerSpeedUp.cost[workerSpeedUp.currentLevel];
+            case IdleUpgradeType.Promotion:
+                return promotion.cost[promotion.currentLevel];
+
+            default:
+                Debug.LogError("정의가 없습니다. 추가해 주십시요");
+                return 100000;
+        }
+    }
 }
 
+[System.Serializable]
 public enum IdleUpgradeType
 {
     HireWorker = 1,
@@ -320,6 +372,11 @@ public class CandyOrder
         currentCustomer = null;
 
         currentLine.currentCustomer = null;
+    }
+
+    public int CalculateTotalCost()
+    {
+        return candy.cost * requestCount;
     }
 }
 

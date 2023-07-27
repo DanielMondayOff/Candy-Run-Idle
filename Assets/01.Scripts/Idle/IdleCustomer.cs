@@ -82,10 +82,20 @@ public class IdleCustomer : MonoBehaviour
         line.currentCustomer = null;
 
         CandyCanvas.gameObject.SetActive(false);
-        SetDestination(spawnPoint.position, () => Destroy(transform.root.gameObject));
+        SetDestination(spawnPoint.position, () => { IdleManager.instance.ExitCustomer(transform.root.gameObject); Destroy(transform.root.gameObject); });
 
         candyJar.ChangeJarModel(order.candy.id);
         candyJar.gameObject.SetActive(true);
+
+        SaveManager.instance.GetMoney(order.CalculateTotalCost());
+
+        var particle = Managers.Pool.Pop(Managers.Resource.Load<GameObject>("Particles/DollarbillDirectional Large"));
+
+        particle.transform.position = transform.position + (Vector3.up * 2);
+        particle.GetComponentInChildren<ParticleSystem>().Play();
+
+        this.TaskDelay(5, () => Managers.Pool.Push(particle.GetComponentInParent<Poolable>()));
+
 
         // Managers.Pool.Push(transform.GetComponentInParent<Poolable>()
     }

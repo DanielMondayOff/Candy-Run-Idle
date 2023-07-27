@@ -61,6 +61,9 @@ public class IdleWorker : MonoBehaviour
 
     void MoveToCandy(OrderLine line)
     {
+        if (!SaveManager.instance.CheckCandyExist(line.currentCustomer.order.candy.id))
+            return;
+
         line.currentWorker = this;
 
         currentOrder = line.currentCustomer.order;
@@ -81,6 +84,12 @@ public class IdleWorker : MonoBehaviour
 
     void MoveToCustomer(OrderLine line)
     {
+        if (!SaveManager.instance.CheckCandyExist(line.currentCustomer.order.candy.id))
+        {
+            currentWorkerStatus = WorkerStatus.Wait;
+            return;
+        }
+
         workerInventory = new CandyItem() { candy = line.currentCustomer.order.candy, count = 1 };
 
         agent.SetDestination(line.workerLine.position);

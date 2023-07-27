@@ -15,4 +15,4 @@ MonoBehaviour:
   id: 2
   mat: {fileID: 2100000, guid: 4fe4c88bfb4a24c9eab4a1ac969ca7f3, type: 2}
   icon: {fileID: 21300000, guid: 9e21648af8e3e42c2af1b00079c483fc, type: 3}
-  cost: 15
+  cost: 25
