@@ -10,7 +10,7 @@ public enum JoyStickMethod
     SlowFollow,
     RunningGame,
 }
-public class JoyStickController : MonoBehaviour
+public class JoyStickController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [Header("조이스틱 방식")]
     [Tooltip("Fixed : 누른 위치에 고정\nHardFixed : 이미 고정 되어있음\nFollow : 원 밖으로 나가면 원이 따라옴\nSlowFollow : 원 밖으로 나가면 원이 천천히 따라옴\nRunningGame : 런 방식처럼 좌우 오프셋만 인식")]
@@ -51,9 +51,34 @@ public class JoyStickController : MonoBehaviour
     private bool isButtonClick = false;
     private bool isMouseDown = false;
 
+    private bool isPointerDown = false;
+
     public System.Action DownAction;
     public System.Action<Vector2> JoystickMoveAction;
     public System.Action UpAction;
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (!isPointerDown)
+        {
+            _oriXPos = Input.mousePosition.x;
+            _oriPos = MoveObjectRig.position;
+            DownAction?.Invoke();
+            isPointerDown = true;
+        }
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        if (isPointerDown)
+        {
+            _joystickImage.enabled = false;
+            _joystickHandleImage.enabled = false;
+            UpAction?.Invoke();
+            isPointerDown = false;
+        }
+
+    }
 
     public void Awake()
     {
@@ -142,20 +167,21 @@ public class JoyStickController : MonoBehaviour
             case JoyStickMethod.DoNotUse:
                 return;
             case JoyStickMethod.Fixed:
-                if (Input.GetMouseButtonDown(0))
+                if (isPointerDown)
                 {
                     // if (CheckButtonClick()) return;
 
-                    _joystickImage.enabled = true;
-                    _joystickHandleImage.enabled = true;
+                    // _joystickImage.enabled = true;
+                    // _joystickHandleImage.enabled = true;
 
-                    _joystick.anchoredPosition = Input.mousePosition * 2688f / Screen.height;
-                    _joystickHandle.anchoredPosition = Vector2.zero;
-                    _oriPos = _joystick.anchoredPosition;
+                    // _joystick.anchoredPosition = Input.mousePosition * 2688f / Screen.height;
+                    // _joystickHandle.anchoredPosition = Vector2.zero;
+                    // _oriPos = _joystick.anchoredPosition;
 
-                    DownAction?.Invoke();
+                    // DownAction?.Invoke();
+
                 }
-                else if (Input.GetMouseButton(0) && !isButtonClick)
+                else if (isPointerDown && !isButtonClick)
                 {
                     _joystickHandle.anchoredPosition = Input.mousePosition * 2688f / Screen.height - _oriPos;
                     if (_joystickHandle.anchoredPosition.magnitude > JoyStickBound)
@@ -176,9 +202,9 @@ public class JoyStickController : MonoBehaviour
                 }
                 else if (Input.GetMouseButtonUp(0) && !isButtonClick)
                 {
-                    _joystickImage.enabled = false;
-                    _joystickHandleImage.enabled = false;
-                    UpAction?.Invoke();
+                    // _joystickImage.enabled = false;
+                    // _joystickHandleImage.enabled = false;
+                    // UpAction?.Invoke();
                 }
                 break;
             case JoyStickMethod.HardFixed:
@@ -294,15 +320,16 @@ public class JoyStickController : MonoBehaviour
             case JoyStickMethod.RunningGame:
                 if (MoveObjectRig == null) return;
 
-                if (Input.GetMouseButtonDown(0))
-                {
-                    // if (CheckButtonClick()) return;
+                // if (isPointerDown)
+                // {
+                //     // if (CheckButtonClick()) return;
 
-                    _oriXPos = Input.mousePosition.x;
-                    _oriPos = MoveObjectRig.position;
-                    DownAction?.Invoke();
-                }
-                else if (Input.GetMouseButton(0) && !isButtonClick)
+                //     // _oriXPos = Input.mousePosition.x;
+                //     // _oriPos = MoveObjectRig.position;
+                //     // DownAction?.Invoke();
+                // }
+                // else 
+                if (isPointerDown)
                 {
                     float _curXPos = Input.mousePosition.x;
 
@@ -318,12 +345,12 @@ public class JoyStickController : MonoBehaviour
                     }
                     JoystickMoveAction?.Invoke(_joystickHandle.anchoredPosition);
                 }
-                else if (Input.GetMouseButtonUp(0) && !isButtonClick)
-                {
-                    _joystickImage.enabled = false;
-                    _joystickHandleImage.enabled = false;
-                    UpAction?.Invoke();
-                }
+                // else if (isPointerDown && !isButtonClick)
+                // {
+                //     // _joystickImage.enabled = false;
+                //     // _joystickHandleImage.enabled = false;
+                //     // UpAction?.Invoke();
+                // }
                 if (AutoRun)
                 {
                     MoveObjectRig.MovePosition(MoveObjectRig.position + Vector3.forward * Speed * Time.deltaTime);

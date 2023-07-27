@@ -48,6 +48,8 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject jellyGunStartUI;
     [FoldoutGroup("참조")] public GameObject swipeToStartUI;
     [FoldoutGroup("참조")] public UnityEngine.UI.Text moneyText;
+    [FoldoutGroup("참조")] public GameObject runGameUI;
+    [FoldoutGroup("참조")] public GameObject goToShopBtn;
 
 
 
@@ -98,6 +100,9 @@ public class RunManager : MonoBehaviour
 
             enableSwipe = false;
         }
+
+        if (SaveManager.instance.GetEnableShop)
+            goToShopBtn.SetActive(true);
     }
 
     private void OnEnable()
@@ -149,16 +154,16 @@ public class RunManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha7))
         {
-
+            StageManager.instance.ClearStage();
             SceneManager.UnloadScene("Run");
             SceneManager.LoadScene("Run", LoadSceneMode.Additive);
-
         }
     }
 
     public void RunGameStart()
     {
         startUI.SetActive(false);
+        goToShopBtn.SetActive(false);
         isGameStart = true;
         canMove = true;
 
@@ -419,7 +424,14 @@ public class RunManager : MonoBehaviour
     public void ResetRunGame()
     {
         if (StageManager.instance.currentStageNum == 3)
+        {
+            cuttedCandys.ForEach((n) => Destroy(n));
+            SceneManager.UnloadScene("Run");
+            SceneManager.LoadScene("Run", LoadSceneMode.Additive);
+
+            ES3.Save("enableShop", true);
             ChangeToIdleGame();
+        }
         else
         {
             cuttedCandys.ForEach((n) => Destroy(n));
@@ -461,11 +473,22 @@ public class RunManager : MonoBehaviour
     public void ChangeToIdleGame()
     {
         runEndUI.SetActive(false);
+        runGameUI.SetActive(false);
         jarAnimator.SetBool("Rotate", false);
 
         CameraManager.instance.ChangeCamera("idle");
-        IdleManager.instance.Init();
         IdleManager.instance.StartIdle();
+        IdleManager.instance.GoToIdleGame();
         // SceneManager.LoadScene("Idle");
+    }
+
+    public void OnClickGoToIdleBtn()
+    {
+        ChangeToIdleGame();
+    }
+
+    public void ChangeToRunGame()
+    {
+        runGameUI.SetActive(true);
     }
 }

@@ -8,6 +8,8 @@ public class SaveManager : MonoBehaviour
 {
     public List<CandyItem> candyInventory = new List<CandyItem>();
     [SerializeField] int money;
+    [SerializeField] bool enableShop = false;
+    public bool GetEnableShop => enableShop;
 
     private List<Text> moneyTextList = new List<Text>();
 
@@ -24,20 +26,19 @@ public class SaveManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
 
-    private void Start()
-    {
         if (ES3.KeyExists("Money"))
             money = ES3.Load<int>("Money");
         else
             money = 0;
 
-        OnChangeMoney();
-
-
         if (ES3.KeyExists("CandyInventory"))
             candyInventory = ES3.Load<List<CandyItem>>("CandyInventory");
+    }
+
+    private void Start()
+    {
+        OnChangeMoney();
     }
 
     public int GetMoney() => money;

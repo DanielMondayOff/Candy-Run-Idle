@@ -31,7 +31,10 @@ public class IdleManager : MonoBehaviour
 
     private void Start()
     {
-        Init();
+        if (ES3.KeyExists("enableShop"))
+            if (ES3.Load<bool>("enableShop"))
+                StartIdle();
+
         SaveManager.instance.AddMoneyText(moneyText);
     }
 
@@ -45,17 +48,20 @@ public class IdleManager : MonoBehaviour
         SaveManager.instance.RemoveMoneyText(moneyText);
     }
 
-    public void Init()
-    {
-        GenerateCandyJar();
-
-        this.TaskWhile(5, 2, () => GenenrateCustomer());
-    }
-
     public void StartIdle()
     {
-        playIdle = true;
+        if (SaveManager.instance.candyInventory.Count >= 0 && !playIdle)
+        {
+            GenerateCandyJar();
+            this.TaskWhile(5, 2, () => GenenrateCustomer());
+            playIdle = true;
+        }
+    }
+
+    public void GoToIdleGame()
+    {
         idleUI.SetActive(true);
+        StartIdle();
     }
 
     public OrderLine FindEmptyOrderLine_Customer()
@@ -114,7 +120,7 @@ public class IdleManager : MonoBehaviour
 
     public void GenenrateCustomer()
     {
-        if (SaveManager.instance.candyInventory.Count <= 0 || !playIdle)
+        if (SaveManager.instance.candyInventory.Count <= 0 || CheckCandyJar() || !playIdle)
             return;
 
         var spawnPoint = currentMap.GetRandomSpawnPoint();
@@ -131,10 +137,25 @@ public class IdleManager : MonoBehaviour
         // order.currentLine = emptyLine;
 
         BookTheLine(customer);
+
+        bool CheckCandyJar()
+        {
+            if (candyJars.Count <= 0)
+                return true;
+
+            foreach (var jar in candyJars)
+            {
+                if (jar.candyItem.count <= 0)
+                    return true;
+            }
+
+            return false;
+        }
     }
 
     public void GenerateCandyJar()
     {
+        print(SaveManager.instance.candyInventory.Count);
         for (int i = 0; i < SaveManager.instance.candyInventory.Count; i++)
         {
             var candyJar = Instantiate(Managers.Resource.Load<GameObject>("CandyJar"), currentMap.candyJarSpawnPos[i].position, Quaternion.identity);
@@ -157,8 +178,6 @@ public class IdleManager : MonoBehaviour
                 return jar;
         }
 
-        print(1234);
-
         return null;
     }
 
@@ -173,6 +192,7 @@ public class IdleManager : MonoBehaviour
     {
         idleUI.SetActive(false);
         CameraManager.instance.ChangeCamera("follow");
+        RunManager.instance.ChangeToRunGame();
     }
 }
 
