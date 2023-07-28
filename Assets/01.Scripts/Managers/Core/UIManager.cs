@@ -115,7 +115,7 @@ public class UIManager
         return sceneUI;
     }
 
-    public T ShowPopupUI<T>(string name = null) where T : UI_Popup
+    public T ShowPopupUI<T>(string name = null, Transform parent = null) where T : UI_Popup
     {
         if (string.IsNullOrEmpty(name))
             name = typeof(T).Name;
@@ -136,7 +136,11 @@ public class UIManager
         go.GetOrAddComponent<Canvas>().renderMode = RenderMode.ScreenSpaceCamera;
         go.GetOrAddComponent<Canvas>().worldCamera = UiCamera;
 
-        go.transform.SetParent(Root.transform);
+        if (parent == null)
+            go.transform.SetParent(Root.transform);
+        else
+            go.transform.SetParent(parent);
+
         popup.Init();
 
         return popup;
