@@ -16,6 +16,5 @@ public class CandyPieces : MonoBehaviour
 
             this.TaskDelay(5, () => Destroy(gameObject));
         }
-
     }
 }

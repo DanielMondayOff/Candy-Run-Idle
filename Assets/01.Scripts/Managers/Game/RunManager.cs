@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine.SceneManagement;
+using MoreMountains.NiceVibrations;
 
 public class RunManager : MonoBehaviour
 {
@@ -322,6 +323,8 @@ public class RunManager : MonoBehaviour
 
             candypiece.GetComponentInChildren<CandyPieces>().ExplosionPieces(candy.transform);
         }
+
+        MMVibrationManager.Haptic(HapticTypes.MediumImpact);
     }
 
     public void ChangeFireRate(float rate) => fireTask.SetIntervalTime(rate);

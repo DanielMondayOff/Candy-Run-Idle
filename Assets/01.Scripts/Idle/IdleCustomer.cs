@@ -25,11 +25,17 @@ public class IdleCustomer : MonoBehaviour
 
     [SerializeField] CandyJar candyJar;
 
+    [SerializeField] GameObject[] skin;
+
+    [SerializeField] Animator animator;
+
 
     public void Init(Transform spawnPoint)
     {
         this.spawnPoint = spawnPoint;
         agent.enabled = true;
+
+        RandomSkin();
     }
 
     private void Update()
@@ -52,6 +58,7 @@ public class IdleCustomer : MonoBehaviour
 
     public void WaitUntilCandy()
     {
+        animator.SetBool("Move", true);
         waitForCandy = true;
 
         OnChangeOrder();
@@ -65,6 +72,8 @@ public class IdleCustomer : MonoBehaviour
 
     public void AddCandyToOrder(CandyItem item)
     {
+        animator.SetBool("Move", false);
+
         if (order.candy.id == item.candy.id)
         {
             order.currentCount += item.count;
@@ -78,6 +87,8 @@ public class IdleCustomer : MonoBehaviour
 
     public void Exit()
     {
+        animator.SetBool("Move", true);
+
         waitForCandy = false;
         line.currentCustomer = null;
 
@@ -108,6 +119,11 @@ public class IdleCustomer : MonoBehaviour
 
         if (wiggle)
             CandyCanvas.transform.DOPunchScale(CandyCanvas.transform.localScale * 0.3f, 0.2f, 2);
+    }
+
+    void RandomSkin()
+    {
+        skin[Random.Range(0, skin.Length)].SetActive(true);
     }
 }
 

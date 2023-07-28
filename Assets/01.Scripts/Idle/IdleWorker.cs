@@ -10,6 +10,7 @@ public class IdleWorker : MonoBehaviour
     [SerializeField] private CandyOrder currentOrder = null;
     [SerializeField]
     private CandyJar candyJar;
+    [SerializeField] Animator animator;
 
 
     private CandyItem workerInventory;
@@ -64,6 +65,8 @@ public class IdleWorker : MonoBehaviour
         if (!SaveManager.instance.CheckCandyExist(line.currentCustomer.order.candy.id))
             return;
 
+        animator.SetBool("Move", true);
+
         line.currentWorker = this;
 
         currentOrder = line.currentCustomer.order;
@@ -111,6 +114,9 @@ public class IdleWorker : MonoBehaviour
 
     void CompleteDelivery(OrderLine line)
     {
+
+        animator.SetBool("Move", false);
+
         line.currentCustomer.AddCandyToOrder(workerInventory);
 
         line.currentWorker = null;
