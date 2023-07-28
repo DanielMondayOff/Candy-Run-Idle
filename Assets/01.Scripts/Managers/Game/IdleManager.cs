@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using Sirenix.OdinInspector;
+using UnityEngine.SceneManagement;
 
 
 public class IdleManager : MonoBehaviour
@@ -45,6 +46,10 @@ public class IdleManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
+        // StartCoroutine(SceneLoading());
+
+        SceneManager.LoadScene(1, LoadSceneMode.Additive);
     }
 
     private void Start()
@@ -73,8 +78,24 @@ public class IdleManager : MonoBehaviour
             SetCustomerSpawnSpeed(customerSpawnSpeed[promotion.currentLevel]);
         }
 
-
         SaveManager.instance.AddMoneyText(moneyText);
+
+        // SceneManager.LoadScene("Run", LoadSceneMode.Additive);
+
+        // StartCoroutine(SceneLoading());
+    }
+
+    public void testbtn()
+    {
+        SceneManager.LoadScene("Run", LoadSceneMode.Additive);
+
+    }
+
+    IEnumerator SceneLoading()
+    {
+        var mAsyncOperation = SceneManager.LoadSceneAsync("Run", LoadSceneMode.Additive);
+
+        yield return mAsyncOperation;
     }
 
     private void OnEnable()

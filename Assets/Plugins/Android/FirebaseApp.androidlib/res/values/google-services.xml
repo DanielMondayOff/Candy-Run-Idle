@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_web_client_id">
+  <string name="gcm_defaultSenderId" translatable="false">346394207547</string>
+  <string name="google_storage_bucket" translatable="false">animal-wildlife.appspot.com</string>
+  <string name="project_id" translatable="false">animal-wildlife</string>
+  <string name="google_api_key" translatable="false">AIzaSyAR0I5__EGVaDevgoVjA_eecdzkOJxz1Ww</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAR0I5__EGVaDevgoVjA_eecdzkOJxz1Ww</string>
+  <string name="google_app_id" translatable="false">1:346394207547:android:0171a060a47485a0a0c31e</string>
+  <string name="default_web_client_id" translatable="false">346394207547-03hl3n8la6tio3n6pt3u13bfb6qkj427.apps.googleusercontent.com</string>
+</resources>

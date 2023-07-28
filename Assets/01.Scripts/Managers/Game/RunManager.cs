@@ -454,7 +454,7 @@ public class RunManager : MonoBehaviour
     {
         cuttedCandys.ForEach((n) => Destroy(n));
 
-        SceneManager.UnloadScene("Run");
+        SceneManager.UnloadSceneAsync("Run");
         SceneManager.LoadScene("Run", LoadSceneMode.Additive);
 
 

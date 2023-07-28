@@ -68,11 +68,18 @@ public class IdleWorker : MonoBehaviour
 
         currentOrder = line.currentCustomer.order;
 
-        agent.SetDestination(IdleManager.instance.FindCandyJar(line.currentCustomer.order.candy.id).transform.position);
+        var targetCandy = IdleManager.instance.FindCandyJar(line.currentCustomer.order.candy.id);
+
+        agent.SetDestination(targetCandy.transform.position);
 
         currentWorkerStatus = WorkerStatus.MoveToCandy;
 
-        this.TaskWaitUntil(() => { MoveToCustomer(line); TakeCandy(); }, () => (agent.remainingDistance < 0.1f));
+        this.TaskWaitUntil(() =>
+        {
+            MoveToCustomer(line);
+            TakeCandy();
+            targetCandy.BubbleWiggle();
+        }, () => (agent.remainingDistance < 0.1f));
 
         void TakeCandy()
         {

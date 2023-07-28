@@ -51,4 +51,9 @@ public class CandyJar : MonoBehaviour
         if (wiggle)
             CandyCanvas.transform.DOPunchScale(CandyCanvas.transform.localScale * 0.3f, 0.2f, 2);
     }
+
+    public void BubbleWiggle()
+    {
+        CandyCanvas.transform.DOPunchScale(CandyCanvas.transform.localScale * 0.3f, 0.2f, 2);
+    }
 }
