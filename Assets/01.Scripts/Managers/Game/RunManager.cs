@@ -54,6 +54,8 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject goToShopBtn;
     [FoldoutGroup("참조")] public GameObject nextStageBtn;
     [FoldoutGroup("참조")] public GameObject sellCandyBtn;
+    [FoldoutGroup("참조")] public StartCard startCard;
+
 
 
     [TitleGroup("Game Value")] public int currentMoney;
@@ -107,6 +109,11 @@ public class RunManager : MonoBehaviour
         if (ES3.KeyExists("enableShop"))
             if (ES3.Load<bool>("enableShop"))
                 goToShopBtn.SetActive(true);
+
+        if (StageManager.instance.currentStageNum >= 2)
+        {
+            startCard.GenearteCards();
+        }
     }
 
     private void OnEnable()
@@ -183,6 +190,8 @@ public class RunManager : MonoBehaviour
         canMove = true;
 
         ChangeCandysLength();
+
+        startCard.gameObject.SetActive(false);
     }
 
     public float GetCurrentFireRate()
