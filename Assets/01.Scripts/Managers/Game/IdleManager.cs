@@ -29,10 +29,12 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("Value")] public Color deactiveCostColor;
 
     [FoldoutGroup("업그레이드")] public IdleUpgrade hireWorker;
-
     [FoldoutGroup("업그레이드")] public IdleUpgrade workerSpeedUp;
-    public readonly float[] workerSpeed = { 6, 6.5f, 7f, 7.5f, 8f, 8.5f, 9f, 10f, 10.5f, 11f };
     [FoldoutGroup("업그레이드")] public IdleUpgrade promotion;
+
+    // [FoldoutGroup("업그레이드")] public IdleUpgrade[] upgrades;
+
+    public readonly float[] workerSpeed = { 6, 6.5f, 7f, 7.5f, 8f, 8.5f, 9f, 10f, 10.5f, 11f, 11.5f };
     public readonly float[] customerSpawnSpeed = { 5.5f, 5f, 4.5f, 4f, 3.5f, 3f, 2.5f, 2f, 1.5f, 1f };
     public readonly float[] maxCustomerCount = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
 
@@ -217,7 +219,6 @@ public class IdleManager : MonoBehaviour
 
     public void GenerateCandyJar()
     {
-        print(SaveManager.instance.candyInventory.Count);
         for (int i = 0; i < SaveManager.instance.candyInventory.Count; i++)
         {
             var candyJar = Instantiate(Managers.Resource.Load<GameObject>("CandyJar"), currentMap.candyJarSpawnPos[i].position, Quaternion.identity);
@@ -291,7 +292,6 @@ public class IdleManager : MonoBehaviour
             return;
 
         SaveManager.instance.LossMoney(promotion.cost[promotion.currentLevel]);
-
         promotion.currentLevel++;
 
         ES3.Save<IdleUpgrade>("promotion", promotion);
@@ -339,6 +339,7 @@ public class IdleManager : MonoBehaviour
 
             case IdleUpgradeType.WorkerSpeedUp:
                 return workerSpeedUp.cost[workerSpeedUp.currentLevel];
+
             case IdleUpgradeType.Promotion:
                 return promotion.cost[promotion.currentLevel];
 
@@ -347,6 +348,48 @@ public class IdleManager : MonoBehaviour
                 return 100000;
         }
     }
+
+    public int GetUpgradeCost(IdleUpgradeType type)
+    {
+        switch (type)
+        {
+            case IdleUpgradeType.HireWorker:
+                return IdleManager.instance.hireWorker.cost[IdleManager.instance.hireWorker.currentLevel];
+
+            case IdleUpgradeType.WorkerSpeedUp:
+                return IdleManager.instance.workerSpeedUp.cost[IdleManager.instance.workerSpeedUp.currentLevel];
+
+            case IdleUpgradeType.Promotion:
+                return IdleManager.instance.promotion.cost[IdleManager.instance.promotion.currentLevel];
+
+            default:
+                Debug.LogError("정의가 없습니다. 추가해 주십시요");
+                return int.MaxValue;
+
+        }
+    }
+
+    public IdleUpgrade GetUpgradeValue(IdleUpgradeType type)
+    {
+        switch (type)
+        {
+            case IdleUpgradeType.HireWorker:
+                return IdleManager.instance.hireWorker;
+
+            case IdleUpgradeType.WorkerSpeedUp:
+                return IdleManager.instance.workerSpeedUp;
+
+            case IdleUpgradeType.Promotion:
+                return IdleManager.instance.promotion;
+
+            default:
+                Debug.LogError("정의가 없습니다. 추가해 주십시요");
+                return null;
+
+        }
+    }
+
+
 }
 
 [System.Serializable]

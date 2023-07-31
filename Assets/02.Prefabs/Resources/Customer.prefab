@@ -347,8 +347,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2208790906028762744}
-  m_Father: {fileID: 814246011381037494}
-  m_RootOrder: 3
+  m_Father: {fileID: 1607399155066858093}
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -833,6 +833,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 014e0745391c24ef4a70d66ebd3413f6,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: cf4e5af917f1240a3ad4014a525e9c1f, type: 2}
     - target: {fileID: 5920845179486358900, guid: 014e0745391c24ef4a70d66ebd3413f6,
         type: 3}
       propertyPath: m_IsActive

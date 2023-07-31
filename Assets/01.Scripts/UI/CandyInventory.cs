@@ -15,6 +15,16 @@ public class CandyInventory : MonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        SaveManager.instance.onChangeCandyInventoryEvent.AddListener(SyncCurrentCandyUI);
+    }
+
+    private void OnDisable()
+    {
+        SaveManager.instance.onChangeCandyInventoryEvent.RemoveListener(SyncCurrentCandyUI);
+    }
+
     public void SyncCurrentCandyUI()
     {
         ClearUI();

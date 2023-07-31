@@ -50,15 +50,16 @@ public class IdleCustomer : MonoBehaviour
 
     public void SetDestination(Vector3 pos, System.Action onComplete = null)
     {
+        animator.SetBool("Move", true);
         agent.SetDestination(pos);
         if (onComplete != null)
-            this.TaskWaitUntil(onComplete, () => (agent.remainingDistance < 0.1f));
+            this.TaskWaitUntil(() => { onComplete.Invoke(); animator.SetBool("Move", false); }, () => (agent.remainingDistance < 0.1f));
         // this.nextAction = onComplete;
     }
 
     public void WaitUntilCandy()
     {
-        animator.SetBool("Move", true);
+
         waitForCandy = true;
 
         OnChangeOrder();
@@ -99,6 +100,7 @@ public class IdleCustomer : MonoBehaviour
         candyJar.gameObject.SetActive(true);
 
         SaveManager.instance.GetMoney(order.CalculateTotalCost());
+
 
         var particle = Managers.Pool.Pop(Managers.Resource.Load<GameObject>("Particles/DollarbillDirectional Large"));
 

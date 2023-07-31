@@ -13,7 +13,13 @@ public class SaveManager : MonoBehaviour
 
     private List<Text> moneyTextList = new List<Text>();
 
+    private List<CandyInventory> inventorys = new List<CandyInventory>();
+
     public UnityEngine.Events.UnityEvent onMoneyChangeEvent = new UnityEngine.Events.UnityEvent();
+    public UnityEngine.Events.UnityEvent onChangeCandyInventoryEvent = new UnityEngine.Events.UnityEvent();
+
+    public bool enableCandyInventoryUIUpdate = true;
+
 
     public static SaveManager instance = null;
 
@@ -70,7 +76,15 @@ public class SaveManager : MonoBehaviour
         onMoneyChangeEvent.Invoke();
     }
 
-    public void AddCandy(List<CandyItem> newCandys)
+    public void OnChangeCandyInventory()
+    {
+        if (!enableCandyInventoryUIUpdate)
+            return;
+
+        onChangeCandyInventoryEvent.Invoke();
+    }
+
+    public void AddCandy(List<CandyItem> newCandys, bool uiUpdate = true)
     {
         foreach (var newCandy in newCandys)
         {
@@ -92,6 +106,9 @@ public class SaveManager : MonoBehaviour
         }
 
         ES3.Save<List<CandyItem>>("CandyInventory", candyInventory);
+
+        if (uiUpdate)
+            OnChangeCandyInventory();
     }
 
     public void TakeCandy(int id, int count)
@@ -105,6 +122,8 @@ public class SaveManager : MonoBehaviour
                 if (candyInventory[i].count <= 0)
                     candyInventory.RemoveAt(i);
 
+                OnChangeCandyInventory();
+
                 return;
             }
         }
@@ -116,6 +135,8 @@ public class SaveManager : MonoBehaviour
                 candy.TakeCandy(count);
             }
         }
+
+        OnChangeCandyInventory();
     }
 
     public CandyItem FindCandyItem(int id)

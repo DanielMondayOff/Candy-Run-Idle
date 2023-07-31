@@ -15,6 +15,8 @@ public class CandyJar : MonoBehaviour
     [SerializeField] Image candyImage;
     [SerializeField] Text test_candyCount;
 
+    Tween bubbleTween;
+
     public void Init(CandyItem item)
     {
         candyItem = item;
@@ -54,6 +56,7 @@ public class CandyJar : MonoBehaviour
 
     public void BubbleWiggle()
     {
-        CandyCanvas.transform.DOPunchScale(CandyCanvas.transform.localScale * 0.3f, 0.2f, 2);
+        if (bubbleTween == null)
+            bubbleTween = CandyCanvas.transform.DOPunchScale(CandyCanvas.transform.localScale * 0.3f, 0.2f, 2).OnComplete(() => bubbleTween = null);
     }
 }

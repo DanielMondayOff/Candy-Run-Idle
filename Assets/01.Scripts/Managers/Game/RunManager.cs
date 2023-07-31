@@ -409,9 +409,10 @@ public class RunManager : MonoBehaviour
 
     public void EndCuttingCandy(TempCandyInventory temp)
     {
+        SaveManager.instance.enableCandyInventoryUIUpdate = false;
         cuttingPhase = false;
 
-        SaveManager.instance.AddCandy(temp.candyItems);
+        SaveManager.instance.AddCandy(temp.candyItems, false);
 
         StageManager.instance.ClearStage();
 
@@ -434,6 +435,8 @@ public class RunManager : MonoBehaviour
             EndCandyInventoryUI.ClearUI();
             EndCandyInventoryUI.GenerateUIfromList(temp.candyItems);
 
+            SaveManager.instance.enableCandyInventoryUIUpdate = true;
+
         });
     }
 
@@ -445,6 +448,8 @@ public class RunManager : MonoBehaviour
         // StageManager.instance.GenearteCurrentStage();
 
         // CameraManager.instance.ChangeCamera("follow");
+        SaveManager.instance.enableCandyInventoryUIUpdate = true;
+
         ResetRunGame();
     }
 
