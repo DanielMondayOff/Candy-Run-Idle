@@ -222,6 +222,9 @@ public class RunManager : MonoBehaviour
         // candyList.ForEach((n) => n.transform.localScale = new Vector3(n.transform.localScale.x, n.transform.localScale.y, GetCurrentCandyLength() / 1000f));
 
         // candyList.ForEach((n) => n.GetComponentInChildren<FIMSpace.FTail.TailAnimator2>().TailAnimatorAmount = GetCurrentCandyLength());
+
+        print(GetCurrentCandyLength());
+
         candyList.ForEach((n) => n.GetComponentInChildren<CandyTailController>().ChangeCandyLength(GetCurrentCandyLength(), clamp));
     }
 
@@ -372,7 +375,7 @@ public class RunManager : MonoBehaviour
         {
             candyList.ForEach((n) => { n.GetComponentInChildren<CandyHead>().CutCandy(cuttedCandys); tempCandyInventory.AddCandy(new CandyItem() { candy = n.GetComponentInChildren<CandyHead>().candyObject, count = 1 }); });
 
-            defaultCandyLength = 0;
+            // defaultCandyLength = 0;
             plusCandyLength = 0;
 
             ChangeCandysLength(false);

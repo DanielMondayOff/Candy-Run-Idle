@@ -35,8 +35,8 @@ public class IdleManager : MonoBehaviour
     // [FoldoutGroup("업그레이드")] public IdleUpgrade[] upgrades;
 
     public readonly float[] workerSpeed = { 6, 6.5f, 7f, 7.5f, 8f, 8.5f, 9f, 10f, 10.5f, 11f, 11.5f };
-    public readonly float[] customerSpawnSpeed = { 5.5f, 5f, 4.5f, 4f, 3.5f, 3f, 2.5f, 2f, 1.5f, 1f };
-    public readonly float[] maxCustomerCount = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 };
+    public readonly float[] customerSpawnSpeed = { 6f, 5.5f, 5f, 4.5f, 4f, 3.5f, 3f, 2.5f, 2f, 1.5f, 1f };
+    public readonly float[] maxCustomerCount = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
 
     private bool playIdle = false;
 
@@ -61,11 +61,11 @@ public class IdleManager : MonoBehaviour
                 StartIdle();
 
         if (ES3.KeyExists("workerSpeedUp"))
-            workerSpeedUp = ES3.Load<IdleUpgrade>("workerSpeedUp");
+            workerSpeedUp.currentLevel = ES3.Load<IdleUpgrade>("workerSpeedUp").currentLevel;
 
         if (ES3.KeyExists("hireWorker"))
         {
-            hireWorker = ES3.Load<IdleUpgrade>("hireWorker");
+            hireWorker.currentLevel = ES3.Load<IdleUpgrade>("hireWorker").currentLevel;
             SpawnWorker(hireWorker.currentLevel + 1);
         }
         else
@@ -75,7 +75,7 @@ public class IdleManager : MonoBehaviour
 
         if (ES3.KeyExists("promotion"))
         {
-            promotion = ES3.Load<IdleUpgrade>("promotion");
+            promotion.currentLevel = ES3.Load<IdleUpgrade>("promotion").currentLevel;
             print(customerSpawnSpeed);
             SetCustomerSpawnSpeed(customerSpawnSpeed[promotion.currentLevel]);
         }
@@ -332,6 +332,18 @@ public class IdleManager : MonoBehaviour
 
     public int GetCurrentUpgradeCost(IdleUpgradeType type)
     {
+        var upgrade = GetUpgradeValue(type);
+
+        if (upgrade != null)
+        {
+            return upgrade.cost[upgrade.currentLevel];
+        }
+        else
+        {
+            Debug.LogError("해당되는 업그레이드가 없습니다.");
+            return int.MaxValue;
+        }
+
         switch (type)
         {
             case IdleUpgradeType.HireWorker:
@@ -351,6 +363,18 @@ public class IdleManager : MonoBehaviour
 
     public int GetUpgradeCost(IdleUpgradeType type)
     {
+        var upgrade = GetUpgradeValue(type);
+
+        if (upgrade != null)
+        {
+            return upgrade.cost[upgrade.currentLevel];
+        }
+        else
+        {
+            Debug.LogError("해당되는 업그레이드가 없습니다.");
+            return int.MaxValue;
+        }
+
         switch (type)
         {
             case IdleUpgradeType.HireWorker:
@@ -388,8 +412,6 @@ public class IdleManager : MonoBehaviour
 
         }
     }
-
-
 }
 
 [System.Serializable]

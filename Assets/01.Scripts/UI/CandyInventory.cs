@@ -8,6 +8,8 @@ public class CandyInventory : MonoBehaviour
 {
     [SerializeField] List<CandyInventoryItem> itemList = new List<CandyInventoryItem>();
 
+    public bool autoUpdateUI = false;
+
     public static CandyInventory instance;
 
     private void Awake()
@@ -17,7 +19,8 @@ public class CandyInventory : MonoBehaviour
 
     private void Start()
     {
-        SaveManager.instance.onChangeCandyInventoryEvent.AddListener(SyncCurrentCandyUI);
+        if (autoUpdateUI)
+            SaveManager.instance.onChangeCandyInventoryEvent.AddListener(SyncCurrentCandyUI);
     }
 
     private void OnDisable()

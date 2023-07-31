@@ -44,7 +44,7 @@ public class CandyTailController : MonoBehaviour
         }
         else
         {
-            currentLength -= 50;
+            // currentLength -= 50;
         }
 
         tailAnimator.LengthMultiplier = currentLength / 1000f;
