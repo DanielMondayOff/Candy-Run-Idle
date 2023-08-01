@@ -17,7 +17,7 @@ public class CandyHead : MonoBehaviour
     {
         if (!StageManager.instance.IsAllowJellyGun)
             return;
-            
+
         if (RunManager.instance.tripleShot)
         {
             Transform[] bullets = new Transform[3];
@@ -47,6 +47,8 @@ public class CandyHead : MonoBehaviour
     {
         var candy = Instantiate(cutCandyPrefab, cutCandyPos.position, Quaternion.identity);
 
+        candy.GetComponentInChildren<SkinnedMeshRenderer>().materials = new Material[] {candyObject.mat};
+
         if (length < 50)
             length = 50;
 
@@ -58,6 +60,13 @@ public class CandyHead : MonoBehaviour
         list.Add(candy);
 
         //new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f)
+    }
+
+    public void UpgradeCandy()
+    {
+        candyObject = candyObject.nextCandy;
+
+        GetComponentInChildren<SkinnedMeshRenderer>().materials = new Material[] { candyObject.mat };
     }
 
 }

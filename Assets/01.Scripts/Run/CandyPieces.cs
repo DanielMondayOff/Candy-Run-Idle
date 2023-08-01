@@ -7,6 +7,14 @@ public class CandyPieces : MonoBehaviour
     [SerializeField] Rigidbody[] rigidbodies;
     [SerializeField] float force = 100f;
 
+    public void Init(Material mat)
+    {
+        foreach (var rigid in rigidbodies)
+        {
+            rigid.GetComponent<MeshRenderer>().materials = new Material[] { mat };
+        }
+    }
+
     public void ExplosionPieces(Transform from)
     {
         foreach (var rigid in rigidbodies)

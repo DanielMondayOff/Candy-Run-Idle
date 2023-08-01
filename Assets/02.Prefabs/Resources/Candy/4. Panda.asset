@@ -15,4 +15,6 @@ MonoBehaviour:
   id: 4
   mat: {fileID: 2100000, guid: e6ce97b1fe3484cc6ba29d74da68a05a, type: 2}
   icon: {fileID: 21300000, guid: bd7eeecab87934a09b2bc288d1bb269d, type: 3}
+  particleMat: {fileID: 2100000, guid: fb8eafb65046046f6ae4b933c75e3b56, type: 2}
   cost: 100
+  nextCandy: {fileID: 11400000, guid: 23bce3719678d4ea39e0a9da295cc0a9, type: 2}

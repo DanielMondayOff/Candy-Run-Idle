@@ -9,7 +9,10 @@ public class CandyObject : ScriptableObject
     [SerializeField] public int id;
     [SerializeField] public Material mat;
     [SerializeField] public Sprite icon;
+    [SerializeField] public Material particleMat;
     [SerializeField] public int cost;
+
+    [SerializeField] public CandyObject nextCandy;
 
     private void OnValidate()
     {

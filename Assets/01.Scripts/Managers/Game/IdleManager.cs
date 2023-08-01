@@ -469,7 +469,7 @@ public class CandyOrder
 [System.Serializable]
 public class CandyItem
 {
-    public CandyObject candy;
+    [SerializeField] public CandyObject candy;
     public int count;
 
     public CandyItem DuplicateCandy(int minCount, int maxCount)

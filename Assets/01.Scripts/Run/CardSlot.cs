@@ -20,8 +20,16 @@ public class CardSlot : MonoBehaviour
     private static System.Random random = new System.Random();
     public static bool GetHalfAndHalfResult() => random.Next(2) == 0;
 
+    private void Start()
+    {
+        OnChangeMoney();
+        SaveManager.instance.onMoneyChangeEvent.AddListener(OnChangeMoney);
+    }
+
     public void Init(RunCardType type)
     {
+        cardType = type;
+
         switch (type)
         {
             case RunCardType.PlusCandy:
@@ -35,18 +43,22 @@ public class CardSlot : MonoBehaviour
                 break;
         }
 
-        if (type == RunCardType.PlusCandy || type == RunCardType.TripleShot)
+        if (type == RunCardType.TripleShot)
         {
-            rv = GetHalfAndHalfResult();
-
-            cost = UnityEngine.Random.Range(10, 50) * 10;
-            costText.text = cost.ToString();
-
-            if (rv)
-                rvParent.SetActive(true);
-            else
-                costParent.SetActive(true);
+            rv = true;
         }
+        else if (type == RunCardType.PlusCandy)
+        {
+            rv = false;
+        }
+
+        cost = UnityEngine.Random.Range(10, 50) * 10;
+        costText.text = cost.ToString();
+
+        if (rv)
+            rvParent.SetActive(true);
+        else
+            costParent.SetActive(true);
 
         gameObject.SetActive(true);
     }
@@ -96,6 +108,18 @@ public class CardSlot : MonoBehaviour
     {
         Array enumValues = Enum.GetValues(typeof(RunCardType));
         return (RunCardType)enumValues.GetValue(random.Next(enumValues.Length));
+    }
+
+    void OnChangeMoney()
+    {
+        if (cost <= SaveManager.instance.GetMoney())
+        {
+            costText.color = Color.white;
+        }
+        else
+        {
+            costText.color = Color.red;
+        }
     }
 
 }

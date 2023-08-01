@@ -7,6 +7,8 @@ using System.Linq;
 public class SaveManager : MonoBehaviour
 {
     public List<CandyItem> candyInventory = new List<CandyItem>();
+    public List<candySaveData> candyInventory = new List<candySaveData>();
+
     [SerializeField] int money;
     [SerializeField] bool enableShop = false;
     public bool GetEnableShop => enableShop;
@@ -200,4 +202,12 @@ public class TempCandyInventory
         }
         candyItems.Add(new CandyItem() { candy = item.candy, count = item.count });
     }
+}
+
+[System.Serializable]
+public class candySaveData
+{
+    public int id;
+
+    public int count;
 }

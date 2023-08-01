@@ -73,7 +73,6 @@ public class RunManager : MonoBehaviour
     [TitleGroup("Game Value")] public bool tripleShot = false;
 
 
-
     [TitleGroup("Cutting Phase")] public Transform cuttingPoint1;
     [TitleGroup("Cutting Phase")] public Transform cuttingPoint2;
     [TitleGroup("Cutting Phase")] public Animator cutterAnimator;
@@ -252,6 +251,8 @@ public class RunManager : MonoBehaviour
         // {
         //     candyList[0].transform.DOMoveX()
         // }
+
+        this.TaskDelay(1.5f, () => OnChangeCandyList());
     }
 
     public void PillerPass(PillerType type, float value)
@@ -332,6 +333,8 @@ public class RunManager : MonoBehaviour
         foreach (var candy in candyList)
         {
             var candypiece = Instantiate(Managers.Resource.Load<GameObject>("Candy_Piece"), hitPoint, Quaternion.identity);
+
+            candypiece.GetComponent<CandyPieces>().Init(candy.GetComponentInChildren<CandyHead>().candyObject.mat);
 
             candypiece.GetComponentInChildren<CandyPieces>().ExplosionPieces(candy.transform);
         }
@@ -477,7 +480,6 @@ public class RunManager : MonoBehaviour
         SceneManager.UnloadSceneAsync("Run");
         SceneManager.LoadScene("Run", LoadSceneMode.Additive);
 
-
         // plusBulletRange = 0;
         // plusCandyCount = 0;
         // defaultCandyLength = 200;
@@ -536,4 +538,36 @@ public class RunManager : MonoBehaviour
         runGameUI.SetActive(true);
         particleUI.SetActive(true);
     }
+
+    void OnChangeCandyList()
+    {
+        if (candyList.Count < 2)
+            return;
+
+        CandyHead currentCandy = null;
+
+        for (int i = 0; i < candyList.Count; i++)
+        {
+            if (currentCandy != null)
+                if (currentCandy.candyObject == candyList[i].GetComponent<CandyHead>().candyObject)
+                {
+                    MergeCandy(currentCandy, candyList[i].GetComponent<CandyHead>());
+
+                    return;
+                }
+
+            currentCandy = candyList[i].GetComponent<CandyHead>();
+        }
+    }
+
+    void MergeCandy(CandyHead first, CandyHead second)
+    {
+        if (second.candyObject.nextCandy == null)
+            return;
+
+        var center = (first.transform.localPosition + second.transform.localPosition) / 2;
+        first.transform.DOLocalMove(center, 0.4f).OnComplete(() => { candyList.Remove(first.gameObject); Destroy(first.gameObject); });
+        second.transform.DOLocalMove(center, 0.4f).OnComplete(() => { second.UpgradeCandy(); ArrangeCandy(); });
+    }
+
 }

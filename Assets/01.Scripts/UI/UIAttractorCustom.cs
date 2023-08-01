@@ -13,6 +13,7 @@ public class UIAttractorCustom : MonoBehaviour
         attractorTarget.SetParent(target);
         attractorTarget.anchoredPosition = Vector2.zero;
 
+        var renderer = particleSystem.GetComponent<ParticleSystemRenderer>().material = item.candy.particleMat;
 
         var emission = particleSystem.emission;
         emission.SetBurst(0, new ParticleSystem.Burst(0, 5, 5, (short)(item.count / 5), 0.1f));
