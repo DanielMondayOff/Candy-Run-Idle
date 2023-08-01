@@ -98,6 +98,9 @@ public class CandyTailController : MonoBehaviour
 
             centerPart = candyParts[i];
 
+            if (centerPart != null)
+                break;
+
             // centerPart.transform.DOScale(new Vector3(1.5f, 1, 1.5f), 0.1f);
             centerPart.transform.localScale = new Vector3(waveScale, 1, waveScale);
 

@@ -85,6 +85,7 @@ public class IdleManager : MonoBehaviour
         // SceneManager.LoadScene("Run", LoadSceneMode.Additive);
 
         // StartCoroutine(SceneLoading());
+
     }
 
     public void testbtn()
@@ -227,6 +228,30 @@ public class IdleManager : MonoBehaviour
 
             candyJar.GetComponentInChildren<CandyJar>().Init(new CandyItem() { candy = SaveManager.instance.FindCandyObjectInReousrce(savedata.id), count = savedata.count });
             candyJars.Add(candyJar.GetComponentInChildren<CandyJar>());
+        }
+    }
+
+    public void CheckingCandyJar()
+    {
+        foreach (var candy in SaveManager.instance.candyInventory)
+        {
+            var find = candyJars.Find((n) => n.candyItem.candy.id == candy.id);
+
+            if (find == null)
+            {
+                var candyJar = Instantiate(Managers.Resource.Load<GameObject>("CandyJar"), currentMap.candyJarSpawnPos[candyJars.Count].position, Quaternion.identity);
+
+                var savedata = SaveManager.instance.FindCandyItem(candy.id);
+
+                candyJar.GetComponentInChildren<CandyJar>().Init(new CandyItem() { candy = SaveManager.instance.FindCandyObjectInReousrce(savedata.id), count = savedata.count });
+                candyJars.Add(candyJar.GetComponentInChildren<CandyJar>());
+            }
+            else
+            {
+                find.candyItem.count = candy.count;
+
+                find.UpdateUI();
+            }
         }
     }
 

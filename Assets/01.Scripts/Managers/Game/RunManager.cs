@@ -568,11 +568,8 @@ public class RunManager : MonoBehaviour
 
                         yield return new WaitForSeconds(1.5f);
                     }
-
                 currentCandy = candyList[i].GetComponent<CandyHead>();
             }
-
-
             mergeChecking = false;
         }
 

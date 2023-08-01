@@ -106,11 +106,12 @@ public class SaveManager : MonoBehaviour
             if (isNewCandy)
             {
                 candyInventory.Add(new candySaveData() { id = newCandy.candy.id, count = newCandy.count });
-
             }
         }
 
         ES3.Save<List<candySaveData>>("CandyInventory", candyInventory);
+
+        IdleManager.instance.CheckingCandyJar();
 
         if (uiUpdate)
             OnChangeCandyInventory();

@@ -59,4 +59,9 @@ public class CandyJar : MonoBehaviour
         if (bubbleTween == null)
             bubbleTween = CandyCanvas.transform.DOPunchScale(CandyCanvas.transform.localScale * 0.3f, 0.2f, 2).OnComplete(() => bubbleTween = null);
     }
+
+    public void UpdateUI()
+    {
+        test_candyCount.text = "X " + (candyItem.count);
+    }
 }
