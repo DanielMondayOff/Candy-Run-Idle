@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedAppIndex: 0
   clientTokens:
-  - 142414142141414241
+  - bc79aa80b5800756acbf0fbc59e1a504
   appIds:
-  - 124214141414241
+  - 244367188471481
   appLabels:
-  - App Name
+  - Candy shop Master
   cookie: 1
   logging: 1
   status: 1

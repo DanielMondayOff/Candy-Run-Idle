@@ -27,6 +27,12 @@ public class SaveManager : MonoBehaviour
 
     private void Awake()
     {
+        if (!PlayerPrefs.HasKey("ClearZero"))
+        {
+            MondayOFF.EventTracker.ClearStage(0);
+            PlayerPrefs.SetInt("ClearZero", 1);
+        }
+
         if (instance == null)
         {
             instance = this;

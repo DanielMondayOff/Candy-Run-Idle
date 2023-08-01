@@ -22,9 +22,9 @@ MonoBehaviour:
     interstitialInterval: 30
     resetTimerOnRewarded: 1
     bannerPosition: 7
-    AOS_IS_AdUnitID: 
-    AOS_RV_AdUnitID: 
-    AOS_BN_AdUnitID: 
+    AOS_IS_AdUnitID: fsdfafsafsdfdfsdfdsfs
+    AOS_RV_AdUnitID: dfdsfsdfdsfdsfsfdsf
+    AOS_BN_AdUnitID: fsdfdsfdsfsfsfdsf
     AOS_IS_Backup_AdUnitID: 
     AOS_RV_Backup_AdUnitID: 
     AOS_BN_Backup_AdUnitID: 
@@ -34,9 +34,9 @@ MonoBehaviour:
     AOS_APS_BN_SlotID: 
     AOS_PlayOnApiKey: 
     AOS_AdvertyApiKey: 
-    iOS_IS_AdUnitID: 
-    iOS_RV_AdUnitID: 
-    iOS_BN_AdUnitID: 
+    iOS_IS_AdUnitID: fdsfsdfsdfdsfsfsffdsfsdf
+    iOS_RV_AdUnitID: fdsfsdfdsfsdfdsfdsffsdfdsf
+    iOS_BN_AdUnitID: fsdfsdfdsfsfdsfdsfsdfsdf
     iOS_IS_Backup_AdUnitID: 
     iOS_RV_Backup_AdUnitID: 
     iOS_BN_Backup_AdUnitID: 
@@ -56,5 +56,3 @@ MonoBehaviour:
       playOnLogoSize: 64
     initializeAdvertyOnAwake: 1
   gameId: 
-  companyLogo: {fileID: 0}
-  gameSceneName: 
