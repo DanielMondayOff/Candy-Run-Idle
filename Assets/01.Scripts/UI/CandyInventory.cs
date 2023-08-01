@@ -36,7 +36,7 @@ public class CandyInventory : MonoBehaviour
         {
             var newItem = Instantiate(Resources.Load<GameObject>("UI/CandyItem"), transform).GetComponent<CandyInventoryItem>();
 
-            newItem.InitCandy(candy.candy, candy.count);
+            newItem.InitCandy(SaveManager.instance.FindCandyObjectInReousrce(candy.id), candy.count);
             itemList.Add(newItem);
         }
     }

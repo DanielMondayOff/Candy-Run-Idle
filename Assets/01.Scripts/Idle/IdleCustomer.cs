@@ -109,7 +109,6 @@ public class IdleCustomer : MonoBehaviour
 
         this.TaskDelay(5, () => Managers.Pool.Push(particle.GetComponentInParent<Poolable>()));
 
-
         // Managers.Pool.Push(transform.GetComponentInParent<Poolable>()
     }
 

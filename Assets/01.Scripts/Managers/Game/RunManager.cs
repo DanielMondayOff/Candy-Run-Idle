@@ -86,6 +86,8 @@ public class RunManager : MonoBehaviour
 
     TaskUtil.WhileTaskMethod fireTask;
 
+    private bool mergeChecking = false;
+
     TempCandyInventory tempCandyInventory;
     private void Awake()
     {
@@ -252,7 +254,7 @@ public class RunManager : MonoBehaviour
         //     candyList[0].transform.DOMoveX()
         // }
 
-        this.TaskDelay(1.5f, () => OnChangeCandyList());
+        OnChangeCandyList();
     }
 
     public void PillerPass(PillerType type, float value)
@@ -541,23 +543,39 @@ public class RunManager : MonoBehaviour
 
     void OnChangeCandyList()
     {
-        if (candyList.Count < 2)
+        if (candyList.Count < 2 || mergeChecking)
             return;
+
+        mergeChecking = true;
 
         CandyHead currentCandy = null;
 
-        for (int i = 0; i < candyList.Count; i++)
+        StartCoroutine(Checking());
+
+        IEnumerator Checking(bool conti = true)
         {
-            if (currentCandy != null)
-                if (currentCandy.candyObject == candyList[i].GetComponent<CandyHead>().candyObject)
-                {
-                    MergeCandy(currentCandy, candyList[i].GetComponent<CandyHead>());
+            for (int i = 0; i < candyList.Count; i++)
+            {
+                if (currentCandy != null)
+                    if (currentCandy.candyObject == candyList[i].GetComponent<CandyHead>().candyObject)
+                    {
+                        if (conti)
+                            yield return new WaitForSeconds(1.5f);
+                        MergeCandy(currentCandy, candyList[i].GetComponent<CandyHead>());
+                        i = 0;
 
-                    return;
-                }
+                        conti = false;
 
-            currentCandy = candyList[i].GetComponent<CandyHead>();
+                        yield return new WaitForSeconds(1.5f);
+                    }
+
+                currentCandy = candyList[i].GetComponent<CandyHead>();
+            }
+
+
+            mergeChecking = false;
         }
+
     }
 
     void MergeCandy(CandyHead first, CandyHead second)

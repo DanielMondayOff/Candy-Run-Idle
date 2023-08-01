@@ -6,7 +6,7 @@ using System.Linq;
 
 public class SaveManager : MonoBehaviour
 {
-    public List<CandyItem> candyInventory = new List<CandyItem>();
+    // public List<CandyItem> candyInventory = new List<CandyItem>();
     public List<candySaveData> candyInventory = new List<candySaveData>();
 
     [SerializeField] int money;
@@ -43,7 +43,7 @@ public class SaveManager : MonoBehaviour
             money = 0;
 
         if (ES3.KeyExists("CandyInventory"))
-            candyInventory = ES3.Load<List<CandyItem>>("CandyInventory");
+            candyInventory = ES3.Load<List<candySaveData>>("CandyInventory");
     }
 
     private void Start()
@@ -93,7 +93,7 @@ public class SaveManager : MonoBehaviour
             bool isNewCandy = true;
             foreach (var candy in candyInventory)
             {
-                if (newCandy.candy.id == candy.candy.id)
+                if (newCandy.candy.id == candy.id)
                 {
                     isNewCandy = false;
 
@@ -104,10 +104,13 @@ public class SaveManager : MonoBehaviour
             }
 
             if (isNewCandy)
-                candyInventory.Add(new CandyItem() { candy = newCandy.candy, count = newCandy.count });
+            {
+                candyInventory.Add(new candySaveData() { id = newCandy.candy.id, count = newCandy.count });
+
+            }
         }
 
-        ES3.Save<List<CandyItem>>("CandyInventory", candyInventory);
+        ES3.Save<List<candySaveData>>("CandyInventory", candyInventory);
 
         if (uiUpdate)
             OnChangeCandyInventory();
@@ -117,7 +120,7 @@ public class SaveManager : MonoBehaviour
     {
         for (int i = 0; i < candyInventory.Count; i++)
         {
-            if (candyInventory[i].candy.id == id)
+            if (candyInventory[i].id == id)
             {
                 candyInventory[i].TakeCandy(count);
 
@@ -132,7 +135,7 @@ public class SaveManager : MonoBehaviour
 
         foreach (var candy in candyInventory)
         {
-            if (candy.candy.id == id)
+            if (candy.id == id)
             {
                 candy.TakeCandy(count);
             }
@@ -141,9 +144,9 @@ public class SaveManager : MonoBehaviour
         OnChangeCandyInventory();
     }
 
-    public CandyItem FindCandyItem(int id)
+    public candySaveData FindCandyItem(int id)
     {
-        return candyInventory.Find((n => n.candy.id == id));
+        return candyInventory.Find((n => n.id == id));
     }
 
     public CandyObject FindCandyObject(int id)
@@ -173,7 +176,7 @@ public class SaveManager : MonoBehaviour
     {
         foreach (var candy in candyInventory)
         {
-            if (candy.candy.id == id)
+            if (candy.id == id)
                 if (candy.count >= count)
                     return true;
                 else
@@ -181,6 +184,11 @@ public class SaveManager : MonoBehaviour
         }
 
         return false;
+    }
+
+    public CandyObject FindCandyObjectInReousrce(int id)
+    {
+        return Resources.LoadAll<CandyObject>("Candy").FirstOrDefault<CandyObject>((n) => n.id == id);
     }
 }
 
@@ -208,6 +216,21 @@ public class TempCandyInventory
 public class candySaveData
 {
     public int id;
-
     public int count;
+
+    public candySaveData DuplicateCandy(int minCount, int maxCount)
+    {
+        int count = Random.Range(minCount, maxCount);
+
+        // this.count -= count;
+
+        count = Mathf.Clamp(count, 0, int.MaxValue);
+
+        return new candySaveData() { id = this.id, count = count };
+    }
+
+    public void TakeCandy(int count)
+    {
+        this.count -= count;
+    }
 }

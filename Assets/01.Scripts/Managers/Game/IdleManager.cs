@@ -172,7 +172,7 @@ public class IdleManager : MonoBehaviour
     {
         var candyItem = SaveManager.instance.candyInventory[Random.Range(0, SaveManager.instance.candyInventory.Count)].DuplicateCandy(1, 3);
 
-        return new CandyOrder() { candy = candyItem.candy, requestCount = candyItem.count, currentCustomer = customer, currentLine = line };
+        return new CandyOrder() { candy = SaveManager.instance.FindCandyObjectInReousrce(candyItem.id), requestCount = candyItem.count, currentCustomer = customer, currentLine = line };
     }
 
     public CandyOrder TakeOrder()
@@ -223,7 +223,9 @@ public class IdleManager : MonoBehaviour
         {
             var candyJar = Instantiate(Managers.Resource.Load<GameObject>("CandyJar"), currentMap.candyJarSpawnPos[i].position, Quaternion.identity);
 
-            candyJar.GetComponentInChildren<CandyJar>().Init(SaveManager.instance.FindCandyItem(SaveManager.instance.candyInventory[i].candy.id));
+            var savedata = SaveManager.instance.FindCandyItem(SaveManager.instance.candyInventory[i].id);
+
+            candyJar.GetComponentInChildren<CandyJar>().Init(new CandyItem() { candy = SaveManager.instance.FindCandyObjectInReousrce(savedata.id), count = savedata.count });
             candyJars.Add(candyJar.GetComponentInChildren<CandyJar>());
         }
     }

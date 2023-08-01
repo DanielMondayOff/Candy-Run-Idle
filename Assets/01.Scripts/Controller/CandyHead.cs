@@ -47,7 +47,7 @@ public class CandyHead : MonoBehaviour
     {
         var candy = Instantiate(cutCandyPrefab, cutCandyPos.position, Quaternion.identity);
 
-        candy.GetComponentInChildren<SkinnedMeshRenderer>().materials = new Material[] {candyObject.mat};
+        candy.GetComponentInChildren<SkinnedMeshRenderer>().materials = new Material[] { candyObject.mat };
 
         if (length < 50)
             length = 50;
@@ -67,6 +67,8 @@ public class CandyHead : MonoBehaviour
         candyObject = candyObject.nextCandy;
 
         GetComponentInChildren<SkinnedMeshRenderer>().materials = new Material[] { candyObject.mat };
+
+        print("upgrade");
     }
 
 }
