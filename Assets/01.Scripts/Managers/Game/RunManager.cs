@@ -56,6 +56,9 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject sellCandyBtn;
     [FoldoutGroup("참조")] public StartCard startCard;
 
+    [FoldoutGroup("참조")] public CanvasGroup[] runUIs;
+
+
 
 
     [TitleGroup("Game Value")] public int currentMoney;
@@ -145,6 +148,20 @@ public class RunManager : MonoBehaviour
             ChangeCandysLength();
         }
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            plusFireRate += 100;
+
+            ChangeFireRate(GetCurrentFireRate());
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            plusFireRate -= 100;
+
+            ChangeFireRate(GetCurrentFireRate());
+        }
+
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             TakeDamage(100, Vector3.zero);
@@ -180,6 +197,19 @@ public class RunManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha9))
         {
             SaveManager.instance.LossMoney(500);
+        }
+
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            ES3.DeleteFile();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            foreach (var canvas in runUIs)
+            {
+                canvas.alpha = (canvas.alpha == 1) ? 0 : 1;
+            }
         }
     }
 
@@ -217,12 +247,17 @@ public class RunManager : MonoBehaviour
             {
                 plusCandyLength += value;
 
+                plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 2000);
+
                 ChangeCandysLength();
             })));
         }
         else
         {
             plusCandyLength += value;
+
+            plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 2000);
+
             ChangeCandysLength();
         }
     }

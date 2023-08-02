@@ -21,6 +21,8 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("참조")] public UnityEngine.UI.Text moneyText;
     [FoldoutGroup("참조")] public GameObject idleUI;
     [FoldoutGroup("참조")] public GameObject upgradePanel;
+    public CanvasGroup[] idleUIs;
+
 
     [FoldoutGroup("Value")] public Color activeBtnColor;
     [FoldoutGroup("Value")] public Color deactiveBtnColor;
@@ -84,6 +86,16 @@ public class IdleManager : MonoBehaviour
         // SceneManager.LoadScene("Run", LoadSceneMode.Additive);
 
         // StartCoroutine(SceneLoading());
+    }
+
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            foreach (var canvas in idleUIs)
+            {
+                canvas.alpha = (canvas.alpha == 1) ? 1 : 0;
+            }
+        }
     }
 
     public void testbtn()
