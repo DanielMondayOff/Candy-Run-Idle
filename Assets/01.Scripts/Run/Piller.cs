@@ -126,7 +126,11 @@ public class Piller : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             RunManager.instance.PillerPass(type, value);
-            gameObject.SetActive(false);
+
+            if (GetComponentInParent<PillerSet>() != null)
+                GetComponentInParent<PillerSet>().gameObject.SetActive(false);
+            else
+                gameObject.SetActive(false);
         }
     }
 
@@ -168,5 +172,34 @@ public class Piller : MonoBehaviour
     {
         Init();
         OnChangeValue();
+    }
+
+    public void ChangeToTripleShot()
+    {
+        type = PillerType.TripleShot;
+
+        Init();
+    }
+
+    public void ChangeToAddCandy()
+    {
+        type = PillerType.Candy;
+
+        value = 1;
+
+        Init();
+    }
+
+    public void ChangeToNormalRandom(PillerType type = 0)
+    {
+        if (type != 0)
+            this.type = type;
+
+        if (value > 0)
+            value = Random.Range(10, 30) * 10;
+        else
+            value = Random.Range(10, 30) * -10;
+
+        Init();
     }
 }

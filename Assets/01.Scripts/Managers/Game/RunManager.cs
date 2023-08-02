@@ -99,7 +99,7 @@ public class RunManager : MonoBehaviour
         fireTask = this.TaskWhile(RunManager.instance.GetCurrentFireRate(), 1, () => { if (fireBullet && !cuttingPhase && !isGameEnd) { candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().GenerateBullet()); } });
         CandyInventory.instance.SyncCurrentCandyUI();
 
-        if (StageManager.instance.currentStageNum == 1)
+        if (StageManager.instance.currentStageNum == 2)
         {
             swipeToStartUI.SetActive(false);
             jellyGunStartUI.SetActive(true);
@@ -111,7 +111,7 @@ public class RunManager : MonoBehaviour
             if (ES3.Load<bool>("enableShop"))
                 goToShopBtn.SetActive(true);
 
-        if (StageManager.instance.currentStageNum >= 2)
+        if (StageManager.instance.currentStageNum >= 4)
         {
             startCard.GenearteCards();
         }
@@ -437,7 +437,7 @@ public class RunManager : MonoBehaviour
 
         this.TaskDelay(3.5f, () =>
         {
-            if (StageManager.instance.currentStageNum == 3)
+            if (StageManager.instance.currentStageNum == 4)
             {
                 sellCandyBtn.SetActive(true);
             }

@@ -50,8 +50,7 @@ public class IdleManager : MonoBehaviour
         instance = this;
 
         // StartCoroutine(SceneLoading());
-
-        SceneManager.LoadScene(1, LoadSceneMode.Additive);
+        SceneManager.LoadScene("Run", LoadSceneMode.Additive);
     }
 
     private void Start()
@@ -85,13 +84,11 @@ public class IdleManager : MonoBehaviour
         // SceneManager.LoadScene("Run", LoadSceneMode.Additive);
 
         // StartCoroutine(SceneLoading());
-
     }
 
     public void testbtn()
     {
         SceneManager.LoadScene("Run", LoadSceneMode.Additive);
-
     }
 
     IEnumerator SceneLoading()
@@ -115,7 +112,8 @@ public class IdleManager : MonoBehaviour
     {
         if (SaveManager.instance.candyInventory.Count >= 0 && !playIdle)
         {
-            GenerateCandyJar();
+            // GenerateCandyJar();
+            CheckingCandyJar();
             spawnCustomer = this.TaskWhile(customerSpawnSpeed[promotion.currentLevel], 2, () => GenenrateCustomer());
             playIdle = true;
         }
@@ -226,7 +224,7 @@ public class IdleManager : MonoBehaviour
 
             var savedata = SaveManager.instance.FindCandyItem(SaveManager.instance.candyInventory[i].id);
 
-            candyJar.GetComponentInChildren<CandyJar>().Init(new CandyItem() { candy = SaveManager.instance.FindCandyObjectInReousrce(savedata.id), count = savedata.count });
+            candyJar.GetComponentInChildren<CandyJar>().Init(savedata);
             candyJars.Add(candyJar.GetComponentInChildren<CandyJar>());
         }
     }
@@ -235,7 +233,7 @@ public class IdleManager : MonoBehaviour
     {
         foreach (var candy in SaveManager.instance.candyInventory)
         {
-            var find = candyJars.Find((n) => n.candyItem.candy.id == candy.id);
+            var find = candyJars.Find((n) => n.candyItem.id == candy.id);
 
             if (find == null)
             {
@@ -243,7 +241,7 @@ public class IdleManager : MonoBehaviour
 
                 var savedata = SaveManager.instance.FindCandyItem(candy.id);
 
-                candyJar.GetComponentInChildren<CandyJar>().Init(new CandyItem() { candy = SaveManager.instance.FindCandyObjectInReousrce(savedata.id), count = savedata.count });
+                candyJar.GetComponentInChildren<CandyJar>().Init(savedata);
                 candyJars.Add(candyJar.GetComponentInChildren<CandyJar>());
             }
             else
@@ -264,7 +262,7 @@ public class IdleManager : MonoBehaviour
     {
         foreach (var jar in candyJars)
         {
-            if (jar.candyItem.candy.id == id)
+            if (jar.candyItem.id == id)
                 return jar;
         }
 
@@ -297,6 +295,11 @@ public class IdleManager : MonoBehaviour
         ES3.Save<IdleUpgrade>("hireWorker", hireWorker);
 
         SpawnWorker(1);
+
+        MondayOFF.EventTracker.LogCustomEvent(
+		"Idle", 
+		new Dictionary<string, string>{ {"UpgradeType", "HireWorker"} }
+);
     }
 
     public void Upgrade_WorkerSpeedUp()
@@ -311,6 +314,11 @@ public class IdleManager : MonoBehaviour
         ES3.Save<IdleUpgrade>("workerSpeedUp", workerSpeedUp);
 
         workers.ForEach((n) => n.ChangeMoveSpeed(workerSpeed[workerSpeedUp.currentLevel]));
+
+        MondayOFF.EventTracker.LogCustomEvent(
+		"Idle", 
+		new Dictionary<string, string>{ {"UpgradeType", "WorkerSpeedUp"} }
+);
     }
 
     public void Upgrade_Promotion()
@@ -324,6 +332,11 @@ public class IdleManager : MonoBehaviour
         ES3.Save<IdleUpgrade>("promotion", promotion);
 
         SetCustomerSpawnSpeed(customerSpawnSpeed[promotion.currentLevel]);
+
+        MondayOFF.EventTracker.LogCustomEvent(
+		"Idle", 
+		new Dictionary<string, string>{ {"UpgradeType", "Promotion"} }
+);
     }
 
     public void SetCustomerSpawnSpeed(float speed)

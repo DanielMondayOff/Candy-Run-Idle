@@ -18,5 +18,10 @@ public class Setting : MonoBehaviour
         rect.offsetMax = new Vector2(0, 0);
 
         rect.localScale = Vector3.one;
+
+        MondayOFF.EventTracker.LogCustomEvent(
+        "Setting",
+        new Dictionary<string, string> { { "Setting", "OpenSetting" } }
+        );
     }
 }

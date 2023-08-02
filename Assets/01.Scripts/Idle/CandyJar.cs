@@ -6,7 +6,7 @@ using DG.Tweening;
 
 public class CandyJar : MonoBehaviour
 {
-    public CandyItem candyItem;
+    public candySaveData candyItem;
 
     [SerializeField] private MeshRenderer[] candyMeshes;
 
@@ -17,18 +17,18 @@ public class CandyJar : MonoBehaviour
 
     Tween bubbleTween;
 
-    public void Init(CandyItem item)
+    public void Init(candySaveData item)
     {
         candyItem = item;
 
-        Material[] newMat = new Material[] { candyItem.candy.mat };
+        Material[] newMat = new Material[] { SaveManager.instance.FindCandyObjectInReousrce(candyItem.id).mat };
 
         foreach (var mr in candyMeshes)
         {
             mr.materials = newMat;
         }
 
-        candyImage.sprite = candyItem.candy.icon;
+        candyImage.sprite = SaveManager.instance.FindCandyObjectInReousrce(candyItem.id).icon;
         test_candyCount.text = "X " + (candyItem.count);
     }
 
@@ -47,7 +47,7 @@ public class CandyJar : MonoBehaviour
     public void OnChangeOrder(bool wiggle = false)
     {
         // test_candyName.text = candyItem.candy.name;
-        candyImage.sprite = candyItem.candy.icon;
+        candyImage.sprite = SaveManager.instance.FindCandyObjectInReousrce(candyItem.id).icon;
         test_candyCount.text = "X " + (candyItem.count);
 
         if (wiggle)

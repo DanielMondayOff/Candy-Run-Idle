@@ -22,6 +22,11 @@ public class MoneyDrop : MonoBehaviour
             this.TaskDelay(5, () => Managers.Pool.Push(particle.GetComponentInParent<Poolable>()));
 
             SaveManager.instance.GetMoney(moneyValue);
+
+            MondayOFF.EventTracker.LogCustomEvent(
+        "Run",
+        new Dictionary<string, string> { { "Money", "GetDropMoney" } }
+        );
         }
     }
 }

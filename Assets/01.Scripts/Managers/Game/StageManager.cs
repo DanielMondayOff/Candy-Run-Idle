@@ -15,6 +15,8 @@ public class StageManager : MonoBehaviour
     public Stage currentStage = null;
     public int currentStageNum = 0;
 
+    public RunMapGenerator randomMapGenerator;
+
     public bool IsAllowJellyGun => (currentStageNum >= stages.Length) ? true : stages[currentStageNum].jellyGun;
 
     public static StageManager instance;
@@ -48,7 +50,6 @@ public class StageManager : MonoBehaviour
         {
             stages[currentStageNum].map.SetActive(true);
             currentStage = stages[currentStageNum];
-
         }
     }
 
@@ -67,7 +68,7 @@ public class StageManager : MonoBehaviour
 
         ES3.Save<int>("CurrentStageNum", currentStageNum);
 
-        if (currentStageNum == 3)
+        if (currentStageNum == 4)
             ES3.Save("enableShop", true);
 
         MondayOFF.EventTracker.ClearStage(currentStageNum + 1);
@@ -75,12 +76,14 @@ public class StageManager : MonoBehaviour
 
     public void GenerateRandomStage()
     {
-        if (currentStage.map != null)
-            currentStage.map.SetActive(false);
+        randomMapGenerator.GenerateMap();
 
-        int num = Random.Range(0, stages.Length);
+        // if (currentStage.map != null)
+        //     currentStage.map.SetActive(false);
 
-        stages[num].map.SetActive(true);
-        currentStage = stages[num];
+        // int num = Random.Range(0, stages.Length);
+
+        // stages[num].map.SetActive(true);
+        // currentStage = stages[num];
     }
 }

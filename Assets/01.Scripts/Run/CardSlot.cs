@@ -45,7 +45,8 @@ public class CardSlot : MonoBehaviour
 
         if (type == RunCardType.TripleShot)
         {
-            rv = true;
+            //나중에 rv로 수정
+            rv = false;
         }
         else if (type == RunCardType.PlusCandy)
         {
@@ -91,10 +92,20 @@ public class CardSlot : MonoBehaviour
                 case RunCardType.PlusCandy:
                     RunManager.instance.AddCandy();
 
+                    MondayOFF.EventTracker.LogCustomEvent(
+        "Run",
+        new Dictionary<string, string> { { "Upgrade", "AddCandy" } }
+        );
+
                     break;
 
                 case RunCardType.TripleShot:
                     RunManager.instance.TripleShot();
+
+                    MondayOFF.EventTracker.LogCustomEvent(
+        "Run",
+        new Dictionary<string, string> { { "Upgrade", "TripleShot" } }
+        );
 
                     break;
             }

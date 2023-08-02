@@ -82,6 +82,7 @@ public class IdleWorker : MonoBehaviour
             MoveToCustomer(line);
             TakeCandy();
             targetCandy.BubbleWiggle();
+            targetCandy.UpdateUI();
         }, () => (agent.remainingDistance < 0.1f));
 
         void TakeCandy()

@@ -74,4 +74,9 @@ public class RunObstacle : MonoBehaviour
 
         this.TaskDelay(3f, () => Managers.Pool.Push(particle.GetComponentInChildren<Poolable>()));
     }
+
+    public void Reset()
+    {
+        isUsed = false;
+    }
 }
