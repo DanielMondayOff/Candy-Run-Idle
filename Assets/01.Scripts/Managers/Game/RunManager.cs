@@ -523,11 +523,21 @@ public class RunManager : MonoBehaviour
         IdleManager.instance.StartIdle();
         IdleManager.instance.GoToIdleGame();
         // SceneManager.LoadScene("Idle");
+
+        MondayOFF.EventTracker.LogCustomEvent(
+        "UI",
+        new Dictionary<string, string> { { "GameChange", "GoToIdle" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
+        );
     }
 
     public void OnClickGoToIdleBtn()
     {
         ChangeToIdleGame();
+
+        MondayOFF.EventTracker.LogCustomEvent(
+        "UI",
+        new Dictionary<string, string> { { "OnClick", "GoToIdleBtn" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
+        );
     }
 
     public void ChangeToRunGame()
