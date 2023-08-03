@@ -12,7 +12,12 @@ public class Bullet : MonoBehaviour
 
     [SerializeField] private MeshRenderer meshRenderer;
     // Start is called before the first frame update
-    void Start()
+
+    private Tween moveTween = null;
+    private Tween rotateTween = null;
+    TaskUtil.DelayTaskMethod pushDelay = null;
+
+    private void OnEnable()
     {
         int randomIndex = Random.Range(0, RunManager.instance.jellyBeanMats.Length);
 
@@ -23,6 +28,8 @@ public class Bullet : MonoBehaviour
         meshRenderer.materials = materials;
 
         StartRotation();
+
+        pushDelay = RunManager.instance.TaskDelay(RunManager.instance.GetBulletRange() / 100f, () => { GetComponentInChildren<Bullet>().Push(); });
     }
 
     void StartRotation()
@@ -31,7 +38,7 @@ public class Bullet : MonoBehaviour
         Vector3 randomAxis = Random.onUnitSphere;
 
         // DoTween을 사용하여 오브젝트를 회전시킵니다.
-        transform.DORotate(randomAxis * 360f, rotationSpeed, RotateMode.FastBeyond360)
+        rotateTween = transform.DORotate(randomAxis * 360f, rotationSpeed, RotateMode.FastBeyond360)
             .SetEase(Ease.Linear)
             .OnComplete(StartRotation);
     }
@@ -55,6 +62,19 @@ public class Bullet : MonoBehaviour
             RunManager.instance.TaskDelay(3, () => Managers.Pool.Push(particle.GetComponentInChildren<Poolable>()));
         }
 
-        Managers.Pool.Push(GetComponentInChildren<Poolable>(Managers.Resource.Load<GameObject>("Jelly Bullet")));
+        Managers.Pool.Push(GetComponentInChildren<Poolable>());
+    }
+
+    public void SetDoMove(Vector3 targetPos)
+    {
+        moveTween = transform.DOMove(targetPos, 100);
+    }
+
+    private void OnDisable()
+    {
+        moveTween.Kill();
+        rotateTween.Kill();
+        if (pushDelay != null)
+            pushDelay.Kill();
     }
 }

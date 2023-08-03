@@ -24,22 +24,26 @@ public class CandyHead : MonoBehaviour
 
             for (int i = 0; i < 3; i++)
             {
-                var bullet = Instantiate(bulletPrefab, firePos.transform.position, Quaternion.identity);
+                var bullet = Managers.Pool.Pop(bulletPrefab);
+                bullet.transform.position = firePos.transform.position;
                 bullets[i] = bullet.transform;
-                this.TaskDelay(RunManager.instance.GetBulletRange() / 100f, () => { if (bullet != null) bullet.GetComponentInChildren<Bullet>().Push(); });
+                // this.TaskDelay(RunManager.instance.GetBulletRange() / 100f, () => {bullet.GetComponentInChildren<Bullet>().Push();});
             }
 
-            bullets[0].transform.DOMove(bullets[0].transform.position + new Vector3(500, 0, 3000), 100);
-            bullets[1].transform.DOMove(bullets[0].transform.position + new Vector3(0, 0, 3000), 100);
-            bullets[2].transform.DOMove(bullets[0].transform.position + new Vector3(-500, 0, 3000), 100);
+            bullets[0].GetComponent<Bullet>().SetDoMove(bullets[0].transform.position + new Vector3(500, 0, 3000));
+            bullets[1].GetComponent<Bullet>().SetDoMove(bullets[0].transform.position + new Vector3(0, 0, 3000));
+            bullets[2].GetComponent<Bullet>().SetDoMove(bullets[0].transform.position + new Vector3(-500, 0, 3000));
         }
         else
         {
-            var bullet = Instantiate(bulletPrefab, firePos.transform.position, Quaternion.identity);
+            var bullet = Managers.Pool.Pop(bulletPrefab);
+            bullet.transform.position = firePos.transform.position;
 
-            bullet.transform.DOMoveZ(3000, 100);
+            bullet.GetComponent<Bullet>().SetDoMove(bullet.transform.position + new Vector3(0, 0, 3000));
 
-            this.TaskDelay(RunManager.instance.GetBulletRange() / 100f, () => { if (bullet != null) bullet.GetComponentInChildren<Bullet>().Push(); });
+            // bullet.transform.DOMoveZ(3000, 100);
+
+            // this.TaskDelay(RunManager.instance.GetBulletRange() / 100f, () => {bullet.GetComponentInChildren<Bullet>().Push();});
         }
     }
 

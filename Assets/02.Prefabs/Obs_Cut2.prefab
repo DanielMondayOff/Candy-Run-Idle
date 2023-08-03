@@ -326,6 +326,7 @@ GameObject:
   - component: {fileID: 6388462509771945897}
   - component: {fileID: 6855280946837278995}
   - component: {fileID: 6855280946837278993}
+  - component: {fileID: 2004509036232353561}
   m_Layer: 0
   m_Name: Obs_Cut2
   m_TagString: Untagged
@@ -387,6 +388,18 @@ MonoBehaviour:
   lineRenderer: {fileID: 6855280946826157336}
   start: {fileID: 6855280946400727635}
   end: {fileID: 5139085786267330636}
+--- !u!114 &2004509036232353561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6044869061985905939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2d090c9d0ecf42c091e148d9a198000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6855280946400727634
 GameObject:
   m_ObjectHideFlags: 0
