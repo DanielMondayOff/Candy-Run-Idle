@@ -154,4 +154,5 @@ MonoBehaviour:
   damage: 100
   isUsed: 0
   isDestroyed: 0
+  knockBack: 1
   meshRenderer: {fileID: 6880434461852434340}

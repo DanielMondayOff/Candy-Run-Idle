@@ -359,7 +359,7 @@ public class RunManager : MonoBehaviour
         }
     }
 
-    public void TakeDamage(float damage, Vector3 hitPoint)
+    public void TakeDamage(float damage, Vector3 hitPoint, bool knockBack = false)
     {
         plusCandyLength -= damage;
 
@@ -377,6 +377,11 @@ public class RunManager : MonoBehaviour
         }
 
         MMVibrationManager.Haptic(HapticTypes.MediumImpact);
+
+        if (knockBack)
+        {
+            runPlayer.DOMoveZ(runPlayer.transform.position.z - 2.5f, .5f).SetEase(Ease.OutCubic);
+        }
     }
 
     public void ChangeFireRate(float rate) => fireTask.SetIntervalTime(rate);

@@ -11,6 +11,8 @@ public class RunObstacle : MonoBehaviour
 
     public bool isUsed = false;
     public bool isDestroyed = false;
+    public bool knockBack = false;
+
 
     [SerializeField] MeshRenderer meshRenderer;
 
@@ -29,7 +31,18 @@ public class RunObstacle : MonoBehaviour
         if (other.CompareTag("Player") && !isUsed)
         {
             isUsed = true;
-            RunManager.instance.TakeDamage(100, GetComponent<Collider>().ClosestPointOnBounds(other.bounds.center));
+
+            print(Vector3.Distance(transform.position, other.transform.position));
+            if (knockBack)
+                if (Vector3.Distance(transform.position, other.transform.position) < 1.2f)
+                {
+                    knockBack = true;
+                }
+                else
+                    knockBack = false;
+
+
+            RunManager.instance.TakeDamage(100, GetComponent<Collider>().ClosestPointOnBounds(other.bounds.center), knockBack);
         }
     }
 
