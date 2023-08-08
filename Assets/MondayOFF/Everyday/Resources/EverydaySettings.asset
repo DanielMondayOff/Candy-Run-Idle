@@ -22,9 +22,9 @@ MonoBehaviour:
     interstitialInterval: 30
     resetTimerOnRewarded: 1
     bannerPosition: 7
-    AOS_IS_AdUnitID: fsdfafsafsdfdfsdfdsfs
-    AOS_RV_AdUnitID: dfdsfsdfdsfdsfsfdsf
-    AOS_BN_AdUnitID: fsdfdsfdsfsfsfdsf
+    AOS_IS_AdUnitID: 45d1d730c781ca25
+    AOS_RV_AdUnitID: f1c517d8bff3a0a9
+    AOS_BN_AdUnitID: 8a92f1c03e606ba1
     AOS_IS_Backup_AdUnitID: 
     AOS_RV_Backup_AdUnitID: 
     AOS_BN_Backup_AdUnitID: 
@@ -34,9 +34,9 @@ MonoBehaviour:
     AOS_APS_BN_SlotID: 
     AOS_PlayOnApiKey: 
     AOS_AdvertyApiKey: 
-    iOS_IS_AdUnitID: fdsfsdfsdfdsfsfsffdsfsdf
-    iOS_RV_AdUnitID: fdsfsdfdsfsdfdsfdsffsdfdsf
-    iOS_BN_AdUnitID: fsdfsdfdsfsfdsfdsfsdfsdf
+    iOS_IS_AdUnitID: 8274ccccfed259bf
+    iOS_RV_AdUnitID: 9e7e7d89bed9b245
+    iOS_BN_AdUnitID: a08eddbc6a9e6684
     iOS_IS_Backup_AdUnitID: 
     iOS_RV_Backup_AdUnitID: 
     iOS_BN_Backup_AdUnitID: 
