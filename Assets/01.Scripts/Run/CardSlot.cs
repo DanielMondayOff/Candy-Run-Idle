@@ -93,8 +93,8 @@ public class CardSlot : MonoBehaviour
                     RunManager.instance.AddCandy();
 
                     MondayOFF.EventTracker.LogCustomEvent(
-        "Run",
-        new Dictionary<string, string> { { "Upgrade", "AddCandy" } }
+        "RUN",
+        new Dictionary<string, string> { { "RUN_TYPE", "AddCandy" } }
         );
 
                     break;
@@ -103,8 +103,8 @@ public class CardSlot : MonoBehaviour
                     RunManager.instance.TripleShot();
 
                     MondayOFF.EventTracker.LogCustomEvent(
-        "Run",
-        new Dictionary<string, string> { { "Upgrade", "TripleShot" } }
+        "RUN",
+        new Dictionary<string, string> { { "RUN_TYPE", "TripleShot" } }
         );
 
                     break;

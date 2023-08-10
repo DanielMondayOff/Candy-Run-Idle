@@ -32,9 +32,12 @@ public class RunObstacle : MonoBehaviour
         {
             isUsed = true;
 
-            print(Vector3.Distance(transform.position, other.transform.position));
+            // print(Vector3.Distance(transform.position, other.transform.position));
+
+            // Debug.DrawLine(transform.position, other.GetComponentInParent<CandyHead>().transform.position, Color.blue, 100f);
+
             if (knockBack)
-                if (Vector3.Distance(transform.position, other.transform.position) < 1.2f)
+                if (Vector3.Distance(transform.position, other.GetComponentInParent<CandyHead>().transform.position) < 2f)
                 {
                     knockBack = true;
                 }
@@ -42,7 +45,12 @@ public class RunObstacle : MonoBehaviour
                     knockBack = false;
 
 
-            RunManager.instance.TakeDamage(100, GetComponent<Collider>().ClosestPointOnBounds(other.bounds.center), knockBack);
+            RunManager.instance.TakeDamage(200, GetComponent<Collider>().ClosestPointOnBounds(other.bounds.center), knockBack);
+
+            MondayOFF.EventTracker.LogCustomEvent(
+        "RUN",
+        new Dictionary<string, string> { { "RUN_TYPE", "hitByObstacle" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
+        );
         }
     }
 
@@ -86,6 +94,11 @@ public class RunObstacle : MonoBehaviour
         particle.GetComponentInChildren<ParticleSystem>().Play();
 
         this.TaskDelay(3f, () => Managers.Pool.Push(particle.GetComponentInChildren<Poolable>()));
+
+        MondayOFF.EventTracker.LogCustomEvent(
+        "RUN",
+        new Dictionary<string, string> { { "RUN_TYPE", "destroyObstacle" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
+        );
     }
 
     public void Reset()

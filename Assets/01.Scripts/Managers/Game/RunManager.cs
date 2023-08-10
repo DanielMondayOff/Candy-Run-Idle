@@ -376,11 +376,20 @@ public class RunManager : MonoBehaviour
             candypiece.GetComponentInChildren<CandyPieces>().ExplosionPieces(candy.transform);
         }
 
+        foreach (var candy in candyList)
+        {
+            var candypiece = Instantiate(Managers.Resource.Load<GameObject>("Candy_Piece"), hitPoint, Quaternion.identity);
+
+            candypiece.GetComponent<CandyPieces>().Init(candy.GetComponentInChildren<CandyHead>().candyObject.mat);
+
+            candypiece.GetComponentInChildren<CandyPieces>().ExplosionPieces(candy.transform);
+        }
+
         MMVibrationManager.Haptic(HapticTypes.MediumImpact);
 
         if (knockBack)
         {
-            runPlayer.DOMoveZ(runPlayer.transform.position.z - 2.5f, .5f).SetEase(Ease.OutCubic);
+            runPlayer.DOMoveZ(runPlayer.transform.position.z - 3.5f, .5f).SetEase(Ease.OutCubic);
         }
     }
 
@@ -566,7 +575,7 @@ public class RunManager : MonoBehaviour
 
         MondayOFF.EventTracker.LogCustomEvent(
         "UI",
-        new Dictionary<string, string> { { "GameChange", "GoToIdle" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
+        new Dictionary<string, string> { { "UI_TYPE", "GoToIdle" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
         );
     }
 
@@ -576,7 +585,7 @@ public class RunManager : MonoBehaviour
 
         MondayOFF.EventTracker.LogCustomEvent(
         "UI",
-        new Dictionary<string, string> { { "OnClick", "GoToIdleBtn" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
+        new Dictionary<string, string> { { "UI_TYPE", "GoToIdleBtn" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
         );
     }
 

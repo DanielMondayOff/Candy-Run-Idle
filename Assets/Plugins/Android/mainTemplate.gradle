@@ -53,12 +53,12 @@ dependencies {
     implementation 'com.applovin.mediation:adcolony-adapter:4.8.0.4' // Assets/MaxSdk/Mediation/AdColony/Editor/Dependencies.xml:4
     implementation 'com.applovin.mediation:amazon-tam-adapter:9.+@aar' // Assets/Amazon/Scripts/Mediations/AppLovinMediation/Editor/Dependencies.xml:4
     implementation 'com.applovin.mediation:bytedance-adapter:5.3.0.4.0' // Assets/MaxSdk/Mediation/ByteDance/Editor/Dependencies.xml:8
-    implementation 'com.applovin.mediation:facebook-adapter:[6.14.0.0]' // Assets/MaxSdk/Mediation/Facebook/Editor/Dependencies.xml:8
+    implementation 'com.applovin.mediation:facebook-adapter:[6.15.0.0]' // Assets/MaxSdk/Mediation/Facebook/Editor/Dependencies.xml:8
     implementation 'com.applovin.mediation:fyber-adapter:8.2.3.3' // Assets/MaxSdk/Mediation/Fyber/Editor/Dependencies.xml:4
-    implementation 'com.applovin.mediation:hyprmx-adapter:6.2.0.1' // Assets/MaxSdk/Mediation/HyprMX/Editor/Dependencies.xml:4
-    implementation 'com.applovin.mediation:inmobi-adapter:10.1.4.1' // Assets/MaxSdk/Mediation/InMobi/Editor/Dependencies.xml:4
-    implementation 'com.applovin.mediation:ironsource-adapter:7.3.1.1.0' // Assets/MaxSdk/Mediation/IronSource/Editor/Dependencies.xml:8
-    implementation 'com.applovin.mediation:mintegral-adapter:16.4.71.0' // Assets/MaxSdk/Mediation/Mintegral/Editor/Dependencies.xml:8
+    implementation 'com.applovin.mediation:hyprmx-adapter:6.2.0.2' // Assets/MaxSdk/Mediation/HyprMX/Editor/Dependencies.xml:4
+    implementation 'com.applovin.mediation:inmobi-adapter:10.1.4.3' // Assets/MaxSdk/Mediation/InMobi/Editor/Dependencies.xml:4
+    implementation 'com.applovin.mediation:ironsource-adapter:7.4.0.0.0' // Assets/MaxSdk/Mediation/IronSource/Editor/Dependencies.xml:8
+    implementation 'com.applovin.mediation:mintegral-adapter:16.4.91.0' // Assets/MaxSdk/Mediation/Mintegral/Editor/Dependencies.xml:8
     implementation 'com.applovin.mediation:mobilefuse-adapter:1.5.2.0' // Assets/MaxSdk/Mediation/MobileFuse/Editor/Dependencies.xml:4
     implementation 'com.applovin.mediation:tapjoy-adapter:13.1.2.0' // Assets/MaxSdk/Mediation/Tapjoy/Editor/Dependencies.xml:8
     implementation 'com.applovin.mediation:unityads-adapter:4.8.0.0' // Assets/MaxSdk/Mediation/UnityAds/Editor/Dependencies.xml:4

@@ -80,8 +80,8 @@ public class RunMapGenerator : MonoBehaviour
         }
 
         MondayOFF.EventTracker.LogCustomEvent(
-		"Run", 
-		new Dictionary<string, string>{ {"RunMap", "RunMapRandomGenerated"} }
+		"RUN", 
+		new Dictionary<string, string>{ {"RUN_TYPE", "RunMapRandomGenerated"} }
 );
     }
 

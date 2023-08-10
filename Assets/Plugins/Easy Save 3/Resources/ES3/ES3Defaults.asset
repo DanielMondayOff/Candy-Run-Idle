@@ -46,6 +46,7 @@ MonoBehaviour:
     - Everyday.Events
     - Everyday.Events.Editor
     - Everyday.IAP
+    - Everyday.IAP.Editor
     - Google.Play.Common
     - Google.Play.Core
     - Google.Play.Review
@@ -60,6 +61,7 @@ MonoBehaviour:
     - Nementic.SelectionUtility.Runtime
     - PlayOn
     - PPv2URPConverters
+    - Purchasing.Common
     - SingularSDK
     - Sirenix.OdinInspector.Modules.UnityLocalization
     - Sirenix.OdinInspector.Modules.UnityLocalization.Editor

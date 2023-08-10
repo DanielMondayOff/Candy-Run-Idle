@@ -24,8 +24,8 @@ public class MoneyDrop : MonoBehaviour
             SaveManager.instance.GetMoney(moneyValue);
 
             MondayOFF.EventTracker.LogCustomEvent(
-        "Run",
-        new Dictionary<string, string> { { "Money", "GetDropMoney" } }
+        "RUN",
+        new Dictionary<string, string> { { "RUN_TYPE", "GetDropMoney" } }
         );
         }
     }

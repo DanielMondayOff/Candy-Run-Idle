@@ -296,7 +296,7 @@ public class IdleManager : MonoBehaviour
 
         MondayOFF.EventTracker.LogCustomEvent(
         "UI",
-        new Dictionary<string, string> { { "GameChange", "GoToRun" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
+        new Dictionary<string, string> { { "UI_TYPE", "GoToRun" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
         );
     }
 
@@ -314,8 +314,8 @@ public class IdleManager : MonoBehaviour
         SpawnWorker(1);
 
         MondayOFF.EventTracker.LogCustomEvent(
-        "Idle",
-        new Dictionary<string, string> { { "UpgradeType", "HireWorker" } }
+        "IDLE",
+        new Dictionary<string, string> { { "IDLE_TYPE", "HireWorker" } }
 );
     }
 
@@ -333,8 +333,8 @@ public class IdleManager : MonoBehaviour
         workers.ForEach((n) => n.ChangeMoveSpeed(workerSpeed[workerSpeedUp.currentLevel]));
 
         MondayOFF.EventTracker.LogCustomEvent(
-        "Idle",
-        new Dictionary<string, string> { { "UpgradeType", "WorkerSpeedUp" } }
+        "IDLE",
+        new Dictionary<string, string> { { "IDLE_TYPE", "WorkerSpeedUp" } }
 );
     }
 
@@ -351,8 +351,8 @@ public class IdleManager : MonoBehaviour
         SetCustomerSpawnSpeed(customerSpawnSpeed[promotion.currentLevel]);
 
         MondayOFF.EventTracker.LogCustomEvent(
-        "Idle",
-        new Dictionary<string, string> { { "UpgradeType", "Promotion" } }
+        "IDLE",
+        new Dictionary<string, string> { { "IDLE_TYPE", "Promotion" } }
 );
     }
 
