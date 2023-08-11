@@ -88,7 +88,8 @@ public class IdleManager : MonoBehaviour
         // StartCoroutine(SceneLoading());
     }
 
-    private void Update() {
+    private void Update()
+    {
         if (Input.GetKeyDown(KeyCode.Z))
         {
             foreach (var canvas in idleUIs)
@@ -159,6 +160,16 @@ public class IdleManager : MonoBehaviour
         }
 
         return null;
+    }
+
+    public OrderLine FindClosestEmptyOrderLine_Worker(IdleWorker worker)
+    {
+        if (currentMap.orderLines.Length <= 0)
+            return null;
+
+        var filter = currentMap.orderLines.Where((n) => (n.currentCustomer != null && n.currentWorker == null));
+
+        return filter.Where((n) => n.currentCustomer.waitForCandy).OrderByDescending((n) => Vector3.Distance(n.currentCustomer.transform.position, worker.transform.position)).FirstOrDefault();
     }
 
     public void BookTheLine(IdleCustomer customer)
