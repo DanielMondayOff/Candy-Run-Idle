@@ -503,6 +503,7 @@ public class RunManager : MonoBehaviour
 
             SaveManager.instance.enableCandyInventoryUIUpdate = true;
 
+            MondayOFF.AdsManager.ShowInterstitial();
         });
     }
 
