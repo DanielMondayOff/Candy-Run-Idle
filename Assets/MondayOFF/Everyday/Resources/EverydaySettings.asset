@@ -19,7 +19,7 @@ MonoBehaviour:
     showBannerOnLoad: 1
     adInitializationOrder: 84
     adInitializationDelay: 2
-    interstitialInterval: 30
+    interstitialInterval: 45
     resetTimerOnRewarded: 1
     bannerPosition: 7
     AOS_IS_AdUnitID: 45d1d730c781ca25

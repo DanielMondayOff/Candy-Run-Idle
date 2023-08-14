@@ -118,6 +118,8 @@ public class RunManager : MonoBehaviour
         {
             startCard.GenearteCards();
         }
+
+        MondayOFF.AdsManager.ShowBanner();
     }
 
     private void OnEnable()

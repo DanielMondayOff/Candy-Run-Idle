@@ -5,6 +5,8 @@ using UnityEngine;
 public class NoAdsBtn : MonoBehaviour
 {
     // Start is called before the first frame update
+
+    [SerializeField] GameObject btn;
     void Start()
     {
         if (MondayOFF.NoAds.IsNoAds)
@@ -13,8 +15,16 @@ public class NoAdsBtn : MonoBehaviour
         }
         else
         {
-            gameObject.SetActive(true);
-            MondayOFF.IAPManager.OnAfterPurchase += (isSuccess) => { gameObject.SetActive(false); };
+            btn.SetActive(true);
+            MondayOFF.IAPManager.OnAfterPurchase += (isSuccess) =>
+            {
+                gameObject.SetActive(false);
+
+                MondayOFF.EventTracker.LogCustomEvent(
+            "IAP",
+            new Dictionary<string, string> { { "IAP_TYPE", "noads" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
+            );
+            };
         }
     }
 
