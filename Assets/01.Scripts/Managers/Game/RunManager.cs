@@ -57,6 +57,8 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public StartCard startCard;
 
     [FoldoutGroup("참조")] public CanvasGroup[] runUIs;
+    [FoldoutGroup("참조")] public GameObject canvas;
+
 
 
 
@@ -569,6 +571,7 @@ public class RunManager : MonoBehaviour
         runEndUI.SetActive(false);
         runGameUI.SetActive(false);
         particleUI.SetActive(false);
+        canvas.SetActive(false);
         jarAnimator.SetBool("Rotate", false);
 
         CameraManager.instance.ChangeCamera("idle");
@@ -601,6 +604,7 @@ public class RunManager : MonoBehaviour
 
         runGameUI.SetActive(true);
         particleUI.SetActive(true);
+        canvas.SetActive(true);
     }
 
     void OnChangeCandyList()

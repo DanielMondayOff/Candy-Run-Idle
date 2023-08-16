@@ -46,4 +46,9 @@ public class UI_PopupSetting : UI_Popup
         _soundToggle.onValueChanged.AddListener((isOn) => Managers.Data.UseSound = isOn);
         _hapticToggle.onValueChanged.AddListener((isOn) => Managers.Data.UseHaptic = isOn);
     }
+
+    public void RestorePurcahse()
+    {
+        MondayOFF.IAPManager.RestorePurchase();
+    }
 }

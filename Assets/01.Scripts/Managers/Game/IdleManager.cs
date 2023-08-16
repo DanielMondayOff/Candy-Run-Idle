@@ -21,6 +21,8 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("참조")] public UnityEngine.UI.Text moneyText;
     [FoldoutGroup("참조")] public GameObject idleUI;
     [FoldoutGroup("참조")] public GameObject upgradePanel;
+    [FoldoutGroup("참조")] public GameObject idleCamera;
+
     public CanvasGroup[] idleUIs;
 
 
@@ -136,6 +138,7 @@ public class IdleManager : MonoBehaviour
     {
         idleUI.SetActive(true);
         StartIdle();
+        idleCamera.SetActive(true);
     }
 
     public OrderLine FindEmptyOrderLine_Customer()
@@ -309,6 +312,9 @@ public class IdleManager : MonoBehaviour
         "UI",
         new Dictionary<string, string> { { "UI_TYPE", "GoToRun" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
         );
+
+        idleCamera.SetActive(false);
+
     }
 
     public void Upgrade_HireWorker()

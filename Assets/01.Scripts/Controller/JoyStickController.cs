@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.AI;
+
 public enum JoyStickMethod
 {
     DoNotUse,
@@ -19,6 +21,7 @@ public class JoyStickController : MonoBehaviour, IPointerDownHandler, IPointerUp
     public float JoyStickBound;
     [Header("움직일 물체 (Rigidbody필요)")]
     public Rigidbody MoveObjectRig;
+    public NavMeshAgent MoveAgent;
     public float Threshold = 10;
 
 
@@ -159,6 +162,8 @@ public class JoyStickController : MonoBehaviour, IPointerDownHandler, IPointerUp
                 CheckMoveDir();
             }
             MoveObjectRig.position += newDir * Time.deltaTime * _curSpeed;
+
+            MoveAgent.Move(newDir * Time.deltaTime * _curSpeed);
         }
 
 
