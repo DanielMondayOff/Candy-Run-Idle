@@ -60,7 +60,10 @@ public class MoneyDrops : MonoBehaviour
         if (other.tag.Equals("Player"))
         {
             if (takeMoneyCoroutine != null)
+            {
                 StopCoroutine(takeMoneyCoroutine);
+                takeMoneyCoroutine = null;
+            }
         }
     }
 
@@ -71,7 +74,7 @@ public class MoneyDrops : MonoBehaviour
 
         while (true)
         {
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.05f);
 
             if (money > 0)
             {
@@ -83,11 +86,15 @@ public class MoneyDrops : MonoBehaviour
                 {
                     SaveManager.instance.GetMoney(money);
                     money = 0;
+
+                    other.GetComponent<PlayerMoneyText>().ChangeFloatingText(money);
                 }
                 else
                 {
                     SaveManager.instance.GetMoney(5);
                     money -= 5;
+
+                    other.GetComponent<PlayerMoneyText>().ChangeFloatingText(5);
                 }
             }
 

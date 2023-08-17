@@ -9,6 +9,13 @@ public class MoneyNode : MonoBehaviour
 
     Sequence nodeTween = null;
 
+    Vector3 localOrigin;
+
+    private void Start()
+    {
+        localOrigin = transform.localPosition;
+    }
+
     public void MoneyReady()
     {
         if (isReady)
@@ -23,8 +30,6 @@ public class MoneyNode : MonoBehaviour
     {
         isReady = false;
 
-        nodeTween.Append(transform.DOLocalJump(target.position, 10f, 1, 0.3f).OnComplete(() => transform.localScale = Vector3.zero));
+        nodeTween.Append(gameObject.transform.DOJump(target.position, 10f, 1, 0.3f).OnComplete(() => { transform.localScale = Vector3.zero; transform.localPosition = localOrigin;}));
     }
-
-
 }
