@@ -10,7 +10,6 @@ public class Collector : MonoBehaviour
 {
     public bool isComplete = false;
 
-
     Coroutine collectCoroutine = null;
 
     Tween groundTween = null;
@@ -18,26 +17,18 @@ public class Collector : MonoBehaviour
     public GameObject groundObject;
     public Vector3 groundDefaultScale;
 
-    public Text text;
-
-    public CollectorStack[] collectorStacks;
-
+    public Text requireMoneyText;
 
     public bool ignoreMultifly = false;
 
     public UnityEvent onComplete = null;
 
+    public int requireMoney;
+    public int currentMoney;
+
     private void Start()
     {
-        if(!ignoreMultifly)
-        {
-        foreach (var stack in collectorStacks)
-        {
-
-        }
-        }
-
-        text.text = collectorStacks[0].currentStack + " / " + collectorStacks[0].requestCount;
+        requireMoneyText.text = (requireMoney - currentMoney).ToString();
     }
 
     public void Init()
@@ -81,19 +72,21 @@ public class Collector : MonoBehaviour
 
     IEnumerator CollectCoroutine()
     {
+        int valueForTick = (requireMoney - currentMoney) / 10;
+
         while (true)
         {
             yield return new WaitForSeconds(0.1f);
 
 
 
-            text.text = collectorStacks[0].currentStack + " / " + collectorStacks[0].requestCount;
+            requireMoneyText.text = (requireMoney - currentMoney).ToString();
 
-            if (CompareStackArrays(collectorStacks))
-            {
-                yield return new WaitForSeconds(0.5f);
-                OnCompleteCollect();
-            }
+            // if (CompareStackArrays(collectorStacks))
+            // {
+            //     yield return new WaitForSeconds(0.5f);
+            //     OnCompleteCollect();
+            // }
         }
     }
 
@@ -111,66 +104,6 @@ public class Collector : MonoBehaviour
         onComplete.Invoke();
 
     }
-
-    public static bool CompareStackArrays(CollectorStack[] stacks)
-    {
-        foreach (var stack in stacks)
-        {
-            if (stack.currentStack < stack.requestCount)
-                return false;
-        }
-
-        return true;
-        // foreach (var requestElement in request)
-        // {
-        //     bool isIdFound = current.Any(currentElement => currentElement.id == requestElement.id);
-
-        //     if (!isIdFound)
-        //     {
-        //         return false;
-        //     }
-
-        //     bool isMatchingCountFound = current.Any(currentElement =>
-        //         currentElement.id == requestElement.id && currentElement.count >= requestElement.count);
-
-        //     if (!isMatchingCountFound)
-        //     {
-        //         return false;
-        //     }
-        // }
-
-        // return true;
-    }
-}
-
-[System.Serializable]
-public class ItemStack
-{
-    public int id;
-    public int count;
-
-    public void AddItemStack(int id, int count = 1)
-    {
-        if (this.id == id)
-            this.count = count;
-    }
-
-    public bool CheckStackMatch(ItemStack itemStack)
-    {
-        if (this.id == itemStack.id)
-            if (this.count >= itemStack.count)
-                return true;
-
-        return false;
-    }
-}
-
-[System.Serializable]
-public class CollectorStack
-{
-    public int id;
-    public int currentStack;
-    public int requestCount;
 }
 
 
