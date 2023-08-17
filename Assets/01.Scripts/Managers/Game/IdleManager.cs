@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine.SceneManagement;
-
+using DG.Tweening;
 
 public class IdleManager : MonoBehaviour
 {
@@ -485,6 +485,22 @@ public class IdleManager : MonoBehaviour
                 return null;
 
         }
+    }
+
+    public Poolable GenerateDummyObject(string path, Vector3 pos)
+    {
+        var dummy = Managers.Pool.Pop(Resources.Load<GameObject>(path));
+
+        dummy.transform.position = pos;
+
+        return dummy;
+    }
+
+    public void GenerateDummyMoney(string path, Vector3 pos, Vector3 end)
+    {
+        var money = GenerateDummyObject(path, pos);
+
+        money.transform.DOJump(end, 10f, 1, 0.3f).OnComplete(() => Managers.Pool.Push(money));
     }
 }
 

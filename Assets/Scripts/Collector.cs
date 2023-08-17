@@ -5,6 +5,8 @@ using DG.Tweening;
 using System.Linq;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using MoreMountains.NiceVibrations;
+
 
 public class Collector : MonoBehaviour
 {
@@ -25,6 +27,8 @@ public class Collector : MonoBehaviour
 
     public int requireMoney;
     public int currentMoney;
+
+    private Transform targetPlayer;
 
     private void Start()
     {
@@ -47,6 +51,8 @@ public class Collector : MonoBehaviour
             if (collectCoroutine != null)
                 StopCoroutine(collectCoroutine);
             collectCoroutine = StartCoroutine(CollectCoroutine());
+
+            targetPlayer = other.transform;
 
             if (groundTween != null)
                 groundTween.Kill();
@@ -72,21 +78,84 @@ public class Collector : MonoBehaviour
 
     IEnumerator CollectCoroutine()
     {
+        if (isComplete)
+            if (collectCoroutine != null)
+                StopCoroutine(collectCoroutine);
+
         int valueForTick = (requireMoney - currentMoney) / 10;
 
         while (true)
         {
             yield return new WaitForSeconds(0.1f);
 
+            if (GetRemainMoney() <= 0)
+            {
+                OnCompleteCollect();
+            }
+            else
+            {
+                if (GetRemainMoney() >= valueForTick)
+                {
+                    if (SaveManager.instance.CheckPossibleUpgrade(valueForTick))
+                    {
+                        SaveManager.instance.LossMoney(valueForTick);
+                        IdleManager.instance.GenerateDummyMoney("Money Dummy", targetPlayer.position, transform.position);
 
+                        currentMoney += valueForTick;
 
-            requireMoneyText.text = (requireMoney - currentMoney).ToString();
+                        MMVibrationManager.Haptic(HapticTypes.LightImpact);
 
-            // if (CompareStackArrays(collectorStacks))
-            // {
-            //     yield return new WaitForSeconds(0.5f);
-            //     OnCompleteCollect();
-            // }
+                    }
+                    else if (SaveManager.instance.GetMoney() <= 0)
+                    {
+
+                    }
+                    else
+                    {
+                        int money = SaveManager.instance.GetMoney();
+                        SaveManager.instance.LossMoney(money);
+                        IdleManager.instance.GenerateDummyMoney("Money Dummy", targetPlayer.position, transform.position);
+
+                        currentMoney += money;
+
+                        MMVibrationManager.Haptic(HapticTypes.LightImpact);
+
+                    }
+                }
+                else
+                {
+                    if (SaveManager.instance.CheckPossibleUpgrade(GetRemainMoney()))
+                    {
+                        SaveManager.instance.LossMoney(GetRemainMoney());
+                        IdleManager.instance.GenerateDummyMoney("Money Dummy", targetPlayer.position, transform.position);
+
+                        currentMoney += GetRemainMoney();
+
+                        MMVibrationManager.Haptic(HapticTypes.LightImpact);
+                    }
+                    else if (SaveManager.instance.GetMoney() <= 0)
+                    {
+
+                    }
+                    else
+                    {
+                        int money = SaveManager.instance.GetMoney();
+
+                        SaveManager.instance.LossMoney(money);
+                        IdleManager.instance.GenerateDummyMoney("Money Dummy", targetPlayer.position, transform.position);
+
+                        currentMoney += money;
+
+                        MMVibrationManager.Haptic(HapticTypes.LightImpact);
+                    }
+                }
+                requireMoneyText.text = (requireMoney - currentMoney).ToString();
+
+                if (GetRemainMoney() <= 0)
+                {
+                    OnCompleteCollect();
+                }
+            }
         }
     }
 
@@ -99,10 +168,13 @@ public class Collector : MonoBehaviour
 
         if (groundTween != null)
             groundTween.Kill();
-        groundTween = gameObject.transform.DOScale(Vector3.zero, 0.7f).SetEase(Ease.InOutBack);
+        groundTween = gameObject.transform.DOScale(Vector3.zero, 0.7f).SetEase(Ease.InOutBack).SetDelay(0.15f).OnComplete(() => onComplete.Invoke());
 
-        onComplete.Invoke();
+    }
 
+    public int GetRemainMoney()
+    {
+        return (requireMoney - currentMoney);
     }
 }
 
