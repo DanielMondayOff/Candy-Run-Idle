@@ -29,13 +29,15 @@ public class IdleCustomer : MonoBehaviour
 
     [SerializeField] Animator animator;
 
+    public IdleCustomer backCustomer = null;
+
 
     public void Init(Transform spawnPoint)
     {
         this.spawnPoint = spawnPoint;
         agent.enabled = true;
 
-        RandomSkin();
+        // RandomSkin();
     }
 
     private void Update()
@@ -125,6 +127,19 @@ public class IdleCustomer : MonoBehaviour
     void RandomSkin()
     {
         skin[Random.Range(0, skin.Length)].SetActive(true);
+    }
+
+    public void TossTheLine()
+    {
+        if (backCustomer == null)
+            return;
+
+
+    }
+
+    public void CheckComplete()
+    {
+        
     }
 }
 

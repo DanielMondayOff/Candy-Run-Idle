@@ -18,6 +18,8 @@ public class IdleManager : MonoBehaviour
 
     public List<CandyJar> candyJars = new List<CandyJar>();
 
+    public List<CandyMachine> candyMachines = new List<CandyMachine>();
+
     [FoldoutGroup("참조")] public UnityEngine.UI.Text moneyText;
     [FoldoutGroup("참조")] public GameObject idleUI;
     [FoldoutGroup("참조")] public GameObject upgradePanel;
@@ -35,6 +37,8 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("업그레이드")] public IdleUpgrade hireWorker;
     [FoldoutGroup("업그레이드")] public IdleUpgrade workerSpeedUp;
     [FoldoutGroup("업그레이드")] public IdleUpgrade promotion;
+
+    [Space]
 
     // [FoldoutGroup("업그레이드")] public IdleUpgrade[] upgrades;
 
@@ -73,7 +77,7 @@ public class IdleManager : MonoBehaviour
         }
         else
         {
-            SpawnWorker(1);
+            // SpawnWorker(1);
         }
 
         if (ES3.KeyExists("promotion"))
@@ -128,7 +132,7 @@ public class IdleManager : MonoBehaviour
         if (SaveManager.instance.candyInventory.Count >= 0 && !playIdle)
         {
             // GenerateCandyJar();
-            CheckingCandyJar();
+            // CheckingCandyJar();
             spawnCustomer = this.TaskWhile(customerSpawnSpeed[promotion.currentLevel], 2, () => GenenrateCustomer());
             playIdle = true;
         }
@@ -207,7 +211,7 @@ public class IdleManager : MonoBehaviour
 
     public void GenenrateCustomer()
     {
-        if (SaveManager.instance.candyInventory.Count <= 0 || CheckCandyJar() || !playIdle || maxCustomerCount[promotion.currentLevel] <= customers.Count)
+        if (SaveManager.instance.candyInventory.Count <= 0 || !playIdle || maxCustomerCount[promotion.currentLevel] <= customers.Count)
             return;
 
         var spawnPoint = currentMap.GetRandomSpawnPoint();
@@ -225,7 +229,7 @@ public class IdleManager : MonoBehaviour
 
         // order.currentLine = emptyLine;
 
-        BookTheLine(customer);
+        // BookTheLine(customer);
 
         bool CheckCandyJar()
         {

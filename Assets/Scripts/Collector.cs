@@ -6,10 +6,24 @@ using System.Linq;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using MoreMountains.NiceVibrations;
-
+using Sirenix.OdinInspector;
 
 public class Collector : MonoBehaviour
 {
+
+    [HorizontalGroup("Guid")][ReadOnly][SerializeField] string guid;
+    public string Guid { get => guid; protected set => guid = value; }
+
+    [HorizontalGroup("Guid")]
+    [Button(SdfIconType.ArrowClockwise)]
+    virtual protected void NewGuid()
+    {
+        Guid = System.Guid.NewGuid().ToString();
+#if UNITY_EDITOR
+        UnityEditor.EditorUtility.SetDirty(this);
+#endif
+    }
+
     public bool isComplete = false;
 
     Coroutine collectCoroutine = null;
@@ -33,12 +47,23 @@ public class Collector : MonoBehaviour
     private void Start()
     {
         requireMoneyText.text = (requireMoney - currentMoney).ToString();
+
+        if (ES3.KeyExists(guid))
+        {
+            onComplete.Invoke();
+            gameObject.SetActive(false);
+        }
     }
 
     public void Init()
     {
         transform.localScale = Vector3.zero;
         transform.DOScale(Vector3.one, 0.5f);
+    }
+
+    private void OnValidate()
+    {
+        requireMoneyText.text = (requireMoney - currentMoney).ToString();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -155,10 +180,13 @@ public class Collector : MonoBehaviour
                 {
                     OnCompleteCollect();
                 }
+
+                ES3.Save<int>(guid, currentMoney);
             }
         }
     }
 
+    [Button("ForceComplete")]
     public void OnCompleteCollect()
     {
         if (isComplete)
@@ -170,6 +198,7 @@ public class Collector : MonoBehaviour
             groundTween.Kill();
         groundTween = gameObject.transform.DOScale(Vector3.zero, 0.7f).SetEase(Ease.InOutBack).SetDelay(0.15f).OnComplete(() => onComplete.Invoke());
 
+        ES3.Save<bool>(guid, true);
     }
 
     public int GetRemainMoney()
