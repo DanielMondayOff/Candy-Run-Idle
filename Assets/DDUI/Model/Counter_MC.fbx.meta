@@ -1,15 +1,9 @@
 fileFormatVersion: 2
-guid: 11a554ef218224212ac4020e6a895eba
+guid: 09ee304d6d9e1478da0ef18cedee0054
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Candy_Texture
-    second: {fileID: -3321668133459841144, guid: a0a744ee6d1bb4ff9b2ddbf7427c76c9,
-      type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0

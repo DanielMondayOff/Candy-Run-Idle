@@ -36,7 +36,7 @@ public class PlayerMoneyText : MonoBehaviour
             scaleTween = moneyText.transform.DOScale(Vector3.one, 0.3f);
 
 
-        delay = this.TaskDelay(2.5f, () => Reset());
+        delay = this.TaskDelay(1.5f, () => Reset());
     }
 
     public void Reset()
