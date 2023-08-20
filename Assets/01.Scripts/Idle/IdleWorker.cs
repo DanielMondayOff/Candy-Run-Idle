@@ -118,7 +118,7 @@ public class IdleWorker : MonoBehaviour
 
         animator.SetBool("Move", false);
 
-        line.currentCustomer.AddCandyToOrder(workerInventory);
+        // line.currentCustomer.AddCandyToOrder(workerInventory);
 
         line.currentWorker = null;
 

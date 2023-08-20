@@ -20,6 +20,8 @@ public class IdleManager : MonoBehaviour
 
     public List<CandyMachine> candyMachines = new List<CandyMachine>();
 
+    public Counter counter;
+
     [FoldoutGroup("참조")] public UnityEngine.UI.Text moneyText;
     [FoldoutGroup("참조")] public GameObject idleUI;
     [FoldoutGroup("참조")] public GameObject upgradePanel;
@@ -179,23 +181,23 @@ public class IdleManager : MonoBehaviour
         return filter.Where((n) => n.currentCustomer.waitForCandy).OrderByDescending((n) => Vector3.Distance(n.currentCustomer.transform.position, worker.transform.position)).FirstOrDefault();
     }
 
-    public void BookTheLine(IdleCustomer customer)
-    {
-        OrderLine orderLine = FindEmptyOrderLine_Customer();
+    // public void BookTheLine(IdleCustomer customer)
+    // {
+    //     OrderLine orderLine = FindEmptyOrderLine_Customer();
 
-        if (orderLine != null)
-        {
-            var newOrder = MakeOrder(customer, orderLine);
-            orderLine.currentCustomer = customer;
-            orderLine.currentCustomer.line = orderLine;
+    //     if (orderLine != null)
+    //     {
+    //         var newOrder = MakeOrder(customer, orderLine);
+    //         orderLine.currentCustomer = customer;
+    //         orderLine.currentCustomer.line = orderLine;
 
-            customer.SetDestination(orderLine.customerLine.position, () =>
-            {
-                customer.order = newOrder;
-                customer.WaitUntilCandy();
-            });
-        }
-    }
+    //         customer.SetDestination(orderLine.customerLine.position, () =>
+    //         {
+    //             customer.order = newOrder;
+    //             customer.WaitUntilCandy();
+    //         });
+    //     }
+    // }
 
     public CandyOrder MakeOrder(IdleCustomer customer, OrderLine line)
     {
@@ -222,6 +224,8 @@ public class IdleManager : MonoBehaviour
         customer.Init(spawnPoint);
 
         customers.Add(customer.transform.root.gameObject);
+
+        SetTargetCustomer(customer);
 
         // var order = MakeOrder(customer.GetComponentInChildren<IdleCustomer>());
 
@@ -505,6 +509,20 @@ public class IdleManager : MonoBehaviour
         var money = GenerateDummyObject(path, pos);
 
         money.transform.DOJump(end, 10f, 1, 0.3f).OnComplete(() => Managers.Pool.Push(money));
+    }
+
+    ///손님 할일 정하기
+    public void SetTargetCustomer(IdleCustomer customer)
+    {
+        var useableCandyMachines = candyMachines.Where((n) => n.isReady && (n.candyItem.count > 0)).ToList();
+
+        print(useableCandyMachines.Count);
+
+        if (useableCandyMachines.Count > 0)
+        {
+            useableCandyMachines.OrderBy(x => Random.value).FirstOrDefault().EnqueueCustomer(customer);
+            // customer.SetDestination() useableCandyMachines.OrderBy(x => Random.value).FirstOrDefault().;
+        }
     }
 }
 

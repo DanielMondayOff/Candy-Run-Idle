@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18232611, g: 0.43685567, b: 0.99999905, a: 1}
+  m_IndirectSpecularColor: {r: 0.18227078, g: 0.43669406, b: 0.99999905, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1207,6 +1207,7 @@ MonoBehaviour:
     type: 3}
   cutCandyPos: {fileID: 0}
   cutCandyPrefab: {fileID: 0}
+  candyObject: {fileID: 0}
 --- !u!1 &264196566
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,16 +1344,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1282306699}
     m_Modifications:
+    - target: {fileID: 7080765057584461469, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7297665465587743447, guid: 9b42ee5689f704d11a770881dce2afa8,
         type: 3}
       propertyPath: m_BlockingMask.m_Bits
       value: 63
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297665466127997396, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_Text
+      value: Length
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297665466428500256, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7297665466428500271, guid: 9b42ee5689f704d11a770881dce2afa8,
         type: 3}
       propertyPath: m_Text
       value: -200
       objectReference: {fileID: 0}
+    - target: {fileID: 7297665466869252096, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e61bb8d6c80e2402ab2c86e7a88b9701, type: 2}
     - target: {fileID: 7297665466982425156, guid: 9b42ee5689f704d11a770881dce2afa8,
         type: 3}
       propertyPath: m_RootOrder
@@ -1767,16 +1788,36 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 85296626646444ff6af7713721ead300, type: 2}
+    - target: {fileID: 7080765057584461469, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7297665465587743447, guid: 9b42ee5689f704d11a770881dce2afa8,
         type: 3}
       propertyPath: m_BlockingMask.m_Bits
       value: 63
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297665466127997396, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_Text
+      value: Length
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297665466428500256, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7297665466428500271, guid: 9b42ee5689f704d11a770881dce2afa8,
         type: 3}
       propertyPath: m_Text
       value: +100
       objectReference: {fileID: 0}
+    - target: {fileID: 7297665466869252096, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e6c0b5fa9e2294358a752ccb5e3e5dc7, type: 2}
     - target: {fileID: 7297665466982425156, guid: 9b42ee5689f704d11a770881dce2afa8,
         type: 3}
       propertyPath: m_RootOrder
@@ -1983,8 +2024,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3a95e7ce79046c0b5e10fe97787643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyText: {fileID: 1071020523}
+  candyInventory: []
   money: 0
+  enableShop: 0
+  onMoneyChangeEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  onChangeCandyInventoryEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  enableCandyInventoryUIUpdate: 1
 --- !u!4 &435390177
 Transform:
   m_ObjectHideFlags: 0
@@ -2117,6 +2166,7 @@ MonoBehaviour:
   damage: 100
   isUsed: 0
   isDestroyed: 0
+  knockBack: 0
   meshRenderer: {fileID: 482994177}
 --- !u!95 &482994174
 Animator:
@@ -2365,6 +2415,7 @@ MonoBehaviour:
   damage: 100
   isUsed: 0
   isDestroyed: 0
+  knockBack: 0
   meshRenderer: {fileID: 526870081}
 --- !u!95 &526870083
 Animator:
@@ -2519,6 +2570,7 @@ MonoBehaviour:
   joyStickMethod: 5
   JoyStickBound: 125
   MoveObjectRig: {fileID: 875429965}
+  MoveAgent: {fileID: 0}
   Threshold: 10
   Speed: 10
   XBound: 3
@@ -3114,7 +3166,9 @@ MonoBehaviour:
   stages: []
   currentStage:
     map: {fileID: 0}
+    jellyGun: 1
   currentStageNum: 0
+  randomMapGenerator: {fileID: 0}
 --- !u!4 &757962348
 Transform:
   m_ObjectHideFlags: 0
@@ -4429,11 +4483,36 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 85296626646444ff6af7713721ead300, type: 2}
+    - target: {fileID: 7080765057584461469, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7297665465587743447, guid: 9b42ee5689f704d11a770881dce2afa8,
         type: 3}
       propertyPath: m_BlockingMask.m_Bits
       value: 63
       objectReference: {fileID: 0}
+    - target: {fileID: 7297665466127997396, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_Text
+      value: Length
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297665466428500256, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297665466428500271, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_Text
+      value: +100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297665466869252096, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e6c0b5fa9e2294358a752ccb5e3e5dc7, type: 2}
     - target: {fileID: 7297665466982425156, guid: 9b42ee5689f704d11a770881dce2afa8,
         type: 3}
       propertyPath: m_RootOrder
@@ -4761,6 +4840,7 @@ MonoBehaviour:
     type: 3}
   cutCandyPos: {fileID: 0}
   cutCandyPrefab: {fileID: 0}
+  candyObject: {fileID: 0}
 --- !u!114 &1058773870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5854,16 +5934,36 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 85296626646444ff6af7713721ead300, type: 2}
+    - target: {fileID: 7080765057584461469, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7297665465587743447, guid: 9b42ee5689f704d11a770881dce2afa8,
         type: 3}
       propertyPath: m_BlockingMask.m_Bits
       value: 63
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297665466127997396, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_Text
+      value: Length
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297665466428500256, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7297665466428500271, guid: 9b42ee5689f704d11a770881dce2afa8,
         type: 3}
       propertyPath: m_Text
       value: +150
       objectReference: {fileID: 0}
+    - target: {fileID: 7297665466869252096, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e6c0b5fa9e2294358a752ccb5e3e5dc7, type: 2}
     - target: {fileID: 7297665466982425156, guid: 9b42ee5689f704d11a770881dce2afa8,
         type: 3}
       propertyPath: m_RootOrder
@@ -5975,6 +6075,7 @@ MonoBehaviour:
   addBulletRangeValue: 1
   plusCandyCount: 0
   cutCandyLength: 0.1
+  candyCuttingSpeed: 1
   candyList:
   - {fileID: 919132149379642098}
   jellyBeanMats:
@@ -5990,17 +6091,36 @@ MonoBehaviour:
   cutCandyPrefab: {fileID: 7633146798354503128, guid: 44c5b6b212ea74738a63e6674868daac,
     type: 3}
   startUI: {fileID: 264196566}
+  runEndUI: {fileID: 0}
+  jarAnimator: {fileID: 0}
+  EndCandyInventoryUI: {fileID: 0}
+  startPoint: {fileID: 0}
+  jellyGunStartUI: {fileID: 0}
+  swipeToStartUI: {fileID: 0}
+  moneyText: {fileID: 0}
+  runGameUI: {fileID: 0}
+  particleUI: {fileID: 0}
+  goToShopBtn: {fileID: 0}
+  nextStageBtn: {fileID: 0}
+  sellCandyBtn: {fileID: 0}
+  startCard: {fileID: 0}
+  runUIs: []
+  canvas: {fileID: 0}
   currentMoney: 0
   fireBullet: 0
   isGameStart: 0
   isGameEnd: 0
   canMove: 0
+  enableSwipe: 1
   cuttingPhase: 0
   cuttingReady: 0
+  cuttingPressed: 0
+  tripleShot: 0
   cuttingPoint1: {fileID: 2013022454}
   cuttingPoint2: {fileID: 367630110}
   cutterAnimator: {fileID: 1981051099}
   touchToCutBtn: {fileID: 938493158}
+  touchToCutImage: {fileID: 0}
 --- !u!4 &1294117685
 Transform:
   m_ObjectHideFlags: 0
@@ -6663,6 +6783,7 @@ MonoBehaviour:
   damage: 100
   isUsed: 0
   isDestroyed: 0
+  knockBack: 0
   meshRenderer: {fileID: 1589780083}
 --- !u!95 &1589780085
 Animator:
@@ -7091,6 +7212,7 @@ MonoBehaviour:
     type: 3}
   cutCandyPos: {fileID: 0}
   cutCandyPrefab: {fileID: 0}
+  candyObject: {fileID: 0}
 --- !u!4 &1833250678 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4177645056373085004, guid: 52180b847ba334c70ae84f48be67f990,
@@ -7330,6 +7452,7 @@ MonoBehaviour:
     type: 3}
   cutCandyPos: {fileID: 0}
   cutCandyPrefab: {fileID: 0}
+  candyObject: {fileID: 0}
 --- !u!114 &1879531321
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9159,6 +9282,7 @@ MonoBehaviour:
     type: 3}
   cutCandyPos: {fileID: 0}
   cutCandyPrefab: {fileID: 0}
+  candyObject: {fileID: 0}
 --- !u!4 &2010386936 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1215756383611669615, guid: e3fdb7f0f209e49559ecc6782123841c,
@@ -10893,6 +11017,7 @@ MonoBehaviour:
     type: 3}
   cutCandyPos: {fileID: 0}
   cutCandyPrefab: {fileID: 0}
+  candyObject: {fileID: 0}
 --- !u!4 &2091281473 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3099047188066521723, guid: e3fdb7f0f209e49559ecc6782123841c,
@@ -11238,11 +11363,36 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 85296626646444ff6af7713721ead300, type: 2}
+    - target: {fileID: 7080765057584461469, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7297665465587743447, guid: 9b42ee5689f704d11a770881dce2afa8,
         type: 3}
       propertyPath: m_BlockingMask.m_Bits
       value: 63
       objectReference: {fileID: 0}
+    - target: {fileID: 7297665466127997396, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_Text
+      value: Length
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297665466428500256, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297665466428500271, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_Text
+      value: +100
+      objectReference: {fileID: 0}
+    - target: {fileID: 7297665466869252096, guid: 9b42ee5689f704d11a770881dce2afa8,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e6c0b5fa9e2294358a752ccb5e3e5dc7, type: 2}
     - target: {fileID: 7297665466982425156, guid: 9b42ee5689f704d11a770881dce2afa8,
         type: 3}
       propertyPath: m_RootOrder
@@ -11461,5 +11611,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8316441003039653501, guid: 19be232b0175e4ac9830a4e629e93a24,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bd02d64fa472449a3a564a699d493dd4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 19be232b0175e4ac9830a4e629e93a24, type: 3}

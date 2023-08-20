@@ -59,34 +59,34 @@ public class IdleCustomer : MonoBehaviour
         // this.nextAction = onComplete;
     }
 
-    public void WaitUntilCandy()
-    {
+    // public void WaitUntilCandy()
+    // {
 
-        waitForCandy = true;
+    //     waitForCandy = true;
 
-        OnChangeOrder();
+    //     OnChangeOrder();
 
-        CandyCanvas.transform.DOScale(new Vector3(0.004f, 0.004f, 0.004f), 0.4f);
+    //     CandyCanvas.transform.DOScale(new Vector3(0.004f, 0.004f, 0.004f), 0.4f);
 
-        // this.TaskWaitUntil(() => Exit(), () => (order.currentCount >= order.requestCount));
-        // if (order.currentCount >= order.requestCount)
-        //     Exit();
-    }
+    //     // this.TaskWaitUntil(() => Exit(), () => (order.currentCount >= order.requestCount));
+    //     // if (order.currentCount >= order.requestCount)
+    //     //     Exit();
+    // }
 
-    public void AddCandyToOrder(CandyItem item)
-    {
-        animator.SetBool("Move", false);
+    // public void AddCandyToOrder(CandyItem item)
+    // {
+    //     animator.SetBool("Move", false);
 
-        if (order.candy.id == item.candy.id)
-        {
-            order.currentCount += item.count;
+    //     if (order.candy.id == item.candy.id)
+    //     {
+    //         order.currentCount += item.count;
 
-            OnChangeOrder(true);
+    //         OnChangeOrder(true);
 
-            if (order.currentCount >= order.requestCount)
-                Exit();
-        }
-    }
+    //         if (order.currentCount >= order.requestCount)
+    //             Exit();
+    //     }
+    // }
 
     public void Exit()
     {
@@ -98,10 +98,10 @@ public class IdleCustomer : MonoBehaviour
         CandyCanvas.gameObject.SetActive(false);
         SetDestination(spawnPoint.position, () => { IdleManager.instance.ExitCustomer(transform.root.gameObject); Destroy(transform.root.gameObject); });
 
-        candyJar.ChangeJarModel(order.candy.id);
-        candyJar.gameObject.SetActive(true);
+        // candyJar.ChangeJarModel(order.candy.id);
+        // candyJar.gameObject.SetActive(true);
 
-        SaveManager.instance.GetMoney(order.CalculateTotalCost());
+        // SaveManager.instance.GetMoney(order.CalculateTotalCost());
 
 
         var particle = Managers.Pool.Pop(Managers.Resource.Load<GameObject>("Particles/DollarbillDirectional Large"));
@@ -114,15 +114,16 @@ public class IdleCustomer : MonoBehaviour
         // Managers.Pool.Push(transform.GetComponentInParent<Poolable>()
     }
 
-    void OnChangeOrder(bool wiggle = false)
-    {
-        // test_candyName.text = order.candy.name;
-        candyImage.sprite = order.candy.icon;
-        test_candyCount.text = "X " + (order.requestCount - order.currentCount);
+    // void OnChangeOrder(bool wiggle = false)
+    // {
+    //     // test_candyName.text = order.candy.name;
+    //     candyImage.sprite = order.candy.icon;
+    //     test_candyCount.text = "X " + (order.requestCount - order.currentCount);
 
-        if (wiggle)
-            CandyCanvas.transform.DOPunchScale(CandyCanvas.transform.localScale * 0.3f, 0.2f, 2);
-    }
+    //     if (wiggle)
+    //         CandyCanvas.transform.DOPunchScale(CandyCanvas.transform.localScale * 0.3f, 0.2f, 2);
+    // }
+
 
     void RandomSkin()
     {

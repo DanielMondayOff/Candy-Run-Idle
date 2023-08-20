@@ -27,7 +27,7 @@ public class BuildObject : SaveableObject
 
 
     [Button("ForceBuild")]
-    public void Build(bool direct = false)
+    public virtual void Build(bool direct = false)
     {
         gameObject.SetActive(true);
 
