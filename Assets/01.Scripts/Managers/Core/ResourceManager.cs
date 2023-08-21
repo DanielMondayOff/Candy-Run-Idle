@@ -132,6 +132,8 @@ public class ResourceManager
         Object.Destroy(go);
     }
 
+    
+
     ///<summary>씬 전환시 호출 // 그동안 사용한 에셋 모두 Release // 하나의 씬이 무겁다면 하는것이 좋지만 아니라면 안하는것이 나을듯</summary>
     public void Clear()
     {

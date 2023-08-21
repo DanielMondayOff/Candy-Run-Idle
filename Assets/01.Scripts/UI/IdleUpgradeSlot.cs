@@ -42,6 +42,14 @@ public class IdleUpgradeSlot : MonoBehaviour
                 IdleManager.instance.Upgrade_Promotion();
                 break;
 
+            case IdleUpgradeType.Income:
+                IdleManager.instance.Upgrade_Income();
+                break;
+
+            case IdleUpgradeType.PlayerSpeedUp:
+                IdleManager.instance.Upgrade_PlayerSpeedUp();
+                break;
+
             default:
                 Debug.LogError("정의가 없습니다. 추가해 주십시요");
                 break;

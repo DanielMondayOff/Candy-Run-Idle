@@ -13,8 +13,9 @@ public class Counter : MonoBehaviour
     [SerializeField] Collider selfCounterCollider;
 
 
-
     [SerializeField] bool counterReady = false;
+
+    private TaskUtil.DelayTaskMethod counterDelay = null;
 
     private void Start()
     {
@@ -32,7 +33,7 @@ public class Counter : MonoBehaviour
 
     public void Check()
     {
-        if (!counterReady)
+        if (!counterReady || counterDelay != null)
             return;
 
         if (customerList.Count > 0)
@@ -41,10 +42,26 @@ public class Counter : MonoBehaviour
             {
                 //계산하기
 
+                customerList[0].SetTimer(2.5f);
 
-                customerList[0].Exit();
-                customerList.RemoveAt(0);
-                UpdateLine();
+                counterDelay = this.TaskDelay(2.5f, () =>
+                {
+                    CandyItem candyItem = customerList[0].candyInventory;
+
+                    // print((int)(candyItem.CalculateTotalCost() * IdleManager.instance.extraIncomePercent[IdleManager.instance.extraIncome.currentLevel]));
+
+                    moneyTower.AddMoney((int)(candyItem.CalculateTotalCost() * IdleManager.instance.extraIncomePercent[IdleManager.instance.extraIncome.currentLevel]));
+
+                    customerList[0].Exit();
+
+                    customerList[0].GenerateEmoji("Particles/Happy");
+                    customerList.RemoveAt(0);
+                    UpdateLine();
+
+                    counterDelay = null;
+                });
+
+
             }
         }
     }
@@ -83,5 +100,7 @@ public class Counter : MonoBehaviour
         selfCounterCollider.enabled = false;
 
         ES3.Save<bool>("hireCasher", true);
+
+        IdleManager.instance.PopParticle("Particles/FX_ShardRock_Dust_End_01", casher.transform.position + Vector3.up * 3);
     }
 }

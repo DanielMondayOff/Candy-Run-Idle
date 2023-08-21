@@ -5,6 +5,7 @@ using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
+using Cinemachine;
 
 public class IdleManager : MonoBehaviour
 {
@@ -20,14 +21,20 @@ public class IdleManager : MonoBehaviour
 
     public List<CandyMachine> candyMachines = new List<CandyMachine>();
 
+    public List<CandySlot> candySlots = new List<CandySlot>();
+
+
     public Counter counter;
 
     public Collector startCollector;
 
+
     [FoldoutGroup("참조")] public UnityEngine.UI.Text moneyText;
     [FoldoutGroup("참조")] public GameObject idleUI;
     [FoldoutGroup("참조")] public GameObject upgradePanel;
-    [FoldoutGroup("참조")] public GameObject idleCamera;
+    [FoldoutGroup("참조")] public CinemachineVirtualCamera idleCamera;
+    [FoldoutGroup("참조")] public PlayerMovement playerMovement;
+
 
     public CanvasGroup[] idleUIs;
 
@@ -41,6 +48,10 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("업그레이드")] public IdleUpgrade hireWorker;
     [FoldoutGroup("업그레이드")] public IdleUpgrade workerSpeedUp;
     [FoldoutGroup("업그레이드")] public IdleUpgrade promotion;
+    [FoldoutGroup("업그레이드")] public IdleUpgrade extraIncome;
+    [FoldoutGroup("업그레이드")] public IdleUpgrade playerSpeedUp;
+
+
 
     [Space]
 
@@ -48,7 +59,11 @@ public class IdleManager : MonoBehaviour
 
     public readonly float[] workerSpeed = { 6, 6.5f, 7f, 7.5f, 8f, 8.5f, 9f, 10f, 10.5f, 11f, 11.5f };
     public readonly float[] customerSpawnSpeed = { 6f, 5.5f, 5f, 4.5f, 4f, 3.5f, 3f, 2.5f, 2f, 1.5f, 1f };
-    public readonly float[] maxCustomerCount = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+    public readonly float[] maxCustomerCount = { 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
+    public readonly float[] extraIncomePercent = { 1f, 1.1f, 1.2f, 1.3f, 1.4f, 1.5f, 1.6f, 1.7f, 1.8f, 1.9f, 2f };
+    public readonly float[] playerSpeed = { 10, 10.5f, 11f, 11.5f, 12f, 12.5f, 13f, 13.5f, 14f, 14.5f, 16f };
+
+
 
     private bool playIdle = false;
 
@@ -91,7 +106,20 @@ public class IdleManager : MonoBehaviour
             SetCustomerSpawnSpeed(customerSpawnSpeed[promotion.currentLevel]);
         }
 
+        if (ES3.KeyExists("income"))
+        {
+            extraIncome.currentLevel = ES3.Load<IdleUpgrade>("income").currentLevel;
+        }
+
+        if (ES3.KeyExists("playerSpeed"))
+        {
+            playerSpeedUp.currentLevel = ES3.Load<IdleUpgrade>("playerSpeed").currentLevel;
+
+            playerMovement.SetPlayerMoveSpeed(playerSpeed[playerSpeedUp.currentLevel]);
+        }
+
         SaveManager.instance.AddMoneyText(moneyText);
+        SaveManager.instance.OnChangeMoney();
 
         // SceneManager.LoadScene("Run", LoadSceneMode.Additive);
 
@@ -139,7 +167,7 @@ public class IdleManager : MonoBehaviour
         {
             // GenerateCandyJar();
             // CheckingCandyJar();
-            spawnCustomer = this.TaskWhile(customerSpawnSpeed[promotion.currentLevel], 2, () => GenenrateCustomer());
+            spawnCustomer = this.TaskWhile(customerSpawnSpeed[promotion.currentLevel] * 0.25f, 2, () => GenenrateCustomer());
             playIdle = true;
         }
     }
@@ -148,7 +176,7 @@ public class IdleManager : MonoBehaviour
     {
         idleUI.SetActive(true);
         StartIdle();
-        idleCamera.SetActive(true);
+        idleCamera.gameObject.SetActive(true);
     }
 
     public OrderLine FindEmptyOrderLine_Customer()
@@ -217,7 +245,7 @@ public class IdleManager : MonoBehaviour
 
     public void GenenrateCustomer()
     {
-        if (SaveManager.instance.candyInventory.Count <= 0 || !playIdle || maxCustomerCount[promotion.currentLevel] <= customers.Count)
+        if (/*SaveManager.instance.candyInventory.Count <= 0 || */ !playIdle || maxCustomerCount[promotion.currentLevel] <= customers.Count)
             return;
 
         var spawnPoint = currentMap.GetRandomSpawnPoint();
@@ -291,6 +319,14 @@ public class IdleManager : MonoBehaviour
         }
     }
 
+    public void CheckingCandyMachine()
+    {
+        foreach (var candy in candyMachines)
+        {
+            candy.UpdateUI();
+        }
+    }
+
     public void OnChangeInventory()
     {
         // candyJars.ForEach((n) => n.OnChangeOrder());
@@ -327,7 +363,7 @@ public class IdleManager : MonoBehaviour
         new Dictionary<string, string> { { "UI_TYPE", "GoToRun" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
         );
 
-        idleCamera.SetActive(false);
+        idleCamera.gameObject.SetActive(false);
 
     }
 
@@ -384,6 +420,40 @@ public class IdleManager : MonoBehaviour
         MondayOFF.EventTracker.LogCustomEvent(
         "IDLE",
         new Dictionary<string, string> { { "IDLE_TYPE", "Promotion" } }
+);
+    }
+
+    public void Upgrade_Income()
+    {
+        if (extraIncome.cost[extraIncome.currentLevel] > SaveManager.instance.GetMoney())
+            return;
+
+        SaveManager.instance.LossMoney(extraIncome.cost[extraIncome.currentLevel]);
+        extraIncome.currentLevel++;
+
+        ES3.Save<IdleUpgrade>("income", extraIncome);
+
+        MondayOFF.EventTracker.LogCustomEvent(
+        "IDLE",
+        new Dictionary<string, string> { { "IDLE_TYPE", "Income" } }
+);
+    }
+
+    public void Upgrade_PlayerSpeedUp()
+    {
+        if (playerSpeedUp.cost[playerSpeedUp.currentLevel] > SaveManager.instance.GetMoney())
+            return;
+
+        SaveManager.instance.LossMoney(playerSpeedUp.cost[playerSpeedUp.currentLevel]);
+        playerSpeedUp.currentLevel++;
+
+        ES3.Save<IdleUpgrade>("playerSpeed", playerSpeedUp);
+
+        playerMovement.SetPlayerMoveSpeed(playerSpeed[playerSpeedUp.currentLevel]);
+
+        MondayOFF.EventTracker.LogCustomEvent(
+        "IDLE",
+        new Dictionary<string, string> { { "IDLE_TYPE", "PlayerSpeedUp" } }
 );
     }
 
@@ -493,6 +563,10 @@ public class IdleManager : MonoBehaviour
 
             case IdleUpgradeType.Promotion:
                 return IdleManager.instance.promotion;
+            case IdleUpgradeType.Income:
+                return IdleManager.instance.extraIncome;
+            case IdleUpgradeType.PlayerSpeedUp:
+                return IdleManager.instance.playerSpeedUp;
 
             default:
                 Debug.LogError("정의가 없습니다. 추가해 주십시요");
@@ -520,16 +594,73 @@ public class IdleManager : MonoBehaviour
     ///손님 할일 정하기
     public void SetTargetCustomer(IdleCustomer customer)
     {
-        var useableCandyMachines = candyMachines.Where((n) => n.isReady && (n.candyItem.count > 0)).ToList();
+        List<candyBuildType> randomList = new List<candyBuildType>();
 
-        print(useableCandyMachines.Count);
+        var useableCandyMachines = candyMachines.Where((n) => n.isReady && n.candyItem != null && n.CheckHasQueue());
 
-        if (useableCandyMachines.Count > 0)
+        var useableCandySlots = candySlots.Where((n) => n.isReady && n.CheckHasQueue());
+
+        if (useableCandyMachines.ToArray().Length > 0)
+            randomList.Add(candyBuildType.CandyMachine);
+
+        if (useableCandySlots.ToArray().Length > 0)
+            randomList.Add(candyBuildType.CandySlot);
+
+        if (randomList.Count > 0)
         {
-            useableCandyMachines.OrderBy(x => Random.value).FirstOrDefault().EnqueueCustomer(customer);
-            // customer.SetDestination() useableCandyMachines.OrderBy(x => Random.value).FirstOrDefault().;
+            switch (randomList[Random.Range(0, randomList.Count)])
+            {
+                case candyBuildType.CandyMachine:
+                    useableCandyMachines.OrderBy(x => Random.value).FirstOrDefault().EnqueueCustomer(customer);
+
+                    return;
+
+                case candyBuildType.CandySlot:
+                    useableCandySlots.OrderBy(x => Random.value).FirstOrDefault().EnqueueCustomer(customer);
+
+                    return;
+            }
         }
+
+        // print(useableCandyMachines.ToArray().Length);
+
+        // if (useableCandyMachines.ToArray().Length > 0)
+        // {
+
+        //     // customer.SetDestination() useableCandyMachines.OrderBy(x => Random.value).FirstOrDefault().;
+        // }
+
+
+        // print(useableCandySlots.ToArray().Length);
+
+        // if (useableCandySlots.ToArray().Length > 0)
+        // {
+        //     useableCandySlots.OrderBy(x => Random.value).FirstOrDefault().EnqueueCustomer(customer);
+
+        //     return;
+        //     // customer.SetDestination() useableCandyMachines.OrderBy(x => Random.value).FirstOrDefault().;
+        // }
+
+        //타겟을 못찾았을시 5초뒤에 다시 시도
+        this.TaskDelay(5f, () => SetTargetCustomer(customer));
     }
+
+    public void PopParticle(string path, Vector3 pos, Transform parent = null)
+    {
+        var particle = Managers.Pool.Pop(Resources.Load<GameObject>(path), parent);
+
+        particle.transform.localPosition = pos;
+
+        particle.GetComponentInChildren<ParticleSystem>().Play();
+
+        this.TaskDelay(5f, () => Managers.Pool.Push(particle));
+    }
+}
+
+public enum candyBuildType
+{
+    CandyMachine = 1,
+    CandySlot = 2
 }
 
 [System.Serializable]
@@ -537,7 +668,9 @@ public enum IdleUpgradeType
 {
     HireWorker = 1,
     WorkerSpeedUp = 2,
-    Promotion = 3
+    Promotion = 3,
+    Income = 4,
+    PlayerSpeedUp = 5
 }
 
 [System.Serializable]
@@ -604,5 +737,10 @@ public class CandyItem
     public void TakeCandy(int count)
     {
         this.count -= count;
+    }
+
+    public int CalculateTotalCost()
+    {
+        return candy.cost * count;
     }
 }

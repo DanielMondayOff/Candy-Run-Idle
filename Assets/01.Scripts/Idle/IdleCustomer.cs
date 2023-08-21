@@ -16,6 +16,8 @@ public class IdleCustomer : MonoBehaviour
 
     public CandyOrder order;
 
+    public CandyItem candyInventory;
+
     public bool waitForCandy = false;
 
     [SerializeField] Canvas CandyCanvas;
@@ -29,9 +31,10 @@ public class IdleCustomer : MonoBehaviour
 
     [SerializeField] Animator animator;
 
-    public IdleCustomer backCustomer = null;
-
     [SerializeField] Vector3 destination;
+
+    [SerializeField] UnityEngine.UI.Image timer;
+
 
 
     public void Init(Transform spawnPoint)
@@ -39,7 +42,7 @@ public class IdleCustomer : MonoBehaviour
         this.spawnPoint = spawnPoint;
         agent.enabled = true;
 
-        // RandomSkin();
+        RandomSkin();
     }
 
     private void Update()
@@ -50,11 +53,23 @@ public class IdleCustomer : MonoBehaviour
                 nextAction.Invoke();
                 nextAction = null;
             }
+
+        if (agent.velocity.magnitude > 0.1f)
+        {
+            animator.SetBool("Move", true);
+        }
+        else
+            animator.SetBool("Move", false);
+
+        if (candyInventory.count > 0)
+            animator.SetLayerWeight(1, 1);
+        else
+            animator.SetLayerWeight(0, 1);
+
     }
 
     public void SetDestination(Vector3 pos, System.Action onComplete = null)
     {
-        animator.SetBool("Move", true);
         agent.SetDestination(pos);
         if (onComplete != null)
             this.TaskWaitUntil(() => { onComplete.Invoke(); animator.SetBool("Move", false); }, () => (agent.remainingDistance < 0.1f));
@@ -108,12 +123,12 @@ public class IdleCustomer : MonoBehaviour
         // SaveManager.instance.GetMoney(order.CalculateTotalCost());
 
 
-        var particle = Managers.Pool.Pop(Managers.Resource.Load<GameObject>("Particles/DollarbillDirectional Large"));
+        // var particle = Managers.Pool.Pop(Managers.Resource.Load<GameObject>("Particles/DollarbillDirectional Large"));
 
-        particle.transform.position = transform.position + (Vector3.up * 2);
-        particle.GetComponentInChildren<ParticleSystem>().Play();
+        // particle.transform.position = transform.position + (Vector3.up * 2);
+        // particle.GetComponentInChildren<ParticleSystem>().Play();
 
-        this.TaskDelay(5, () => Managers.Pool.Push(particle.GetComponentInParent<Poolable>()));
+        // this.TaskDelay(5, () => Managers.Pool.Push(particle.GetComponentInParent<Poolable>()));
 
         // Managers.Pool.Push(transform.GetComponentInParent<Poolable>()
     }
@@ -134,17 +149,35 @@ public class IdleCustomer : MonoBehaviour
         skin[Random.Range(0, skin.Length)].SetActive(true);
     }
 
-    public void TossTheLine()
-    {
-        if (backCustomer == null)
-            return;
-
-
-    }
-
     public void CheckComplete()
     {
 
+    }
+
+    public void UpdateCandyJar()
+    {
+        candyJar.ChangeJarModel(candyInventory.candy.id);
+        candyJar.gameObject.SetActive(true);
+    }
+
+
+    public void GenerateEmoji(string path)
+    {
+        var emojis = Resources.LoadAll<GameObject>(path);
+
+        var emoji = Managers.Pool.Pop(emojis[Random.Range(0, emojis.Length)], transform);
+        emoji.transform.localPosition = Vector3.up * 10;
+
+        emoji.GetComponent<ParticleSystem>().Play();
+
+        this.TaskDelay(5f, () => Managers.Pool.Push(emoji));
+    }
+
+    public void SetTimer(float time)
+    {
+        timer.enabled = true;
+        timer.fillAmount = 0;
+        timer.DOFillAmount(1, time).OnComplete(() => timer.enabled = false);
     }
 }
 

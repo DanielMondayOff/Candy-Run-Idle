@@ -117,10 +117,12 @@ public class SaveManager : MonoBehaviour
 
         ES3.Save<List<candySaveData>>("CandyInventory", candyInventory);
 
-        IdleManager.instance.CheckingCandyJar();
+        // IdleManager.instance.CheckingCandyJar();
 
         if (uiUpdate)
             OnChangeCandyInventory();
+
+        IdleManager.instance.CheckingCandyMachine();
     }
 
     public void TakeCandy(int id, int count)
@@ -132,9 +134,11 @@ public class SaveManager : MonoBehaviour
                 candyInventory[i].TakeCandy(count);
 
                 if (candyInventory[i].count <= 0)
-                    candyInventory.RemoveAt(i);
+                    candyInventory[i].count = 0;
 
                 OnChangeCandyInventory();
+
+                ES3.Save<List<candySaveData>>("CandyInventory", candyInventory);
 
                 return;
             }
@@ -149,11 +153,19 @@ public class SaveManager : MonoBehaviour
         }
 
         OnChangeCandyInventory();
+
+        ES3.Save<List<candySaveData>>("CandyInventory", candyInventory);
     }
 
     public candySaveData FindCandyItem(int id)
     {
-        return candyInventory.Find((n => n.id == id));
+        if (candyInventory.Find((n => n.id == id)) == null)
+        {
+            candyInventory.Add(new candySaveData() { id = id, count = 0 });
+            return candyInventory.Find((n => n.id == id));
+        }
+        else
+            return candyInventory.Find((n => n.id == id));
     }
 
     public CandyObject FindCandyObject(int id)

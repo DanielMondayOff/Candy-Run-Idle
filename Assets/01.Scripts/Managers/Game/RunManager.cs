@@ -59,10 +59,6 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public CanvasGroup[] runUIs;
     [FoldoutGroup("참조")] public GameObject canvas;
 
-
-
-
-
     [TitleGroup("Game Value")] public int currentMoney;
     [TitleGroup("Game Value")] public bool fireBullet = false;
     [TitleGroup("Game Value")] public bool isGameStart = false;

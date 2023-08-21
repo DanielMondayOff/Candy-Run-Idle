@@ -14,6 +14,14 @@ public class PlayerMovement : MonoBehaviour
     private float angle;
     public float moveSpeed;
 
+    private void Start()
+    {
+        if (ES3.KeyExists("PlayerPos"))
+            agent.Warp(ES3.Load<Vector3>("PlayerPos"));
+
+        this.TaskWhile(2f, 0, () => SavePlayerPos());
+    }
+
 
     void Update()
     {
@@ -41,5 +49,15 @@ public class PlayerMovement : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(angle - 90, Vector3.down), 10 * Time.deltaTime);
+    }
+
+    private void SavePlayerPos()
+    {
+        ES3.Save<Vector3>("PlayerPos", transform.position);
+    }
+
+    public void SetPlayerMoveSpeed(float speed)
+    {
+        moveSpeed = speed;
     }
 }

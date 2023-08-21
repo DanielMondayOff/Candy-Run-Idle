@@ -4,7 +4,7 @@ using UnityEngine;
 using Sirenix.OdinInspector;
 
 
-public class MoneyDrops : MonoBehaviour
+public class MoneyDrops : SaveableObject
 {
     [SerializeField] MoneyNode[] moneyNodes;
 
@@ -16,7 +16,16 @@ public class MoneyDrops : MonoBehaviour
 
     private void Start()
     {
-        var nodeCount = (money / 5) + 1;
+        if (ES3.KeyExists(Guid + "currentMoney"))
+        {
+            money = ES3.Load<int>(Guid + "currentMoney");
+        }
+
+        var nodeCount = (money / 5);
+        var remainCount = money % 5;
+
+        if (remainCount > 0)
+            nodeCount++;
 
         for (int i = 0; i < nodeCount; i++)
         {
@@ -37,12 +46,16 @@ public class MoneyDrops : MonoBehaviour
         }
         else if (money >= 5)
         {
-            for (int i = 0; i < money / 5; i++)
+            int remain = money % 5;
+
+            for (int i = 0; i < (money / 5) + ((remain > 0) ? 1 : 0); i++)
             {
                 moneyNodes[i].MoneyReady();
                 readyMoneyStack.Push(moneyNodes[i]);
             }
         }
+
+        ES3.Save<int>(Guid + "currentMoney", money);
     }
 
 
@@ -78,16 +91,18 @@ public class MoneyDrops : MonoBehaviour
 
             if (money > 0)
             {
-                var node = readyMoneyStack.Pop();
+                if (readyMoneyStack.Count > 0)
+                {
+                    var node = readyMoneyStack.Pop();
 
-                node.FlyToPlayer(other.transform);
+                    node.FlyToPlayer(other.transform);
+                }
 
                 if (money < 5)
                 {
                     SaveManager.instance.GetMoney(money);
-                    money = 0;
-
                     other.GetComponent<PlayerMoneyText>().ChangeFloatingText(money);
+                    money = 0;
                 }
                 else
                 {
@@ -95,6 +110,17 @@ public class MoneyDrops : MonoBehaviour
                     money -= 5;
 
                     other.GetComponent<PlayerMoneyText>().ChangeFloatingText(5);
+                }
+
+                ES3.Save<int>(Guid + "currentMoney", money);
+            }
+            else
+            {
+                if (readyMoneyStack.Count > 0)
+                {
+                    var node = readyMoneyStack.Pop();
+
+                    node.FlyToPlayer(other.transform);
                 }
             }
 
