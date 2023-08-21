@@ -31,6 +31,8 @@ public class IdleCustomer : MonoBehaviour
 
     public IdleCustomer backCustomer = null;
 
+    [SerializeField] Vector3 destination;
+
 
     public void Init(Transform spawnPoint)
     {
@@ -56,6 +58,8 @@ public class IdleCustomer : MonoBehaviour
         agent.SetDestination(pos);
         if (onComplete != null)
             this.TaskWaitUntil(() => { onComplete.Invoke(); animator.SetBool("Move", false); }, () => (agent.remainingDistance < 0.1f));
+
+        destination = pos;
         // this.nextAction = onComplete;
     }
 
@@ -140,7 +144,7 @@ public class IdleCustomer : MonoBehaviour
 
     public void CheckComplete()
     {
-        
+
     }
 }
 

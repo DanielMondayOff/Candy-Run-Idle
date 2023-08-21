@@ -22,6 +22,8 @@ public class IdleManager : MonoBehaviour
 
     public Counter counter;
 
+    public Collector startCollector;
+
     [FoldoutGroup("참조")] public UnityEngine.UI.Text moneyText;
     [FoldoutGroup("참조")] public GameObject idleUI;
     [FoldoutGroup("참조")] public GameObject upgradePanel;
@@ -94,6 +96,8 @@ public class IdleManager : MonoBehaviour
         // SceneManager.LoadScene("Run", LoadSceneMode.Additive);
 
         // StartCoroutine(SceneLoading());
+
+        startCollector.ActiveThisCollector();
     }
 
     private void Update()
@@ -289,7 +293,9 @@ public class IdleManager : MonoBehaviour
 
     public void OnChangeInventory()
     {
-        candyJars.ForEach((n) => n.OnChangeOrder());
+        // candyJars.ForEach((n) => n.OnChangeOrder());
+
+        candyMachines.ForEach((n) => n.OnChangeInventory());
     }
 
     public CandyJar FindCandyJar(int id)

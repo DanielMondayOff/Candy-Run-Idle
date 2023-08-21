@@ -636,6 +636,7 @@ MonoBehaviour:
   - {fileID: 4343951498154852604}
   - {fileID: 4895141406737613042}
   animator: {fileID: 4660818620668456983}
+  backCustomer: {fileID: 0}
 --- !u!1001 &380851400979820661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -907,6 +908,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 014e0745391c24ef4a70d66ebd3413f6,
+        type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 07b153450bd8d488b9701d61477213c4, type: 3}
     - target: {fileID: 5866666021909216657, guid: 014e0745391c24ef4a70d66ebd3413f6,
         type: 3}
       propertyPath: m_Controller

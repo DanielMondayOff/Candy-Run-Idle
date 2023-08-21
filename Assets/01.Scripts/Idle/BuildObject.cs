@@ -10,7 +10,10 @@ public class BuildObject : SaveableObject
 
     [SerializeField] Collector collector;
 
-    private void Awake() {
+    [SerializeField] Vector3 buildSize = Vector3.one;
+
+    private void Awake()
+    {
         Sleep();
     }
 
@@ -38,7 +41,7 @@ public class BuildObject : SaveableObject
         }
         else
         {
-            transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack).OnComplete(OnCompleteBuild);
+            transform.DOScale(buildSize, 0.5f).SetEase(Ease.OutBack).OnComplete(OnCompleteBuild);
         }
 
 

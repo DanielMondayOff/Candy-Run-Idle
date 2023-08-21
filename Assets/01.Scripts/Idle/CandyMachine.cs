@@ -20,10 +20,13 @@ public class CandyMachine : BuildObject
 
     public float Debug_distToCustomer;
 
-
     public void Init()
     {
         candyItem = SaveManager.instance.FindCandyItem(candyItem.id);
+
+        candyImage.sprite = SaveManager.instance.FindCandyObjectInReousrce(candyItem.id).icon;
+
+        test_candyCount.text = "X " + (candyItem.count);
 
         this.TaskWhile(1, 0, CheckDistBetweenCustomer);
     }
@@ -68,6 +71,13 @@ public class CandyMachine : BuildObject
         {
             customerList[i].SetDestination(customerQueueLine[i].transform.position);
         }
+    }
+
+    public void OnChangeInventory()
+    {
+        candyImage.sprite = SaveManager.instance.FindCandyObjectInReousrce(candyItem.id).icon;
+
+        test_candyCount.text = "X " + (candyItem.count);
     }
 
     public override void Build(bool direct = false)

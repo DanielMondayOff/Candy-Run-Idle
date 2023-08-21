@@ -43,16 +43,41 @@ public class Collector : MonoBehaviour
     public int currentMoney;
 
     private Transform targetPlayer;
+    private Vector3 activeSize;
+
+    public List<Collector> nextCollectorList = new List<Collector>();
 
     private void Start()
     {
-        requireMoneyText.text = (requireMoney - currentMoney).ToString();
 
-        if (ES3.KeyExists(guid))
+        if (ES3.KeyExists(guid + "_isComplete"))
         {
             onComplete.Invoke();
             gameObject.SetActive(false);
         }
+        else if (ES3.KeyExists(guid + "_isActive"))
+        {
+            print("isActive");
+            ActiveThisCollector();
+        }
+        else
+        {
+            Sleep();
+        }
+
+
+        if (ES3.KeyExists(guid + "_currentMoney"))
+        {
+            currentMoney = ES3.Load<int>(guid + "_currentMoney");
+
+            if (currentMoney >= requireMoney)
+            {
+                onComplete.Invoke();
+                gameObject.SetActive(false);
+            }
+        }
+
+        requireMoneyText.text = (requireMoney - currentMoney).ToString();
     }
 
     public void Init()
@@ -64,6 +89,8 @@ public class Collector : MonoBehaviour
     private void OnValidate()
     {
         requireMoneyText.text = (requireMoney - currentMoney).ToString();
+
+        activeSize = transform.localScale;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -108,6 +135,8 @@ public class Collector : MonoBehaviour
                 StopCoroutine(collectCoroutine);
 
         int valueForTick = (requireMoney - currentMoney) / 10;
+
+        valueForTick = Mathf.Clamp(valueForTick, 1, int.MaxValue);
 
         while (true)
         {
@@ -181,7 +210,7 @@ public class Collector : MonoBehaviour
                     OnCompleteCollect();
                 }
 
-                ES3.Save<int>(guid, currentMoney);
+                ES3.Save<int>(guid + "_currentMoney", currentMoney);
             }
         }
     }
@@ -198,12 +227,31 @@ public class Collector : MonoBehaviour
             groundTween.Kill();
         groundTween = gameObject.transform.DOScale(Vector3.zero, 0.7f).SetEase(Ease.InOutBack).SetDelay(0.15f).OnComplete(() => onComplete.Invoke());
 
-        ES3.Save<bool>(guid, true);
+        ES3.Save<bool>(guid + "_isComplete", true);
+
+        nextCollectorList.ForEach((n) => n.ActiveThisCollector());
     }
 
     public int GetRemainMoney()
     {
         return (requireMoney - currentMoney);
+    }
+
+    public void Sleep()
+    {
+        gameObject.SetActive(false);
+        transform.localScale = Vector3.zero;
+    }
+
+    public void ActiveThisCollector()
+    {
+        if (ES3.KeyExists(guid + "_isComplete"))
+            return;
+
+        gameObject.SetActive(true);
+        transform.DOScale(activeSize, 0.7f).SetEase(Ease.InOutBack);
+
+        ES3.Save<bool>(guid + "_isActive", true);
     }
 }
 
