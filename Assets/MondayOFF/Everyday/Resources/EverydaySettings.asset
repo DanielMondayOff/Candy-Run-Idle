@@ -19,7 +19,7 @@ MonoBehaviour:
     showBannerOnLoad: 1
     adInitializationOrder: 84
     adInitializationDelay: 2
-    interstitialInterval: 45
+    interstitialInterval: 60
     resetTimerOnRewarded: 1
     bannerPosition: 7
     AOS_IS_AdUnitID: 45d1d730c781ca25
@@ -36,7 +36,7 @@ MonoBehaviour:
     AOS_AdvertyApiKey: 
     iOS_IS_AdUnitID: 8274ccccfed259bf
     iOS_RV_AdUnitID: 9e7e7d89bed9b245
-    iOS_BN_AdUnitID: a08eddbc6a9e6684
+    iOS_BN_AdUnitID: 72832ad71f4480b7
     iOS_IS_Backup_AdUnitID: 
     iOS_RV_Backup_AdUnitID: 
     iOS_BN_Backup_AdUnitID: 

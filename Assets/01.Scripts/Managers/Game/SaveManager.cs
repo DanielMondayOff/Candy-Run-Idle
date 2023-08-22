@@ -57,8 +57,8 @@ public class SaveManager : MonoBehaviour
     {
         OnChangeMoney();
 
-        MondayOFF.AdsManager.Initialize();
-        MondayOFF.AdsManager.ShowBanner();
+        // MondayOFF.AdsManager.Initialize();
+        // MondayOFF.AdsManager.ShowBanner();
     }
 
     public int GetMoney() => money;

@@ -40,7 +40,7 @@ public class CandySlot : BuildObject
         {
             Debug_distToCustomer = Vector3.Distance(customerList[0].transform.position, customerQueueLine[0].transform.position);
 
-            if (Vector3.Distance(customerList[0].transform.position, customerQueueLine[0].transform.position) < 1f)
+            if (Vector3.Distance(customerList[0].transform.position, customerQueueLine[0].transform.position) < 1.5f)
             {
                 customerList[0].SetTimer(2.5f);
                 candyGiveDelay = this.TaskDelay(2.5f, () => { GiveCandyToCustomer(customerList[0]); });

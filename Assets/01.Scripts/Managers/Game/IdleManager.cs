@@ -125,7 +125,7 @@ public class IdleManager : MonoBehaviour
 
         // StartCoroutine(SceneLoading());
 
-        startCollector.ActiveThisCollector();
+        // startCollector.ActiveThisCollector();
 
     }
 
@@ -663,6 +663,9 @@ public class IdleManager : MonoBehaviour
 
     public void PopParticle(string path, Vector3 pos, Transform parent = null)
     {
+        if (Resources.Load<GameObject>(path) == null || Managers.Pool == null)
+            return;
+
         var particle = Managers.Pool.Pop(Resources.Load<GameObject>(path), parent);
 
         particle.transform.localPosition = pos;

@@ -50,8 +50,11 @@ public class MoneyDrops : SaveableObject
 
             for (int i = 0; i < (money / 5) + ((remain > 0) ? 1 : 0); i++)
             {
-                moneyNodes[i].MoneyReady();
-                readyMoneyStack.Push(moneyNodes[i]);
+                if (moneyNodes.Length > i)
+                {
+                    moneyNodes[i].MoneyReady();
+                    readyMoneyStack.Push(moneyNodes[i]);
+                }
             }
         }
 
@@ -103,6 +106,9 @@ public class MoneyDrops : SaveableObject
                     SaveManager.instance.GetMoney(money);
                     other.GetComponent<PlayerMoneyText>().ChangeFloatingText(money);
                     money = 0;
+
+                    MondayOFF.AdsManager.ShowInterstitial();
+
                 }
                 else
                 {
@@ -110,6 +116,10 @@ public class MoneyDrops : SaveableObject
                     money -= 5;
 
                     other.GetComponent<PlayerMoneyText>().ChangeFloatingText(5);
+
+
+                    MondayOFF.AdsManager.ShowInterstitial();
+
                 }
 
                 ES3.Save<int>(Guid + "currentMoney", money);

@@ -43,26 +43,29 @@ public class Collector : MonoBehaviour
     public int currentMoney;
 
     private Transform targetPlayer;
-    private Vector3 activeSize;
+    public Vector3 activeSize;
 
     public List<Collector> nextCollectorList = new List<Collector>();
 
+    public bool firstCollector = false;
+
     private void Start()
     {
-
         if (ES3.KeyExists(guid + "_isComplete"))
         {
-            onComplete.Invoke();
+            print("isComplete + " + guid);
             gameObject.SetActive(false);
+            onComplete.Invoke();
         }
         else if (ES3.KeyExists(guid + "_isActive"))
         {
-            print("isActive");
+            print("isActive + " + guid);
             ActiveThisCollector();
         }
         else
         {
-            Sleep();
+            if (!firstCollector)
+                Sleep();
         }
 
 
