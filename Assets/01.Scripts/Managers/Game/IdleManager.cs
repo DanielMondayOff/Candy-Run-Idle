@@ -246,7 +246,7 @@ public class IdleManager : MonoBehaviour
 
     public void GenenrateCustomer()
     {
-        if (/*SaveManager.instance.candyInventory.Count <= 0 || */ !playIdle || maxCustomerCount[promotion.currentLevel] <= customers.Count)
+        if (/*SaveManager.instance.candyInventory.Count <= 0 || */ !playIdle || maxCustomerCount[promotion.currentLevel] <= customers.Count || candyMachines.Where((n => n.isReady)).Count() == 0)
             return;
 
         var spawnPoint = currentMap.GetRandomSpawnPoint();
