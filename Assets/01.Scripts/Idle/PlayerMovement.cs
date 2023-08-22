@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] FixedTouchField touchField;
     [SerializeField] private NavMeshAgent agent;
 
+    [SerializeField] ParticleSystem leftFootStepDust;
+    [SerializeField] ParticleSystem rightFootStepDust;
+
     private Vector3 moveDir;
     private float angle;
     public float moveSpeed;
@@ -59,5 +62,15 @@ public class PlayerMovement : MonoBehaviour
     public void SetPlayerMoveSpeed(float speed)
     {
         moveSpeed = speed;
+    }
+
+    public void PlayLeftFootStepParticle()
+    {
+        leftFootStepDust.Play();
+    }
+
+    public void PlayRightFootStepParticle()
+    {
+        rightFootStepDust.Play();
     }
 }

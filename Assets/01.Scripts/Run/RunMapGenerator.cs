@@ -79,10 +79,13 @@ public class RunMapGenerator : MonoBehaviour
             }
         }
 
-        MondayOFF.EventTracker.LogCustomEvent(
-		"RUN", 
-		new Dictionary<string, string>{ {"RUN_TYPE", "RunMapRandomGenerated"} }
-);
+        EventManager.instance.CustomEvent(AnalyticsType.RUN, "RunMapRandomGenerated", true, true);
+
+
+        //         MondayOFF.EventTracker.LogCustomEvent(
+        // 		"RUN", 
+        // 		new Dictionary<string, string>{ {"RUN_TYPE", "RunMapRandomGenerated"} }
+        // );
     }
 
     public Transform GetRandomPoint()

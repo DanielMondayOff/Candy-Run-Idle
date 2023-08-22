@@ -23,10 +23,13 @@ public class MoneyDrop : MonoBehaviour
 
             SaveManager.instance.GetMoney(moneyValue);
 
-            MondayOFF.EventTracker.LogCustomEvent(
-        "RUN",
-        new Dictionary<string, string> { { "RUN_TYPE", "GetDropMoney" } }
-        );
+            EventManager.instance.CustomEvent(AnalyticsType.RUN, "GetDropMoney", true, true);
+
+
+            //     MondayOFF.EventTracker.LogCustomEvent(
+            // "RUN",
+            // new Dictionary<string, string> { { "RUN_TYPE", "GetDropMoney" } }
+            // );
         }
     }
 }

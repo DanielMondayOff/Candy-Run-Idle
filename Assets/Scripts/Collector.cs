@@ -230,6 +230,14 @@ public class Collector : MonoBehaviour
         ES3.Save<bool>(guid + "_isComplete", true);
 
         nextCollectorList.ForEach((n) => n.ActiveThisCollector());
+
+        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "COLLECT_COMPLETE_ " + guid, true, true);
+
+
+        // MondayOFF.EventTracker.LogCustomEvent(
+        // "IDLE",
+        // new Dictionary<string, string> { { "COLLECT_COMPLETE", guid } }
+        // );
     }
 
     public int GetRemainMoney()

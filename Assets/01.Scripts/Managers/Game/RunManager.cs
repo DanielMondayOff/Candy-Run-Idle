@@ -117,7 +117,7 @@ public class RunManager : MonoBehaviour
             startCard.GenearteCards();
         }
 
-        MondayOFF.AdsManager.ShowBanner();
+        // MondayOFF.AdsManager.ShowBanner();
     }
 
     private void OnEnable()
@@ -575,20 +575,26 @@ public class RunManager : MonoBehaviour
         IdleManager.instance.GoToIdleGame();
         // SceneManager.LoadScene("Idle");
 
-        MondayOFF.EventTracker.LogCustomEvent(
-        "UI",
-        new Dictionary<string, string> { { "UI_TYPE", "GoToIdle" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
-        );
+        EventManager.instance.CustomEvent(AnalyticsType.UI, "GoToIdle", true, true);
+
+
+        // MondayOFF.EventTracker.LogCustomEvent(
+        // "UI",
+        // new Dictionary<string, string> { { "UI_TYPE", "GoToIdle" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
+        // );
     }
 
     public void OnClickGoToIdleBtn()
     {
         ChangeToIdleGame();
 
-        MondayOFF.EventTracker.LogCustomEvent(
-        "UI",
-        new Dictionary<string, string> { { "UI_TYPE", "GoToIdleBtn" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
-        );
+        EventManager.instance.CustomEvent(AnalyticsType.UI, "GoToIdleBtn", true, true);
+
+
+        // MondayOFF.EventTracker.LogCustomEvent(
+        // "UI",
+        // new Dictionary<string, string> { { "UI_TYPE", "GoToIdleBtn" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
+        // );
     }
 
     public void ChangeToRunGame()

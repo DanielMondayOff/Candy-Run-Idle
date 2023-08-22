@@ -19,9 +19,12 @@ public class Setting : MonoBehaviour
 
         rect.localScale = Vector3.one;
 
-        MondayOFF.EventTracker.LogCustomEvent(
-        "UI",
-        new Dictionary<string, string> { { "UI_TYPE", "OpenSetting" } }
-        );
+        EventManager.instance.CustomEvent(AnalyticsType.UI, "OpenSetting", true, true);
+
+
+        // MondayOFF.EventTracker.LogCustomEvent(
+        // "UI",
+        // new Dictionary<string, string> { { "UI_TYPE", "OpenSetting" } }
+        // );
     }
 }

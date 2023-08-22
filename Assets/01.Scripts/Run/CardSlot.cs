@@ -92,20 +92,26 @@ public class CardSlot : MonoBehaviour
                 case RunCardType.PlusCandy:
                     RunManager.instance.AddCandy();
 
-                    MondayOFF.EventTracker.LogCustomEvent(
-        "RUN",
-        new Dictionary<string, string> { { "RUN_TYPE", "AddCandy" } }
-        );
+                    EventManager.instance.CustomEvent(AnalyticsType.RUN, "AddCandy", true, true);
+
+
+                    //             MondayOFF.EventTracker.LogCustomEvent(
+                    // "RUN",
+                    // new Dictionary<string, string> { { "RUN_TYPE", "AddCandy" } }
+                    // );
 
                     break;
 
                 case RunCardType.TripleShot:
                     RunManager.instance.TripleShot();
 
-                    MondayOFF.EventTracker.LogCustomEvent(
-        "RUN",
-        new Dictionary<string, string> { { "RUN_TYPE", "TripleShot" } }
-        );
+                    EventManager.instance.CustomEvent(AnalyticsType.RUN, "TripleShot", true, true);
+
+
+                    //             MondayOFF.EventTracker.LogCustomEvent(
+                    // "RUN",
+                    // new Dictionary<string, string> { { "RUN_TYPE", "TripleShot" } }
+                    // );
 
                     break;
             }

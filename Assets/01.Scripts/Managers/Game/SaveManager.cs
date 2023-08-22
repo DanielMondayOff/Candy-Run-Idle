@@ -25,6 +25,7 @@ public class SaveManager : MonoBehaviour
 
     public static SaveManager instance = null;
 
+
     private void Awake()
     {
         if (!PlayerPrefs.HasKey("ClearZero"))
@@ -55,6 +56,9 @@ public class SaveManager : MonoBehaviour
     private void Start()
     {
         OnChangeMoney();
+
+        MondayOFF.AdsManager.Initialize();
+        MondayOFF.AdsManager.ShowBanner();
     }
 
     public int GetMoney() => money;

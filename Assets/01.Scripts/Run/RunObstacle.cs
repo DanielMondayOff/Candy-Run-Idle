@@ -47,10 +47,12 @@ public class RunObstacle : MonoBehaviour
 
             RunManager.instance.TakeDamage(200, GetComponent<Collider>().ClosestPointOnBounds(other.bounds.center), knockBack);
 
-            MondayOFF.EventTracker.LogCustomEvent(
-        "RUN",
-        new Dictionary<string, string> { { "RUN_TYPE", "hitByObstacle" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
-        );
+            EventManager.instance.CustomEvent(AnalyticsType.RUN, "hitByObstacle", true, true);
+
+            //     MondayOFF.EventTracker.LogCustomEvent(
+            // "RUN",
+            // new Dictionary<string, string> { { "RUN_TYPE", "hitByObstacle" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
+            // );
         }
     }
 
@@ -95,10 +97,12 @@ public class RunObstacle : MonoBehaviour
 
         this.TaskDelay(3f, () => Managers.Pool.Push(particle.GetComponentInChildren<Poolable>()));
 
-        MondayOFF.EventTracker.LogCustomEvent(
-        "RUN",
-        new Dictionary<string, string> { { "RUN_TYPE", "destroyObstacle" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
-        );
+        EventManager.instance.CustomEvent(AnalyticsType.RUN, "destroyObstacle", true, true);
+
+        // MondayOFF.EventTracker.LogCustomEvent(
+        // "RUN",
+        // new Dictionary<string, string> { { "RUN_TYPE", "destroyObstacle" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
+        // );
     }
 
     public void Reset()

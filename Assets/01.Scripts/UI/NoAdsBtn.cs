@@ -16,14 +16,17 @@ public class NoAdsBtn : MonoBehaviour
         else
         {
             btn.SetActive(true);
+
+
             MondayOFF.IAPManager.OnAfterPurchase += (isSuccess) =>
             {
                 gameObject.SetActive(false);
 
-                MondayOFF.EventTracker.LogCustomEvent(
-            "IAP",
-            new Dictionary<string, string> { { "IAP_TYPE", "noads" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
-            );
+                EventManager.instance.CustomEvent(AnalyticsType.IAP, "NoAdsPurchase", true, true);
+                //     MondayOFF.EventTracker.LogCustomEvent(
+                // "IAP",
+                // new Dictionary<string, string> { { "IAP_TYPE", "noads" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
+                // );
             };
         }
     }
