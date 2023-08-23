@@ -268,7 +268,7 @@ public class RunManager : MonoBehaviour
 
         // candyList.ForEach((n) => n.GetComponentInChildren<FIMSpace.FTail.TailAnimator2>().TailAnimatorAmount = GetCurrentCandyLength());
 
-        print(GetCurrentCandyLength());
+        // print(GetCurrentCandyLength());
 
         candyList.ForEach((n) => n.GetComponentInChildren<CandyTailController>().ChangeCandyLength(GetCurrentCandyLength(), clamp));
     }
