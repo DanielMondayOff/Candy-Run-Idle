@@ -46,7 +46,7 @@ public class CardSlot : MonoBehaviour
         if (type == RunCardType.TripleShot)
         {
             //나중에 rv로 수정
-            rv = true;
+            rv = false;
         }
         else if (type == RunCardType.PlusCandy)
         {
