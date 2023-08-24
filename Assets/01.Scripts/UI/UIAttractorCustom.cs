@@ -16,7 +16,7 @@ public class UIAttractorCustom : MonoBehaviour
         var renderer = particleSystem.GetComponent<ParticleSystemRenderer>().material = item.candy.particleMat;
 
         var emission = particleSystem.emission;
-        emission.SetBurst(0, new ParticleSystem.Burst(0, 5, 5, (short)(item.count / 5), 0.1f));
+        emission.SetBurst(0, new ParticleSystem.Burst(0, 10, 10, (short)(item.count / 10), 0.8f / ((float)item.count / 5f)));
 
         if (onAttract != null)
             ui_ParticleAttractor.m_OnAttracted.AddListener(onAttract);

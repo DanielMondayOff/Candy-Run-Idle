@@ -77,7 +77,7 @@ public class CandyInventory : MonoBehaviour
         {
             if (item.candyItem.candy.id == id)
             {
-                return () => item.AddCandyOne();
+                return () => item.AddCandy(1);
             }
         }
 
@@ -86,6 +86,6 @@ public class CandyInventory : MonoBehaviour
         newItem.InitCandy(SaveManager.instance.FindCandyObject(id), 0);
         itemList.Add(newItem);
 
-        return () => newItem.AddCandyOne();
+        return () => newItem.AddCandy(5);
     }
 }

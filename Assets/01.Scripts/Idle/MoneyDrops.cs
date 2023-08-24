@@ -29,8 +29,11 @@ public class MoneyDrops : SaveableObject
 
         for (int i = 0; i < nodeCount; i++)
         {
-            moneyNodes[i].MoneyReady();
-            readyMoneyStack.Push(moneyNodes[i]);
+            if (moneyNodes.Length > i)
+            {
+                moneyNodes[i].MoneyReady();
+                readyMoneyStack.Push(moneyNodes[i]);
+            }
         }
     }
 

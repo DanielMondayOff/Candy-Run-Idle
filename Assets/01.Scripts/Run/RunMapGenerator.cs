@@ -8,8 +8,13 @@ public class RunMapGenerator : MonoBehaviour
     [BoxGroup("참조")][SerializeField] Transform mapParent;
 
     [BoxGroup("value")][SerializeField] Vector2 addCandyValue;
+    [BoxGroup("value")][SerializeField] Vector2 candyLevelUpValue;
+
     [BoxGroup("currentValue")][SerializeField] int targetAddCandyPiller;
     [BoxGroup("currentValue")][SerializeField] int currentAddCandyPiller;
+
+    [BoxGroup("currentValue")][SerializeField] int targetCandyLevelUpPiller;
+    [BoxGroup("currentValue")][SerializeField] int currentAddCandyLevelUpPiller;
     [BoxGroup("currentValue")][SerializeField] bool tripleShot;
 
 
@@ -26,6 +31,9 @@ public class RunMapGenerator : MonoBehaviour
     public void GenerateMap()
     {
         targetAddCandyPiller = (int)Random.Range(addCandyValue.x, addCandyValue.y);
+
+        targetCandyLevelUpPiller = (int)Random.Range(candyLevelUpValue.x, candyLevelUpValue.y);
+
 
         tripleShot = RandomBooleanGenerator.GenerateRandomBoolean();
 
@@ -48,7 +56,44 @@ public class RunMapGenerator : MonoBehaviour
 
                 tripleShot = false;
             }
+            else if (currentAddCandyPiller < targetAddCandyPiller && currentAddCandyLevelUpPiller < targetCandyLevelUpPiller)
+            {
+                switch (Random.Range(0, 2))
+                {
+                    case 0:
+                        AddCandy();
+                        break;
+
+                    case 1:
+                        CandyLevelUp();
+                        break;
+                }
+            }
             else if (currentAddCandyPiller < targetAddCandyPiller)
+            {
+                AddCandy();
+
+                continue;
+            }
+            else if (currentAddCandyLevelUpPiller < targetCandyLevelUpPiller)
+            {
+                CandyLevelUp();
+
+                continue;
+            }
+            else
+            {
+                var prefab = Instantiate(randomObjectPrefabs[Random.Range(0, randomObjectPrefabs.Length)], point);
+
+                var pillers = prefab.GetComponentsInChildren<Piller>();
+
+                foreach (var piller in pillers)
+                {
+                    piller.ChangeToNormalRandom();
+                }
+            }
+
+            void AddCandy()
             {
                 var prefab = Instantiate(randomPillerPrefabs[Random.Range(0, randomPillerPrefabs.Length)], point);
 
@@ -63,19 +108,23 @@ public class RunMapGenerator : MonoBehaviour
                 }
 
                 currentAddCandyPiller++;
-
-                continue;
             }
-            else
+
+            void CandyLevelUp()
             {
-                var prefab = Instantiate(randomObjectPrefabs[Random.Range(0, randomObjectPrefabs.Length)], point);
+                var prefab = Instantiate(randomPillerPrefabs[Random.Range(0, randomPillerPrefabs.Length)], point);
 
                 var pillers = prefab.GetComponentsInChildren<Piller>();
 
                 foreach (var piller in pillers)
                 {
-                    piller.ChangeToNormalRandom();
+                    if (piller.value > 0)
+                        piller.ChangeToCandyLevelUp();
+
+                    break;
                 }
+
+                currentAddCandyLevelUpPiller++;
             }
         }
 

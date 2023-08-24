@@ -9,7 +9,8 @@ public enum PillerType
     FireRate = 2,
     Range = 3,
     Candy = 4,
-    TripleShot = 5
+    TripleShot = 5,
+    CandyLevelUp = 6
 }
 
 public class Piller : MonoBehaviour
@@ -88,6 +89,16 @@ public class Piller : MonoBehaviour
                 skillImage.gameObject.SetActive(true);
 
                 break;
+
+            case PillerType.CandyLevelUp:
+                // value = RunManager.defaultCandyCount;
+                nameText.text = "Candy Level Up!";
+                valueText.gameObject.SetActive(false);
+                // nameText.enabled = false;
+                skillImage.sprite = Resources.Load<Sprite>("UI/TripleShot");
+                skillImage.gameObject.SetActive(true);
+
+                break;
         }
 
         OnChangeValue();
@@ -136,7 +147,7 @@ public class Piller : MonoBehaviour
 
     private void OnChangeValue()
     {
-        if (type == PillerType.Candy || type == PillerType.TripleShot)
+        if (type == PillerType.Candy || type == PillerType.TripleShot || type == PillerType.CandyLevelUp)
         {
             pillerCenter.materials = new Material[] { specialPillerCenterMat };
         }
@@ -184,6 +195,15 @@ public class Piller : MonoBehaviour
     public void ChangeToAddCandy()
     {
         type = PillerType.Candy;
+
+        value = 1;
+
+        Init();
+    }
+
+    public void ChangeToCandyLevelUp()
+    {
+        type = PillerType.CandyLevelUp;
 
         value = 1;
 

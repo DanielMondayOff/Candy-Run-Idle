@@ -21,9 +21,9 @@ public class CandyInventoryItem : MonoBehaviour
         amountText.text = count.ToString();
     }
 
-    public void AddCandyOne()
+    public void AddCandy(int num)
     {
-        candyItem.count++;
+        candyItem.count += num;
 
         amountText.text = candyItem.count.ToString();
     }

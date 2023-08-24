@@ -148,20 +148,6 @@ public class RunManager : MonoBehaviour
             ChangeCandysLength();
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            plusFireRate += 100;
-
-            ChangeFireRate(GetCurrentFireRate());
-        }
-
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            plusFireRate -= 100;
-
-            ChangeFireRate(GetCurrentFireRate());
-        }
-
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             TakeDamage(100, Vector3.zero);
@@ -175,11 +161,6 @@ public class RunManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Alpha6))
         {
             tripleShot = true;
-        }
-
-        if (cuttingPressed && cuttingReady)
-        {
-            CuttingCandy();
         }
 
         if (Input.GetKeyDown(KeyCode.Alpha7))
@@ -199,10 +180,39 @@ public class RunManager : MonoBehaviour
             SaveManager.instance.LossMoney(500);
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            CandyLevelUp();
+        }
+
         if (Input.GetKeyDown(KeyCode.F12))
         {
             ES3.DeleteFile();
         }
+
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            plusFireRate += 100;
+
+            ChangeFireRate(GetCurrentFireRate());
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            plusFireRate -= 100;
+
+            ChangeFireRate(GetCurrentFireRate());
+        }
+
+        if (cuttingPressed && cuttingReady)
+        {
+            CuttingCandy();
+        }
+
+
+
+
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
@@ -289,7 +299,7 @@ public class RunManager : MonoBehaviour
         //     candyList[0].transform.DOMoveX()
         // }
 
-        OnChangeCandyList();
+        // OnChangeCandyList();
     }
 
     public void PillerPass(PillerType type, float value)
@@ -323,6 +333,10 @@ public class RunManager : MonoBehaviour
 
             case PillerType.TripleShot:
                 tripleShot = true;
+                break;
+
+            case PillerType.CandyLevelUp:
+                CandyLevelUp();
                 break;
 
         }
@@ -398,6 +412,14 @@ public class RunManager : MonoBehaviour
     public void GetMoney(int value)
     {
         currentMoney += value;
+    }
+
+    public void CandyLevelUp()
+    {
+        foreach (var candy in candyList)
+        {
+            candy.GetComponentInChildren<CandyHead>().UpgradeCandy();
+        }
     }
 
     public void StartCuttingCandy()
