@@ -95,7 +95,7 @@ public class Piller : MonoBehaviour
                 nameText.text = "Candy Level Up!";
                 valueText.gameObject.SetActive(false);
                 // nameText.enabled = false;
-                skillImage.sprite = Resources.Load<Sprite>("UI/TripleShot");
+                skillImage.sprite = Resources.Load<Sprite>("UI/CandyLevelUp");
                 skillImage.gameObject.SetActive(true);
 
                 break;

@@ -407,7 +407,7 @@ public class RunManager : MonoBehaviour
         }
     }
 
-    public void ChangeFireRate(float rate) => fireTask.SetIntervalTime(rate);
+    public void ChangeFireRate(float rate) => fireTask.SetIntervalTime(Mathf.Clamp(rate, -200, 200));
 
     public void GetMoney(int value)
     {
@@ -458,7 +458,11 @@ public class RunManager : MonoBehaviour
 
         if (GetCurrentCandyLength() < 100f)
         {
-            candyList.ForEach((n) => { n.GetComponentInChildren<CandyHead>().CutCandy(cuttedCandys); tempCandyInventory.AddCandy(new CandyItem() { candy = n.GetComponentInChildren<CandyHead>().candyObject, count = 1 }); });
+            candyList.ForEach((n) =>
+            {
+                n.GetComponentInChildren<CandyHead>().CutCandy(cuttedCandys);
+                tempCandyInventory.AddCandy(new CandyItem() { candy = n.GetComponentInChildren<CandyHead>().candyObject, count = 1 });
+            });
 
             // defaultCandyLength = 0;
             plusCandyLength = 0;

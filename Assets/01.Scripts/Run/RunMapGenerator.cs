@@ -41,7 +41,7 @@ public class RunMapGenerator : MonoBehaviour
         {
             Transform point = GetRandomPoint();
 
-            if (tripleShot)
+            if (tripleShot && (Random.Range(0, 25) < 1))
             {
                 var prefab = Instantiate(randomPillerPrefabs[Random.Range(0, randomPillerPrefabs.Length)], point);
 
@@ -55,6 +55,8 @@ public class RunMapGenerator : MonoBehaviour
                 }
 
                 tripleShot = false;
+
+                print("triple shot ready");
             }
             else if (currentAddCandyPiller < targetAddCandyPiller && currentAddCandyLevelUpPiller < targetCandyLevelUpPiller)
             {
