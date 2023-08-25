@@ -211,9 +211,6 @@ public class RunManager : MonoBehaviour
         }
 
 
-
-
-
         if (Input.GetKeyDown(KeyCode.Z))
         {
             foreach (var canvas in runUIs)
@@ -416,9 +413,15 @@ public class RunManager : MonoBehaviour
 
     public void CandyLevelUp()
     {
-        foreach (var candy in candyList)
+        StartCoroutine(candyLevelUp());
+
+        IEnumerator candyLevelUp()
         {
-            candy.GetComponentInChildren<CandyHead>().UpgradeCandy();
+            foreach (var candy in candyList)
+            {
+                yield return new WaitForSeconds(0.1f);
+                candy.GetComponentInChildren<CandyHead>().UpgradeCandy();
+            }
         }
     }
 

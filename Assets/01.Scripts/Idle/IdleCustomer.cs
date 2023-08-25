@@ -65,7 +65,6 @@ public class IdleCustomer : MonoBehaviour
             animator.SetLayerWeight(1, 1);
         else
             animator.SetLayerWeight(0, 1);
-
     }
 
     public void SetDestination(Vector3 pos, System.Action onComplete = null)

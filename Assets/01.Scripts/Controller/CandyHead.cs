@@ -69,8 +69,12 @@ public class CandyHead : MonoBehaviour
     public void UpgradeCandy()
     {
         candyObject = candyObject.nextCandy;
+        transform.DOScale(new Vector3(0, 0, 1), 0.1f).SetEase(Ease.InCubic).OnComplete(() =>
+        {
+            GetComponentInChildren<SkinnedMeshRenderer>().materials = new Material[] { candyObject.mat };
 
-        GetComponentInChildren<SkinnedMeshRenderer>().materials = new Material[] { candyObject.mat };
+            transform.DOScale(new Vector3(1.25f, 1.25f, 1), 0.1f).SetEase(Ease.InCubic);
+        });
 
         print("upgrade");
     }

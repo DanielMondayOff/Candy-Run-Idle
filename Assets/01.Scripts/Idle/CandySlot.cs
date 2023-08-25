@@ -45,6 +45,7 @@ public class CandySlot : BuildObject
                 customerList[0].SetTimer(5f);
                 candyGiveDelay = this.TaskDelay(5f, () => { GiveCandyToCustomer(customerList[0]); });
 
+                EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Candy Slot Use" + Guid, true, true);
             }
         }
         else

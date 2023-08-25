@@ -68,6 +68,8 @@ public class CandyMachine : BuildObject
                             customerList[0].GenerateEmoji("Particles/Dispoint");
                             customerList.Remove(customerList[0]);
 
+                            EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Customer Dispoint_" + candyItem.id, true, true);
+
                             UpdateLine();
                         });
                 }
@@ -114,6 +116,9 @@ public class CandyMachine : BuildObject
             UpdateLine();
 
             candyGiveDelay = null;
+
+            EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Candy Give_" + candyItem.id, true, true);
+
         });
     }
 
