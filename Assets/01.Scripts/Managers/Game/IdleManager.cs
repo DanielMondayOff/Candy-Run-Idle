@@ -28,16 +28,17 @@ public class IdleManager : MonoBehaviour
 
     public Collector startCollector;
 
-
     [FoldoutGroup("참조")] public UnityEngine.UI.Text moneyText;
     [FoldoutGroup("참조")] public GameObject idleUI;
     [FoldoutGroup("참조")] public GameObject upgradePanel;
     [FoldoutGroup("참조")] public CinemachineVirtualCamera idleCamera;
     [FoldoutGroup("참조")] public PlayerMovement playerMovement;
-
+    [FoldoutGroup("참조")] public GameObject nextStageBtn;
+    [FoldoutGroup("참조")] public GameObject nextStageHighlight;
+    [FoldoutGroup("참조")] public GameObject upgradeBtn;
+    public void ChangeUpgradeBtnActive(bool active) => upgradeBtn.SetActive(active);
 
     public CanvasGroup[] idleUIs;
-
 
     [FoldoutGroup("Value")] public Color activeBtnColor;
     [FoldoutGroup("Value")] public Color deactiveBtnColor;
@@ -59,7 +60,7 @@ public class IdleManager : MonoBehaviour
 
     public readonly float[] workerSpeed = { 6, 6.5f, 7f, 7.5f, 8f, 8.5f, 9f, 10f, 10.5f, 11f, 11.5f };
     public readonly float[] customerSpawnSpeed = { 6f, 5.5f, 5f, 4.5f, 4f, 3.5f, 3f, 2.5f, 2f, 1.5f, 1f };
-    public readonly float[] maxCustomerCount = { 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
+    public readonly float[] maxCustomerCount = { 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
     public readonly float[] extraIncomePercent = { 1f, 1.1f, 1.2f, 1.3f, 1.4f, 1.5f, 1.6f, 1.7f, 1.8f, 1.9f, 2f };
     public readonly float[] playerSpeed = { 10, 10.5f, 11f, 11.5f, 12f, 12.5f, 13f, 13.5f, 14f, 14.5f, 16f };
 
@@ -78,6 +79,7 @@ public class IdleManager : MonoBehaviour
 
         // StartCoroutine(SceneLoading());
         SceneManager.LoadScene("Run", LoadSceneMode.Additive);
+
     }
 
     private void Start()
@@ -126,6 +128,8 @@ public class IdleManager : MonoBehaviour
         // StartCoroutine(SceneLoading());
 
         // startCollector.ActiveThisCollector();
+
+        ABManager.instance.SelectStart("B");
 
     }
 
@@ -178,6 +182,9 @@ public class IdleManager : MonoBehaviour
         idleUI.SetActive(true);
         StartIdle();
         idleCamera.gameObject.SetActive(true);
+
+        if (ES3.KeyExists("NextStageEnable"))
+            nextStageBtn.SetActive(ES3.Load<bool>("NextStageEnable"));
     }
 
     public OrderLine FindEmptyOrderLine_Customer()
@@ -368,6 +375,7 @@ public class IdleManager : MonoBehaviour
 
         idleCamera.gameObject.SetActive(false);
 
+        nextStageHighlight.SetActive(false);
     }
 
     public void Upgrade_HireWorker()
@@ -673,6 +681,50 @@ public class IdleManager : MonoBehaviour
         particle.GetComponentInChildren<ParticleSystem>().Play();
 
         this.TaskDelay(5f, () => Managers.Pool.Push(particle));
+    }
+
+    public void StartIdleFirst()
+    {
+        // HighlightNextStageBtn();
+
+        if (ES3.KeyExists("NextStageEnable"))
+        {
+            if (ES3.Load<bool>("NextStageEnable"))
+            {
+
+            }
+            else
+            {
+
+
+            }
+        }
+        else
+        {
+            List<CandyItem> newList = new List<CandyItem>();
+
+
+            var tempcandy1 = SaveManager.instance.FindCandyObjectInReousrce(1);
+            var tempcandy2 = SaveManager.instance.FindCandyObjectInReousrce(2);
+
+            newList.Add(new CandyItem() { candy = tempcandy1, count = 100 });
+            newList.Add(new CandyItem() { candy = tempcandy2, count = 50 });
+
+            SaveManager.instance.AddCandy(newList);
+
+            ES3.Save<bool>("NextStageEnable", false);
+        }
+
+        upgradeBtn.SetActive(false);
+        nextStageBtn.SetActive(false);
+    }
+
+    public void HighlightNextStageBtn()
+    {
+        ES3.Save<bool>("NextStageEnable", true);
+
+        nextStageBtn.SetActive(true);
+        nextStageHighlight.SetActive(true);
     }
 }
 

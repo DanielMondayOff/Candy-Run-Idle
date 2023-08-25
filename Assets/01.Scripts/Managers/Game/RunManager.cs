@@ -619,7 +619,7 @@ public class RunManager : MonoBehaviour
 
         EventManager.instance.CustomEvent(AnalyticsType.UI, "GoToIdleBtn", true, true);
 
-
+        IdleManager.instance.ChangeUpgradeBtnActive(true);
         // MondayOFF.EventTracker.LogCustomEvent(
         // "UI",
         // new Dictionary<string, string> { { "UI_TYPE", "GoToIdleBtn" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
@@ -680,6 +680,13 @@ public class RunManager : MonoBehaviour
         var center = (first.transform.localPosition + second.transform.localPosition) / 2;
         first.transform.DOLocalMove(center, 0.4f).OnComplete(() => { candyList.Remove(first.gameObject); Destroy(first.gameObject); });
         second.transform.DOLocalMove(center, 0.4f).OnComplete(() => { second.UpgradeCandy(); ArrangeCandy(); });
+    }
+
+    public void StartIdleFirst()
+    {
+        ChangeToIdleGame();
+
+        IdleManager.instance.StartIdleFirst();
     }
 
 }

@@ -71,6 +71,9 @@ public class CandyMachine : BuildObject
                             EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Customer Dispoint_" + candyItem.id, true, true);
 
                             UpdateLine();
+
+                            if (ES3.Load<bool>("NextStageEnable") == false)
+                                IdleManager.instance.HighlightNextStageBtn();
                         });
                 }
                 else
