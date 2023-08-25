@@ -78,6 +78,7 @@ public class IdleManager : MonoBehaviour
         instance = this;
 
         // StartCoroutine(SceneLoading());
+
         SceneManager.LoadScene("Run", LoadSceneMode.Additive);
 
     }
