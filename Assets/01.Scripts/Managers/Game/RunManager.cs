@@ -58,6 +58,8 @@ public class RunManager : MonoBehaviour
 
     [FoldoutGroup("참조")] public CanvasGroup[] runUIs;
     [FoldoutGroup("참조")] public GameObject canvas;
+    [FoldoutGroup("참조")] public GameObject blackPanel;
+
 
     [TitleGroup("Game Value")] public int currentMoney;
     [TitleGroup("Game Value")] public bool fireBullet = false;
@@ -116,6 +118,16 @@ public class RunManager : MonoBehaviour
         {
             startCard.GenearteCards();
         }
+
+        if (ES3.KeyExists("AB_Test"))
+            if (ES3.Load<string>("AB_Test").Equals("A"))
+                blackPanel.SetActive(false);
+
+        if (ES3.KeyExists("NextStageEnable"))
+            if (ES3.Load<bool>("NextStageEnable"))
+                blackPanel.SetActive(false);
+
+        // ABManager.instance.SelectStart("B");
 
         // MondayOFF.AdsManager.ShowBanner();
     }
@@ -687,6 +699,14 @@ public class RunManager : MonoBehaviour
         ChangeToIdleGame();
 
         IdleManager.instance.StartIdleFirst();
+
+        IdleManager.instance.idleCamera.gameObject.SetActive(false);
+        // IdleManager.instance.blackPanel.gameObject.SetActive(true);
+        this.TaskDelay(1f, () =>
+            {
+                IdleManager.instance.idleCamera.gameObject.SetActive(true);
+                // IdleManager.instance.blackPanel.gameObject.SetActive(false);
+            });
     }
 
 }

@@ -32,10 +32,13 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject idleUI;
     [FoldoutGroup("참조")] public GameObject upgradePanel;
     [FoldoutGroup("참조")] public CinemachineVirtualCamera idleCamera;
+    public void ChangeIdleCameraOffsetTest() => idleCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset = new Vector3(35, 45, 0);
     [FoldoutGroup("참조")] public PlayerMovement playerMovement;
     [FoldoutGroup("참조")] public GameObject nextStageBtn;
     [FoldoutGroup("참조")] public GameObject nextStageHighlight;
     [FoldoutGroup("참조")] public GameObject upgradeBtn;
+    [FoldoutGroup("참조")] public GameObject blackPanel;
+
     public void ChangeUpgradeBtnActive(bool active) => upgradeBtn.SetActive(active);
 
     public CanvasGroup[] idleUIs;
@@ -66,7 +69,7 @@ public class IdleManager : MonoBehaviour
 
 
 
-    private bool playIdle = false;
+    public bool playIdle = false;
 
     private TaskUtil.WhileTaskMethod spawnCustomer = null;
 
@@ -130,7 +133,17 @@ public class IdleManager : MonoBehaviour
 
         // startCollector.ActiveThisCollector();
 
-        ABManager.instance.SelectStart("B");
+        if (ES3.KeyExists("NextStageEnable"))
+        {
+            if (ES3.Load<bool>("NextStageEnable"))
+            {
+                IdleManager.instance.ChangeIdleCameraOffsetTest();
+            }
+        }
+
+        if (ES3.KeyExists("NextStageEnable"))
+            if (ES3.Load<bool>("NextStageEnable"))
+                blackPanel.SetActive(false);
 
     }
 
@@ -363,6 +376,7 @@ public class IdleManager : MonoBehaviour
 
     public void PlayRunGame()
     {
+        playIdle = false;
         idleUI.SetActive(false);
         CameraManager.instance.ChangeCamera("follow");
         RunManager.instance.ChangeToRunGame();
@@ -377,6 +391,9 @@ public class IdleManager : MonoBehaviour
         idleCamera.gameObject.SetActive(false);
 
         nextStageHighlight.SetActive(false);
+
+
+        RunManager.instance.blackPanel.SetActive(false);
     }
 
     public void Upgrade_HireWorker()
@@ -704,12 +721,14 @@ public class IdleManager : MonoBehaviour
         {
             List<CandyItem> newList = new List<CandyItem>();
 
-
             var tempcandy1 = SaveManager.instance.FindCandyObjectInReousrce(1);
             var tempcandy2 = SaveManager.instance.FindCandyObjectInReousrce(2);
+            var tempcandy3 = SaveManager.instance.FindCandyObjectInReousrce(3);
 
             newList.Add(new CandyItem() { candy = tempcandy1, count = 100 });
             newList.Add(new CandyItem() { candy = tempcandy2, count = 50 });
+            newList.Add(new CandyItem() { candy = tempcandy3, count = 10 });
+
 
             SaveManager.instance.AddCandy(newList);
 
@@ -718,14 +737,26 @@ public class IdleManager : MonoBehaviour
 
         upgradeBtn.SetActive(false);
         nextStageBtn.SetActive(false);
+
+        nextStageHighlight.SetActive(false);
+
     }
 
     public void HighlightNextStageBtn()
     {
+        nextStageBtn.SetActive(true);
+
+        if (ES3.KeyExists("NextStageEnable"))
+        {
+            if (ES3.Load<bool>("NextStageEnable"))
+                nextStageHighlight.SetActive(true);
+        }
+        else
+            nextStageHighlight.SetActive(true);
+
+
         ES3.Save<bool>("NextStageEnable", true);
 
-        nextStageBtn.SetActive(true);
-        nextStageHighlight.SetActive(true);
     }
 }
 

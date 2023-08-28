@@ -31,14 +31,18 @@ public class CameraManager : SerializedMonoBehaviour
         }
         else
         {
+            if (key == "idle" || key == "follow")
+            {
+                Camera.main.GetComponent<CinemachineBrain>().m_DefaultBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Style.Cut, 0f);
+            }
+            else
+                Camera.main.GetComponent<CinemachineBrain>().m_DefaultBlend = new CinemachineBlendDefinition(CinemachineBlendDefinition.Style.EaseInOut, 1f);
+
+
             currentVirtualCamera.Priority = 10;
             find.Priority = 11;
 
             currentVirtualCamera = find;
-
-            currentVirtualCamera.gameObject.SetActive(false);
-            currentVirtualCamera.gameObject.SetActive(true);
-
         }
 
     }
