@@ -187,7 +187,7 @@ public class IdleManager : MonoBehaviour
             // GenerateCandyJar();
             // CheckingCandyJar();
             spawnCustomer = this.TaskWhile(customerSpawnSpeed[promotion.currentLevel] * 0.25f, 2, () => GenenrateCustomer());
-            playIdle = true;
+            // playIdle = true;
         }
     }
 
