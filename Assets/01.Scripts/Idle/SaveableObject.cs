@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
 
-public class SaveableObject : MonoBehaviour
+public class SaveableObject : SerializedMonoBehaviour
 {
     [HorizontalGroup("Guid")][ReadOnly][SerializeField] string guid;
     public string Guid { get => guid; protected set => guid = value; }

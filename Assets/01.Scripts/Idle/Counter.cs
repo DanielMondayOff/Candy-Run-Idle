@@ -50,7 +50,7 @@ public class Counter : MonoBehaviour
 
                     // print((int)(candyItem.CalculateTotalCost() * IdleManager.instance.extraIncomePercent[IdleManager.instance.extraIncome.currentLevel]));
 
-                    moneyTower.AddMoney((int)(candyItem.CalculateTotalCost() * IdleManager.instance.extraIncomePercent[IdleManager.instance.extraIncome.currentLevel]));
+                    moneyTower.AddMoney((int)(customerList[0].CalculateTotalCost() * IdleManager.instance.extraIncomePercent[IdleManager.instance.extraIncome.currentLevel]));
 
                     customerList[0].Exit();
 

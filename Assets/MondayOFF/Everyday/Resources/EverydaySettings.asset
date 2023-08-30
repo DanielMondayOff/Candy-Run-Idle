@@ -34,9 +34,9 @@ MonoBehaviour:
     AOS_APS_BN_SlotID: 
     AOS_PlayOnApiKey: 
     AOS_AdvertyApiKey: 
-    iOS_IS_AdUnitID: 8274ccccfed259bf
-    iOS_RV_AdUnitID: 9e7e7d89bed9b245
-    iOS_BN_AdUnitID: 72832ad71f4480b7
+    iOS_IS_AdUnitID: 8a2cb9ed1dd37426
+    iOS_RV_AdUnitID: 70d92f8b21aa27b8
+    iOS_BN_AdUnitID: fa859e8d15f5646b
     iOS_IS_Backup_AdUnitID: 
     iOS_RV_Backup_AdUnitID: 
     iOS_BN_Backup_AdUnitID: 

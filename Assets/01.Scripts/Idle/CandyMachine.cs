@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using MoreMountains.NiceVibrations;
 
 public class CandyMachine : BuildObject
 {
@@ -26,6 +27,12 @@ public class CandyMachine : BuildObject
     public TaskUtil.DelayTaskMethod delayTimer = null;
     public TaskUtil.DelayTaskMethod candyGiveDelay = null;
 
+    //================================================================================
+
+    public TaskUtil.WhileTaskMethod playerTakeCandyTask = null;
+    public Transform itemObjectGeneratePoint;
+
+
 
     public void Init()
     {
@@ -45,6 +52,24 @@ public class CandyMachine : BuildObject
         customerList.Add(newCustomer);
 
         UpdateLine();
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag.Equals("Player"))
+        {
+
+            this.playerTakeCandyTask = this.TaskWhile(0.2f, 0, () => ItemObjectMoveTask(other.GetComponentInChildren<IdlePlayer>()));
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag.Equals("Player"))
+        {
+            if (this.playerTakeCandyTask != null)
+                this.playerTakeCandyTask.Kill();
+        }
     }
 
     public void CheckDistBetweenCustomer()
@@ -170,5 +195,26 @@ public class CandyMachine : BuildObject
             return true;
         else
             return false;
+    }
+
+    public void ItemObjectMoveTask(IdlePlayer player)
+    {
+        var playerPoint = player.GetPlayerEmptyPoint();
+        if (playerPoint != null)
+        {
+            var obj = IdleManager.instance.GenerateItemObject(itemObjectGeneratePoint, candyItem.id);
+
+            obj.GetComponentInChildren<ItemObject>().Jump(playerPoint);
+
+            // SaveManager.instance.TakeCandy(candyItem.id, 1);
+
+            OnChangeInventory(true);
+
+            transform.DOPunchScale(Vector3.one * 0.1f, 0.5f);
+
+            player.AddItemStack(obj);
+
+            MMVibrationManager.Haptic(HapticTypes.MediumImpact);
+        }
     }
 }

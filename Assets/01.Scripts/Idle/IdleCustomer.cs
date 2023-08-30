@@ -4,8 +4,9 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 
-public class IdleCustomer : MonoBehaviour
+public class IdleCustomer : SerializedMonoBehaviour
 {
     [SerializeField] private NavMeshAgent agent;
 
@@ -35,7 +36,20 @@ public class IdleCustomer : MonoBehaviour
 
     [SerializeField] UnityEngine.UI.Image timer;
 
+    [SerializeField] Dictionary<Transform, ItemObject> itemPoints = new Dictionary<Transform, ItemObject>();
 
+    public int CalculateTotalCost()
+    {
+        int cost = 0;
+
+        foreach (var item in itemPoints)
+        {
+            if (item.Value != null)
+                cost += item.Value.GetItem.CalculateTotalCost();
+        }
+
+        return cost;
+    }
 
     public void Init(Transform spawnPoint)
     {
@@ -177,6 +191,19 @@ public class IdleCustomer : MonoBehaviour
         timer.enabled = true;
         timer.fillAmount = 0;
         timer.DOFillAmount(1, time).OnComplete(() => timer.enabled = false);
+    }
+
+    public void AddItem(GameObject item)
+    {
+        foreach (var point in itemPoints)
+        {
+            if (point.Value == null)
+            {
+                item.GetComponentInChildren<ItemObject>().Jump(point.Key);
+                itemPoints[point.Key] = item.GetComponentInChildren<ItemObject>();
+                break;
+            }
+        }
     }
 }
 

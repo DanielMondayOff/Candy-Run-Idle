@@ -167,6 +167,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &2884904101446493799
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8825783649597771810}
+  m_Layer: 0
+  m_Name: Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8825783649597771810
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2884904101446493799}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.247, y: 1.889, z: -2.58}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3961970298534920716}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3562637041726482201
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,6 +1118,7 @@ GameObject:
   - component: {fileID: 3562637042677441946}
   - component: {fileID: 3562637042677441947}
   - component: {fileID: 3562637042677441944}
+  - component: {fileID: 6411771165685995173}
   m_Layer: 0
   m_Name: Candy_Machine
   m_TagString: Untagged
@@ -1114,6 +1146,7 @@ Transform:
   - {fileID: 3562637043453020613}
   - {fileID: 3562637041957447243}
   - {fileID: 3562637043013971823}
+  - {fileID: 8825783649597771810}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1172,6 +1205,7 @@ MonoBehaviour:
   test_candyName: {fileID: 3562637041937558714}
   candyImage: {fileID: 3562637043082905787}
   test_candyCount: {fileID: 3562637043391130583}
+  candyDeco: {fileID: 0}
   customerQueueLine:
   - {fileID: 3562637042754539978}
   - {fileID: 3562637043381264216}
@@ -1181,3 +1215,17 @@ MonoBehaviour:
   customerList: []
   isReady: 0
   Debug_distToCustomer: 0
+  itemObjectGeneratePoint: {fileID: 8825783649597771810}
+--- !u!65 &6411771165685995173
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4445174131291510966}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.557515, y: 6.1829696, z: 2.521214}
+  m_Center: {x: -0.105659604, y: 2.591481, z: -3.217969}

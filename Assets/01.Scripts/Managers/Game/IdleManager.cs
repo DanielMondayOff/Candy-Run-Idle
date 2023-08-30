@@ -63,15 +63,20 @@ public class IdleManager : MonoBehaviour
 
     public readonly float[] workerSpeed = { 6, 6.5f, 7f, 7.5f, 8f, 8.5f, 9f, 10f, 10.5f, 11f, 11.5f };
     public readonly float[] customerSpawnSpeed = { 6f, 5.5f, 5f, 4.5f, 4f, 3.5f, 3f, 2.5f, 2f, 1.5f, 1f };
-    public readonly float[] maxCustomerCount = { 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
+    public readonly float[] maxCustomerCount = { 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
     public readonly float[] extraIncomePercent = { 1f, 1.1f, 1.2f, 1.3f, 1.4f, 1.5f, 1.6f, 1.7f, 1.8f, 1.9f, 2f };
     public readonly float[] playerSpeed = { 10, 10.5f, 11f, 11.5f, 12f, 12.5f, 13f, 13.5f, 14f, 14.5f, 16f };
-
-
 
     public bool playIdle = false;
 
     private TaskUtil.WhileTaskMethod spawnCustomer = null;
+
+
+    //==============================================================================================================================
+
+    public List<DisplayStand> candyDisplayStandList = new List<DisplayStand>();
+
+
 
 
     public static IdleManager instance;
@@ -186,8 +191,9 @@ public class IdleManager : MonoBehaviour
         {
             // GenerateCandyJar();
             // CheckingCandyJar();
-            spawnCustomer = this.TaskWhile(customerSpawnSpeed[promotion.currentLevel] * 0.25f, 2, () => GenenrateCustomer());
-            // playIdle = true;
+            if (spawnCustomer == null)
+                spawnCustomer = this.TaskWhile(customerSpawnSpeed[promotion.currentLevel] * 0.25f, 2, () => GenenrateCustomer());
+            playIdle = true;
         }
     }
 
@@ -638,28 +644,36 @@ public class IdleManager : MonoBehaviour
     {
         List<candyBuildType> randomList = new List<candyBuildType>();
 
-        var useableCandyMachines = candyMachines.Where((n) => n.isReady && n.candyItem != null && n.CheckHasQueue());
+        // var useableCandyMachines = candyMachines.Where((n) => n.isReady && n.candyItem != null && n.CheckHasQueue());
 
         var useableCandySlots = candySlots.Where((n) => n.isReady && n.CheckHasQueue());
 
-        if (useableCandyMachines.ToArray().Length > 0)
-            randomList.Add(candyBuildType.CandyMachine);
+        var useableCandyDisplayStand = candyDisplayStandList.Where((n) => n.isReady && n.CheckHasQueue());
+
+        // if (useableCandyMachines.ToArray().Length > 0)
+        //     randomList.Add(candyBuildType.CandyMachine);
 
         if (useableCandySlots.ToArray().Length > 0)
             randomList.Add(candyBuildType.CandySlot);
+
+        if (useableCandyDisplayStand.ToArray().Length > 0)
+            randomList.Add(candyBuildType.CandyDisplayStand);
 
         if (randomList.Count > 0)
         {
             switch (randomList[Random.Range(0, randomList.Count)])
             {
-                case candyBuildType.CandyMachine:
-                    useableCandyMachines.OrderBy(x => Random.value).FirstOrDefault().EnqueueCustomer(customer);
+                // case candyBuildType.CandyMachine:
+                //     useableCandyMachines.OrderBy(x => Random.value).FirstOrDefault().EnqueueCustomer(customer);
 
+                //     return;
+
+                case candyBuildType.CandyDisplayStand:
+                    useableCandyDisplayStand.OrderBy(x => Random.value).FirstOrDefault().EnqueueCustomer(customer);
                     return;
 
                 case candyBuildType.CandySlot:
                     useableCandySlots.OrderBy(x => Random.value).FirstOrDefault().EnqueueCustomer(customer);
-
                     return;
             }
         }
@@ -724,10 +738,15 @@ public class IdleManager : MonoBehaviour
             var tempcandy1 = SaveManager.instance.FindCandyObjectInReousrce(1);
             var tempcandy2 = SaveManager.instance.FindCandyObjectInReousrce(2);
             var tempcandy3 = SaveManager.instance.FindCandyObjectInReousrce(3);
+            var tempcandy4 = SaveManager.instance.FindCandyObjectInReousrce(4);
+            var tempcandy5 = SaveManager.instance.FindCandyObjectInReousrce(5);
+
 
             newList.Add(new CandyItem() { candy = tempcandy1, count = 100 });
-            newList.Add(new CandyItem() { candy = tempcandy2, count = 50 });
-            newList.Add(new CandyItem() { candy = tempcandy3, count = 10 });
+            newList.Add(new CandyItem() { candy = tempcandy2, count = 100 });
+            newList.Add(new CandyItem() { candy = tempcandy3, count = 100 });
+            newList.Add(new CandyItem() { candy = tempcandy4, count = 100 });
+            newList.Add(new CandyItem() { candy = tempcandy5, count = 100 });
 
 
             SaveManager.instance.AddCandy(newList);
@@ -758,12 +777,32 @@ public class IdleManager : MonoBehaviour
         ES3.Save<bool>("NextStageEnable", true);
 
     }
+
+    public GameObject GenerateItemObject(Transform parent, int id)
+    {
+        var find = Resources.LoadAll<GameObject>("Item").Where((n) => n.GetComponent<ItemObject>().GetItem.id == id).First();
+
+        if (find == null)
+        {
+            Debug.LogError("해당 id의 itemObject를 찾을 수 없습니다. : " + id);
+            return null;
+        }
+
+        var obj = Managers.Pool.Pop(find, parent);
+        // obj.transform.localScale = Vector3.one * 0.2f;
+        obj.transform.localPosition = Vector3.zero;
+
+
+        return obj.gameObject;
+    }
 }
 
 public enum candyBuildType
 {
     CandyMachine = 1,
-    CandySlot = 2
+    CandySlot = 2,
+    CandyDisplayStand = 3
+
 }
 
 [System.Serializable]
@@ -845,5 +884,10 @@ public class CandyItem
     public int CalculateTotalCost()
     {
         return candy.cost * count;
+    }
+
+    public void GenerateItemObject(int id, Transform parent)
+    {
+
     }
 }
