@@ -210,11 +210,31 @@ public class CandyMachine : BuildObject
 
             OnChangeInventory(true);
 
-            transform.DOPunchScale(Vector3.one * 0.1f, 0.5f);
+            transform.DOPunchScale(Vector3.one * 0.1f, 0.20f);
 
             player.AddItemStack(obj);
 
             MMVibrationManager.Haptic(HapticTypes.MediumImpact);
         }
+    }
+
+    public ItemObject GiveItemobjectToWorker(Transform point, System.Action onComplete = null)
+    {
+
+        var obj = IdleManager.instance.GenerateItemObject(itemObjectGeneratePoint, candyItem.id);
+
+        obj.GetComponentInChildren<ItemObject>().Jump(point);
+
+
+        // SaveManager.instance.TakeCandy(candyItem.id, 1);
+
+        OnChangeInventory(true);
+
+        transform.DOPunchScale(Vector3.one * 0.1f, 0.20f);
+
+        if (onComplete != null)
+            onComplete.Invoke();
+
+        return obj.GetComponentInChildren<ItemObject>();
     }
 }

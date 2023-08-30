@@ -39,6 +39,8 @@ public class Collector : MonoBehaviour
 
     public UnityEvent onComplete = null;
 
+    public UnityEvent onComplete_userOnly = null;
+
     public int requireMoney;
     public int currentMoney;
 
@@ -51,6 +53,11 @@ public class Collector : MonoBehaviour
 
     private void Start()
     {
+        if (ES3.KeyExists(guid + "_currentMoney"))
+        {
+            currentMoney = ES3.Load<int>(guid + "_currentMoney");
+        }
+
         if (ES3.KeyExists(guid + "_isComplete"))
         {
             print("isComplete + " + guid);
@@ -62,22 +69,16 @@ public class Collector : MonoBehaviour
             print("isActive + " + guid);
             ActiveThisCollector();
         }
+        else if (currentMoney >= requireMoney)
+        {
+            onComplete.Invoke();
+            gameObject.SetActive(false);
+        }
+
         else
         {
             if (!firstCollector)
                 Sleep();
-        }
-
-
-        if (ES3.KeyExists(guid + "_currentMoney"))
-        {
-            currentMoney = ES3.Load<int>(guid + "_currentMoney");
-
-            if (currentMoney >= requireMoney)
-            {
-                onComplete.Invoke();
-                gameObject.SetActive(false);
-            }
         }
 
         requireMoneyText.text = (requireMoney - currentMoney).ToString();
@@ -228,7 +229,7 @@ public class Collector : MonoBehaviour
 
         if (groundTween != null)
             groundTween.Kill();
-        groundTween = gameObject.transform.DOScale(Vector3.zero, 0.7f).SetEase(Ease.InOutBack).SetDelay(0.15f).OnComplete(() => onComplete.Invoke());
+        groundTween = gameObject.transform.DOScale(Vector3.zero, 0.7f).SetEase(Ease.InOutBack).SetDelay(0.15f).OnComplete(() => { onComplete.Invoke(); onComplete_userOnly.Invoke(); });
 
         ES3.Save<bool>(guid + "_isComplete", true);
 

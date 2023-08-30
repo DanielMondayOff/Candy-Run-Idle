@@ -62,6 +62,8 @@ public class DisplayStand : BuildObject
 
     private bool pause = false;
 
+    [SerializeField] public CandyMachine currentMachine;
+
 
     private void Start()
     {

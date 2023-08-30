@@ -46,4 +46,13 @@ public class CameraManager : SerializedMonoBehaviour
         }
 
     }
+
+    public void SwapCameraSec(float sec, Transform target)
+    {
+        var lastTarget = currentVirtualCamera.m_Follow;
+
+        currentVirtualCamera.m_Follow = target;
+
+        this.TaskDelay(sec, () => currentVirtualCamera.m_Follow = lastTarget);
+    }
 }

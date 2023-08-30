@@ -795,6 +795,31 @@ public class IdleManager : MonoBehaviour
 
         return obj.gameObject;
     }
+
+    public void SwapCamera(Transform target)
+    {
+        var lastTarget = idleCamera.m_Follow;
+        Vector3 lastOffset = idleCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset;
+
+        idleCamera.m_Follow = target;
+        idleCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset = new Vector3(35, 45, -20);
+
+        this.TaskDelay(2f, () =>
+        {
+            idleCamera.m_Follow = lastTarget;
+            idleCamera.GetCinemachineComponent<CinemachineTransposer>().m_FollowOffset = lastOffset;
+        });
+    }
+
+    public void HireWorker(Transform pos)
+    {
+        var worker = Instantiate(Resources.Load<GameObject>("Worker 1"), pos);
+
+        worker.transform.parent = null;
+        worker.transform.localScale = Vector3.one * 1.8f;
+
+        print(1);
+    }
 }
 
 public enum candyBuildType
