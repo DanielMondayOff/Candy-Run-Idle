@@ -38,6 +38,9 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject nextStageHighlight;
     [FoldoutGroup("참조")] public GameObject upgradeBtn;
     [FoldoutGroup("참조")] public GameObject blackPanel;
+    [FoldoutGroup("참조")] public LineRenderer arrowLine = null;
+    [FoldoutGroup("참조")] public Transform playerTrans;
+
 
     public void ChangeUpgradeBtnActive(bool active) => upgradeBtn.SetActive(active);
 
@@ -657,7 +660,11 @@ public class IdleManager : MonoBehaviour
             randomList.Add(candyBuildType.CandySlot);
 
         if (useableCandyDisplayStand.ToArray().Length > 0)
+        {
             randomList.Add(candyBuildType.CandyDisplayStand);
+            randomList.Add(candyBuildType.CandyDisplayStand);
+        }
+
 
         if (randomList.Count > 0)
         {
@@ -792,7 +799,6 @@ public class IdleManager : MonoBehaviour
         // obj.transform.localScale = Vector3.one * 0.2f;
         obj.transform.localPosition = Vector3.zero;
 
-
         return obj.gameObject;
     }
 
@@ -818,7 +824,8 @@ public class IdleManager : MonoBehaviour
         worker.transform.parent = null;
         worker.transform.localScale = Vector3.one * 1.8f;
 
-        print(1);
+        IdleManager.instance.PopParticle("Particles/FX_ShardRock_Dust_End_01", worker.transform.position + Vector3.up * 3);
+
     }
 }
 

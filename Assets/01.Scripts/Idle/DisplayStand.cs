@@ -118,7 +118,7 @@ public class DisplayStand : BuildObject
 
                 ES3.Save<Item[]>(Guid + "_items", items.ToArray());
 
-                OnChangeInventory();
+                OnChangeInventory(true);
                 return;
             }
         }
@@ -265,7 +265,6 @@ public class DisplayStand : BuildObject
             // candyItem.TakeCandy(1);
 
             var itemObject = GetItemObject(true);
-
             customer.AddItem(itemObject.Value.gameObject);
 
             items.Pop();
@@ -285,14 +284,18 @@ public class DisplayStand : BuildObject
         });
     }
 
+    Tween CanvasWiggle = null;
     public void OnChangeInventory(bool wiggle = false)
     {
         candyImage.sprite = SaveManager.instance.FindCandyObjectInReousrce(itemId).icon;
 
         test_candyCount.text = "X " + (items.Count);
 
-        if (wiggle)
-            CandyCanvas.transform.DOPunchScale(CandyCanvas.transform.localScale * 0.3f, 0.2f, 2);
+        if (wiggle && (CanvasWiggle == null) ? true : !CanvasWiggle.IsPlaying())
+        {
+            print(1234);
+            CanvasWiggle = CandyCanvas.transform.DOPunchScale(CandyCanvas.transform.localScale * 0.3f, 0.2f, 2).OnComplete(() => CanvasWiggle = null);
+        }
     }
 
     public void UpdateLine()

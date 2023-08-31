@@ -47,7 +47,17 @@ public class BuildObject : SaveableObject
 
         void OnCompleteBuild()
         {
+            if (GetComponentInChildren<UnityEngine.AI.NavMeshObstacle>() != null)
+            {
+                GetComponentInChildren<UnityEngine.AI.NavMeshObstacle>().enabled = false;
+                GetComponentInChildren<UnityEngine.AI.NavMeshObstacle>().enabled = true;
+            }
+        }
 
+        if (GetComponentInChildren<UnityEngine.AI.NavMeshObstacle>() != null)
+        {
+            GetComponentInChildren<UnityEngine.AI.NavMeshObstacle>().enabled = false;
+            GetComponentInChildren<UnityEngine.AI.NavMeshObstacle>().enabled = true;
         }
     }
 

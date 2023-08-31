@@ -2,16 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using DG.Tweening;
 
 public class PlayerMovement : MonoBehaviour
 {
 
     [SerializeField] Animator animator;
+    [SerializeField] IdlePlayer player;
+
     [SerializeField] FixedTouchField touchField;
     [SerializeField] private NavMeshAgent agent;
 
     [SerializeField] ParticleSystem leftFootStepDust;
     [SerializeField] ParticleSystem rightFootStepDust;
+
+
 
     private Vector3 moveDir;
     private float angle;
@@ -23,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
             agent.Warp(ES3.Load<Vector3>("PlayerPos"));
 
         this.TaskWhile(2f, 0, () => SavePlayerPos());
+
+        player = GetComponent<IdlePlayer>();
     }
 
 
@@ -36,14 +43,14 @@ public class PlayerMovement : MonoBehaviour
         agent.Move(delta);
 
         if (nomalizeMoveSpeed == 0)
-        {
             animator.SetBool("Move", false);
-        }
         else
-        {
             animator.SetBool("Move", true);
-            // animator.SetFloat("MoveAnimationSpeed", nomalizeMoveSpeed);
-        }
+
+        if (player.itemStackList.Count > 0)
+            animator.SetLayerWeight(1, 1);
+        else
+            animator.SetLayerWeight(1, 0);
 
         if (Mathf.Abs(touchField.joystickDir.normalized.x) > 0 || Mathf.Abs(touchField.joystickDir.normalized.y) > 0)
         {
@@ -52,6 +59,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(angle - 90, Vector3.down), 10 * Time.deltaTime);
+
+
     }
 
     private void SavePlayerPos()
@@ -73,4 +82,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rightFootStepDust.Play();
     }
+
+
 }

@@ -17,6 +17,9 @@ public class IdleWorker2 : SerializedMonoBehaviour
     [SerializeField] bool Working = false;
     private bool delivery = false;
 
+    [SerializeField] ParticleSystem leftFootStepDust;
+    [SerializeField] ParticleSystem rightFootStepDust;
+
     private void Start()
     {
         this.TaskWhile(1f, 1f, FindJob);
@@ -40,7 +43,13 @@ public class IdleWorker2 : SerializedMonoBehaviour
 
     public void FindJob()
     {
-        if (Working)
+        if (!agent.isOnNavMesh)
+        {
+            agent.enabled = false;
+            agent.enabled = true;
+        }
+
+        if (Working || !agent.isOnNavMesh)
             return;
 
         print("finding");
@@ -90,5 +99,13 @@ public class IdleWorker2 : SerializedMonoBehaviour
         delivery = false;
     }
 
+    public void PlayLeftFootStepParticle()
+    {
+        leftFootStepDust.Play();
+    }
 
+    public void PlayRightFootStepParticle()
+    {
+        rightFootStepDust.Play();
+    }
 }

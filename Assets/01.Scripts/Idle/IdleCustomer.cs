@@ -38,6 +38,9 @@ public class IdleCustomer : SerializedMonoBehaviour
 
     [SerializeField] Dictionary<Transform, ItemObject> itemPoints = new Dictionary<Transform, ItemObject>();
 
+    [SerializeField] ParticleSystem leftFootStepDust;
+    [SerializeField] ParticleSystem rightFootStepDust;
+
     public int CalculateTotalCost()
     {
         int cost = 0;
@@ -75,10 +78,15 @@ public class IdleCustomer : SerializedMonoBehaviour
         else
             animator.SetBool("Move", false);
 
-        if (candyInventory.count > 0)
-            animator.SetLayerWeight(1, 1);
-        else
-            animator.SetLayerWeight(0, 1);
+        // if (candyInventory.count > 0)
+        // {
+        //     print(1);
+        //     animator.SetLayerWeight(1, 1);
+        // }
+        // else
+        // {
+        //     animator.SetLayerWeight(1, 0);
+        // }
     }
 
     public void SetDestination(Vector3 pos, System.Action onComplete = null)
@@ -201,9 +209,26 @@ public class IdleCustomer : SerializedMonoBehaviour
             {
                 item.GetComponentInChildren<ItemObject>().Jump(point.Key);
                 itemPoints[point.Key] = item.GetComponentInChildren<ItemObject>();
+
+                animator.SetLayerWeight(1, 1);
                 break;
             }
         }
+    }
+
+    public void GenerateOrder(Item item)
+    {
+
+    }
+
+    public void PlayLeftFootStepParticle()
+    {
+        // leftFootStepDust.Play();
+    }
+
+    public void PlayRightFootStepParticle()
+    {
+        // rightFootStepDust.Play();
     }
 }
 

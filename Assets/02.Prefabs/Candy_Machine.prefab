@@ -1191,6 +1191,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43a2bbce0a28c479598015881e4d76fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: delayTimer
+      Entry: 6
+      Data: 
+    - Name: candyGiveDelay
+      Entry: 6
+      Data: 
+    - Name: playerTakeCandyTask
+      Entry: 6
+      Data: 
   guid: 67cee262-f4df-4ed5-ac4f-c9b571c52575
   savedata:
     guid: 67cee262-f4df-4ed5-ac4f-c9b571c52575
@@ -1227,5 +1245,5 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.557515, y: 6.1829696, z: 2.521214}
-  m_Center: {x: -0.105659604, y: 2.591481, z: -3.217969}
+  m_Size: {x: 4.7052765, y: 6.1829696, z: 7.0657973}
+  m_Center: {x: -0.029258668, y: 2.591481, z: -0.9456821}

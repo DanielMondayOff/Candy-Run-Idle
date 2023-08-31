@@ -110,9 +110,9 @@ public class MoneyDrops : SaveableObject
                     other.GetComponent<PlayerMoneyText>().ChangeFloatingText(money);
                     money = 0;
 
-                    if (ES3.KeyExists("NextStageEnable"))
-                        if (ES3.Load<bool>("NextStageEnable") && IdleManager.instance.playIdle)
-                            MondayOFF.AdsManager.ShowInterstitial();
+                    // if (ES3.KeyExists("NextStageEnable"))
+                    //     if (ES3.Load<bool>("NextStageEnable") && IdleManager.instance.playIdle)
+                    //         MondayOFF.AdsManager.ShowInterstitial();
 
                 }
                 else
@@ -123,9 +123,9 @@ public class MoneyDrops : SaveableObject
                     other.GetComponent<PlayerMoneyText>().ChangeFloatingText(5);
 
 
-                    if (ES3.KeyExists("NextStageEnable"))
-                        if (ES3.Load<bool>("NextStageEnable") && IdleManager.instance.playIdle)
-                            MondayOFF.AdsManager.ShowInterstitial();
+                    // if (ES3.KeyExists("NextStageEnable"))
+                    //     if (ES3.Load<bool>("NextStageEnable") && IdleManager.instance.playIdle)
+                    //         MondayOFF.AdsManager.ShowInterstitial();
 
                 }
 

@@ -177,7 +177,6 @@ public class Collector : MonoBehaviour
                         currentMoney += money;
 
                         MMVibrationManager.Haptic(HapticTypes.LightImpact);
-
                     }
                 }
                 else

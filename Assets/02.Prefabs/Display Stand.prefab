@@ -587,8 +587,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 15.79, y: 6.2699056, z: 18.2}
-  m_Center: {x: 0.000030518244, y: 3.0532663, z: 0.10463834}
+  m_Size: {x: 13.286832, y: 6.2699056, z: 14.326447}
+  m_Center: {x: 0.2100997, y: 3.0532663, z: -0.18888092}
 --- !u!208 &1270479367559083919
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -841,6 +841,7 @@ MonoBehaviour:
   test_candyName: {fileID: 0}
   candyImage: {fileID: 5022027752650117327}
   test_candyCount: {fileID: 750756558148913867}
+  currentMachine: {fileID: 0}
 --- !u!1 &2765126007065003271
 GameObject:
   m_ObjectHideFlags: 0
