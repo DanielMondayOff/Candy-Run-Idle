@@ -89,9 +89,15 @@ public class RunMapGenerator : MonoBehaviour
 
                 var pillers = prefab.GetComponentsInChildren<Piller>();
 
+                Dictionary<PillerType, float> probabilities = new Dictionary<PillerType, float>();
+
+                // probabilities.Add(PillerType.Length, 60);
+                probabilities.Add(PillerType.FireRate, 50);
+                probabilities.Add(PillerType.Range, 30);
+
                 foreach (var piller in pillers)
                 {
-                    piller.ChangeToNormalRandom();
+                    piller.ChangeToNormalRandom(SelectItemByProbability(probabilities));
                 }
             }
 
@@ -148,6 +154,29 @@ public class RunMapGenerator : MonoBehaviour
         mapPoints.RemoveAt(num);
 
         return point;
+    }
+
+    private T SelectItemByProbability<T>(Dictionary<T, float> probabilities)
+    {
+        float totalProbability = 0;
+        foreach (var pair in probabilities)
+        {
+            totalProbability += pair.Value;
+        }
+
+        float randomValue = UnityEngine.Random.Range(0f, totalProbability);
+
+        foreach (var pair in probabilities)
+        {
+            if (randomValue <= pair.Value)
+            {
+                return pair.Key;
+            }
+            randomValue -= pair.Value;
+        }
+
+        // 딕셔너리에 등록된 항목 중 하나도 선택되지 않았을 경우 기본값 반환
+        return default(T);
     }
 }
 

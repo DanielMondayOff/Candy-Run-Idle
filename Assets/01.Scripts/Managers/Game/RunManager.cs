@@ -83,7 +83,7 @@ public class RunManager : MonoBehaviour
     [TitleGroup("Cutting Phase")] public GameObject touchToCutImage;
 
     public float GetCurrentCandyLength() => defaultCandyLength + plusCandyLength;
-    public float GetBulletRange() => defaultBulletRange + plusBulletRange;
+    public float GetBulletRange() => defaultBulletRange + (plusBulletRange * 2);
 
     private List<GameObject> cuttedCandys = new List<GameObject>();
 
@@ -246,7 +246,7 @@ public class RunManager : MonoBehaviour
 
     public float GetCurrentFireRate()
     {
-        var result = DefaultBulletFireRate - plusFireRate;
+        var result = DefaultBulletFireRate - (plusFireRate * 0.5f);
 
         return Mathf.Clamp(result, 0.1f, 1);
     }

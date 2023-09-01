@@ -91,7 +91,6 @@ public class IdleManager : MonoBehaviour
         // StartCoroutine(SceneLoading());
 
         SceneManager.LoadScene("Run", LoadSceneMode.Additive);
-
     }
 
     private void Start()
@@ -782,7 +781,6 @@ public class IdleManager : MonoBehaviour
 
 
         ES3.Save<bool>("NextStageEnable", true);
-
     }
 
     public GameObject GenerateItemObject(Transform parent, int id)

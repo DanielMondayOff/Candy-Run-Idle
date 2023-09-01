@@ -18,6 +18,7 @@
     <package>com.applovin.mediation:bytedance-adapter:5.3.0.4.0</package>
     <package>com.applovin.mediation:facebook-adapter:[6.15.0.0]</package>
     <package>com.applovin.mediation:fyber-adapter:8.2.3.3</package>
+    <package>com.applovin.mediation:google-adapter:[22.3.0.0]</package>
     <package>com.applovin.mediation:hyprmx-adapter:6.2.0.2</package>
     <package>com.applovin.mediation:inmobi-adapter:10.1.4.3</package>
     <package>com.applovin.mediation:ironsource-adapter:7.4.0.0.0</package>
@@ -51,7 +52,7 @@
   <files />
   <settings>
     <setting name="androidAbis" value="arm64-v8a,armeabi-v7a" />
-    <setting name="bundleId" value="com.mondayoff.candyshopmaster" />
+    <setting name="bundleId" value="com.mondayoff.candy" />
     <setting name="explodeAars" value="True" />
     <setting name="gradleBuildEnabled" value="True" />
     <setting name="gradlePropertiesTemplateEnabled" value="True" />

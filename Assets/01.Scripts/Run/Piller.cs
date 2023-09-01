@@ -215,10 +215,7 @@ public class Piller : MonoBehaviour
         if (type != 0)
             this.type = type;
 
-        if (value > 0)
-            value = Random.Range(10, 30) * 10;
-        else
-            value = Random.Range(10, 30) * -10;
+        value = (value > 0) ? Random.Range(10, 30) * 10 : value = Random.Range(10, 30) * -10;
 
         Init();
     }

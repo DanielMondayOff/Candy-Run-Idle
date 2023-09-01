@@ -93,7 +93,7 @@ public class IdleCustomer : SerializedMonoBehaviour
     {
         agent.SetDestination(pos);
         if (onComplete != null)
-            this.TaskWaitUntil(() => { onComplete.Invoke(); animator.SetBool("Move", false); }, () => (agent.remainingDistance < 0.1f));
+            this.TaskWaitUntil(() => { onComplete.Invoke(); animator.SetBool("Move", false); }, () => (agent.remainingDistance < 0.2f));
 
         destination = pos;
         // this.nextAction = onComplete;

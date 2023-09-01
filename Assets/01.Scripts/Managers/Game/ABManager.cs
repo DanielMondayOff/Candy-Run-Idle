@@ -106,8 +106,8 @@ public class ABManager : MonoBehaviour
     {
         Debug.Log("RemoteConfigService.Instance.appConfig fetched: " + RemoteConfigService.Instance.appConfig.config.ToString());
 
-        SelectStart(RemoteConfigService.Instance.appConfig.GetString("StartSelect"));
-        // SelectStart(RemoteConfigService.Instance.appConfig.GetString("A"));
+        // SelectStart(RemoteConfigService.Instance.appConfig.GetString("StartSelect"));
+        SelectStart(RemoteConfigService.Instance.appConfig.GetString("A"));
 
 
     }
