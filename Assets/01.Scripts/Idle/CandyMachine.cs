@@ -97,8 +97,8 @@ public class CandyMachine : BuildObject
 
                             UpdateLine();
 
-                            //     if (ES3.Load<bool>("NextStageEnable") == )
-                            //         IdleManager.instance.HighlightNextStageBtn();
+                            if (ES3.Load<bool>("NextStageEnable"))
+                                IdleManager.instance.HighlightNextStageBtn();
                         });
                 }
                 else

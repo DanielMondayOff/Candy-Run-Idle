@@ -601,6 +601,8 @@ public class RunManager : MonoBehaviour
 
         swipeToStartUI.SetActive(true);
         enableSwipe = true;
+
+        EventManager.instance.CustomEvent(AnalyticsType.UI, "OnClickJellyBeanGun", true, true);
     }
 
     public void ChangeToIdleGame()

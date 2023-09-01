@@ -39,6 +39,9 @@ public class EventManager : MonoBehaviour
         EventTracker.LogCustomEvent($"GAME_FLAG", dic);
         if (timeEvent)
             TimeEvent("FLAG_TYPE", $"{type} - {additionInfo}");
+
+        if (stageNum)
+            StageNum("FLAG_TYPE", $"{type} - {additionInfo}");
     }
 
     void TimeEvent(string paramName, string value)
