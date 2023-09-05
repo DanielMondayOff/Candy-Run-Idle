@@ -41,8 +41,6 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("참조")] public LineRenderer arrowLine = null;
     [FoldoutGroup("참조")] public Transform playerTrans;
 
-
-
     public CanvasGroup[] idleUIs;
 
     [FoldoutGroup("Value")] public Color activeBtnColor;
@@ -157,9 +155,11 @@ public class IdleManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Z))
         {
+            print(123451531);
+
             foreach (var canvas in idleUIs)
             {
-                canvas.alpha = (canvas.alpha == 1) ? 1 : 0;
+                canvas.alpha = (canvas.alpha == 1) ? 0 : 1;
             }
         }
     }
@@ -504,6 +504,21 @@ public class IdleManager : MonoBehaviour
         //         "IDLE",
         //         new Dictionary<string, string> { { "IDLE_TYPE", "PlayerSpeedUp" } }
         // );
+    }
+
+    public void Upgrade_PlayerCapacityUp()
+    {
+
+    }
+
+    public void Upgrade_WorkerSpeedUp_()
+    {
+
+    }
+
+    public void Upgrade_WorkerCapacityUp()
+    {
+
     }
 
     public void SetCustomerSpawnSpeed(float speed)
@@ -864,7 +879,9 @@ public enum IdleUpgradeType
     WorkerSpeedUp = 2,
     Promotion = 3,
     Income = 4,
-    PlayerSpeedUp = 5
+    PlayerSpeedUp = 5,
+    PlayerCapacityUp = 6,
+    WorkerCapacityUp = 7
 }
 
 [System.Serializable]

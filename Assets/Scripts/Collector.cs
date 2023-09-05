@@ -135,8 +135,8 @@ public class Collector : MonoBehaviour
                 collectCoroutine = null;
             }
 
-            if (other.GetComponentInChildren<PlayerMovement>().GetCurrentMoveSpeed() == 0 && collectCoroutine == null)
-                collectCoroutine = StartCoroutine(CollectCoroutine());
+            // if (other.GetComponentInChildren<PlayerMovement>().GetCurrentMoveSpeed() == 0 && collectCoroutine == null)
+            //     collectCoroutine = StartCoroutine(CollectCoroutine());
         }
     }
 

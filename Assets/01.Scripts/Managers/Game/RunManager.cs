@@ -218,6 +218,16 @@ public class RunManager : MonoBehaviour
             ChangeFireRate(GetCurrentFireRate());
         }
 
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            plusBulletRange += 100;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            plusBulletRange -= 100;
+        }
+
         if (cuttingPressed && cuttingReady)
         {
             CuttingCandy();

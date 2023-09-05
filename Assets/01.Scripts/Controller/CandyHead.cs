@@ -68,6 +68,9 @@ public class CandyHead : MonoBehaviour
 
     public void UpgradeCandy()
     {
+        if (candyObject.nextCandy == null)
+            return;
+
         candyObject = candyObject.nextCandy;
         transform.DOScale(new Vector3(0, 0, 1), 0.1f).SetEase(Ease.InCubic).OnComplete(() =>
         {

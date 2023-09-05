@@ -36,6 +36,8 @@ public class Piller : MonoBehaviour
     public float value;
     public bool multiply = false;
 
+    public bool enableActive = true;
+
     private void Start()
     {
         Init();
@@ -106,7 +108,7 @@ public class Piller : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Bullet"))
+        if (other.CompareTag("Bullet") && enableActive)
         {
             switch (type)
             {
@@ -134,12 +136,16 @@ public class Piller : MonoBehaviour
             other.GetComponentInChildren<Bullet>().Push();
         }
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && enableActive)
         {
             RunManager.instance.PillerPass(type, value);
 
             if (GetComponentInParent<PillerSet>() != null)
-                GetComponentInParent<PillerSet>().gameObject.SetActive(false);
+            {
+                // GetComponentInParent<PillerSet>().gameObject.SetActive(false);
+                GetComponentInParent<PillerSet>().deactiveOtherPiller(this);
+                gameObject.SetActive(false);
+            }
             else
                 gameObject.SetActive(false);
         }
