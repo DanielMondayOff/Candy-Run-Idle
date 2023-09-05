@@ -9,10 +9,14 @@ public class CandyMachine : BuildObject
 {
     public candySaveData candyItem;
 
-    [SerializeField] Canvas CandyCanvas;
-    [SerializeField] Text test_candyName;
-    [SerializeField] Image candyImage;
-    [SerializeField] Text test_candyCount;
+    // [SerializeField] Canvas CandyCanvas;
+    // [SerializeField] Text test_candyName;
+    // [SerializeField] Image candyImage;
+    // [SerializeField] Text test_candyCount;
+
+    public CandyInventoryUI candyUI_A;
+    public CandyInventoryUI candyUI_B;
+    CandyInventoryUI currentCandyUI;
 
     [SerializeField] Transform candyDeco;
 
@@ -38,9 +42,21 @@ public class CandyMachine : BuildObject
     {
         candyItem = SaveManager.instance.FindCandyItem(candyItem.id);
 
-        candyImage.sprite = SaveManager.instance.FindCandyObjectInReousrce(candyItem.id).icon;
+        print(ES3.Load<string>("AB_Test"));
 
-        test_candyCount.text = "X " + (candyItem.count);
+        if (ES3.KeyExists("AB_Test"))
+        {
+            if (ES3.Load<string>("AB_Test").Equals("A"))
+                currentCandyUI = candyUI_A;
+            else if (ES3.Load<string>("AB_Test").Equals("B"))
+                currentCandyUI = candyUI_B;
+        }
+
+        currentCandyUI.gameObject.SetActive(true);
+        currentCandyUI.Init(candyItem.id, candyItem.count);
+
+        // candyImage.sprite = SaveManager.instance.FindCandyObjectInReousrce(candyItem.id).icon;
+        // test_candyCount.text = "X " + (candyItem.count);
 
         this.TaskWhile(1, 0, CheckDistBetweenCustomer);
 
@@ -123,7 +139,6 @@ public class CandyMachine : BuildObject
 
         candyGiveDelay = this.TaskDelay(2.5f, () =>
         {
-
             IdleManager.instance.counter.EnqueueCustomer(customer);
 
             customer.candyInventory.candy = SaveManager.instance.FindCandyObjectInReousrce(candyItem.id);
@@ -133,7 +148,11 @@ public class CandyMachine : BuildObject
 
             customer.UpdateCandyJar();
 
-            // candyItem.TakeCandy(1);
+            if (ES3.KeyExists("AB_Test"))
+            {
+                if (ES3.Load<string>("AB_Test").Equals("A"))
+                    candyItem.TakeCandy(1);
+            }
 
             customerList.Remove(customer);
 
@@ -160,12 +179,11 @@ public class CandyMachine : BuildObject
 
     public void OnChangeInventory(bool wiggle = false)
     {
-        candyImage.sprite = SaveManager.instance.FindCandyObjectInReousrce(candyItem.id).icon;
+        if (currentCandyUI != null)
+            currentCandyUI.UpdateUI(candyItem.id, candyItem.count, wiggle: wiggle);
 
-        test_candyCount.text = "X " + (candyItem.count);
-
-        if (wiggle)
-            CandyCanvas.transform.DOPunchScale(CandyCanvas.transform.localScale * 0.3f, 0.2f, 2);
+        // if (wiggle)
+        //     CandyCanvas.transform.DOPunchScale(CandyCanvas.transform.localScale * 0.3f, 0.2f, 2);
 
         UpdateCandyDisplay();
     }
@@ -181,7 +199,8 @@ public class CandyMachine : BuildObject
 
     public void UpdateUI()
     {
-        test_candyCount.text = "X " + (candyItem.count);
+        OnChangeInventory();
+        // test_candyCount.text = "X " + (candyItem.count);
     }
 
     public void UpdateCandyDisplay()
@@ -199,6 +218,9 @@ public class CandyMachine : BuildObject
 
     public void ItemObjectMoveTask(IdlePlayer player)
     {
+        if (candyItem.count <= 0)
+            return;
+
         var playerPoint = player.GetPlayerEmptyPoint();
         if (playerPoint != null)
         {
@@ -206,7 +228,7 @@ public class CandyMachine : BuildObject
 
             obj.GetComponentInChildren<ItemObject>().Jump(playerPoint);
 
-            // SaveManager.instance.TakeCandy(candyItem.id, 1);
+            SaveManager.instance.TakeCandy(candyItem.id, 1);
 
             OnChangeInventory(true);
 

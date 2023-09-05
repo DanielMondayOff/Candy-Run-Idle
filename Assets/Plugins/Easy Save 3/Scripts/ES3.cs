@@ -17,12 +17,12 @@ using UnityEngine.Networking;
 #endif
 public class ES3
 {
-	public enum Location 		{ File, PlayerPrefs, InternalMS, Resources, Cache };
-	public enum Directory		{ PersistentDataPath, DataPath }
-	public enum EncryptionType 	{ None, AES };
-    public enum CompressionType { None, Gzip};
-    public enum Format 			{ JSON };
-	public enum ReferenceMode	{ ByRef, ByValue, ByRefAndValue};
+    public enum Location { File, PlayerPrefs, InternalMS, Resources, Cache };
+    public enum Directory { PersistentDataPath, DataPath }
+    public enum EncryptionType { None, AES };
+    public enum CompressionType { None, Gzip };
+    public enum Format { JSON };
+    public enum ReferenceMode { ByRef, ByValue, ByRefAndValue };
 
     #region ES3.Save
 
@@ -400,6 +400,17 @@ public class ES3
         return Load<object>(key, defaultValue, settings);
     }
 
+    public static T TryLoad<T>(string key)
+    {
+        if (ES3.KeyExists(key))
+            return Load<T>(key, new ES3Settings());
+        else
+        {
+            Debug.LogError("Key가 존재하지 않습니다. Key : " + key);
+            return default(T);
+        }
+    }
+
     /// <summary>Loads the value from a file with the given key.</summary>
     /// <param name="T">The type of the data that we want to load.</param>
     /// <param name="key">The key which identifies the value we want to load.</param>
@@ -641,7 +652,7 @@ public class ES3
         using (var stream = ES3Stream.CreateStream(settings, ES3FileMode.Read))
         {
             if (stream == null)
-                throw new System.IO.FileNotFoundException("File "+settings.path+" could not be found");
+                throw new System.IO.FileNotFoundException("File " + settings.path + " could not be found");
 
             if (stream.GetType() == typeof(System.IO.Compression.GZipStream))
             {
@@ -671,7 +682,7 @@ public class ES3
 		}
 		return null;*/
     }
-    
+
     /// <summary>Loads the default file as a byte array.</summary>
     public static string LoadRawString()
     {
@@ -825,7 +836,7 @@ public class ES3
 
     #region Serialize/Deserialize
 
-    public static byte[] Serialize<T>(T value, ES3Settings settings=null)
+    public static byte[] Serialize<T>(T value, ES3Settings settings = null)
     {
         return Serialize(value, ES3TypeMgr.GetOrCreateES3Type(typeof(T)), settings);
     }
@@ -850,7 +861,7 @@ public class ES3
         }
     }
 
-    public static T Deserialize<T>(byte[] bytes, ES3Settings settings=null)
+    public static T Deserialize<T>(byte[] bytes, ES3Settings settings = null)
     {
         return (T)Deserialize(ES3TypeMgr.GetOrCreateES3Type(typeof(T)), bytes, settings);
     }
@@ -861,9 +872,9 @@ public class ES3
             settings = new ES3Settings();
 
         using (var ms = new System.IO.MemoryStream(bytes, false))
-            using (var stream = ES3Stream.CreateStream(ms, settings, ES3FileMode.Read))
-                using (var reader = ES3Reader.Create(stream, settings, false))
-                    return reader.Read<object>(type);
+        using (var stream = ES3Stream.CreateStream(ms, settings, ES3FileMode.Read))
+        using (var reader = ES3Reader.Create(stream, settings, false))
+            return reader.Read<object>(type);
     }
 
     public static void DeserializeInto<T>(byte[] bytes, T obj, ES3Settings settings = null) where T : class
@@ -877,34 +888,34 @@ public class ES3
             settings = new ES3Settings();
 
         using (var ms = new System.IO.MemoryStream(bytes, false))
-            using (var reader = ES3Reader.Create(ms, settings, false))
-                reader.ReadInto<T>(obj, type);
+        using (var reader = ES3Reader.Create(ms, settings, false))
+            reader.ReadInto<T>(obj, type);
     }
 
     #endregion
 
     #region Other ES3 Methods
 
-    public static byte[] EncryptBytes(byte[] bytes, string password=null)
+    public static byte[] EncryptBytes(byte[] bytes, string password = null)
     {
         if (string.IsNullOrEmpty(password))
             password = ES3Settings.defaultSettings.encryptionPassword;
         return new AESEncryptionAlgorithm().Encrypt(bytes, password, ES3Settings.defaultSettings.bufferSize);
     }
 
-    public static byte[] DecryptBytes(byte[] bytes, string password=null)
+    public static byte[] DecryptBytes(byte[] bytes, string password = null)
     {
         if (string.IsNullOrEmpty(password))
             password = ES3Settings.defaultSettings.encryptionPassword;
         return new AESEncryptionAlgorithm().Decrypt(bytes, password, ES3Settings.defaultSettings.bufferSize);
     }
 
-    public static string EncryptString(string str, string password=null)
+    public static string EncryptString(string str, string password = null)
     {
         return Convert.ToBase64String(EncryptBytes(ES3Settings.defaultSettings.encoding.GetBytes(str), password));
     }
 
-    public static string DecryptString(string str, string password=null)
+    public static string DecryptString(string str, string password = null)
     {
         return ES3Settings.defaultSettings.encoding.GetString(DecryptBytes(Convert.FromBase64String(str), password));
     }
@@ -1399,7 +1410,7 @@ public class ES3
         {
             if (settings.directory == ES3.Directory.PersistentDataPath)
                 settings.path = Application.persistentDataPath;
-            else 
+            else
                 settings.path = Application.dataPath;
         }
         return GetFiles(settings);

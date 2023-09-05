@@ -55,10 +55,12 @@ public class DisplayStand : BuildObject
 
     public float Debug_distToCustomer;
 
-    [SerializeField] Canvas CandyCanvas;
-    [SerializeField] Text test_candyName;
-    [SerializeField] Image candyImage;
-    [SerializeField] Text test_candyCount;
+    [SerializeField] CandyInventoryUI inventoryUI;
+
+    // [SerializeField] Canvas CandyCanvas;
+    // [SerializeField] Text test_candyName;
+    // [SerializeField] Image candyImage;
+    // [SerializeField] Text test_candyCount;
 
     private bool pause = false;
 
@@ -87,14 +89,11 @@ public class DisplayStand : BuildObject
             }
         }
 
-        test_candyCount.text = "X " + (items.Count);
+        inventoryUI.Init(itemId, items.Count);
     }
 
     public void Init()
     {
-        candyImage.sprite = SaveManager.instance.FindCandyObjectInReousrce(itemId).icon;
-
-        test_candyCount.text = "X " + (items.Count);
 
         this.TaskWhile(1, 0, CheckDistBetweenCustomer);
     }
@@ -287,15 +286,13 @@ public class DisplayStand : BuildObject
     Tween CanvasWiggle = null;
     public void OnChangeInventory(bool wiggle = false)
     {
-        candyImage.sprite = SaveManager.instance.FindCandyObjectInReousrce(itemId).icon;
+        inventoryUI.UpdateUI(itemId, items.Count, true, wiggle && (CanvasWiggle == null) ? true : !CanvasWiggle.IsPlaying());
 
-        test_candyCount.text = "X " + (items.Count);
-
-        if (wiggle && (CanvasWiggle == null) ? true : !CanvasWiggle.IsPlaying())
-        {
-            print(1234);
-            CanvasWiggle = CandyCanvas.transform.DOPunchScale(CandyCanvas.transform.localScale * 0.3f, 0.2f, 2).OnComplete(() => CanvasWiggle = null);
-        }
+        // if (wiggle && (CanvasWiggle == null) ? true : !CanvasWiggle.IsPlaying())
+        // {
+        //     print(1234);
+        //     CanvasWiggle = CandyCanvas.transform.DOPunchScale(CandyCanvas.transform.localScale * 0.3f, 0.2f, 2).OnComplete(() => CanvasWiggle = null);
+        // }
     }
 
     public void UpdateLine()

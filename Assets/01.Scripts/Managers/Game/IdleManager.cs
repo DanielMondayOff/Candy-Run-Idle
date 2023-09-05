@@ -42,7 +42,6 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("참조")] public Transform playerTrans;
 
 
-    public void ChangeUpgradeBtnActive(bool active) => upgradeBtn.SetActive(active);
 
     public CanvasGroup[] idleUIs;
 
@@ -769,6 +768,14 @@ public class IdleManager : MonoBehaviour
 
     public void HighlightNextStageBtn()
     {
+        if (ES3.KeyExists("AB_Test"))
+        {
+            if (ES3.Load<string>("AB_Test").Equals("B"))
+                return;
+        }
+        else
+            return;
+
         nextStageBtn.SetActive(true);
 
         if (ES3.KeyExists("NextStageEnable"))
@@ -781,6 +788,21 @@ public class IdleManager : MonoBehaviour
 
 
         ES3.Save<bool>("NextStageEnable", true);
+    }
+
+    public void ChangeUpgradeBtnActive(bool active)
+    {
+        if (ES3.KeyExists("AB_Test"))
+        {
+            if (ES3.Load<string>("AB_Test").Equals("B"))
+                return;
+        }
+        else
+            return;
+
+        ES3.Save<bool>("ActivedUpgradeBtn", true);
+
+        upgradeBtn.SetActive(active);
     }
 
     public GameObject GenerateItemObject(Transform parent, int id)

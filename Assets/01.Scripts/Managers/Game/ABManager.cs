@@ -21,6 +21,7 @@ public class ABManager : MonoBehaviour
         if (ES3.KeyExists("NextStageEnable"))
             if (ES3.Load<bool>("NextStageEnable"))
             {
+                print(1234555);
                 return;
             }
             else
@@ -45,11 +46,11 @@ public class ABManager : MonoBehaviour
 
                 break;
 
-
         }
 
         void StartRunFirst()
         {
+            print("save");
             ES3.Save<string>("AB_Test", "A");
 
             IdleManager.instance.blackPanel.SetActive(false);
@@ -107,8 +108,6 @@ public class ABManager : MonoBehaviour
         Debug.Log("RemoteConfigService.Instance.appConfig fetched: " + RemoteConfigService.Instance.appConfig.config.ToString());
 
         // SelectStart(RemoteConfigService.Instance.appConfig.GetString("StartSelect"));
-        SelectStart(RemoteConfigService.Instance.appConfig.GetString("A"));
-
-
+        SelectStart("A");
     }
 }

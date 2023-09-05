@@ -105,14 +105,38 @@ public class Collector : MonoBehaviour
         if (other.tag.Equals("Player"))
         {
             if (collectCoroutine != null)
+            {
                 StopCoroutine(collectCoroutine);
-            collectCoroutine = StartCoroutine(CollectCoroutine());
+                collectCoroutine = null;
+            }
+
+            // if (other.GetComponentInChildren<UnityEngine.AI.NavMeshAgent>().isStopped)
+            //     collectCoroutine = StartCoroutine(CollectCoroutine());
 
             targetPlayer = other.transform;
 
             if (groundTween != null)
                 groundTween.Kill();
             groundTween = groundObject.transform.DOScale(groundDefaultScale * 1.2f, 0.5f).SetEase(Ease.InOutBack);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (isComplete)
+            return;
+
+
+        if (other.tag.Equals("Player"))
+        {
+            if (collectCoroutine != null && other.GetComponentInChildren<PlayerMovement>().GetCurrentMoveSpeed() != 0)
+            {
+                StopCoroutine(collectCoroutine);
+                collectCoroutine = null;
+            }
+
+            if (other.GetComponentInChildren<PlayerMovement>().GetCurrentMoveSpeed() == 0 && collectCoroutine == null)
+                collectCoroutine = StartCoroutine(CollectCoroutine());
         }
     }
 
@@ -124,7 +148,10 @@ public class Collector : MonoBehaviour
         if (other.tag.Equals("Player"))
         {
             if (collectCoroutine != null)
+            {
                 StopCoroutine(collectCoroutine);
+                collectCoroutine = null;
+            }
 
             if (groundTween != null)
                 groundTween.Kill();

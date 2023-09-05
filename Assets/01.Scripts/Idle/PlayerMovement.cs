@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     private float angle;
     public float moveSpeed;
 
+    public float GetCurrentMoveSpeed() => touchField.distBetweenJoystickBodyToHandle;
+
     private void Start()
     {
         if (ES3.KeyExists("PlayerPos"))
@@ -59,8 +61,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.AngleAxis(angle - 90, Vector3.down), 10 * Time.deltaTime);
-
-
     }
 
     private void SavePlayerPos()

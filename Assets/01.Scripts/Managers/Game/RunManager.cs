@@ -200,6 +200,7 @@ public class RunManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F12))
         {
             ES3.DeleteFile();
+            Application.Quit();
         }
 
 
@@ -633,7 +634,8 @@ public class RunManager : MonoBehaviour
 
         EventManager.instance.CustomEvent(AnalyticsType.UI, "GoToIdleBtn", true, true);
 
-        IdleManager.instance.ChangeUpgradeBtnActive(true);
+        if (ES3.KeyExists("ActivedUpgradeBtn") ? ES3.Load<bool>("ActivedUpgradeBtn") : false)
+            IdleManager.instance.ChangeUpgradeBtnActive(true);
         // MondayOFF.EventTracker.LogCustomEvent(
         // "UI",
         // new Dictionary<string, string> { { "UI_TYPE", "GoToIdleBtn" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }

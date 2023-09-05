@@ -37,7 +37,7 @@ public class RunObstacle : MonoBehaviour
             // Debug.DrawLine(transform.position, other.GetComponentInParent<CandyHead>().transform.position, Color.blue, 100f);
 
             if (knockBack)
-                if (Vector3.Distance(transform.position, other.GetComponentInParent<CandyHead>().transform.position) < 2f)
+                if (Vector3.Distance(transform.position, other.GetComponentInParent<CandyHead>().transform.position) < 3f)
                 {
                     knockBack = true;
                 }

@@ -17,6 +17,7 @@ public class IdlePlayer : MonoBehaviour
 
 
     private Transform arrowTarget;
+    private System.Action onReachedTarget = null;
     private List<ItemUISlot> itemSlots = new List<ItemUISlot>();
 
     public int maxCount = 4;
@@ -27,12 +28,13 @@ public class IdlePlayer : MonoBehaviour
     {
         if (ES3.KeyExists("StartNav"))
         {
-
+            if (ES3.Load<bool>("StartNav") == false)
+                ActiveNaviArrow(startCollector, () => { ES3.Save<bool>("StartNav", true); });
         }
         else
         {
-            ActiveNaviArrow(startCollector);
-            ES3.Save<bool>("StartNav", true);
+            ActiveNaviArrow(startCollector, () => { ES3.Save<bool>("StartNav", true); });
+            ES3.Save<bool>("StartNav", false);
         }
     }
 
@@ -61,6 +63,12 @@ public class IdlePlayer : MonoBehaviour
             {
                 playerArrow.transform.DOScale(Vector3.zero, 0.5f);
                 arrowTarget = null;
+
+                if (onReachedTarget != null)
+                {
+                    onReachedTarget.Invoke();
+                    onReachedTarget = null;
+                }
             }
         }
     }
@@ -122,11 +130,14 @@ public class IdlePlayer : MonoBehaviour
 
     }
 
-    public void ActiveNaviArrow(Transform target)
+    public void ActiveNaviArrow(Transform target, System.Action onReachedTargetEvent = null)
     {
         arrowTarget = target;
 
         playerArrow.transform.DOScale(Vector3.one, 0.5f);
+
+        if (onReachedTargetEvent != null)
+            onReachedTarget = onReachedTargetEvent;
     }
 
     public void UpdateItemUI()

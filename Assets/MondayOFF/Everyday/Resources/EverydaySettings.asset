@@ -22,9 +22,9 @@ MonoBehaviour:
     interstitialInterval: 60
     resetTimerOnRewarded: 1
     bannerPosition: 7
-    AOS_IS_AdUnitID: 45d1d730c781ca25-
-    AOS_RV_AdUnitID: f1c517d8bff3a0a9-
-    AOS_BN_AdUnitID: 8a92f1c03e606ba1-
+    AOS_IS_AdUnitID: 45d1d730c781ca25
+    AOS_RV_AdUnitID: f1c517d8bff3a0a9
+    AOS_BN_AdUnitID: 8a92f1c03e606ba1
     AOS_IS_Backup_AdUnitID: 
     AOS_RV_Backup_AdUnitID: 
     AOS_BN_Backup_AdUnitID: 
