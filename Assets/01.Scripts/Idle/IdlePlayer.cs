@@ -20,8 +20,6 @@ public class IdlePlayer : MonoBehaviour
     private System.Action onReachedTarget = null;
     private List<ItemUISlot> itemSlots = new List<ItemUISlot>();
 
-    public int maxCount = 4;
-
     public GameObject maxText;
 
     private void Start()
@@ -40,6 +38,9 @@ public class IdlePlayer : MonoBehaviour
 
     public Transform GetPlayerEmptyPoint()
     {
+        if (itemStackList.Count >= IdleManager.instance.playerCapacityValue[IdleManager.instance.playerCapacity.currentLevel])
+            return null;
+
         if (itemStackList.Count < itemStackPoints.Length)
         {
             return itemStackPoints[itemStackList.Count];
@@ -79,7 +80,7 @@ public class IdlePlayer : MonoBehaviour
 
         // UpdateItemUI();
 
-        if (itemStackList.Count >= maxCount)
+        if (itemStackList.Count >= IdleManager.instance.playerCapacityValue[IdleManager.instance.playerCapacity.currentLevel])
             maxText.SetActive(true);
         else
             maxText.SetActive(false);
@@ -123,7 +124,7 @@ public class IdlePlayer : MonoBehaviour
             itemStackList[i].GetComponent<ItemObject>().Move(itemStackPoints[i]);
         }
 
-        if (itemStackList.Count >= maxCount)
+        if (itemStackList.Count >= IdleManager.instance.playerCapacityValue[IdleManager.instance.playerCapacity.currentLevel])
             maxText.SetActive(true);
         else
             maxText.SetActive(false);
@@ -138,6 +139,13 @@ public class IdlePlayer : MonoBehaviour
 
         if (onReachedTargetEvent != null)
             onReachedTarget = onReachedTargetEvent;
+    }
+
+    public void ActiveNaviArrow(Transform target)
+    {
+        arrowTarget = target;
+
+        playerArrow.transform.DOScale(Vector3.one, 0.5f);
     }
 
     public void UpdateItemUI()

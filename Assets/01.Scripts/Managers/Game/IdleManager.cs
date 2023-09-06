@@ -11,7 +11,7 @@ public class IdleManager : MonoBehaviour
 {
     public IdleMap currentMap;
 
-    [SerializeField] private List<IdleWorker> workers = new List<IdleWorker>();
+    [SerializeField] private List<IdleWorker2> workers = new List<IdleWorker2>();
     [SerializeField] private List<GameObject> customers = new List<GameObject>();
 
 
@@ -54,7 +54,8 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("업그레이드")] public IdleUpgrade promotion;
     [FoldoutGroup("업그레이드")] public IdleUpgrade extraIncome;
     [FoldoutGroup("업그레이드")] public IdleUpgrade playerSpeedUp;
-
+    [FoldoutGroup("업그레이드")] public IdleUpgrade playerCapacity;
+    [FoldoutGroup("업그레이드")] public IdleUpgrade workerCapacity;
 
 
     [Space]
@@ -66,18 +67,17 @@ public class IdleManager : MonoBehaviour
     public readonly float[] maxCustomerCount = { 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
     public readonly float[] extraIncomePercent = { 1f, 1.1f, 1.2f, 1.3f, 1.4f, 1.5f, 1.6f, 1.7f, 1.8f, 1.9f, 2f };
     public readonly float[] playerSpeed = { 10, 10.5f, 11f, 11.5f, 12f, 12.5f, 13f, 13.5f, 14f, 14.5f, 16f };
+    public readonly float[] playerCapacityValue = { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
+    public readonly float[] workerCapacityValue = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
+
 
     public bool playIdle = false;
 
     private TaskUtil.WhileTaskMethod spawnCustomer = null;
 
-
     //==============================================================================================================================
 
     public List<DisplayStand> candyDisplayStandList = new List<DisplayStand>();
-
-
-
 
     public static IdleManager instance;
 
@@ -88,16 +88,12 @@ public class IdleManager : MonoBehaviour
         // StartCoroutine(SceneLoading());
 
         SceneManager.LoadScene("Run", LoadSceneMode.Additive);
-    }
-
-    private void Start()
-    {
-        if (ES3.KeyExists("enableShop"))
-            if (ES3.Load<bool>("enableShop"))
-                StartIdle();
 
         if (ES3.KeyExists("workerSpeedUp"))
+        {
             workerSpeedUp.currentLevel = ES3.Load<IdleUpgrade>("workerSpeedUp").currentLevel;
+            workers.ForEach((n) => n.ChangeMoveSpeed(workerSpeed[workerCapacity.currentLevel]));
+        }
 
         if (ES3.KeyExists("hireWorker"))
         {
@@ -127,6 +123,25 @@ public class IdleManager : MonoBehaviour
 
             playerMovement.SetPlayerMoveSpeed(playerSpeed[playerSpeedUp.currentLevel]);
         }
+
+        if (ES3.KeyExists("playerCapacity"))
+        {
+            playerCapacity.currentLevel = ES3.Load<IdleUpgrade>("playerCapacity").currentLevel;
+        }
+
+        if (ES3.KeyExists("workerCapacity"))
+        {
+            workerCapacity.currentLevel = ES3.Load<IdleUpgrade>("workerCapacity").currentLevel;
+        }
+    }
+
+    private void Start()
+    {
+        if (ES3.KeyExists("enableShop"))
+            if (ES3.Load<bool>("enableShop"))
+                StartIdle();
+
+
 
         SaveManager.instance.AddMoneyText(moneyText);
         SaveManager.instance.OnChangeMoney();
@@ -508,17 +523,28 @@ public class IdleManager : MonoBehaviour
 
     public void Upgrade_PlayerCapacityUp()
     {
+        if (playerCapacity.cost[playerCapacity.currentLevel] > SaveManager.instance.GetMoney())
+            return;
 
-    }
+        SaveManager.instance.LossMoney(playerCapacity.cost[playerCapacity.currentLevel]);
+        playerCapacity.currentLevel++;
 
-    public void Upgrade_WorkerSpeedUp_()
-    {
+        ES3.Save<IdleUpgrade>("playerCapacity", playerCapacity);
 
+        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "PlayerCapacityUp", true, true);
     }
 
     public void Upgrade_WorkerCapacityUp()
     {
+        if (workerCapacity.cost[workerCapacity.currentLevel] > SaveManager.instance.GetMoney())
+            return;
 
+        SaveManager.instance.LossMoney(workerCapacity.cost[workerCapacity.currentLevel]);
+        workerCapacity.currentLevel++;
+
+        ES3.Save<IdleUpgrade>("workerCapacity", workerCapacity);
+
+        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "WorkerCapacityUp", true, true);
     }
 
     public void SetCustomerSpawnSpeed(float speed)
@@ -533,7 +559,7 @@ public class IdleManager : MonoBehaviour
             var worker = Instantiate(Resources.Load<GameObject>("Worker"), currentMap.workerSpawnPoint.position, Quaternion.identity).GetComponentInChildren<IdleWorker>();
 
             worker.ChangeMoveSpeed(workerSpeed[workerSpeedUp.currentLevel]);
-            workers.Add(worker);
+            // workers.Add(worker);
         }
     }
 
@@ -627,10 +653,18 @@ public class IdleManager : MonoBehaviour
 
             case IdleUpgradeType.Promotion:
                 return IdleManager.instance.promotion;
+
             case IdleUpgradeType.Income:
                 return IdleManager.instance.extraIncome;
+
             case IdleUpgradeType.PlayerSpeedUp:
                 return IdleManager.instance.playerSpeedUp;
+
+            case IdleUpgradeType.PlayerCapacityUp:
+                return IdleManager.instance.playerCapacity;
+
+            case IdleUpgradeType.WorkerCapacityUp:
+                return IdleManager.instance.workerCapacity;
 
             default:
                 Debug.LogError("정의가 없습니다. 추가해 주십시요");
@@ -859,8 +893,11 @@ public class IdleManager : MonoBehaviour
         worker.transform.parent = null;
         worker.transform.localScale = Vector3.one * 1.8f;
 
-        IdleManager.instance.PopParticle("Particles/FX_ShardRock_Dust_End_01", worker.transform.position + Vector3.up * 3);
+        worker.GetComponentInChildren<IdleWorker2>().ChangeMoveSpeed(workerSpeed[workerSpeedUp.currentLevel]);
 
+        workers.Add(worker.GetComponentInChildren<IdleWorker2>());
+
+        IdleManager.instance.PopParticle("Particles/FX_ShardRock_Dust_End_01", worker.transform.position + Vector3.up * 3);
     }
 }
 

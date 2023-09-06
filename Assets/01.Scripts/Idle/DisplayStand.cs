@@ -94,7 +94,6 @@ public class DisplayStand : BuildObject
 
     public void Init()
     {
-
         this.TaskWhile(1, 0, CheckDistBetweenCustomer);
     }
 
@@ -249,7 +248,7 @@ public class DisplayStand : BuildObject
     {
         // customer.SetTimer(2.5f);
 
-        candyGiveDelay = this.TaskDelay(1f, () =>
+        candyGiveDelay = this.TaskDelay(0.5f, () =>
         {
 
             IdleManager.instance.counter.EnqueueCustomer(customer);

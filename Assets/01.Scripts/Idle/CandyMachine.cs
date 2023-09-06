@@ -37,7 +37,6 @@ public class CandyMachine : BuildObject
     public Transform itemObjectGeneratePoint;
 
 
-
     public void Init()
     {
         candyItem = SaveManager.instance.FindCandyItem(candyItem.id);
@@ -240,23 +239,38 @@ public class CandyMachine : BuildObject
         }
     }
 
-    public ItemObject GiveItemobjectToWorker(Transform point, System.Action onComplete = null)
+    public ItemObject GiveItemobjectToWorker(Transform point, IdleWorker2 worker, System.Action onComplete = null, System.Action onFailed = null)
     {
+        if (candyItem.count <= 0)
+        {
+            if (onFailed != null)
+            {
+                onFailed.Invoke();
+                return null;
+            }
+        }
 
-        var obj = IdleManager.instance.GenerateItemObject(itemObjectGeneratePoint, candyItem.id);
+        while (true)
+        {
+            var obj = IdleManager.instance.GenerateItemObject(itemObjectGeneratePoint, candyItem.id);
 
-        obj.GetComponentInChildren<ItemObject>().Jump(point);
+            var emptyPoint = worker.GetEmptyPoint();
 
+            obj.GetComponentInChildren<ItemObject>().Jump(emptyPoint.Key);
 
-        // SaveManager.instance.TakeCandy(candyItem.id, 1);
+            emptyPoint = new KeyValuePair<Transform, ItemObject>(emptyPoint.Key, obj.GetComponentInChildren<ItemObject>());
 
-        OnChangeInventory(true);
+            SaveManager.instance.TakeCandy(candyItem.id, 1);
 
-        transform.DOPunchScale(Vector3.one * 0.1f, 0.20f);
+            OnChangeInventory(true);
 
-        if (onComplete != null)
-            onComplete.Invoke();
+            transform.DOPunchScale(Vector3.one * 0.1f, 0.20f);
 
-        return obj.GetComponentInChildren<ItemObject>();
+            if (onComplete != null)
+                onComplete.Invoke();
+
+            return obj.GetComponentInChildren<ItemObject>();
+        }
+
     }
 }

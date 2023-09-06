@@ -34,6 +34,10 @@ public class Collector : MonoBehaviour
     public Vector3 groundDefaultScale;
 
     public Text requireMoneyText;
+    public Image fillImage;
+
+    public GameObject costParent;
+    public GameObject rvParent;
 
     public bool ignoreMultifly = false;
 
@@ -50,6 +54,14 @@ public class Collector : MonoBehaviour
     public List<Collector> nextCollectorList = new List<Collector>();
 
     public bool firstCollector = false;
+
+    Tween fillAmountTween = null;
+
+    public bool RV = false;
+
+    float rvFill = 0;
+
+    public static readonly float rvRequierSec = 1.5f;
 
     private void Start()
     {
@@ -82,12 +94,32 @@ public class Collector : MonoBehaviour
         }
 
         requireMoneyText.text = (requireMoney - currentMoney).ToString();
+
+        groundDefaultScale = groundObject.transform.localScale;
+
+        ChangeFillAmount();
     }
 
     public void Init()
     {
         transform.localScale = Vector3.zero;
         transform.DOScale(Vector3.one, 0.5f);
+
+        IconInit();
+    }
+
+    void IconInit()
+    {
+        if (RV)
+        {
+            costParent.SetActive(false);
+            rvParent.SetActive(true);
+        }
+        else
+        {
+            costParent.SetActive(true);
+            rvParent.SetActive(false);
+        }
     }
 
     private void OnValidate()
@@ -95,6 +127,8 @@ public class Collector : MonoBehaviour
         requireMoneyText.text = (requireMoney - currentMoney).ToString();
 
         activeSize = transform.localScale;
+
+        IconInit();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -126,7 +160,6 @@ public class Collector : MonoBehaviour
         if (isComplete)
             return;
 
-
         if (other.tag.Equals("Player"))
         {
             if (collectCoroutine != null && other.GetComponentInChildren<PlayerMovement>().GetCurrentMoveSpeed() != 0)
@@ -135,8 +168,8 @@ public class Collector : MonoBehaviour
                 collectCoroutine = null;
             }
 
-            // if (other.GetComponentInChildren<PlayerMovement>().GetCurrentMoveSpeed() == 0 && collectCoroutine == null)
-            //     collectCoroutine = StartCoroutine(CollectCoroutine());
+            if (other.GetComponentInChildren<PlayerMovement>().GetCurrentMoveSpeed() == 0 && collectCoroutine == null)
+                collectCoroutine = StartCoroutine(CollectCoroutine());
         }
     }
 
@@ -173,13 +206,28 @@ public class Collector : MonoBehaviour
         {
             yield return new WaitForSeconds(0.1f);
 
-            if (GetRemainMoney() <= 0)
+            if (RV ? (rvFill >= rvRequierSec) : false)
+            {
+                MondayOFF.AdsManager.ShowRewarded(() => { OnCompleteCollect(); EventManager.instance.CustomEvent(AnalyticsType.RV, "CollectorRV_" + guid, true, true); });
+
+                isComplete = true;
+
+                StopCoroutine(collectCoroutine);
+                collectCoroutine = null;
+
+                Debug.LogError(31424141);
+            }
+            else if (GetRemainMoney() <= 0)
             {
                 OnCompleteCollect();
             }
             else
             {
-                if (GetRemainMoney() >= valueForTick)
+                if (RV)
+                {
+                    rvFill += 0.1f;
+                }
+                else if (GetRemainMoney() >= valueForTick)
                 {
                     if (SaveManager.instance.CheckPossibleUpgrade(valueForTick))
                     {
@@ -189,7 +237,6 @@ public class Collector : MonoBehaviour
                         currentMoney += valueForTick;
 
                         MMVibrationManager.Haptic(HapticTypes.LightImpact);
-
                     }
                     else if (SaveManager.instance.GetMoney() <= 0)
                     {
@@ -239,6 +286,8 @@ public class Collector : MonoBehaviour
                 {
                     OnCompleteCollect();
                 }
+
+                ChangeFillAmount();
 
                 ES3.Save<int>(guid + "_currentMoney", currentMoney);
             }
@@ -290,6 +339,20 @@ public class Collector : MonoBehaviour
         transform.DOScale(activeSize, 0.7f).SetEase(Ease.InOutBack);
 
         ES3.Save<bool>(guid + "_isActive", true);
+    }
+
+    void ChangeFillAmount()
+    {
+        if (fillAmountTween != null ? fillAmountTween.IsPlaying() : false)
+        {
+            fillAmountTween.Kill();
+            fillAmountTween = null;
+        }
+
+        if (RV)
+            fillAmountTween = fillImage.DOFillAmount(rvFill / rvRequierSec, 0.1f);
+        else
+            fillAmountTween = fillImage.DOFillAmount((float)currentMoney / (float)requireMoney, 0.1f);
     }
 }
 

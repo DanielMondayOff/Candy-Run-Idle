@@ -20,6 +20,8 @@ public class IdleWorker2 : SerializedMonoBehaviour
     [SerializeField] ParticleSystem leftFootStepDust;
     [SerializeField] ParticleSystem rightFootStepDust;
 
+    candySaveData data;
+
     private void Start()
     {
         this.TaskWhile(1f, 1f, FindJob);
@@ -52,9 +54,9 @@ public class IdleWorker2 : SerializedMonoBehaviour
         if (Working || !agent.isOnNavMesh)
             return;
 
-        print("finding");
+        // print("finding");
 
-        var jobs = IdleManager.instance.candyDisplayStandList.Where((n) => n.isReady && n.GetEmptyPoint().Value == null).ToArray();
+        var jobs = IdleManager.instance.candyDisplayStandList.Where((n) => n.isReady && n.GetEmptyPoint().Value == null && n.currentMachine.candyItem.count > 0).ToArray();
 
         if (jobs.Length > 0)
         {
@@ -63,11 +65,12 @@ public class IdleWorker2 : SerializedMonoBehaviour
 
             agent.SetDestination(job.currentMachine.transform.position);
 
-            this.TaskWaitUntil(() => itemPoints[itemPoints.First().Key] = job.currentMachine.GiveItemobjectToWorker(itemPoints.First().Key, () =>
+            this.TaskWaitUntil(() => itemPoints[itemPoints.First().Key] = job.currentMachine.GiveItemobjectToWorker(itemPoints.First().Key, this, () =>
                 {
                     DeliveryToStand(job);
                     delivery = true;
-                }
+                },
+                () => CancleJob()
             ), () => (Vector3.Distance(transform.position, job.currentMachine.transform.position) < 5f));
         }
     }
@@ -107,5 +110,27 @@ public class IdleWorker2 : SerializedMonoBehaviour
     public void PlayRightFootStepParticle()
     {
         rightFootStepDust.Play();
+    }
+
+    public void CancleJob()
+    {
+        Working = false;
+        delivery = false;
+    }
+
+    public void ChangeMoveSpeed(float speed)
+    {
+        agent.speed = speed;
+    }
+
+    public KeyValuePair<Transform, ItemObject> GetEmptyPoint()
+    {
+        foreach (var point in itemPoints)
+        {
+            if (point.Key == null)
+                return point;
+        }
+
+        return default;
     }
 }

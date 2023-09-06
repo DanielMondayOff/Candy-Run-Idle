@@ -142,9 +142,9 @@ public class Piller : MonoBehaviour
 
             if (GetComponentInParent<PillerSet>() != null)
             {
-                // GetComponentInParent<PillerSet>().gameObject.SetActive(false);
-                GetComponentInParent<PillerSet>().deactiveOtherPiller(this);
-                gameObject.SetActive(false);
+                GetComponentInParent<PillerSet>().gameObject.SetActive(false);
+                // GetComponentInParent<PillerSet>().deactiveOtherPiller(this);
+                // gameObject.SetActive(false);
             }
             else
                 gameObject.SetActive(false);

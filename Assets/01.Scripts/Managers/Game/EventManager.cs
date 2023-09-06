@@ -79,5 +79,6 @@ public enum AnalyticsType
     UI,
     IDLE,
     RUN,
-    IAP
+    IAP,
+    RV
 }

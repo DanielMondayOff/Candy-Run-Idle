@@ -46,7 +46,7 @@ public class CardSlot : MonoBehaviour
         if (type == RunCardType.TripleShot)
         {
             //나중에 rv로 수정
-            rv = false;
+            rv = true;
         }
         else if (type == RunCardType.PlusCandy)
         {
@@ -72,6 +72,8 @@ public class CardSlot : MonoBehaviour
             // rv
 
             MondayOFF.AdsManager.ShowRewarded(Upgrade);
+
+            EventManager.instance.CustomEvent(AnalyticsType.RV, "RunCard_" + cardType, true, true);
         }
         else
         {
@@ -92,7 +94,7 @@ public class CardSlot : MonoBehaviour
                 case RunCardType.PlusCandy:
                     RunManager.instance.AddCandy();
 
-                    EventManager.instance.CustomEvent(AnalyticsType.RUN, "AddCandy", true, true);
+                    EventManager.instance.CustomEvent(AnalyticsType.RUN, "Card_AddCandy", true, true);
 
 
                     //             MondayOFF.EventTracker.LogCustomEvent(
@@ -105,7 +107,7 @@ public class CardSlot : MonoBehaviour
                 case RunCardType.TripleShot:
                     RunManager.instance.TripleShot();
 
-                    EventManager.instance.CustomEvent(AnalyticsType.RUN, "TripleShot", true, true);
+                    EventManager.instance.CustomEvent(AnalyticsType.RUN, "Card_TripleShot", true, true);
 
 
                     //             MondayOFF.EventTracker.LogCustomEvent(

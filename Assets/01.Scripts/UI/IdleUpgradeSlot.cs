@@ -50,6 +50,14 @@ public class IdleUpgradeSlot : MonoBehaviour
                 IdleManager.instance.Upgrade_PlayerSpeedUp();
                 break;
 
+            case IdleUpgradeType.PlayerCapacityUp:
+                IdleManager.instance.Upgrade_PlayerCapacityUp();
+                break;
+
+            case IdleUpgradeType.WorkerCapacityUp:
+                IdleManager.instance.Upgrade_WorkerCapacityUp();
+                break;
+
             default:
                 Debug.LogError("정의가 없습니다. 추가해 주십시요");
                 break;
