@@ -81,7 +81,7 @@ public class IdleManager : MonoBehaviour
 
     public static IdleManager instance;
 
-    private void Awake()
+    private void OnEnable()
     {
         instance = this;
 
@@ -108,8 +108,6 @@ public class IdleManager : MonoBehaviour
         if (ES3.KeyExists("promotion"))
         {
             promotion.currentLevel = ES3.Load<IdleUpgrade>("promotion").currentLevel;
-            print(customerSpawnSpeed);
-            SetCustomerSpawnSpeed(customerSpawnSpeed[promotion.currentLevel]);
         }
 
         if (ES3.KeyExists("income"))
@@ -141,7 +139,7 @@ public class IdleManager : MonoBehaviour
             if (ES3.Load<bool>("enableShop"))
                 StartIdle();
 
-
+        SetCustomerSpawnSpeed(customerSpawnSpeed[promotion.currentLevel]);
 
         SaveManager.instance.AddMoneyText(moneyText);
         SaveManager.instance.OnChangeMoney();
@@ -189,11 +187,6 @@ public class IdleManager : MonoBehaviour
         var mAsyncOperation = SceneManager.LoadSceneAsync("Run", LoadSceneMode.Additive);
 
         yield return mAsyncOperation;
-    }
-
-    private void OnEnable()
-    {
-        // print(SaveManager.instance);
     }
 
     private void OnDestroy()
@@ -367,7 +360,7 @@ public class IdleManager : MonoBehaviour
     {
         foreach (var candy in candyMachines)
         {
-            candy.UpdateUI();
+            candy.UpdateUI(wiggle: false);
         }
     }
 

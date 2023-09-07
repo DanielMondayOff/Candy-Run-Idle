@@ -189,6 +189,9 @@ public class Collector : MonoBehaviour
             if (groundTween != null)
                 groundTween.Kill();
             groundTween = groundObject.transform.DOScale(groundDefaultScale, 0.5f).SetEase(Ease.InOutBack);
+
+            rvFill = 0;
+            ChangeFillAmount();
         }
     }
 
@@ -208,14 +211,10 @@ public class Collector : MonoBehaviour
 
             if (RV ? (rvFill >= rvRequierSec) : false)
             {
-                MondayOFF.AdsManager.ShowRewarded(() => { OnCompleteCollect(); EventManager.instance.CustomEvent(AnalyticsType.RV, "CollectorRV_" + guid, true, true); });
-
-                isComplete = true;
-
                 StopCoroutine(collectCoroutine);
                 collectCoroutine = null;
 
-                Debug.LogError(31424141);
+                MondayOFF.AdsManager.ShowRewarded(() => { OnCompleteCollect(); EventManager.instance.CustomEvent(AnalyticsType.RV, "CollectorRV_" + guid, true, true); });
             }
             else if (GetRemainMoney() <= 0)
             {

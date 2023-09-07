@@ -33,7 +33,7 @@ public class CandyInventory : MonoBehaviour
         ClearUI();
 
         foreach (var candy in SaveManager.instance.candyInventory)
-        {
+        { 
             var newItem = Instantiate(Resources.Load<GameObject>("UI/CandyItem"), transform).GetComponent<CandyInventoryItem>();
 
             newItem.InitCandy(SaveManager.instance.FindCandyObjectInReousrce(candy.id), candy.count);

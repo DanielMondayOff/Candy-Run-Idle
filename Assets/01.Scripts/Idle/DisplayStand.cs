@@ -102,6 +102,13 @@ public class DisplayStand : BuildObject
         var point = GetEmptyPoint();
         if (point.Key == null)
         {
+            List<CandyItem> temp = new List<CandyItem>();
+
+            var tempcandy1 = SaveManager.instance.FindCandyObjectInReousrce(itemObj.GetComponentInChildren<ItemObject>().GetItem.id);
+
+            temp.Add(new CandyItem() { candy = tempcandy1, count = 1 });
+
+            SaveManager.instance.AddCandy(temp, true);
             Debug.LogError("자리가 없습니다.");
             return;
         }
@@ -285,7 +292,7 @@ public class DisplayStand : BuildObject
     Tween CanvasWiggle = null;
     public void OnChangeInventory(bool wiggle = false)
     {
-        inventoryUI.UpdateUI(itemId, items.Count, true, wiggle && (CanvasWiggle == null) ? true : !CanvasWiggle.IsPlaying());
+        inventoryUI.UpdateUI(itemId, items.Count, true, wiggle: wiggle && ((CanvasWiggle != null) ? !CanvasWiggle.IsPlaying() : true));
 
         // if (wiggle && (CanvasWiggle == null) ? true : !CanvasWiggle.IsPlaying())
         // {

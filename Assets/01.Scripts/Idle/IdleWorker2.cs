@@ -12,7 +12,7 @@ public class IdleWorker2 : SerializedMonoBehaviour
     [SerializeField] Animator animator;
 
 
-    [SerializeField] Dictionary<Transform, ItemObject> itemPoints = new Dictionary<Transform, ItemObject>();
+    [SerializeField] public Dictionary<Transform, ItemObject> itemPoints = new Dictionary<Transform, ItemObject>();
 
     [SerializeField] bool Working = false;
     private bool delivery = false;
@@ -56,7 +56,8 @@ public class IdleWorker2 : SerializedMonoBehaviour
 
         // print("finding");
 
-        var jobs = IdleManager.instance.candyDisplayStandList.Where((n) => n.isReady && n.GetEmptyPoint().Value == null && n.currentMachine.candyItem.count > 0).ToArray();
+        var jobs = IdleManager.instance.candyDisplayStandList.Where((n) => n.isReady && n.GetEmptyPoint().Value == null && n.currentMachine.candyItem.count > 0
+         && n.GetEmptyPoint().Key != null).ToArray();
 
         if (jobs.Length > 0)
         {
@@ -65,7 +66,7 @@ public class IdleWorker2 : SerializedMonoBehaviour
 
             agent.SetDestination(job.currentMachine.transform.position);
 
-            this.TaskWaitUntil(() => itemPoints[itemPoints.First().Key] = job.currentMachine.GiveItemobjectToWorker(itemPoints.First().Key, this, () =>
+            this.TaskWaitUntil(() => job.currentMachine.GiveItemobjectToWorker(this, () =>
                 {
                     DeliveryToStand(job);
                     delivery = true;
@@ -81,18 +82,42 @@ public class IdleWorker2 : SerializedMonoBehaviour
 
         this.TaskWaitUntil(() =>
         {
-            if (stand.GetEmptyPoint().Key != null)
+            EndDelivery();
+
+            var where = itemPoints.Where((n) => n.Value != null).ToArray();
+
+            print(where.Count());
+
+            for (int i = 0; i < where.Count(); i++)
             {
-                itemPoints.First().Value.Jump(stand.GetEmptyPoint().Key);
-                stand.AddItemObject(itemPoints.First().Value.gameObject);
-            }
-            else
-            {
-                Managers.Pool.Push(itemPoints.First().Value.gameObject.GetComponentInChildren<Poolable>());
+                if (where[i].Value != null)
+                {
+                    print(i);
+                    itemPoints[where[i].Key].Jump(stand.GetEmptyPoint().Key);
+                    stand.AddItemObject(where[i].Value.gameObject);
+
+                    itemPoints[where[i].Key] = null;
+                }
             }
 
-            itemPoints[itemPoints.First().Key] = null;
-            EndDelivery();
+            // foreach (var point in where)
+            // {
+            //     if (point.Value != null)
+            //     {
+            //         if (stand.GetEmptyPoint().Key != null)
+            //         {
+            //             itemPoints[point.Key].Jump(stand.GetEmptyPoint().Key);
+            //             stand.AddItemObject(point.Value.gameObject);
+            //         }
+            //         else
+            //         {
+            //             Managers.Pool.Push(point.Value.gameObject.GetComponentInChildren<Poolable>());
+            //         }
+
+            //         itemPoints[point.Key] = null;
+            //     }
+            // }
+
         }, () => (Vector3.Distance(stand.transform.position, transform.position) < 8f));
     }
 
@@ -127,7 +152,7 @@ public class IdleWorker2 : SerializedMonoBehaviour
     {
         foreach (var point in itemPoints)
         {
-            if (point.Key == null)
+            if (point.Value == null)
                 return point;
         }
 

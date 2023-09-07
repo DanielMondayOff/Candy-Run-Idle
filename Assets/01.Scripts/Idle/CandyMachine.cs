@@ -36,6 +36,8 @@ public class CandyMachine : BuildObject
     public TaskUtil.WhileTaskMethod playerTakeCandyTask = null;
     public Transform itemObjectGeneratePoint;
 
+    Tween punchScaleTween = null;
+
 
     public void Init()
     {
@@ -196,9 +198,9 @@ public class CandyMachine : BuildObject
         Init();
     }
 
-    public void UpdateUI()
+    public void UpdateUI(bool wiggle = false)
     {
-        OnChangeInventory();
+        OnChangeInventory(wiggle);
         // test_candyCount.text = "X " + (candyItem.count);
     }
 
@@ -231,7 +233,8 @@ public class CandyMachine : BuildObject
 
             OnChangeInventory(true);
 
-            transform.DOPunchScale(Vector3.one * 0.1f, 0.20f);
+            if (punchScaleTween != null ? !punchScaleTween.IsPlaying() : false)
+                punchScaleTween = transform.DOPunchScale(Vector3.one * 0.1f, 0.20f);
 
             player.AddItemStack(obj);
 
@@ -239,38 +242,50 @@ public class CandyMachine : BuildObject
         }
     }
 
-    public ItemObject GiveItemobjectToWorker(Transform point, IdleWorker2 worker, System.Action onComplete = null, System.Action onFailed = null)
+    public void GiveItemobjectToWorker(IdleWorker2 worker, System.Action onComplete = null, System.Action onFailed = null)
     {
         if (candyItem.count <= 0)
         {
             if (onFailed != null)
             {
                 onFailed.Invoke();
-                return null;
+                return;
             }
         }
 
-        while (true)
+        for (int i = 0; i < IdleManager.instance.workerCapacityValue[IdleManager.instance.workerCapacity.currentLevel]; i++)
         {
-            var obj = IdleManager.instance.GenerateItemObject(itemObjectGeneratePoint, candyItem.id);
-
             var emptyPoint = worker.GetEmptyPoint();
+
+            if (emptyPoint.Key == null)
+            {
+                if (i == 0)
+                    onFailed.Invoke();
+                else
+                    onComplete.Invoke();
+
+                return;
+            }
+
+            var obj = IdleManager.instance.GenerateItemObject(itemObjectGeneratePoint, candyItem.id);
 
             obj.GetComponentInChildren<ItemObject>().Jump(emptyPoint.Key);
 
-            emptyPoint = new KeyValuePair<Transform, ItemObject>(emptyPoint.Key, obj.GetComponentInChildren<ItemObject>());
+            worker.itemPoints[emptyPoint.Key] = obj.GetComponentInChildren<ItemObject>();
 
             SaveManager.instance.TakeCandy(candyItem.id, 1);
 
             OnChangeInventory(true);
 
-            transform.DOPunchScale(Vector3.one * 0.1f, 0.20f);
+            if (punchScaleTween != null ? !punchScaleTween.IsPlaying() : true)
+                punchScaleTween = transform.DOPunchScale(Vector3.one * 0.1f, 0.20f);
 
-            if (onComplete != null)
-                onComplete.Invoke();
-
-            return obj.GetComponentInChildren<ItemObject>();
+            // return obj.GetComponentInChildren<ItemObject>();
         }
 
+        if (onComplete != null)
+            onComplete.Invoke();
+
+        return;
     }
 }
