@@ -54,6 +54,7 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject goToShopBtn;
     [FoldoutGroup("참조")] public GameObject nextStageBtn;
     [FoldoutGroup("참조")] public GameObject sellCandyBtn;
+    [FoldoutGroup("참조")] public GameObject nextStageBtnGroup;
     [FoldoutGroup("참조")] public StartCard startCard;
 
     [FoldoutGroup("참조")] public CanvasGroup[] runUIs;
@@ -233,6 +234,24 @@ public class RunManager : MonoBehaviour
             CuttingCandy();
         }
 
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            List<CandyItem> newList = new List<CandyItem>();
+
+            var tempcandy1 = SaveManager.instance.FindCandyObjectInReousrce(1);
+            var tempcandy2 = SaveManager.instance.FindCandyObjectInReousrce(2);
+            var tempcandy3 = SaveManager.instance.FindCandyObjectInReousrce(3);
+            var tempcandy4 = SaveManager.instance.FindCandyObjectInReousrce(4);
+            var tempcandy5 = SaveManager.instance.FindCandyObjectInReousrce(5);
+
+            newList.Add(new CandyItem() { candy = tempcandy1, count = 10 });
+            newList.Add(new CandyItem() { candy = tempcandy2, count = 10 });
+            newList.Add(new CandyItem() { candy = tempcandy3, count = 10 });
+            newList.Add(new CandyItem() { candy = tempcandy4, count = 10 });
+            newList.Add(new CandyItem() { candy = tempcandy5, count = 10 });
+
+            SaveManager.instance.AddCandy(newList);
+        }
 
         if (Input.GetKeyDown(KeyCode.Z))
         {
@@ -536,11 +555,18 @@ public class RunManager : MonoBehaviour
 
         CandyInventory.instance.CandyGetAnimation(temp.candyItems);
 
+        if (StageManager.instance.currentStageNum == 3)
+            CustomReviewManager.instance.StoreReview();
+
         this.TaskDelay(3.5f, () =>
         {
             if (StageManager.instance.currentStageNum == 4)
             {
                 sellCandyBtn.SetActive(true);
+            }
+            else if (StageManager.instance.currentStageNum > 4)
+            {
+                nextStageBtnGroup.SetActive(true);
             }
             else
             {
@@ -555,8 +581,14 @@ public class RunManager : MonoBehaviour
 
             SaveManager.instance.enableCandyInventoryUIUpdate = true;
 
-            MondayOFF.AdsManager.ShowInterstitial();
+            if (StageManager.instance.currentStageNum > 4)
+                MondayOFF.AdsManager.ShowInterstitial();
         });
+    }
+
+    public void OnClickSellCandyBtnOnEndCardAfter4Stage()
+    {
+        EventManager.instance.CustomEvent(AnalyticsType.UI, "OnClickSellCandyBtnAfter4Stage", true, true);
     }
 
     public void OnClickNextStage()

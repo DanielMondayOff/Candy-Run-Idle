@@ -7,7 +7,7 @@ using DG.Tweening;
 public class CandyTailController : MonoBehaviour
 {
     [System.Serializable]
-    struct TailPart
+    public struct TailPart
     {
         public Transform tailTrans;
         public Vector3 trailLocalPos;
@@ -21,7 +21,7 @@ public class CandyTailController : MonoBehaviour
 
     [SerializeField] private Transform[] candyParts;
     [SerializeField] private List<TailPart> candyTailParts = new List<TailPart>();
-
+    public Transform[] GetTailParts() => candyParts;
 
     [Button]
     public void Init()

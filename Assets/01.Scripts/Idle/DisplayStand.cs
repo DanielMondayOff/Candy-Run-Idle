@@ -109,7 +109,7 @@ public class DisplayStand : BuildObject
             temp.Add(new CandyItem() { candy = tempcandy1, count = 1 });
 
             SaveManager.instance.AddCandy(temp, true);
-            Debug.LogError("자리가 없습니다.");
+            Debug.Log("자리가 없습니다 해당 아이템을 다시 창고로 이동");
             return;
         }
 

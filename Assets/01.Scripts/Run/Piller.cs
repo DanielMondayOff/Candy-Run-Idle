@@ -140,6 +140,13 @@ public class Piller : MonoBehaviour
         {
             RunManager.instance.PillerPass(type, value);
 
+            var particle = Managers.Pool.Pop(Resources.Load<GameObject>("Particles/Piller Pass Particle")).GetComponentInChildren<ParticleSystem>();
+
+            particle.transform.position = this.transform.position + (Vector3.up * 2);
+            particle.Play();
+
+            IdleManager.instance.TaskDelay(5, () => Managers.Pool.Push(particle.GetComponent<Poolable>()));
+
             if (GetComponentInParent<PillerSet>() != null)
             {
                 GetComponentInParent<PillerSet>().gameObject.SetActive(false);

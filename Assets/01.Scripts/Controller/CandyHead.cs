@@ -77,6 +77,23 @@ public class CandyHead : MonoBehaviour
             GetComponentInChildren<SkinnedMeshRenderer>().materials = new Material[] { candyObject.mat };
 
             transform.DOScale(new Vector3(1.25f, 1.25f, 1), 0.1f).SetEase(Ease.InCubic);
+
+            var CandyTailController = GetComponent<CandyTailController>();
+
+            for (int i = 0; i < CandyTailController.GetTailParts().Length * 0.75f; i += 2)
+            {
+                var particle = Managers.Pool.Pop(Managers.Resource.Load<GameObject>("Particles/Jelly Particle"));
+
+                particle.transform.position = CandyTailController.GetTailParts()[i].position;
+
+                var renderer = particle.GetComponentInChildren<ParticleSystemRenderer>();
+                renderer.material = candyObject.mat;
+
+                particle.GetComponentInChildren<ParticleSystem>().Play();
+
+                RunManager.instance.TaskDelay(3, () => Managers.Pool.Push(particle.GetComponentInChildren<Poolable>()));
+            }
+
         });
 
         print("upgrade");

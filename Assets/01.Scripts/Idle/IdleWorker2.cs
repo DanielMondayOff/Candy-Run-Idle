@@ -45,13 +45,14 @@ public class IdleWorker2 : SerializedMonoBehaviour
 
     public void FindJob()
     {
+
         if (!agent.isOnNavMesh)
         {
             agent.enabled = false;
             agent.enabled = true;
         }
 
-        if (Working || !agent.isOnNavMesh)
+        if (Working || !agent.isOnNavMesh || !IdleManager.instance.playIdle)
             return;
 
         // print("finding");
@@ -93,7 +94,14 @@ public class IdleWorker2 : SerializedMonoBehaviour
                 if (where[i].Value != null)
                 {
                     print(i);
-                    itemPoints[where[i].Key].Jump(stand.GetEmptyPoint().Key);
+
+                    var emptyPoint = stand.GetEmptyPoint().Key;
+
+                    if (emptyPoint == null)
+                        Managers.Pool.Push(itemPoints[where[i].Key].GetComponentInChildren<Poolable>());
+                    else
+                        itemPoints[where[i].Key].Jump(emptyPoint);
+
                     stand.AddItemObject(where[i].Value.gameObject);
 
                     itemPoints[where[i].Key] = null;

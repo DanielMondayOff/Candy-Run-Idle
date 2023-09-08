@@ -12,6 +12,8 @@ public class CandyInventory : MonoBehaviour
 
     public static CandyInventory instance;
 
+    private CandyInventoryItem misteryCandyItem;
+
     private void Awake()
     {
         instance = this;
@@ -33,12 +35,16 @@ public class CandyInventory : MonoBehaviour
         ClearUI();
 
         foreach (var candy in SaveManager.instance.candyInventory)
-        { 
+        {
             var newItem = Instantiate(Resources.Load<GameObject>("UI/CandyItem"), transform).GetComponent<CandyInventoryItem>();
 
             newItem.InitCandy(SaveManager.instance.FindCandyObjectInReousrce(candy.id), candy.count);
             itemList.Add(newItem);
         }
+
+        if (misteryCandyItem == null)
+            misteryCandyItem = Instantiate(Resources.Load<GameObject>("UI/CandyItem"), transform).GetComponent<CandyInventoryItem>();
+        misteryCandyItem.MisteryCandy();
     }
 
     public void GenerateUIfromList(List<CandyItem> items)
@@ -47,20 +53,21 @@ public class CandyInventory : MonoBehaviour
         {
             var newItem = Instantiate(Resources.Load<GameObject>("UI/CandyItem"), transform).GetComponent<CandyInventoryItem>();
 
-            newItem.InitCandy(item.candy, item.count);
+            newItem.InitCandy(item.candy, item.count, true);
             itemList.Add(newItem);
         }
     }
 
     public void CandyGetAnimation(List<CandyItem> candyItems)
     {
+        misteryCandyItem.gameObject.SetActive(false);
         foreach (var item in candyItems)
         {
             var attractor = Instantiate(Resources.Load<GameObject>("UI/UIAttractor"), transform.parent);
 
             GetCandyInventoryEvent(item.candy.id);
 
-            attractor.GetComponent<UIAttractorCustom>().Init(itemList.Find((n) => n.candyItem.candy.id == item.candy.id).GetImageTrans, item, GetCandyInventoryEvent(item.candy.id), () => SyncCurrentCandyUI());
+            attractor.GetComponent<UIAttractorCustom>().Init(itemList.Find((n) => n.candyItem.candy.id == item.candy.id).GetImageTrans, item, GetCandyInventoryEvent(item.candy.id), () => { SyncCurrentCandyUI(); misteryCandyItem.transform.SetAsLastSibling(); misteryCandyItem.gameObject.SetActive(true); });
         }
     }
 

@@ -16,16 +16,11 @@ public class IdleManager : MonoBehaviour
 
 
     public Queue<CandyOrder> orderQueue = new Queue<CandyOrder>();
-
     public List<CandyJar> candyJars = new List<CandyJar>();
-
     public List<CandyMachine> candyMachines = new List<CandyMachine>();
-
     public List<CandySlot> candySlots = new List<CandySlot>();
 
-
     public Counter counter;
-
     public Collector startCollector;
 
     [FoldoutGroup("참조")] public UnityEngine.UI.Text moneyText;
@@ -36,6 +31,7 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("참조")] public PlayerMovement playerMovement;
     [FoldoutGroup("참조")] public GameObject nextStageBtn;
     [FoldoutGroup("참조")] public GameObject nextStageHighlight;
+
     [FoldoutGroup("참조")] public GameObject upgradeBtn;
     [FoldoutGroup("참조")] public GameObject blackPanel;
     [FoldoutGroup("참조")] public LineRenderer arrowLine = null;
@@ -63,7 +59,7 @@ public class IdleManager : MonoBehaviour
     // [FoldoutGroup("업그레이드")] public IdleUpgrade[] upgrades;
 
     public readonly float[] workerSpeed = { 6, 6.5f, 7f, 7.5f, 8f, 8.5f, 9f, 10f, 10.5f, 11f, 11.5f };
-    public readonly float[] customerSpawnSpeed = { 6f, 5.5f, 5f, 4.5f, 4f, 3.5f, 3f, 2.5f, 2f, 1.5f, 1f };
+    public readonly float[] customerSpawnSpeed = { 4f, 3.5f, 3f, 2.5f, 2f, 1.5f, 1f, 1f, 1f, 1f, 1f };
     public readonly float[] maxCustomerCount = { 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
     public readonly float[] extraIncomePercent = { 1f, 1.1f, 1.2f, 1.3f, 1.4f, 1.5f, 1.6f, 1.7f, 1.8f, 1.9f, 2f };
     public readonly float[] playerSpeed = { 10, 10.5f, 11f, 11.5f, 12f, 12.5f, 13f, 13.5f, 14f, 14.5f, 16f };
@@ -73,7 +69,7 @@ public class IdleManager : MonoBehaviour
 
     public bool playIdle = false;
 
-    private TaskUtil.WhileTaskMethod spawnCustomer = null;
+    private TaskUtil.WhileTaskMethod spawnCustomerTask = null;
 
     //==============================================================================================================================
 
@@ -137,9 +133,7 @@ public class IdleManager : MonoBehaviour
     {
         if (ES3.KeyExists("enableShop"))
             if (ES3.Load<bool>("enableShop"))
-                StartIdle();
-
-        SetCustomerSpawnSpeed(customerSpawnSpeed[promotion.currentLevel]);
+                StartIdle(false);
 
         SaveManager.instance.AddMoneyText(moneyText);
         SaveManager.instance.OnChangeMoney();
@@ -194,15 +188,16 @@ public class IdleManager : MonoBehaviour
         SaveManager.instance.RemoveMoneyText(moneyText);
     }
 
-    public void StartIdle()
+    public void StartIdle(bool _playIdle = true)
     {
         if (SaveManager.instance.candyInventory.Count >= 0 && !playIdle)
         {
             // GenerateCandyJar();
             // CheckingCandyJar();
-            if (spawnCustomer == null)
-                spawnCustomer = this.TaskWhile(customerSpawnSpeed[promotion.currentLevel] * 0.25f, 2, () => GenenrateCustomer());
-            playIdle = true;
+            if (spawnCustomerTask == null)
+                spawnCustomerTask = this.TaskWhile(customerSpawnSpeed[promotion.currentLevel], 2, () => GenenrateCustomer());
+
+            playIdle = _playIdle;
         }
     }
 
@@ -282,6 +277,8 @@ public class IdleManager : MonoBehaviour
 
     public void GenenrateCustomer()
     {
+        print("customer Spawn : " + maxCustomerCount[promotion.currentLevel] + " / " + spawnCustomerTask.GetIntervalTime());
+
         if (/*SaveManager.instance.candyInventory.Count <= 0 || */ !playIdle || maxCustomerCount[promotion.currentLevel] <= customers.Count || candyMachines.Where((n => n.isReady)).Count() == 0)
             return;
 
@@ -542,7 +539,7 @@ public class IdleManager : MonoBehaviour
 
     public void SetCustomerSpawnSpeed(float speed)
     {
-        spawnCustomer.SetIntervalTime(speed);
+        spawnCustomerTask.SetIntervalTime(speed);
     }
 
     public void SpawnWorker(int count)
@@ -788,12 +785,11 @@ public class IdleManager : MonoBehaviour
             var tempcandy4 = SaveManager.instance.FindCandyObjectInReousrce(4);
             var tempcandy5 = SaveManager.instance.FindCandyObjectInReousrce(5);
 
-
-            newList.Add(new CandyItem() { candy = tempcandy1, count = 100 });
-            newList.Add(new CandyItem() { candy = tempcandy2, count = 100 });
-            newList.Add(new CandyItem() { candy = tempcandy3, count = 100 });
-            newList.Add(new CandyItem() { candy = tempcandy4, count = 100 });
-            newList.Add(new CandyItem() { candy = tempcandy5, count = 100 });
+            newList.Add(new CandyItem() { candy = tempcandy1, count = 10 });
+            newList.Add(new CandyItem() { candy = tempcandy2, count = 10 });
+            newList.Add(new CandyItem() { candy = tempcandy3, count = 10 });
+            newList.Add(new CandyItem() { candy = tempcandy4, count = 10 });
+            newList.Add(new CandyItem() { candy = tempcandy5, count = 10 });
 
 
             SaveManager.instance.AddCandy(newList);

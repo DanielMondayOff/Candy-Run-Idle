@@ -255,6 +255,11 @@ public class CandyMachine : BuildObject
 
         for (int i = 0; i < IdleManager.instance.workerCapacityValue[IdleManager.instance.workerCapacity.currentLevel]; i++)
         {
+            if (candyItem.count <= 0)
+            {
+                break;
+            }
+
             var emptyPoint = worker.GetEmptyPoint();
 
             if (emptyPoint.Key == null)
