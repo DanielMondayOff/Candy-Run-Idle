@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "884073977882",
+    "project_id": "candy-shop-master",
+    "storage_bucket": "candy-shop-master.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:884073977882:android:435c3e9d0f7dc22aab99a3",
+        "android_client_info": {
+          "package_name": "com.mondayoff.candyshopmaster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "884073977882-te2fc2vu1prquom60928on6lbihcnafk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAbQ9__tRtv958jIzK7jBKVzcwBMGzdkyc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884073977882-te2fc2vu1prquom60928on6lbihcnafk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "884073977882-c53dupfqg889j9cktctt0bvhe1e1po63.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mondayoff.candyshopmaster"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
