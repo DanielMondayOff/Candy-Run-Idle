@@ -1061,9 +1061,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 07b153450bd8d488b9701d61477213c4,
         type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 07b153450bd8d488b9701d61477213c4, type: 3}
+    - target: {fileID: 5866666021909216657, guid: 07b153450bd8d488b9701d61477213c4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: 07b153450bd8d488b9701d61477213c4,
+        type: 3}
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: cf4e5af917f1240a3ad4014a525e9c1f, type: 2}
+    - target: {fileID: 5866666021909216657, guid: 07b153450bd8d488b9701d61477213c4,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 07b153450bd8d488b9701d61477213c4, type: 3}
 --- !u!4 &26428088555462682 stripped
@@ -1292,6 +1307,11 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: 07b153450bd8d488b9701d61477213c4, type: 3}
+    - target: {fileID: 5866666021909216657, guid: 014e0745391c24ef4a70d66ebd3413f6,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 014e0745391c24ef4a70d66ebd3413f6,
         type: 3}
       propertyPath: m_Controller

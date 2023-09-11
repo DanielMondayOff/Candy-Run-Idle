@@ -138,6 +138,8 @@ public class Piller : MonoBehaviour
 
         if (other.CompareTag("Player") && enableActive)
         {
+            EventManager.instance.CustomEvent(AnalyticsType.RUN, "Piller Pass_" + type.ToString(), true, true);
+
             RunManager.instance.PillerPass(type, value);
 
             var particle = Managers.Pool.Pop(Resources.Load<GameObject>("Particles/Piller Pass Particle")).GetComponentInChildren<ParticleSystem>();

@@ -89,12 +89,14 @@ public class CardSlot : MonoBehaviour
 
         void Upgrade()
         {
+            EventManager.instance.CustomEvent(AnalyticsType.RUN, "Card_" + cardType.ToString(), true, true);
+
             switch (cardType)
             {
                 case RunCardType.PlusCandy:
                     RunManager.instance.AddCandy();
 
-                    EventManager.instance.CustomEvent(AnalyticsType.RUN, "Card_AddCandy", true, true);
+                    // EventManager.instance.CustomEvent(AnalyticsType.RUN, "Card_AddCandy", true, true);
 
 
                     //             MondayOFF.EventTracker.LogCustomEvent(
@@ -107,7 +109,7 @@ public class CardSlot : MonoBehaviour
                 case RunCardType.TripleShot:
                     RunManager.instance.TripleShot();
 
-                    EventManager.instance.CustomEvent(AnalyticsType.RUN, "Card_TripleShot", true, true);
+                    // EventManager.instance.CustomEvent(AnalyticsType.RUN, "Card_TripleShot", true, true);
 
 
                     //             MondayOFF.EventTracker.LogCustomEvent(

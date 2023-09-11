@@ -239,6 +239,9 @@ public class CandyMachine : BuildObject
             player.AddItemStack(obj);
 
             MMVibrationManager.Haptic(HapticTypes.MediumImpact);
+
+            EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Player Take Candy_" + candyItem.id, true, true);
+
         }
     }
 
@@ -284,6 +287,9 @@ public class CandyMachine : BuildObject
 
             if (punchScaleTween != null ? !punchScaleTween.IsPlaying() : true)
                 punchScaleTween = transform.DOPunchScale(Vector3.one * 0.1f, 0.20f);
+
+            EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Worker Take Candy_" + candyItem.id, true, true);
+
 
             // return obj.GetComponentInChildren<ItemObject>();
         }

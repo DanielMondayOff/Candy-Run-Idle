@@ -30,6 +30,8 @@ public class DropedJellyBean : MonoBehaviour
         {
             RunManager.instance.AddCandyLength(value);
             gameObject.SetActive(false);
+
+            EventManager.instance.CustomEvent(AnalyticsType.RUN, "Player Get Jelly", true, true);
         }
 
         if (other.CompareTag("Bullet") && value < maxValue)

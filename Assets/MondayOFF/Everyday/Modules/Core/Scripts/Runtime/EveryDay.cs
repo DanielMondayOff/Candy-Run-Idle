@@ -1,18 +1,15 @@
 using System.Collections;
 using UnityEngine;
 
-namespace MondayOFF
-{
-    public static partial class EveryDay
-    {
-        public const string Version = "3.0.29";
+namespace MondayOFF {
+    public static partial class EveryDay {
+        public const string Version = "3.0.30";
 
         internal static System.Action onEverydayInitialized = default;
         internal static bool isInitialized = false;
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-        private static void AfterSceneLoad()
-        {
+        private static void AfterSceneLoad() {
             isInitialized = false;
             var initMessage =
 @$"
@@ -26,8 +23,7 @@ namespace MondayOFF
             MainThreadDispatcher.Instance.EnqueueCoroutine(RequestTrackingAuthorization());
         }
 
-        private static IEnumerator RequestTrackingAuthorization()
-        {
+        private static IEnumerator RequestTrackingAuthorization() {
             // Lets wait for splash screen animation
             yield return new WaitForSeconds(2f);
 
@@ -36,16 +32,14 @@ namespace MondayOFF
             Privacy.RequestTrackingAuthorization(Initialize);
         }
 
-        private static void Initialize(AttAuthorizationStatus consentStatus)
-        {
-            if (isInitialized)
-            {
+        private static void Initialize(AttAuthorizationStatus consentStatus) {
+            if (isInitialized) {
                 return;
             }
 
             EverydayLogger.Info($"Consent status: {consentStatus}");
 
-            // PrepareSettings(consentStatus);
+            PrepareSettings(consentStatus);
 
             // Initialize Facebook
             EverydayLogger.Info("Initializing Facebook SDK");
@@ -53,8 +47,7 @@ namespace MondayOFF
 
             // Initialize Singular
             EverydayLogger.Info("Initializing Singular SDK");
-            if (SingularSDK.instance != null)
-            {
+            if (SingularSDK.instance != null) {
                 GameObject.Destroy(SingularSDK.instance);
                 SingularSDK.instance = null;
             }
@@ -71,10 +64,8 @@ namespace MondayOFF
             MaxSdk.InitializeSdk();
         }
 
-        private static void OnMaxSdkInitialized(MaxSdk.SdkConfiguration sdkConfiguration)
-        {
-            MainThreadDispatcher.Instance.Enqueue(() =>
-            {
+        private static void OnMaxSdkInitialized(MaxSdk.SdkConfiguration sdkConfiguration) {
+            MainThreadDispatcher.Instance.Enqueue(() => {
                 // Send Max AdInfo to Singular
                 MaxSdkCallbacks.Interstitial.OnAdRevenuePaidEvent -= SingularAdDataSender.SendAdData;
                 MaxSdkCallbacks.Rewarded.OnAdRevenuePaidEvent -= SingularAdDataSender.SendAdData;
@@ -86,8 +77,7 @@ namespace MondayOFF
 
                 // Initialize Ads Manager
                 AdsManager.PrepareManager();
-                if (EverydaySettings.AdSettings.initializeOnLoad)
-                {
+                if (EverydaySettings.AdSettings.initializeOnLoad) {
                     AdsManager.Initialize();
                 }
 

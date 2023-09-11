@@ -57,7 +57,7 @@ public class StageManager : MonoBehaviour
     {
         //Try Stage
 
-        MondayOFF.EventTracker.TryStage(currentStageNum + 1);
+        MondayOFF.EventTracker.TryStage(currentStageNum);
     }
 
     public void ClearStage()

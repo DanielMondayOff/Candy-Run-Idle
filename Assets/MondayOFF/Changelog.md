@@ -1,3 +1,7 @@
+# v3.0.30
+
+- [Firebase] Fixed a bug where logging events before initialization was causing app crash
+
 # v3.0.29
 
 - [Firebase] Firebase now tracks ad impression

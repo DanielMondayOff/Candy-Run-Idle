@@ -110,6 +110,8 @@ public class IdlePlayer : MonoBehaviour
     {
         for (int i = 0; i < itemStackList.Count; i++)
         {
+            EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Player trash Candy_" + itemStackList[i].GetComponentInChildren<ItemObject>().GetItem.id, true, true);
+
             itemStackList[i].GetComponent<ItemObject>().Jump(parent, jumpPower: 1f, onComplete: () => { Managers.Pool.Push(itemStackList[i].GetComponentInChildren<Poolable>()); Debug.LogError(1234); });
             itemStackList.Remove(itemStackList[i]);
 

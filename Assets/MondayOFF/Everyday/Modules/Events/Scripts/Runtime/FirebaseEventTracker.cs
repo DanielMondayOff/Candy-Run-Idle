@@ -6,10 +6,14 @@ using Firebase.Analytics;
 namespace MondayOFF {
     public static class EventTracker {
         private static Firebase.FirebaseApp _app = null;
-        private static bool _isInitialized = true;
+        private static bool _isInitialized = false;
+        private static System.Action _onInitialized = default;
 
         public static void TryStage(int stageNum, string stageName = "Stage") {
-            if (!_isInitialized) { return; }
+            if (!_isInitialized) {
+                _onInitialized += () => TryStage(stageNum, stageName);
+                return;
+            }
 
             FirebaseAnalytics.LogEvent("Try",
                 new Parameter(stageName, $"{stageName} {stageNum:000}")
@@ -26,7 +30,10 @@ namespace MondayOFF {
                     break;
             }
 
-            if (!_isInitialized) { return; }
+            if (!_isInitialized) {
+                _onInitialized += () => ClearStage(stageNum, stageName);
+                return;
+            }
 
             FirebaseAnalytics.LogEvent("Clear",
                 new Parameter(stageName, $"{stageName} {stageNum:000}")
@@ -35,7 +42,10 @@ namespace MondayOFF {
 
         // Stringify prameter values
         public static void LogCustomEvent(string eventName, Dictionary<string, string> parameters) {
-            if (!_isInitialized) { return; }
+            if (!_isInitialized) {
+                _onInitialized += () => LogCustomEvent(eventName, parameters);
+                return;
+            }
 
             if (parameters == null) {
                 FirebaseAnalytics.LogEvent(eventName);
@@ -92,16 +102,20 @@ namespace MondayOFF {
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void AfterSceneLoad() {
+            _isInitialized = false;
             Initialize();
         }
 
         internal static void Initialize() {
+            if (_isInitialized) {
+                EverydayLogger.Warn("Firebase already initialized");
+                return;
+            }
             if (!EveryDay.isInitialized) {
                 EveryDay.onEverydayInitialized += Initialize;
                 return;
             }
 
-            _isInitialized = false;
             Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task => {
                 var dependencyStatus = task.Result;
                 if (dependencyStatus == Firebase.DependencyStatus.Available) {
@@ -121,13 +135,14 @@ namespace MondayOFF {
         }
 
         private static void OnFirebaseInitialized() {
-            _isInitialized = true;
-
             MaxSdkCallbacks.Interstitial.OnAdRevenuePaidEvent += TrackInterstitialAdRevenue;
             MaxSdkCallbacks.Rewarded.OnAdRevenuePaidEvent += TrackRewardedAdRevenue;
             MaxSdkCallbacks.Banner.OnAdRevenuePaidEvent += TrackBannerAdRevenue;
 
             FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventAppOpen);
+
+            _isInitialized = true;
+            _onInitialized?.Invoke();
         }
     }
 }

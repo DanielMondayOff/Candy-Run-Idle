@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 
 public class RunObstacle : MonoBehaviour
 {
@@ -12,7 +13,8 @@ public class RunObstacle : MonoBehaviour
     public bool isUsed = false;
     public bool isDestroyed = false;
     public bool knockBack = false;
-
+    public bool enableReuse = false;
+    public float reuseTime = 1.5f;
 
     [SerializeField] MeshRenderer meshRenderer;
 
@@ -47,7 +49,10 @@ public class RunObstacle : MonoBehaviour
 
             RunManager.instance.TakeDamage(200, GetComponent<Collider>().ClosestPointOnBounds(other.bounds.center), knockBack);
 
-            EventManager.instance.CustomEvent(AnalyticsType.RUN, "hitByObstacle", true, true);
+            EventManager.instance.CustomEvent(AnalyticsType.RUN, "hitByObstacle_" + gameObject.name, true, true);
+
+            if (enableReuse)
+                SaveManager.instance.TaskDelay(reuseTime, () => isUsed = true);
 
             //     MondayOFF.EventTracker.LogCustomEvent(
             // "RUN",

@@ -271,4 +271,6 @@ MonoBehaviour:
   isUsed: 0
   isDestroyed: 0
   knockBack: 1
+  enableReuse: 1
+  reuseTime: 1.5
   meshRenderer: {fileID: 5342819932120607908}
