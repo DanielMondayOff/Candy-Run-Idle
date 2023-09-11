@@ -71,7 +71,7 @@ public class StageManager : MonoBehaviour
         if (currentStageNum == 4)
             ES3.Save("enableShop", true);
 
-        MondayOFF.EventTracker.ClearStage(currentStageNum + 1);
+        MondayOFF.EventTracker.ClearStage(currentStageNum);
     }
 
     public void GenerateRandomStage()

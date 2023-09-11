@@ -272,6 +272,10 @@ public class RunManager : MonoBehaviour
         ChangeCandysLength();
 
         startCard.gameObject.SetActive(false);
+
+        StageManager.instance.TryStage();
+
+        EventManager.instance.CustomEvent(AnalyticsType.RUN, "RunTryStage - " + StageManager.instance.currentStageNum, true, true);
     }
 
     public float GetCurrentFireRate()
