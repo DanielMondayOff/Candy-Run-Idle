@@ -4933,6 +4933,7 @@ GameObject:
   - component: {fileID: 629343387476486467}
   - component: {fileID: 629343387476486468}
   - component: {fileID: 629343387476486466}
+  - component: {fileID: 1104145792453456292}
   m_Layer: 5
   m_Name: UIAttractor
   m_TagString: Untagged
@@ -9752,6 +9753,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b217c3b59bbf64e08b23a60819c23217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1104145792453456292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629343387476486470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2e5580886343041a5e74b1712b0682, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &629343387513952894

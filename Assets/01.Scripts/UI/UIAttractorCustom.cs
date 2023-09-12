@@ -16,7 +16,14 @@ public class UIAttractorCustom : MonoBehaviour
         var renderer = particleSystem.GetComponent<ParticleSystemRenderer>().material = item.candy.particleMat;
 
         var emission = particleSystem.emission;
-        emission.SetBurst(0, new ParticleSystem.Burst(0, 10, 10, (short)(item.count / 10), 0.8f / ((float)item.count / 5f)));
+
+        short cycle = (short)Mathf.Clamp((short)(item.count / 10), 1, int.MaxValue);
+
+        for (int i = 0; i <= cycle; i++)
+        {
+            int count = (cycle > i) ? 10 : item.count % 10;
+            emission.SetBurst(i, new ParticleSystem.Burst(i * 0.8f / ((float)item.count / 5f), (short)count, (short)count, 1, 0.8f / ((float)item.count / 5f)));
+        }
 
         if (onAttract != null)
             ui_ParticleAttractor.m_OnAttracted.AddListener(onAttract);
@@ -24,6 +31,9 @@ public class UIAttractorCustom : MonoBehaviour
         particleSystem.Play();
 
         if (OnCompleteParticle != null)
-            RunManager.instance.TaskWaitUntil(OnCompleteParticle, () => (!particleSystem.IsAlive()));
+            RunManager.instance.TaskWaitUntil(() =>
+            {
+                OnCompleteParticle.Invoke(); Destroy(gameObject);
+            }, () => (!particleSystem.IsAlive()));
     }
 }

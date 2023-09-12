@@ -747,7 +747,7 @@ public class IdleManager : MonoBehaviour
 
     public void PopParticle(string path, Vector3 pos, Transform parent = null)
     {
-        if (Resources.Load<GameObject>(path) == null || Managers.Pool == null)
+        if (Resources.Load<GameObject>(path) == null || Managers.Pool == null || Managers.Scene.CurrentScene == null)
             return;
 
         var particle = Managers.Pool.Pop(Resources.Load<GameObject>(path), parent);

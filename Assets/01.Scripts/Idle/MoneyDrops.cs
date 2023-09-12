@@ -104,6 +104,8 @@ public class MoneyDrops : SaveableObject
                     node.FlyToPlayer(other.transform);
                 }
 
+                bool success = false;
+
                 if (money < 5)
                 {
                     SaveManager.instance.GetMoney(money);
@@ -112,7 +114,7 @@ public class MoneyDrops : SaveableObject
 
                     if (ES3.KeyExists("NextStageEnable"))
                         if (ES3.Load<bool>("NextStageEnable") && IdleManager.instance.playIdle)
-                            MondayOFF.AdsManager.ShowInterstitial();
+                            success = MondayOFF.AdsManager.ShowInterstitial();
 
                 }
                 else
@@ -125,9 +127,11 @@ public class MoneyDrops : SaveableObject
 
                     if (ES3.KeyExists("NextStageEnable"))
                         if (ES3.Load<bool>("NextStageEnable") && IdleManager.instance.playIdle)
-                            MondayOFF.AdsManager.ShowInterstitial();
-
+                            success = MondayOFF.AdsManager.ShowInterstitial();
                 }
+
+                if (success)
+                    EventManager.instance.CustomEvent(AnalyticsType.ADS, "Idle_Interstital_GotMoney", true, true);
 
                 ES3.Save<int>(Guid + "currentMoney", money);
             }

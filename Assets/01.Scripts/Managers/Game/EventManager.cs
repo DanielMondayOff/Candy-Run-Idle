@@ -80,5 +80,6 @@ public enum AnalyticsType
     IDLE,
     RUN,
     IAP,
-    RV
+    RV,
+    ADS
 }

@@ -587,8 +587,14 @@ public class RunManager : MonoBehaviour
 
             SaveManager.instance.enableCandyInventoryUIUpdate = true;
 
+            bool success = false;
+
             if (StageManager.instance.currentStageNum > 4)
-                MondayOFF.AdsManager.ShowInterstitial();
+                success = MondayOFF.AdsManager.ShowInterstitial();
+
+            if (success)
+                EventManager.instance.CustomEvent(AnalyticsType.ADS, "Run_Interstital_EndStage", true, true);
+
         });
     }
 
@@ -668,7 +674,6 @@ public class RunManager : MonoBehaviour
         // SceneManager.LoadScene("Idle");
 
         EventManager.instance.CustomEvent(AnalyticsType.UI, "GoToIdle", true, true);
-
 
         // MondayOFF.EventTracker.LogCustomEvent(
         // "UI",

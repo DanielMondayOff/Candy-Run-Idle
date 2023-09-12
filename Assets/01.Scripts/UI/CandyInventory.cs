@@ -19,6 +19,26 @@ public class CandyInventory : MonoBehaviour
         instance = this;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            List<CandyItem> tempItem = new List<CandyItem>();
+
+            var tempcandy1 = SaveManager.instance.FindCandyObjectInReousrce(1);
+            tempItem.Add(new CandyItem() { candy = tempcandy1, count = 105 });
+
+            foreach (var item in tempItem)
+            {
+                var attractor = Instantiate(Resources.Load<GameObject>("UI/UIAttractor"), transform.parent);
+
+                GetCandyInventoryEvent(item.candy.id);
+
+                attractor.GetComponent<UIAttractorCustom>().Init(itemList.Find((n) => n.candyItem.candy.id == item.candy.id).GetImageTrans, item, GetCandyInventoryEvent(item.candy.id), () => { SyncCurrentCandyUI(); misteryCandyItem.transform.SetAsLastSibling(); misteryCandyItem.gameObject.SetActive(true); });
+            }
+        }
+    }
+
     private void Start()
     {
         if (autoUpdateUI)
