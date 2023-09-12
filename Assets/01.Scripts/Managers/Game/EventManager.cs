@@ -62,6 +62,16 @@ public class EventManager : MonoBehaviour
     {
         var dic = new Dictionary<string, string>();
         dic.Add(paramName, value);
+
+        if (ES3.KeyExists("GUID"))
+            dic.Add("UID", ES3.Load<string>("GUID"));
+        else
+        {
+            var newGuid = System.Guid.NewGuid().ToString();
+            ES3.Save<string>("GUID", newGuid);
+            dic.Add("UID", newGuid);
+        }
+
         dic.Add("STAGENUM", StageManager.instance.currentStageNum.ToString());
 #if UNITY_ANDROID
         dic.Add("OS_TYPE", "AOS");
