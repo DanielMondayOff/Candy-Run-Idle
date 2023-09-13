@@ -92,6 +92,8 @@ public class RunManager : MonoBehaviour
 
     private bool mergeChecking = false;
 
+    private CandyArrangeType currentCandyArrangeType = CandyArrangeType.Horizontal;
+
     TempCandyInventory tempCandyInventory;
     private void Awake()
     {
@@ -260,6 +262,19 @@ public class RunManager : MonoBehaviour
                 canvas.alpha = (canvas.alpha == 1) ? 0 : 1;
             }
         }
+
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            int nextEnumIndex = (int)currentCandyArrangeType + 1;
+
+            if (nextEnumIndex > System.Enum.GetValues(typeof(CandyArrangeType)).Length)
+            {
+                nextEnumIndex = 1; // 마지막에서 처음으로 돌아감
+            }
+
+            currentCandyArrangeType = (CandyArrangeType)nextEnumIndex;
+
+        }
     }
 
     public void RunGameStart()
@@ -330,7 +345,7 @@ public class RunManager : MonoBehaviour
     {
         var newCandy = Instantiate(candyPrefab, new Vector3(runPlayer.transform.position.x, candyPrefab.transform.position.y, runPlayer.transform.position.z), Quaternion.Euler(0, 180, 0), runPlayer);
         candyList.Add(newCandy);
-        ArrangeCandy();
+        ArrangeCandy(currentCandyArrangeType);
 
         newCandy.GetComponentInChildren<CandyTailController>().ChangeCandyLength(GetCurrentCandyLength());
 
@@ -385,35 +400,122 @@ public class RunManager : MonoBehaviour
         }
     }
 
-    void ArrangeCandy()
+    void ArrangeCandy(CandyArrangeType type = CandyArrangeType.Horizontal)
     {
         int count = candyList.Count;
 
+        float spacing = 1.3f;
         if (count == 0)
         {
             Debug.LogWarning("List에 GameObject가 없습니다.");
             return;
         }
-
-        float spacing = 1.3f;
-        float startX = -spacing * (count / 2); // 시작 X 좌표 계산
-
-        if (count % 2 == 1)
+        switch (type)
         {
-            for (int i = 0; i < count; i++)
-            {
-                Vector3 position = new Vector3((startX + i * spacing), candyList[i].transform.localPosition.y, 0f);
-                candyList[i].transform.localPosition = position;
-            }
+            case CandyArrangeType.Horizontal:
+
+                spacing = 1.3f;
+                float startX = -spacing * (count / 2); // 시작 X 좌표 계산
+
+                if (count % 2 == 1)
+                {
+                    for (int i = 0; i < count; i++)
+                    {
+                        Vector3 position = new Vector3((startX + i * spacing), candyList[i].transform.localPosition.y, 0f);
+                        candyList[i].transform.localPosition = position;
+                    }
+                }
+                else
+                {
+                    for (int i = 0; i < count; i++)
+                    {
+                        Vector3 position = new Vector3(startX + i * spacing + (spacing / 2f), candyList[i].transform.localPosition.y, 0f);
+                        candyList[i].transform.localPosition = position;
+                    }
+                }
+                break;
+
+            case CandyArrangeType.Vertical:
+
+                spacing = 1.25f;
+
+                for (int i = 0; i < count; i++)
+                {
+                    Vector3 position = new Vector3(0, 0.75f + (i * spacing), 0f);
+                    candyList[i].transform.localPosition = position;
+                }
+
+                break;
+
+            case CandyArrangeType.Pyramid:
+
+                float objectWidth = 1.25f;
+                float objectHeight = 1.25f;
+
+                int triangleBaseWidth = Mathf.FloorToInt(Mathf.Sqrt(2 * count)); // 정삼각형의 밑변 길이 계산
+                int pyramidHeight = triangleBaseWidth / 2 + 1; // 피라미드의 높이 계산
+
+                int objectCountInCurrentRow = 1; // 각 층의 오브젝트 개수 초기화
+
+                int cot = 0;
+
+                for (int y = 0; y < pyramidHeight; y++)
+                {
+                    for (int x = 0; x < objectCountInCurrentRow; x++)
+                    {
+                        if (y * objectCountInCurrentRow + x >= count)
+                        {
+                            break; // 주어진 개수만큼만 생성
+                        }
+
+                        // 오브젝트의 위치 계산
+                        float xPos = x * objectWidth - (objectCountInCurrentRow - 1) * 0.5f * objectWidth;
+                        float yPos = -y * objectHeight;
+
+                        // 오브젝트 생성 및 위치 설정
+                        candyList[cot].transform.localPosition = new Vector3(xPos, yPos, 0);
+
+                        cot++;
+                    }
+
+                    objectCountInCurrentRow += 2; // 다음 층에서는 오브젝트 개수를 2개 늘림
+                }
+
+
+                break;
+
+            case CandyArrangeType.Circle:
+
+                objectWidth = 1.25f;
+                objectHeight = 1.25f;
+
+                int squareSideLength = Mathf.CeilToInt(Mathf.Sqrt(count)); // 한 변의 길이 계산
+
+                cot = 0;
+
+                for (int y = 0; y < squareSideLength; y++)
+                {
+                    for (int x = 0; x < squareSideLength; x++)
+                    {
+                        if (y * squareSideLength + x >= count)
+                        {
+                            break; // 주어진 개수만큼만 생성
+                        }
+
+                        // 오브젝트의 위치 계산
+                        float xPos = x * objectWidth - (squareSideLength - 1) * 0.5f * objectWidth;
+                        float yPos = -y * objectHeight;
+
+                        // 오브젝트 생성 및 위치 설정
+                        candyList[cot].transform.localPosition = new Vector3(xPos, yPos, 0);
+
+                        cot++;
+                    }
+                }
+
+                break;
         }
-        else
-        {
-            for (int i = 0; i < count; i++)
-            {
-                Vector3 position = new Vector3(startX + i * spacing + (spacing / 2f), candyList[i].transform.localPosition.y, 0f);
-                candyList[i].transform.localPosition = position;
-            }
-        }
+
     }
 
     public void TakeDamage(float damage, Vector3 hitPoint, bool knockBack = false)
@@ -738,7 +840,6 @@ public class RunManager : MonoBehaviour
             }
             mergeChecking = false;
         }
-
     }
 
     void MergeCandy(CandyHead first, CandyHead second)
@@ -748,7 +849,7 @@ public class RunManager : MonoBehaviour
 
         var center = (first.transform.localPosition + second.transform.localPosition) / 2;
         first.transform.DOLocalMove(center, 0.4f).OnComplete(() => { candyList.Remove(first.gameObject); Destroy(first.gameObject); });
-        second.transform.DOLocalMove(center, 0.4f).OnComplete(() => { second.UpgradeCandy(); ArrangeCandy(); });
+        second.transform.DOLocalMove(center, 0.4f).OnComplete(() => { second.UpgradeCandy(); ArrangeCandy(currentCandyArrangeType); });
     }
 
     public void StartIdleFirst()
@@ -765,5 +866,12 @@ public class RunManager : MonoBehaviour
                 // IdleManager.instance.blackPanel.gameObject.SetActive(false);
             });
     }
+}
 
+public enum CandyArrangeType
+{
+    Horizontal = 1,
+    Vertical = 2,
+    Pyramid = 3,
+    Circle = 4
 }
