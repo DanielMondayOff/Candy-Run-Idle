@@ -26,6 +26,23 @@ public class EventManager : MonoBehaviour
 
     }
 
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause)
+        {
+            var dic = new Dictionary<string, string>();
+            dic.Add("FLAG_TYPE", "PAUSE");
+#if UNITY_ANDROID
+            dic.Add("OS_TYPE", "AOS");
+#endif
+#if UNITY_IOS
+            dic.Add("OS_TYPE", "IOS");
+#endif
+            EventTracker.LogCustomEvent($"GAME_FLAG", dic);
+            TimeEvent("FLAG_TYPE", "PAUSE");
+        }
+    }
+
     public void CustomEvent(AnalyticsType type, string additionInfo, bool timeEvent = false, bool stageNum = false)
     {
         var dic = new Dictionary<string, string>();

@@ -5,6 +5,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 using Lofelt.NiceVibrations;
+using DG.Tweening;
 
 public class Util
 {
@@ -143,5 +144,12 @@ public class Util
     public static void ParticleStop(GameObject particle)
     {
         particle.GetComponent<ParticleSystem>()?.StopAllParticle();
+    }
+
+    public static Tween ManualTo(Action<float> func, float duration, System.Action onComplete)
+    {
+        float elapse = 0f;
+        return DOTween.To(() => elapse, (v) => { elapse = v; if (func != null) func(elapse); }, 1f, duration).
+            OnComplete(() => { if (onComplete != null) onComplete(); });
     }
 }

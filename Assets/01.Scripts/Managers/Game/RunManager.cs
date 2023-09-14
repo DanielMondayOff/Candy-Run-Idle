@@ -61,6 +61,13 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject canvas;
     [FoldoutGroup("참조")] public GameObject blackPanel;
 
+    [FoldoutGroup("참조")] public GameObject jarBlock;
+
+    [FoldoutGroup("참조")] public Camera uiCamera;
+    [FoldoutGroup("참조")] public Canvas particleCanvas;
+    [FoldoutGroup("참조")] public ParticleUI particleUI2;
+
+
 
     [TitleGroup("Game Value")] public int currentMoney;
     [TitleGroup("Game Value")] public bool fireBullet = false;
@@ -449,73 +456,151 @@ public class RunManager : MonoBehaviour
 
             case CandyArrangeType.Pyramid:
 
+                // print("캔디 개수 : " + count + " / 피라미드 높이 : " + (Mathf.Sqrt(2) / 2));
+
                 float objectWidth = 1.25f;
                 float objectHeight = 1.25f;
 
-                int triangleBaseWidth = Mathf.FloorToInt(Mathf.Sqrt(2 * count)); // 정삼각형의 밑변 길이 계산
-                int pyramidHeight = triangleBaseWidth / 2 + 1; // 피라미드의 높이 계산
+                int height = GetPyramidHeight(count);
 
-                int objectCountInCurrentRow = 1; // 각 층의 오브젝트 개수 초기화
+                int stack = 0;
 
-                int cot = 0;
-
-                for (int y = 0; y < pyramidHeight; y++)
+                for (int x = height; x != 0; x--)
                 {
-                    for (int x = 0; x < objectCountInCurrentRow; x++)
+                    float currentheight = 0.7f + (1f * (height - x));
+
+                    for (int i = 0; i < x; i++)
                     {
-                        if (y * objectCountInCurrentRow + x >= count)
-                        {
-                            break; // 주어진 개수만큼만 생성
-                        }
+                        spacing = 1.3f;
+                        startX = -spacing * (x / 2); // 시작 X 좌표 계산
 
-                        // 오브젝트의 위치 계산
-                        float xPos = x * objectWidth - (objectCountInCurrentRow - 1) * 0.5f * objectWidth;
-                        float yPos = -y * objectHeight;
+                        Vector3 position;
 
-                        // 오브젝트 생성 및 위치 설정
-                        candyList[cot].transform.localPosition = new Vector3(xPos, yPos, 0);
+                        if (x % 2 == 1)
+                            position = new Vector3((startX + (i * spacing)), currentheight, 0f);
+                        else
+                            position = new Vector3(startX + (i * spacing) + (spacing / 2f), currentheight, 0f);
 
-                        cot++;
+                        if (candyList.Count <= stack)
+                            return;
+
+                        candyList[stack].transform.localPosition = position;
+
+                        stack++;
+
+                        if (candyList.Count < stack)
+                            return;
+
+                        print("test");
+
                     }
-
-                    objectCountInCurrentRow += 2; // 다음 층에서는 오브젝트 개수를 2개 늘림
                 }
+                // int triangleBaseWidth = Mathf.FloorToInt(Mathf.Sqrt(2 * count)); // 정삼각형의 밑변 길이 계산
+                // int pyramidHeight = triangleBaseWidth / 2 + 1; // 피라미드의 높이 계산
+
+                // int objectCountInCurrentRow = 1; // 각 층의 오브젝트 개수 초기화
+
+                // int cot = 0;
+
+                // for (int y = 0; y < pyramidHeight; y++)
+                // {
+                //     for (int x = 0; x < objectCountInCurrentRow; x++)
+                //     {
+                //         if (y * objectCountInCurrentRow + x >= count)
+                //         {
+                //             break; // 주어진 개수만큼만 생성
+                //         }
+
+                //         // 오브젝트의 위치 계산
+                //         float xPos = x * objectWidth - (objectCountInCurrentRow - 1) * 0.5f * objectWidth;
+                //         float yPos = -y * objectHeight;
+
+                //         // 오브젝트 생성 및 위치 설정
+                //         candyList[cot].transform.localPosition = new Vector3(xPos, yPos, 0);
+
+                //         cot++;
+                //     }
+
+                //     objectCountInCurrentRow += 2; // 다음 층에서는 오브젝트 개수를 2개 늘림
+                // }
 
 
                 break;
 
-            case CandyArrangeType.Circle:
+            case CandyArrangeType.Squre:
 
                 objectWidth = 1.25f;
                 objectHeight = 1.25f;
 
-                int squareSideLength = Mathf.CeilToInt(Mathf.Sqrt(count)); // 한 변의 길이 계산
+                int squareSideLength = GetSqureSideLength(count);
 
-                cot = 0;
+                int cot2 = 0;
+
+                startX = -spacing * (count / 2); // 시작 X 좌표 계산
 
                 for (int y = 0; y < squareSideLength; y++)
                 {
                     for (int x = 0; x < squareSideLength; x++)
                     {
-                        if (y * squareSideLength + x >= count)
-                        {
-                            break; // 주어진 개수만큼만 생성
-                        }
-
+                        if (candyList.Count < cot2)
+                            return;
                         // 오브젝트의 위치 계산
-                        float xPos = x * objectWidth - (squareSideLength - 1) * 0.5f * objectWidth;
-                        float yPos = -y * objectHeight;
+                        // float xPos = (x * objectWidth) - (squareSideLength - 1) * 0.5f * objectWidth;
+
+                        float xPos;
+                        if (x % 2 == 1)
+                            xPos = (startX + (x * spacing));
+                        else
+                            xPos = startX + (x * spacing) + (spacing / 2f);
+
+                        float yPos = 0.75f + (y * objectHeight);
 
                         // 오브젝트 생성 및 위치 설정
-                        candyList[cot].transform.localPosition = new Vector3(xPos, yPos, 0);
+                        candyList[cot2].transform.localPosition = new Vector3(xPos, yPos, 0);
 
-                        cot++;
+                        cot2++;
                     }
                 }
 
                 break;
         }
+    }
 
+    public int GetPyramidHeight(int count)
+    {
+        int height = 0;
+        int tempCount = 0;
+
+        while (true)
+        {
+            tempCount += height;
+            // tempCount += height;
+            if (count - 1 < tempCount)
+            {
+                print("개수 : " + count + " / 피라미드의 높이 : " + (height - 1) + " / " + tempCount);
+
+                return height;
+            }
+
+            height++;
+        }
+
+        return 0;
+    }
+
+    public int GetSqureSideLength(int count)
+    {
+        int num1 = 1;
+        while (true)
+        {
+            if (count >= num1 * num1 && count <= (num1 + 1) * (num1 + 1))
+            {
+
+                return num1 + 1;
+            }
+            else
+                num1++;
+        }
     }
 
     public void TakeDamage(float damage, Vector3 hitPoint, bool knockBack = false)
@@ -698,6 +783,12 @@ public class RunManager : MonoBehaviour
                 EventManager.instance.CustomEvent(AnalyticsType.ADS, "Run_Interstital_EndStage", true, true);
 
         });
+
+        particleUI2.OnClickExpandBtn(true);
+
+        jarBlock.SetActive(false);
+
+        particleCanvas.worldCamera = uiCamera;
     }
 
     public void OnClickSellCandyBtnOnEndCardAfter4Stage()
@@ -873,5 +964,5 @@ public enum CandyArrangeType
     Horizontal = 1,
     Vertical = 2,
     Pyramid = 3,
-    Circle = 4
+    Squre = 4
 }
