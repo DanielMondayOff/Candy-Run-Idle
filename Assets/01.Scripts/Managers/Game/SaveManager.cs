@@ -22,6 +22,8 @@ public class SaveManager : MonoBehaviour
 
     public bool enableCandyInventoryUIUpdate = true;
 
+    [SerializeField] string USER_GUID;
+    public string Get_USER_GUID => USER_GUID;
 
     public static SaveManager instance = null;
 
@@ -51,6 +53,15 @@ public class SaveManager : MonoBehaviour
 
         if (ES3.KeyExists("CandyInventory"))
             candyInventory = ES3.Load<List<candySaveData>>("CandyInventory");
+
+        if (ES3.KeyExists("USER_GUID"))
+            USER_GUID = ES3.Load<string>("USER_GUID");
+        else
+        {
+            var USER_GUID = System.Guid.NewGuid().ToString();
+            ES3.Save<string>("USER_GUID", USER_GUID);
+        }
+
     }
 
     private void Start()
@@ -59,6 +70,12 @@ public class SaveManager : MonoBehaviour
 
         // MondayOFF.AdsManager.Initialize();
         // MondayOFF.AdsManager.ShowBanner();
+
+        MondayOFF.AdsManager.OnAfterInterstitial += () => { if (!ES3.KeyExists("IS_Showend")) ES3.Save<bool>("IS_Showend", true); };
+        MondayOFF.IAPManager.OnAfterPurchase += (isSuccess) =>
+            {
+                EventManager.instance.CustomEvent(AnalyticsType.IAP, "NoAdsPurchase", true, true);
+            };
     }
 
     public int GetMoney() => money;

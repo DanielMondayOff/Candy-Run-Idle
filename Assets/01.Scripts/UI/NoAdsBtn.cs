@@ -9,30 +9,34 @@ public class NoAdsBtn : MonoBehaviour
     [SerializeField] GameObject btn;
     void Start()
     {
-        if (MondayOFF.NoAds.IsNoAds)
-        {
+        MondayOFF.AdsManager.OnAfterInterstitial += Event;
 
-        }
-        else
-        {
+        if (!MondayOFF.NoAds.IsNoAds && ES3.KeyExists("IS_Showend") ? ES3.Load<bool>("IS_Showend") : false)
             btn.SetActive(true);
 
-
-            MondayOFF.IAPManager.OnAfterPurchase += (isSuccess) =>
-            {
-                gameObject.SetActive(false);
-
-                EventManager.instance.CustomEvent(AnalyticsType.IAP, "NoAdsPurchase", true, true);
-                //     MondayOFF.EventTracker.LogCustomEvent(
-                // "IAP",
-                // new Dictionary<string, string> { { "IAP_TYPE", "noads" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
-                // );
-            };
-        }
+        MondayOFF.IAPManager.OnAfterPurchase += (isSuccess) => OnPurcahseNoAds();
     }
+
+    void Event()
+    {
+        if (!MondayOFF.NoAds.IsNoAds) btn.SetActive(true);
+    }
+
+    void OnPurcahseNoAds()
+    {
+        if (btn != null)
+            btn.SetActive(false);
+    }
+
 
     public void OnClickNoAdsBtn()
     {
         MondayOFF.NoAds.Purchase();
+    }
+
+    private void OnDestroy()
+    {
+        MondayOFF.AdsManager.OnAfterInterstitial -= Event;
+        MondayOFF.IAPManager.OnAfterPurchase -= (isSuccess) => OnPurcahseNoAds();
     }
 }

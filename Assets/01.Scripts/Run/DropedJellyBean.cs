@@ -28,6 +28,16 @@ public class DropedJellyBean : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            var particle = Managers.Pool.Pop(Managers.Resource.Load<GameObject>("Particles/Jelly Particle"));
+
+            particle.transform.position = transform.position;
+            var renderer = particle.GetComponentInChildren<ParticleSystemRenderer>();
+            renderer.material = meshRenderer.material;
+
+            particle.GetComponentInChildren<ParticleSystem>().Play();
+
+            RunManager.instance.TaskDelay(3, () => Managers.Pool.Push(particle.GetComponentInChildren<Poolable>()));
+
             RunManager.instance.AddCandyLength(value);
             gameObject.SetActive(false);
 

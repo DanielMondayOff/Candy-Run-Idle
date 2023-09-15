@@ -11,6 +11,8 @@ public class ABManager : MonoBehaviour
 
     public static ABManager instance;
 
+    public static Dictionary<string, string> AB_Dic = new Dictionary<string, string>();
+
     private void Awake()
     {
         instance = this;
@@ -108,6 +110,27 @@ public class ABManager : MonoBehaviour
         Debug.Log("RemoteConfigService.Instance.appConfig fetched: " + RemoteConfigService.Instance.appConfig.config.ToString());
 
         // SelectStart(RemoteConfigService.Instance.appConfig.GetString("StartSelect"));
+
+        AB_Dic.Add("ForceIdle", RemoteConfigService.Instance.appConfig.GetString("ForceIdle"));
+        AB_Dic.Add("CandyStackType", RemoteConfigService.Instance.appConfig.GetString("CandyStackType"));
+
         SelectStart("A");
+
+        foreach (var ab in AB_Dic)
+        {
+            if (ab.Key.Equals("ForceIdle"))
+            {
+                RunManager.instance.SetForceIdle(RemoteConfigService.Instance.appConfig.GetBool("ForceIdle"));
+                EventManager.instance.CustomEvent(AnalyticsType.AB_TEST, "ForceIdle_" + ab.Value);
+            }
+
+            if (ab.Key.Equals("CandyStackType"))
+            {
+                RunManager.instance.SetCandyArarngeType((CandyArrangeType)System.Enum.Parse(typeof(CandyArrangeType), ab.Value));
+                EventManager.instance.CustomEvent(AnalyticsType.AB_TEST, "CandyStackType" + RemoteConfigService.Instance.appConfig.GetBool("CandyStackType"));
+            }
+
+            print("RemoteConfigService.Instance.appConfig fetched: " + ab.Key + " - " + ab.Value);
+        }
     }
 }

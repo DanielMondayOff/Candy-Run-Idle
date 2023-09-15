@@ -124,7 +124,6 @@ public class MoneyDrops : SaveableObject
 
                     other.GetComponent<PlayerMoneyText>().ChangeFloatingText(5);
 
-
                     if (ES3.KeyExists("NextStageEnable"))
                         if (ES3.Load<bool>("NextStageEnable") && IdleManager.instance.playIdle)
                             success = MondayOFF.AdsManager.ShowInterstitial();

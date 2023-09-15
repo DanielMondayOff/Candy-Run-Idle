@@ -18,12 +18,10 @@ public class EventManager : MonoBehaviour
 
     private void Start()
     {
-
         if (ES3.KeyExists("playtime"))
             playtime = ES3.Load<int>("playtime");
 
         this.TaskWhile(30, 0, () => { playtime += 30; ES3.Save<int>("playtime", playtime); });
-
     }
 
     private void OnApplicationPause(bool pause)
@@ -53,6 +51,14 @@ public class EventManager : MonoBehaviour
 #if UNITY_IOS
         dic.Add("OS_TYPE", "IOS");
 #endif
+
+        //GUID 
+        dic.Add("USER_GUID", SaveManager.instance.Get_USER_GUID);
+
+        //AB_TEST
+        foreach (var ab in ABManager.AB_Dic)
+            dic.Add(ab.Key, ab.Value);
+
         EventTracker.LogCustomEvent($"GAME_FLAG", dic);
         if (timeEvent)
             TimeEvent("FLAG_TYPE", $"{type} - {additionInfo}");
@@ -72,6 +78,15 @@ public class EventManager : MonoBehaviour
 #if UNITY_IOS
         dic.Add("OS_TYPE", "IOS");
 #endif
+
+        //GUID 
+        dic.Add("USER_GUID", SaveManager.instance.Get_USER_GUID);
+
+        //AB_TEST
+        foreach (var ab in ABManager.AB_Dic)
+            dic.Add(ab.Key, ab.Value);
+
+
         EventTracker.LogCustomEvent($"TIME_TRACE", dic);
     }
 
@@ -80,14 +95,6 @@ public class EventManager : MonoBehaviour
         var dic = new Dictionary<string, string>();
         dic.Add(paramName, value);
 
-        if (ES3.KeyExists("GUID"))
-            dic.Add("UID", ES3.Load<string>("GUID"));
-        else
-        {
-            var newGuid = System.Guid.NewGuid().ToString();
-            ES3.Save<string>("GUID", newGuid);
-            dic.Add("UID", newGuid);
-        }
 
         dic.Add("STAGENUM", StageManager.instance.currentStageNum.ToString());
 #if UNITY_ANDROID
@@ -96,6 +103,14 @@ public class EventManager : MonoBehaviour
 #if UNITY_IOS
         dic.Add("OS_TYPE", "IOS");
 #endif
+
+        //GUID 
+        dic.Add("USER_GUID", SaveManager.instance.Get_USER_GUID);
+
+        //AB_TEST
+        foreach (var ab in ABManager.AB_Dic)
+            dic.Add(ab.Key, ab.Value);
+
         EventTracker.LogCustomEvent($"STAGE_TRACE", dic);
     }
 }
@@ -108,5 +123,6 @@ public enum AnalyticsType
     RUN,
     IAP,
     RV,
-    ADS
+    ADS,
+    AB_TEST
 }

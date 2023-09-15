@@ -38,6 +38,14 @@ public class Counter : MonoBehaviour
 
         if (customerList.Count > 0)
         {
+            if (!ES3.KeyExists("FirstCounter"))
+            {
+                IdleManager.instance.idlePlayer.ActiveNaviArrow(selfCounter.transform);
+                ES3.Save<bool>("FirstCounter", true);
+
+                Debug.LogError("2414414124124124");
+            }
+
             if (Vector3.Distance(customerList[0].transform.position, customerQueueLine[0].transform.position) < 1f)
             {
                 //계산하기

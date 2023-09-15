@@ -100,6 +100,10 @@ public class RunManager : MonoBehaviour
     private bool mergeChecking = false;
 
     private CandyArrangeType currentCandyArrangeType = CandyArrangeType.Horizontal;
+    public void SetCandyArarngeType(CandyArrangeType type) => currentCandyArrangeType = type;
+
+    private static bool forceIdle = true;
+    public void SetForceIdle(bool force) => forceIdle = force;
 
     TempCandyInventory tempCandyInventory;
     private void Awake()
@@ -785,9 +789,8 @@ public class RunManager : MonoBehaviour
         });
 
         particleUI2.OnClickExpandBtn(true);
-
+        particleUI2.GetComponentInChildren<CandyInventory>().GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, particleUI2.GetComponentInChildren<CandyInventory>().GetComponent<RectTransform>().anchoredPosition3D.y, 0);
         jarBlock.SetActive(false);
-
         particleCanvas.worldCamera = uiCamera;
     }
 

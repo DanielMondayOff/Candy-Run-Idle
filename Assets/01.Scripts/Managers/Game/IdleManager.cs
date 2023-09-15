@@ -36,6 +36,8 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject blackPanel;
     [FoldoutGroup("참조")] public LineRenderer arrowLine = null;
     [FoldoutGroup("참조")] public Transform playerTrans;
+    [FoldoutGroup("참조")] public IdlePlayer idlePlayer;
+
 
     public CanvasGroup[] idleUIs;
 
