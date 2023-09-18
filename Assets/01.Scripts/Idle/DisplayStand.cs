@@ -66,6 +66,9 @@ public class DisplayStand : BuildObject
 
     [SerializeField] public CandyMachine currentMachine;
 
+    [SerializeField] MeshRenderer meshRenderer;
+    [SerializeField] Vector3 materialOffset;
+
 
     private void Start()
     {
@@ -90,6 +93,8 @@ public class DisplayStand : BuildObject
         }
 
         inventoryUI.Init(itemId, items.Count);
+
+        meshRenderer.material.mainTextureOffset = materialOffset;
     }
 
     public void Init()

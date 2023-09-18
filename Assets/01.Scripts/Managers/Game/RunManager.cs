@@ -546,42 +546,42 @@ public class RunManager : MonoBehaviour
 
                 break;
 
-            case CandyArrangeType.Squre:
+                // case CandyArrangeType.Squre:
 
-                objectWidth = 1.25f;
-                objectHeight = 1.25f;
+                //     objectWidth = 1.25f;
+                //     objectHeight = 1.25f;
 
-                int squareSideLength = GetSqureSideLength(count);
+                //     int squareSideLength = GetSqureSideLength(count);
 
-                int cot2 = 0;
+                //     int cot2 = 0;
 
-                startX = -spacing * (count / 2); // 시작 X 좌표 계산
+                //     startX = -spacing * (count / 2); // 시작 X 좌표 계산
 
-                for (int y = 0; y < squareSideLength; y++)
-                {
-                    for (int x = 0; x < squareSideLength; x++)
-                    {
-                        if (candyList.Count < cot2)
-                            return;
-                        // 오브젝트의 위치 계산
-                        // float xPos = (x * objectWidth) - (squareSideLength - 1) * 0.5f * objectWidth;
+                //     for (int y = 0; y < squareSideLength; y++)
+                //     {
+                //         for (int x = 0; x < squareSideLength; x++)
+                //         {
+                //             if (candyList.Count < cot2)
+                //                 return;
+                //             // 오브젝트의 위치 계산
+                //             // float xPos = (x * objectWidth) - (squareSideLength - 1) * 0.5f * objectWidth;
 
-                        float xPos;
-                        if (x % 2 == 1)
-                            xPos = (startX + (x * spacing));
-                        else
-                            xPos = startX + (x * spacing) + (spacing / 2f);
+                //             float xPos;
+                //             if (x % 2 == 1)
+                //                 xPos = (startX + (x * spacing));
+                //             else
+                //                 xPos = startX + (x * spacing) + (spacing / 2f);
 
-                        float yPos = 0.75f + (y * objectHeight);
+                //             float yPos = 0.75f + (y * objectHeight);
 
-                        // 오브젝트 생성 및 위치 설정
-                        candyList[cot2].transform.localPosition = new Vector3(xPos, yPos, 0);
+                //             // 오브젝트 생성 및 위치 설정
+                //             candyList[cot2].transform.localPosition = new Vector3(xPos, yPos, 0);
 
-                        cot2++;
-                    }
-                }
+                //             cot2++;
+                //         }
+                //     }
 
-                break;
+                //     break;
         }
     }
 
@@ -982,5 +982,5 @@ public enum CandyArrangeType
     Horizontal = 1,
     Vertical = 2,
     Pyramid = 3,
-    Squre = 4
+    // Squre = 4
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Counter : MonoBehaviour
 {
@@ -12,10 +13,15 @@ public class Counter : MonoBehaviour
     [SerializeField] GameObject selfCounter;
     [SerializeField] Collider selfCounterCollider;
 
+    [SerializeField] Vector3 selfCounterDefaultScale = new Vector3(8, 8, 8);
+
 
     [SerializeField] bool counterReady = false;
 
     private TaskUtil.DelayTaskMethod counterDelay = null;
+
+    Tween groundTween = null;
+
 
     private void Start()
     {
@@ -50,9 +56,9 @@ public class Counter : MonoBehaviour
             {
                 //계산하기
 
-                customerList[0].SetTimer(2.5f);
+                customerList[0].SetTimer(1.5f);
 
-                counterDelay = this.TaskDelay(2.5f, () =>
+                counterDelay = this.TaskDelay(1.5f, () =>
                 {
                     CandyItem candyItem = customerList[0].candyInventory;
 
@@ -68,8 +74,6 @@ public class Counter : MonoBehaviour
 
                     counterDelay = null;
                 });
-
-
             }
         }
     }
@@ -87,6 +91,10 @@ public class Counter : MonoBehaviour
         if (other.tag.Equals("Player"))
         {
             counterReady = true;
+
+            if (groundTween != null)
+                groundTween.Kill();
+            groundTween = selfCounter.transform.DOScale(selfCounterDefaultScale * 1.2f, 0.5f).SetEase(Ease.InOutBack);
         }
     }
 
@@ -95,6 +103,10 @@ public class Counter : MonoBehaviour
         if (other.tag.Equals("Player"))
         {
             counterReady = false;
+
+            if (groundTween != null)
+                groundTween.Kill();
+            groundTween = selfCounter.transform.DOScale(selfCounterDefaultScale, 0.5f).SetEase(Ease.InOutBack);
         }
     }
 
