@@ -74,6 +74,14 @@ public class StageManager : MonoBehaviour
         MondayOFF.EventTracker.ClearStage(currentStageNum);
     }
 
+    public void BackStage()
+    {
+        if (currentStageNum > 0)
+            currentStageNum--;
+
+        ES3.Save<int>("CurrentStageNum", currentStageNum);
+    }
+
     public void GenerateRandomStage()
     {
         randomMapGenerator.GenerateMap();

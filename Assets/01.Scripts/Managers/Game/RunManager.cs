@@ -105,6 +105,8 @@ public class RunManager : MonoBehaviour
     private static bool forceIdle = true;
     public void SetForceIdle(bool force) => forceIdle = force;
 
+    public bool fireBulletEnable = true;
+
     TempCandyInventory tempCandyInventory;
     private void Awake()
     {
@@ -113,7 +115,7 @@ public class RunManager : MonoBehaviour
 
     private void Start()
     {
-        fireTask = this.TaskWhile(RunManager.instance.GetCurrentFireRate(), 1, () => { if (fireBullet && !cuttingPhase && !isGameEnd) { candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().GenerateBullet()); } });
+        fireTask = this.TaskWhile(RunManager.instance.GetCurrentFireRate(), 1, () => { if (fireBullet && !cuttingPhase && !isGameEnd && fireBulletEnable) { candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().GenerateBullet()); } });
         CandyInventory.instance.SyncCurrentCandyUI();
 
         if (StageManager.instance.currentStageNum == 2)
@@ -272,6 +274,8 @@ public class RunManager : MonoBehaviour
             {
                 canvas.alpha = (canvas.alpha == 1) ? 0 : 1;
             }
+
+            particleCanvas.gameObject.SetActive(!particleCanvas.gameObject.activeSelf);
         }
 
         if (Input.GetKeyDown(KeyCode.F3))
@@ -284,7 +288,18 @@ public class RunManager : MonoBehaviour
             }
 
             currentCandyArrangeType = (CandyArrangeType)nextEnumIndex;
+        }
 
+        if (Input.GetKeyDown(KeyCode.F4))
+        {
+            fireBulletEnable = !fireBulletEnable;
+        }
+
+        if (Input.GetKeyDown(KeyCode.F7))
+        {
+            StageManager.instance.BackStage();
+            SceneManager.UnloadScene("Run");
+            SceneManager.LoadScene("Run", LoadSceneMode.Additive);
         }
     }
 
@@ -391,7 +406,7 @@ public class RunManager : MonoBehaviour
                 break;
 
             case PillerType.Range:
-                plusBulletRange += (value / 1000f);
+                plusBulletRange += (value / 7f);
 
                 break;
 

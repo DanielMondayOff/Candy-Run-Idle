@@ -11,6 +11,8 @@ public class DropedJellyBean : MonoBehaviour
     public float value = 50f;
     public float maxValue = 200f;
 
+    public bool changeJellyColor = true;
+
     private void Start()
     {
         Init();
@@ -18,10 +20,13 @@ public class DropedJellyBean : MonoBehaviour
 
     public void Init()
     {
-        int randomIndex = Random.Range(0, RunManager.instance.jellyBeanMats.Length);
-        var mat = RunManager.instance.jellyBeanMats[randomIndex];
-        Material[] materials = { mat };
-        meshRenderer.materials = materials;
+        if (changeJellyColor)
+        {
+            int randomIndex = Random.Range(0, RunManager.instance.jellyBeanMats.Length);
+            var mat = RunManager.instance.jellyBeanMats[randomIndex];
+            Material[] materials = { mat };
+            meshRenderer.materials = materials;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
