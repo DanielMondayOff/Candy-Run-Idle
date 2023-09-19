@@ -45,7 +45,7 @@ namespace MondayOFF
 
             EverydayLogger.Info($"Consent status: {consentStatus}");
 
-            // PrepareSettings(consentStatus);
+            PrepareSettings(consentStatus);
 
             // Initialize Facebook
             EverydayLogger.Info("Initializing Facebook SDK");

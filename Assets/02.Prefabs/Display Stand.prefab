@@ -840,6 +840,8 @@ MonoBehaviour:
   Debug_distToCustomer: 0
   inventoryUI: {fileID: 8077157090566941347}
   currentMachine: {fileID: 0}
+  meshRenderer: {fileID: 459424204382596082}
+  materialOffset: {x: 0, y: 0, z: 0}
 --- !u!1 &2765126007065003271
 GameObject:
   m_ObjectHideFlags: 0
@@ -1702,12 +1704,12 @@ PrefabInstance:
     - target: {fileID: 9095605934323236486, guid: 71a646e4c7d4045149ed9ec85dc5f909,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8949344
+      value: 0.9848078
       objectReference: {fileID: 0}
     - target: {fileID: 9095605934323236486, guid: 71a646e4c7d4045149ed9ec85dc5f909,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.44619775
+      value: 0.17364798
       objectReference: {fileID: 0}
     - target: {fileID: 9095605934323236486, guid: 71a646e4c7d4045149ed9ec85dc5f909,
         type: 3}

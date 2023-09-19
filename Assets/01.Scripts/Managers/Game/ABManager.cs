@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 using Unity.Services.RemoteConfig;
 using Unity.Services.Authentication;
 using Unity.Services.Core;
+using Sirenix.OdinInspector;
 
-public class ABManager : MonoBehaviour
+public class ABManager : SerializedMonoBehaviour
 {
 
     public static ABManager instance;
@@ -128,6 +129,8 @@ public class ABManager : MonoBehaviour
             {
                 RunManager.instance.SetCandyArarngeType((CandyArrangeType)System.Enum.Parse(typeof(CandyArrangeType), ab.Value));
                 EventManager.instance.CustomEvent(AnalyticsType.AB_TEST, "CandyStackType" + RemoteConfigService.Instance.appConfig.GetBool("CandyStackType"));
+
+                ES3.Save<CandyArrangeType>("CandyArrangeType", (CandyArrangeType)System.Enum.Parse(typeof(CandyArrangeType), ab.Value));
             }
 
             print("RemoteConfigService.Instance.appConfig fetched: " + ab.Key + " - " + ab.Value);

@@ -12,6 +12,8 @@ public class BuildObject : SaveableObject
 
     [SerializeField] Vector3 buildSize = Vector3.one;
 
+    [SerializeField] bool SpawnParticle = false;
+
     private void Awake()
     {
         Sleep();
@@ -44,6 +46,8 @@ public class BuildObject : SaveableObject
             transform.DOScale(buildSize, 0.5f).SetEase(Ease.OutBack).OnComplete(OnCompleteBuild);
         }
 
+        if (SpawnParticle)
+            IdleManager.instance.PopParticle("Particles/Dust_Big", transform.position + Vector3.up * 3);
 
         void OnCompleteBuild()
         {

@@ -423,7 +423,7 @@ public class IdleManager : MonoBehaviour
 
         SpawnWorker(1);
 
-        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "HireWorker", true, true);
+        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - HireWorker", true, true);
 
 
         // MondayOFF.EventTracker.LogCustomEvent(
@@ -445,7 +445,7 @@ public class IdleManager : MonoBehaviour
 
         workers.ForEach((n) => n.ChangeMoveSpeed(workerSpeed[workerSpeedUp.currentLevel]));
 
-        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "WorkerSpeedUp", true, true);
+        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - WorkerSpeedUp", true, true);
 
         // MondayOFF.EventTracker.LogCustomEvent(
         // "IDLE",
@@ -465,7 +465,7 @@ public class IdleManager : MonoBehaviour
 
         SetCustomerSpawnSpeed(customerSpawnSpeed[promotion.currentLevel]);
 
-        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Promotion", true, true);
+        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - Promotion", true, true);
 
 
         //         MondayOFF.EventTracker.LogCustomEvent(
@@ -484,7 +484,7 @@ public class IdleManager : MonoBehaviour
 
         ES3.Save<IdleUpgrade>("income", extraIncome);
 
-        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Income", true, true);
+        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - Income", true, true);
 
 
         //         MondayOFF.EventTracker.LogCustomEvent(
@@ -505,7 +505,7 @@ public class IdleManager : MonoBehaviour
 
         playerMovement.SetPlayerMoveSpeed(playerSpeed[playerSpeedUp.currentLevel]);
 
-        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "PlayerSpeedUp", true, true);
+        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - PlayerSpeedUp", true, true);
 
         //         MondayOFF.EventTracker.LogCustomEvent(
         //         "IDLE",
@@ -523,7 +523,7 @@ public class IdleManager : MonoBehaviour
 
         ES3.Save<IdleUpgrade>("playerCapacity", playerCapacity);
 
-        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "PlayerCapacityUp", true, true);
+        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - PlayerCapacityUp", true, true);
     }
 
     public void Upgrade_WorkerCapacityUp()
@@ -536,7 +536,7 @@ public class IdleManager : MonoBehaviour
 
         ES3.Save<IdleUpgrade>("workerCapacity", workerCapacity);
 
-        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "WorkerCapacityUp", true, true);
+        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - WorkerCapacityUp", true, true);
     }
 
     public void SetCustomerSpawnSpeed(float speed)

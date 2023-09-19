@@ -42,7 +42,6 @@ public class Collector : MonoBehaviour
     public bool ignoreMultifly = false;
 
     public UnityEvent onComplete = null;
-
     public UnityEvent onComplete_userOnly = null;
 
     public int requireMoney;

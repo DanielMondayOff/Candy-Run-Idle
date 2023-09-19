@@ -59,12 +59,19 @@ public class EventManager : MonoBehaviour
         foreach (var ab in ABManager.AB_Dic)
             dic.Add(ab.Key, ab.Value);
 
-        EventTracker.LogCustomEvent($"GAME_FLAG", dic);
         if (timeEvent)
+        {
+            dic.Add("TIME", playtime.ToString());
             TimeEvent("FLAG_TYPE", $"{type} - {additionInfo}");
+        }
 
         if (stageNum)
+        {
+            dic.Add("STAGENUM", StageManager.instance.currentStageNum.ToString());
             StageNum("FLAG_TYPE", $"{type} - {additionInfo}");
+        }
+        
+        EventTracker.LogCustomEvent($"GAME_FLAG", dic);
     }
 
     void TimeEvent(string paramName, string value)

@@ -143,6 +143,8 @@ public class RunManager : MonoBehaviour
             if (ES3.Load<bool>("NextStageEnable"))
                 blackPanel.SetActive(false);
 
+        currentCandyArrangeType = ES3.KeyExists("CandyArrangeType") ? ES3.Load<CandyArrangeType>("CandyArrangeType") : CandyArrangeType.Horizontal;
+
         // ABManager.instance.SelectStart("B");
 
         // MondayOFF.AdsManager.ShowBanner();
