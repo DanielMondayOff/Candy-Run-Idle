@@ -73,16 +73,22 @@ public class CandyInventory : MonoBehaviour
         {
             var newItem = Instantiate(Resources.Load<GameObject>("UI/CandyItem"), transform).GetComponent<CandyInventoryItem>();
 
-            newItem.InitCandy(item.candy, item.count, true);
+            newItem.InitCandy(item.candy, item.count, false);
             itemList.Add(newItem);
         }
     }
 
     public void CandyGetAnimation(List<CandyItem> candyItems)
     {
-        misteryCandyItem.gameObject.SetActive(false);
+        if (misteryCandyItem != null)
+            misteryCandyItem.gameObject.SetActive(false);
+
+        print(candyItems.Count);
+
         foreach (var item in candyItems)
         {
+            print(item.candy.id + " " + item.count);
+
             var attractor = Instantiate(Resources.Load<GameObject>("UI/UIAttractor"), transform.parent);
 
             GetCandyInventoryEvent(item.candy.id);

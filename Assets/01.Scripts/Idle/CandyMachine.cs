@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using MoreMountains.NiceVibrations;
+using System.Linq;
 
 public class CandyMachine : BuildObject
 {
@@ -250,6 +251,12 @@ public class CandyMachine : BuildObject
 
             EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Player Take Candy_" + candyItem.id, true, true);
 
+
+            if (!ES3.KeyExists("FirstPlayerCandyTake"))
+            {
+                IdleManager.instance.idlePlayer.ActiveNaviArrow(IdleManager.instance.candyDisplayStandList.Where((n) => n.isReady).First().transform);
+                ES3.Save<bool>("FirstPlayerCandyTake", true);
+            }
         }
     }
 

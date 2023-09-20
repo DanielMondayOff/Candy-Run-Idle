@@ -39,20 +39,26 @@ public class Counter : MonoBehaviour
 
     public void Check()
     {
+        if (!ES3.KeyExists("FirstCounter"))
+            if (customerList.Count > 0)
+            {
+                if (Vector3.Distance(customerList[0].transform.position, customerQueueLine[0].transform.position) < 1f)
+                {
+                    IdleManager.instance.idlePlayer.ActiveNaviArrow(selfCounter.transform);
+                    ES3.Save<bool>("FirstCounter", true);
+                }
+            }
+
         if (!counterReady || counterDelay != null)
             return;
 
         if (customerList.Count > 0)
         {
-            if (!ES3.KeyExists("FirstCounter"))
-            {
-                IdleManager.instance.idlePlayer.ActiveNaviArrow(selfCounter.transform);
-                ES3.Save<bool>("FirstCounter", true);
-            }
-
             if (Vector3.Distance(customerList[0].transform.position, customerQueueLine[0].transform.position) < 1f)
             {
                 //계산하기
+
+
 
                 customerList[0].SetTimer(1.5f);
 

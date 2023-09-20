@@ -14,10 +14,12 @@ public class ItemObject : MonoBehaviour
         this.item = item;
     }
 
-    public void Jump(Transform parent, float jumpPower = 3f, System.Action onComplete = null)
+    public void Jump(Transform parent, float jumpPower = 3f, System.Action onComplete = null, bool rotate = false)
     {
 
         transform.DOLocalJump(Vector3.zero, jumpPower, 1, 0.3f).OnComplete(() => { if (onComplete != null) Managers.Pool.Push(GetComponent<Poolable>()); }).OnStart(() => gameObject.transform.SetParent(parent));
+        if (rotate)
+            transform.DOLocalRotate(Vector3.zero, 0.3f);
     }
 
     public void Move(Transform parent)

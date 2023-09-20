@@ -67,6 +67,10 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public Canvas particleCanvas;
     [FoldoutGroup("참조")] public ParticleUI particleUI2;
 
+    [FoldoutGroup("참조")] public GameObject x2ClaimBtn;
+    [FoldoutGroup("참조")] public GameObject noThanksBtn;
+
+
 
 
     [TitleGroup("Game Value")] public int currentMoney;
@@ -96,6 +100,9 @@ public class RunManager : MonoBehaviour
     private List<GameObject> cuttedCandys = new List<GameObject>();
 
     TaskUtil.WhileTaskMethod fireTask;
+    TaskUtil.DelayTaskMethod noThanksTask;
+
+    private TempCandyInventory lastCandyInventory;
 
     private bool mergeChecking = false;
 
@@ -758,6 +765,8 @@ public class RunManager : MonoBehaviour
 
     public void EndCuttingCandy(TempCandyInventory temp)
     {
+        lastCandyInventory = temp;
+
         SaveManager.instance.enableCandyInventoryUIUpdate = false;
         cuttingPhase = false;
 
@@ -784,7 +793,7 @@ public class RunManager : MonoBehaviour
             // }
             else
             {
-                nextStageBtn.SetActive(true);
+                x2ClaimBtn.SetActive(true);
             }
 
             runEndUI.SetActive(true);
@@ -792,6 +801,11 @@ public class RunManager : MonoBehaviour
 
             EndCandyInventoryUI.ClearUI();
             EndCandyInventoryUI.GenerateUIfromList(temp.candyItems);
+
+            foreach (var text in EndCandyInventoryUI.GetComponentsInChildren<UnityEngine.UI.Text>())
+                text.color = Color.white;
+
+            noThanksTask = this.TaskDelay(2f, () => noThanksBtn.SetActive(true));
 
             SaveManager.instance.enableCandyInventoryUIUpdate = true;
 
@@ -827,6 +841,41 @@ public class RunManager : MonoBehaviour
         SaveManager.instance.enableCandyInventoryUIUpdate = true;
 
         ResetRunGame();
+
+        EventManager.instance.CustomEvent(AnalyticsType.UI, "onClickNoThanksBtn", true, true);
+
+    }
+
+    public void OnClickX2ClaimBtn()
+    {
+        MondayOFF.AdsManager.ShowRewarded(() =>
+        {
+            SaveManager.instance.enableCandyInventoryUIUpdate = false;
+
+            // particleCanvas.worldCamera = null;
+
+            runGameUI.GetComponent<Canvas>().worldCamera = uiCamera;
+
+            x2ClaimBtn.SetActive(false);
+
+            SaveManager.instance.AddCandy(lastCandyInventory.candyItems, false);
+
+            particleUI.GetComponentInChildren<CandyInventory>().CandyGetAnimation(lastCandyInventory.candyItems);
+
+            EventManager.instance.CustomEvent(AnalyticsType.RV, "x2Claim", true, true);
+
+            this.TaskDelay(2f, () =>
+            {
+                SaveManager.instance.enableCandyInventoryUIUpdate = true;
+                ResetRunGame();
+            });
+        });
+
+        if (noThanksTask != null)
+        {
+            noThanksTask.Kill();
+            noThanksTask = null;
+        }
     }
 
     public void OnClickSellCandyBtn()
