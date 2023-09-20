@@ -64,7 +64,7 @@ public class IdleManager : MonoBehaviour
     public readonly float[] customerSpawnSpeed = { 4f, 3.5f, 3f, 2.5f, 2f, 1.5f, 1f, 1f, 1f, 1f, 1f };
     public readonly float[] maxCustomerCount = { 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
     public readonly float[] extraIncomePercent = { 1f, 1.1f, 1.2f, 1.3f, 1.4f, 1.5f, 1.6f, 1.7f, 1.8f, 1.9f, 2f };
-    public readonly float[] playerSpeed = { 11, 11.5f, 12f, 12.5f, 13f, 13.5f, 14f, 14.5f, 15f, 15.5f, 16f };
+    public readonly float[] playerSpeed = { 13, 13.5f, 14f, 14.5f, 15f, 15.5f, 16f, 16.5f, 17f, 17.5f, 18f };
     public readonly float[] playerCapacityValue = { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
     public readonly float[] workerCapacityValue = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
 
@@ -688,9 +688,9 @@ public class IdleManager : MonoBehaviour
 
         // var useableCandyMachines = candyMachines.Where((n) => n.isReady && n.candyItem != null && n.CheckHasQueue());
 
-        var useableCandySlots = candySlots.Where((n) => n.isReady && n.CheckHasQueue());
+        var useableCandySlots = candySlots.Where((n) => n.isReady && n.CheckHasQueue() && n.IsEnableEnqueue());
 
-        var useableCandyDisplayStand = candyDisplayStandList.Where((n) => n.isReady && n.CheckHasQueue());
+        var useableCandyDisplayStand = candyDisplayStandList.Where((n) => n.isReady && n.CheckHasQueue() && n.IsEnableEnqueue());
 
         // if (useableCandyMachines.ToArray().Length > 0)
         //     randomList.Add(candyBuildType.CandyMachine);

@@ -41,10 +41,13 @@ public class DisplayStand : BuildObject
 
     [SerializeField] Transform[] customerQueueLine;
     [SerializeField] List<IdleCustomer> customerList = new List<IdleCustomer>();
+    public int GetCustomerCount => customerList.Count;
+    public bool IsEnableEnqueue() => maxQueueCount > customerList.Count;
 
     [SerializeField] public int itemId;
 
     public bool isReady = false;
+    public int maxQueueCount = 3;
 
 
     private TaskUtil.WhileTaskMethod checkPlayerItemWhileTask = null;
@@ -222,23 +225,24 @@ public class DisplayStand : BuildObject
             {
                 if (items.Count <= 0)
                 {
-                    pause = true;
-                    this.TaskDelay(2.5f, () =>
-                    {
-                        customerList[0].Exit();
-                        // delayTimer = null;
-                        customerList[0].GenerateEmoji("Particles/Dispoint");
-                        customerList.Remove(customerList[0]);
+                    // pause = true;
 
-                        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Customer Dispoint_" + itemId, true, true);
+                    // this.TaskDelay(2.5f, () =>
+                    // {
+                    //     customerList[0].Exit();
+                    //     // delayTimer = null;
+                    //     customerList[0].GenerateEmoji("Particles/Dispoint");
+                    //     customerList.Remove(customerList[0]);
 
-                        UpdateLine();
+                    //     EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Customer Dispoint_" + itemId, true, true);
 
-                        //     if (ES3.Load<bool>("NextStageEnable") == )
-                        //         IdleManager.instance.HighlightNextStageBtn();
+                    //     UpdateLine();
 
-                        pause = false;
-                    });
+                    //     //     if (ES3.Load<bool>("NextStageEnable") == )
+                    //     //         IdleManager.instance.HighlightNextStageBtn();
+
+                    //     pause = false;
+                    // });
                 }
                 else
                 {
@@ -260,7 +264,7 @@ public class DisplayStand : BuildObject
     {
         // customer.SetTimer(2.5f);
 
-        candyGiveDelay = this.TaskDelay(0.5f, () =>
+        candyGiveDelay = this.TaskDelay(0.1f, () =>
         {
 
             IdleManager.instance.counter.EnqueueCustomer(customer);

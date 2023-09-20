@@ -17,6 +17,10 @@ public class CandySlot : BuildObject
 
     public int level = 1;
 
+    public int maxQueueCount = 3;
+    public bool IsEnableEnqueue() => maxQueueCount < customerList.Count;
+
+
     TaskUtil.DelayTaskMethod candyGiveDelay = null;
 
     public void Init()
