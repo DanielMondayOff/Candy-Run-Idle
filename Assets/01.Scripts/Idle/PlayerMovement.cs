@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 moveDir;
     private float angle;
     public float moveSpeed;
+    public float extraSpeed = 0;
 
     public float GetCurrentMoveSpeed() => touchField.distBetweenJoystickBodyToHandle;
 
@@ -41,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
         float nomalizeMoveSpeed = touchField.distBetweenJoystickBodyToHandle;
 
-        var delta = new Vector3(moveDir.x, 0, moveDir.y) * (moveSpeed) * Time.deltaTime;
+        var delta = new Vector3(moveDir.x, 0, moveDir.y) * (moveSpeed + extraSpeed) * Time.deltaTime;
         agent.Move(delta);
 
         if (nomalizeMoveSpeed == 0)

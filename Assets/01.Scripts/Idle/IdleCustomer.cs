@@ -41,6 +41,9 @@ public class IdleCustomer : SerializedMonoBehaviour
     [SerializeField] ParticleSystem leftFootStepDust;
     [SerializeField] ParticleSystem rightFootStepDust;
 
+    public int requestItemCount = 1;
+    public int currentItemCount = 0;
+
     public int CalculateTotalCost()
     {
         int cost = 0;
@@ -60,6 +63,8 @@ public class IdleCustomer : SerializedMonoBehaviour
         agent.enabled = true;
 
         RandomSkin();
+
+        requestItemCount = Random.Range(1, 4);
     }
 
     private void Update()
@@ -211,6 +216,8 @@ public class IdleCustomer : SerializedMonoBehaviour
                 itemPoints[point.Key] = item.GetComponentInChildren<ItemObject>();
 
                 animator.SetLayerWeight(1, 1);
+
+                
                 break;
             }
         }

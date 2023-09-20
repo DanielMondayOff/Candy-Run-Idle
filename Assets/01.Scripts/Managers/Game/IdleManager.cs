@@ -33,11 +33,13 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject nextStageHighlight;
 
     [FoldoutGroup("참조")] public GameObject upgradeBtn;
+    [FoldoutGroup("참조")] public GameObject upgradeDot;
     [FoldoutGroup("참조")] public GameObject blackPanel;
     [FoldoutGroup("참조")] public LineRenderer arrowLine = null;
     [FoldoutGroup("참조")] public Transform playerTrans;
     [FoldoutGroup("참조")] public IdlePlayer idlePlayer;
-
+    [FoldoutGroup("참조")] public Transform[] fieldRvSpawnPoint1;
+    [FoldoutGroup("참조")] public Transform[] fieldRvSpawnPoint2;
 
     public CanvasGroup[] idleUIs;
 
@@ -72,6 +74,8 @@ public class IdleManager : MonoBehaviour
     public bool playIdle = false;
 
     private TaskUtil.WhileTaskMethod spawnCustomerTask = null;
+    private TaskUtil.DelayTaskMethod fieldRvSpeedUpTask = null;
+
 
     //==============================================================================================================================
 
@@ -158,6 +162,9 @@ public class IdleManager : MonoBehaviour
             if (ES3.Load<bool>("NextStageEnable"))
                 blackPanel.SetActive(false);
 
+        SaveManager.instance.onMoneyChangeEvent.AddListener(CheckAnyUpgradeable);
+
+        this.TaskWhile(45, 0, GenerateFieldRVProbTask);
     }
 
     private void Update()
@@ -702,6 +709,9 @@ public class IdleManager : MonoBehaviour
         {
             randomList.Add(candyBuildType.CandyDisplayStand);
             randomList.Add(candyBuildType.CandyDisplayStand);
+            randomList.Add(candyBuildType.CandyDisplayStand);
+            randomList.Add(candyBuildType.CandyDisplayStand);
+            randomList.Add(candyBuildType.CandyDisplayStand);
         }
 
 
@@ -890,6 +900,87 @@ public class IdleManager : MonoBehaviour
 
         IdleManager.instance.PopParticle("Particles/FX_ShardRock_Dust_End_01", worker.transform.position + Vector3.up * 3);
     }
+
+    void CheckAnyUpgradeable()
+    {
+        foreach (var slot in upgradePanel.GetComponentsInChildren<IdleUpgradeSlot>())
+        {
+            if (slot.isPossibleUpgrade)
+            {
+                upgradeDot.SetActive(true);
+                return;
+            }
+        }
+        upgradeDot.SetActive(false);
+    }
+
+    public void FieldRV_PlayerSpeedUp()
+    {
+        playerMovement.extraSpeed = 6f;
+
+        if (fieldRvSpeedUpTask != null)
+        {
+            fieldRvSpeedUpTask.Kill();
+            fieldRvSpeedUpTask = null;
+        }
+
+        this.TaskDelay(60, () => playerMovement.extraSpeed = 0f);
+    }
+
+    public void FieldRV_Money(int value)
+    {
+        playerMovement.GetComponent<PlayerMoneyText>().ChangeFloatingText(value);
+        SaveManager.instance.GetMoney(value);
+    }
+
+    public void GenerateFieldRVUI(FieldRvType type, System.Action onComplete = null, string pos = "")
+    {
+        FieldRvUI ui = null;
+        switch (type)
+        {
+            case FieldRvType.SpeedUp:
+                ui = Instantiate(Resources.Load<GameObject>("UI/FieldRvUI - SpeedUp"), idleUI.transform).GetComponent<FieldRvUI>();
+                break;
+
+            case FieldRvType.Money:
+                ui = Instantiate(Resources.Load<GameObject>("UI/FieldRvUI - Money"), idleUI.transform).GetComponent<FieldRvUI>();
+                break;
+        }
+
+        if (ui != null)
+        {
+            ui.onComplete = onComplete;
+            ui.pos = pos;
+        }
+    }
+
+    void GenerateFieldRVProbTask()
+    {
+        if (candyMachines.Where((n) => n.isReady).ToList().Count == 0)
+            return;
+
+        GameObject prob = null;
+
+        switch (Random.Range(0, 2))
+        {
+            case 0:
+                var pos = fieldRvSpawnPoint1[Random.Range(0, fieldRvSpawnPoint1.Length)];
+                prob = Instantiate(Resources.Load<GameObject>("RVFieldProb - speedUp"), pos.position + (Vector3.up * 0.5f), Quaternion.identity);
+                prob.GetComponent<fieldRVProbs>().pos = pos.name;
+                break;
+
+            case 1:
+                var pos2 = fieldRvSpawnPoint2[Random.Range(0, fieldRvSpawnPoint2.Length)];
+                prob = Instantiate(Resources.Load<GameObject>("RVFieldProb - Money"), pos2.position + (Vector3.up * 0.5f), Quaternion.identity);
+                prob.GetComponent<fieldRVProbs>().pos = pos2.name;
+
+                break;
+        }
+
+        print("Spawn FieldRVProb " + prob.name);
+
+        this.TaskDelay(30, () => { if (prob != null) Destroy(prob); });
+    }
 }
 
 public enum candyBuildType
@@ -987,4 +1078,6 @@ public class CandyItem
     {
 
     }
+
+
 }

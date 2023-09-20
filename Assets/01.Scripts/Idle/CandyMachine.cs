@@ -38,6 +38,8 @@ public class CandyMachine : BuildObject
 
     Tween punchScaleTween = null;
 
+    public SkinnedMeshRenderer insideCandyMesh;
+
 
     public void Init()
     {
@@ -207,6 +209,12 @@ public class CandyMachine : BuildObject
     public void UpdateCandyDisplay()
     {
         candyDeco.transform.DOMoveY(Mathf.Clamp(-6f + (candyItem.count * 0.3f), -6f, 0), 0.5f);
+
+        if (insideCandyMesh != null)
+        {
+            insideCandyMesh.SetBlendShapeWeight(0, Mathf.Clamp(100f - (float)candyItem.count, 0, 100));
+            insideCandyMesh.SetBlendShapeWeight(1, Mathf.Clamp(100f - (float)candyItem.count, 0, 100));
+        }
     }
 
     public bool CheckHasQueue()

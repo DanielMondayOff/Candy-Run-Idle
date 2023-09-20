@@ -49,12 +49,11 @@ public class DisplayStand : BuildObject
     public bool isReady = false;
     public int maxQueueCount = 3;
 
-
     private TaskUtil.WhileTaskMethod checkPlayerItemWhileTask = null;
     private TaskUtil.WhileTaskMethod checkDistBetweenCustomer = null;
 
 
-    TaskUtil.DelayTaskMethod candyGiveDelay = null;
+    TaskUtil.WhileTaskMethod candyGiveDelay = null;
 
     public float Debug_distToCustomer;
 
@@ -98,11 +97,12 @@ public class DisplayStand : BuildObject
         inventoryUI.Init(itemId, items.Count);
 
         meshRenderer.material.mainTextureOffset = materialOffset;
+
     }
 
     public void Init()
     {
-        this.TaskWhile(1, 0, CheckDistBetweenCustomer);
+        this.TaskWhile(0.5f, 0, CheckDistBetweenCustomer);
     }
 
     public void AddItemObject(GameObject itemObj)
@@ -223,6 +223,7 @@ public class DisplayStand : BuildObject
 
             if (Vector3.Distance(customerList[0].transform.position, customerQueueLine[0].transform.position) < 1f)
             {
+                print(items.Count);
                 if (items.Count <= 0)
                 {
                     // pause = true;
@@ -264,10 +265,37 @@ public class DisplayStand : BuildObject
     {
         // customer.SetTimer(2.5f);
 
-        candyGiveDelay = this.TaskDelay(0.1f, () =>
+        candyGiveDelay = this.TaskWhile(0.2f, 0, () =>
         {
+            if (customer.requestItemCount <= customer.currentItemCount)
+            {
+                customerList.Remove(customer);
+                IdleManager.instance.counter.EnqueueCustomer(customer);
+                UpdateLine();
 
-            IdleManager.instance.counter.EnqueueCustomer(customer);
+                if (candyGiveDelay != null)
+                {
+                    candyGiveDelay.Kill();
+                    candyGiveDelay = null;
+                }
+            }
+            else
+            {
+                if (items.Count > 0)
+                {
+                    var itemObject = GetItemObject(true);
+                    customer.AddItem(itemObject.Value.gameObject);
+
+                    items.Pop();
+
+                    OnChangeInventory(true);
+                    transform.DOPunchScale(Vector3.one * 0.1f, 0.5f);
+                    EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Candy Give_" + itemId, true, true);
+                    customer.currentItemCount++;
+                }
+            }
+
+            ES3.Save<Item[]>(Guid + "_items", items.ToArray());
 
             // customer.candyInventory.candy = SaveManager.instance.FindCandyObjectInReousrce(itemId);
             // customer.candyInventory.count = 1;
@@ -277,24 +305,6 @@ public class DisplayStand : BuildObject
             // customer.UpdateCandyJar();
 
             // candyItem.TakeCandy(1);
-
-            var itemObject = GetItemObject(true);
-            customer.AddItem(itemObject.Value.gameObject);
-
-            items.Pop();
-
-            customerList.Remove(customer);
-
-            OnChangeInventory(true);
-
-            transform.DOPunchScale(Vector3.one * 0.1f, 0.5f);
-
-            UpdateLine();
-
-            candyGiveDelay = null;
-
-            EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Candy Give_" + itemId, true, true);
-
         });
     }
 

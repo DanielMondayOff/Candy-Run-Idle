@@ -778,10 +778,10 @@ public class RunManager : MonoBehaviour
             {
                 sellCandyBtn.SetActive(true);
             }
-            else if (StageManager.instance.currentStageNum > 4)
-            {
-                nextStageBtnGroup.SetActive(true);
-            }
+            // else if (StageManager.instance.currentStageNum > 4)
+            // {
+            //     nextStageBtnGroup.SetActive(true);
+            // }
             else
             {
                 nextStageBtn.SetActive(true);

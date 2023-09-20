@@ -14,6 +14,9 @@ public class IdleUpgradeSlot : MonoBehaviour
     [SerializeField] Image btnImage;
     [SerializeField] Text cost;
 
+    public bool isPossibleUpgrade => SaveManager.instance.CheckPossibleUpgrade(IdleManager.instance.GetCurrentUpgradeCost(upgrade));
+
+
     private void Start()
     {
         SaveManager.instance.onMoneyChangeEvent.AddListener(CheckingBtn);
