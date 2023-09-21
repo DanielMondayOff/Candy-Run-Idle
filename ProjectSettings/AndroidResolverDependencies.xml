@@ -15,19 +15,19 @@
     <package>com.android.support:support-v4:25.3.1</package>
     <package>com.applovin.mediation:adcolony-adapter:4.8.0.4</package>
     <package>com.applovin.mediation:amazon-tam-adapter:9.+@aar</package>
-    <package>com.applovin.mediation:bytedance-adapter:5.3.0.4.0</package>
-    <package>com.applovin.mediation:facebook-adapter:[6.15.0.0]</package>
-    <package>com.applovin.mediation:fyber-adapter:8.2.3.3</package>
-    <package>com.applovin.mediation:google-adapter:[22.2.0.1]</package>
-    <package>com.applovin.mediation:google-ad-manager-adapter:[22.2.0.1]</package>
+    <package>com.applovin.mediation:bytedance-adapter:5.4.1.1.0</package>
+    <package>com.applovin.mediation:facebook-adapter:[6.16.0.0]</package>
+    <package>com.applovin.mediation:fyber-adapter:8.2.4.0</package>
+    <package>com.applovin.mediation:google-adapter:[22.3.0.0]</package>
+    <package>com.applovin.mediation:google-ad-manager-adapter:[22.3.0.0]</package>
     <package>com.applovin.mediation:hyprmx-adapter:6.2.0.2</package>
-    <package>com.applovin.mediation:inmobi-adapter:10.1.4.3</package>
-    <package>com.applovin.mediation:ironsource-adapter:7.3.1.1.0</package>
-    <package>com.applovin.mediation:mintegral-adapter:16.4.81.0</package>
-    <package>com.applovin.mediation:mobilefuse-adapter:1.5.2.0</package>
+    <package>com.applovin.mediation:inmobi-adapter:10.5.8.1</package>
+    <package>com.applovin.mediation:ironsource-adapter:7.5.1.0.0</package>
+    <package>com.applovin.mediation:mintegral-adapter:16.5.21.0</package>
+    <package>com.applovin.mediation:mobilefuse-adapter:1.6.2.0</package>
     <package>com.applovin.mediation:tapjoy-adapter:13.1.2.0</package>
     <package>com.applovin.mediation:unityads-adapter:4.8.0.0</package>
-    <package>com.applovin.mediation:verve-adapter:2.19.0.0</package>
+    <package>com.applovin.mediation:verve-adapter:2.20.0.0</package>
     <package>com.applovin.mediation:vungle-adapter:6.12.1.1</package>
     <package>com.applovin:applovin-sdk:11.11.1</package>
     <package>com.facebook.android:facebook-applinks:[16.0,17)</package>

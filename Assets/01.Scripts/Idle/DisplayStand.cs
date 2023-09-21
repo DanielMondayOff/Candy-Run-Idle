@@ -71,6 +71,8 @@ public class DisplayStand : BuildObject
     [SerializeField] MeshRenderer meshRenderer;
     [SerializeField] Vector3 materialOffset;
 
+    Tween punchTween = null;
+
 
     private void Start()
     {
@@ -289,7 +291,8 @@ public class DisplayStand : BuildObject
                     items.Pop();
 
                     OnChangeInventory(true);
-                    transform.DOPunchScale(Vector3.one * 0.1f, 0.5f);
+                    if (punchTween != null ? !punchTween.IsPlaying() : true)
+                        punchTween = transform.DOPunchScale(Vector3.one * 0.1f, 0.5f);
                     EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Candy Give_" + itemId, true, true);
                     customer.currentItemCount++;
                 }
