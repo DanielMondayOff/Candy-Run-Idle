@@ -15,6 +15,7 @@ public class IdleUpgradeSlot : MonoBehaviour
     [SerializeField] Text cost;
 
     public bool isPossibleUpgrade => SaveManager.instance.CheckPossibleUpgrade(IdleManager.instance.GetCurrentUpgradeCost(upgrade));
+    public int GetUpgradeCost => IdleManager.instance.GetCurrentUpgradeCost(upgrade);
 
 
     private void Start()
@@ -68,6 +69,7 @@ public class IdleUpgradeSlot : MonoBehaviour
 
         SetUpgradeCostText();
         CheckingBtn();
+        IdleManager.instance.UpgradeUISort();
     }
 
     void CheckingBtn()

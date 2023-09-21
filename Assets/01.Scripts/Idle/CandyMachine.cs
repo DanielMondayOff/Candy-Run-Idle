@@ -46,8 +46,6 @@ public class CandyMachine : BuildObject
     {
         candyItem = SaveManager.instance.FindCandyItem(candyItem.id);
 
-        print(ES3.Load<string>("AB_Test"));
-
         if (ES3.KeyExists("AB_Test"))
         {
             if (ES3.Load<string>("AB_Test").Equals("A"))

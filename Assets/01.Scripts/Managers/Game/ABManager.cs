@@ -24,7 +24,6 @@ public class ABManager : SerializedMonoBehaviour
         if (ES3.KeyExists("NextStageEnable"))
             if (ES3.Load<bool>("NextStageEnable"))
             {
-                print(1234555);
                 return;
             }
             else
@@ -123,6 +122,8 @@ public class ABManager : SerializedMonoBehaviour
             {
                 RunManager.instance.SetForceIdle(RemoteConfigService.Instance.appConfig.GetBool("ForceIdle"));
                 EventManager.instance.CustomEvent(AnalyticsType.AB_TEST, "ForceIdle_" + ab.Value);
+
+                print("ForceIdle_" + ab.Value);
             }
 
             if (ab.Key.Equals("CandyStackType"))

@@ -10,7 +10,6 @@ Material:
   m_Name: PortraitUnitMaterial
   m_Shader: {fileID: 4800000, guid: 760255603f1f00941a123fa209a4d3fb, type: 3}
   m_ValidKeywords:
-  - ADVERTY_URP_COMPAT
   - _ALPHAPREMULTIPLY_ON
   - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_InvalidKeywords:

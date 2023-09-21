@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: IdleItem 5
   m_EditorClassIdentifier: 
   id: 5
-  cost: 25
+  cost: 10

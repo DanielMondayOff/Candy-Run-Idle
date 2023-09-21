@@ -394,7 +394,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: No Thanks
+  m_Text: No Thanks.
 --- !u!1 &1567424592560594364
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,7 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 415c26922ba3f4def81874115c16e01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
+  type: 0
   moneyText: {fileID: 0}
   noThanksBtn: {fileID: 1567424592808725495}
   pos: 

@@ -13,7 +13,7 @@ public class FieldRvUI : MonoBehaviour
 
     public System.Action onComplete;
 
-    int[] moneyValues = { 300, 750, 1000, 1750, 2500, 4000 };
+    int[] moneyValues = { 150, 300, 450, 600, 850, 1000 };
 
     public string pos;
 
@@ -33,7 +33,7 @@ public class FieldRvUI : MonoBehaviour
             {
                 case FieldRvType.SpeedUp:
                     IdleManager.instance.FieldRV_PlayerSpeedUp();
-
+                    IdleManager.instance.BanFieldRv(type);
                     break;
 
                 case FieldRvType.Money:
@@ -62,6 +62,6 @@ public class FieldRvUI : MonoBehaviour
 
 public enum FieldRvType
 {
-    SpeedUp = 1,
-    Money = 2
+    SpeedUp = 0,
+    Money = 1
 }

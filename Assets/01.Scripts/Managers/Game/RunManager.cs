@@ -170,95 +170,81 @@ public class RunManager : MonoBehaviour
 
     private void Update()
     {
+        #region Cheat
+
         if (Input.GetKeyDown(KeyCode.Alpha1))
             AddCandy();
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             AddCandyLength(200);
         }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             plusCandyLength -= 100;
 
             ChangeCandysLength();
         }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        else if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             TakeDamage(100, Vector3.zero);
         }
-
-        if (Input.GetKeyDown(KeyCode.Alpha5))
+        else if (Input.GetKeyDown(KeyCode.Alpha5))
         {
             candyList.ForEach((n) => StartCoroutine(n.GetComponentInChildren<CandyTailController>().TailWave(100)));
         }
-
-        if (Input.GetKeyDown(KeyCode.Alpha6))
+        else if (Input.GetKeyDown(KeyCode.Alpha6))
         {
             tripleShot = true;
         }
-
-        if (Input.GetKeyDown(KeyCode.Alpha7))
+        else if (Input.GetKeyDown(KeyCode.Alpha7))
         {
             StageManager.instance.ClearStage();
             SceneManager.UnloadScene("Run");
             SceneManager.LoadScene("Run", LoadSceneMode.Additive);
         }
-
-        if (Input.GetKeyDown(KeyCode.Alpha8))
+        else if (Input.GetKeyDown(KeyCode.Alpha8))
         {
             SaveManager.instance.GetMoney(500);
         }
-
-        if (Input.GetKeyDown(KeyCode.Alpha9))
+        else if (Input.GetKeyDown(KeyCode.Alpha9))
         {
             SaveManager.instance.LossMoney(500);
         }
-
-        if (Input.GetKeyDown(KeyCode.Alpha0))
+        else if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             CandyLevelUp();
         }
-
-        if (Input.GetKeyDown(KeyCode.F12))
+        else if (Input.GetKeyDown(KeyCode.F12))
         {
             ES3.DeleteFile();
             Application.Quit();
         }
-
-
-        if (Input.GetKeyDown(KeyCode.Q))
+        else if (Input.GetKeyDown(KeyCode.Q))
         {
             plusFireRate += 100;
 
             ChangeFireRate(GetCurrentFireRate());
         }
-
-        if (Input.GetKeyDown(KeyCode.W))
+        else if (Input.GetKeyDown(KeyCode.W))
         {
             plusFireRate -= 100;
 
             ChangeFireRate(GetCurrentFireRate());
         }
-
-        if (Input.GetKeyDown(KeyCode.E))
+        else if (Input.GetKeyDown(KeyCode.E))
         {
             plusBulletRange += 100;
         }
-
-        if (Input.GetKeyDown(KeyCode.R))
+        else if (Input.GetKeyDown(KeyCode.R))
         {
             plusBulletRange -= 100;
         }
-
-        if (cuttingPressed && cuttingReady)
+        else if (cuttingPressed && cuttingReady)
         {
             CuttingCandy();
         }
-
-        if (Input.GetKeyDown(KeyCode.M))
+        else if (Input.GetKeyDown(KeyCode.M))
         {
             List<CandyItem> newList = new List<CandyItem>();
 
@@ -276,8 +262,7 @@ public class RunManager : MonoBehaviour
 
             SaveManager.instance.AddCandy(newList);
         }
-
-        if (Input.GetKeyDown(KeyCode.Z))
+        else if (Input.GetKeyDown(KeyCode.Z))
         {
             foreach (var canvas in runUIs)
             {
@@ -286,8 +271,7 @@ public class RunManager : MonoBehaviour
 
             particleCanvas.gameObject.SetActive(!particleCanvas.gameObject.activeSelf);
         }
-
-        if (Input.GetKeyDown(KeyCode.F3))
+        else if (Input.GetKeyDown(KeyCode.F3))
         {
             int nextEnumIndex = (int)currentCandyArrangeType + 1;
 
@@ -298,18 +282,18 @@ public class RunManager : MonoBehaviour
 
             currentCandyArrangeType = (CandyArrangeType)nextEnumIndex;
         }
-
-        if (Input.GetKeyDown(KeyCode.F4))
+        else if (Input.GetKeyDown(KeyCode.F4))
         {
             fireBulletEnable = !fireBulletEnable;
         }
-
-        if (Input.GetKeyDown(KeyCode.F7))
+        else if (Input.GetKeyDown(KeyCode.F7))
         {
             StageManager.instance.BackStage();
             SceneManager.UnloadScene("Run");
             SceneManager.LoadScene("Run", LoadSceneMode.Additive);
         }
+
+        #endregion
     }
 
     public void RunGameStart()
@@ -783,7 +767,7 @@ public class RunManager : MonoBehaviour
 
         this.TaskDelay(3.5f, () =>
         {
-            if (StageManager.instance.currentStageNum == 4)
+            if (StageManager.instance.currentStageNum == 4 && forceIdle)
             {
                 sellCandyBtn.SetActive(true);
             }

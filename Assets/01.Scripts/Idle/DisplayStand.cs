@@ -225,7 +225,6 @@ public class DisplayStand : BuildObject
 
             if (Vector3.Distance(customerList[0].transform.position, customerQueueLine[0].transform.position) < 1f)
             {
-                print(items.Count);
                 if (items.Count <= 0)
                 {
                     // pause = true;

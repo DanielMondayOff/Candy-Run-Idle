@@ -32,6 +32,9 @@ public class RunObstacle : MonoBehaviour
 
         if (other.CompareTag("Player") && !isUsed)
         {
+            if (other.GetComponentInParent<CandyHead>().transform.position.z - transform.position.z > 8f)
+                return;
+
             isUsed = true;
 
             // print(Vector3.Distance(transform.position, other.transform.position));

@@ -64,7 +64,7 @@ public class IdleManager : MonoBehaviour
 
     public readonly float[] workerSpeed = { 6, 6.5f, 7f, 7.5f, 8f, 8.5f, 9f, 10f, 10.5f, 11f, 11.5f };
     public readonly float[] customerSpawnSpeed = { 4f, 3.5f, 3f, 2.5f, 2f, 1.5f, 1f, 1f, 1f, 1f, 1f };
-    public readonly float[] maxCustomerCount = { 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
+    public readonly float[] maxCustomerCount = { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
     public readonly float[] extraIncomePercent = { 1f, 1.1f, 1.2f, 1.3f, 1.4f, 1.5f, 1.6f, 1.7f, 1.8f, 1.9f, 2f };
     public readonly float[] playerSpeed = { 13, 13.5f, 14f, 14.5f, 15f, 15.5f, 16f, 16.5f, 17f, 17.5f, 18f };
     public readonly float[] playerCapacityValue = { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
@@ -75,6 +75,8 @@ public class IdleManager : MonoBehaviour
 
     private TaskUtil.WhileTaskMethod spawnCustomerTask = null;
     private TaskUtil.DelayTaskMethod fieldRvSpeedUpTask = null;
+
+    private List<FieldRvType> bannedFieldRv = new List<FieldRvType>();
 
 
     //==============================================================================================================================
@@ -101,10 +103,6 @@ public class IdleManager : MonoBehaviour
         {
             hireWorker.currentLevel = ES3.Load<IdleUpgrade>("hireWorker").currentLevel;
             SpawnWorker(hireWorker.currentLevel + 1);
-        }
-        else
-        {
-            // SpawnWorker(1);
         }
 
         if (ES3.KeyExists("promotion"))
@@ -133,6 +131,7 @@ public class IdleManager : MonoBehaviour
         {
             workerCapacity.currentLevel = ES3.Load<IdleUpgrade>("workerCapacity").currentLevel;
         }
+
     }
 
     private void Start()
@@ -177,6 +176,10 @@ public class IdleManager : MonoBehaviour
             {
                 canvas.alpha = (canvas.alpha == 1) ? 0 : 1;
             }
+        }
+        else if (Input.GetKeyDown(KeyCode.F4))
+        {
+            GenerateFieldRVProbTask();
         }
     }
 
@@ -564,6 +567,7 @@ public class IdleManager : MonoBehaviour
 
     public void OpenUpgradePanel()
     {
+        UpgradeUISort();
         upgradePanel.SetActive(true);
     }
 
@@ -914,6 +918,58 @@ public class IdleManager : MonoBehaviour
         upgradeDot.SetActive(false);
     }
 
+    public void UpgradeUISort()
+    {
+        var upgrades = upgradePanel.GetComponentsInChildren<IdleUpgradeSlot>();
+
+        // var parent = upgrades[0].transform.parent;
+
+        // upgrades.OrderBy((n) => n.GetUpgradeCost);
+
+        // foreach (var upgrade in upgrades)
+        // {
+        //     print(upgrade.GetUpgradeCost);
+        // }
+
+        // foreach (var upgrade in upgrades)
+        // {
+        //     upgrade.transform.SetParent(null);
+        // }
+
+        // for (int i = 0; i < upgrades.Length; i++)
+        // {
+        //     upgrades[i].transform.SetParent(parent);
+        // }
+
+        // for (int i = 0; i < upgrades.Length; i++)
+        // {
+        //     var upgradesObj = GetComponentsInChildren<IdleUpgradeSlot>();
+        //     for (int x = 0; x < upgradesObj.Length; x++)
+        //     {
+        //         if (upgradesObj[x] == upgrades[i])
+        //         {
+        //             upgradesObj[x].transform.SetSiblingIndex(i);
+        //             break;
+        //         }
+        //     }
+        // }
+
+        for (int x = 0; x < upgrades.Length; x++)
+        {
+            for (int i = 1; i < upgrades.Length; i++)
+            {
+                if (upgrades[i].GetUpgradeCost < upgrades[i - 1].GetUpgradeCost)
+                {
+                    upgrades[i].transform.SetSiblingIndex(i - 1);
+
+                    upgrades = upgradePanel.GetComponentsInChildren<IdleUpgradeSlot>();
+
+                    i--;
+                }
+            }
+        }
+    }
+
     public void FieldRV_PlayerSpeedUp()
     {
         playerMovement.extraSpeed = 6f;
@@ -924,7 +980,7 @@ public class IdleManager : MonoBehaviour
             fieldRvSpeedUpTask = null;
         }
 
-        this.TaskDelay(60, () => playerMovement.extraSpeed = 0f);
+        this.TaskDelay(60, () => { playerMovement.extraSpeed = 0f; bannedFieldRv.Remove(FieldRvType.SpeedUp); });
     }
 
     public void FieldRV_Money(int value)
@@ -935,6 +991,9 @@ public class IdleManager : MonoBehaviour
 
     public void GenerateFieldRVUI(FieldRvType type, System.Action onComplete = null, string pos = "")
     {
+        if (idleUI.GetComponentInChildren<FieldRvUI>() != null)
+            return;
+
         FieldRvUI ui = null;
         switch (type)
         {
@@ -961,15 +1020,20 @@ public class IdleManager : MonoBehaviour
 
         GameObject prob = null;
 
-        switch (Random.Range(0, 2))
+        var array = (FieldRvType[])System.Enum.GetValues(typeof(FieldRvType));
+
+        var list = array.Where((n) => !bannedFieldRv.Contains(n));
+
+
+        switch (list.ToArray()[Random.Range(0, list.Count())])
         {
-            case 0:
+            case FieldRvType.SpeedUp:
                 var pos = fieldRvSpawnPoint1[Random.Range(0, fieldRvSpawnPoint1.Length)];
                 prob = Instantiate(Resources.Load<GameObject>("RVFieldProb - speedUp"), pos.position + (Vector3.up * 0.5f), Quaternion.identity);
                 prob.GetComponent<fieldRVProbs>().pos = pos.name;
                 break;
 
-            case 1:
+            case FieldRvType.Money:
                 var pos2 = fieldRvSpawnPoint2[Random.Range(0, fieldRvSpawnPoint2.Length)];
                 prob = Instantiate(Resources.Load<GameObject>("RVFieldProb - Money"), pos2.position + (Vector3.up * 0.5f), Quaternion.identity);
                 prob.GetComponent<fieldRVProbs>().pos = pos2.name;
@@ -980,6 +1044,16 @@ public class IdleManager : MonoBehaviour
         print("Spawn FieldRVProb " + prob.name);
 
         this.TaskDelay(30, () => { if (prob != null) Destroy(prob); });
+    }
+
+    public void BanFieldRv(FieldRvType type)
+    {
+        bannedFieldRv.Add(type);
+    }
+
+    public void UnBanFieldRv(FieldRvType type)
+    {
+        bannedFieldRv.Remove(type);
     }
 }
 
