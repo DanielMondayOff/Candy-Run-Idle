@@ -210,7 +210,9 @@ public class DisplayStand : BuildObject
     public void EnqueueCustomer(IdleCustomer newCustomer)
     {
         customerList.Add(newCustomer);
+        newCustomer.itemId = itemId;
 
+        newCustomer.UpdateUI();
         UpdateLine();
     }
 
@@ -294,6 +296,7 @@ public class DisplayStand : BuildObject
                         punchTween = transform.DOPunchScale(Vector3.one * 0.1f, 0.5f);
                     EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Candy Give_" + itemId, true, true);
                     customer.currentItemCount++;
+                    customer.UpdateUI();
                 }
             }
 

@@ -8,39 +8,29 @@ using Sirenix.OdinInspector;
 
 public class IdleCustomer : SerializedMonoBehaviour
 {
-    [SerializeField] private NavMeshAgent agent;
+    public OrderLine line;
+    public CandyOrder order;
+    public CandyItem candyInventory;
 
     private Vector3 targetPos;
     private System.Action nextAction = null;
     private Transform spawnPoint;
-    public OrderLine line;
 
-    public CandyOrder order;
-
-    public CandyItem candyInventory;
+    [SerializeField] Canvas CandyCanvas;
+    [SerializeField] Dictionary<Transform, ItemObject> itemPoints = new Dictionary<Transform, ItemObject>();
+    [SerializeField] CandyJar candyJar;
+    [SerializeField] GameObject[] skin;
+    [SerializeField] private NavMeshAgent agent;
+    [SerializeField] Animator animator;
+    [SerializeField] Vector3 destination;
+    [SerializeField] UnityEngine.UI.Image timer;
+    [SerializeField] ParticleSystem leftFootStepDust;
+    [SerializeField] ParticleSystem rightFootStepDust;
+    [SerializeField] CandyInventoryUI candyInventoryUI;
 
     public bool waitForCandy = false;
 
-    [SerializeField] Canvas CandyCanvas;
-    [SerializeField] Text test_candyName;
-    [SerializeField] Image candyImage;
-    [SerializeField] Text test_candyCount;
-
-    [SerializeField] CandyJar candyJar;
-
-    [SerializeField] GameObject[] skin;
-
-    [SerializeField] Animator animator;
-
-    [SerializeField] Vector3 destination;
-
-    [SerializeField] UnityEngine.UI.Image timer;
-
-    [SerializeField] Dictionary<Transform, ItemObject> itemPoints = new Dictionary<Transform, ItemObject>();
-
-    [SerializeField] ParticleSystem leftFootStepDust;
-    [SerializeField] ParticleSystem rightFootStepDust;
-
+    public int itemId = 0;
     public int requestItemCount = 1;
     public int currentItemCount = 0;
 
@@ -57,7 +47,7 @@ public class IdleCustomer : SerializedMonoBehaviour
         return cost;
     }
 
-    public void Init(Transform spawnPoint)
+    public void Init(Transform spawnPoint, int id = 0)
     {
         this.spawnPoint = spawnPoint;
         agent.enabled = true;
@@ -65,6 +55,10 @@ public class IdleCustomer : SerializedMonoBehaviour
         RandomSkin();
 
         requestItemCount = Random.Range(1, 4);
+
+        itemId = id;
+
+        UpdateUI();
     }
 
     private void Update()
@@ -184,6 +178,7 @@ public class IdleCustomer : SerializedMonoBehaviour
     {
         candyJar.ChangeJarModel(candyInventory.candy.id);
         candyJar.gameObject.SetActive(true);
+
     }
 
 
@@ -217,10 +212,12 @@ public class IdleCustomer : SerializedMonoBehaviour
 
                 animator.SetLayerWeight(1, 1);
 
-                
+
                 break;
             }
         }
+
+        UpdateUI();
     }
 
     public void GenerateOrder(Item item)
@@ -236,6 +233,17 @@ public class IdleCustomer : SerializedMonoBehaviour
     public void PlayRightFootStepParticle()
     {
         // rightFootStepDust.Play();
+    }
+
+    public void UpdateUI()
+    {
+        if (requestItemCount <= currentItemCount || itemId == 0)
+            candyInventoryUI.gameObject.SetActive(false);
+        else
+        {
+            candyInventoryUI.gameObject.SetActive(true);
+            candyInventoryUI.UpdateUI(itemId, requestItemCount - currentItemCount, true, false);
+        }
     }
 }
 

@@ -70,8 +70,6 @@ public class Counter : MonoBehaviour
 
                     moneyTower.AddMoney((int)(customerList[0].CalculateTotalCost() * IdleManager.instance.extraIncomePercent[IdleManager.instance.extraIncome.currentLevel]));
 
-                    Debug.LogError((int)(customerList[0].CalculateTotalCost()));
-
                     customerList[0].Exit();
 
                     customerList[0].GenerateEmoji("Particles/Happy");
