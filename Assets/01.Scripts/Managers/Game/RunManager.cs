@@ -795,7 +795,7 @@ public class RunManager : MonoBehaviour
 
             bool success = false;
 
-            if (StageManager.instance.currentStageNum > 4)
+            if (StageManager.instance.currentStageNum > 1)
                 success = MondayOFF.AdsManager.ShowInterstitial();
 
             if (success)

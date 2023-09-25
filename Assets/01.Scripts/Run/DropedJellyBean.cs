@@ -7,6 +7,16 @@ public class DropedJellyBean : MonoBehaviour
 {
 
     [SerializeField] MeshRenderer meshRenderer;
+    [SerializeField] GameObject[] models;
+    [SerializeField] Animator animator;
+
+
+    [SerializeField] int currentModelNum = 0;
+
+    [SerializeField] MeshRenderer jellyMesh;
+
+    int jellyMatNum = 0;
+
 
     public float value = 50f;
     public float maxValue = 200f;
@@ -15,7 +25,55 @@ public class DropedJellyBean : MonoBehaviour
 
     private void Start()
     {
+        meshRenderer = GetComponentInChildren<MeshRenderer>();
+
+        animator = GetComponentInChildren<Animator>();
+
         Init();
+
+    }
+
+#if UNITY_STANDALONE || UNITY_EDITOR
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            NextCandyModel();
+        }
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            animator.enabled = !animator.enabled;
+        }
+
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            jellyMatNum++;
+
+            if (jellyMatNum >= RunManager.instance.jellyBeanMats.Length)
+                jellyMatNum = 0;
+
+            var mat = RunManager.instance.jellyBeanMats[jellyMatNum];
+            Material[] materials = { mat };
+            meshRenderer.materials = materials;
+        }
+    }
+#endif
+
+    public void NextCandyModel()
+    {
+        currentModelNum++;
+
+        meshRenderer.gameObject.SetActive(false);
+
+        if (currentModelNum >= models.Length)
+        {
+            currentModelNum = 0;
+        }
+
+        meshRenderer = models[currentModelNum].GetComponent<MeshRenderer>();
+        meshRenderer.gameObject.SetActive(true);
+
     }
 
     public void Init()

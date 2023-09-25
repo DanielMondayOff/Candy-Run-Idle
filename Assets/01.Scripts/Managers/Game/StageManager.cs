@@ -15,6 +15,8 @@ public class StageManager : MonoBehaviour
     public Stage currentStage = null;
     public int currentStageNum = 0;
 
+    public bool loop = false;
+
     public RunMapGenerator randomMapGenerator;
 
     public bool IsAllowJellyGun => (currentStageNum >= stages.Length) ? true : stages[currentStageNum].jellyGun;
@@ -64,7 +66,8 @@ public class StageManager : MonoBehaviour
     {
         //Clear Stage
 
-        currentStageNum++;
+        if (loop)
+            currentStageNum++;
 
         ES3.Save<int>("CurrentStageNum", currentStageNum);
 
