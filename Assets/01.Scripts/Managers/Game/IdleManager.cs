@@ -181,6 +181,14 @@ public class IdleManager : MonoBehaviour
         {
             GenerateFieldRVProbTask();
         }
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Time.timeScale = Time.timeScale + 0.1f;
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            Time.timeScale = Time.timeScale - 0.1f;
+        }
     }
 
     public void testbtn()

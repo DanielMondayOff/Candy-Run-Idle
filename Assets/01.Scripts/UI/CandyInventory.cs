@@ -83,18 +83,25 @@ public class CandyInventory : MonoBehaviour
         if (misteryCandyItem != null)
             misteryCandyItem.gameObject.SetActive(false);
 
-        print(candyItems.Count);
+        // print(candyItems.Count);
 
-        foreach (var item in candyItems)
+        for (int i = 0; i < candyItems.Count; i++)
         {
-            print(item.candy.id + " " + item.count);
+            GetCandyInventoryEvent(candyItems[i].candy.id);
 
-            var attractor = Instantiate(Resources.Load<GameObject>("UI/UIAttractor"), transform.parent);
-
-            GetCandyInventoryEvent(item.candy.id);
-
-            attractor.GetComponent<UIAttractorCustom>().Init(itemList.Find((n) => n.candyItem.candy.id == item.candy.id).GetImageTrans, item, GetCandyInventoryEvent(item.candy.id), () => { SyncCurrentCandyUI(); misteryCandyItem.transform.SetAsLastSibling(); misteryCandyItem.gameObject.SetActive(true); });
+            RunManager.instance.uIAttractorCustoms[i].Init(itemList.Find((n) => n.candyItem.candy.id == candyItems[i].candy.id).GetImageTrans, candyItems[i], GetCandyInventoryEvent(candyItems[i].candy.id), () => { SyncCurrentCandyUI(); misteryCandyItem.transform.SetAsLastSibling(); misteryCandyItem.gameObject.SetActive(true); });
         }
+
+        // foreach (var item in candyItems)
+        // {
+        //     // print(item.candy.id + " " + item.count);
+
+        //     var attractor = Instantiate(Resources.Load<GameObject>("UI/UIAttractor"), transform.parent);
+
+        //     GetCandyInventoryEvent(item.candy.id);
+
+        //     attractor.GetComponent<UIAttractorCustom>().Init(itemList.Find((n) => n.candyItem.candy.id == item.candy.id).GetImageTrans, item, GetCandyInventoryEvent(item.candy.id), () => { SyncCurrentCandyUI(); misteryCandyItem.transform.SetAsLastSibling(); misteryCandyItem.gameObject.SetActive(true); });
+        // }
     }
 
     public void ClearUI()

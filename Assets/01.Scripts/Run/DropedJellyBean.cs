@@ -30,7 +30,6 @@ public class DropedJellyBean : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
 
         Init();
-
     }
 
 #if UNITY_STANDALONE || UNITY_EDITOR
@@ -73,7 +72,6 @@ public class DropedJellyBean : MonoBehaviour
 
         meshRenderer = models[currentModelNum].GetComponent<MeshRenderer>();
         meshRenderer.gameObject.SetActive(true);
-
     }
 
     public void Init()
@@ -115,5 +113,20 @@ public class DropedJellyBean : MonoBehaviour
             other.GetComponentInChildren<Bullet>().Push();
             // Destroy(other.gameObject);
         }
+    }
+
+    public void ChangeCandy(int num)
+    {
+        if (meshRenderer == null)
+            meshRenderer = GetComponentInChildren<MeshRenderer>();
+
+        Init();
+
+        meshRenderer.gameObject.SetActive(false);
+
+        meshRenderer = models[num].GetComponent<MeshRenderer>();
+        meshRenderer.gameObject.SetActive(true);
+
+        changeJellyColor = false;
     }
 }

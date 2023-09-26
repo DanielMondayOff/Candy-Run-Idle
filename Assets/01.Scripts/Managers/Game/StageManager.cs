@@ -66,6 +66,8 @@ public class StageManager : MonoBehaviour
     {
         //Clear Stage
 
+        EventManager.instance.CustomEvent(AnalyticsType.RUN, "ClearStage_" + currentStageNum, true, true);
+
         if (loop)
             currentStageNum++;
 

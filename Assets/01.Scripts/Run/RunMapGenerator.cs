@@ -34,8 +34,9 @@ public class RunMapGenerator : MonoBehaviour
 
         targetCandyLevelUpPiller = (int)Random.Range(candyLevelUpValue.x, candyLevelUpValue.y);
 
-
         tripleShot = RandomBooleanGenerator.GenerateRandomBoolean();
+
+        List<MapPart> mapParts = new List<MapPart>();
 
         while (mapPoints.Count > 0)
         {
@@ -44,6 +45,8 @@ public class RunMapGenerator : MonoBehaviour
             if (tripleShot && (Random.Range(0, 25) < 1))
             {
                 var prefab = Instantiate(randomPillerPrefabs[Random.Range(0, randomPillerPrefabs.Length)], point);
+
+                mapParts.Add(prefab.GetComponentInChildren<MapPart>());
 
                 var pillers = prefab.GetComponentsInChildren<Piller>();
 
@@ -89,6 +92,8 @@ public class RunMapGenerator : MonoBehaviour
 
                 var pillers = prefab.GetComponentsInChildren<Piller>();
 
+                mapParts.Add(prefab.GetComponentInChildren<MapPart>());
+
                 Dictionary<PillerType, float> probabilities = new Dictionary<PillerType, float>();
 
                 // probabilities.Add(PillerType.Length, 60);
@@ -107,6 +112,8 @@ public class RunMapGenerator : MonoBehaviour
 
                 var pillers = prefab.GetComponentsInChildren<Piller>();
 
+                mapParts.Add(prefab.GetComponentInChildren<MapPart>());
+
                 foreach (var piller in pillers)
                 {
                     if (piller.value > 0)
@@ -124,6 +131,8 @@ public class RunMapGenerator : MonoBehaviour
 
                 var pillers = prefab.GetComponentsInChildren<Piller>();
 
+                mapParts.Add(prefab.GetComponentInChildren<MapPart>());
+
                 foreach (var piller in pillers)
                 {
                     if (piller.value > 0)
@@ -135,9 +144,10 @@ public class RunMapGenerator : MonoBehaviour
                 currentAddCandyLevelUpPiller++;
             }
         }
+        int num = Random.Range(0, 5);
+        mapParts.ForEach((n) => n.ChangeCandyModel(num));
 
         EventManager.instance.CustomEvent(AnalyticsType.RUN, "RunMapRandomGenerated", true, true);
-
 
         //         MondayOFF.EventTracker.LogCustomEvent(
         // 		"RUN", 

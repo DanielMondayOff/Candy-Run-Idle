@@ -69,6 +69,7 @@ public class RunManager : MonoBehaviour
 
     [FoldoutGroup("참조")] public GameObject x2ClaimBtn;
     [FoldoutGroup("참조")] public GameObject noThanksBtn;
+    [FoldoutGroup("참조")] public UIAttractorCustom[] uIAttractorCustoms;
 
 
 
