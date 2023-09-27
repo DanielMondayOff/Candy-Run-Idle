@@ -156,6 +156,8 @@ public class RunManager : MonoBehaviour
         // ABManager.instance.SelectStart("B");
 
         // MondayOFF.AdsManager.ShowBanner();
+
+        this.TaskDelay(3f, TestCrash2);
     }
 
     private void OnEnable()
@@ -1010,6 +1012,11 @@ public class RunManager : MonoBehaviour
                 IdleManager.instance.idleCamera.gameObject.SetActive(true);
                 // IdleManager.instance.blackPanel.gameObject.SetActive(false);
             });
+    }
+
+    public void TestCrash2()
+    {
+        throw new System.Exception("(ignore) this is a test crash2");
     }
 }
 
