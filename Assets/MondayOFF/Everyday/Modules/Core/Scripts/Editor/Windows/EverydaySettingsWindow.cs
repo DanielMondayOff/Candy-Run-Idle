@@ -5,8 +5,10 @@ using Facebook.Unity.Editor;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace MondayOFF {
-    public class EverydaySettingsWindow : EditorWindow {
+namespace MondayOFF
+{
+    public class EverydaySettingsWindow : EditorWindow
+    {
         const float IMAGE_HEIGHT = 100f;
         const float PADDING = 10f;
         // const float SMALL_BUTTON_WIDTH = 20f;
@@ -28,8 +30,10 @@ namespace MondayOFF {
         bool _expandGeneralSettings = true;
         bool _expandAdSettings = true;
 
-        public static void Open() {
-            if (EverydaySettings.Instance == null) {
+        public static void Open()
+        {
+            if (EverydaySettings.Instance == null)
+            {
                 EverydayLogger.Error("EverydaySettings is null!");
                 return;
             }
@@ -38,8 +42,10 @@ namespace MondayOFF {
             window.Show();
         }
 
-        private void OnGUI() {
-            if (_largeAndBoldLabel == null) {
+        private void OnGUI()
+        {
+            if (_largeAndBoldLabel == null)
+            {
                 _largeAndBoldLabel = new GUIStyle(EditorStyles.largeLabel);
                 _largeAndBoldLabel.fontSize = 16;
                 _largeAndBoldLabel.fontStyle = FontStyle.Bold;
@@ -47,7 +53,8 @@ namespace MondayOFF {
                 _largeAndBoldLabel.border = new RectOffset(0, 0, 0, 0);
             }
 
-            if (_logo == null) {
+            if (_logo == null)
+            {
                 _logo = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/MondayOFF/Everyday/Textures/Editor/mondayoff_logo_transparency.png");
             }
 
@@ -94,8 +101,19 @@ namespace MondayOFF {
 
             AddDivider();
             ExpandableLabel("General", ref _expandGeneralSettings);
-            if (_expandGeneralSettings) {
+            if (_expandGeneralSettings)
+            {
                 EditorGUI.indentLevel++;
+
+                // Set Test Mode
+                AddField(
+                    "Initialize on Launch [?]",
+                    "Initialize Everyday and related third parties on launch",
+                    () => EditorGUILayout.Toggle(settings.initializeOnLaunch),
+                    (value) => { settings.initializeOnLaunch = (bool)value; },
+                    settings
+                );
+
                 // Show LogLevel
                 AddField(
                     "Log Level [?]",
@@ -104,7 +122,6 @@ namespace MondayOFF {
                     (value) => { settings.logLevel = (LogLevel)value; },
                     settings
                 );
-
 
                 // Set Test Mode
                 AddField(
@@ -121,7 +138,8 @@ namespace MondayOFF {
 
             AddDivider();
             ExpandableLabel("App Settings", ref _expandAppSettings);
-            if (_expandAppSettings) {
+            if (_expandAppSettings)
+            {
                 // EditorGUILayout.BeginHorizontal();
                 // GUILayout.FlexibleSpace();
                 // if (GUILayout.Button("Get App Settings", GUILayout.Height(EditorGUIUtility.singleLineHeight * 1.5f))) {
@@ -161,10 +179,12 @@ namespace MondayOFF {
                 AddField(
                     "Bundle ID [?]",
                     "Bundle ID/Package Name of the game",
-                    () => {
+                    () =>
+                    {
                         return EditorGUILayout.TextField(PlayerSettings.applicationIdentifier);
                     },
-                    (value) => {
+                    (value) =>
+                    {
                         PlayerSettings.applicationIdentifier = value;
                     },
                     null
@@ -174,7 +194,8 @@ namespace MondayOFF {
                 AddReadOnlyField(
                     "Platform [?]",
                     "Current build target platform",
-                    () => {
+                    () =>
+                    {
                         EditorGUILayout.TextField(EditorUserBuildSettings.activeBuildTarget.ToString());
                     }
                 );
@@ -189,15 +210,18 @@ namespace MondayOFF {
                 AddField(
                     "Facebook App ID",
                     null,
-                    () => {
+                    () =>
+                    {
                         return EditorGUILayout.TextField(FacebookSettings.AppId);
                     },
-                    (value) => {
+                    (value) =>
+                    {
                         FacebookSettings.AppIds = new List<string>() { ((string)value).Trim() };
                     },
                     FacebookSettings.Instance
                 );
-                if (string.IsNullOrEmpty(FacebookSettings.AppId) || FacebookSettings.AppId == "0") {
+                if (string.IsNullOrEmpty(FacebookSettings.AppId) || FacebookSettings.AppId == "0")
+                {
                     EditorGUILayout.HelpBox("Facebook App ID is empty!", MessageType.Error);
                 }
 
@@ -205,16 +229,19 @@ namespace MondayOFF {
                 AddField(
                     "Facebook Client Token",
                     null,
-                    () => {
+                    () =>
+                    {
                         return EditorGUILayout.TextField(FacebookSettings.ClientToken);
                     }
                     ,
-                    (value) => {
+                    (value) =>
+                    {
                         FacebookSettings.ClientTokens = new List<string>() { ((string)value).Trim() };
                     },
                     FacebookSettings.Instance
                 );
-                if (string.IsNullOrEmpty(FacebookSettings.ClientToken)) {
+                if (string.IsNullOrEmpty(FacebookSettings.ClientToken))
+                {
                     EditorGUILayout.HelpBox("Facebook Client Token is empty!", MessageType.Error);
                 }
 
@@ -234,10 +261,12 @@ namespace MondayOFF {
                 AddField(
                     "    Android",
                     null,
-                    () => {
+                    () =>
+                    {
                         return EditorGUILayout.TextField(AppLovinSettings.Instance.AdMobAndroidAppId);
                     },
-                    (value) => {
+                    (value) =>
+                    {
                         AppLovinSettings.Instance.AdMobAndroidAppId = ((string)value).Trim();
                     },
                     AppLovinSettings.Instance
@@ -247,10 +276,12 @@ namespace MondayOFF {
                 AddField(
                     "    iOS",
                     null,
-                    () => {
+                    () =>
+                    {
                         return EditorGUILayout.TextField(AppLovinSettings.Instance.AdMobIosAppId);
                     },
-                    (value) => {
+                    (value) =>
+                    {
                         AppLovinSettings.Instance.AdMobIosAppId = ((string)value).Trim();
                     },
                     AppLovinSettings.Instance
@@ -265,11 +296,13 @@ namespace MondayOFF {
             // Show AdSettings
             AddDivider();
             ExpandableLabel("Ad Settings", ref _expandAdSettings);
-            if (_expandAdSettings && settings.adSettings != null) {
+            if (_expandAdSettings && settings.adSettings != null)
+            {
                 EditorGUI.indentLevel++;
                 EditorGUILayout.BeginHorizontal();
                 GUILayout.FlexibleSpace();
-                if (GUILayout.Button("Reset to default", GUILayout.Width(150f))) {
+                if (GUILayout.Button("Reset to default", GUILayout.Width(150f)))
+                {
                     settings.adSettings = new AdSettings();
                     settings.adSettings.playOnPosition = new PlayOnPosition();
                     EditorUtility.SetDirty(settings);
@@ -536,7 +569,8 @@ namespace MondayOFF {
                     "Delay between ad initialization [?]",
                     "Delay between each ad type load (in seconds)",
                     () => EditorGUILayout.Slider(settings.adSettings.adInitializationDelay, 0f, 3f),
-                    (value) => {
+                    (value) =>
+                    {
                         settings.adSettings.adInitializationDelay = (float)value;
                     },
                     settings
@@ -608,7 +642,8 @@ namespace MondayOFF {
                     settings
                 );
 
-                if (settings.adSettings.showPlayOnAfterInterstitial) {
+                if (settings.adSettings.showPlayOnAfterInterstitial)
+                {
                     AddField(
                         "     Every # interstitials",
                         null,
@@ -626,7 +661,8 @@ namespace MondayOFF {
                     settings
                 );
 
-                if (settings.adSettings.playOnPosition.useScreenPositioning) {
+                if (settings.adSettings.playOnPosition.useScreenPositioning)
+                {
                     // not using indent because it tilts input field as well
                     // PlayOn logo anchor
                     AddField(
@@ -694,7 +730,8 @@ namespace MondayOFF {
             GUILayout.BeginArea(new Rect(10f, position.height - 55f, position.width - 20f, 45f));
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
-            if (GUILayout.Button("Close", GUILayout.Height(50f), GUILayout.Width(LABEL_WIDTH))) {
+            if (GUILayout.Button("Close", GUILayout.Height(50f), GUILayout.Width(LABEL_WIDTH)))
+            {
                 Close();
             }
             GUILayout.FlexibleSpace();
@@ -702,34 +739,43 @@ namespace MondayOFF {
             GUILayout.EndArea();
         }
 
-        private void AddDivider() {
+        private void AddDivider()
+        {
             EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
         }
 
-        private void ExpandableLabel(in string label, ref bool isExpanded) {
-            if (GUILayout.Button(string.Format("{0} {1}", isExpanded ? "▼" : "▶", label), _largeAndBoldLabel)) {
+        private void ExpandableLabel(in string label, ref bool isExpanded)
+        {
+            if (GUILayout.Button(string.Format("{0} {1}", isExpanded ? "▼" : "▶", label), _largeAndBoldLabel))
+            {
                 isExpanded = !isExpanded;
             }
         }
 
-        private void AddField<T>(in string labelText, in string tooltip, in System.Func<T> getter, in System.Action<T> setter, in Object targetObject) {
+        private void AddField<T>(in string labelText, in string tooltip, in System.Func<T> getter, in System.Action<T> setter, in Object targetObject)
+        {
             EditorGUILayout.BeginHorizontal();
             EditorGUI.BeginChangeCheck();
             EditorGUILayout.LabelField(new GUIContent(labelText, tooltip), GUILayout.Width(LABEL_WIDTH));
             var value = getter();
-            if (EditorGUI.EndChangeCheck()) {
-                if (targetObject != null) {
+            if (EditorGUI.EndChangeCheck())
+            {
+                if (targetObject != null)
+                {
                     Undo.RecordObject(targetObject, labelText);
                 }
                 setter(value);
-                if (targetObject != null) {
+                if (targetObject != null)
+                {
                     EditorUtility.SetDirty(targetObject);
+                    AssetDatabase.SaveAssetIfDirty(targetObject);
                 }
             }
             EditorGUILayout.EndHorizontal();
         }
 
-        private void AddReadOnlyField(in string labelText, in string tooltip, in System.Action display) {
+        private void AddReadOnlyField(in string labelText, in string tooltip, in System.Action display)
+        {
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.LabelField(new GUIContent(labelText, tooltip), GUILayout.Width(LABEL_WIDTH));
             EditorGUI.BeginDisabledGroup(true);

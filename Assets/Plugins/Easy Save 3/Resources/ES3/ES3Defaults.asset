@@ -32,6 +32,7 @@ MonoBehaviour:
     assemblyNames:
     - ACTk.Editor
     - ACTk.Runtime
+    - Adverty.PlatformSpecific.Editor
     - AdvertyPlatformSpecific
     - Amazon.Editor
     - Amazon.Scripts

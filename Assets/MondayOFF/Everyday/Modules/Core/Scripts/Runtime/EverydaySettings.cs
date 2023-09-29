@@ -1,14 +1,20 @@
 using UnityEngine;
 
-namespace MondayOFF {
-    public partial class EverydaySettings : ScriptableObject {
-        public static EverydaySettings Instance {
-            get {
-                if (_instance is null) {
+namespace MondayOFF
+{
+    public partial class EverydaySettings : ScriptableObject
+    {
+        public static EverydaySettings Instance
+        {
+            get
+            {
+                if (_instance is null)
+                {
 #if UNITY_EDITOR
                     var settingAssets = UnityEditor.AssetDatabase.FindAssets("t:EverydaySettings");
 
-                    if (settingAssets.Length != 1) {
+                    if (settingAssets.Length != 1)
+                    {
                         throw new UnityEditor.Build.BuildFailedException("[EVERYDAY] There should be ONLY 1 settings object.");
                     }
 
@@ -35,15 +41,18 @@ namespace MondayOFF {
         internal static AdSettings AdSettings => Instance?.adSettings;
         private static EverydaySettings _instance;
 
+        [SerializeField] internal bool initializeOnLaunch = true;
         [SerializeField] internal LogLevel logLevel = LogLevel.Warning;
         [SerializeField] internal bool isTestMode = false;
         [SerializeField] internal AdSettings adSettings = default;
         [SerializeField] internal string gameId = "";
 
-        public static LogLevel GetLogLevel() {
+        public static LogLevel GetLogLevel()
+        {
             return Instance.logLevel;
         }
-        public static void SetLogLevel(LogLevel logLevel) {
+        public static void SetLogLevel(LogLevel logLevel)
+        {
             Instance.logLevel = logLevel;
         }
     }

@@ -157,7 +157,7 @@ public class RunManager : MonoBehaviour
 
         // MondayOFF.AdsManager.ShowBanner();
 
-        this.TaskDelay(3f, TestCrash2);
+        this.TaskDelay(3f, TestCrash3);
     }
 
     private void OnEnable()
@@ -1014,9 +1014,9 @@ public class RunManager : MonoBehaviour
             });
     }
 
-    public void TestCrash2()
+    public void TestCrash3()
     {
-        throw new System.Exception("(ignore) this is a test crash2");
+        throw new System.Exception("(ignore) this is a test crash3");
     }
 }
 

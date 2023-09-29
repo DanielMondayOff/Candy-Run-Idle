@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using Firebase.Analytics;
 
-namespace MondayOFF {
-    public static class EventTracker {
+namespace MondayOFF
+{
+    public static class EventTracker
+    {
         private static Firebase.FirebaseApp _app = null;
         private static bool _isInitialized = false;
         private static System.Action _onInitialized = default;
 
-        public static void TryStage(int stageNum, string stageName = "Stage") {
-            if (!_isInitialized) {
+        public static void TryStage(int stageNum, string stageName = "Stage")
+        {
+            if (!_isInitialized)
+            {
                 _onInitialized += () => TryStage(stageNum, stageName);
                 return;
             }
@@ -20,9 +24,11 @@ namespace MondayOFF {
             );
         }
 
-        public static void ClearStage(int stageNum, string stageName = "Stage") {
+        public static void ClearStage(int stageNum, string stageName = "Stage")
+        {
             // Send event regardless of initialization
-            switch (stageNum) {
+            switch (stageNum)
+            {
                 case 10:
                 case 20:
                 case 30:
@@ -30,7 +36,8 @@ namespace MondayOFF {
                     break;
             }
 
-            if (!_isInitialized) {
+            if (!_isInitialized)
+            {
                 _onInitialized += () => ClearStage(stageNum, stageName);
                 return;
             }
@@ -41,84 +48,71 @@ namespace MondayOFF {
         }
 
         // Stringify prameter values
-        public static void LogCustomEvent(string eventName, Dictionary<string, string> parameters) {
-            if (!_isInitialized) {
+        public static void LogCustomEvent(string eventName, Dictionary<string, string> parameters)
+        {
+            if (!_isInitialized)
+            {
                 _onInitialized += () => LogCustomEvent(eventName, parameters);
                 return;
             }
 
-            if (parameters == null) {
+            if (parameters == null)
+            {
                 FirebaseAnalytics.LogEvent(eventName);
-            } else {
+            }
+            else
+            {
                 var eventParams = new Parameter[parameters.Count];
                 int i = 0;
-                foreach (var item in parameters) {
+                foreach (var item in parameters)
+                {
                     eventParams[i++] = new Parameter(item.Key, item.Value);
                 }
                 FirebaseAnalytics.LogEvent(eventName, eventParams);
             }
         }
 
-        private static void TrackInterstitialAdRevenue(string adUnitID, MaxSdkBase.AdInfo adInfo) {
+        private static void TrackAdRevenue(string adUnitID, MaxSdkBase.AdInfo adInfo)
+        {
             if (!_isInitialized) { return; }
 
-            Parameter[] AdParameters = {
-                new Parameter("ad_platform", "MAX"),
+            double revenue = adInfo.Revenue;
+            var impressionParameters = new[] {
+                new Parameter("ad_platform", "AppLovin"),
                 new Parameter("ad_source", adInfo.NetworkName),
-                new Parameter("ad_format", parameterValue: "Interstitial"),
-                new Parameter("ad_placement", "IS"),
-                new Parameter("currency","USD"),
-                new Parameter("value", adInfo.Revenue)
+                new Parameter("ad_unit_name", adInfo.AdUnitIdentifier),
+                new Parameter("ad_format", adInfo.AdFormat),
+                new Parameter("value", revenue),
+                new Parameter("currency", "USD"), // All AppLovin revenue is sent in USD
             };
-            Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_impression", AdParameters);
-        }
-
-        private static void TrackRewardedAdRevenue(string adUnitID, MaxSdkBase.AdInfo adInfo) {
-            if (!_isInitialized) { return; }
-
-            Parameter[] AdParameters = {
-                new Parameter("ad_platform", "MAX"),
-                new Parameter("ad_source", adInfo.NetworkName),
-                new Parameter("ad_format", "Rewarded Video"),
-                new Parameter("ad_placement", "RV"),
-                new Parameter("currency","USD"),
-                new Parameter("value", adInfo.Revenue)
-            };
-            Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_impression", AdParameters);
-        }
-
-        private static void TrackBannerAdRevenue(string adUnitID, MaxSdkBase.AdInfo adInfo) {
-            if (!_isInitialized) { return; }
-
-            Parameter[] AdParameters = {
-                new Parameter("ad_platform", "MAX"),
-                new Parameter("ad_source", adInfo.NetworkName),
-                new Parameter("ad_format", "Banner"), // Setting Banner placement seem to work with delay
-                new Parameter("currency","USD"),
-                new Parameter("value", adInfo.Revenue)
-            };
-            Firebase.Analytics.FirebaseAnalytics.LogEvent("ad_impression", AdParameters);
+            FirebaseAnalytics.LogEvent("ad_impression", impressionParameters);
         }
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-        private static void AfterSceneLoad() {
+        private static void AfterSceneLoad()
+        {
             _isInitialized = false;
             Initialize();
         }
 
-        internal static void Initialize() {
-            if (_isInitialized) {
+        internal static void Initialize()
+        {
+            if (_isInitialized)
+            {
                 EverydayLogger.Warn("Firebase already initialized");
                 return;
             }
-            if (!EveryDay.isInitialized) {
-                EveryDay.onEverydayInitialized += Initialize;
+            if (!EveryDay.isInitialized)
+            {
+                EveryDay.OnEverydayInitialized += Initialize;
                 return;
             }
 
-            Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task => {
+            Firebase.FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
+            {
                 var dependencyStatus = task.Result;
-                if (dependencyStatus == Firebase.DependencyStatus.Available) {
+                if (dependencyStatus == Firebase.DependencyStatus.Available)
+                {
                     // Create and hold a reference to your FirebaseApp,
                     // where app is a Firebase.FirebaseApp property of your application class.
                     _app = Firebase.FirebaseApp.DefaultInstance;
@@ -126,7 +120,9 @@ namespace MondayOFF {
                     // Set a flag here to indicate whether Firebase is ready to use by your app.
                     OnFirebaseInitialized();
 
-                } else {
+                }
+                else
+                {
                     EverydayLogger.Error(System.String.Format(
                       "Could not resolve all Firebase dependencies: {0}", dependencyStatus));
                     // Firebase Unity SDK is NOT safe to use here.
@@ -134,10 +130,11 @@ namespace MondayOFF {
             });
         }
 
-        private static void OnFirebaseInitialized() {
-            MaxSdkCallbacks.Interstitial.OnAdRevenuePaidEvent += TrackInterstitialAdRevenue;
-            MaxSdkCallbacks.Rewarded.OnAdRevenuePaidEvent += TrackRewardedAdRevenue;
-            MaxSdkCallbacks.Banner.OnAdRevenuePaidEvent += TrackBannerAdRevenue;
+        private static void OnFirebaseInitialized()
+        {
+            MaxSdkCallbacks.Interstitial.OnAdRevenuePaidEvent += TrackAdRevenue;
+            MaxSdkCallbacks.Rewarded.OnAdRevenuePaidEvent += TrackAdRevenue;
+            MaxSdkCallbacks.Banner.OnAdRevenuePaidEvent += TrackAdRevenue;
 
             FirebaseAnalytics.LogEvent(FirebaseAnalytics.EventAppOpen);
 
