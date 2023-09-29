@@ -757,7 +757,7 @@ public class RunManager : MonoBehaviour
         SaveManager.instance.enableCandyInventoryUIUpdate = false;
         cuttingPhase = false;
 
-        temp.candyItems.ForEach((n) => EventManager.instance.CustomEvent(AnalyticsType.RUN, "GetCandyEndCutting_" + n.candy.id + "_" + n.count, true, true));
+        // temp.candyItems.ForEach((n) => EventManager.instance.CustomEvent(AnalyticsType.RUN, "GetCandyEndCutting_" + n.candy.id + "_" + n.count, true, true));
 
         SaveManager.instance.AddCandy(temp.candyItems, false);
 
