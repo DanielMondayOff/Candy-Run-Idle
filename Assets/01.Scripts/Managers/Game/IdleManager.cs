@@ -153,7 +153,7 @@ public class IdleManager : MonoBehaviour
         {
             if (ES3.Load<bool>("NextStageEnable"))
             {
-                IdleManager.instance.ChangeIdleCameraOffsetTest();
+                // IdleManager.instance.ChangeIdleCameraOffsetTest();
             }
         }
 
@@ -735,7 +735,7 @@ public class IdleManager : MonoBehaviour
 
         particle.GetComponentInChildren<ParticleSystem>().Play();
 
-        this.TaskDelay(5f, () => {if(particle != null) Managers.Pool.Push(particle);});
+        this.TaskDelay(5f, () => { if (particle != null) Managers.Pool.Push(particle); });
     }
 
     public void StartIdleFirst()

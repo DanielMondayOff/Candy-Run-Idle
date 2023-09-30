@@ -203,7 +203,7 @@ public class RunManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha7))
         {
             StageManager.instance.ClearStage();
-            SceneManager.UnloadSceneAsync("Run");
+            SceneManager.UnloadScene("Run");
             SceneManager.LoadScene("Run", LoadSceneMode.Additive);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha8))
@@ -292,7 +292,7 @@ public class RunManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.F7))
         {
             StageManager.instance.BackStage();
-            SceneManager.UnloadSceneAsync("Run");
+            SceneManager.UnloadScene("Run");
             SceneManager.LoadScene("Run", LoadSceneMode.Additive);
         }
 
@@ -872,7 +872,7 @@ public class RunManager : MonoBehaviour
     {
         cuttedCandys.ForEach((n) => Destroy(n));
 
-        SceneManager.UnloadSceneAsync("Run");
+        SceneManager.UnloadScene("Run");
         SceneManager.LoadScene("Run", LoadSceneMode.Additive);
 
         // plusBulletRange = 0;
