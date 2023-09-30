@@ -203,7 +203,7 @@ public class RunManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Alpha7))
         {
             StageManager.instance.ClearStage();
-            SceneManager.UnloadScene("Run");
+            SceneManager.UnloadSceneAsync("Run");
             SceneManager.LoadScene("Run", LoadSceneMode.Additive);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha8))
@@ -292,7 +292,7 @@ public class RunManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.F7))
         {
             StageManager.instance.BackStage();
-            SceneManager.UnloadScene("Run");
+            SceneManager.UnloadSceneAsync("Run");
             SceneManager.LoadScene("Run", LoadSceneMode.Additive);
         }
 
@@ -473,8 +473,8 @@ public class RunManager : MonoBehaviour
 
                 // print("캔디 개수 : " + count + " / 피라미드 높이 : " + (Mathf.Sqrt(2) / 2));
 
-                float objectWidth = 1.25f;
-                float objectHeight = 1.25f;
+                // float objectWidth = 1.25f;
+                // float objectHeight = 1.25f;
 
                 int height = GetPyramidHeight(count);
 
@@ -599,8 +599,6 @@ public class RunManager : MonoBehaviour
 
             height++;
         }
-
-        return 0;
     }
 
     public int GetSqureSideLength(int count)
@@ -948,7 +946,7 @@ public class RunManager : MonoBehaviour
     {
         cuttedCandys.ForEach((n) => Destroy(n));
 
-        SceneManager.UnloadScene("Run");
+        SceneManager.UnloadSceneAsync("Run");
         SceneManager.LoadScene("Run", LoadSceneMode.Additive);
 
         runGameUI.SetActive(true);

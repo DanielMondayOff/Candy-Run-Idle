@@ -14,16 +14,16 @@ public class CandyObject : ScriptableObject
 
     [SerializeField] public CandyObject nextCandy;
 
-    private void OnValidate()
-    {
-        var candys = Resources.LoadAll<CandyObject>("");
+    // private void OnValidate()
+    // {
+    //     var candys = Resources.LoadAll<CandyObject>("");
 
-        foreach (var candy in candys)
-        {
-            if (candy != this && candy.id == this.id)
-            {
-                Debug.LogError("중복되는 id가 있습니다. id : " + candy.id);
-            }
-        }
-    }
+    //     foreach (var candy in candys)
+    //     {
+    //         if (candy != this && candy.id == this.id)
+    //         {
+    //             Debug.LogError("중복되는 id가 있습니다. id : " + candy.id);
+    //         }
+    //     }
+    // }
 }

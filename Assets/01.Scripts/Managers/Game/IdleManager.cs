@@ -320,20 +320,6 @@ public class IdleManager : MonoBehaviour
         // order.currentLine = emptyLine;
 
         // BookTheLine(customer);
-
-        bool CheckCandyJar()
-        {
-            if (candyJars.Count <= 0)
-                return true;
-
-            foreach (var jar in candyJars)
-            {
-                if (jar.candyItem.count <= 0)
-                    return true;
-            }
-
-            return false;
-        }
     }
 
     public void GenerateCandyJar()
@@ -603,21 +589,6 @@ public class IdleManager : MonoBehaviour
             return int.MaxValue;
         }
 
-        switch (type)
-        {
-            case IdleUpgradeType.HireWorker:
-                return hireWorker.cost[hireWorker.currentLevel];
-
-            case IdleUpgradeType.WorkerSpeedUp:
-                return workerSpeedUp.cost[workerSpeedUp.currentLevel];
-
-            case IdleUpgradeType.Promotion:
-                return promotion.cost[promotion.currentLevel];
-
-            default:
-                Debug.LogError("정의가 없습니다. 추가해 주십시요");
-                return 100000;
-        }
     }
 
     public int GetUpgradeCost(IdleUpgradeType type)
@@ -634,22 +605,6 @@ public class IdleManager : MonoBehaviour
             return int.MaxValue;
         }
 
-        switch (type)
-        {
-            case IdleUpgradeType.HireWorker:
-                return IdleManager.instance.hireWorker.cost[IdleManager.instance.hireWorker.currentLevel];
-
-            case IdleUpgradeType.WorkerSpeedUp:
-                return IdleManager.instance.workerSpeedUp.cost[IdleManager.instance.workerSpeedUp.currentLevel];
-
-            case IdleUpgradeType.Promotion:
-                return IdleManager.instance.promotion.cost[IdleManager.instance.promotion.currentLevel];
-
-            default:
-                Debug.LogError("정의가 없습니다. 추가해 주십시요");
-                return int.MaxValue;
-
-        }
     }
 
     public IdleUpgrade GetUpgradeValue(IdleUpgradeType type)

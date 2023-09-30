@@ -50,7 +50,7 @@ public class DisplayStand : BuildObject
     public int maxQueueCount = 3;
 
     private TaskUtil.WhileTaskMethod checkPlayerItemWhileTask = null;
-    private TaskUtil.WhileTaskMethod checkDistBetweenCustomer = null;
+    // private TaskUtil.WhileTaskMethod checkDistBetweenCustomer = null;
 
 
     TaskUtil.WhileTaskMethod candyGiveDelay = null;

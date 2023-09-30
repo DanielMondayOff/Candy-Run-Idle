@@ -7,10 +7,6 @@ public class IdleUpgradeSlot : MonoBehaviour
 {
     [SerializeField] IdleUpgradeType upgrade;
 
-    [SerializeField] Image icon;
-    [SerializeField] Text name;
-    [SerializeField] Text desc;
-
     [SerializeField] Image btnImage;
     [SerializeField] Text cost;
 
