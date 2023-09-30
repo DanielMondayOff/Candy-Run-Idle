@@ -59,6 +59,9 @@ public class IdleCustomer : SerializedMonoBehaviour
         itemId = id;
 
         UpdateUI();
+
+        animator.enabled = false;
+        animator.enabled = true;
     }
 
     private void Update()
