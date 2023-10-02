@@ -54,7 +54,7 @@ public class FieldRvUI : MonoBehaviour
 
     public void OnClickNoThanksBtn()
     {
-        EventManager.instance.CustomEvent(AnalyticsType.RV, type + "OnClickNoThanks", true, true);
+        EventManager.instance.CustomEvent(AnalyticsType.UI, type + "_OnClickNoThanks", true, true);
 
         Destroy(gameObject);
     }
