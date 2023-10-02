@@ -106,6 +106,26 @@ public class IdlePlayer : MonoBehaviour
         }
     }
 
+    public void PopoutItem(int id, Transform parent, StandBuildObject stand)
+    {
+        for (int i = 0; i < itemStackList.Count; i++)
+        {
+            if (itemStackList[i].GetComponent<ItemObject>().GetItem.id == id)
+            {
+                itemStackList[i].GetComponent<ItemObject>().Jump(parent);
+
+                stand.AddNewItem(itemStackList[i].GetComponent<ItemObject>());
+
+                itemStackList.Remove(itemStackList[i]);
+
+                UpdateItemPos();
+
+                // UpdateItemUI();
+                return;
+            }
+        }
+    }
+
     public void PopoutAnyItem(Transform parent)
     {
         for (int i = 0; i < itemStackList.Count; i++)

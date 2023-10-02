@@ -8,6 +8,7 @@ using DG.Tweening;
 public class DisplayStand : BuildObject
 {
     [SerializeField] Dictionary<Transform, ItemObject> displayPoints = new Dictionary<Transform, ItemObject>();
+    public Dictionary<Transform, ItemObject> GetDisplayPoints => displayPoints;
 
     public KeyValuePair<Transform, ItemObject> GetEmptyPoint()
     {
@@ -40,7 +41,9 @@ public class DisplayStand : BuildObject
     [SerializeField] Stack<Item> items = new Stack<Item>();
 
     [SerializeField] Transform[] customerQueueLine;
+    public Transform[] GetCustomerQueueLine => customerQueueLine;
     [SerializeField] List<IdleCustomer> customerList = new List<IdleCustomer>();
+    public List<IdleCustomer> GetCustomerList => customerList;
     public int GetCustomerCount => customerList.Count;
     public bool IsEnableEnqueue() => maxQueueCount > customerList.Count;
 
@@ -57,7 +60,7 @@ public class DisplayStand : BuildObject
 
     public float Debug_distToCustomer;
 
-    [SerializeField] CandyInventoryUI inventoryUI;
+    [SerializeField]public CandyInventoryUI inventoryUI;
 
     // [SerializeField] Canvas CandyCanvas;
     // [SerializeField] Text test_candyName;

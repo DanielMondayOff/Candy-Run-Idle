@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 
 public class BuildObject : SaveableObject
 {
-    [SerializeField] BuildSaveData savedata;
+    // [SerializeField]protected BuildSaveData savedata;
 
     [SerializeField] Collector collector;
 
@@ -23,7 +23,7 @@ public class BuildObject : SaveableObject
     {
         Guid = System.Guid.NewGuid().ToString();
 
-        savedata.SetGuid(Guid);
+        // savedata.SetGuid(Guid);
 
 #if UNITY_EDITOR
         UnityEditor.EditorUtility.SetDirty(this);

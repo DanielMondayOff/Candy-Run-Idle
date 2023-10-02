@@ -29,12 +29,12 @@ public class CandyMachine : BuildObject
 
     public float Debug_distToCustomer;
 
-    public TaskUtil.DelayTaskMethod delayTimer = null;
-    public TaskUtil.DelayTaskMethod candyGiveDelay = null;
+    [HideInInspector] public TaskUtil.DelayTaskMethod delayTimer = null;
+    [HideInInspector] public TaskUtil.DelayTaskMethod candyGiveDelay = null;
 
     //================================================================================
 
-    public TaskUtil.WhileTaskMethod playerTakeCandyTask = null;
+    [HideInInspector] public TaskUtil.WhileTaskMethod playerTakeCandyTask = null;
     public Transform itemObjectGeneratePoint;
 
     Tween punchScaleTween = null;
@@ -252,7 +252,7 @@ public class CandyMachine : BuildObject
 
             if (!ES3.KeyExists("FirstPlayerCandyTake"))
             {
-                IdleManager.instance.idlePlayer.ActiveNaviArrow(IdleManager.instance.candyDisplayStandList.Where((n) => n.isReady).First().transform);
+                IdleManager.instance.idlePlayer.ActiveNaviArrow(IdleManager.instance.standBuildList.Where((n) => n.isReady).First().transform);
                 ES3.Save<bool>("FirstPlayerCandyTake", true);
             }
         }

@@ -27,6 +27,8 @@ public class SaveManager : MonoBehaviour
 
     public static SaveManager instance = null;
 
+    private TaskUtil.DelayTaskMethod moneySaveDelayTask = null;
+
 
     private void Awake()
     {
@@ -84,7 +86,9 @@ public class SaveManager : MonoBehaviour
     {
         money += value;
 
-        ES3.Save<int>("Money", money);
+        // ES3.Save<int>("Money", money);
+
+        MoneySaveDelay();
 
         OnChangeMoney();
     }
@@ -94,6 +98,8 @@ public class SaveManager : MonoBehaviour
         money -= value;
 
         ES3.Save<int>("Money", money);
+
+        // MoneySaveDelay();
 
         OnChangeMoney();
     }
@@ -229,6 +235,26 @@ public class SaveManager : MonoBehaviour
     public CandyObject FindCandyObjectInReousrce(int id)
     {
         return Resources.LoadAll<CandyObject>("Candy").FirstOrDefault<CandyObject>((n) => n.id == id);
+    }
+
+    public void MoneySaveDelay()
+    {
+        if (moneySaveDelayTask == null)
+        {
+            // ES3.Save<int>("Money", money);
+            Save();
+        }
+        else
+        {
+            moneySaveDelayTask.Kill();
+            moneySaveDelayTask = null;
+            Save();
+        }
+
+        void Save()
+        {
+            moneySaveDelayTask = this.TaskDelay(2, () => { ES3.Save<int>("Money", money); moneySaveDelayTask.Kill(); moneySaveDelayTask = null; });
+        }
     }
 }
 

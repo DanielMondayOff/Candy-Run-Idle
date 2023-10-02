@@ -57,8 +57,11 @@ public class IdleWorker2 : SerializedMonoBehaviour
 
         // print("finding");
 
-        var jobs = IdleManager.instance.candyDisplayStandList.Where((n) => n.isReady && n.GetEmptyPoint().Value == null && n.currentMachine.candyItem.count > 0
-         && n.GetEmptyPoint().Key != null).ToArray();
+        // var jobs = IdleManager.instance.candyDisplayStandList.Where((n) => n.isReady && n.GetEmptyPoint().Value == null && n.currentMachine.candyItem.count > 0
+        //  && n.GetEmptyPoint().Key != null).ToArray();
+
+         var jobs = IdleManager.instance.standBuildList.Where((n) => n.isReady &&
+          n.standPoints.Where((n) => n.itemObject == null).Count() > 0 && n.currentMachine.candyItem.count > 0).ToArray();
 
         if (jobs.Length > 0)
         {
@@ -77,7 +80,7 @@ public class IdleWorker2 : SerializedMonoBehaviour
         }
     }
 
-    public void DeliveryToStand(DisplayStand stand)
+    public void DeliveryToStand(StandBuildObject stand)
     {
         agent.SetDestination(stand.transform.position);
 
@@ -95,14 +98,14 @@ public class IdleWorker2 : SerializedMonoBehaviour
                 {
                     print(i);
 
-                    var emptyPoint = stand.GetEmptyPoint().Key;
+                    var emptyPoint = stand.GetEmptyPoint();
 
                     if (emptyPoint == null)
                         Managers.Pool.Push(itemPoints[where[i].Key].GetComponentInChildren<Poolable>());
                     else
                         itemPoints[where[i].Key].Jump(emptyPoint);
 
-                    stand.AddItemObject(where[i].Value.gameObject);
+                    stand.AddNewItem(where[i].Value);
 
                     itemPoints[where[i].Key] = null;
                 }

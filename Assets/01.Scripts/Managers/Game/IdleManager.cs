@@ -82,6 +82,8 @@ public class IdleManager : MonoBehaviour
     //==============================================================================================================================
 
     public List<DisplayStand> candyDisplayStandList = new List<DisplayStand>();
+    public List<StandBuildObject> standBuildList = new List<StandBuildObject>();
+
 
     public static IdleManager instance;
 
@@ -666,6 +668,8 @@ public class IdleManager : MonoBehaviour
 
         var useableCandyDisplayStand = candyDisplayStandList.Where((n) => n.isReady && n.CheckHasQueue() && n.IsEnableEnqueue());
 
+        var useableStandBuild = standBuildList.Where((n) => n.isReady && n.CheckHasQueue() && n.IsEnableEnqueue());
+
         // if (useableCandyMachines.ToArray().Length > 0)
         //     randomList.Add(candyBuildType.CandyMachine);
 
@@ -681,6 +685,9 @@ public class IdleManager : MonoBehaviour
             randomList.Add(candyBuildType.CandyDisplayStand);
         }
 
+        if (useableStandBuild.ToArray().Length > 0)
+            for (int i = 0; i < 5; i++)
+                randomList.Add(candyBuildType.StandBuild);
 
         if (randomList.Count > 0)
         {
@@ -697,6 +704,10 @@ public class IdleManager : MonoBehaviour
 
                 case candyBuildType.CandySlot:
                     useableCandySlots.OrderBy(x => Random.value).FirstOrDefault().EnqueueCustomer(customer);
+                    return;
+
+                case candyBuildType.StandBuild:
+                    useableStandBuild.OrderBy(x => Random.value).FirstOrDefault().EnqueueCustomer(customer);
                     return;
             }
         }
@@ -1024,7 +1035,8 @@ public enum candyBuildType
 {
     CandyMachine = 1,
     CandySlot = 2,
-    CandyDisplayStand = 3
+    CandyDisplayStand = 3,
+    StandBuild = 4
 
 }
 
