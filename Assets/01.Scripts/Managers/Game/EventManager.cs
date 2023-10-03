@@ -62,13 +62,13 @@ public class EventManager : MonoBehaviour
         if (timeEvent)
         {
             dic.Add("TIME", playtime.ToString());
-            TimeEvent("FLAG_TYPE", $"{type} - {additionInfo}");
+            // TimeEvent("FLAG_TYPE", $"{type} - {additionInfo}");
         }
 
         if (stageNum)
         {
             dic.Add("STAGENUM", StageManager.instance.currentStageNum.ToString());
-            StageNum("FLAG_TYPE", $"{type} - {additionInfo}");
+            // StageNum("FLAG_TYPE", $"{type} - {additionInfo}");
         }
         
         EventTracker.LogCustomEvent($"GAME_FLAG", dic);

@@ -65,7 +65,7 @@ public class IdleUpgradeSlot : MonoBehaviour
 
         SetUpgradeCostText();
         CheckingBtn();
-        IdleManager.instance.UpgradeUISort();
+        // IdleManager.instance.UpgradeUISort();
     }
 
     void CheckingBtn()
