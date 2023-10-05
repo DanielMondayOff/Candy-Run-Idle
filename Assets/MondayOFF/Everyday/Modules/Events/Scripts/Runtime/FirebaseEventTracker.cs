@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Firebase.Analytics;
+using Firebase.Crashlytics;
+using Firebase;
 
 namespace MondayOFF
 {
@@ -92,6 +94,7 @@ namespace MondayOFF
         private static void AfterSceneLoad()
         {
             _isInitialized = false;
+
             Initialize();
         }
 
@@ -118,8 +121,9 @@ namespace MondayOFF
                     _app = Firebase.FirebaseApp.DefaultInstance;
 
                     // Set a flag here to indicate whether Firebase is ready to use by your app.
-                    OnFirebaseInitialized();
 
+                    Crashlytics.ReportUncaughtExceptionsAsFatal = true;
+                    OnFirebaseInitialized();
                 }
                 else
                 {

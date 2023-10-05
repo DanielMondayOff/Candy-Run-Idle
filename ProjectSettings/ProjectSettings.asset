@@ -252,7 +252,8 @@ PlayerSettings:
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: E:/MondayOFF_Keystore.keystore
+  AndroidKeystoreName: "/Users/bangseunghwan/Documents/\u110E\u116E\u11AF\u1109\u1175
+    \u1100\u116A\u11AB\u1105\u1167\u11AB/MondayOFF_Keystore.keystore"
   AndroidKeyaliasName: mondayoff
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0

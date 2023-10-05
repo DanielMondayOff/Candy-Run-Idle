@@ -166,6 +166,8 @@ public class IdleManager : MonoBehaviour
         SaveManager.instance.onMoneyChangeEvent.AddListener(CheckAnyUpgradeable);
 
         this.TaskWhile(45, 0, GenerateFieldRVProbTask);
+
+        // this.TaskWaitUntil(() => { MondayOFF.EventTracker.Initialize(); print("firebaseInit1231451"); }, () => MondayOFF.EveryDay.isInitialized);
     }
 
     private void Update()
