@@ -82,6 +82,8 @@ public class IdleManager : MonoBehaviour
     //==============================================================================================================================
 
     public List<DisplayStand> candyDisplayStandList = new List<DisplayStand>();
+    public List<StandBuildObject> standBuildList = new List<StandBuildObject>();
+
 
     public static IdleManager instance;
 
@@ -153,7 +155,7 @@ public class IdleManager : MonoBehaviour
         {
             if (ES3.Load<bool>("NextStageEnable"))
             {
-                IdleManager.instance.ChangeIdleCameraOffsetTest();
+                // IdleManager.instance.ChangeIdleCameraOffsetTest();
             }
         }
 
@@ -164,6 +166,8 @@ public class IdleManager : MonoBehaviour
         SaveManager.instance.onMoneyChangeEvent.AddListener(CheckAnyUpgradeable);
 
         this.TaskWhile(45, 0, GenerateFieldRVProbTask);
+
+        // this.TaskWaitUntil(() => { MondayOFF.EventTracker.Initialize(); print("firebaseInit1231451"); }, () => MondayOFF.EveryDay.isInitialized);
     }
 
     private void Update()
@@ -320,20 +324,6 @@ public class IdleManager : MonoBehaviour
         // order.currentLine = emptyLine;
 
         // BookTheLine(customer);
-
-        bool CheckCandyJar()
-        {
-            if (candyJars.Count <= 0)
-                return true;
-
-            foreach (var jar in candyJars)
-            {
-                if (jar.candyItem.count <= 0)
-                    return true;
-            }
-
-            return false;
-        }
     }
 
     public void GenerateCandyJar()
@@ -603,21 +593,6 @@ public class IdleManager : MonoBehaviour
             return int.MaxValue;
         }
 
-        switch (type)
-        {
-            case IdleUpgradeType.HireWorker:
-                return hireWorker.cost[hireWorker.currentLevel];
-
-            case IdleUpgradeType.WorkerSpeedUp:
-                return workerSpeedUp.cost[workerSpeedUp.currentLevel];
-
-            case IdleUpgradeType.Promotion:
-                return promotion.cost[promotion.currentLevel];
-
-            default:
-                Debug.LogError("정의가 없습니다. 추가해 주십시요");
-                return 100000;
-        }
     }
 
     public int GetUpgradeCost(IdleUpgradeType type)
@@ -634,22 +609,6 @@ public class IdleManager : MonoBehaviour
             return int.MaxValue;
         }
 
-        switch (type)
-        {
-            case IdleUpgradeType.HireWorker:
-                return IdleManager.instance.hireWorker.cost[IdleManager.instance.hireWorker.currentLevel];
-
-            case IdleUpgradeType.WorkerSpeedUp:
-                return IdleManager.instance.workerSpeedUp.cost[IdleManager.instance.workerSpeedUp.currentLevel];
-
-            case IdleUpgradeType.Promotion:
-                return IdleManager.instance.promotion.cost[IdleManager.instance.promotion.currentLevel];
-
-            default:
-                Debug.LogError("정의가 없습니다. 추가해 주십시요");
-                return int.MaxValue;
-
-        }
     }
 
     public IdleUpgrade GetUpgradeValue(IdleUpgradeType type)
@@ -711,6 +670,8 @@ public class IdleManager : MonoBehaviour
 
         var useableCandyDisplayStand = candyDisplayStandList.Where((n) => n.isReady && n.CheckHasQueue() && n.IsEnableEnqueue());
 
+        var useableStandBuild = standBuildList.Where((n) => n.isReady && n.CheckHasQueue() && n.IsEnableEnqueue());
+
         // if (useableCandyMachines.ToArray().Length > 0)
         //     randomList.Add(candyBuildType.CandyMachine);
 
@@ -726,6 +687,9 @@ public class IdleManager : MonoBehaviour
             randomList.Add(candyBuildType.CandyDisplayStand);
         }
 
+        if (useableStandBuild.ToArray().Length > 0)
+            for (int i = 0; i < 5; i++)
+                randomList.Add(candyBuildType.StandBuild);
 
         if (randomList.Count > 0)
         {
@@ -742,6 +706,10 @@ public class IdleManager : MonoBehaviour
 
                 case candyBuildType.CandySlot:
                     useableCandySlots.OrderBy(x => Random.value).FirstOrDefault().EnqueueCustomer(customer);
+                    return;
+
+                case candyBuildType.StandBuild:
+                    useableStandBuild.OrderBy(x => Random.value).FirstOrDefault().EnqueueCustomer(customer);
                     return;
             }
         }
@@ -780,7 +748,7 @@ public class IdleManager : MonoBehaviour
 
         particle.GetComponentInChildren<ParticleSystem>().Play();
 
-        this.TaskDelay(5f, () => Managers.Pool.Push(particle));
+        this.TaskDelay(5f, () => { if (particle != null) Managers.Pool.Push(particle); });
     }
 
     public void StartIdleFirst()
@@ -1069,7 +1037,8 @@ public enum candyBuildType
 {
     CandyMachine = 1,
     CandySlot = 2,
-    CandyDisplayStand = 3
+    CandyDisplayStand = 3,
+    StandBuild = 4
 
 }
 

@@ -164,7 +164,7 @@ namespace FIMSpace.FEditor
         public static GUIContent GUIC_Remove { get { if (__guicRemv != null) return __guicRemv; __guicRemv = new GUIContent(Tex_Remove, "Click to remove element"); return __guicRemv; } }
         private static GUIContent __guicRemv = null;
         public static GUIContent GUIC_Save { get { if (__guicInfo != null) return __guicInfo; __guicInfo = new GUIContent(Tex_Save, "Click to save file in project files."); return __guicInfo; } }
-        private static GUIContent __guicSave = null;
+        // private static GUIContent __guicSave = null;
 
 
         /// Small Icons ----------------------------------------------------

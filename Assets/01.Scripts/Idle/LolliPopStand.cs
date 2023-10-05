@@ -8,7 +8,7 @@ public class LolliPopStand : MonoBehaviour
 {
     [SerializeField] Dictionary<Transform, ItemObject> displayPoints = new Dictionary<Transform, ItemObject>();
 
-    private TaskUtil.WhileTaskMethod checkPlayerItemWhileTask = null;
+    // private TaskUtil.WhileTaskMethod checkPlayerItemWhileTask = null;
 
     [SerializeField] public int itemId;
 

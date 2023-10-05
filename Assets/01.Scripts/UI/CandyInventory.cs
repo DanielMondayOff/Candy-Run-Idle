@@ -85,11 +85,18 @@ public class CandyInventory : MonoBehaviour
 
         // print(candyItems.Count);
 
-        for (int i = 0; i < candyItems.Count; i++)
-        {
-            GetCandyInventoryEvent(candyItems[i].candy.id);
 
-            RunManager.instance.uIAttractorCustoms[i].Init(itemList.Find((n) => n.candyItem.candy.id == candyItems[i].candy.id).GetImageTrans, candyItems[i], GetCandyInventoryEvent(candyItems[i].candy.id), () => { SyncCurrentCandyUI(); misteryCandyItem.transform.SetAsLastSibling(); misteryCandyItem.gameObject.SetActive(true); });
+        StartCoroutine(coroutin());
+
+        IEnumerator coroutin()
+        {
+            for (int i = 0; i < candyItems.Count; i++)
+            {
+                yield return new WaitForSeconds(0.05f);
+                GetCandyInventoryEvent(candyItems[i].candy.id);
+
+                RunManager.instance.uIAttractorCustoms[i].Init(itemList.Find((n) => n.candyItem.candy.id == candyItems[i].candy.id).GetImageTrans, candyItems[i], GetCandyInventoryEvent(candyItems[i].candy.id), () => { SyncCurrentCandyUI(); misteryCandyItem.transform.SetAsLastSibling(); misteryCandyItem.gameObject.SetActive(true); });
+            }
         }
 
         // foreach (var item in candyItems)

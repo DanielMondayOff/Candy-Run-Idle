@@ -80,6 +80,6 @@ public class fieldRVProbs : MonoBehaviour
         yield return new WaitForSeconds(1f);
 
         IdleManager.instance.GenerateFieldRVUI(type, () => Destroy(gameObject), pos);
-        EventManager.instance.CustomEvent(AnalyticsType.RV, type.ToString() + "- OnActivefieldRV " + pos, true, true);
+        EventManager.instance.CustomEvent(AnalyticsType.UI, type.ToString() + "- OnActivefieldRV " + pos, true, true);
     }
 }

@@ -1,3 +1,17 @@
+# v3.0.32
+
+- [Adverty] Updated to 4.1.8
+- [Facebook] Updated to 16.0.2
+- [Settings] Added `InitializeOnLaunch` option
+- [Everyday] Added `Everyday.Initialize()` for manual initialization
+- [Adverty] Added URP fix for `AdSpriteLitShader.shader`
+
+# v3.0.31
+
+- [Singular] Updated to 4.0.19
+- [IAP] Duplicate product ID no longer crashes IAP manager
+- [Ads] TapJoy adapter has been removed
+
 # v3.0.30
 
 - [Firebase] Fixed a bug where logging events before initialization was causing app crash

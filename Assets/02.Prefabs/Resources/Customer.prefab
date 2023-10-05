@@ -1891,6 +1891,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Customer Bubble
       objectReference: {fileID: 0}
+    - target: {fileID: 3357327084959029144, guid: f268c5415d6a8426584cca224b52343d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9095605934323236486, guid: f268c5415d6a8426584cca224b52343d,
         type: 3}
       propertyPath: m_Pivot.x

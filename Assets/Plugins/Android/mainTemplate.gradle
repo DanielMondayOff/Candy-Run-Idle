@@ -26,9 +26,6 @@
         maven {
             url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" // Assets/MaxSdk/Mediation/Mintegral/Editor/Dependencies.xml:8
         }
-        maven {
-            url "https://sdk.tapjoy.com/" // Assets/MaxSdk/Mediation/Tapjoy/Editor/Dependencies.xml:8
-        }
         mavenLocal()
         mavenCentral()
     }
@@ -58,31 +55,31 @@ dependencies {
     implementation 'com.applovin.mediation:bytedance-adapter:5.4.1.1.0' // Assets/MaxSdk/Mediation/ByteDance/Editor/Dependencies.xml:8
     implementation 'com.applovin.mediation:facebook-adapter:[6.16.0.0]' // Assets/MaxSdk/Mediation/Facebook/Editor/Dependencies.xml:8
     implementation 'com.applovin.mediation:fyber-adapter:8.2.4.0' // Assets/MaxSdk/Mediation/Fyber/Editor/Dependencies.xml:4
-    implementation 'com.applovin.mediation:google-adapter:[22.3.0.0]' // Assets/MaxSdk/Mediation/Google/Editor/Dependencies.xml:5
-    implementation 'com.applovin.mediation:google-ad-manager-adapter:[22.3.0.0]' // Assets/MaxSdk/Mediation/GoogleAdManager/Editor/Dependencies.xml:5
+    implementation 'com.applovin.mediation:google-adapter:[22.3.0.0]' // Assets/MaxSdk/Mediation/Google/Editor/Dependencies.xml:6
+    implementation 'com.applovin.mediation:google-ad-manager-adapter:[22.3.0.0]' // Assets/MaxSdk/Mediation/GoogleAdManager/Editor/Dependencies.xml:6
     implementation 'com.applovin.mediation:hyprmx-adapter:6.2.0.2' // Assets/MaxSdk/Mediation/HyprMX/Editor/Dependencies.xml:4
-    implementation 'com.applovin.mediation:inmobi-adapter:10.5.8.1' // Assets/MaxSdk/Mediation/InMobi/Editor/Dependencies.xml:4
+    implementation 'com.applovin.mediation:inmobi-adapter:10.5.8.0' // Assets/MaxSdk/Mediation/InMobi/Editor/Dependencies.xml:4
     implementation 'com.applovin.mediation:ironsource-adapter:7.5.1.0.0' // Assets/MaxSdk/Mediation/IronSource/Editor/Dependencies.xml:8
-    implementation 'com.applovin.mediation:mintegral-adapter:16.5.21.0' // Assets/MaxSdk/Mediation/Mintegral/Editor/Dependencies.xml:8
+    implementation 'com.applovin.mediation:mintegral-adapter:16.5.11.0' // Assets/MaxSdk/Mediation/Mintegral/Editor/Dependencies.xml:8
     implementation 'com.applovin.mediation:mobilefuse-adapter:1.6.2.0' // Assets/MaxSdk/Mediation/MobileFuse/Editor/Dependencies.xml:4
-    implementation 'com.applovin.mediation:tapjoy-adapter:13.1.2.0' // Assets/MaxSdk/Mediation/Tapjoy/Editor/Dependencies.xml:8
     implementation 'com.applovin.mediation:unityads-adapter:4.8.0.0' // Assets/MaxSdk/Mediation/UnityAds/Editor/Dependencies.xml:4
-    implementation 'com.applovin.mediation:verve-adapter:2.20.0.0' // Assets/MaxSdk/Mediation/Verve/Editor/Dependencies.xml:4
+    implementation 'com.applovin.mediation:verve-adapter:2.19.0.0' // Assets/MaxSdk/Mediation/Verve/Editor/Dependencies.xml:4
     implementation 'com.applovin.mediation:vungle-adapter:6.12.1.1' // Assets/MaxSdk/Mediation/Vungle/Editor/Dependencies.xml:4
-    implementation 'com.applovin:applovin-sdk:11.11.1' // Assets/MaxSdk/AppLovin/Editor/Dependencies.xml:4
-    implementation 'com.facebook.android:facebook-applinks:[16.0,17)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:6
-    implementation 'com.facebook.android:facebook-core:[16.0,17)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:5
-    implementation 'com.facebook.android:facebook-gamingservices:[16.0,17)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:9
-    implementation 'com.facebook.android:facebook-login:[16.0,17)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:7
-    implementation 'com.facebook.android:facebook-share:[16.0,17)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:8
+    implementation 'com.applovin:applovin-sdk:11.11.3' // Assets/MaxSdk/AppLovin/Editor/Dependencies.xml:4
+    implementation 'com.facebook.android:facebook-applinks:[16.0.1,17)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:6
+    implementation 'com.facebook.android:facebook-core:[16.0.1,17)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:5
+    implementation 'com.facebook.android:facebook-gamingservices:[16.0.1,17)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:9
+    implementation 'com.facebook.android:facebook-login:[16.0.1,17)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:7
+    implementation 'com.facebook.android:facebook-share:[16.0.1,17)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:8
     implementation 'com.google.android.exoplayer:exoplayer:2.16.0' // Assets/PlayOn/Editor/PlayOnSDKDependencies.xml:8
-    // implementation 'com.google.android.gms:play-services-ads-identifier:17.0.1' // Assets/MondayOFF/ThirdParties/Adverty/Editor/Dependencies.xml:5
-    implementation 'com.google.android.gms:play-services-ads-identifier:17.1.0' // Assets/PlayOn/Editor/PlayOnSDKDependencies.xml:4
+    // implementation 'com.google.android.gms:play-services-ads-identifier:17.1.0' // Assets/PlayOn/Editor/PlayOnSDKDependencies.xml:4
+    implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1' // Assets/MondayOFF/ThirdParties/Adverty/Editor/Dependencies.xml:5
     implementation 'com.google.android.gms:play-services-appset:16.0.0' // Assets/MondayOFF/ThirdParties/Singular/Editor/Dependencies.xml:7
     // implementation 'com.google.android.gms:play-services-base:18.0.1' // Assets/MondayOFF/ThirdParties/Singular/Editor/Dependencies.xml:8
     implementation 'com.google.android.gms:play-services-base:18.2.0' // Assets/Firebase/Editor/AppDependencies.xml:17
     // implementation 'com.google.android.gms:play-services-basement:17.6.0' // Assets/PlayOn/Editor/PlayOnSDKDependencies.xml:6
-    implementation 'com.google.android.gms:play-services-basement:18.0.0' // Assets/MondayOFF/ThirdParties/Singular/Editor/Dependencies.xml:9
+    // implementation 'com.google.android.gms:play-services-basement:18.0.0' // Assets/MondayOFF/ThirdParties/Singular/Editor/Dependencies.xml:9
+    implementation 'com.google.android.gms:play-services-basement:18.2.0' // Assets/MondayOFF/ThirdParties/Adverty/Editor/Dependencies.xml:6
     implementation 'com.google.android.gms:play-services-tasks:18.0.1' // Assets/MondayOFF/ThirdParties/Singular/Editor/Dependencies.xml:10
     implementation 'com.google.android.play:core-common:2.0.0' // Assets/GooglePlayPlugins/com.google.play.core/Editor/Dependencies.xml:3
     implementation 'com.google.android.play:review:2.0.0' // Assets/GooglePlayPlugins/com.google.play.review/Editor/Dependencies.xml:3

@@ -157,7 +157,7 @@ public class RunManager : MonoBehaviour
 
         // MondayOFF.AdsManager.ShowBanner();
 
-        this.TaskDelay(3f, TestCrash2);
+        this.TaskDelay(3f, TestCrash3);
     }
 
     private void OnEnable()
@@ -473,8 +473,8 @@ public class RunManager : MonoBehaviour
 
                 // print("캔디 개수 : " + count + " / 피라미드 높이 : " + (Mathf.Sqrt(2) / 2));
 
-                float objectWidth = 1.25f;
-                float objectHeight = 1.25f;
+                // float objectWidth = 1.25f;
+                // float objectHeight = 1.25f;
 
                 int height = GetPyramidHeight(count);
 
@@ -599,8 +599,6 @@ public class RunManager : MonoBehaviour
 
             height++;
         }
-
-        return 0;
     }
 
     public int GetSqureSideLength(int count)
@@ -757,7 +755,7 @@ public class RunManager : MonoBehaviour
         SaveManager.instance.enableCandyInventoryUIUpdate = false;
         cuttingPhase = false;
 
-        temp.candyItems.ForEach((n) => EventManager.instance.CustomEvent(AnalyticsType.RUN, "GetCandyEndCutting_" + n.candy.id + "_" + n.count, true, true));
+        // temp.candyItems.ForEach((n) => EventManager.instance.CustomEvent(AnalyticsType.RUN, "GetCandyEndCutting_" + n.candy.id + "_" + n.count, true, true));
 
         SaveManager.instance.AddCandy(temp.candyItems, false);
 
@@ -874,7 +872,7 @@ public class RunManager : MonoBehaviour
     {
         cuttedCandys.ForEach((n) => Destroy(n));
 
-        SceneManager.UnloadSceneAsync("Run");
+        SceneManager.UnloadScene("Run");
         SceneManager.LoadScene("Run", LoadSceneMode.Additive);
 
         // plusBulletRange = 0;
@@ -948,7 +946,7 @@ public class RunManager : MonoBehaviour
     {
         cuttedCandys.ForEach((n) => Destroy(n));
 
-        SceneManager.UnloadScene("Run");
+        SceneManager.UnloadSceneAsync("Run");
         SceneManager.LoadScene("Run", LoadSceneMode.Additive);
 
         runGameUI.SetActive(true);
@@ -1014,9 +1012,9 @@ public class RunManager : MonoBehaviour
             });
     }
 
-    public void TestCrash2()
+    public void TestCrash3()
     {
-        throw new System.Exception("(ignore) this is a test crash2");
+        throw new System.Exception("(ignore) this is a test crash3");
     }
 }
 

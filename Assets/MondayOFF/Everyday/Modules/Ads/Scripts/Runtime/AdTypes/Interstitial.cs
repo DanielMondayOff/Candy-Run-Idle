@@ -30,9 +30,6 @@ namespace MondayOFF {
                     OnBeforeShow?.Invoke();
                     EverydayLogger.Info("Show Interstitial");
                     MaxSdk.ShowInterstitial(_adUnitID);
-
-                    
-
                     return true;
                 } else {
                     EverydayLogger.Info($"You are trying to show interstitial ad too frequently.\nPlease wait {_lastInterstitialTimestamp + _interval - Time.realtimeSinceStartup} seconds before showing another Interstitial");
