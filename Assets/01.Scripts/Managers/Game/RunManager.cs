@@ -70,7 +70,23 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject x2ClaimBtn;
     [FoldoutGroup("참조")] public GameObject noThanksBtn;
     [FoldoutGroup("참조")] public UIAttractorCustom[] uIAttractorCustoms;
+    [FoldoutGroup("참조")] public RunGameType runGameType;
+    [FoldoutGroup("참조")] public GameObject DefaultPlayer;
+    [FoldoutGroup("참조")] public GameObject CPI1Player;
+    [FoldoutGroup("참조")] public UnityEngine.UI.Text candyStackText;
 
+
+    [FoldoutGroup("CPI1")] public Queue<int> candyStackQueue = new Queue<int>();
+    [FoldoutGroup("CPI1")] public int maxCandyStackCount = 15;
+    [FoldoutGroup("CPI1")] private int currentCandyCandyStackCount;
+    [FoldoutGroup("CPI1")] public bool enableCandyStack = true;
+    [FoldoutGroup("CPI1")] public PlayerCandyJar currentPlayerCandyJar;
+    [FoldoutGroup("CPI1")] public MeshRenderer railRenderer;
+    [FoldoutGroup("CPI1")] public Transform railEndPoint;
+    [FoldoutGroup("CPI1")] public Transform jarSpawnParent;
+    [FoldoutGroup("CPI1")] public GameObject endStand;
+    [FoldoutGroup("CPI1")] public Transform[] jarStandPoint;
+    [FoldoutGroup("CPI1")] public int jarStackCount;
 
 
 
@@ -157,7 +173,26 @@ public class RunManager : MonoBehaviour
 
         // MondayOFF.AdsManager.ShowBanner();
 
-        this.TaskDelay(3f, TestCrash3);
+        // this.TaskDelay(3f, TestCrash3);
+
+        switch (runGameType)
+        {
+            case RunGameType.Default:
+                DefaultPlayer.SetActive(true);
+                break;
+
+            case RunGameType.CPI1:
+                CPI1Player.SetActive(true);
+
+                railRenderer.materials[0].DOOffset(new Vector2(0, 100), 40).SetLoops(-1);
+
+                endStand.SetActive(true);
+                cutterAnimator.gameObject.SetActive(false);
+                jarAnimator.gameObject.SetActive(false);
+                break;
+        }
+
+        this.TaskWhile(0.2f, 0, () => { if (candyStackQueue.Count > 0 && enableCandyStack) currentPlayerCandyJar.StackCandy(candyStackQueue.Dequeue()); });
     }
 
     private void OnEnable()
@@ -294,6 +329,10 @@ public class RunManager : MonoBehaviour
             StageManager.instance.BackStage();
             SceneManager.UnloadScene("Run");
             SceneManager.LoadScene("Run", LoadSceneMode.Additive);
+        }
+        else if (Input.GetKeyDown(KeyCode.T))
+        {
+            candyStackQueue.Enqueue(1);
         }
 
         #endregion
@@ -1016,6 +1055,48 @@ public class RunManager : MonoBehaviour
     {
         throw new System.Exception("(ignore) this is a test crash3");
     }
+
+    #region CPI1
+
+    public void MoveToRail(PlayerCandyJar jar)
+    {
+        jar.transform.SetParent(null);
+        jar.transform.DOMoveX(railRenderer.transform.position.x, 0.4f).OnComplete(() =>
+        {
+            jar.transform.DOMove(railEndPoint.position, Vector3.Distance(jar.transform.position, railEndPoint.transform.position) * 0.05f).OnComplete(() =>
+            {
+                jar.transform.DOLocalJump(jarStandPoint[jarStackCount++].position, 1f, 1, 0.3f);
+            });
+        });
+
+        SpawnEmptyJar();
+    }
+
+    public void SpawnEmptyJar()
+    {
+        currentPlayerCandyJar = Instantiate(Resources.Load<GameObject>("Jar"), jarSpawnParent.transform.position, Quaternion.Euler(new Vector3(0, Random.Range(0, 360), 0)), jarSpawnParent).GetComponent<PlayerCandyJar>();
+        // currentPlayerCandyJar.transform.localScale = Vector3.zero;
+        // currentPlayerCandyJar.InitJar();
+        currentPlayerCandyJar.transform.DOScale(new Vector3(0.3f, 0.3f, 0.3f), 0.25f).OnComplete(() => enableCandyStack = true);
+
+        OnChangeCandyStack();
+    }
+
+    public void OnChangeCandyStack()
+    {
+        candyStackText.text = currentPlayerCandyJar.stackCount + " / " + maxCandyStackCount;
+    }
+
+    public void EndCPI1Run()
+    {
+        isGameEnd = true;
+        canMove = false;
+        cuttingPhase = true;
+
+        CameraManager.instance.ChangeCamera("candyStand");
+    }
+
+    #endregion
 }
 
 public enum CandyArrangeType
@@ -1024,4 +1105,12 @@ public enum CandyArrangeType
     Vertical = 2,
     Pyramid = 3,
     // Squre = 4
+}
+
+public enum RunGameType
+{
+    Default = 1,
+    CPI1 = 2,
+    CPI2 = 3,
+    CPI3 = 4
 }

@@ -9,7 +9,16 @@ public class RunEndLine : MonoBehaviour
     {
         if (other.CompareTag("Player") && !RunManager.instance.isGameEnd)
         {
-            RunManager.instance.StartCuttingCandy();
+            switch (RunManager.instance.runGameType)
+            {
+                case RunGameType.Default:
+                    RunManager.instance.StartCuttingCandy();
+                    break;
+
+                case RunGameType.CPI1:
+                    RunManager.instance.EndCPI1Run();
+                    break;
+            }
         }
     }
 }

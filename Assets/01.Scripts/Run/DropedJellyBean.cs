@@ -103,6 +103,14 @@ public class DropedJellyBean : MonoBehaviour
             gameObject.SetActive(false);
 
             EventManager.instance.CustomEvent(AnalyticsType.RUN, "Player Get Jelly", true, true);
+
+            switch (RunManager.instance.runGameType)
+            {
+                case RunGameType.CPI1:
+                    RunManager.instance.candyStackQueue.Enqueue(1);
+                    // RunManager.instance.currentPlayerCandyJar.StackCandy(1);
+                    break;
+            }
         }
 
         if (other.CompareTag("Bullet") && value < maxValue)
