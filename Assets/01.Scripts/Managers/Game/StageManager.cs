@@ -13,6 +13,8 @@ public class StageManager : MonoBehaviour
 
     public Stage[] stages;
     public Stage currentStage = null;
+
+    public Stage[] CPI1Stages;
     public int currentStageNum = 0;
 
     public bool loop = false;
@@ -44,15 +46,32 @@ public class StageManager : MonoBehaviour
         if (currentStage.map != null)
             currentStage.map.SetActive(false);
 
-        if (stages.Length <= currentStageNum)
+        switch (IdleManager.instance.runGameType)
         {
-            GenerateRandomStage();
+            case RunGameType.Default:
+                if (stages.Length <= currentStageNum)
+                {
+                    GenerateRandomStage();
+                }
+                else
+                {
+                    stages[currentStageNum].map.SetActive(true);
+                    currentStage = stages[currentStageNum];
+                }
+                break;
+
+            case RunGameType.CPI1:
+
+                CPI1Stages[CPI1Stages.Length % (currentStageNum)].map.SetActive(true);
+                currentStage = CPI1Stages[CPI1Stages.Length % (currentStageNum)];
+
+                foreach (var candy in currentStage.map.GetComponentsInChildren<DropedJellyBean>())
+                {
+                    candy.ChangeCandy(0);
+                }
+                break;
         }
-        else
-        {
-            stages[currentStageNum].map.SetActive(true);
-            currentStage = stages[currentStageNum];
-        }
+
     }
 
     public void TryStage()

@@ -44,7 +44,7 @@ public class PlayerCandyJar : MonoBehaviour
     {
         RunManager.instance.enableCandyStack = false;
 
-        this.TaskDelay(1f, () =>
+        this.TaskDelay(0.2f, () =>
         {
             cork.transform.DOScale(new Vector3(0.01f, 0.01f, 0.01f), 0.2f).OnComplete(() =>
             {

@@ -70,7 +70,6 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject x2ClaimBtn;
     [FoldoutGroup("참조")] public GameObject noThanksBtn;
     [FoldoutGroup("참조")] public UIAttractorCustom[] uIAttractorCustoms;
-    [FoldoutGroup("참조")] public RunGameType runGameType;
     [FoldoutGroup("참조")] public GameObject DefaultPlayer;
     [FoldoutGroup("참조")] public GameObject CPI1Player;
     [FoldoutGroup("참조")] public UnityEngine.UI.Text candyStackText;
@@ -175,7 +174,7 @@ public class RunManager : MonoBehaviour
 
         // this.TaskDelay(3f, TestCrash3);
 
-        switch (runGameType)
+        switch (IdleManager.instance.runGameType)
         {
             case RunGameType.Default:
                 DefaultPlayer.SetActive(true);
@@ -189,6 +188,8 @@ public class RunManager : MonoBehaviour
                 endStand.SetActive(true);
                 cutterAnimator.gameObject.SetActive(false);
                 jarAnimator.gameObject.SetActive(false);
+
+                railRenderer.gameObject.SetActive(true);
                 break;
         }
 

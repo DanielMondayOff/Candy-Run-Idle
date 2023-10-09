@@ -104,7 +104,7 @@ public class DropedJellyBean : MonoBehaviour
 
             EventManager.instance.CustomEvent(AnalyticsType.RUN, "Player Get Jelly", true, true);
 
-            switch (RunManager.instance.runGameType)
+            switch (IdleManager.instance.runGameType)
             {
                 case RunGameType.CPI1:
                     RunManager.instance.candyStackQueue.Enqueue(1);

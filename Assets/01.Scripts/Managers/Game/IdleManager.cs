@@ -40,6 +40,8 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("참조")] public IdlePlayer idlePlayer;
     [FoldoutGroup("참조")] public Transform[] fieldRvSpawnPoint1;
     [FoldoutGroup("참조")] public Transform[] fieldRvSpawnPoint2;
+    [FoldoutGroup("참조")] public RunGameType runGameType;
+
 
     public CanvasGroup[] idleUIs;
 
@@ -1030,6 +1032,27 @@ public class IdleManager : MonoBehaviour
     public void UnBanFieldRv(FieldRvType type)
     {
         bannedFieldRv.Remove(type);
+    }
+
+    public void ChangeToDefaultRunType()
+    {
+        runGameType = RunGameType.Default;
+
+        RunManager.instance.ResetRunGame();
+    }
+
+    public void ChangeToCpi1RunType()
+    {
+        runGameType = RunGameType.CPI1;
+
+        RunManager.instance.ResetRunGame();
+    }
+
+    public void ChangeToCpi2RunType()
+    {
+        runGameType = RunGameType.CPI2;
+
+        RunManager.instance.ResetRunGame();
     }
 }
 
