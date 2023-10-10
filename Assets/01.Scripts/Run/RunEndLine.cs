@@ -12,6 +12,8 @@ public class RunEndLine : MonoBehaviour
             switch (IdleManager.instance.runGameType)
             {
                 case RunGameType.Default:
+                case RunGameType.CPI2:
+                case RunGameType.CPI3:
                     RunManager.instance.StartCuttingCandy();
                     break;
 

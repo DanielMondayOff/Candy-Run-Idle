@@ -13,6 +13,8 @@ public class CandyHead : MonoBehaviour
 
     public CandyObject candyObject;
 
+    public float cpi2Length = 100;
+
     public void GenerateBullet()
     {
         if (!StageManager.instance.IsAllowJellyGun || IdleManager.instance.runGameType != RunGameType.Default)

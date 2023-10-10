@@ -1054,6 +1054,13 @@ public class IdleManager : MonoBehaviour
 
         RunManager.instance.ResetRunGame();
     }
+
+    public void ChangeToCpi3RunType()
+    {
+        runGameType = RunGameType.CPI3;
+
+        RunManager.instance.ResetRunGame();
+    }
 }
 
 public enum candyBuildType

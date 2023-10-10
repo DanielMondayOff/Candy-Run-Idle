@@ -5,6 +5,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine.SceneManagement;
 using MoreMountains.NiceVibrations;
+using System.Linq;
 
 public class RunManager : MonoBehaviour
 {
@@ -86,6 +87,21 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("CPI1")] public GameObject endStand;
     [FoldoutGroup("CPI1")] public Transform[] jarStandPoint;
     [FoldoutGroup("CPI1")] public int jarStackCount;
+
+
+    [FoldoutGroup("CPI2")] public GameObject candyCountTextParent;
+    [FoldoutGroup("CPI2")] public UnityEngine.UI.Text candyCountText;
+    [FoldoutGroup("CPI2")] public int currentCandyCount;
+    [FoldoutGroup("CPI2")] public int maxCadnyCount = 15;
+    [FoldoutGroup("CPI2")] public List<GameObject> completedCandyList = new List<GameObject>();
+
+
+    // [FoldoutGroup("CPI3")] public CandyTailController currentCandyTailController;
+    [FoldoutGroup("CPI3")] public CandyTailController currentCandyTailController;
+    [FoldoutGroup("CPI3")] public UnityEngine.UI.Text candyLengthText;
+    [FoldoutGroup("CPI3")] public GameObject candyLengthTextParent;
+    [FoldoutGroup("CPI3")] public Transform candyTailEndPos;
+
 
 
 
@@ -180,7 +196,9 @@ public class RunManager : MonoBehaviour
                 DefaultPlayer.SetActive(true);
                 break;
 
+
             case RunGameType.CPI1:
+                DefaultPlayer.SetActive(false);
                 CPI1Player.SetActive(true);
 
                 railRenderer.materials[0].DOOffset(new Vector2(0, 100), 40).SetLoops(-1);
@@ -191,6 +209,16 @@ public class RunManager : MonoBehaviour
 
                 railRenderer.gameObject.SetActive(true);
                 break;
+
+            case RunGameType.CPI2:
+                candyCountTextParent.SetActive(true);
+                break;
+
+            case RunGameType.CPI3:
+                candyLengthTextParent.SetActive(true);
+                break;
+
+
         }
 
         this.TaskWhile(0.2f, 0, () => { if (candyStackQueue.Count > 0 && enableCandyStack) currentPlayerCandyJar.StackCandy(candyStackQueue.Dequeue()); });
@@ -209,6 +237,11 @@ public class RunManager : MonoBehaviour
 
     private void Update()
     {
+        if (cuttingPressed && cuttingReady)
+        {
+            CuttingCandy();
+        }
+
         #region Cheat
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -278,10 +311,6 @@ public class RunManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.R))
         {
             plusBulletRange -= 100;
-        }
-        else if (cuttingPressed && cuttingReady)
-        {
-            CuttingCandy();
         }
         else if (Input.GetKeyDown(KeyCode.M))
         {
@@ -371,25 +400,76 @@ public class RunManager : MonoBehaviour
     {
         value = Mathf.Clamp(value, -300, 300);
 
-        if (value > 0)
+        switch (IdleManager.instance.runGameType)
         {
-            candyList.ForEach((n) => StartCoroutine(n.GetComponentInChildren<CandyTailController>().TailWave(value, () =>
-            {
-                plusCandyLength += value;
+            case RunGameType.CPI2:
 
-                plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 2000);
+                currentCandyTailController.ChangeCandyLength(currentCandyCount * 70, true);
 
-                ChangeCandysLength();
-            })));
+                currentCandyCount++;
+                currentCandyTailController.GetComponent<CandyHead>().cpi2Length = currentCandyCount * 70;
+
+                if (value > 0)
+                {
+                    StartCoroutine(currentCandyTailController.TailWave(value, () =>
+                    {
+                        plusCandyLength += value;
+
+                        plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 2000);
+
+                        // ChangeCandysLength();
+
+                        currentCandyTailController.ChangeCandyLength(currentCandyCount * 70, true);
+
+                    }));
+                }
+                else
+                {
+                    plusCandyLength += value;
+                    plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 2000);
+                    // ChangeCandysLength();
+                    currentCandyTailController.ChangeCandyLength(currentCandyCount * 70, true);
+                }
+
+                if (currentCandyCount >= maxCadnyCount)
+                {
+                    completedCandyList.Add(currentCandyTailController.gameObject);
+                    currentCandyTailController = AddCandy().GetComponentInChildren<CandyTailController>();
+                    currentCandyCount = 0;
+
+                    currentCandyTailController.ChangeCandyLength(currentCandyCount * 70, true);
+                }
+
+                candyCountText.text = currentCandyCount + " / " + maxCadnyCount;
+                break;
+
+            default:
+                if (value > 0)
+                {
+                    candyList.ForEach((n) => StartCoroutine(n.GetComponentInChildren<CandyTailController>().TailWave(value, () =>
+                    {
+                        plusCandyLength += value;
+
+                        plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 2000);
+
+                        ChangeCandysLength();
+                    })));
+                }
+                else
+                {
+                    plusCandyLength += value;
+
+                    plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 2000);
+
+                    ChangeCandysLength();
+                }
+
+                if (IdleManager.instance.runGameType == RunGameType.CPI3)
+                    candyLengthTextParent.transform.localPosition = new Vector3(candyLengthTextParent.transform.localPosition.x, candyLengthTextParent.transform.localPosition.y, -5f - plusCandyLength / 100f);
+                break;
         }
-        else
-        {
-            plusCandyLength += value;
 
-            plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 2000);
 
-            ChangeCandysLength();
-        }
     }
 
     public void ChangeCandysLength(bool clamp = true)
@@ -401,9 +481,11 @@ public class RunManager : MonoBehaviour
         // print(GetCurrentCandyLength());
 
         candyList.ForEach((n) => n.GetComponentInChildren<CandyTailController>().ChangeCandyLength(GetCurrentCandyLength(), clamp));
+
+        candyLengthText.text = ((GetCurrentCandyLength() * 0.001f) * 39).ToString("F1");
     }
 
-    public void AddCandy()
+    public GameObject AddCandy()
     {
         var newCandy = Instantiate(candyPrefab, new Vector3(runPlayer.transform.position.x, candyPrefab.transform.position.y, runPlayer.transform.position.z), Quaternion.Euler(0, 180, 0), runPlayer);
         candyList.Add(newCandy);
@@ -420,6 +502,8 @@ public class RunManager : MonoBehaviour
         // }
 
         // OnChangeCandyList();
+
+        return newCandy;
     }
 
     public void PillerPass(PillerType type, float value)
@@ -660,7 +744,17 @@ public class RunManager : MonoBehaviour
     {
         plusCandyLength -= damage;
 
-        ChangeCandysLength();
+        switch (IdleManager.instance.runGameType)
+        {
+            case RunGameType.CPI2:
+
+                break;
+
+            default:
+                ChangeCandysLength();
+                break;
+        }
+
 
         // runPlayer.transform.Translate(new Vector3(0, 0, -1f));
 
@@ -726,6 +820,9 @@ public class RunManager : MonoBehaviour
         CameraManager.instance.ChangeCamera("cutting");
 
         tempCandyInventory = new TempCandyInventory();
+
+        candyCountTextParent.SetActive(false);
+        candyLengthTextParent.SetActive(false);
     }
 
     public void OnPressDownCuttingBtn()
@@ -745,46 +842,91 @@ public class RunManager : MonoBehaviour
 
         touchToCutImage.SetActive(false);
 
-        if (GetCurrentCandyLength() < 100f)
+        switch (IdleManager.instance.runGameType)
         {
-            candyList.ForEach((n) =>
-            {
-                n.GetComponentInChildren<CandyHead>().CutCandy(cuttedCandys);
-                tempCandyInventory.AddCandy(new CandyItem() { candy = n.GetComponentInChildren<CandyHead>().candyObject, count = 1 });
-            });
-
-            // defaultCandyLength = 0;
-            plusCandyLength = 0;
-
-            ChangeCandysLength(false);
-
-            candyList.ForEach((n) => n.SetActive(false));
-
-            EndCuttingCandy(tempCandyInventory);
-        }
-        else
-        {
-            cutterAnimator.SetTrigger("Cut");
-            cuttingReady = false;
-
-            candyList.ForEach((n) => tempCandyInventory.AddCandy(new CandyItem() { candy = n.GetComponentInChildren<CandyHead>().candyObject, count = 1 }));
-
-            this.TaskDelay(0.07f / candyCuttingSpeed, () =>
-            {
-                candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().CutCandy(cuttedCandys));
-                runPlayer.transform.position = cuttingPoint2.position;
-                plusCandyLength -= 100f;
-
+            case RunGameType.CPI3:
+            case RunGameType.Default:
                 if (GetCurrentCandyLength() < 100f)
-                    ChangeCandysLength(false);
-                else
-                    ChangeCandysLength();
-
-                this.TaskDelay(0.08f / candyCuttingSpeed, () =>
                 {
-                    runPlayer.transform.DOMove(cuttingPoint1.transform.position, 0.2f / candyCuttingSpeed).SetEase(Ease.InOutQuad).OnComplete(() => { cuttingReady = true; });
-                });
-            });
+                    candyList.ForEach((n) =>
+                    {
+                        n.GetComponentInChildren<CandyHead>().CutCandy(cuttedCandys);
+                        tempCandyInventory.AddCandy(new CandyItem() { candy = n.GetComponentInChildren<CandyHead>().candyObject, count = 1 });
+                    });
+
+                    // defaultCandyLength = 0;
+                    plusCandyLength = 0;
+
+                    ChangeCandysLength(false);
+
+                    candyList.ForEach((n) => n.SetActive(false));
+
+                    EndCuttingCandy(tempCandyInventory);
+                }
+                else
+                {
+                    cutterAnimator.SetTrigger("Cut");
+                    cuttingReady = false;
+
+                    candyList.ForEach((n) => tempCandyInventory.AddCandy(new CandyItem() { candy = n.GetComponentInChildren<CandyHead>().candyObject, count = 1 }));
+
+                    this.TaskDelay(0.07f / candyCuttingSpeed, () =>
+                    {
+                        candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().CutCandy(cuttedCandys));
+                        runPlayer.transform.position = cuttingPoint2.position;
+                        plusCandyLength -= 100f;
+
+                        if (GetCurrentCandyLength() < 100f)
+                            ChangeCandysLength(false);
+                        else
+                            ChangeCandysLength();
+
+                        this.TaskDelay(0.08f / candyCuttingSpeed, () =>
+                        {
+                            runPlayer.transform.DOMove(cuttingPoint1.transform.position, 0.2f / candyCuttingSpeed).SetEase(Ease.InOutQuad).OnComplete(() => { cuttingReady = true; });
+                        });
+                    });
+                }
+                break;
+
+            case RunGameType.CPI2:
+                var list = candyList.Where((n) => n.GetComponent<CandyHead>().cpi2Length > 0).ToList();
+
+                Debug.LogError(list.Count());
+
+                if (list.Count() <= 0)
+                {
+                    //Cutting End
+
+                    EndCuttingCandy(tempCandyInventory);
+
+                    candyList.ForEach((n) => n.SetActive(false));
+                }
+                else
+                {
+                    cutterAnimator.SetTrigger("Cut");
+                    cuttingReady = false;
+
+                    candyList.ForEach((n) => tempCandyInventory.AddCandy(new CandyItem() { candy = n.GetComponentInChildren<CandyHead>().candyObject, count = 1 }));
+
+                    this.TaskDelay(0.07f / candyCuttingSpeed, () =>
+                    {
+                        candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().CutCandy(cuttedCandys));
+                        runPlayer.transform.position = cuttingPoint2.position;
+                        plusCandyLength -= 100f;
+
+                        list.ForEach((n) => n.GetComponentInChildren<CandyTailController>().ChangeCandyLength(n.GetComponentInChildren<CandyHead>().cpi2Length -= 70));
+
+                        list.ForEach((n) => { if (n.GetComponentInChildren<CandyHead>().cpi2Length <= 0) { n.SetActive(false); } });
+
+                        this.TaskDelay(0.08f / candyCuttingSpeed, () =>
+                        {
+                            runPlayer.transform.DOMove(cuttingPoint1.transform.position, 0.2f / candyCuttingSpeed).SetEase(Ease.InOutQuad).OnComplete(() => { cuttingReady = true; });
+                        });
+                    });
+
+                }
+                break;
         }
     }
 
@@ -1098,6 +1240,13 @@ public class RunManager : MonoBehaviour
     }
 
     #endregion
+
+    #region CPI2
+
+
+
+    #endregion
+
 }
 
 public enum CandyArrangeType
