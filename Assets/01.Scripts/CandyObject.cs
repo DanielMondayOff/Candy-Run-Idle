@@ -11,6 +11,8 @@ public class CandyObject : ScriptableObject
     [SerializeField] public Sprite icon;
     [SerializeField] public Material particleMat;
     [SerializeField] public int cost;
+    [SerializeField] public float unlockPoint;
+
 
     [SerializeField] public CandyObject nextCandy;
 

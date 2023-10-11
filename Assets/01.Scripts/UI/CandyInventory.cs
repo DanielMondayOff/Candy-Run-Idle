@@ -7,6 +7,7 @@ using System.Linq;
 public class CandyInventory : MonoBehaviour
 {
     [SerializeField] List<CandyInventoryItem> itemList = new List<CandyInventoryItem>();
+    public List<CandyInventoryItem> GetItemList() => itemList;
 
     public bool autoUpdateUI = false;
 

@@ -36,6 +36,9 @@ public class RunManager : MonoBehaviour
     [Space]
     [TitleGroup("setting Value")] public float candyCuttingSpeed = 1f;
 
+    [TitleGroup("setting Value")] public static float maxCandyLength = 2000;
+
+
 
     [FoldoutGroup("참조")] public List<GameObject> candyList = new List<GameObject>();
     [FoldoutGroup("참조")] public Material[] jellyBeanMats;
@@ -72,10 +75,11 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject noThanksBtn;
     [FoldoutGroup("참조")] public UIAttractorCustom[] uIAttractorCustoms;
     [FoldoutGroup("참조")] public GameObject DefaultPlayer;
-    [FoldoutGroup("참조")] public GameObject CPI1Player;
-    [FoldoutGroup("참조")] public UnityEngine.UI.Text candyStackText;
+    [FoldoutGroup("참조")] public CandyUnlockUI candyUnlockUI;
 
 
+    [FoldoutGroup("CPI1")] public UnityEngine.UI.Text candyStackText;
+    [FoldoutGroup("CPI1")] public GameObject CPI1Player;
     [FoldoutGroup("CPI1")] public Queue<GameObject> candyStackQueue = new Queue<GameObject>();
     [FoldoutGroup("CPI1")] public int maxCandyStackCount = 15;
     [FoldoutGroup("CPI1")] private int currentCandyCandyStackCount;
@@ -92,7 +96,7 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("CPI2")] public GameObject candyCountTextParent;
     [FoldoutGroup("CPI2")] public UnityEngine.UI.Text candyCountText;
     [FoldoutGroup("CPI2")] public int currentCandyCount;
-    [FoldoutGroup("CPI2")] public int maxCadnyCount = 15;
+    [FoldoutGroup("CPI2")] public int maxCandyCount = 15;
     [FoldoutGroup("CPI2")] public List<GameObject> completedCandyList = new List<GameObject>();
 
 
@@ -100,8 +104,6 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("CPI3")] public CandyTailController currentCandyTailController;
     [FoldoutGroup("CPI3")] public UnityEngine.UI.Text candyLengthText;
     [FoldoutGroup("CPI3")] public GameObject candyLengthTextParent;
-    [FoldoutGroup("CPI3")] public Transform candyTailEndPos;
-
 
 
 
@@ -135,6 +137,7 @@ public class RunManager : MonoBehaviour
     TaskUtil.DelayTaskMethod noThanksTask;
 
     private TempCandyInventory lastCandyInventory;
+    public TempCandyInventory GetLastCandyInventory() => lastCandyInventory;
 
     private bool mergeChecking = false;
 
@@ -194,6 +197,8 @@ public class RunManager : MonoBehaviour
         {
             case RunGameType.Default:
                 DefaultPlayer.SetActive(true);
+
+                maxCandyLength = 2000;
                 break;
 
             case RunGameType.CPI1:
@@ -207,14 +212,20 @@ public class RunManager : MonoBehaviour
                 jarAnimator.gameObject.SetActive(false);
 
                 railRenderer.gameObject.SetActive(true);
+
+                maxCandyLength = 9999;
                 break;
 
             case RunGameType.CPI2:
                 candyCountTextParent.SetActive(true);
+
+                maxCandyLength = 9999;
                 break;
 
             case RunGameType.CPI3:
                 candyLengthTextParent.SetActive(true);
+
+                maxCandyLength = 9999;
                 break;
 
 
@@ -416,7 +427,7 @@ public class RunManager : MonoBehaviour
                         {
                             plusCandyLength += value;
 
-                            plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 9999);
+                            plusCandyLength = Mathf.Clamp(plusCandyLength, 0, maxCandyLength);
 
                             // ChangeCandysLength();
 
@@ -428,7 +439,7 @@ public class RunManager : MonoBehaviour
                     {
                         plusCandyLength += value;
 
-                        plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 9999);
+                        plusCandyLength = Mathf.Clamp(plusCandyLength, 0, maxCandyLength);
 
                         // ChangeCandysLength();
 
@@ -438,12 +449,12 @@ public class RunManager : MonoBehaviour
                 else
                 {
                     plusCandyLength += value;
-                    plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 9999);
+                    plusCandyLength = Mathf.Clamp(plusCandyLength, 0, maxCandyLength);
                     // ChangeCandysLength();
                     currentCandyTailController.ChangeCandyLength(currentCandyCount * 70, true);
                 }
 
-                if (currentCandyCount >= maxCadnyCount)
+                if (currentCandyCount >= maxCandyCount)
                 {
                     completedCandyList.Add(currentCandyTailController.gameObject);
                     currentCandyTailController = AddCandy().GetComponentInChildren<CandyTailController>();
@@ -452,7 +463,7 @@ public class RunManager : MonoBehaviour
                     currentCandyTailController.ChangeCandyLength(currentCandyCount * 70, true);
                 }
 
-                candyCountText.text = currentCandyCount + " / " + maxCadnyCount;
+                candyCountText.text = currentCandyCount + " / " + maxCandyCount;
                 break;
 
             default:
@@ -464,7 +475,7 @@ public class RunManager : MonoBehaviour
                         {
                             plusCandyLength += value;
 
-                            plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 9999);
+                            plusCandyLength = Mathf.Clamp(plusCandyLength, 0, maxCandyLength);
 
                             ChangeCandysLength();
                         })));
@@ -473,7 +484,7 @@ public class RunManager : MonoBehaviour
                     {
                         plusCandyLength += value;
 
-                        plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 9999);
+                        plusCandyLength = Mathf.Clamp(plusCandyLength, 0, maxCandyLength);
 
                         ChangeCandysLength();
                     }
@@ -482,7 +493,7 @@ public class RunManager : MonoBehaviour
                 {
                     plusCandyLength += value;
 
-                    plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 9999);
+                    plusCandyLength = Mathf.Clamp(plusCandyLength, 0, maxCandyLength);
 
                     ChangeCandysLength();
                 }
@@ -722,7 +733,7 @@ public class RunManager : MonoBehaviour
 
                 //             cot2++;
                 //         }
-                //     }
+                // }
 
                 //     break;
         }
@@ -995,7 +1006,7 @@ public class RunManager : MonoBehaviour
             foreach (var text in EndCandyInventoryUI.GetComponentsInChildren<UnityEngine.UI.Text>())
                 text.color = Color.white;
 
-            noThanksTask = this.TaskDelay(2f, () => noThanksBtn.SetActive(true));
+            noThanksTask = this.TaskDelay(2f, () => { noThanksBtn.SetActive(true); /*ShowCandyUnlockStatus();*/ });
 
             SaveManager.instance.enableCandyInventoryUIUpdate = true;
 
@@ -1222,6 +1233,24 @@ public class RunManager : MonoBehaviour
         throw new System.Exception("(ignore) this is a test crash3");
     }
 
+    public void ShowCandyUnlockStatus()
+    {
+        var status = SaveManager.instance.GetCandyUnlockStatuses();
+        //아직 해금 안한 사탕이 있다면
+        if (status.Where((n) => !n.unlocked).Count() > 0)
+        {
+            status.OrderBy((n) => n.id).Where((n) => !n.unlocked);
+
+            candyUnlockUI.ShowUI();
+
+            // SaveManager.instance.SaveCandyUnlockStatus()
+        }
+        else
+        {
+            OnClickNextStage();
+        }
+    }
+
     #region CPI1
 
     public void MoveToRail(PlayerCandyJar jar)
@@ -1229,7 +1258,7 @@ public class RunManager : MonoBehaviour
         jar.transform.SetParent(null);
         jar.transform.DOMoveX(railRenderer.transform.position.x, 0.4f).OnComplete(() =>
         {
-            jar.transform.DOMove(railEndPoint.position, Vector3.Distance(jar.transform.position, railEndPoint.transform.position) * 0.05f).OnComplete(() =>
+            jar.transform.DOMove(railEndPoint.position, Vector3.Distance(jar.transform.position, railEndPoint.transform.position) * 0.028f).OnComplete(() =>
             {
                 jar.transform.DOLocalJump(jarStandPoint[jarStackCount++].position, 1f, 1, 0.3f);
             });
@@ -1287,3 +1316,5 @@ public enum RunGameType
     CPI2 = 3,
     CPI3 = 4
 }
+
+

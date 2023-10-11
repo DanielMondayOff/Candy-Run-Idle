@@ -14,8 +14,9 @@ public class SaveManager : MonoBehaviour
     public bool GetEnableShop => enableShop;
 
     private List<Text> moneyTextList = new List<Text>();
-
     private List<CandyInventory> inventorys = new List<CandyInventory>();
+    [SerializeField] private List<CandyUnlockStatus> candyUnlockStatuses = new List<CandyUnlockStatus>();
+    public List<CandyUnlockStatus> GetCandyUnlockStatuses() => candyUnlockStatuses;
 
     public UnityEngine.Events.UnityEvent onMoneyChangeEvent = new UnityEngine.Events.UnityEvent();
     public UnityEngine.Events.UnityEvent onChangeCandyInventoryEvent = new UnityEngine.Events.UnityEvent();
@@ -63,6 +64,9 @@ public class SaveManager : MonoBehaviour
             var USER_GUID = System.Guid.NewGuid().ToString();
             ES3.Save<string>("USER_GUID", USER_GUID);
         }
+
+        if (ES3.KeyExists("CandyUnlockStatus"))
+            candyUnlockStatuses = ES3.Load<List<CandyUnlockStatus>>("CandyUnlockStatus");
 
     }
 
@@ -256,6 +260,25 @@ public class SaveManager : MonoBehaviour
             moneySaveDelayTask = this.TaskDelay(2, () => { ES3.Save<int>("Money", money); moneySaveDelayTask.Kill(); moneySaveDelayTask = null; });
         }
     }
+
+    public void AddUnlockPoint()
+    {
+
+    }
+
+    public void AddCandyUnlockPercent(int id, float precent = 1f)
+    {
+        var list = candyUnlockStatuses.Where((n) => n.id == id).Where((n) => !n.unlocked).ToList();
+
+        // if ()
+    }
+
+    public void SaveCandyUnlockStatus(List<CandyUnlockStatus> statuses)
+    {
+        candyUnlockStatuses = statuses;
+
+        ES3.Save<List<CandyUnlockStatus>>("CandyUnlockStatus", candyUnlockStatuses);
+    }
 }
 
 [System.Serializable]
@@ -298,5 +321,28 @@ public class candySaveData
     public void TakeCandy(int count)
     {
         this.count -= count;
+    }
+}
+
+[System.Serializable]
+public class CandyUnlockStatus
+{
+    public int id;
+    [Range(0, 100)]
+    public float percent = 0;
+    public bool unlocked = false;
+
+
+    public void AddPercent(float p = 1f)
+    {
+        percent += p;
+
+        if (percent > 100)
+            Unlock();
+    }
+
+    public void Unlock()
+    {
+        unlocked = true;
     }
 }
