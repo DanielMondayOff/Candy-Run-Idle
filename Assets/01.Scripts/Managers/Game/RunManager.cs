@@ -76,7 +76,7 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public UnityEngine.UI.Text candyStackText;
 
 
-    [FoldoutGroup("CPI1")] public Queue<int> candyStackQueue = new Queue<int>();
+    [FoldoutGroup("CPI1")] public Queue<GameObject> candyStackQueue = new Queue<GameObject>();
     [FoldoutGroup("CPI1")] public int maxCandyStackCount = 15;
     [FoldoutGroup("CPI1")] private int currentCandyCandyStackCount;
     [FoldoutGroup("CPI1")] public bool enableCandyStack = true;
@@ -196,7 +196,6 @@ public class RunManager : MonoBehaviour
                 DefaultPlayer.SetActive(true);
                 break;
 
-
             case RunGameType.CPI1:
                 DefaultPlayer.SetActive(false);
                 CPI1Player.SetActive(true);
@@ -249,7 +248,7 @@ public class RunManager : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            AddCandyLength(200);
+            AddCandyLength(200, false);
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
@@ -360,10 +359,10 @@ public class RunManager : MonoBehaviour
             SceneManager.UnloadScene("Run");
             SceneManager.LoadScene("Run", LoadSceneMode.Additive);
         }
-        else if (Input.GetKeyDown(KeyCode.T))
-        {
-            candyStackQueue.Enqueue(1);
-        }
+        // else if (Input.GetKeyDown(KeyCode.T))
+        // {
+        //     candyStackQueue.Enqueue(1);
+        // }
 
         #endregion
     }
@@ -396,7 +395,7 @@ public class RunManager : MonoBehaviour
         plusFireRate += value;
     }
 
-    public void AddCandyLength(float value)
+    public void AddCandyLength(float value, bool tween = true)
     {
         value = Mathf.Clamp(value, -300, 300);
 
@@ -411,22 +410,35 @@ public class RunManager : MonoBehaviour
 
                 if (value > 0)
                 {
-                    StartCoroutine(currentCandyTailController.TailWave(value, () =>
+                    if (tween)
+                    {
+                        StartCoroutine(currentCandyTailController.TailWave(value, () =>
+                        {
+                            plusCandyLength += value;
+
+                            plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 9999);
+
+                            // ChangeCandysLength();
+
+                            currentCandyTailController.ChangeCandyLength(currentCandyCount * 70, true);
+
+                        }));
+                    }
+                    else
                     {
                         plusCandyLength += value;
 
-                        plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 2000);
+                        plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 9999);
 
                         // ChangeCandysLength();
 
                         currentCandyTailController.ChangeCandyLength(currentCandyCount * 70, true);
-
-                    }));
+                    }
                 }
                 else
                 {
                     plusCandyLength += value;
-                    plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 2000);
+                    plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 9999);
                     // ChangeCandysLength();
                     currentCandyTailController.ChangeCandyLength(currentCandyCount * 70, true);
                 }
@@ -446,26 +458,37 @@ public class RunManager : MonoBehaviour
             default:
                 if (value > 0)
                 {
-                    candyList.ForEach((n) => StartCoroutine(n.GetComponentInChildren<CandyTailController>().TailWave(value, () =>
+                    if (tween)
+                    {
+                        candyList.ForEach((n) => StartCoroutine(n.GetComponentInChildren<CandyTailController>().TailWave(value, () =>
+                        {
+                            plusCandyLength += value;
+
+                            plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 9999);
+
+                            ChangeCandysLength();
+                        })));
+                    }
+                    else
                     {
                         plusCandyLength += value;
 
-                        plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 2000);
+                        plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 9999);
 
                         ChangeCandysLength();
-                    })));
+                    }
                 }
                 else
                 {
                     plusCandyLength += value;
 
-                    plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 2000);
+                    plusCandyLength = Mathf.Clamp(plusCandyLength, 0, 9999);
 
                     ChangeCandysLength();
                 }
 
-                if (IdleManager.instance.runGameType == RunGameType.CPI3)
-                    candyLengthTextParent.transform.localPosition = new Vector3(candyLengthTextParent.transform.localPosition.x, candyLengthTextParent.transform.localPosition.y, -5f - plusCandyLength / 100f);
+                // if (IdleManager.instance.runGameType == RunGameType.CPI3)
+                //     candyLengthTextParent.transform.localPosition = new Vector3(candyLengthTextParent.transform.localPosition.x, candyLengthTextParent.transform.localPosition.y, -5f - (plusCandyLength / 100f));
                 break;
         }
 
@@ -482,7 +505,7 @@ public class RunManager : MonoBehaviour
 
         candyList.ForEach((n) => n.GetComponentInChildren<CandyTailController>().ChangeCandyLength(GetCurrentCandyLength(), clamp));
 
-        candyLengthText.text = ((GetCurrentCandyLength() * 0.001f) * 39).ToString("F1");
+        candyLengthText.text = (GetCurrentCandyLength() > 2000) ? "9999" : ((GetCurrentCandyLength() * 0.001f) * 39).ToString("F1");
     }
 
     public GameObject AddCandy()

@@ -20,11 +20,13 @@ public class PlayerCandyJar : MonoBehaviour
         jar.transform.DOScale(new Vector3(0.25f, 0.25f, 0.25f), 0.25f).OnComplete(() => RunManager.instance.enableCandyStack = true);
     }
 
-    public void StackCandy(int id)
+    public void StackCandy(GameObject ob)
     {
         var candy = Instantiate(Resources.Load<GameObject>("StackCandy"), candySpawnPoint.transform.position, Quaternion.identity, candyStackPoints[stackCount]);
 
-        candy.GetComponent<MeshRenderer>().materials[0] = (Resources.LoadAll<CandyObject>("Candy").Where((n) => n.id == id).First().mat);
+        candy.transform.localScale = ob.transform.localScale * 2.5f;
+        candy.GetComponent<MeshRenderer>().materials = ob.GetComponentInChildren<MeshRenderer>(true).materials;
+        candy.GetComponent<MeshFilter>().mesh = ob.GetComponentInChildren<MeshFilter>(true).mesh;
 
         candy.transform.DOLocalJump(Vector3.zero, 3f, 1, 0.35f);
         candy.transform.DOLocalRotate(candyStackPoints[stackCount].rotation.eulerAngles, 0.35f).OnComplete(() => candy.GetComponent<Rigidbody>().isKinematic = true);

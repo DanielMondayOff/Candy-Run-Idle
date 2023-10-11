@@ -48,7 +48,6 @@ public class StageManager : MonoBehaviour
 
         switch (IdleManager.instance.runGameType)
         {
-            case RunGameType.CPI3:
             case RunGameType.Default:
                 if (stages.Length <= currentStageNum)
                 {
@@ -63,6 +62,7 @@ public class StageManager : MonoBehaviour
 
             case RunGameType.CPI1:
             case RunGameType.CPI2:
+            case RunGameType.CPI3:
 
                 CPI1Stages[(currentStageNum) % CPI1Stages.Length].map.SetActive(true);
                 currentStage = CPI1Stages[(currentStageNum) % CPI1Stages.Length];

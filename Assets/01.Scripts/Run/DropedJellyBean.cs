@@ -107,7 +107,7 @@ public class DropedJellyBean : MonoBehaviour
             switch (IdleManager.instance.runGameType)
             {
                 case RunGameType.CPI1:
-                    RunManager.instance.candyStackQueue.Enqueue(1);
+                    RunManager.instance.candyStackQueue.Enqueue(meshRenderer.gameObject);
                     // RunManager.instance.currentPlayerCandyJar.StackCandy(1);
                     break;
             }
