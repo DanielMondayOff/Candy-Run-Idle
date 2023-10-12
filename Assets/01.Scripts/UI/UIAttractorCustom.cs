@@ -82,7 +82,10 @@ public class UIAttractorCustom : MonoBehaviour
     {
         startPoint.position = startPos;
 
-        attractorTarget.position = target.transform.position;
+        // attractorTarget.position = target.transform.position;
+        // attractorTarget.anchoredPosition = Vector2.zero;
+
+        attractorTarget.SetParent(target);
         attractorTarget.anchoredPosition = Vector2.zero;
 
         if (onAttract != null)

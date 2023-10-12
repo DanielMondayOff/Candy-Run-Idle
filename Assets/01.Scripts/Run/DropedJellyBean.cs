@@ -108,11 +108,20 @@ public class DropedJellyBean : MonoBehaviour
                 SaveManager.instance.AddRoyalCandy(1);
                 EventManager.instance.CustomEvent(AnalyticsType.RUN, "Player Get RoyalCandy", true, true);
 
-                var particle2 = Managers.Pool.Pop(Resources.Load<GameObject>("Particles/UIAttractor_RoyalCandy"));
+                // var particle2 = Managers.Pool.Pop(Resources.Load<GameObject>("Particles/UIAttractor_RoyalCandy"), RunManager.instance.runGameUI.transform);
+                var particle2 = Instantiate(Resources.Load<GameObject>("Particles/UIAttractor_RoyalCandy"), RunManager.instance.runGameUI.transform);
 
-                particle2.GetComponentInChildren<UIAttractorCustom>().Init(RunManager.instance.royalCandyTargetTrans, Vector2.zero);
+                // particle2.transform.position = Vector3.zero;
+                // particle.transform.localScale = Vector3.one;
 
-                RunManager.instance.TaskDelay(3, () => Managers.Pool.Push(particle2.GetComponentInChildren<Poolable>()));
+                Vector2 anchordPos = RectTransformUtility.WorldToScreenPoint(Camera.main, transform.position);
+
+                Debug.LogError(anchordPos);
+
+                particle2.GetComponentInChildren<UIAttractorCustom>().Init(RunManager.instance.royalCandyTargetTrans, anchordPos);
+                particle2.GetComponentInChildren<ParticleSystem>().Play();
+
+                // RunManager.instance.TaskDelay(3, () => Managers.Pool.Push(particle2.GetComponentInChildren<Poolable>()));
             }
             else
             {
@@ -158,7 +167,7 @@ public class DropedJellyBean : MonoBehaviour
 
     public void ChanceToRoyalCandy()
     {
-        if (Random.Range(0, 35) == 0)
+        if (Random.Range(0, 20) == 0)
         {
             if (meshRenderer == null)
                 meshRenderer = GetComponentInChildren<MeshRenderer>();
