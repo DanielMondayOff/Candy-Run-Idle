@@ -11,5 +11,18 @@ public class MapPart : MonoBehaviour
         {
             candy.ChangeCandy(num);
         }
+
+        foreach (var candy in GetComponentsInChildren<DropedJellyBean>())
+        {
+            candy.ChanceToRoyalCandy();
+        }
+    }
+
+    public void ChanceToRoyalCandy()
+    {
+        foreach (var candy in GetComponentsInChildren<DropedJellyBean>())
+        {
+            candy.ChanceToRoyalCandy();
+        }
     }
 }

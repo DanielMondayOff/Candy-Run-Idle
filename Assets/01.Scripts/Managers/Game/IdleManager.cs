@@ -35,6 +35,7 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject upgradeBtn;
     [FoldoutGroup("참조")] public GameObject upgradeDot;
     [FoldoutGroup("참조")] public GameObject blackPanel;
+    [FoldoutGroup("참조")] public GameObject joyStickCanvas;
     [FoldoutGroup("참조")] public LineRenderer arrowLine = null;
     [FoldoutGroup("참조")] public Transform playerTrans;
     [FoldoutGroup("참조")] public IdlePlayer idlePlayer;
@@ -232,6 +233,7 @@ public class IdleManager : MonoBehaviour
         idleUI.SetActive(true);
         StartIdle();
         idleCamera.gameObject.SetActive(true);
+        joyStickCanvas.SetActive(true);
 
         if (ES3.KeyExists("NextStageEnable"))
             nextStageBtn.SetActive(ES3.Load<bool>("NextStageEnable"));
@@ -413,9 +415,8 @@ public class IdleManager : MonoBehaviour
         // );
 
         idleCamera.gameObject.SetActive(false);
-
         nextStageHighlight.SetActive(false);
-
+        joyStickCanvas.SetActive(false);
 
         RunManager.instance.blackPanel.SetActive(false);
     }
@@ -1060,6 +1061,11 @@ public class IdleManager : MonoBehaviour
         runGameType = RunGameType.CPI3;
 
         RunManager.instance.ResetRunGame();
+    }
+
+    public void AddRoyalCandy()
+    {
+        SaveManager.instance.AddRoyalCandy(100);
     }
 }
 

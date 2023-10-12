@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class StageManager : MonoBehaviour
 {
@@ -22,6 +23,8 @@ public class StageManager : MonoBehaviour
     public RunMapGenerator randomMapGenerator;
 
     public bool IsAllowJellyGun => (currentStageNum >= stages.Length) ? true : stages[currentStageNum].jellyGun;
+
+    public List<Piller> pillerList = new List<Piller>();
 
     public static StageManager instance;
 
@@ -57,6 +60,8 @@ public class StageManager : MonoBehaviour
                 {
                     stages[currentStageNum].map.SetActive(true);
                     currentStage = stages[currentStageNum];
+
+                    stages[currentStageNum].map.GetComponentsInChildren<DropedJellyBean>().ToList().ForEach((n) => n.ChanceToRoyalCandy());
                 }
                 break;
 
@@ -74,6 +79,7 @@ public class StageManager : MonoBehaviour
                 break;
         }
 
+        CheckLevelUpPillerCount();
     }
 
     public void TryStage()
@@ -119,5 +125,23 @@ public class StageManager : MonoBehaviour
 
         // stages[num].map.SetActive(true);
         // currentStage = stages[num];
+    }
+
+    public void CheckLevelUpPillerCount()
+    {
+        var levelUpFiller = pillerList.Where((n) => n.type == PillerType.CandyLevelUp).ToList();
+        var unlockedCandy = SaveManager.instance.GetCandyUnlockStatuses().Where((n) => n.unlocked).ToArray();
+
+        if (levelUpFiller.Count > unlockedCandy.Length)
+        {
+            int diff = levelUpFiller.Count - unlockedCandy.Length;
+
+            Util.ShuffleList<Piller>(levelUpFiller);
+
+            for (int i = 0; i < diff; i++)
+            {
+                levelUpFiller[i].ChangeNormalType();
+            }
+        }
     }
 }

@@ -38,6 +38,11 @@ public class Piller : MonoBehaviour
 
     public bool enableActive = true;
 
+    private void Awake()
+    {
+        StageManager.instance.pillerList.Add(this);
+    }
+
     private void Start()
     {
         Init();
@@ -45,6 +50,7 @@ public class Piller : MonoBehaviour
 
     public void Init()
     {
+
         switch (type)
         {
             case PillerType.Length:
@@ -229,6 +235,15 @@ public class Piller : MonoBehaviour
     {
         if (type != 0)
             this.type = type;
+
+        value = (value > 0) ? Random.Range(10, 30) * 10 : value = Random.Range(10, 30) * -10;
+
+        Init();
+    }
+
+    public void ChangeNormalType()
+    {
+        type = (PillerType)Random.Range(1, 4);
 
         value = (value > 0) ? Random.Range(10, 30) * 10 : value = Random.Range(10, 30) * -10;
 

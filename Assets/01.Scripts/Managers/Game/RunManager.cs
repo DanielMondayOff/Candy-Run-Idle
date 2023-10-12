@@ -59,6 +59,9 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject nextStageBtn;
     [FoldoutGroup("참조")] public GameObject sellCandyBtn;
     [FoldoutGroup("참조")] public GameObject nextStageBtnGroup;
+    [FoldoutGroup("참조")] public GameObject joyStickCanvas;
+    [FoldoutGroup("참조")] public GameObject candyInventoryUI;
+
     [FoldoutGroup("참조")] public StartCard startCard;
 
     [FoldoutGroup("참조")] public CanvasGroup[] runUIs;
@@ -76,6 +79,15 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public UIAttractorCustom[] uIAttractorCustoms;
     [FoldoutGroup("참조")] public GameObject DefaultPlayer;
     [FoldoutGroup("참조")] public CandyUnlockUI candyUnlockUI;
+
+    [FoldoutGroup("참조")] public GameObject NewCandyUnlockedUI;
+    [FoldoutGroup("참조")] public UnityEngine.UI.Image unlockedImage;
+    [FoldoutGroup("참조")] public GameObject NewCandyUnlockedUI_NextStageBtn;
+    [FoldoutGroup("참조")] public GameObject NewCandyUnlockedUI_SellCandyBtn;
+
+    [FoldoutGroup("참조")] public Transform royalCandyTargetTrans;
+
+
 
 
     [FoldoutGroup("CPI1")] public UnityEngine.UI.Text candyStackText;
@@ -144,7 +156,7 @@ public class RunManager : MonoBehaviour
     private CandyArrangeType currentCandyArrangeType = CandyArrangeType.Horizontal;
     public void SetCandyArarngeType(CandyArrangeType type) => currentCandyArrangeType = type;
 
-    private static bool forceIdle = true;
+    public static bool forceIdle = true;
     public void SetForceIdle(bool force) => forceIdle = force;
 
     public bool fireBulletEnable = true;
@@ -857,6 +869,7 @@ public class RunManager : MonoBehaviour
 
         candyCountTextParent.SetActive(false);
         candyLengthTextParent.SetActive(false);
+        // joyStickCanvas.SetActive(false);
     }
 
     public void OnPressDownCuttingBtn()
@@ -968,6 +981,14 @@ public class RunManager : MonoBehaviour
     {
         lastCandyInventory = temp;
 
+
+        var temp2 = SaveManager.instance.GetCandyUnlockStatuses().Where((n) => !n.unlocked).OrderBy((n) => n.id).ToArray();
+
+        if (temp2.Length > 0)
+            candyUnlockUI.currentStatus = new CandyUnlockStatus() { id = temp2[0].id, percent = temp2[0].percent, goalPercent = temp2[0].goalPercent };
+
+        SaveManager.instance.AddUnlockPoint(lastCandyInventory.candyItems);
+
         SaveManager.instance.enableCandyInventoryUIUpdate = false;
         cuttingPhase = false;
 
@@ -984,20 +1005,20 @@ public class RunManager : MonoBehaviour
 
         this.TaskDelay(3.5f, () =>
         {
-            if (StageManager.instance.currentStageNum == 4 && forceIdle)
-            {
-                sellCandyBtn.SetActive(true);
-            }
+            // if (StageManager.instance.currentStageNum == 4 && forceIdle)
+            // {
+            //     sellCandyBtn.SetActive(true);
+            // }
             // else if (StageManager.instance.currentStageNum > 4)
             // {
             //     nextStageBtnGroup.SetActive(true);
             // }
-            else
-            {
-                x2ClaimBtn.SetActive(true);
-            }
+
+
+            x2ClaimBtn.SetActive(true);
 
             runEndUI.SetActive(true);
+            candyInventoryUI.SetActive(false);
             jarAnimator.SetBool("Rotate", true);
 
             EndCandyInventoryUI.ClearUI();
@@ -1012,7 +1033,7 @@ public class RunManager : MonoBehaviour
 
             bool success = false;
 
-            if (StageManager.instance.currentStageNum > 1)
+            if (StageManager.instance.currentStageNum > 4 && ES3.KeyExists("NextStageEnable"))
                 success = MondayOFF.AdsManager.ShowInterstitial();
 
             if (success)
@@ -1068,7 +1089,7 @@ public class RunManager : MonoBehaviour
             this.TaskDelay(2f, () =>
             {
                 SaveManager.instance.enableCandyInventoryUIUpdate = true;
-                ResetRunGame();
+                // ResetRunGame();
             });
         });
 

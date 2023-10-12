@@ -10,6 +10,8 @@ public class SaveManager : MonoBehaviour
     public List<candySaveData> candyInventory = new List<candySaveData>();
 
     [SerializeField] int money;
+    [SerializeField] int royalCandy;
+
     [SerializeField] bool enableShop = false;
     public bool GetEnableShop => enableShop;
 
@@ -18,8 +20,13 @@ public class SaveManager : MonoBehaviour
     [SerializeField] private List<CandyUnlockStatus> candyUnlockStatuses = new List<CandyUnlockStatus>();
     public List<CandyUnlockStatus> GetCandyUnlockStatuses() => candyUnlockStatuses;
 
+    public List<Text> royalCandyTextList = new List<Text>();
+
+
     public UnityEngine.Events.UnityEvent onMoneyChangeEvent = new UnityEngine.Events.UnityEvent();
     public UnityEngine.Events.UnityEvent onChangeCandyInventoryEvent = new UnityEngine.Events.UnityEvent();
+    public UnityEngine.Events.UnityEvent onRoyalCandyChangeEvent = new UnityEngine.Events.UnityEvent();
+
 
     public bool enableCandyInventoryUIUpdate = true;
 
@@ -68,11 +75,17 @@ public class SaveManager : MonoBehaviour
         if (ES3.KeyExists("CandyUnlockStatus"))
             candyUnlockStatuses = ES3.Load<List<CandyUnlockStatus>>("CandyUnlockStatus");
 
+
+        if (ES3.KeyExists("RoyalCandy"))
+            royalCandy = ES3.Load<int>("RoyalCandy");
+        else
+            royalCandy = 0;
     }
 
     private void Start()
     {
         OnChangeMoney();
+        OnChangeRoyalCandy();
 
         // MondayOFF.AdsManager.Initialize();
         // MondayOFF.AdsManager.ShowBanner();
@@ -107,13 +120,38 @@ public class SaveManager : MonoBehaviour
 
         OnChangeMoney();
     }
-
     public void OnChangeMoney()
     {
         moneyTextList.ForEach((n) => n.text = money.ToString());
 
         onMoneyChangeEvent.Invoke();
     }
+
+    public void AddRoyalCandy(int value)
+    {
+        royalCandy += value;
+
+        ES3.Save<int>("RoyalCandy", royalCandy);
+
+        OnChangeRoyalCandy();
+    }
+
+    public void UseRoyalCandy(int value)
+    {
+        royalCandy -= value;
+
+        ES3.Save<int>("RoyalCandy", royalCandy);
+
+        OnChangeRoyalCandy();
+    }
+
+    public void OnChangeRoyalCandy()
+    {
+        royalCandyTextList.ForEach((n) => n.text = royalCandy.ToString());
+
+        onRoyalCandyChangeEvent.Invoke();
+    }
+
 
     public void OnChangeCandyInventory()
     {
@@ -261,9 +299,25 @@ public class SaveManager : MonoBehaviour
         }
     }
 
-    public void AddUnlockPoint()
+    public void AddUnlockPoint(List<CandyItem> candyItems)
     {
+        var currentUnlockStatus = candyUnlockStatuses.Where((n) => !n.unlocked).OrderBy((n) => n.id).ToArray();
 
+        if (currentUnlockStatus.Length > 0)
+        {
+            float totalPoint = 0;
+
+            candyItems.ForEach((n) => totalPoint += (n.candy.unlockPoint * n.count));
+
+            while (totalPoint > 0 && currentUnlockStatus != null)
+            {
+                totalPoint = currentUnlockStatus[0].AddPercent(totalPoint);
+
+                currentUnlockStatus[0] = candyUnlockStatuses.Where((n) => !n.unlocked).OrderBy((n) => n.id).ToArray()[0];
+            }
+        }
+
+        SaveCandyUnlockStatus(candyUnlockStatuses);
     }
 
     public void AddCandyUnlockPercent(int id, float precent = 1f)
@@ -328,21 +382,35 @@ public class candySaveData
 public class CandyUnlockStatus
 {
     public int id;
-    [Range(0, 100)]
     public float percent = 0;
+    public float goalPercent = 100;
     public bool unlocked = false;
 
 
-    public void AddPercent(float p = 1f)
+    public float AddPercent(float p = 1f)
     {
+        if (unlocked)
+            return 0;
+
         percent += p;
 
-        if (percent > 100)
+        if (percent > goalPercent)
+        {
             Unlock();
+
+            return percent - goalPercent;
+        }
+
+        return 0;
     }
 
     public void Unlock()
     {
         unlocked = true;
+    }
+
+    public float GetCurrentPercent()
+    {
+        return Mathf.Clamp((percent / goalPercent) * 100f, 0, 100f);
     }
 }

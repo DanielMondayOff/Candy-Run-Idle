@@ -15,6 +15,10 @@ public class DropedJellyBean : MonoBehaviour
 
     [SerializeField] MeshRenderer jellyMesh;
 
+    [SerializeField] GameObject royalCandyModel;
+
+    [SerializeField] bool royalCandy = false;
+
     int jellyMatNum = 0;
 
 
@@ -99,10 +103,24 @@ public class DropedJellyBean : MonoBehaviour
 
             RunManager.instance.TaskDelay(3, () => Managers.Pool.Push(particle.GetComponentInChildren<Poolable>()));
 
-            RunManager.instance.AddCandyLength(value);
+            if (royalCandy)
+            {
+                SaveManager.instance.AddRoyalCandy(1);
+                EventManager.instance.CustomEvent(AnalyticsType.RUN, "Player Get RoyalCandy", true, true);
+
+                var particle2 = Managers.Pool.Pop(Resources.Load<GameObject>("Particles/UIAttractor_RoyalCandy"));
+
+                particle2.GetComponentInChildren<UIAttractorCustom>().Init(RunManager.instance.royalCandyTargetTrans, Vector2.zero);
+
+                RunManager.instance.TaskDelay(3, () => Managers.Pool.Push(particle2.GetComponentInChildren<Poolable>()));
+            }
+            else
+            {
+                RunManager.instance.AddCandyLength(value);
+                EventManager.instance.CustomEvent(AnalyticsType.RUN, "Player Get Jelly", true, true);
+            }
             gameObject.SetActive(false);
 
-            EventManager.instance.CustomEvent(AnalyticsType.RUN, "Player Get Jelly", true, true);
 
             switch (IdleManager.instance.runGameType)
             {
@@ -136,5 +154,21 @@ public class DropedJellyBean : MonoBehaviour
         meshRenderer.gameObject.SetActive(true);
 
         changeJellyColor = false;
+    }
+
+    public void ChanceToRoyalCandy()
+    {
+        if (Random.Range(0, 35) == 0)
+        {
+            if (meshRenderer == null)
+                meshRenderer = GetComponentInChildren<MeshRenderer>();
+
+            meshRenderer.gameObject.SetActive(false);
+
+            royalCandyModel.SetActive(true);
+
+            royalCandy = true;
+            changeJellyColor = false;
+        }
     }
 }

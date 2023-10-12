@@ -17,5 +17,5 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 624ac7d388c6248518390a5a370dccfc, type: 3}
   particleMat: {fileID: 2100000, guid: b9ee92d085647433bb9c77819d4c46ce, type: 2}
   cost: 4
-  unlockPoint: 1
+  unlockPoint: 1.5
   nextCandy: {fileID: 11400000, guid: fae0d1f124b7a4cf8bcbeebb3713d9fb, type: 2}

@@ -14,6 +14,8 @@ public class ParticleUI : MonoBehaviour
         if (ES3.KeyExists("ParticleUI") ? ES3.Load<bool>("ParticleUI") : false)
         {
             dynamicPanel.Collapse(true, onComplete: () => { ExpandBtn.SetActive(true); inventoryBtn.enabled = true; });
+
+            ExpandBtn.SetActive(true);
         }
     }
 

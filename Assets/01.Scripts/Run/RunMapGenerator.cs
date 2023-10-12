@@ -144,7 +144,7 @@ public class RunMapGenerator : MonoBehaviour
                 currentAddCandyLevelUpPiller++;
             }
         }
-        int num = Random.Range(0, 5);
+        int num = Random.Range(0, 4);
         mapParts.ForEach((n) => n.ChangeCandyModel(num));
 
         EventManager.instance.CustomEvent(AnalyticsType.RUN, "RunMapRandomGenerated", true, true);

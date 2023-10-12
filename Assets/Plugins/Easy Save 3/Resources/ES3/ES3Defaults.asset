@@ -40,8 +40,12 @@ MonoBehaviour:
     - Assembly-CSharp-firstpass
     - Cinemachine
     - CodeStage.Maintainer.Editor
+    - Coffee.CFX_Demo_With_UIParticle
+    - Coffee.NanoMonitor
     - Coffee.UIParticle
+    - Coffee.UIParticle.Demo
     - Coffee.UIParticle.Editor
+    - Coffee.UIParticle.PerformanceDemo
     - Everyday
     - Everyday.Editor
     - Everyday.Events
