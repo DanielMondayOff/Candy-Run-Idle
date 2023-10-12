@@ -80,7 +80,7 @@ public class UIAttractorCustom : MonoBehaviour
 
     public void Init(Transform target, Vector2 startPos, UnityEngine.Events.UnityAction onAttract = null, System.Action OnCompleteParticle = null)
     {
-        startPoint.position = startPos;
+        startPoint.anchoredPosition = startPos;
 
         // attractorTarget.position = target.transform.position;
         // attractorTarget.anchoredPosition = Vector2.zero;

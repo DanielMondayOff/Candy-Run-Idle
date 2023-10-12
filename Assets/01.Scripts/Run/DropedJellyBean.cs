@@ -114,11 +114,11 @@ public class DropedJellyBean : MonoBehaviour
                 // particle2.transform.position = Vector3.zero;
                 // particle.transform.localScale = Vector3.one;
 
-                Vector2 anchordPos = RectTransformUtility.WorldToScreenPoint(Camera.main, transform.position);
+                // Vector2 anchordPos = RectTransformUtility.WorldToScreenPoint(Camera.main, transform.position);
 
-                Debug.LogError(anchordPos);
+                Vector2 anchordPos = Camera.main.WorldToViewportPoint(transform.position);
 
-                particle2.GetComponentInChildren<UIAttractorCustom>().Init(RunManager.instance.royalCandyTargetTrans, anchordPos);
+                particle2.GetComponentInChildren<UIAttractorCustom>().Init(RunManager.instance.royalCandyTargetTrans, new Vector2(anchordPos.x * RunManager.instance.runGameUI.GetComponent<RectTransform>().sizeDelta.x, anchordPos.y * RunManager.instance.runGameUI.GetComponent<RectTransform>().sizeDelta.y) );
                 particle2.GetComponentInChildren<ParticleSystem>().Play();
 
                 // RunManager.instance.TaskDelay(3, () => Managers.Pool.Push(particle2.GetComponentInChildren<Poolable>()));
