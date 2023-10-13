@@ -20,6 +20,7 @@ public class DataManager
             SaveData("Haptic", value);
         }
     }
+    
     [SerializeField]
     private bool _useHaptic;
 
@@ -30,7 +31,6 @@ public class DataManager
         {
             _useSound = value;
             SaveData("Sound", value);
-            Managers.Sound.BgmOnOff(value);
         }
     }
     [SerializeField]

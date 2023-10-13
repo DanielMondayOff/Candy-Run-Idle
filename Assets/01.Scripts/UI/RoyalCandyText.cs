@@ -6,12 +6,11 @@ public class RoyalCandyText : MonoBehaviour
 {
     private void OnEnable()
     {
-        SaveManager.instance.royalCandyTextList.Add(GetComponent<UnityEngine.UI.Text>());
+        this.TaskWaitUntil(() => SaveManager.instance.AddRoyalCandyText(GetComponent<UnityEngine.UI.Text>()), () => SaveManager.instance != null);
     }
 
     private void OnDisable()
     {
         SaveManager.instance.royalCandyTextList.Remove(GetComponent<UnityEngine.UI.Text>());
-
     }
 }

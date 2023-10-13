@@ -103,6 +103,8 @@ public class DropedJellyBean : MonoBehaviour
 
             RunManager.instance.TaskDelay(3, () => Managers.Pool.Push(particle.GetComponentInChildren<Poolable>()));
 
+            Managers.Sound.Play("J.BoB - Mobile Game - Interface Hollow Woody Click", volume: 0.7f, pitch: Random.Range(0.75f, 1f));
+
             if (royalCandy)
             {
                 SaveManager.instance.AddRoyalCandy(1);
@@ -118,7 +120,7 @@ public class DropedJellyBean : MonoBehaviour
 
                 Vector2 anchordPos = Camera.main.WorldToViewportPoint(transform.position);
 
-                particle2.GetComponentInChildren<UIAttractorCustom>().Init(RunManager.instance.royalCandyTargetTrans, new Vector2(anchordPos.x * RunManager.instance.runGameUI.GetComponent<RectTransform>().sizeDelta.x, anchordPos.y * RunManager.instance.runGameUI.GetComponent<RectTransform>().sizeDelta.y) );
+                particle2.GetComponentInChildren<UIAttractorCustom>().Init(RunManager.instance.royalCandyTargetTrans, new Vector2(anchordPos.x * RunManager.instance.runGameUI.GetComponent<RectTransform>().sizeDelta.x, anchordPos.y * RunManager.instance.runGameUI.GetComponent<RectTransform>().sizeDelta.y));
                 particle2.GetComponentInChildren<ParticleSystem>().Play();
 
                 // RunManager.instance.TaskDelay(3, () => Managers.Pool.Push(particle2.GetComponentInChildren<Poolable>()));
@@ -165,9 +167,9 @@ public class DropedJellyBean : MonoBehaviour
         changeJellyColor = false;
     }
 
-    public void ChanceToRoyalCandy()
+    public void ChanceToRoyalCandy(bool confirm = false)
     {
-        if (Random.Range(0, 20) == 0)
+        if (confirm ? true : Random.Range(0, 30) == 0)
         {
             if (meshRenderer == null)
                 meshRenderer = GetComponentInChildren<MeshRenderer>();

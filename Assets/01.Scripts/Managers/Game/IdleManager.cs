@@ -170,6 +170,8 @@ public class IdleManager : MonoBehaviour
 
         this.TaskWhile(45, 0, GenerateFieldRVProbTask);
 
+        Managers.Sound.Play("Wonderland - Rooftops", Define.Sound.Bgm, 0.3f);
+
         // this.TaskWaitUntil(() => { MondayOFF.EventTracker.Initialize(); print("firebaseInit1231451"); }, () => MondayOFF.EveryDay.isInitialized);
     }
 
@@ -234,6 +236,7 @@ public class IdleManager : MonoBehaviour
         StartIdle();
         idleCamera.gameObject.SetActive(true);
         joyStickCanvas.SetActive(true);
+
 
         if (ES3.KeyExists("NextStageEnable"))
             nextStageBtn.SetActive(ES3.Load<bool>("NextStageEnable"));
@@ -419,6 +422,8 @@ public class IdleManager : MonoBehaviour
         joyStickCanvas.SetActive(false);
 
         RunManager.instance.blackPanel.SetActive(false);
+
+        Managers.Sound.BgmOnOff(false);
     }
 
     public void Upgrade_HireWorker()
@@ -1001,24 +1006,37 @@ public class IdleManager : MonoBehaviour
 
         var array = (FieldRvType[])System.Enum.GetValues(typeof(FieldRvType));
 
-        var list = array.Where((n) => !bannedFieldRv.Contains(n));
-
-
-        switch (list.ToArray()[Random.Range(0, list.Count())])
+        if (SaveManager.instance.GetCurrentMoney < 100)
         {
-            case FieldRvType.SpeedUp:
-                var pos = fieldRvSpawnPoint1[Random.Range(0, fieldRvSpawnPoint1.Length)];
-                prob = Instantiate(Resources.Load<GameObject>("RVFieldProb - speedUp"), pos.position + (Vector3.up * 0.5f), Quaternion.identity);
-                prob.GetComponent<fieldRVProbs>().pos = pos.name;
-                break;
+            var closestSpawnPoint = fieldRvSpawnPoint1.Concat(fieldRvSpawnPoint2).OrderBy((n) => Vector3.Distance(n.transform.position, idlePlayer.transform.position)).ToArray()[0];
 
-            case FieldRvType.Money:
-                var pos2 = fieldRvSpawnPoint2[Random.Range(0, fieldRvSpawnPoint2.Length)];
-                prob = Instantiate(Resources.Load<GameObject>("RVFieldProb - Money"), pos2.position + (Vector3.up * 0.5f), Quaternion.identity);
-                prob.GetComponent<fieldRVProbs>().pos = pos2.name;
+            prob = Instantiate(Resources.Load<GameObject>("RVFieldProb - Money"), closestSpawnPoint.position + (Vector3.up * 0.5f), Quaternion.identity);
+            prob.GetComponent<fieldRVProbs>().pos = closestSpawnPoint.name;
 
-                break;
+            EventManager.instance.CustomEvent(AnalyticsType.IDLE, "RV - Spawn MoneyBag_Cloest", true, true);
         }
+        else
+        {
+            var list = array.Where((n) => !bannedFieldRv.Contains(n));
+
+            switch (list.ToArray()[Random.Range(0, list.Count())])
+            {
+                case FieldRvType.SpeedUp:
+                    var pos = fieldRvSpawnPoint1[Random.Range(0, fieldRvSpawnPoint1.Length)];
+                    prob = Instantiate(Resources.Load<GameObject>("RVFieldProb - speedUp"), pos.position + (Vector3.up * 0.5f), Quaternion.identity);
+                    prob.GetComponent<fieldRVProbs>().pos = pos.name;
+                    break;
+
+                case FieldRvType.Money:
+                    var pos2 = fieldRvSpawnPoint2[Random.Range(0, fieldRvSpawnPoint2.Length)];
+                    prob = Instantiate(Resources.Load<GameObject>("RVFieldProb - Money"), pos2.position + (Vector3.up * 0.5f), Quaternion.identity);
+                    prob.GetComponent<fieldRVProbs>().pos = pos2.name;
+
+                    break;
+            }
+        }
+
+
 
         print("Spawn FieldRVProb " + prob.name);
 

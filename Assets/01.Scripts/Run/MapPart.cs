@@ -20,9 +20,12 @@ public class MapPart : MonoBehaviour
 
     public void ChanceToRoyalCandy()
     {
-        foreach (var candy in GetComponentsInChildren<DropedJellyBean>())
+        if (Random.Range(0, 20) == 0)
         {
-            candy.ChanceToRoyalCandy();
+            foreach (var candy in GetComponentsInChildren<DropedJellyBean>())
+            {
+                candy.ChanceToRoyalCandy(true);
+            }
         }
     }
 }

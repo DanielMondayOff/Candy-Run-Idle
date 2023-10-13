@@ -67,10 +67,11 @@ public class EventManager : MonoBehaviour
 
         if (stageNum)
         {
-            dic.Add("STAGENUM", StageManager.instance.currentStageNum.ToString());
+            if (StageManager.instance != null)
+                dic.Add("STAGENUM", StageManager.instance.currentStageNum.ToString());
             // StageNum("FLAG_TYPE", $"{type} - {additionInfo}");
         }
-        
+
         EventTracker.LogCustomEvent($"GAME_FLAG", dic);
     }
 

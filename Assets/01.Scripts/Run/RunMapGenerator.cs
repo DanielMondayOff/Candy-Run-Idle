@@ -147,6 +147,8 @@ public class RunMapGenerator : MonoBehaviour
         int num = Random.Range(0, 4);
         mapParts.ForEach((n) => n.ChangeCandyModel(num));
 
+        mapParts.ForEach((n) => n.ChanceToRoyalCandy());
+
         EventManager.instance.CustomEvent(AnalyticsType.RUN, "RunMapRandomGenerated", true, true);
 
         //         MondayOFF.EventTracker.LogCustomEvent(

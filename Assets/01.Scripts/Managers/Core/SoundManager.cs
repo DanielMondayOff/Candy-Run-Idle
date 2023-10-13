@@ -28,14 +28,14 @@ public class SoundManager
         // }
         // _audioClips.Clear();
     }
-    public void Play(string path, Define.Sound type = Define.Sound.Effect, float volume = 1.0f)
+    public void Play(string path, Define.Sound type = Define.Sound.Effect, float volume = 1.0f, float pitch = 1.0f)
     {
         if (!Managers.Data.UseSound) return;
 
         AudioClip audioClip = GetOrAddAudioClip(path, type);
-        Play(audioClip, type, volume);
+        Play(audioClip, type, volume, pitch);
     }
-    private void Play(AudioClip audioClip, Define.Sound type = Define.Sound.Effect, float volume = 1.0f)
+    private void Play(AudioClip audioClip, Define.Sound type = Define.Sound.Effect, float volume = 1.0f, float pitch = 1.0f)
     {
         if (!Managers.Data.UseSound) return;
 
@@ -58,6 +58,7 @@ public class SoundManager
         {
             AudioSource audioSource = _audioSources[(int)Define.Sound.Effect];
             audioSource.volume = volume;
+            audioSource.pitch = pitch;
             audioSource.PlayOneShot(audioClip);
         }
     }

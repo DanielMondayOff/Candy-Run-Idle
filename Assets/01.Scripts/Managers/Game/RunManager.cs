@@ -169,7 +169,15 @@ public class RunManager : MonoBehaviour
 
     private void Start()
     {
-        fireTask = this.TaskWhile(RunManager.instance.GetCurrentFireRate(), 1, () => { if (fireBullet && !cuttingPhase && !isGameEnd && fireBulletEnable) { candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().GenerateBullet()); } });
+        fireTask = this.TaskWhile(RunManager.instance.GetCurrentFireRate(), 1, () =>
+        {
+            if (fireBullet && !cuttingPhase && !isGameEnd && fireBulletEnable)
+            {
+                candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().GenerateBullet());
+                Managers.Sound.Play("J.BoB - Mobile Game - Interface Short Woody Click", volume: 0.5f, pitch: Random.Range(0.8f, 1f));
+            }
+        });
+
         CandyInventory.instance.SyncCurrentCandyUI();
 
         if (StageManager.instance.currentStageNum == 2)
@@ -250,6 +258,7 @@ public class RunManager : MonoBehaviour
     {
         SaveManager.instance.AddMoneyText(moneyText);
         SaveManager.instance.OnChangeMoney();
+        SaveManager.instance.OnChangeRoyalCandy();
     }
 
     private void OnDestroy()
@@ -934,6 +943,8 @@ public class RunManager : MonoBehaviour
                         });
                     });
                 }
+
+                Managers.Sound.Play("DT Sound - Kitchen Service - Knife Chop on Wooden Cutting Board Single");
                 break;
 
             case RunGameType.CPI2:

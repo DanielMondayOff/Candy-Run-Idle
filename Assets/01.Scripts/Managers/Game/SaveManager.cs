@@ -10,6 +10,7 @@ public class SaveManager : MonoBehaviour
     public List<candySaveData> candyInventory = new List<candySaveData>();
 
     [SerializeField] int money;
+    public int GetCurrentMoney => money;
     [SerializeField] int royalCandy;
 
     [SerializeField] bool enableShop = false;
@@ -61,6 +62,11 @@ public class SaveManager : MonoBehaviour
         else
             money = 0;
 
+        if (ES3.KeyExists("RoyalCandy"))
+            royalCandy = ES3.Load<int>("RoyalCandy");
+        else
+            royalCandy = 0;
+
         if (ES3.KeyExists("CandyInventory"))
             candyInventory = ES3.Load<List<candySaveData>>("CandyInventory");
 
@@ -76,10 +82,7 @@ public class SaveManager : MonoBehaviour
             candyUnlockStatuses = ES3.Load<List<CandyUnlockStatus>>("CandyUnlockStatus");
 
 
-        if (ES3.KeyExists("RoyalCandy"))
-            royalCandy = ES3.Load<int>("RoyalCandy");
-        else
-            royalCandy = 0;
+
     }
 
     private void Start()
@@ -245,6 +248,14 @@ public class SaveManager : MonoBehaviour
     public void AddMoneyText(Text text)
     {
         moneyTextList.Add(text);
+
+    }
+
+    public void AddRoyalCandyText(Text text)
+    {
+        royalCandyTextList.Add(text);
+
+        OnChangeRoyalCandy();
     }
 
     public void RemoveMoneyText(Text text)
