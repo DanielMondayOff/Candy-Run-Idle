@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using Sirenix.OdinInspector;
 
 public class SaveManager : MonoBehaviour
 {
@@ -320,11 +321,12 @@ public class SaveManager : MonoBehaviour
 
             candyItems.ForEach((n) => totalPoint += (n.candy.unlockPoint * n.count));
 
-            while (totalPoint > 0 && currentUnlockStatus != null)
+            while (totalPoint > 0 && currentUnlockStatus != null && currentUnlockStatus.Length > 0)
             {
                 totalPoint = currentUnlockStatus[0].AddPercent(totalPoint);
 
-                currentUnlockStatus[0] = candyUnlockStatuses.Where((n) => !n.unlocked).OrderBy((n) => n.id).ToArray()[0];
+                if (candyUnlockStatuses.Where((n) => !n.unlocked).Count() > 0)
+                    currentUnlockStatus[0] = candyUnlockStatuses.Where((n) => !n.unlocked).OrderBy((n) => n.id).ToArray()[0];
             }
         }
 
@@ -342,6 +344,12 @@ public class SaveManager : MonoBehaviour
     {
         candyUnlockStatuses = statuses;
 
+        ES3.Save<List<CandyUnlockStatus>>("CandyUnlockStatus", candyUnlockStatuses);
+    }
+
+    [Button]
+    public void ForceSaveCandyUnlockStatus()
+    {
         ES3.Save<List<CandyUnlockStatus>>("CandyUnlockStatus", candyUnlockStatuses);
     }
 }
@@ -418,6 +426,8 @@ public class CandyUnlockStatus
     public void Unlock()
     {
         unlocked = true;
+
+        EventManager.instance.CustomEvent(AnalyticsType.RUN, "Unlock Candy_" + id, true, true);
     }
 
     public float GetCurrentPercent()

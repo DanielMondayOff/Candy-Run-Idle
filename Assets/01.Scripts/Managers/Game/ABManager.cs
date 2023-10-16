@@ -55,8 +55,8 @@ public class ABManager : SerializedMonoBehaviour
             print("save");
             ES3.Save<string>("AB_Test", "A");
 
-            IdleManager.instance.blackPanel.SetActive(false);
-            RunManager.instance.blackPanel.SetActive(false);
+            this.TaskWaitUntil(() => IdleManager.instance.blackPanel.SetActive(false), () => IdleManager.instance != null);
+            this.TaskWaitUntil(() => RunManager.instance.blackPanel.SetActive(false), () => RunManager.instance != null);
         }
 
         void StartIdleFirst()
@@ -114,27 +114,32 @@ public class ABManager : SerializedMonoBehaviour
         AB_Dic.Add("ForceIdle", RemoteConfigService.Instance.appConfig.GetString("ForceIdle"));
         AB_Dic.Add("CandyStackType", RemoteConfigService.Instance.appConfig.GetString("CandyStackType"));
 
-        SelectStart("A");
-
-        foreach (var ab in AB_Dic)
+        this.TaskWaitUntil(() =>
         {
-            if (ab.Key.Equals("ForceIdle"))
+            SelectStart("A");
+
+            foreach (var ab in AB_Dic)
             {
-                RunManager.instance.SetForceIdle(RemoteConfigService.Instance.appConfig.GetBool("ForceIdle"));
-                EventManager.instance.CustomEvent(AnalyticsType.AB_TEST, "ForceIdle_" + ab.Value);
+                if (ab.Key.Equals("ForceIdle"))
+                {
+                    RunManager.instance.SetForceIdle(RemoteConfigService.Instance.appConfig.GetBool("ForceIdle"));
+                    EventManager.instance.CustomEvent(AnalyticsType.AB_TEST, "ForceIdle_" + ab.Value);
 
-                print("ForceIdle_" + ab.Value);
+                    print("ForceIdle_" + ab.Value);
+                }
+
+                if (ab.Key.Equals("CandyStackType"))
+                {
+                    RunManager.instance.SetCandyArarngeType((CandyArrangeType)System.Enum.Parse(typeof(CandyArrangeType), ab.Value));
+                    EventManager.instance.CustomEvent(AnalyticsType.AB_TEST, "CandyStackType" + RemoteConfigService.Instance.appConfig.GetBool("CandyStackType"));
+
+                    ES3.Save<CandyArrangeType>("CandyArrangeType", (CandyArrangeType)System.Enum.Parse(typeof(CandyArrangeType), ab.Value));
+                }
+
+                print("RemoteConfigService.Instance.appConfig fetched: " + ab.Key + " - " + ab.Value);
             }
+        }, () => IdleManager.instance != null && RunManager.instance != null && EventManager.instance != null);
 
-            if (ab.Key.Equals("CandyStackType"))
-            {
-                RunManager.instance.SetCandyArarngeType((CandyArrangeType)System.Enum.Parse(typeof(CandyArrangeType), ab.Value));
-                EventManager.instance.CustomEvent(AnalyticsType.AB_TEST, "CandyStackType" + RemoteConfigService.Instance.appConfig.GetBool("CandyStackType"));
 
-                ES3.Save<CandyArrangeType>("CandyArrangeType", (CandyArrangeType)System.Enum.Parse(typeof(CandyArrangeType), ab.Value));
-            }
-
-            print("RemoteConfigService.Instance.appConfig fetched: " + ab.Key + " - " + ab.Value);
-        }
     }
 }

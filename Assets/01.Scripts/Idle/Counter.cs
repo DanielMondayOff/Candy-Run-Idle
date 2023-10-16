@@ -86,6 +86,9 @@ public class Counter : MonoBehaviour
     {
         for (int i = 0; i < customerList.Count; i++)
         {
+            if (i >= customerQueueLine.Length)
+                break;
+
             customerList[i].SetDestination(customerQueueLine[i].transform.position);
         }
     }

@@ -6,6 +6,7 @@ using Sirenix.OdinInspector;
 using UnityEngine.SceneManagement;
 using MoreMountains.NiceVibrations;
 using System.Linq;
+using Unity.Services.RemoteConfig;
 
 public class RunManager : MonoBehaviour
 {
@@ -174,7 +175,9 @@ public class RunManager : MonoBehaviour
             if (fireBullet && !cuttingPhase && !isGameEnd && fireBulletEnable)
             {
                 candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().GenerateBullet());
-                Managers.Sound.Play("J.BoB - Mobile Game - Interface Short Woody Click", volume: 0.5f, pitch: Random.Range(0.8f, 1f));
+
+                if (StageManager.instance.IsAllowJellyGun)
+                    Managers.Sound.Play("J.BoB - Mobile Game - Interface Short Woody Click", volume: 0.5f, pitch: Random.Range(0.8f, 1f));
             }
         });
 
@@ -992,11 +995,12 @@ public class RunManager : MonoBehaviour
     {
         lastCandyInventory = temp;
 
-
         var temp2 = SaveManager.instance.GetCandyUnlockStatuses().Where((n) => !n.unlocked).OrderBy((n) => n.id).ToArray();
 
         if (temp2.Length > 0)
-            candyUnlockUI.currentStatus = new CandyUnlockStatus() { id = temp2[0].id, percent = temp2[0].percent, goalPercent = temp2[0].goalPercent };
+            candyUnlockUI.currentStatus = new CandyUnlockStatus() { id = temp2[0].id, percent = temp2[0].percent, goalPercent = temp2[0].goalPercent, unlocked = false };
+        else
+            candyUnlockUI.currentStatus = null;
 
         SaveManager.instance.AddUnlockPoint(lastCandyInventory.candyItems);
 
@@ -1041,15 +1045,6 @@ public class RunManager : MonoBehaviour
             noThanksTask = this.TaskDelay(2f, () => { noThanksBtn.SetActive(true); /*ShowCandyUnlockStatus();*/ });
 
             SaveManager.instance.enableCandyInventoryUIUpdate = true;
-
-            bool success = false;
-
-            if (StageManager.instance.currentStageNum > 4 && ES3.KeyExists("NextStageEnable"))
-                success = MondayOFF.AdsManager.ShowInterstitial();
-
-            if (success)
-                EventManager.instance.CustomEvent(AnalyticsType.ADS, "Run_Interstital_EndStage", true, true);
-
         });
 
         particleUI2.OnClickExpandBtn(true);
@@ -1071,6 +1066,15 @@ public class RunManager : MonoBehaviour
         // StageManager.instance.GenearteCurrentStage();
 
         // CameraManager.instance.ChangeCamera("follow");
+
+        bool success = false;
+
+        if (StageManager.instance.currentStageNum > 4 && (RemoteConfigService.Instance.appConfig.GetBool("ForceIdle") ? ES3.KeyExists("NextStageEnable") : true))
+            success = MondayOFF.AdsManager.ShowInterstitial();
+
+        if (success)
+            EventManager.instance.CustomEvent(AnalyticsType.ADS, "Run_Interstital_EndStage", true, true);
+
         SaveManager.instance.enableCandyInventoryUIUpdate = true;
 
         ResetRunGame();
@@ -1093,13 +1097,16 @@ public class RunManager : MonoBehaviour
 
             SaveManager.instance.AddCandy(lastCandyInventory.candyItems, false);
 
-            particleUI.GetComponentInChildren<CandyInventory>().CandyGetAnimation(lastCandyInventory.candyItems);
+            particleUI.GetComponentInChildren<CandyInventory>(true).gameObject.SetActive(true);
+            particleUI.GetComponentInChildren<CandyInventory>(true).CandyGetAnimation(lastCandyInventory.candyItems);
 
             EventManager.instance.CustomEvent(AnalyticsType.RV, "x2Claim", true, true);
 
-            this.TaskDelay(2f, () =>
+            this.TaskDelay(2.5f, () =>
             {
                 SaveManager.instance.enableCandyInventoryUIUpdate = true;
+                particleUI.GetComponentInChildren<CandyInventory>(true).gameObject.SetActive(false);
+                ShowCandyUnlockStatus();
                 // ResetRunGame();
             });
         });
@@ -1267,12 +1274,10 @@ public class RunManager : MonoBehaviour
 
     public void ShowCandyUnlockStatus()
     {
-        var status = SaveManager.instance.GetCandyUnlockStatuses();
+        // var status = SaveManager.instance.GetCandyUnlockStatuses();
         //아직 해금 안한 사탕이 있다면
-        if (status.Where((n) => !n.unlocked).Count() > 0)
+        if (CandyUnlockUI.instance.currentStatus != null)
         {
-            status.OrderBy((n) => n.id).Where((n) => !n.unlocked);
-
             candyUnlockUI.ShowUI();
 
             // SaveManager.instance.SaveCandyUnlockStatus()

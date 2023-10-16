@@ -84,6 +84,8 @@ public class CandyInventory : MonoBehaviour
         if (misteryCandyItem != null)
             misteryCandyItem.gameObject.SetActive(false);
 
+
+
         // print(candyItems.Count);
 
 
@@ -96,7 +98,7 @@ public class CandyInventory : MonoBehaviour
                 yield return new WaitForSeconds(0.05f);
                 GetCandyInventoryEvent(candyItems[i].candy.id);
 
-                RunManager.instance.uIAttractorCustoms[i].Init(itemList.Find((n) => n.candyItem.candy.id == candyItems[i].candy.id).GetImageTrans, candyItems[i], GetCandyInventoryEvent(candyItems[i].candy.id), () => { SyncCurrentCandyUI(); misteryCandyItem.transform.SetAsLastSibling(); misteryCandyItem.gameObject.SetActive(true); });
+                RunManager.instance.uIAttractorCustoms.Where((n) => n != null).ToArray()[i].Init(itemList.Find((n) => n.candyItem.candy.id == candyItems[i].candy.id).GetImageTrans, candyItems[i], GetCandyInventoryEvent(candyItems[i].candy.id), () => { SyncCurrentCandyUI(); misteryCandyItem.transform.SetAsLastSibling(); misteryCandyItem.gameObject.SetActive(true); });
             }
         }
 
