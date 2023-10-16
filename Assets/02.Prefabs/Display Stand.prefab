@@ -489,7 +489,7 @@ GameObject:
   - component: {fileID: 459424204382596082}
   - component: {fileID: 1270479367559083888}
   - component: {fileID: 1270479367559083919}
-  - component: {fileID: 1270479367559083889}
+  - component: {fileID: 3469287836684342584}
   m_Layer: 0
   m_Name: Display Stand
   m_TagString: Untagged
@@ -504,7 +504,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2116920046572751399}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.540192, y: -0.060003057, z: 31.898438}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -526,7 +526,7 @@ Transform:
   - {fileID: 2194488874833436022}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -35, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2415271529725042488
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -534,7 +534,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2116920046572751399}
-  m_Mesh: {fileID: 1534101606866798528, guid: 5ce309dfb7f1c4605baaf2997566ad89, type: 3}
+  m_Mesh: {fileID: -4771462991789149733, guid: b7c1e47ccb31b41fba254f8ad2ad6891, type: 3}
 --- !u!23 &459424204382596082
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -555,7 +555,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6676970065299406858, guid: 5ce309dfb7f1c4605baaf2997566ad89, type: 3}
+  - {fileID: 2100000, guid: 2e756ec739adc4e8caccfad5b5d5551f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -606,7 +606,7 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 3.0530002, z: 0.105000004}
   m_TimeToStationary: 0.5
---- !u!114 &1270479367559083889
+--- !u!114 &3469287836684342584
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -615,214 +615,50 @@ MonoBehaviour:
   m_GameObject: {fileID: 2116920046572751399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e13b6acec5294f5b92af13186bc01cd, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b98fab9eca251b4e9764bb199460a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
     SerializedBytes: 
-    ReferencedUnityObjects:
-    - {fileID: 1270479366958988846}
-    - {fileID: 1270479367088626593}
-    - {fileID: 1270479367064909436}
-    - {fileID: 1270479367967614923}
-    - {fileID: 1270479366190411012}
-    - {fileID: 1270479367305639781}
-    - {fileID: 1270479365940683135}
-    - {fileID: 1270479367241912498}
-    - {fileID: 1270479366706691042}
-    - {fileID: 1270479366377458072}
-    - {fileID: 1270479367861556509}
-    - {fileID: 1270479366747806999}
+    ReferencedUnityObjects: []
     SerializedBytesString: 
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: displayPoints
-      Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[UnityEngine.Transform, UnityEngine.CoreModule],[ItemObject,
-        Assembly-CSharp]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.ObjectEqualityComparer`1[[UnityEngine.Transform,
-        UnityEngine.CoreModule]], mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 12
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 10
-      Data: 0
-    - Name: $v
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 10
-      Data: 1
-    - Name: $v
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 10
-      Data: 2
-    - Name: $v
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 10
-      Data: 3
-    - Name: $v
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 10
-      Data: 4
-    - Name: $v
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 10
-      Data: 5
-    - Name: $v
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 10
-      Data: 6
-    - Name: $v
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 10
-      Data: 7
-    - Name: $v
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 10
-      Data: 8
-    - Name: $v
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 10
-      Data: 9
-    - Name: $v
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 10
-      Data: 10
-    - Name: $v
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 10
-      Data: 11
-    - Name: $v
-      Entry: 6
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: items
-      Entry: 7
-      Data: 2|System.Collections.Generic.Stack`1[[Item, Assembly-CSharp]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 0
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
   guid: ec1f4e2a-5bd3-4ece-9dea-7a7b3a005a8c
-  savedata:
-    guid: ec1f4e2a-5bd3-4ece-9dea-7a7b3a005a8c
-    complete: 0
-    currentMoneyStack: 0
   collector: {fileID: 0}
   buildSize: {x: 1, y: 1, z: 1}
-  SpawnParticle: 0
+  SpawnParticle: 1
+  standPoints:
+  - point: {fileID: 1270479366958988846}
+    itemObject: {fileID: 0}
+  - point: {fileID: 1270479367088626593}
+    itemObject: {fileID: 0}
+  - point: {fileID: 1270479367064909436}
+    itemObject: {fileID: 0}
+  - point: {fileID: 1270479367967614923}
+    itemObject: {fileID: 0}
+  - point: {fileID: 1270479366190411012}
+    itemObject: {fileID: 0}
+  - point: {fileID: 1270479367305639781}
+    itemObject: {fileID: 0}
+  - point: {fileID: 1270479365940683135}
+    itemObject: {fileID: 0}
+  - point: {fileID: 1270479367241912498}
+    itemObject: {fileID: 0}
+  - point: {fileID: 1270479366706691042}
+    itemObject: {fileID: 0}
+  - point: {fileID: 1270479366377458072}
+    itemObject: {fileID: 0}
+  - point: {fileID: 1270479367861556509}
+    itemObject: {fileID: 0}
+  - point: {fileID: 1270479366747806999}
+    itemObject: {fileID: 0}
+  inventoryUI: {fileID: 8077157090566941347}
+  meshRenderer: {fileID: 459424204382596082}
+  materialOffset: {x: 0, y: 0, z: 0}
   customerQueueLine:
   - {fileID: 7923068570251018429}
   - {fileID: 8319479145800943311}
@@ -835,15 +671,11 @@ MonoBehaviour:
   - {fileID: 1608186222816722388}
   - {fileID: 8436974109859655787}
   - {fileID: 1826375727586293028}
-  customerList: []
-  itemId: 1
-  isReady: 0
-  maxQueueCount: 3
-  Debug_distToCustomer: 0
-  inventoryUI: {fileID: 8077157090566941347}
   currentMachine: {fileID: 0}
-  meshRenderer: {fileID: 459424204382596082}
-  materialOffset: {x: 0, y: 0, z: 0}
+  customerList: []
+  targetItemId: 1
+  maxQueueCount: 4
+  isReady: 0
 --- !u!1 &2765126007065003271
 GameObject:
   m_ObjectHideFlags: 0
