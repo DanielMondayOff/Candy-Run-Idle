@@ -23,17 +23,20 @@ public class SaveManager : MonoBehaviour
     public List<CandyUnlockStatus> GetCandyUnlockStatuses() => candyUnlockStatuses;
 
     public List<Text> royalCandyTextList = new List<Text>();
-
+    private List<Text> rvTicketTextList = new List<Text>();
 
     public UnityEngine.Events.UnityEvent onMoneyChangeEvent = new UnityEngine.Events.UnityEvent();
     public UnityEngine.Events.UnityEvent onChangeCandyInventoryEvent = new UnityEngine.Events.UnityEvent();
     public UnityEngine.Events.UnityEvent onRoyalCandyChangeEvent = new UnityEngine.Events.UnityEvent();
+    public UnityEngine.Events.UnityEvent onRVTicketChangeEvent = new UnityEngine.Events.UnityEvent();
 
 
     public bool enableCandyInventoryUIUpdate = true;
 
     [SerializeField] string USER_GUID;
     public string Get_USER_GUID => USER_GUID;
+
+    public int RVTicket = 0;
 
     public static SaveManager instance = null;
 
@@ -82,7 +85,8 @@ public class SaveManager : MonoBehaviour
         if (ES3.KeyExists("CandyUnlockStatus"))
             candyUnlockStatuses = ES3.Load<List<CandyUnlockStatus>>("CandyUnlockStatus");
 
-
+        if (ES3.KeyExists("RVTicket"))
+            RVTicket = ES3.Load<int>("RVTicket");
 
     }
 
@@ -351,6 +355,24 @@ public class SaveManager : MonoBehaviour
     public void ForceSaveCandyUnlockStatus()
     {
         ES3.Save<List<CandyUnlockStatus>>("CandyUnlockStatus", candyUnlockStatuses);
+    }
+
+    public void RVTicketAdd(int count)
+    {
+        RVTicket += count;
+
+        ES3.Save("RVTicket", RVTicket);
+
+        rvTicketTextList.ForEach((n) => n.text = RVTicket.ToString());
+    }
+
+    public void RVTicketUse(int count = 1)
+    {
+        RVTicket -= count;
+
+        ES3.Save("RVTicket", RVTicket);
+
+        rvTicketTextList.ForEach((n) => n.text = RVTicket.ToString());
     }
 }
 

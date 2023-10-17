@@ -49,17 +49,17 @@ public class DropedJellyBean : MonoBehaviour
             animator.enabled = !animator.enabled;
         }
 
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            jellyMatNum++;
+        // if (Input.GetKeyDown(KeyCode.G))
+        // {
+        //     jellyMatNum++;
 
-            if (jellyMatNum >= RunManager.instance.jellyBeanMats.Length)
-                jellyMatNum = 0;
+        //     if (jellyMatNum >= RunManager.instance.jellyBeanMats.Length)
+        //         jellyMatNum = 0;
 
-            var mat = RunManager.instance.jellyBeanMats[jellyMatNum];
-            Material[] materials = { mat };
-            meshRenderer.materials = materials;
-        }
+        //     var mat = RunManager.instance.jellyBeanMats[jellyMatNum];
+        //     Material[] materials = { mat };
+        //     meshRenderer.materials = materials;
+        // }
     }
 #endif
 

@@ -1085,6 +1085,13 @@ public class IdleManager : MonoBehaviour
     {
         SaveManager.instance.AddRoyalCandy(100);
     }
+
+    public void OnClickChangeShape()
+    {
+
+    }
+
+
 }
 
 public enum candyBuildType

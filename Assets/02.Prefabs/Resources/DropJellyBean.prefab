@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 4950541364703286458}
   - component: {fileID: 1409263735415347123}
   - component: {fileID: 4824786095056566276}
+  - component: {fileID: 5148169494991122311}
   m_Layer: 0
   m_Name: DecoCandy
   m_TagString: Untagged
@@ -316,6 +317,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5148169494991122311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7499440512626212932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7521074d2e354432e824a0af43313768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 4824786095056566276}
+  mats:
+  - {fileID: 2100000, guid: e6ce97b1fe3484cc6ba29d74da68a05a, type: 2}
+  - {fileID: 2100000, guid: 4fe4c88bfb4a24c9eab4a1ac969ca7f3, type: 2}
+  - {fileID: 2100000, guid: f202004738eb44de2856efe16a51fab4, type: 2}
+  - {fileID: 2100000, guid: 695799a76ce6b4254a0d48ea7581d254, type: 2}
+  - {fileID: 2100000, guid: bd02d64fa472449a3a564a699d493dd4, type: 2}
 --- !u!1001 &193404841021806371
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -422,6 +442,26 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 193404841021806371}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &7507426084265573411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039897741469100658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7521074d2e354432e824a0af43313768, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  meshRenderer: {fileID: 1544322408147618727}
+  mats:
+  - {fileID: 2100000, guid: 8fdd73c1b16314d48a4e661fa060e7ee, type: 2}
+  - {fileID: 2100000, guid: d3522e2d609694d6b97023f5e409a014, type: 2}
+  - {fileID: 2100000, guid: 94eeed20899ba4072b9f9c91bdf16444, type: 2}
+  - {fileID: 2100000, guid: 0d515e54fd67047c1ad3c645ba4188cd, type: 2}
+  - {fileID: 2100000, guid: c47adb0136b354050a806ed1aa039ca8, type: 2}
+  - {fileID: 2100000, guid: d11e0a425c68b4f709b3f39739f66876, type: 2}
 --- !u!23 &1544322408147618727 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 6874962fb65214569ae862fd198683a3,
