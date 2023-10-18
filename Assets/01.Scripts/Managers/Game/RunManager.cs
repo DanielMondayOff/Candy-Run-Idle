@@ -1328,6 +1328,11 @@ public class RunManager : MonoBehaviour
         CameraManager.instance.ChangeCamera("candyStand");
     }
 
+    public void ChangeCutterSkin(int id)
+    {
+
+    }
+
     #endregion
 
     #region CPI2

@@ -13,7 +13,17 @@ MonoBehaviour:
   m_Name: EverydayProducts
   m_EditorClassIdentifier: MondayOFF.IAP:MondayOFF:MondayOFFProducts
   products:
-  - productID: Consumable
-    productType: 0
-  - productID: Non Consumable
+  - productID: candyshopmaster_premium
     productType: 1
+  - productID: ' candyshopmaster_royalcandy250 '
+    productType: 0
+  - productID: ' candyshopmaster_royalcandy1000 '
+    productType: 0
+  - productID: 'candyshopmaster_royalcandy5000 '
+    productType: 0
+  - productID: candyshopmaster_rv10
+    productType: 0
+  - productID: candyshopmaster_rv20
+    productType: 0
+  - productID: ' candyshopmaster_rv50'
+    productType: 0

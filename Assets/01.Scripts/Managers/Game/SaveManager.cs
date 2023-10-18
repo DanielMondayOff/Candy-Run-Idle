@@ -38,6 +38,14 @@ public class SaveManager : MonoBehaviour
 
     public int RVTicket = 0;
 
+    public int cutterSkinID = 0;
+    public int IdlePlayerSkinID = 0;
+
+
+
+
+
+
     public static SaveManager instance = null;
 
     private TaskUtil.DelayTaskMethod moneySaveDelayTask = null;
@@ -373,6 +381,20 @@ public class SaveManager : MonoBehaviour
         ES3.Save("RVTicket", RVTicket);
 
         rvTicketTextList.ForEach((n) => n.text = RVTicket.ToString());
+    }
+
+    public void SaveCutterSkin(int id)
+    {
+        cutterSkinID = id;
+
+        ES3.Save("currentCutterSkin", id);
+    }
+
+    public void SaveIdlePlayerSkin(int id)
+    {
+        IdlePlayerSkinID = id;
+
+        ES3.Save("idlePlayerSkin", id);
     }
 }
 

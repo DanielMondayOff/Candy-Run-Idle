@@ -1091,7 +1091,10 @@ public class IdleManager : MonoBehaviour
 
     }
 
+    public void ChangeIdleSkin(int id)
+    {
 
+    }
 }
 
 public enum candyBuildType
