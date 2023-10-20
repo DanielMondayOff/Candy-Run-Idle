@@ -10,32 +10,33 @@ public class SkinUI : MonoBehaviour
     [SerializeField] Transform cutterSkinParent;
     [SerializeField] Transform idlePlayerSkinParent;
 
-    private void Start()
-    {
-        Show();
-    }
-
-
     public void Show()
     {
-        foreach (var skin in Resources.LoadAll<CnadyCutterSkinObject>("Skin/Cutter"))
-        {
-            Instantiate(Resources.Load<GameObject>("UI/SkinSlot"), cutterSkinParent).GetComponent<SkinActiveUI>().Init(skin);
-        }
+        gameObject.SetActive(true);
 
-        cutterSkinParent.GetComponentInChildren<SwipeUI>().InitPages();
-
-        foreach (var skin in Resources.LoadAll<CnadyCutterSkinObject>("Skin/IdlePlayer"))
-        {
-            Instantiate(Resources.Load<GameObject>("UI/SkinSlot"), idlePlayerSkinParent).GetComponent<SkinActiveUI>().Init(skin);
-        }
-
-        idlePlayerSkinParent.GetComponentInChildren<SwipeUI>().InitPages();
+        GenerateSkinSlot();
     }
 
     public void Hide()
     {
         gameObject.SetActive(false);
+    }
+
+    public void GenerateSkinSlot()
+    {
+        foreach (var skin in Resources.LoadAll<CnadyCutterSkinObject>("Skin/Cutter"))
+        {
+            Instantiate(Resources.Load<GameObject>("UI/SkinSlot"), cutterSkinParent).GetComponent<SkinActiveUI>().Init(skin, SkinType.Cutter);
+        }
+
+        cutterSkinParent.GetComponentInChildren<SwipeUI>().InitPages();
+
+        foreach (var skin in Resources.LoadAll<IdlePlayerSkin>("Skin/IdlePlayer"))
+        {
+            Instantiate(Resources.Load<GameObject>("UI/SkinSlot"), idlePlayerSkinParent).GetComponent<SkinActiveUI>().Init(skin, SkinType.IdlePlayer);
+        }
+
+        idlePlayerSkinParent.GetComponentInChildren<SwipeUI>().InitPages();
     }
 
     public void OnClickTap(int num)

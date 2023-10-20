@@ -12,10 +12,12 @@ public class SkinActiveUI : MonoBehaviour
     [SerializeField] UnityEngine.UI.Button RVBtn;
 
 
-    public void Init(CnadyCutterSkinObject obj)
+    public void Init(SkinObject obj, SkinType type)
     {
         id = obj.id;
         icon.sprite = obj.icon;
+
+        this.type = type;
 
         var save = SaveManager.instance.GetSkinSaveData(type, id);
 
@@ -28,21 +30,21 @@ public class SkinActiveUI : MonoBehaviour
             }
             else
             {
-                if (obj.requireMoney > 0)
-                    moneyBtn.GetComponentInChildren<UnityEngine.UI.Text>().text = obj.requireMoney.ToString();
+                if (obj.requireRoyalCandy > 0)
+                    moneyBtn.GetComponentInChildren<UnityEngine.UI.Text>().text = obj.requireRoyalCandy.ToString();
                 else
                     moneyBtn.gameObject.SetActive(false);
 
                 if (obj.requireRV > 0)
-                    RVBtn.GetComponentInChildren<UnityEngine.UI.Text>().text = ((save != null) ? save.watchedRV : 0) + " / " + obj.requireMoney;
+                    RVBtn.GetComponentInChildren<UnityEngine.UI.Text>().text = ((save != null) ? save.watchedRV : 0) + " / " + obj.requireRoyalCandy;
                 else
                     RVBtn.gameObject.SetActive(false);
             }
         }
         else
         {
-            if (obj.requireMoney > 0)
-                moneyBtn.GetComponentInChildren<UnityEngine.UI.Text>().text = obj.requireMoney.ToString();
+            if (obj.requireRoyalCandy > 0)
+                moneyBtn.GetComponentInChildren<UnityEngine.UI.Text>().text = obj.requireRoyalCandy.ToString();
             else
                 moneyBtn.gameObject.SetActive(false);
 
@@ -65,6 +67,8 @@ public class SkinActiveUI : MonoBehaviour
                 IdleManager.instance.ChangeIdleSkin(id);
                 break;
         }
+
+        SkinRenderManager.instance.ChangeSkinRender(type, id);
     }
 
     public void OnClickMoneyBtn()
@@ -74,7 +78,7 @@ public class SkinActiveUI : MonoBehaviour
 
     public void OnClickRVBtn()
     {
-        
+
     }
 }
 

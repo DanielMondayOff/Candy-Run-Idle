@@ -7,7 +7,15 @@ using DG.Tweening;
 public class StandBuildObject : BuildObject
 {
     public StandPoint[] standPoints;
-    public Transform GetEmptyPoint() => standPoints.Where((n) => n.itemObject == null).FirstOrDefault().point;
+    public Transform GetEmptyPoint()
+    {
+        var point = standPoints.Where((n) => n.itemObject == null);
+
+        if (point.Count() > 0)
+            return point.First().point;
+        else
+            return null;
+    }
 
     [SerializeField] CandyInventoryUI inventoryUI;
     [SerializeField] MeshRenderer meshRenderer;
@@ -96,7 +104,7 @@ public class StandBuildObject : BuildObject
 
         if (standPoints.Where((n) => n.itemObject == null).Count() <= 0)
         {
-            Debug.LogError("남는 자리가 없습니다.");
+            Debug.Log("남는 자리가 없습니다.");
             return;
         }
 
