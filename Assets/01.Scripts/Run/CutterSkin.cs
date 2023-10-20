@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CutterSkin : MonoBehaviour
 {
+    public int id;
     [SerializeField] Animator animator;
 
     public void ShowSkin()

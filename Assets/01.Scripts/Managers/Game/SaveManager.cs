@@ -41,8 +41,7 @@ public class SaveManager : MonoBehaviour
     public int cutterSkinID = 0;
     public int IdlePlayerSkinID = 0;
 
-
-
+    public List<SkinSaveData> skinSaveDataList = new List<SkinSaveData>();
 
 
 
@@ -95,6 +94,9 @@ public class SaveManager : MonoBehaviour
 
         if (ES3.KeyExists("RVTicket"))
             RVTicket = ES3.Load<int>("RVTicket");
+
+        if (ES3.KeyExists("SkinSaveData"))
+            skinSaveDataList = ES3.Load<List<SkinSaveData>>("SkinSaveData");
 
     }
 
@@ -383,18 +385,113 @@ public class SaveManager : MonoBehaviour
         rvTicketTextList.ForEach((n) => n.text = RVTicket.ToString());
     }
 
-    public void SaveCutterSkin(int id)
+    public void SaveCurrentCutterSkin(int id)
     {
         cutterSkinID = id;
 
         ES3.Save("currentCutterSkin", id);
     }
 
-    public void SaveIdlePlayerSkin(int id)
+    public void SaveCurrentIdlePlayerSkin(int id)
     {
         IdlePlayerSkinID = id;
 
         ES3.Save("idlePlayerSkin", id);
+    }
+
+    public void PurchaseSkin(SkinType type, int id, int price)
+    {
+        if (money < price)
+        {
+            Debug.LogError("돈이 부족합니다 " + type + " " + id);
+            return;
+        }
+
+        if (skinSaveDataList.Where((n) => n.type == type && n.id == id).Count() > 0)
+        {
+            Debug.LogError("이미 소지중인 스킨입니다 " + type + " " + id);
+            return;
+        }
+
+        switch (type)
+        {
+            case SkinType.Cutter:
+                SaveCurrentCutterSkin(id);
+                break;
+
+            case SkinType.IdlePlayer:
+                SaveCurrentIdlePlayerSkin(id);
+                break;
+        }
+
+        GainSkin(type, id);
+    }
+
+    public SkinSaveData GetSkinSaveData(SkinType type, int id)
+    {
+        var find = skinSaveDataList.Where((n) => n.type == type && n.id == id);
+
+        if (find.Count() > 0)
+        {
+            return find.First();
+        }
+        else
+        {
+            return null;
+        }
+    }
+
+    public void WatchedRVOnceForSkin(SkinType type, int id)
+    {
+        var data = GetSkinSaveData(type, id);
+
+        if (data != null)
+        {
+            data.watchedRV++;
+
+            if (FindSkinObject(type, id).requireRV <= data.watchedRV)
+                GainSkin(type, id);
+        }
+        else
+        {
+            Debug.LogError("해당 스킨이 없습니다." + type + " " + id);
+            return;
+        }
+    }
+
+    public int GetHowManyWatchedRVForSkin(SkinType type, int id)
+    {
+        var find = skinSaveDataList.Where((n) => n.type == type && n.id == id);
+
+        if (find.Count() > 0)
+            return find.First().watchedRV;
+        else
+            return 0;
+    }
+
+    public void GainSkin(SkinType _type, int _id)
+    {
+        skinSaveDataList.Add(new SkinSaveData() { type = _type, id = _id, complete = true });
+
+        ES3.Save<List<SkinSaveData>>("SkinSaveData", skinSaveDataList);
+    }
+
+    public SkinObject FindSkinObject(SkinType type, int id)
+    {
+        switch (type)
+        {
+            case SkinType.Cutter:
+                return Resources.Load<SkinObject>("Skin/Cutter");
+
+            case SkinType.IdlePlayer:
+                return Resources.Load<SkinObject>("Skin/IdlePlayer");
+
+            default:
+
+                Debug.LogError("지원하지 않는 타입입니다. " + type);
+
+                return null;
+        }
     }
 }
 
@@ -478,4 +575,14 @@ public class CandyUnlockStatus
     {
         return Mathf.Clamp((percent / goalPercent) * 100f, 0, 100f);
     }
+}
+
+[System.Serializable]
+public class SkinSaveData
+{
+
+    public SkinType type;
+    public int id;
+    public int watchedRV = 0;
+    public bool complete = false;
 }

@@ -92,54 +92,58 @@ public class ABManager : SerializedMonoBehaviour
         }
     }
 
-    async Task Start()
+    private void Start()
     {
-        // initialize Unity's authentication and core services, however check for internet connection
-        // in order to fail gracefully without throwing exception if connection does not exist
-        if (Utilities.CheckForInternetConnection())
-        {
-            await InitializeRemoteConfigAsync();
-        }
-
-        RemoteConfigService.Instance.FetchCompleted += ApplyRemoteSettings;
-        RemoteConfigService.Instance.FetchConfigs(new userAttributes(), new appAttributes());
+        SelectStart("A");
     }
 
-    void ApplyRemoteSettings(ConfigResponse configResponse)
-    {
-        Debug.Log("RemoteConfigService.Instance.appConfig fetched: " + RemoteConfigService.Instance.appConfig.config.ToString());
+    //     async Task Start()
+    //     {
+    //         // initialize Unity's authentication and core services, however check for internet connection
+    //         // in order to fail gracefully without throwing exception if connection does not exist
+    //         if (Utilities.CheckForInternetConnection())
+    //         {
+    //             await InitializeRemoteConfigAsync();
+    //         }
 
-        // SelectStart(RemoteConfigService.Instance.appConfig.GetString("StartSelect"));
+    //         RemoteConfigService.Instance.FetchCompleted += ApplyRemoteSettings;
+    //         RemoteConfigService.Instance.FetchConfigs(new userAttributes(), new appAttributes());
+    //     }
 
-        AB_Dic.Add("ForceIdle", RemoteConfigService.Instance.appConfig.GetString("ForceIdle"));
-        AB_Dic.Add("CandyStackType", RemoteConfigService.Instance.appConfig.GetString("CandyStackType"));
+    //     void ApplyRemoteSettings(ConfigResponse configResponse)
+    //     {
+    //         Debug.Log("RemoteConfigService.Instance.appConfig fetched: " + RemoteConfigService.Instance.appConfig.config.ToString());
 
-        this.TaskWaitUntil(() =>
-        {
-            SelectStart("A");
+    //         // SelectStart(RemoteConfigService.Instance.appConfig.GetString("StartSelect"));
+    //             SelectStart("A");
 
-            foreach (var ab in AB_Dic)
-            {
-                if (ab.Key.Equals("ForceIdle"))
-                {
-                    RunManager.instance.SetForceIdle(RemoteConfigService.Instance.appConfig.GetBool("ForceIdle"));
-                    EventManager.instance.CustomEvent(AnalyticsType.AB_TEST, "ForceIdle_" + ab.Value);
+    //         AB_Dic.Add("ForceIdle", RemoteConfigService.Instance.appConfig.GetString("ForceIdle"));
+    //         AB_Dic.Add("CandyStackType", RemoteConfigService.Instance.appConfig.GetString("CandyStackType"));
 
-                    print("ForceIdle_" + ab.Value);
-                }
+    //         foreach (var ab in AB_Dic)
+    //         {
+    //             if (ab.Key.Equals("ForceIdle"))
+    //             {
+    //                 RunManager.instance.SetForceIdle(RemoteConfigService.Instance.appConfig.GetBool("ForceIdle"));
+    //                 EventManager.instance.CustomEvent(AnalyticsType.AB_TEST, "ForceIdle_" + ab.Value);
 
-                if (ab.Key.Equals("CandyStackType"))
-                {
-                    RunManager.instance.SetCandyArarngeType((CandyArrangeType)System.Enum.Parse(typeof(CandyArrangeType), ab.Value));
-                    EventManager.instance.CustomEvent(AnalyticsType.AB_TEST, "CandyStackType" + RemoteConfigService.Instance.appConfig.GetBool("CandyStackType"));
+    //                 print("ForceIdle_" + ab.Value);
+    //             }
 
-                    ES3.Save<CandyArrangeType>("CandyArrangeType", (CandyArrangeType)System.Enum.Parse(typeof(CandyArrangeType), ab.Value));
-                }
+    //             if (ab.Key.Equals("CandyStackType"))
+    //             {
+    //                 RunManager.instance.SetCandyArarngeType((CandyArrangeType)System.Enum.Parse(typeof(CandyArrangeType), ab.Value));
+    //                 EventManager.instance.CustomEvent(AnalyticsType.AB_TEST, "CandyStackType" + RemoteConfigService.Instance.appConfig.GetBool("CandyStackType"));
 
-                print("RemoteConfigService.Instance.appConfig fetched: " + ab.Key + " - " + ab.Value);
-            }
-        }, () => IdleManager.instance != null && RunManager.instance != null && EventManager.instance != null);
+    //                 ES3.Save<CandyArrangeType>("CandyArrangeType", (CandyArrangeType)System.Enum.Parse(typeof(CandyArrangeType), ab.Value));
+    //             }
 
+    //             print("RemoteConfigService.Instance.appConfig fetched: " + ab.Key + " - " + ab.Value);
+    //         }
 
-    }
+    //         this.TaskWaitUntil(() =>
+    //         {
+
+    //         }, () => IdleManager.instance != null && RunManager.instance != null && EventManager.instance != null);
+    //     }
 }

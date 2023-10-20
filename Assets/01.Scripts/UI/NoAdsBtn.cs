@@ -13,6 +13,8 @@ public class NoAdsBtn : MonoBehaviour
 
         if (!MondayOFF.NoAds.IsNoAds && ES3.KeyExists("IS_Showend") ? ES3.Load<bool>("IS_Showend") : false)
             btn.SetActive(true);
+        else
+            btn.SetActive(false);
 
         MondayOFF.IAPManager.OnAfterPurchase += (isSuccess) => OnPurcahseNoAds();
     }

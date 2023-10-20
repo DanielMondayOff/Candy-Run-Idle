@@ -87,8 +87,7 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject NewCandyUnlockedUI_SellCandyBtn;
 
     [FoldoutGroup("참조")] public Transform royalCandyTargetTrans;
-
-
+    [FoldoutGroup("참조")] public CutterSkin[] cutterskins;
 
 
     [FoldoutGroup("CPI1")] public UnityEngine.UI.Text candyStackText;
@@ -154,13 +153,15 @@ public class RunManager : MonoBehaviour
 
     private bool mergeChecking = false;
 
-    private CandyArrangeType currentCandyArrangeType = CandyArrangeType.Horizontal;
+    private CandyArrangeType currentCandyArrangeType = CandyArrangeType.Pyramid;
     public void SetCandyArarngeType(CandyArrangeType type) => currentCandyArrangeType = type;
 
     public static bool forceIdle = true;
     public void SetForceIdle(bool force) => forceIdle = force;
 
     public bool fireBulletEnable = true;
+
+    [SerializeField] private CutterSkin currentCutter;
 
     TempCandyInventory tempCandyInventory;
     private void Awake()
@@ -1330,7 +1331,15 @@ public class RunManager : MonoBehaviour
 
     public void ChangeCutterSkin(int id)
     {
-
+        foreach (var skin in cutterskins)
+        {
+            if (skin.id == id)
+            {
+                skin.ShowSkin();
+                currentCutter = skin;
+                return;
+            }
+        }
     }
 
     #endregion

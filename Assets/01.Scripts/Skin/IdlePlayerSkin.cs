@@ -4,10 +4,8 @@ using UnityEngine;
 
 [CreateAssetMenu(fileName = "New idlePlayer Skin", menuName = "Skin/IdlePlayer")]
 
-public class IdlePlayerSkin : ScriptableObject
+public class IdlePlayerSkin : SkinObject
 {
-    public int id;
     public float moveSpeedBonus;
     public float stackBonus;
-    public Sprite icon;
 }
