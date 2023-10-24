@@ -1093,7 +1093,7 @@ public class IdleManager : MonoBehaviour
 
     public void ChangeIdleSkin(int id)
     {
-
+        idlePlayer.GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh = Resources.Load<IdlePlayerSkin>("Skin/IdlePlayer").skinMesh;
     }
 }
 

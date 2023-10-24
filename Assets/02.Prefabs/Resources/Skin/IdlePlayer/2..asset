@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: 2.
   m_EditorClassIdentifier: 
   id: 2
-  moveSpeedBonus: 0
-  stackBonus: 0
   icon: {fileID: 0}
+  requireRoyalCandy: 100
+  requireRV: 2
+  moveSpeedBonus: 0.05
+  stackBonus: 0
+  skinMesh: {fileID: -6002713023065838436, guid: 7c891bc210f5a4031a2d637449d10380,
+    type: 3}

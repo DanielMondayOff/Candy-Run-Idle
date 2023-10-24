@@ -10,11 +10,14 @@ public class SkinUI : MonoBehaviour
     [SerializeField] Transform cutterSkinParent;
     [SerializeField] Transform idlePlayerSkinParent;
 
+    private bool generated = false;
+
     public void Show()
     {
         gameObject.SetActive(true);
 
-        GenerateSkinSlot();
+        if (!generated)
+            GenerateSkinSlot();
     }
 
     public void Hide()
@@ -37,6 +40,8 @@ public class SkinUI : MonoBehaviour
         }
 
         idlePlayerSkinParent.GetComponentInChildren<SwipeUI>().InitPages();
+
+        generated = true;
     }
 
     public void OnClickTap(int num)

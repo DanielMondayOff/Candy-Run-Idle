@@ -8,4 +8,6 @@ public class IdlePlayerSkin : SkinObject
 {
     public float moveSpeedBonus;
     public float stackBonus;
+
+    public Mesh skinMesh;
 }
