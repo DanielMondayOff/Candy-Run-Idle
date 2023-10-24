@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 5.
   m_EditorClassIdentifier: 
   id: 5
+  skinName: Manager
   icon: {fileID: 0}
   requireRoyalCandy: 500
   requireRV: 5

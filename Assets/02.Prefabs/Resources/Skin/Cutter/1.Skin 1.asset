@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: 1.Skin 1
   m_EditorClassIdentifier: 
   id: 1
+  skinName: Pink Knife
   icon: {fileID: 0}
-  requireMoney: 1000
-  requireRV: 0
+  requireRoyalCandy: 50
+  requireRV: 2
+  basic: 0
+  onlyPurcahse: 0
   cuttingSpeedBonus: 0.1

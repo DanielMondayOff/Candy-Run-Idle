@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: 3. Skin 3
   m_EditorClassIdentifier: 
   id: 3
-  cuttingSpeedBonus: 0.25
+  skinName: Saber
+  icon: {fileID: 0}
+  requireRoyalCandy: 0
+  requireRV: 0
+  basic: 0
+  onlyPurcahse: 1
+  cuttingSpeedBonus: 0.2

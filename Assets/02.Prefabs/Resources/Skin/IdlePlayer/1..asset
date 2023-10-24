@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 1.
   m_EditorClassIdentifier: 
   id: 1
+  skinName: Corny
   icon: {fileID: 0}
   requireRoyalCandy: 100
   requireRV: 2

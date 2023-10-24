@@ -13,10 +13,13 @@ MonoBehaviour:
   m_Name: 6.
   m_EditorClassIdentifier: 
   id: 6
+  skinName: Patissier
   icon: {fileID: 0}
   requireRoyalCandy: 0
   requireRV: 0
+  basic: 0
+  onlyPurcahse: 1
   moveSpeedBonus: 0.15
-  stackBonus: 2
+  stackBonus: 3
   skinMesh: {fileID: -1845474072467959098, guid: 6e46c0d1b21e34ec89d74620bc7a0ae0,
     type: 3}

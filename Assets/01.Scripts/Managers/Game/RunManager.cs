@@ -90,6 +90,7 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public CutterSkin[] cutterskins;
 
 
+
     [FoldoutGroup("CPI1")] public UnityEngine.UI.Text candyStackText;
     [FoldoutGroup("CPI1")] public GameObject CPI1Player;
     [FoldoutGroup("CPI1")] public Queue<GameObject> candyStackQueue = new Queue<GameObject>();
@@ -256,6 +257,9 @@ public class RunManager : MonoBehaviour
         }
 
         this.TaskWhile(0.2f, 0, () => { if (candyStackQueue.Count > 0 && enableCandyStack) currentPlayerCandyJar.StackCandy(candyStackQueue.Dequeue()); });
+
+        if (ES3.KeyExists("cutterSkin"))
+            ChangeCutterSkin(ES3.Load<int>("cutterSkin"));
     }
 
     private void OnEnable()
@@ -1289,6 +1293,8 @@ public class RunManager : MonoBehaviour
         }
     }
 
+
+
     #region CPI1
 
     public void MoveToRail(PlayerCandyJar jar)
@@ -1332,11 +1338,15 @@ public class RunManager : MonoBehaviour
     public void ChangeCutterSkin(int id)
     {
         foreach (var skin in cutterskins)
+            skin.gameObject.SetActive(false);
+
+        foreach (var skin in cutterskins)
         {
             if (skin.id == id)
             {
                 skin.ShowSkin();
                 currentCutter = skin;
+                ES3.Save<int>("cutterSkin", id);
                 return;
             }
         }

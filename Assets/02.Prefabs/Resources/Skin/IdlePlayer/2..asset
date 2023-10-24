@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 2.
   m_EditorClassIdentifier: 
   id: 2
+  skinName: Sweety
   icon: {fileID: 0}
   requireRoyalCandy: 100
   requireRV: 2

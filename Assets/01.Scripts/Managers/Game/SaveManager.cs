@@ -450,13 +450,18 @@ public class SaveManager : MonoBehaviour
             data.watchedRV++;
 
             if (FindSkinObject(type, id).requireRV <= data.watchedRV)
-                GainSkin(type, id);
+            {
+                data.complete = true;
+                ES3.Save<List<SkinSaveData>>("SkinSaveData", skinSaveDataList);
+            }
         }
         else
         {
-            Debug.LogError("해당 스킨이 없습니다." + type + " " + id);
+            skinSaveDataList.Add(new SkinSaveData() { type = type, id = id, watchedRV = 1 });
+            ES3.Save<List<SkinSaveData>>("SkinSaveData", skinSaveDataList);
             return;
         }
+
     }
 
     public int GetHowManyWatchedRVForSkin(SkinType type, int id)
@@ -476,15 +481,20 @@ public class SaveManager : MonoBehaviour
         ES3.Save<List<SkinSaveData>>("SkinSaveData", skinSaveDataList);
     }
 
+    public bool CheckSkinHave(SkinType type, int id)
+    {
+        return (skinSaveDataList.Where((n) => (n.type == type && n.id == id && n.complete) || FindSkinObject(type, id).basic).Count() > 0);
+    }
+
     public SkinObject FindSkinObject(SkinType type, int id)
     {
         switch (type)
         {
             case SkinType.Cutter:
-                return Resources.Load<SkinObject>("Skin/Cutter");
+                return Resources.LoadAll<SkinObject>("Skin/Cutter").Where((n) => n.id == id).First();
 
             case SkinType.IdlePlayer:
-                return Resources.Load<SkinObject>("Skin/IdlePlayer");
+                return Resources.LoadAll<SkinObject>("Skin/IdlePlayer").Where((n) => n.id == id).First();
 
             default:
 

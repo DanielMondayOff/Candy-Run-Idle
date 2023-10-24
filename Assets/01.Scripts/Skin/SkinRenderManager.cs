@@ -7,6 +7,9 @@ public class SkinRenderManager : MonoBehaviour
 {
     public static SkinRenderManager instance;
 
+    [SerializeField] GameObject cutterParent;
+    [SerializeField] GameObject idlePlayerParent;
+
     public CutterSkin[] cutterskins;
     public IdlePlayerSkin_[] idlePlayerSkins;
 
@@ -18,15 +21,19 @@ public class SkinRenderManager : MonoBehaviour
 
     public void ChangeSkinRender(SkinType type, int id)
     {
+        cutterParent.SetActive(false);
+        idlePlayerParent.SetActive(false);
+
         switch (type)
         {
             case SkinType.Cutter:
                 cutterskins.ToList().ForEach((n) => { n.gameObject.SetActive(false); if (n.id == id) n.gameObject.SetActive(true); });
+                cutterParent.SetActive(true);
                 break;
 
             case SkinType.IdlePlayer:
                 idlePlayerSkins.ToList().ForEach((n) => { n.gameObject.SetActive(false); if (n.id == id) n.gameObject.SetActive(true); });
-
+                idlePlayerParent.SetActive(true);
                 break;
         }
     }

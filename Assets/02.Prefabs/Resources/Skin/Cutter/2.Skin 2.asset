@@ -13,7 +13,10 @@ MonoBehaviour:
   m_Name: 2.Skin 2
   m_EditorClassIdentifier: 
   id: 2
+  skinName: Combat Knife
   icon: {fileID: 0}
-  requireMoney: 0
-  requireRV: 2
-  cuttingSpeedBonus: 0.2
+  requireRoyalCandy: 150
+  requireRV: 3
+  basic: 0
+  onlyPurcahse: 0
+  cuttingSpeedBonus: 0.15

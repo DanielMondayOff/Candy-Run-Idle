@@ -13,4 +13,10 @@ MonoBehaviour:
   m_Name: 0.Default
   m_EditorClassIdentifier: 
   id: 0
+  skinName: Basic
+  icon: {fileID: 0}
+  requireRoyalCandy: 0
+  requireRV: 0
+  basic: 1
+  onlyPurcahse: 0
   cuttingSpeedBonus: 0

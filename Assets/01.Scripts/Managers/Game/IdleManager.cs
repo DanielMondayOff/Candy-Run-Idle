@@ -42,6 +42,9 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("참조")] public Transform[] fieldRvSpawnPoint1;
     [FoldoutGroup("참조")] public Transform[] fieldRvSpawnPoint2;
     [FoldoutGroup("참조")] public RunGameType runGameType;
+    [FoldoutGroup("참조")] public GameObject playerHat;
+    [FoldoutGroup("참조")] public SkinUI skinUI;
+
 
 
     public CanvasGroup[] idleUIs;
@@ -165,6 +168,11 @@ public class IdleManager : MonoBehaviour
         if (ES3.KeyExists("NextStageEnable"))
             if (ES3.Load<bool>("NextStageEnable"))
                 blackPanel.SetActive(false);
+
+
+        if (ES3.KeyExists("idlePlayerSkin"))
+            ChangeIdleSkin(ES3.Load<int>("idlePlayerSkin"));
+
 
         SaveManager.instance.onMoneyChangeEvent.AddListener(CheckAnyUpgradeable);
 
@@ -1093,7 +1101,13 @@ public class IdleManager : MonoBehaviour
 
     public void ChangeIdleSkin(int id)
     {
-        idlePlayer.GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh = Resources.Load<IdlePlayerSkin>("Skin/IdlePlayer").skinMesh;
+        idlePlayer.GetComponentInChildren<SkinnedMeshRenderer>().sharedMesh = Resources.LoadAll<IdlePlayerSkin>("Skin/IdlePlayer").Where((n) => n.id == id).First().skinMesh;
+
+        SaveManager.instance.SaveCurrentIdlePlayerSkin(id);
+
+        playerHat.SetActive((id == 0));
+
+        ES3.Save<int>("idlePlayerSkin", id);
     }
 }
 

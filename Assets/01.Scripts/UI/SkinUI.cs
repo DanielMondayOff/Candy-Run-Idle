@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 public class SkinUI : MonoBehaviour
 {
@@ -9,6 +10,11 @@ public class SkinUI : MonoBehaviour
 
     [SerializeField] Transform cutterSkinParent;
     [SerializeField] Transform idlePlayerSkinParent;
+
+    [SerializeField] Text skinName;
+    [SerializeField] Text stat;
+
+
 
     private bool generated = false;
 
@@ -18,6 +24,19 @@ public class SkinUI : MonoBehaviour
 
         if (!generated)
             GenerateSkinSlot();
+
+        if (ES3.KeyExists("cutterSkin"))
+        {
+            SkinRenderManager.instance.ChangeSkinRender(SkinType.Cutter, ES3.Load<int>("cutterSkin"));
+            IdleManager.instance.skinUI.ChangeSkinName(SaveManager.instance.FindSkinObject(SkinType.Cutter, ES3.Load<int>("cutterSkin")).skinName);
+            IdleManager.instance.skinUI.ChangeStat(SaveManager.instance.FindSkinObject(SkinType.Cutter, ES3.Load<int>("cutterSkin")).GetStatText());
+        }
+
+        if (ES3.KeyExists("idlePlayerSkin"))
+        {
+            IdleManager.instance.skinUI.ChangeSkinName(SaveManager.instance.FindSkinObject(SkinType.IdlePlayer, ES3.Load<int>("idlePlayerSkin")).skinName);
+            IdleManager.instance.skinUI.ChangeStat(SaveManager.instance.FindSkinObject(SkinType.IdlePlayer, ES3.Load<int>("idlePlayerSkin")).GetStatText());
+        }
     }
 
     public void Hide()
@@ -58,5 +77,15 @@ public class SkinUI : MonoBehaviour
                 tap[num].SetActive(true);
                 break;
         }
+    }
+
+    public void ChangeSkinName(string name)
+    {
+        skinName.text = name;
+    }
+
+    public void ChangeStat(string stat)
+    {
+        this.stat.text = stat;
     }
 }

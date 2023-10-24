@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: 4.
   m_EditorClassIdentifier: 
   id: 4
+  skinName: Bonnie
   icon: {fileID: 0}
   requireRoyalCandy: 250
   requireRV: 3
+  basic: 0
+  onlyPurcahse: 0
   moveSpeedBonus: 0.1
   stackBonus: 1
   skinMesh: {fileID: -3231044396957145000, guid: 7b8e3f72bc7af44f1addd7ac83e918a9,

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: 3.
   m_EditorClassIdentifier: 
   id: 3
+  skinName: Neo
   icon: {fileID: 0}
   requireRoyalCandy: 250
   requireRV: 3
