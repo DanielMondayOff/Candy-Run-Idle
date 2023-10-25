@@ -929,7 +929,8 @@ public class RunManager : MonoBehaviour
                 }
                 else
                 {
-                    cutterAnimator.SetTrigger("Cut");
+                    currentCutter.CutAnimation();
+                    // cutterAnimator.SetTrigger("Cut");
                     cuttingReady = false;
 
                     candyList.ForEach((n) => tempCandyInventory.AddCandy(new CandyItem() { candy = n.GetComponentInChildren<CandyHead>().candyObject, count = 1 }));
@@ -970,7 +971,8 @@ public class RunManager : MonoBehaviour
                 }
                 else
                 {
-                    cutterAnimator.SetTrigger("Cut");
+                    currentCutter.CutAnimation();
+                    // cutterAnimator.SetTrigger("Cut");
                     cuttingReady = false;
 
                     candyList.ForEach((n) => tempCandyInventory.AddCandy(new CandyItem() { candy = n.GetComponentInChildren<CandyHead>().candyObject, count = 1 }));
