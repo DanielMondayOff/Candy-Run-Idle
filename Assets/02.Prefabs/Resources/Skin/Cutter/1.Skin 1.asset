@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   skinName: Pink Knife
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: d5094f1d9cba44791a571be87115eafd, type: 3}
   requireRoyalCandy: 50
   requireRV: 2
   basic: 0

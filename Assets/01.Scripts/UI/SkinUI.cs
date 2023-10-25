@@ -9,10 +9,17 @@ public class SkinUI : MonoBehaviour
     [SerializeField] GameObject[] tap;
 
     [SerializeField] Transform cutterSkinParent;
+    [SerializeField] Image cutterSkinButton;
+
     [SerializeField] Transform idlePlayerSkinParent;
+    [SerializeField] Image idlePlayerSkinButton;
 
     [SerializeField] Text skinName;
     [SerializeField] Text stat;
+
+    public Sprite activeBtnSprite;
+    public Sprite inactiveBtnSprite;
+
 
 
 
@@ -30,12 +37,32 @@ public class SkinUI : MonoBehaviour
             SkinRenderManager.instance.ChangeSkinRender(SkinType.Cutter, ES3.Load<int>("cutterSkin"));
             IdleManager.instance.skinUI.ChangeSkinName(SaveManager.instance.FindSkinObject(SkinType.Cutter, ES3.Load<int>("cutterSkin")).skinName);
             IdleManager.instance.skinUI.ChangeStat(SaveManager.instance.FindSkinObject(SkinType.Cutter, ES3.Load<int>("cutterSkin")).GetStatText());
+
+            ChangeStat(SaveManager.instance.FindSkinObject(SkinType.Cutter, ES3.Load<int>("cutterSkin")).GetStatText());
+
+            if (ES3.KeyExists("cutterSkin"))
+            {
+                foreach (var skin in GetComponentsInChildren<SkinActiveUI>())
+                {
+                    if (skin.type == SkinType.Cutter && skin.id == ES3.Load<int>("cutterSkin"))
+                        skin.EnableUsedIcon();
+                }
+            }
         }
 
         if (ES3.KeyExists("idlePlayerSkin"))
         {
             IdleManager.instance.skinUI.ChangeSkinName(SaveManager.instance.FindSkinObject(SkinType.IdlePlayer, ES3.Load<int>("idlePlayerSkin")).skinName);
             IdleManager.instance.skinUI.ChangeStat(SaveManager.instance.FindSkinObject(SkinType.IdlePlayer, ES3.Load<int>("idlePlayerSkin")).GetStatText());
+
+            if (ES3.KeyExists("idlePlayerSkin"))
+            {
+                foreach (var skin in GetComponentsInChildren<SkinActiveUI>())
+                {
+                    if (skin.type == SkinType.IdlePlayer && skin.id == ES3.Load<int>("idlePlayerSkin"))
+                        skin.EnableUsedIcon();
+                }
+            }
         }
     }
 
@@ -65,16 +92,22 @@ public class SkinUI : MonoBehaviour
 
     public void OnClickTap(int num)
     {
-        tap.ToList().ForEach((n) => n.SetActive(false));
+        // tap.ToList().ForEach((n) => n.SetActive(false));
 
         switch (num)
         {
             case 0:
-                tap[num].SetActive(true);
+                tap[num].transform.SetAsLastSibling();
+                cutterSkinButton.sprite = activeBtnSprite;
+                idlePlayerSkinButton.sprite = inactiveBtnSprite;
+                // tap[num].SetActive(true);
                 break;
 
             case 1:
-                tap[num].SetActive(true);
+                tap[num].transform.SetAsLastSibling();
+                idlePlayerSkinButton.sprite = activeBtnSprite;
+                cutterSkinButton.sprite = inactiveBtnSprite;
+                // tap[num].SetActive(true);
                 break;
         }
     }
@@ -87,5 +120,13 @@ public class SkinUI : MonoBehaviour
     public void ChangeStat(string stat)
     {
         this.stat.text = stat;
+    }
+
+    public void ResetUsed()
+    {
+        foreach (var skin in GetComponentsInChildren<SkinActiveUI>())
+        {
+            skin.DisableUsedIcon();
+        }
     }
 }

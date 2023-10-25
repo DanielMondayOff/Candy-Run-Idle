@@ -17,4 +17,24 @@ public class SkinObject : ScriptableObject
     {
         return null;
     }
+
+    public virtual T GetCurrentSkinObject<T>()
+    {
+        return (T)default;
+    }
+
+    public virtual float GetMoveSpeedBonus()
+    {
+        return 0;
+    }
+
+    public virtual float GetCuttingSpeedBonus()
+    {
+        return 0;
+    }
+
+    public virtual int GetMaxStackBonus()
+    {
+        return 0;
+    }
 }

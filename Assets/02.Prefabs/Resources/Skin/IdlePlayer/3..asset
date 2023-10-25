@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   skinName: Neo
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: def29e43781d2420d800e4cf6b234e61, type: 3}
   requireRoyalCandy: 250
   requireRV: 3
+  basic: 0
+  onlyPurcahse: 0
   moveSpeedBonus: 0.1
   stackBonus: 1
   skinMesh: {fileID: -4282331119475543824, guid: 137f64dff487d4d4a943a3c6da3c9217,

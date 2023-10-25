@@ -16,11 +16,21 @@ public class IdlePlayerSkin : SkinObject
         string text = "";
 
         if (moveSpeedBonus > 0)
-            text += "Move Speed + " + "<b><color=#D2FFBD>" + moveSpeedBonus * 100 + "%" + "</color></b>";
+            text += "Move Speed + " + "<b><color=#ff5a52>" + moveSpeedBonus * 100 + "%" + "</color></b>";
 
         if (stackBonus > 0)
-            text += "\nMax Stack + " + "<b><color=#D2FFBD>" + stackBonus + "</color></b>";
+            text += "\nMax Stack + " + "<b><color=#ff5a52>" + stackBonus + "</color></b>";
 
         return text;
+    }
+
+    public override float GetMoveSpeedBonus()
+    {
+        return moveSpeedBonus;
+    }
+
+    public override int GetMaxStackBonus()
+    {
+        return (int)stackBonus;
     }
 }

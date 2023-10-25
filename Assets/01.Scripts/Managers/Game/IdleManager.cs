@@ -44,6 +44,8 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("참조")] public RunGameType runGameType;
     [FoldoutGroup("참조")] public GameObject playerHat;
     [FoldoutGroup("참조")] public SkinUI skinUI;
+    [FoldoutGroup("참조")] public ShopUI shopUI;
+
 
 
 
@@ -76,6 +78,13 @@ public class IdleManager : MonoBehaviour
     public readonly float[] playerCapacityValue = { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
     public readonly float[] workerCapacityValue = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
 
+    public float currentSkinMoveSpeedBonus;
+    public int currentSkinMaxStackBonus;
+    public float currentSkinCuttingSpeedBonus;
+
+    public float GetCurrentPlayerSpeed() => playerSpeed[playerSpeedUp.currentLevel] + (currentSkinMoveSpeedBonus * 100f);
+    public int GetCurrentPlayerMaxStack() => (int)playerCapacityValue[playerCapacity.currentLevel] + (currentSkinMaxStackBonus);
+    public float GetCurrentCuttingSpeed() => RunManager.instance.candyCuttingSpeed + currentSkinCuttingSpeedBonus;
 
     public bool playIdle = false;
 
@@ -127,7 +136,7 @@ public class IdleManager : MonoBehaviour
         {
             playerSpeedUp.currentLevel = ES3.Load<IdleUpgrade>("playerSpeed").currentLevel;
 
-            playerMovement.SetPlayerMoveSpeed(playerSpeed[playerSpeedUp.currentLevel]);
+            playerMovement.SetPlayerMoveSpeed(GetCurrentPlayerSpeed());
         }
 
         if (ES3.KeyExists("playerCapacity"))
@@ -171,7 +180,15 @@ public class IdleManager : MonoBehaviour
 
 
         if (ES3.KeyExists("idlePlayerSkin"))
+        {
+            foreach (var skin in GetComponentsInChildren<SkinActiveUI>())
+            {
+                if (skin.type == SkinType.IdlePlayer && skin.id == ES3.Load<int>("idlePlayerSkin"))
+                    skin.EnableUsedIcon();
+            }
+
             ChangeIdleSkin(ES3.Load<int>("idlePlayerSkin"));
+        }
 
 
         SaveManager.instance.onMoneyChangeEvent.AddListener(CheckAnyUpgradeable);
@@ -527,7 +544,7 @@ public class IdleManager : MonoBehaviour
 
         ES3.Save<IdleUpgrade>("playerSpeed", playerSpeedUp);
 
-        playerMovement.SetPlayerMoveSpeed(playerSpeed[playerSpeedUp.currentLevel]);
+        playerMovement.SetPlayerMoveSpeed(GetCurrentPlayerSpeed());
 
         EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - PlayerSpeedUp", true, true);
 
@@ -1108,6 +1125,8 @@ public class IdleManager : MonoBehaviour
         playerHat.SetActive((id == 0));
 
         ES3.Save<int>("idlePlayerSkin", id);
+
+        SaveManager.instance.IdlePlayerSkinID = id;
     }
 }
 

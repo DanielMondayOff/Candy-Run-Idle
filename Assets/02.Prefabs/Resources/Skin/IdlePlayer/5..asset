@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   skinName: Manager
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 75cfa682f30ca49a399799f58ee651c3, type: 3}
   requireRoyalCandy: 500
   requireRV: 5
+  basic: 0
+  onlyPurcahse: 0
   moveSpeedBonus: 0.15
   stackBonus: 2
   skinMesh: {fileID: 8546072917389326648, guid: 161dde6a0a2ee448c8100d48b613d41a,

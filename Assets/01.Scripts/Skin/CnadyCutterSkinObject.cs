@@ -12,8 +12,13 @@ public class CnadyCutterSkinObject : SkinObject
         string text = "";
 
         if (cuttingSpeedBonus > 0)
-            text += "Cutting Speed + " + "<b><color=#D2FFBD>" + cuttingSpeedBonus * 100 + "%" + "</color></b>";
+            text += "Cutting Speed + " + "<b><color=#ff5a52>" + cuttingSpeedBonus * 100 + "%" + "</color></b>";
 
         return text;
+    }
+
+    public override float GetCuttingSpeedBonus()
+    {
+        return cuttingSpeedBonus;
     }
 }

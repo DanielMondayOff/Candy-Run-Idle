@@ -11,6 +11,7 @@ public class SkinActiveUI : MonoBehaviour
     [SerializeField] Image icon;
     [SerializeField] Button moneyBtn;
     [SerializeField] Button RVBtn;
+    [SerializeField] GameObject usedIcon;
 
     public void Init(SkinObject obj, SkinType type)
     {
@@ -28,7 +29,9 @@ public class SkinActiveUI : MonoBehaviour
         IdleManager.instance.skinUI.ChangeSkinName(SaveManager.instance.FindSkinObject(type, id).skinName);
         IdleManager.instance.skinUI.ChangeStat(SaveManager.instance.FindSkinObject(type, id).GetStatText());
 
-        if (SaveManager.instance.CheckSkinHave(type, id))
+        var has = SaveManager.instance.CheckSkinHave(type, id);
+
+        if (has)
         {
             switch (type)
             {
@@ -40,6 +43,9 @@ public class SkinActiveUI : MonoBehaviour
                     IdleManager.instance.ChangeIdleSkin(id);
                     break;
             }
+
+            IdleManager.instance.skinUI.ResetUsed();
+            usedIcon.SetActive(true);
         }
     }
 
@@ -49,7 +55,6 @@ public class SkinActiveUI : MonoBehaviour
 
         UpdateUI();
     }
-
 
 
     public void OnClickRVBtn()
@@ -100,6 +105,16 @@ public class SkinActiveUI : MonoBehaviour
             else
                 RVBtn.gameObject.SetActive(false);
         }
+    }
+
+    public void EnableUsedIcon()
+    {
+        usedIcon.SetActive(true);
+    }
+
+    public void DisableUsedIcon()
+    {
+        usedIcon.SetActive(false);
     }
 }
 

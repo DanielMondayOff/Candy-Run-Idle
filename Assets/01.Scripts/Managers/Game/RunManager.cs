@@ -259,7 +259,14 @@ public class RunManager : MonoBehaviour
         this.TaskWhile(0.2f, 0, () => { if (candyStackQueue.Count > 0 && enableCandyStack) currentPlayerCandyJar.StackCandy(candyStackQueue.Dequeue()); });
 
         if (ES3.KeyExists("cutterSkin"))
+        {
+            foreach (var skin in GetComponentsInChildren<SkinActiveUI>())
+            {
+                if (skin.type == SkinType.Cutter && skin.id == ES3.Load<int>("cutterSkin"))
+                    skin.EnableUsedIcon();
+            }
             ChangeCutterSkin(ES3.Load<int>("cutterSkin"));
+        }
     }
 
     private void OnEnable()
@@ -935,7 +942,7 @@ public class RunManager : MonoBehaviour
 
                     candyList.ForEach((n) => tempCandyInventory.AddCandy(new CandyItem() { candy = n.GetComponentInChildren<CandyHead>().candyObject, count = 1 }));
 
-                    this.TaskDelay(0.07f / candyCuttingSpeed, () =>
+                    this.TaskDelay(0.07f / IdleManager.instance.GetCurrentCuttingSpeed(), () =>
                     {
                         candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().CutCandy(cuttedCandys));
                         runPlayer.transform.position = cuttingPoint2.position;
@@ -946,9 +953,9 @@ public class RunManager : MonoBehaviour
                         else
                             ChangeCandysLength();
 
-                        this.TaskDelay(0.08f / candyCuttingSpeed, () =>
+                        this.TaskDelay(0.08f / IdleManager.instance.GetCurrentCuttingSpeed(), () =>
                         {
-                            runPlayer.transform.DOMove(cuttingPoint1.transform.position, 0.2f / candyCuttingSpeed).SetEase(Ease.InOutQuad).OnComplete(() => { cuttingReady = true; });
+                            runPlayer.transform.DOMove(cuttingPoint1.transform.position, 0.2f / IdleManager.instance.GetCurrentCuttingSpeed()).SetEase(Ease.InOutQuad).OnComplete(() => { cuttingReady = true; });
                         });
                     });
                 }
@@ -977,7 +984,7 @@ public class RunManager : MonoBehaviour
 
                     candyList.ForEach((n) => tempCandyInventory.AddCandy(new CandyItem() { candy = n.GetComponentInChildren<CandyHead>().candyObject, count = 1 }));
 
-                    this.TaskDelay(0.07f / candyCuttingSpeed, () =>
+                    this.TaskDelay(0.07f / IdleManager.instance.GetCurrentCuttingSpeed(), () =>
                     {
                         candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().CutCandy(cuttedCandys));
                         runPlayer.transform.position = cuttingPoint2.position;
@@ -987,9 +994,9 @@ public class RunManager : MonoBehaviour
 
                         list.ForEach((n) => { if (n.GetComponentInChildren<CandyHead>().cpi2Length <= 0) { n.SetActive(false); } });
 
-                        this.TaskDelay(0.08f / candyCuttingSpeed, () =>
+                        this.TaskDelay(0.08f / IdleManager.instance.GetCurrentCuttingSpeed(), () =>
                         {
-                            runPlayer.transform.DOMove(cuttingPoint1.transform.position, 0.2f / candyCuttingSpeed).SetEase(Ease.InOutQuad).OnComplete(() => { cuttingReady = true; });
+                            runPlayer.transform.DOMove(cuttingPoint1.transform.position, 0.2f / IdleManager.instance.GetCurrentCuttingSpeed()).SetEase(Ease.InOutQuad).OnComplete(() => { cuttingReady = true; });
                         });
                     });
 
@@ -1348,7 +1355,9 @@ public class RunManager : MonoBehaviour
             {
                 skin.ShowSkin();
                 currentCutter = skin;
-                ES3.Save<int>("cutterSkin", id);
+                SaveManager.instance.cutterSkinID = id;
+
+                SaveManager.instance.SaveCurrentCutterSkin(id);
                 return;
             }
         }

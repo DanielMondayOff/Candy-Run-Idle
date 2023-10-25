@@ -15,11 +15,11 @@ MonoBehaviour:
   products:
   - productID: candyshopmaster_premium
     productType: 1
-  - productID: ' candyshopmaster_royalcandy250 '
+  - productID: ' candyshopmaster_royalcandy150'
     productType: 0
-  - productID: ' candyshopmaster_royalcandy1000 '
+  - productID: ' candyshopmaster_royalcandy350'
     productType: 0
-  - productID: 'candyshopmaster_royalcandy5000 '
+  - productID: candyshopmaster_royalcandy1000
     productType: 0
   - productID: candyshopmaster_rv10
     productType: 0

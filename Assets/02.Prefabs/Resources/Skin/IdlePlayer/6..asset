@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 6
   skinName: Patissier
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 30e1c0b33aae04c1c8f58724f847c61c, type: 3}
   requireRoyalCandy: 0
   requireRV: 0
   basic: 0

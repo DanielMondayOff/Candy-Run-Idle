@@ -38,7 +38,7 @@ public class IdlePlayer : MonoBehaviour
 
     public Transform GetPlayerEmptyPoint()
     {
-        if (itemStackList.Count >= IdleManager.instance.playerCapacityValue[IdleManager.instance.playerCapacity.currentLevel])
+        if (itemStackList.Count >= IdleManager.instance.GetCurrentPlayerMaxStack())
             return null;
 
         if (itemStackList.Count < itemStackPoints.Length)
@@ -80,7 +80,7 @@ public class IdlePlayer : MonoBehaviour
 
         // UpdateItemUI();
 
-        if (itemStackList.Count >= IdleManager.instance.playerCapacityValue[IdleManager.instance.playerCapacity.currentLevel])
+        if (itemStackList.Count >= IdleManager.instance.GetCurrentPlayerMaxStack())
             maxText.SetActive(true);
         else
             maxText.SetActive(false);
@@ -146,7 +146,7 @@ public class IdlePlayer : MonoBehaviour
             itemStackList[i].GetComponent<ItemObject>().Move(itemStackPoints[i]);
         }
 
-        if (itemStackList.Count >= IdleManager.instance.playerCapacityValue[IdleManager.instance.playerCapacity.currentLevel])
+        if (itemStackList.Count >= IdleManager.instance.GetCurrentPlayerMaxStack())
             maxText.SetActive(true);
         else
             maxText.SetActive(false);

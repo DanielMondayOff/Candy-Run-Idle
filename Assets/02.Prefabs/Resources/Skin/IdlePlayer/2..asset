@@ -14,9 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   skinName: Sweety
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 770122ade081247cfa6cf8f04e634fa5, type: 3}
   requireRoyalCandy: 100
   requireRV: 2
+  basic: 0
+  onlyPurcahse: 0
   moveSpeedBonus: 0.05
   stackBonus: 0
   skinMesh: {fileID: -6002713023065838436, guid: 7c891bc210f5a4031a2d637449d10380,

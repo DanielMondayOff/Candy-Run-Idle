@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   skinName: Bonnie
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: f177adc1cd00a4ea9b638f1f3c3a3895, type: 3}
   requireRoyalCandy: 250
   requireRV: 3
   basic: 0

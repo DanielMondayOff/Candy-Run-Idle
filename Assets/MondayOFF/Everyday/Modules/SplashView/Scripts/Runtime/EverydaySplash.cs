@@ -16,6 +16,7 @@ namespace MondayOFF {
         private void DestroyCanvas() {
             Destroy(_sceneTransfer.gameObject);
             Resources.UnloadUnusedAssets();
+            MondayOFF.EveryDay.Initialize();
         }
 
         private void Awake() {

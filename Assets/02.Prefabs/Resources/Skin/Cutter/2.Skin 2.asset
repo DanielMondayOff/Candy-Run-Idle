@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   skinName: Combat Knife
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: d40b796614aca45f18b98ddf298c2914, type: 3}
   requireRoyalCandy: 150
   requireRV: 3
   basic: 0

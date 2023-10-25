@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using Sirenix.OdinInspector;
+using System;
 
 public class SaveManager : MonoBehaviour
 {
@@ -40,6 +41,9 @@ public class SaveManager : MonoBehaviour
 
     public int cutterSkinID = 0;
     public int IdlePlayerSkinID = 0;
+
+    public string dailyFreeRoyalCandyTime = "2000-01-01 01:01:01";
+    public string dailyFreeMoneyTime = "2000-01-01 01:01:01";
 
     public List<SkinSaveData> skinSaveDataList = new List<SkinSaveData>();
 
@@ -98,6 +102,11 @@ public class SaveManager : MonoBehaviour
         if (ES3.KeyExists("SkinSaveData"))
             skinSaveDataList = ES3.Load<List<SkinSaveData>>("SkinSaveData");
 
+        if (ES3.KeyExists("dailyFreeRoyalCandyTime"))
+            dailyFreeRoyalCandyTime = ES3.Load<string>("dailyFreeRoyalCandyTime");
+
+        if (ES3.KeyExists("dailyFreeMoneyTime"))
+            dailyFreeMoneyTime = ES3.Load<string>("dailyFreeMoneyTime");
     }
 
     private void Start()
@@ -389,12 +398,18 @@ public class SaveManager : MonoBehaviour
     {
         cutterSkinID = id;
 
-        ES3.Save("currentCutterSkin", id);
+        IdleManager.instance.currentSkinCuttingSpeedBonus = FindSkinObject(SkinType.Cutter, id).GetCuttingSpeedBonus();
+
+        ES3.Save("cutterSkin", id);
     }
 
     public void SaveCurrentIdlePlayerSkin(int id)
     {
         IdlePlayerSkinID = id;
+
+        IdleManager.instance.currentSkinMoveSpeedBonus = FindSkinObject(SkinType.IdlePlayer, id).GetMoveSpeedBonus();
+        IdleManager.instance.currentSkinMaxStackBonus = FindSkinObject(SkinType.IdlePlayer, id).GetMaxStackBonus();
+
 
         ES3.Save("idlePlayerSkin", id);
     }
@@ -503,6 +518,83 @@ public class SaveManager : MonoBehaviour
                 return null;
         }
     }
+
+    public void AllSkin()
+    {
+        skinSaveDataList.Clear();
+
+        foreach (var skin in Resources.LoadAll<SkinObject>("Skin/IdlePlayer"))
+        {
+            skinSaveDataList.Add(new SkinSaveData() { type = SkinType.Cutter, id = skin.id, complete = true });
+        }
+
+        foreach (var skin in Resources.LoadAll<SkinObject>("Skin/Cutter"))
+        {
+            skinSaveDataList.Add(new SkinSaveData() { type = SkinType.IdlePlayer, id = skin.id, complete = true });
+        }
+    }
+
+    public static System.TimeSpan GetTimeDiff(System.DateTime time)
+    {
+        //print(DateTime.Now + " - " +  time);
+        System.TimeSpan timeDiff = System.DateTime.Now - time;
+
+        return timeDiff;
+    }
+
+    public double GetLeftTime(string time)
+    {
+        // try
+        // {
+        return 86400f - GetTimeDiff(DateTime.ParseExact(time, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture)).TotalSeconds;
+        // }
+        // catch (FormatException e)
+        // {
+        //     FirebaseAnalytics.LogEvent("FormatExceptionErrorEvent");
+
+        //     Debug.LogError("Date Time Parse Error : / " + UserDataManager.instance.currentUserData.usingShipTrialTime + " / " + e);
+
+        //     UserDataManager.instance.currentUserData.usingShipTrialTime = "2000-01-01 01:01:01";
+
+        //     GoogleCloud.instance.SaveUserDataWithCloud(UserDataManager.instance.currentUserData);
+
+        //     return freeCrystalWaitTime - (int)Utility.GetTimeDiff(DateTime.ParseExact(UserDataManager.instance.currentUserData.usingShipTrialTime, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture)).TotalSeconds;
+        // }
+    }
+
+    public static string GetFormatedStringFromSecond(int second)
+    {
+        // var hour2 = second / 3600; // 3600 = 1
+        // var min2 = (second % 3600); // 60 = 1
+        // var sec2 = (second % 3600) % 60;
+
+        // Debug.LogError(second % 3600);
+
+        // int min = second / 60;
+        // int hour = min / 60;
+        // int sec = second % 60;
+
+        // return hour2 + " : " + min2 + " : " + sec2;
+
+        int hours = second / 3600;
+        int minutes = (second % 3600) / 60;
+        int remainingSeconds = second % 60;
+
+        // 문자열 형식으로 변환
+        string formattedTime = $"{hours:D2}:{minutes:D2}:{remainingSeconds:D2}";
+
+        return formattedTime;
+    }
+
+    public bool IsTimeLimitRVReady(string time)
+    {
+        double timeDiff = GetTimeDiff(DateTime.ParseExact(time, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture)).TotalSeconds;
+
+        if (timeDiff < 86400f)
+            return false;
+        else
+            return true;
+    }
 }
 
 [System.Serializable]
@@ -533,7 +625,7 @@ public class candySaveData
 
     public candySaveData DuplicateCandy(int minCount, int maxCount)
     {
-        int count = Random.Range(minCount, maxCount);
+        int count = UnityEngine.Random.Range(minCount, maxCount);
 
         // this.count -= count;
 

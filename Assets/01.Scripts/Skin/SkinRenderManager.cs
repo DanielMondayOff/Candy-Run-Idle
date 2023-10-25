@@ -7,6 +7,7 @@ public class SkinRenderManager : MonoBehaviour
 {
     public static SkinRenderManager instance;
 
+    [SerializeField] Transform parent;
     [SerializeField] GameObject cutterParent;
     [SerializeField] GameObject idlePlayerParent;
 
@@ -36,5 +37,10 @@ public class SkinRenderManager : MonoBehaviour
                 idlePlayerParent.SetActive(true);
                 break;
         }
+    }
+
+    public void RotateDummy(Vector2 delta)
+    {
+        parent.Rotate(new Vector2(0, delta.x) * 1f);
     }
 }
