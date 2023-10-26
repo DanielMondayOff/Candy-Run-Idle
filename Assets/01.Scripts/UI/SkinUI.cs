@@ -30,38 +30,39 @@ public class SkinUI : MonoBehaviour
         gameObject.SetActive(true);
 
         if (!generated)
-            GenerateSkinSlot();
-
-        if (ES3.KeyExists("cutterSkin"))
         {
-            SkinRenderManager.instance.ChangeSkinRender(SkinType.Cutter, ES3.Load<int>("cutterSkin"));
-            IdleManager.instance.skinUI.ChangeSkinName(SaveManager.instance.FindSkinObject(SkinType.Cutter, ES3.Load<int>("cutterSkin")).skinName);
-            IdleManager.instance.skinUI.ChangeStat(SaveManager.instance.FindSkinObject(SkinType.Cutter, ES3.Load<int>("cutterSkin")).GetStatText());
-
-            ChangeStat(SaveManager.instance.FindSkinObject(SkinType.Cutter, ES3.Load<int>("cutterSkin")).GetStatText());
+            GenerateSkinSlot();
 
             if (ES3.KeyExists("cutterSkin"))
             {
-                foreach (var skin in GetComponentsInChildren<SkinActiveUI>())
-                {
-                    if (skin.type == SkinType.Cutter && skin.id == ES3.Load<int>("cutterSkin"))
-                        skin.EnableUsedIcon();
-                }
-            }
-        }
+                SkinRenderManager.instance.ChangeSkinRender(SkinType.Cutter, ES3.Load<int>("cutterSkin"));
+                ChangeSkinName(SaveManager.instance.FindSkinObject(SkinType.Cutter, ES3.Load<int>("cutterSkin")).skinName);
+                // IdleManager.instance.skinUI.ChangeStat(SaveManager.instance.FindSkinObject(SkinType.Cutter, ES3.Load<int>("cutterSkin")).GetStatText());
 
-        if (ES3.KeyExists("idlePlayerSkin"))
-        {
-            IdleManager.instance.skinUI.ChangeSkinName(SaveManager.instance.FindSkinObject(SkinType.IdlePlayer, ES3.Load<int>("idlePlayerSkin")).skinName);
-            IdleManager.instance.skinUI.ChangeStat(SaveManager.instance.FindSkinObject(SkinType.IdlePlayer, ES3.Load<int>("idlePlayerSkin")).GetStatText());
+                ChangeStat(SaveManager.instance.FindSkinObject(SkinType.Cutter, ES3.Load<int>("cutterSkin")).GetStatText());
+
+                EnableUsedIcon(SkinType.Cutter, "cutterSkin");
+            }
 
             if (ES3.KeyExists("idlePlayerSkin"))
             {
-                foreach (var skin in GetComponentsInChildren<SkinActiveUI>())
-                {
-                    if (skin.type == SkinType.IdlePlayer && skin.id == ES3.Load<int>("idlePlayerSkin"))
-                        skin.EnableUsedIcon();
-                }
+                ChangeSkinName(SaveManager.instance.FindSkinObject(SkinType.IdlePlayer, ES3.Load<int>("idlePlayerSkin")).skinName);
+                // IdleManager.instance.skinUI.ChangeStat(SaveManager.instance.FindSkinObject(SkinType.IdlePlayer, ES3.Load<int>("idlePlayerSkin")).GetStatText());
+
+                EnableUsedIcon(SkinType.IdlePlayer, "idlePlayerSkin");
+            }
+        }
+
+    }
+
+    public void EnableUsedIcon(SkinType type, string es3Key)
+    {
+        if (ES3.KeyExists(es3Key))
+        {
+            foreach (var skin in GetComponentsInChildren<SkinActiveUI>())
+            {
+                if (skin.type == type && skin.id == ES3.Load<int>(es3Key))
+                    skin.EnableUsedIcon();
             }
         }
     }
@@ -100,6 +101,10 @@ public class SkinUI : MonoBehaviour
                 tap[num].transform.SetAsLastSibling();
                 cutterSkinButton.sprite = activeBtnSprite;
                 idlePlayerSkinButton.sprite = inactiveBtnSprite;
+                SkinRenderManager.instance.ChangeSkinRender(SkinType.Cutter, ES3.Load<int>("cutterSkin"));
+                ChangeStat(SaveManager.instance.FindSkinObject(SkinType.Cutter, ES3.Load<int>("cutterSkin")).GetStatText());
+                EnableUsedIcon(SkinType.Cutter, "cutterSkin");
+
                 // tap[num].SetActive(true);
                 break;
 
@@ -107,6 +112,10 @@ public class SkinUI : MonoBehaviour
                 tap[num].transform.SetAsLastSibling();
                 idlePlayerSkinButton.sprite = activeBtnSprite;
                 cutterSkinButton.sprite = inactiveBtnSprite;
+                SkinRenderManager.instance.ChangeSkinRender(SkinType.IdlePlayer, ES3.Load<int>("idlePlayerSkin"));
+                ChangeStat(SaveManager.instance.FindSkinObject(SkinType.IdlePlayer, ES3.Load<int>("idlePlayerSkin")).GetStatText());
+                EnableUsedIcon(SkinType.IdlePlayer, "idlePlayerSkin");
+
                 // tap[num].SetActive(true);
                 break;
         }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class SkinActiveUI : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class SkinActiveUI : MonoBehaviour
     [SerializeField] Button RVBtn;
     [SerializeField] GameObject usedIcon;
     [SerializeField] GameObject lockIcon;
+
 
 
     public void Init(SkinObject obj, SkinType type)
@@ -49,6 +51,8 @@ public class SkinActiveUI : MonoBehaviour
 
             IdleManager.instance.skinUI.ResetUsed();
             usedIcon.SetActive(true);
+
+            Boink();
         }
     }
 
@@ -126,6 +130,12 @@ public class SkinActiveUI : MonoBehaviour
     public void OnClickClameBtn()
     {
         IdleManager.instance.shopUI.Show();
+    }
+
+    public void Boink()
+    {
+        transform.DOScale(1.2f, 0.2f).SetEase(Ease.OutBack)
+            .OnComplete(() => transform.DOScale(1f, 0.2f));
     }
 }
 

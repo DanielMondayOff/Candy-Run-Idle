@@ -57,13 +57,15 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("Value")] public Color activeCostColor;
     [FoldoutGroup("Value")] public Color deactiveCostColor;
 
-    [FoldoutGroup("업그레이드")] public IdleUpgrade hireWorker;
-    [FoldoutGroup("업그레이드")] public IdleUpgrade workerSpeedUp;
-    [FoldoutGroup("업그레이드")] public IdleUpgrade promotion;
-    [FoldoutGroup("업그레이드")] public IdleUpgrade extraIncome;
-    [FoldoutGroup("업그레이드")] public IdleUpgrade playerSpeedUp;
-    [FoldoutGroup("업그레이드")] public IdleUpgrade playerCapacity;
-    [FoldoutGroup("업그레이드")] public IdleUpgrade workerCapacity;
+    [FoldoutGroup("업그레이드")] public IdleUpgrade[] upgrades;
+
+    // [FoldoutGroup("업그레이드")] public IdleUpgrade hireWorker;
+    // [FoldoutGroup("업그레이드")] public IdleUpgrade workerSpeedUp;
+    // [FoldoutGroup("업그레이드")] public IdleUpgrade promotion;
+    // [FoldoutGroup("업그레이드")] public IdleUpgrade extraIncome;
+    // [FoldoutGroup("업그레이드")] public IdleUpgrade playerSpeedUp;
+    // [FoldoutGroup("업그레이드")] public IdleUpgrade playerCapacity;
+    // [FoldoutGroup("업그레이드")] public IdleUpgrade workerCapacity;
 
 
     [Space]
@@ -454,10 +456,74 @@ public class IdleManager : MonoBehaviour
         // Managers.Sound.BgmOnOff(false);
     }
 
-    public void Upgrade_HireWorker()
+    public void TryUpgrade(IdleUpgradeType type)
     {
-        if (hireWorker.cost[hireWorker.currentLevel] > SaveManager.instance.GetMoney())
-            return;
+        foreach (var upgrade in upgrades)
+        {
+            if (upgrade.upgradeType == type)
+            {
+                if (upgrade.cost[upgrade.currentLevel] > SaveManager.instance.GetMoney())
+                    return;
+
+                SaveManager.instance.LossMoney(upgrade.cost[upgrade.currentLevel]);
+
+                Upgrade(type);
+                ES3.Save<IdleUpgrade>("type", upgrade);
+
+                break;
+            }
+        }
+    }
+
+    public void Upgrade(IdleUpgradeType type)
+    {
+        switch (type)
+        {
+            case IdleUpgradeType.WorkerSpeedUp:
+                workerSpeedUp.currentLevel++;
+                ES3.Save<IdleUpgrade>("workerSpeedUp", workerSpeedUp);
+                EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - WorkerSpeedUp", true, true);
+                break;
+
+            case IdleUpgradeType.Income:
+                extraIncome.currentLevel++;
+                ES3.Save<IdleUpgrade>("income", extraIncome);
+                EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - Income", true, true);
+                break;
+
+            case IdleUpgradeType.PlayerCapacityUp:
+                playerCapacity.currentLevel++;
+                ES3.Save<IdleUpgrade>("playerCapacity", playerCapacity);
+                EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - PlayerCapacityUp", true, true);
+                break;
+
+            case IdleUpgradeType.PlayerSpeedUp:
+                workerSpeedUp.currentLevel++;
+                ES3.Save<IdleUpgrade>("workerSpeedUp", workerSpeedUp);
+                playerMovement.SetPlayerMoveSpeed(GetCurrentPlayerSpeed());
+                EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - PlayerSpeedUp", true, true);
+                break;
+
+            case IdleUpgradeType.WorkerCapacityUp:
+                workerCapacity.currentLevel++;
+                ES3.Save<IdleUpgrade>("workerCapacity", workerCapacity);
+                EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - WorkerCapacityUp", true, true);
+                break;
+
+            case IdleUpgradeType.Promotion:
+                promotion.currentLevel++;
+                ES3.Save<IdleUpgrade>("promotion", promotion);
+                SetCustomerSpawnSpeed(customerSpawnSpeed[promotion.currentLevel]);
+                EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - Promotion", true, true);
+                break;
+        }
+    }
+
+    public void Upgrade_HireWorker(bool force = false)
+    {
+        if (!force)
+            if (hireWorker.cost[hireWorker.currentLevel] > SaveManager.instance.GetMoney())
+                return;
 
         SaveManager.instance.LossMoney(hireWorker.cost[hireWorker.currentLevel]);
 
@@ -476,10 +542,11 @@ public class IdleManager : MonoBehaviour
         // );
     }
 
-    public void Upgrade_WorkerSpeedUp()
+    public void Upgrade_WorkerSpeedUp(bool force = false)
     {
-        if (workerSpeedUp.cost[workerSpeedUp.currentLevel] > SaveManager.instance.GetMoney())
-            return;
+        if (!force)
+            if (workerSpeedUp.cost[workerSpeedUp.currentLevel] > SaveManager.instance.GetMoney())
+                return;
 
         SaveManager.instance.LossMoney(workerSpeedUp.cost[workerSpeedUp.currentLevel]);
 
@@ -497,10 +564,11 @@ public class IdleManager : MonoBehaviour
         // );
     }
 
-    public void Upgrade_Promotion()
+    public void Upgrade_Promotion(bool force = false)
     {
-        if (promotion.cost[promotion.currentLevel] > SaveManager.instance.GetMoney())
-            return;
+        if (!force)
+            if (promotion.cost[promotion.currentLevel] > SaveManager.instance.GetMoney())
+                return;
 
         SaveManager.instance.LossMoney(promotion.cost[promotion.currentLevel]);
         promotion.currentLevel++;
@@ -518,10 +586,11 @@ public class IdleManager : MonoBehaviour
         // );
     }
 
-    public void Upgrade_Income()
+    public void Upgrade_Income(bool force = false)
     {
-        if (extraIncome.cost[extraIncome.currentLevel] > SaveManager.instance.GetMoney())
-            return;
+        if (!force)
+            if (extraIncome.cost[extraIncome.currentLevel] > SaveManager.instance.GetMoney())
+                return;
 
         SaveManager.instance.LossMoney(extraIncome.cost[extraIncome.currentLevel]);
         extraIncome.currentLevel++;
@@ -537,10 +606,11 @@ public class IdleManager : MonoBehaviour
         // );
     }
 
-    public void Upgrade_PlayerSpeedUp()
+    public void Upgrade_PlayerSpeedUp(bool force = false)
     {
-        if (playerSpeedUp.cost[playerSpeedUp.currentLevel] > SaveManager.instance.GetMoney())
-            return;
+        if (!force)
+            if (playerSpeedUp.cost[playerSpeedUp.currentLevel] > SaveManager.instance.GetMoney())
+                return;
 
         SaveManager.instance.LossMoney(playerSpeedUp.cost[playerSpeedUp.currentLevel]);
         playerSpeedUp.currentLevel++;
@@ -557,10 +627,11 @@ public class IdleManager : MonoBehaviour
         // );
     }
 
-    public void Upgrade_PlayerCapacityUp()
+    public void Upgrade_PlayerCapacityUp(bool force = false)
     {
-        if (playerCapacity.cost[playerCapacity.currentLevel] > SaveManager.instance.GetMoney())
-            return;
+        if (!force)
+            if (playerCapacity.cost[playerCapacity.currentLevel] > SaveManager.instance.GetMoney())
+                return;
 
         SaveManager.instance.LossMoney(playerCapacity.cost[playerCapacity.currentLevel]);
         playerCapacity.currentLevel++;
@@ -570,10 +641,11 @@ public class IdleManager : MonoBehaviour
         EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - PlayerCapacityUp", true, true);
     }
 
-    public void Upgrade_WorkerCapacityUp()
+    public void Upgrade_WorkerCapacityUp(bool force = false)
     {
-        if (workerCapacity.cost[workerCapacity.currentLevel] > SaveManager.instance.GetMoney())
-            return;
+        if (!force)
+            if (workerCapacity.cost[workerCapacity.currentLevel] > SaveManager.instance.GetMoney())
+                return;
 
         SaveManager.instance.LossMoney(workerCapacity.cost[workerCapacity.currentLevel]);
         workerCapacity.currentLevel++;
@@ -649,34 +721,13 @@ public class IdleManager : MonoBehaviour
 
     public IdleUpgrade GetUpgradeValue(IdleUpgradeType type)
     {
-        switch (type)
+        foreach (var upgrade in upgrades)
         {
-            case IdleUpgradeType.HireWorker:
-                return IdleManager.instance.hireWorker;
-
-            case IdleUpgradeType.WorkerSpeedUp:
-                return IdleManager.instance.workerSpeedUp;
-
-            case IdleUpgradeType.Promotion:
-                return IdleManager.instance.promotion;
-
-            case IdleUpgradeType.Income:
-                return IdleManager.instance.extraIncome;
-
-            case IdleUpgradeType.PlayerSpeedUp:
-                return IdleManager.instance.playerSpeedUp;
-
-            case IdleUpgradeType.PlayerCapacityUp:
-                return IdleManager.instance.playerCapacity;
-
-            case IdleUpgradeType.WorkerCapacityUp:
-                return IdleManager.instance.workerCapacity;
-
-            default:
-                Debug.LogError("정의가 없습니다. 추가해 주십시요");
-                return null;
-
+            if (upgrade.upgradeType == type)
+                return upgrade;
         }
+
+        return null;
     }
 
     public Poolable GenerateDummyObject(string path, Vector3 pos)

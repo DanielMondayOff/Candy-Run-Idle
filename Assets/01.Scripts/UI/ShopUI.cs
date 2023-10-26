@@ -119,5 +119,10 @@ public class ShopUI : MonoBehaviour
         }
     }
 
-    
+    public void OnClickSmallPlusBtn(string info)
+    {
+        Show();
+
+        EventManager.instance.CustomEvent(AnalyticsType.UI, "OnClickSmallPlusBtn_" + info, true, true);
+    }
 }

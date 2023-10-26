@@ -9,6 +9,8 @@ public class IdleUpgradeSlot : MonoBehaviour
 
     [SerializeField] Image btnImage;
     [SerializeField] Text cost;
+    [SerializeField] Text level;
+
 
     public bool isPossibleUpgrade => SaveManager.instance.CheckPossibleUpgrade(IdleManager.instance.GetCurrentUpgradeCost(upgrade));
     public int GetUpgradeCost => IdleManager.instance.GetCurrentUpgradeCost(upgrade);
@@ -24,48 +26,30 @@ public class IdleUpgradeSlot : MonoBehaviour
     public void Init()
     {
         SetUpgradeCostText();
+        SetLevelText();
+    }
+
+    public void OnClickUpgradeBtn_RV()
+    {
+        MondayOFF.AdsManager.ShowRewarded(() =>
+        {
+            EventManager.instance.CustomEvent(AnalyticsType.RV, "Upgrade_" + upgrade, true, true);
+
+            IdleManager.instance.Upgrade(upgrade);
+
+            SetUpgradeCostText();
+            SetLevelText();
+            CheckingBtn();
+        });
     }
 
     public void OnClickUpgradeBtn()
     {
-        switch (upgrade)
-        {
-            case IdleUpgradeType.HireWorker:
-                IdleManager.instance.Upgrade_HireWorker();
-                break;
-
-            case IdleUpgradeType.WorkerSpeedUp:
-                IdleManager.instance.Upgrade_WorkerSpeedUp();
-                break;
-
-            case IdleUpgradeType.Promotion:
-                IdleManager.instance.Upgrade_Promotion();
-                break;
-
-            case IdleUpgradeType.Income:
-                IdleManager.instance.Upgrade_Income();
-                break;
-
-            case IdleUpgradeType.PlayerSpeedUp:
-                IdleManager.instance.Upgrade_PlayerSpeedUp();
-                break;
-
-            case IdleUpgradeType.PlayerCapacityUp:
-                IdleManager.instance.Upgrade_PlayerCapacityUp();
-                break;
-
-            case IdleUpgradeType.WorkerCapacityUp:
-                IdleManager.instance.Upgrade_WorkerCapacityUp();
-                break;
-
-            default:
-                Debug.LogError("정의가 없습니다. 추가해 주십시요");
-                break;
-        }
+        IdleManager.instance.TryUpgrade(upgrade);
 
         SetUpgradeCostText();
+        SetLevelText();
         CheckingBtn();
-        // IdleManager.instance.UpgradeUISort();
     }
 
     void CheckingBtn()
@@ -92,6 +76,10 @@ public class IdleUpgradeSlot : MonoBehaviour
             gameObject.SetActive(false);
         else
             cost.text = IdleManager.instance.GetUpgradeCost(upgrade).ToString();
+    }
 
+    void SetLevelText()
+    {
+        level.text = "LV." + (IdleManager.instance.GetUpgradeValue(upgrade).currentLevel + 1);
     }
 }
