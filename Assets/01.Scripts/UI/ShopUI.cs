@@ -48,10 +48,14 @@ public class ShopUI : MonoBehaviour
 
     public void UpdateLimitRV()
     {
+        bool any = false;
+
         if (SaveManager.instance.IsTimeLimitRVReady(SaveManager.instance.dailyFreeRoyalCandyTime))
         {
             royalCandyRVGainText.SetActive(true);
             royalCandyRVTimeLimitObject.SetActive(false);
+
+            any = true;
         }
         else
         {
@@ -67,6 +71,8 @@ public class ShopUI : MonoBehaviour
         {
             moneyRVGainText.SetActive(true);
             moneyRVTimeLimitObject.SetActive(false);
+
+            any = true;
         }
         else
         {
@@ -83,7 +89,7 @@ public class ShopUI : MonoBehaviour
     {
         if (SaveManager.instance.IsTimeLimitRVReady(SaveManager.instance.dailyFreeRoyalCandyTime))
         {
-            Debug.LogError(SaveManager.instance.GetLeftTime(SaveManager.instance.dailyFreeRoyalCandyTime));
+            // Debug.LogError(SaveManager.instance.GetLeftTime(SaveManager.instance.dailyFreeRoyalCandyTime));
             MondayOFF.AdsManager.ShowRewarded(() =>
                     {
                         SaveManager.instance.dailyFreeRoyalCandyTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -101,7 +107,7 @@ public class ShopUI : MonoBehaviour
     {
         if (SaveManager.instance.IsTimeLimitRVReady(SaveManager.instance.dailyFreeMoneyTime))
         {
-            Debug.LogError(SaveManager.instance.GetLeftTime(SaveManager.instance.dailyFreeMoneyTime));
+            // Debug.LogError(SaveManager.instance.GetLeftTime(SaveManager.instance.dailyFreeMoneyTime));
             MondayOFF.AdsManager.ShowRewarded(() =>
                     {
                         SaveManager.instance.dailyFreeMoneyTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
@@ -112,4 +118,6 @@ public class ShopUI : MonoBehaviour
                     });
         }
     }
+
+    
 }

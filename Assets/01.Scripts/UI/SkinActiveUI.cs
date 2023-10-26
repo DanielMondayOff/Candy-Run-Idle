@@ -9,9 +9,12 @@ public class SkinActiveUI : MonoBehaviour
     public SkinType type;
 
     [SerializeField] Image icon;
+    [SerializeField] Button clameBtn;
     [SerializeField] Button moneyBtn;
     [SerializeField] Button RVBtn;
     [SerializeField] GameObject usedIcon;
+    [SerializeField] GameObject lockIcon;
+
 
     public void Init(SkinObject obj, SkinType type)
     {
@@ -62,7 +65,7 @@ public class SkinActiveUI : MonoBehaviour
         MondayOFF.AdsManager.ShowRewarded(() =>
         {
             SaveManager.instance.WatchedRVOnceForSkin(type, id);
-
+            EventManager.instance.CustomEvent(AnalyticsType.RV, "Skin_ " + type + " _ " + id, true, true);
             UpdateUI();
         });
     }
@@ -105,6 +108,9 @@ public class SkinActiveUI : MonoBehaviour
             else
                 RVBtn.gameObject.SetActive(false);
         }
+        clameBtn.gameObject.SetActive(obj.onlyPurcahse);
+
+        lockIcon.SetActive(!SaveManager.instance.CheckSkinHave(type, id));
     }
 
     public void EnableUsedIcon()
@@ -115,6 +121,11 @@ public class SkinActiveUI : MonoBehaviour
     public void DisableUsedIcon()
     {
         usedIcon.SetActive(false);
+    }
+
+    public void OnClickClameBtn()
+    {
+        IdleManager.instance.shopUI.Show();
     }
 }
 

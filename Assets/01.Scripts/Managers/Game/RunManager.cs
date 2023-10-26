@@ -162,6 +162,7 @@ public class RunManager : MonoBehaviour
 
     public bool fireBulletEnable = true;
 
+
     [SerializeField] private CutterSkin currentCutter;
 
     TempCandyInventory tempCandyInventory;
@@ -210,7 +211,7 @@ public class RunManager : MonoBehaviour
             if (ES3.Load<bool>("NextStageEnable"))
                 blackPanel.SetActive(false);
 
-        currentCandyArrangeType = ES3.KeyExists("CandyArrangeType") ? ES3.Load<CandyArrangeType>("CandyArrangeType") : CandyArrangeType.Horizontal;
+        // currentCandyArrangeType = ES3.KeyExists("CandyArrangeType") ? ES3.Load<CandyArrangeType>("CandyArrangeType") : CandyArrangeType.Horizontal;
 
         // ABManager.instance.SelectStart("B");
 
@@ -267,11 +268,14 @@ public class RunManager : MonoBehaviour
             }
             ChangeCutterSkin(ES3.Load<int>("cutterSkin"));
         }
+        else
+        {
+            ChangeCutterSkin(0);
+        }
     }
 
     private void OnEnable()
     {
-        SaveManager.instance.AddMoneyText(moneyText);
         SaveManager.instance.OnChangeMoney();
         SaveManager.instance.OnChangeRoyalCandy();
     }
@@ -917,6 +921,9 @@ public class RunManager : MonoBehaviour
         {
             case RunGameType.CPI3:
             case RunGameType.Default:
+            
+                MMVibrationManager.Haptic(HapticTypes.MediumImpact);
+                
                 if (GetCurrentCandyLength() < 100f)
                 {
                     candyList.ForEach((n) =>
@@ -1288,6 +1295,8 @@ public class RunManager : MonoBehaviour
 
     public void ShowCandyUnlockStatus()
     {
+        x2ClaimBtn.SetActive(false);
+
         // var status = SaveManager.instance.GetCandyUnlockStatuses();
         //아직 해금 안한 사탕이 있다면
         if (CandyUnlockUI.instance.currentStatus != null)

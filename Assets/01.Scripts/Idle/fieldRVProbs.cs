@@ -7,7 +7,7 @@ public class fieldRVProbs : MonoBehaviour
 {
     [SerializeField] FieldRvType type;
 
-    Coroutine collectCoroutine = null;
+    Coroutine showUICoroutin = null;
 
     bool isComplete = false;
 
@@ -18,6 +18,8 @@ public class fieldRVProbs : MonoBehaviour
 
     public string pos = "";
 
+    public TaskUtil.DelayTaskMethod disableTask = null;
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -26,10 +28,10 @@ public class fieldRVProbs : MonoBehaviour
 
         if (other.tag.Equals("Player"))
         {
-            if (collectCoroutine != null)
+            if (showUICoroutin != null)
             {
-                StopCoroutine(collectCoroutine);
-                collectCoroutine = null;
+                StopCoroutine(showUICoroutin);
+                showUICoroutin = null;
             }
 
             if (groundTween != null)
@@ -45,14 +47,17 @@ public class fieldRVProbs : MonoBehaviour
 
         if (other.tag.Equals("Player"))
         {
-            if (collectCoroutine != null && other.GetComponentInChildren<PlayerMovement>().GetCurrentMoveSpeed() != 0)
+            if (showUICoroutin != null && other.GetComponentInChildren<PlayerMovement>().GetCurrentMoveSpeed() != 0)
             {
-                StopCoroutine(collectCoroutine);
-                collectCoroutine = null;
+                StopCoroutine(showUICoroutin);
+                showUICoroutin = null;
             }
 
-            if (other.GetComponentInChildren<PlayerMovement>().GetCurrentMoveSpeed() == 0 && collectCoroutine == null)
-                collectCoroutine = StartCoroutine(CollectCoroutine());
+            if (other.GetComponentInChildren<PlayerMovement>().GetCurrentMoveSpeed() == 0 && showUICoroutin == null)
+            {
+                showUICoroutin = StartCoroutine(ShowUICoroutin());
+
+            }
         }
     }
 
@@ -63,10 +68,10 @@ public class fieldRVProbs : MonoBehaviour
 
         if (other.tag.Equals("Player"))
         {
-            if (collectCoroutine != null)
+            if (showUICoroutin != null)
             {
-                StopCoroutine(collectCoroutine);
-                collectCoroutine = null;
+                StopCoroutine(showUICoroutin);
+                showUICoroutin = null;
             }
 
             if (groundTween != null)
@@ -75,11 +80,21 @@ public class fieldRVProbs : MonoBehaviour
         }
     }
 
-    IEnumerator CollectCoroutine()
+    IEnumerator ShowUICoroutin()
     {
-        yield return new WaitForSeconds(1f);
+        if (gameObject != null)
+        {
+            yield return new WaitForSeconds(1f);
 
-        IdleManager.instance.GenerateFieldRVUI(type, () => Destroy(gameObject), pos);
-        EventManager.instance.CustomEvent(AnalyticsType.UI, type.ToString() + "- OnActivefieldRV " + pos, true, true);
+            if (disableTask != null)
+                disableTask.Kill();
+
+            IdleManager.instance.GenerateFieldRVUI(type, () => { if (gameObject != null) { Destroy(gameObject); } }, pos, () =>
+            {
+                IdleManager.instance.TaskDelay(15, () => { if (gameObject != null) { Destroy(gameObject); }; });
+            });
+
+            EventManager.instance.CustomEvent(AnalyticsType.UI, type.ToString() + "- OnActivefieldRV " + pos, true, true);
+        }
     }
 }

@@ -24,7 +24,7 @@ public class SaveManager : MonoBehaviour
     public List<CandyUnlockStatus> GetCandyUnlockStatuses() => candyUnlockStatuses;
 
     public List<Text> royalCandyTextList = new List<Text>();
-    private List<Text> rvTicketTextList = new List<Text>();
+    public List<Text> rvTicketTextList = new List<Text>();
 
     public UnityEngine.Events.UnityEvent onMoneyChangeEvent = new UnityEngine.Events.UnityEvent();
     public UnityEngine.Events.UnityEvent onChangeCandyInventoryEvent = new UnityEngine.Events.UnityEvent();
@@ -47,7 +47,7 @@ public class SaveManager : MonoBehaviour
 
     public List<SkinSaveData> skinSaveDataList = new List<SkinSaveData>();
 
-
+    public List<ShopDot> shopDotsList = new List<ShopDot>();
 
     public static SaveManager instance = null;
 
@@ -122,6 +122,12 @@ public class SaveManager : MonoBehaviour
             {
                 EventManager.instance.CustomEvent(AnalyticsType.IAP, "NoAdsPurchase", true, true);
             };
+
+        this.TaskWhile(1, 0, () =>
+        {
+            shopDotsList.ForEach((n) => n.ChangeVisible(IsTimeLimitRVReady(dailyFreeMoneyTime) || IsTimeLimitRVReady(dailyFreeRoyalCandyTime)));
+        });
+
     }
 
     public int GetMoney() => money;
@@ -160,6 +166,12 @@ public class SaveManager : MonoBehaviour
 
         ES3.Save<int>("RoyalCandy", royalCandy);
 
+        if (!ES3.KeyExists("enableRoyalCandyText"))
+        {
+            ES3.Save<bool>("enableRoyalCandyText", true);
+            royalCandyTextList.ForEach((n) => n.GetComponent<RoyalCandyText>().ChangeVisible(true));
+        }
+
         OnChangeRoyalCandy();
     }
 
@@ -179,6 +191,12 @@ public class SaveManager : MonoBehaviour
         onRoyalCandyChangeEvent.Invoke();
     }
 
+    public void OnChangeRvTicket()
+    {
+        rvTicketTextList.ForEach((n) => n.text = RVTicket.ToString());
+
+        onRVTicketChangeEvent.Invoke();
+    }
 
     public void OnChangeCandyInventory()
     {
@@ -273,6 +291,12 @@ public class SaveManager : MonoBehaviour
     {
         moneyTextList.Add(text);
 
+        OnChangeMoney();
+    }
+
+    public void RemoveMoneyText(Text text)
+    {
+        moneyTextList.Remove(text);
     }
 
     public void AddRoyalCandyText(Text text)
@@ -282,9 +306,16 @@ public class SaveManager : MonoBehaviour
         OnChangeRoyalCandy();
     }
 
-    public void RemoveMoneyText(Text text)
+    public void AddRVTicketText(Text text)
     {
-        moneyTextList.Remove(text);
+        rvTicketTextList.Add(text);
+
+        OnChangeRvTicket();
+    }
+
+    public void RemoveRVTicketText(Text text)
+    {
+        rvTicketTextList.Remove(text);
     }
 
     public bool CheckPossibleUpgrade(int cost)
@@ -381,6 +412,12 @@ public class SaveManager : MonoBehaviour
         RVTicket += count;
 
         ES3.Save("RVTicket", RVTicket);
+
+        if (!ES3.KeyExists("enableRVTickText"))
+        {
+            ES3.Save<bool>("enableRVTickText", true);
+            rvTicketTextList.ForEach((n) => n.GetComponent<RVTicketText>().ChangeVisible(true));
+        }
 
         rvTicketTextList.ForEach((n) => n.text = RVTicket.ToString());
     }

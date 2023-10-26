@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using MoreMountains.NiceVibrations;
 
 public class DropedJellyBean : MonoBehaviour
 {
@@ -104,6 +105,8 @@ public class DropedJellyBean : MonoBehaviour
             RunManager.instance.TaskDelay(3, () => Managers.Pool.Push(particle.GetComponentInChildren<Poolable>()));
 
             Managers.Sound.Play("J.BoB - Mobile Game - Interface Hollow Woody Click", volume: 0.7f, pitch: Random.Range(0.75f, 1f));
+
+            MMVibrationManager.Haptic(HapticTypes.LightImpact);
 
             if (royalCandy)
             {

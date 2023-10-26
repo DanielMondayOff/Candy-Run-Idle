@@ -45,8 +45,8 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject playerHat;
     [FoldoutGroup("참조")] public SkinUI skinUI;
     [FoldoutGroup("참조")] public ShopUI shopUI;
-
-
+    [FoldoutGroup("참조")] public UIBase skinUIButton;
+    [FoldoutGroup("참조")] public UIBase shopUIButton;
 
 
     public CanvasGroup[] idleUIs;
@@ -71,7 +71,7 @@ public class IdleManager : MonoBehaviour
     // [FoldoutGroup("업그레이드")] public IdleUpgrade[] upgrades;
 
     public readonly float[] workerSpeed = { 6, 6.5f, 7f, 7.5f, 8f, 8.5f, 9f, 10f, 10.5f, 11f, 11.5f };
-    public readonly float[] customerSpawnSpeed = { 4f, 3.5f, 3f, 2.5f, 2f, 1.5f, 1f, 1f, 1f, 1f, 1f };
+    public readonly float[] customerSpawnSpeed = { 3f, 2.75f, 2.5f, 2.25f, 2f, 1.75f, 1.5f, 1f, 1f, 1f, 1f };
     public readonly float[] maxCustomerCount = { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
     public readonly float[] extraIncomePercent = { 1f, 1.1f, 1.2f, 1.3f, 1.4f, 1.5f, 1.6f, 1.7f, 1.8f, 1.9f, 2f };
     public readonly float[] playerSpeed = { 13, 13.5f, 14f, 14.5f, 15f, 15.5f, 16f, 16.5f, 17f, 17.5f, 18f };
@@ -157,7 +157,6 @@ public class IdleManager : MonoBehaviour
             if (ES3.Load<bool>("enableShop"))
                 StartIdle(false);
 
-        SaveManager.instance.AddMoneyText(moneyText);
         SaveManager.instance.OnChangeMoney();
 
         // SceneManager.LoadScene("Run", LoadSceneMode.Additive);
@@ -188,6 +187,10 @@ public class IdleManager : MonoBehaviour
             }
 
             ChangeIdleSkin(ES3.Load<int>("idlePlayerSkin"));
+        }
+        else
+        {
+            ChangeIdleSkin(0);
         }
 
 
@@ -849,8 +852,11 @@ public class IdleManager : MonoBehaviour
         else
             nextStageHighlight.SetActive(true);
 
-
         ES3.Save<bool>("NextStageEnable", true);
+        ES3.Save<bool>("enableIAPShop", true);
+        shopUIButton.Show();
+        ES3.Save<bool>("enableSkin", true);
+        skinUIButton.Show();
     }
 
     public void ChangeUpgradeBtnActive(bool active)
@@ -998,7 +1004,7 @@ public class IdleManager : MonoBehaviour
         SaveManager.instance.GetMoney(value);
     }
 
-    public void GenerateFieldRVUI(FieldRvType type, System.Action onComplete = null, string pos = "")
+    public void GenerateFieldRVUI(FieldRvType type, System.Action onComplete = null, string pos = "", System.Action onClickNoThanks = null)
     {
         if (idleUI.GetComponentInChildren<FieldRvUI>() != null)
             return;
@@ -1018,6 +1024,7 @@ public class IdleManager : MonoBehaviour
         if (ui != null)
         {
             ui.onComplete = onComplete;
+            ui.onClickNoThanks = onClickNoThanks;
             ui.pos = pos;
         }
     }
@@ -1065,7 +1072,7 @@ public class IdleManager : MonoBehaviour
 
         print("Spawn FieldRVProb " + prob.name);
 
-        this.TaskDelay(30, () => { if (prob != null) Destroy(prob); });
+        prob.GetComponent<fieldRVProbs>().disableTask = this.TaskDelay(30, () => { if (prob != null) Destroy(prob); });
     }
 
     public void BanFieldRv(FieldRvType type)

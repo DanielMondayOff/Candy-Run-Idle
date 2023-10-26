@@ -12,6 +12,7 @@ public class FieldRvUI : MonoBehaviour
     [SerializeField] GameObject noThanksBtn;
 
     public System.Action onComplete;
+    public System.Action onClickNoThanks;
 
     int[] moneyValues = { 150, 300, 450, 600, 850, 1000 };
 
@@ -55,6 +56,8 @@ public class FieldRvUI : MonoBehaviour
     public void OnClickNoThanksBtn()
     {
         EventManager.instance.CustomEvent(AnalyticsType.UI, type + "_OnClickNoThanks", true, true);
+
+        onClickNoThanks.Invoke();
 
         Destroy(gameObject);
     }

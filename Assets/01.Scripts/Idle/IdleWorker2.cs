@@ -10,6 +10,7 @@ public class IdleWorker2 : SerializedMonoBehaviour
 {
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Animator animator;
+    [SerializeField] Rigidbody rigid;
 
 
     [SerializeField] public Dictionary<Transform, ItemObject> itemPoints = new Dictionary<Transform, ItemObject>();
@@ -60,8 +61,8 @@ public class IdleWorker2 : SerializedMonoBehaviour
         // var jobs = IdleManager.instance.candyDisplayStandList.Where((n) => n.isReady && n.GetEmptyPoint().Value == null && n.currentMachine.candyItem.count > 0
         //  && n.GetEmptyPoint().Key != null).ToArray();
 
-         var jobs = IdleManager.instance.standBuildList.Where((n) => n.isReady &&
-          n.standPoints.Where((n) => n.itemObject == null).Count() > 0 && n.currentMachine.candyItem.count > 0).ToArray();
+        var jobs = IdleManager.instance.standBuildList.Where((n) => n.isReady &&
+         n.standPoints.Where((n) => n.itemObject == null).Count() > 0 && n.currentMachine.candyItem.count > 0).ToArray();
 
         if (jobs.Length > 0)
         {
@@ -78,6 +79,8 @@ public class IdleWorker2 : SerializedMonoBehaviour
                 () => CancleJob()
             ), () => (Vector3.Distance(transform.position, job.currentMachine.transform.position) < 5f));
         }
+
+        rigid.velocity = Vector3.zero;
     }
 
     public void DeliveryToStand(StandBuildObject stand)
