@@ -70,7 +70,7 @@ public class IdleUpgradeSlot : MonoBehaviour
 
     void SetUpgradeCostText()
     {
-        var value = IdleManager.instance.GetUpgradeValue(upgrade);
+        var value = IdleManager.instance.GetUpgrade(upgrade);
 
         if (value.currentLevel >= value.maxLevel)
             gameObject.SetActive(false);
@@ -80,6 +80,6 @@ public class IdleUpgradeSlot : MonoBehaviour
 
     void SetLevelText()
     {
-        level.text = "LV." + (IdleManager.instance.GetUpgradeValue(upgrade).currentLevel + 1);
+        level.text = "LV." + (IdleManager.instance.GetUpgrade(upgrade).currentLevel + 1);
     }
 }

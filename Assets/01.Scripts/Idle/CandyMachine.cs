@@ -269,7 +269,7 @@ public class CandyMachine : BuildObject
             }
         }
 
-        for (int i = 0; i < IdleManager.instance.workerCapacityValue[IdleManager.instance.workerCapacity.currentLevel]; i++)
+        for (int i = 0; i < IdleManager.instance.workerCapacityValue[IdleManager.instance.GetUpgrade(IdleUpgradeType.WorkerCapacityUp).currentLevel]; i++)
         {
             if (candyItem.count <= 0)
             {

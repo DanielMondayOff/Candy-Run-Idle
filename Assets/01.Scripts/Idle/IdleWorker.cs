@@ -20,7 +20,7 @@ public class IdleWorker : MonoBehaviour
 
     private void Start()
     {
-        ChangeMoveSpeed(IdleManager.instance.workerSpeed[IdleManager.instance.workerSpeedUp.currentLevel]);
+        ChangeMoveSpeed(IdleManager.instance.workerSpeed[IdleManager.instance.GetUpgrade(IdleUpgradeType.WorkerSpeedUp).currentLevel]);
     }
 
     public void ChangeMoveSpeed(float speed)

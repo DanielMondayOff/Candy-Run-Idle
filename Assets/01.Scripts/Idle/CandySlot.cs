@@ -73,7 +73,7 @@ public class CandySlot : BuildObject
 
         customerList.Remove(customer);
 
-        moneyTower.AddMoney((int)((level * 5) * IdleManager.instance.extraIncomePercent[IdleManager.instance.extraIncome.currentLevel]));
+        moneyTower.AddMoney((int)((level * 5) * IdleManager.instance.extraIncomePercent[IdleManager.instance.GetUpgrade(IdleUpgradeType.Income).currentLevel]));
 
         transform.DOPunchScale(Vector3.one * 0.1f, 0.5f);
 

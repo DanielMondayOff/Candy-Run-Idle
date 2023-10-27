@@ -84,8 +84,8 @@ public class IdleManager : MonoBehaviour
     public int currentSkinMaxStackBonus;
     public float currentSkinCuttingSpeedBonus;
 
-    public float GetCurrentPlayerSpeed() => playerSpeed[playerSpeedUp.currentLevel] + (currentSkinMoveSpeedBonus * 100f);
-    public int GetCurrentPlayerMaxStack() => (int)playerCapacityValue[playerCapacity.currentLevel] + (currentSkinMaxStackBonus);
+    public float GetCurrentPlayerSpeed() => playerSpeed[GetUpgrade(IdleUpgradeType.PlayerSpeedUp).currentLevel] + (currentSkinMoveSpeedBonus * 100f);
+    public int GetCurrentPlayerMaxStack() => (int)playerCapacityValue[GetUpgrade(IdleUpgradeType.PlayerCapacityUp).currentLevel] + (currentSkinMaxStackBonus);
     public float GetCurrentCuttingSpeed() => RunManager.instance.candyCuttingSpeed + currentSkinCuttingSpeedBonus;
 
     public bool playIdle = false;
@@ -114,41 +114,41 @@ public class IdleManager : MonoBehaviour
 
         if (ES3.KeyExists("workerSpeedUp"))
         {
-            workerSpeedUp.currentLevel = ES3.Load<IdleUpgrade>("workerSpeedUp").currentLevel;
-            workers.ForEach((n) => n.ChangeMoveSpeed(workerSpeed[workerCapacity.currentLevel]));
+            GetUpgrade(IdleUpgradeType.WorkerSpeedUp).currentLevel = ES3.Load<IdleUpgrade>("workerSpeedUp").currentLevel;
+            workers.ForEach((n) => n.ChangeMoveSpeed(workerSpeed[GetUpgrade(IdleUpgradeType.WorkerSpeedUp).currentLevel]));
         }
 
-        if (ES3.KeyExists("hireWorker"))
-        {
-            hireWorker.currentLevel = ES3.Load<IdleUpgrade>("hireWorker").currentLevel;
-            SpawnWorker(hireWorker.currentLevel + 1);
-        }
+        // if (ES3.KeyExists("hireWorker"))
+        // {
+        //     hireWorker.currentLevel = ES3.Load<IdleUpgrade>("hireWorker").currentLevel;
+        //     SpawnWorker(hireWorker.currentLevel + 1);
+        // }
 
         if (ES3.KeyExists("promotion"))
         {
-            promotion.currentLevel = ES3.Load<IdleUpgrade>("promotion").currentLevel;
+            GetUpgrade(IdleUpgradeType.Promotion).currentLevel = ES3.Load<IdleUpgrade>("promotion").currentLevel;
         }
 
         if (ES3.KeyExists("income"))
         {
-            extraIncome.currentLevel = ES3.Load<IdleUpgrade>("income").currentLevel;
+            GetUpgrade(IdleUpgradeType.Income).currentLevel = ES3.Load<IdleUpgrade>("income").currentLevel;
         }
 
         if (ES3.KeyExists("playerSpeed"))
         {
-            playerSpeedUp.currentLevel = ES3.Load<IdleUpgrade>("playerSpeed").currentLevel;
+            GetUpgrade(IdleUpgradeType.PlayerSpeedUp).currentLevel = ES3.Load<IdleUpgrade>("playerSpeed").currentLevel;
 
             playerMovement.SetPlayerMoveSpeed(GetCurrentPlayerSpeed());
         }
 
         if (ES3.KeyExists("playerCapacity"))
         {
-            playerCapacity.currentLevel = ES3.Load<IdleUpgrade>("playerCapacity").currentLevel;
+            GetUpgrade(IdleUpgradeType.PlayerCapacityUp).currentLevel = ES3.Load<IdleUpgrade>("playerCapacity").currentLevel;
         }
 
         if (ES3.KeyExists("workerCapacity"))
         {
-            workerCapacity.currentLevel = ES3.Load<IdleUpgrade>("workerCapacity").currentLevel;
+            GetUpgrade(IdleUpgradeType.WorkerCapacityUp).currentLevel = ES3.Load<IdleUpgrade>("workerCapacity").currentLevel;
         }
 
     }
@@ -254,7 +254,7 @@ public class IdleManager : MonoBehaviour
             // GenerateCandyJar();
             // CheckingCandyJar();
             if (spawnCustomerTask == null)
-                spawnCustomerTask = this.TaskWhile(customerSpawnSpeed[promotion.currentLevel], 2, () => GenenrateCustomer());
+                spawnCustomerTask = this.TaskWhile(customerSpawnSpeed[GetUpgrade(IdleUpgradeType.Promotion).currentLevel], 2, () => GenenrateCustomer());
 
             playIdle = _playIdle;
         }
@@ -338,9 +338,9 @@ public class IdleManager : MonoBehaviour
 
     public void GenenrateCustomer()
     {
-        print("customer Spawn : " + maxCustomerCount[promotion.currentLevel] + " / " + spawnCustomerTask.GetIntervalTime());
+        print("customer Spawn : " + maxCustomerCount[GetUpgrade(IdleUpgradeType.Promotion).currentLevel] + " / " + spawnCustomerTask.GetIntervalTime());
 
-        if (/*SaveManager.instance.candyInventory.Count <= 0 || */ !playIdle || maxCustomerCount[promotion.currentLevel] <= customers.Count || candyMachines.Where((n => n.isReady)).Count() == 0)
+        if (/*SaveManager.instance.candyInventory.Count <= 0 || */ !playIdle || maxCustomerCount[GetUpgrade(IdleUpgradeType.Promotion).currentLevel] <= customers.Count || candyMachines.Where((n => n.isReady)).Count() == 0)
             return;
 
         var spawnPoint = currentMap.GetRandomSpawnPoint();
@@ -480,181 +480,45 @@ public class IdleManager : MonoBehaviour
         switch (type)
         {
             case IdleUpgradeType.WorkerSpeedUp:
-                workerSpeedUp.currentLevel++;
-                ES3.Save<IdleUpgrade>("workerSpeedUp", workerSpeedUp);
+                GetUpgrade(IdleUpgradeType.WorkerSpeedUp).currentLevel++;
+                ES3.Save<IdleUpgrade>("workerSpeedUp", GetUpgrade(IdleUpgradeType.WorkerSpeedUp));
                 EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - WorkerSpeedUp", true, true);
                 break;
 
             case IdleUpgradeType.Income:
-                extraIncome.currentLevel++;
-                ES3.Save<IdleUpgrade>("income", extraIncome);
+                GetUpgrade(IdleUpgradeType.Income).currentLevel++;
+                ES3.Save<IdleUpgrade>("income", GetUpgrade(IdleUpgradeType.Income));
                 EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - Income", true, true);
                 break;
 
             case IdleUpgradeType.PlayerCapacityUp:
-                playerCapacity.currentLevel++;
-                ES3.Save<IdleUpgrade>("playerCapacity", playerCapacity);
+                GetUpgrade(IdleUpgradeType.PlayerCapacityUp).currentLevel++;
+                ES3.Save<IdleUpgrade>("playerCapacity", GetUpgrade(IdleUpgradeType.PlayerCapacityUp));
                 EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - PlayerCapacityUp", true, true);
                 break;
 
             case IdleUpgradeType.PlayerSpeedUp:
-                workerSpeedUp.currentLevel++;
-                ES3.Save<IdleUpgrade>("workerSpeedUp", workerSpeedUp);
+                GetUpgrade(IdleUpgradeType.PlayerSpeedUp).currentLevel++;
+                ES3.Save<IdleUpgrade>("playerSpeedUp", GetUpgrade(IdleUpgradeType.PlayerSpeedUp));
                 playerMovement.SetPlayerMoveSpeed(GetCurrentPlayerSpeed());
                 EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - PlayerSpeedUp", true, true);
                 break;
 
             case IdleUpgradeType.WorkerCapacityUp:
-                workerCapacity.currentLevel++;
-                ES3.Save<IdleUpgrade>("workerCapacity", workerCapacity);
+                GetUpgrade(IdleUpgradeType.WorkerCapacityUp).currentLevel++;
+                ES3.Save<IdleUpgrade>("workerCapacity", GetUpgrade(IdleUpgradeType.WorkerCapacityUp));
                 EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - WorkerCapacityUp", true, true);
                 break;
 
             case IdleUpgradeType.Promotion:
-                promotion.currentLevel++;
-                ES3.Save<IdleUpgrade>("promotion", promotion);
-                SetCustomerSpawnSpeed(customerSpawnSpeed[promotion.currentLevel]);
+                GetUpgrade(IdleUpgradeType.Promotion).currentLevel++;
+                ES3.Save<IdleUpgrade>("promotion", GetUpgrade(IdleUpgradeType.Promotion));
+                SetCustomerSpawnSpeed(customerSpawnSpeed[GetUpgrade(IdleUpgradeType.Promotion).currentLevel]);
                 EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - Promotion", true, true);
                 break;
         }
     }
-
-    public void Upgrade_HireWorker(bool force = false)
-    {
-        if (!force)
-            if (hireWorker.cost[hireWorker.currentLevel] > SaveManager.instance.GetMoney())
-                return;
-
-        SaveManager.instance.LossMoney(hireWorker.cost[hireWorker.currentLevel]);
-
-        hireWorker.currentLevel++;
-
-        ES3.Save<IdleUpgrade>("hireWorker", hireWorker);
-
-        SpawnWorker(1);
-
-        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - HireWorker", true, true);
-
-
-        // MondayOFF.EventTracker.LogCustomEvent(
-        // "IDLE",
-        // new Dictionary<string, string> { { "IDLE_TYPE", "HireWorker" } }
-        // );
-    }
-
-    public void Upgrade_WorkerSpeedUp(bool force = false)
-    {
-        if (!force)
-            if (workerSpeedUp.cost[workerSpeedUp.currentLevel] > SaveManager.instance.GetMoney())
-                return;
-
-        SaveManager.instance.LossMoney(workerSpeedUp.cost[workerSpeedUp.currentLevel]);
-
-        workerSpeedUp.currentLevel++;
-
-        ES3.Save<IdleUpgrade>("workerSpeedUp", workerSpeedUp);
-
-        workers.ForEach((n) => n.ChangeMoveSpeed(workerSpeed[workerSpeedUp.currentLevel]));
-
-        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - WorkerSpeedUp", true, true);
-
-        // MondayOFF.EventTracker.LogCustomEvent(
-        // "IDLE",
-        // new Dictionary<string, string> { { "IDLE_TYPE", "WorkerSpeedUp" } }
-        // );
-    }
-
-    public void Upgrade_Promotion(bool force = false)
-    {
-        if (!force)
-            if (promotion.cost[promotion.currentLevel] > SaveManager.instance.GetMoney())
-                return;
-
-        SaveManager.instance.LossMoney(promotion.cost[promotion.currentLevel]);
-        promotion.currentLevel++;
-
-        ES3.Save<IdleUpgrade>("promotion", promotion);
-
-        SetCustomerSpawnSpeed(customerSpawnSpeed[promotion.currentLevel]);
-
-        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - Promotion", true, true);
-
-
-        //         MondayOFF.EventTracker.LogCustomEvent(
-        //         "IDLE",
-        //         new Dictionary<string, string> { { "IDLE_TYPE", "Promotion" } }
-        // );
-    }
-
-    public void Upgrade_Income(bool force = false)
-    {
-        if (!force)
-            if (extraIncome.cost[extraIncome.currentLevel] > SaveManager.instance.GetMoney())
-                return;
-
-        SaveManager.instance.LossMoney(extraIncome.cost[extraIncome.currentLevel]);
-        extraIncome.currentLevel++;
-
-        ES3.Save<IdleUpgrade>("income", extraIncome);
-
-        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - Income", true, true);
-
-
-        //         MondayOFF.EventTracker.LogCustomEvent(
-        //         "IDLE",
-        //         new Dictionary<string, string> { { "IDLE_TYPE", "Income" } }
-        // );
-    }
-
-    public void Upgrade_PlayerSpeedUp(bool force = false)
-    {
-        if (!force)
-            if (playerSpeedUp.cost[playerSpeedUp.currentLevel] > SaveManager.instance.GetMoney())
-                return;
-
-        SaveManager.instance.LossMoney(playerSpeedUp.cost[playerSpeedUp.currentLevel]);
-        playerSpeedUp.currentLevel++;
-
-        ES3.Save<IdleUpgrade>("playerSpeed", playerSpeedUp);
-
-        playerMovement.SetPlayerMoveSpeed(GetCurrentPlayerSpeed());
-
-        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - PlayerSpeedUp", true, true);
-
-        //         MondayOFF.EventTracker.LogCustomEvent(
-        //         "IDLE",
-        //         new Dictionary<string, string> { { "IDLE_TYPE", "PlayerSpeedUp" } }
-        // );
-    }
-
-    public void Upgrade_PlayerCapacityUp(bool force = false)
-    {
-        if (!force)
-            if (playerCapacity.cost[playerCapacity.currentLevel] > SaveManager.instance.GetMoney())
-                return;
-
-        SaveManager.instance.LossMoney(playerCapacity.cost[playerCapacity.currentLevel]);
-        playerCapacity.currentLevel++;
-
-        ES3.Save<IdleUpgrade>("playerCapacity", playerCapacity);
-
-        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - PlayerCapacityUp", true, true);
-    }
-
-    public void Upgrade_WorkerCapacityUp(bool force = false)
-    {
-        if (!force)
-            if (workerCapacity.cost[workerCapacity.currentLevel] > SaveManager.instance.GetMoney())
-                return;
-
-        SaveManager.instance.LossMoney(workerCapacity.cost[workerCapacity.currentLevel]);
-        workerCapacity.currentLevel++;
-
-        ES3.Save<IdleUpgrade>("workerCapacity", workerCapacity);
-
-        EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Upgrade - WorkerCapacityUp", true, true);
-    }
-
+    
     public void SetCustomerSpawnSpeed(float speed)
     {
         spawnCustomerTask.SetIntervalTime(speed);
@@ -666,7 +530,7 @@ public class IdleManager : MonoBehaviour
         {
             var worker = Instantiate(Resources.Load<GameObject>("Worker"), currentMap.workerSpawnPoint.position, Quaternion.identity).GetComponentInChildren<IdleWorker>();
 
-            worker.ChangeMoveSpeed(workerSpeed[workerSpeedUp.currentLevel]);
+            worker.ChangeMoveSpeed(workerSpeed[GetUpgrade(IdleUpgradeType.WorkerSpeedUp).currentLevel]);
             // workers.Add(worker);
         }
     }
@@ -689,7 +553,7 @@ public class IdleManager : MonoBehaviour
 
     public int GetCurrentUpgradeCost(IdleUpgradeType type)
     {
-        var upgrade = GetUpgradeValue(type);
+        var upgrade = GetUpgrade(type);
 
         if (upgrade != null)
         {
@@ -705,7 +569,7 @@ public class IdleManager : MonoBehaviour
 
     public int GetUpgradeCost(IdleUpgradeType type)
     {
-        var upgrade = GetUpgradeValue(type);
+        var upgrade = GetUpgrade(type);
 
         if (upgrade != null)
         {
@@ -719,7 +583,7 @@ public class IdleManager : MonoBehaviour
 
     }
 
-    public IdleUpgrade GetUpgradeValue(IdleUpgradeType type)
+    public IdleUpgrade GetUpgrade(IdleUpgradeType type)
     {
         foreach (var upgrade in upgrades)
         {
@@ -964,7 +828,7 @@ public class IdleManager : MonoBehaviour
         worker.transform.parent = null;
         worker.transform.localScale = Vector3.one * 1.8f;
 
-        worker.GetComponentInChildren<IdleWorker2>().ChangeMoveSpeed(workerSpeed[workerSpeedUp.currentLevel]);
+        worker.GetComponentInChildren<IdleWorker2>().ChangeMoveSpeed(workerSpeed[GetUpgrade(IdleUpgradeType.WorkerSpeedUp).currentLevel]);
 
         workers.Add(worker.GetComponentInChildren<IdleWorker2>());
 
