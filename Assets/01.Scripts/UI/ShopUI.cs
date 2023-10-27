@@ -13,10 +13,19 @@ public class ShopUI : MonoBehaviour
     [FoldoutGroup("TimeLimit")][SerializeField] GameObject royalCandyRVGainText;
     [FoldoutGroup("TimeLimit")][SerializeField] GameObject royalCandyRVTimeLimitObject;
     [FoldoutGroup("TimeLimit")][SerializeField] UnityEngine.UI.Text royalCandyRVRemainTimeText;
+    [FoldoutGroup("TimeLimit")][SerializeField] Transform royalCandyAttractorStart;
+    [FoldoutGroup("TimeLimit")][SerializeField] Transform royalCandyAttractorEnd;
+    [FoldoutGroup("TimeLimit")][SerializeField] Material royalCandyAttractorMat;
+
+
 
     [FoldoutGroup("TimeLimit")][SerializeField] GameObject moneyRVGainText;
     [FoldoutGroup("TimeLimit")][SerializeField] GameObject moneyRVTimeLimitObject;
     [FoldoutGroup("TimeLimit")][SerializeField] UnityEngine.UI.Text moneyRVRemainTimeText;
+    [FoldoutGroup("TimeLimit")][SerializeField] Transform moneyRVAttractorStart;
+    [FoldoutGroup("TimeLimit")][SerializeField] Transform moneyRVAttractorEnd;
+    [FoldoutGroup("TimeLimit")][SerializeField] Material moneyRVAttractorMat;
+
 
 
 
@@ -95,6 +104,9 @@ public class ShopUI : MonoBehaviour
                         SaveManager.instance.dailyFreeRoyalCandyTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                         SaveManager.instance.AddRoyalCandy(25);
                         EventManager.instance.CustomEvent(AnalyticsType.RV, "TimeLimit RoyalCandy 25", true, true);
+
+                        Util.GenerateParticleAttractor(transform, royalCandyAttractorEnd, royalCandyAttractorStart.GetComponent<RectTransform>().anchoredPosition
+                        ,royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
 
                         ES3.Save<string>("dailyFreeRoyalCandyTime", SaveManager.instance.dailyFreeRoyalCandyTime);
                     });

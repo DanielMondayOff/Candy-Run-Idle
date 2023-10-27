@@ -5681,6 +5681,7 @@ GameObject:
   - component: {fileID: 1263691974586296401}
   - component: {fileID: 1263691974586296407}
   - component: {fileID: 1263691974586296430}
+  - component: {fileID: 7017608344901794640}
   m_Layer: 5
   m_Name: UIAttractor
   m_TagString: Untagged
@@ -10517,3 +10518,16 @@ MonoBehaviour:
   ui_ParticleAttractor: {fileID: 1263691974548790121}
   particle: {fileID: 1263691973932923345}
   attractorTarget: {fileID: 1263691974548790120}
+  startPoint: {fileID: 0}
+--- !u!114 &7017608344901794640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1263691974586296403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2e5580886343041a5e74b1712b0682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

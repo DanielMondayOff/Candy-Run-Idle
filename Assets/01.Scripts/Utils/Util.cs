@@ -170,4 +170,15 @@ public class Util
 
         return list;
     }
+
+    public static void GenerateParticleAttractor(Transform parent, Transform end, Vector2 startPos, Material mat, int cycle, ParticleSystem.Burst burst, UnityEngine.Events.UnityAction onAttract = null, System.Action onComplete = null)
+    {
+        var attract = Managers.Pool.Pop(Resources.Load<GameObject>("Particles/UIAttractor_RoyalCandy"), parent);
+
+        attract.GetComponentInChildren<UIAttractorCustom>().Init(target: end, startPos: startPos, onAttract: onAttract, OnCompleteParticle: onComplete);
+        attract.GetComponentInChildren<UIAttractorCustom>().InitParticle(mat, cycle, burst);
+        attract.GetComponentInChildren<ParticleSystem>().Play();
+
+        SaveManager.instance.TaskDelay(10, () => {Managers.Pool.Push(attract.GetComponent<Poolable>());});
+    }
 }

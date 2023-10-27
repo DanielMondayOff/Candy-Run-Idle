@@ -73,16 +73,18 @@ public class IdleManager : MonoBehaviour
     // [FoldoutGroup("업그레이드")] public IdleUpgrade[] upgrades;
 
     public readonly float[] workerSpeed = { 6, 6.5f, 7f, 7.5f, 8f, 8.5f, 9f, 10f, 10.5f, 11f, 11.5f };
-    public readonly float[] customerSpawnSpeed = { 3f, 2.75f, 2.5f, 2.25f, 2f, 1.75f, 1.5f, 1f, 1f, 1f, 1f };
-    public readonly float[] maxCustomerCount = { 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20 };
+    public readonly float[] customerSpawnSpeed = { 4f, 3.75f, 3.5f, 3.25f, 3f, 2.75f, 2.5f, 2.25f, 2f, 1.75f, 1.5f };
+    public readonly float[] maxCustomerCount = { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
     public readonly float[] extraIncomePercent = { 1f, 1.1f, 1.2f, 1.3f, 1.4f, 1.5f, 1.6f, 1.7f, 1.8f, 1.9f, 2f };
-    public readonly float[] playerSpeed = { 13, 13.5f, 14f, 14.5f, 15f, 15.5f, 16f, 16.5f, 17f, 17.5f, 18f };
+    public readonly float[] playerSpeed = { 14, 14.25f, 14.5f, 14.75f, 15f, 15.25f, 15.5f, 15.75f, 16f, 16.25f, 16.5f };
     public readonly float[] playerCapacityValue = { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
     public readonly float[] workerCapacityValue = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
 
     public float currentSkinMoveSpeedBonus;
     public int currentSkinMaxStackBonus;
     public float currentSkinCuttingSpeedBonus;
+
+    public int maxCustomerCountBonus_Machine = 0;
 
     public float GetCurrentPlayerSpeed() => playerSpeed[GetUpgrade(IdleUpgradeType.PlayerSpeedUp).currentLevel] + (currentSkinMoveSpeedBonus * 100f);
     public int GetCurrentPlayerMaxStack() => (int)playerCapacityValue[GetUpgrade(IdleUpgradeType.PlayerCapacityUp).currentLevel] + (currentSkinMaxStackBonus);
@@ -340,7 +342,7 @@ public class IdleManager : MonoBehaviour
     {
         print("customer Spawn : " + maxCustomerCount[GetUpgrade(IdleUpgradeType.Promotion).currentLevel] + " / " + spawnCustomerTask.GetIntervalTime());
 
-        if (/*SaveManager.instance.candyInventory.Count <= 0 || */ !playIdle || maxCustomerCount[GetUpgrade(IdleUpgradeType.Promotion).currentLevel] <= customers.Count || candyMachines.Where((n => n.isReady)).Count() == 0)
+        if (/*SaveManager.instance.candyInventory.Count <= 0 || */ !playIdle || maxCustomerCount[GetUpgrade(IdleUpgradeType.Promotion).currentLevel] + maxCustomerCountBonus_Machine <= customers.Count || candyMachines.Where((n => n.isReady)).Count() == 0)
             return;
 
         var spawnPoint = currentMap.GetRandomSpawnPoint();
@@ -518,7 +520,7 @@ public class IdleManager : MonoBehaviour
                 break;
         }
     }
-    
+
     public void SetCustomerSpawnSpeed(float speed)
     {
         spawnCustomerTask.SetIntervalTime(speed);
@@ -1050,6 +1052,8 @@ public class IdleManager : MonoBehaviour
 
         SaveManager.instance.IdlePlayerSkinID = id;
     }
+
+    public void AddMaxCustomerCount_Machine(int count) => maxCustomerCountBonus_Machine += count;
 }
 
 public enum candyBuildType

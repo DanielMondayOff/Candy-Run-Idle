@@ -9,6 +9,16 @@ public class UIAttractorCustom : MonoBehaviour
     [SerializeField] RectTransform attractorTarget;
     [SerializeField] RectTransform startPoint;
 
+    public void InitParticle(Material mat, int cycle, ParticleSystem.Burst burst)
+    {
+        var renderer = particle.GetComponent<ParticleSystemRenderer>().material = mat;
+        var emission = particle.emission;
+
+        for (int i = 0; i <= cycle; i++)
+        {
+            emission.SetBurst(i, burst);
+        }
+    }
 
     public void Init(Transform target, CandyItem item, UnityEngine.Events.UnityAction onAttract = null, System.Action OnCompleteParticle = null, Transform _startPoint = null)
     {
