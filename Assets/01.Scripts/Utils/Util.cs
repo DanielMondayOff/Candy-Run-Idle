@@ -171,14 +171,14 @@ public class Util
         return list;
     }
 
-    public static void GenerateParticleAttractor(Transform parent, Transform end, Vector2 startPos, Material mat, int cycle, ParticleSystem.Burst burst, UnityEngine.Events.UnityAction onAttract = null, System.Action onComplete = null)
+    public static void GenerateParticleAttractor(Transform parent, Transform end, Transform startPos, Material mat, int cycle, ParticleSystem.Burst burst, UnityEngine.Events.UnityAction onAttract = null, System.Action onComplete = null)
     {
-        var attract = Managers.Pool.Pop(Resources.Load<GameObject>("Particles/UIAttractor_RoyalCandy"), parent);
+        var attract = Managers.Pool.Pop(Resources.Load<GameObject>("Particles/UIAttractor_RoyalCandy"), parent).GetComponentInChildren<UIAttractorCustom>();
 
-        attract.GetComponentInChildren<UIAttractorCustom>().Init(target: end, startPos: startPos, onAttract: onAttract, OnCompleteParticle: onComplete);
-        attract.GetComponentInChildren<UIAttractorCustom>().InitParticle(mat, cycle, burst);
-        attract.GetComponentInChildren<ParticleSystem>().Play();
+        attract.Init2(end: end, start: startPos, onAttract: onAttract, OnCompleteParticle: onComplete);
+        attract.InitParticle(mat, cycle, burst);
+        // attract.GetComponentInChildren<ParticleSystem>().Play();
 
-        SaveManager.instance.TaskDelay(10, () => {Managers.Pool.Push(attract.GetComponent<Poolable>());});
+        SaveManager.instance.TaskDelay(5, () => {startPos.SetParent(attract.transform); end.SetParent(attract.transform); Managers.Pool.Push(attract.GetComponent<Poolable>());});
     }
 }

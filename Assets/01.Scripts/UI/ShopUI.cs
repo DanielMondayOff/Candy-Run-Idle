@@ -105,8 +105,8 @@ public class ShopUI : MonoBehaviour
                         SaveManager.instance.AddRoyalCandy(25);
                         EventManager.instance.CustomEvent(AnalyticsType.RV, "TimeLimit RoyalCandy 25", true, true);
 
-                        Util.GenerateParticleAttractor(transform, royalCandyAttractorEnd, royalCandyAttractorStart.GetComponent<RectTransform>().anchoredPosition
-                        ,royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
+                        Util.GenerateParticleAttractor(IdleManager.instance.particleUI, royalCandyAttractorEnd, royalCandyAttractorStart
+                        , royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
 
                         ES3.Save<string>("dailyFreeRoyalCandyTime", SaveManager.instance.dailyFreeRoyalCandyTime);
                     });

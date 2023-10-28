@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 using MoreMountains.NiceVibrations;
 using System.Linq;
 using Unity.Services.RemoteConfig;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class RunManager : MonoBehaviour
 {
@@ -272,6 +274,9 @@ public class RunManager : MonoBehaviour
         {
             ChangeCutterSkin(0);
         }
+
+        var cameraData = Camera.main.GetUniversalAdditionalCameraData();
+        cameraData.cameraStack.Add(IdleManager.instance.uiCamera);
     }
 
     private void OnEnable()
@@ -921,9 +926,9 @@ public class RunManager : MonoBehaviour
         {
             case RunGameType.CPI3:
             case RunGameType.Default:
-            
+
                 MMVibrationManager.Haptic(HapticTypes.MediumImpact);
-                
+
                 if (GetCurrentCandyLength() < 100f)
                 {
                     candyList.ForEach((n) =>

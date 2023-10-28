@@ -47,6 +47,10 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("참조")] public ShopUI shopUI;
     [FoldoutGroup("참조")] public UIBase skinUIButton;
     [FoldoutGroup("참조")] public UIBase shopUIButton;
+    [FoldoutGroup("참조")] public Camera uiCamera;
+    [FoldoutGroup("참조")] public Transform particleUI;
+
+
 
 
     public CanvasGroup[] idleUIs;

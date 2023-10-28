@@ -109,4 +109,24 @@ public class UIAttractorCustom : MonoBehaviour
                 OnCompleteParticle.Invoke(); Destroy(gameObject);
             }, () => (!particle.IsAlive()));
     }
+    public void Init2(Transform end, Transform start, UnityEngine.Events.UnityAction onAttract = null, System.Action OnCompleteParticle = null)
+    {
+        startPoint.transform.SetParent(start);
+        startPoint.anchoredPosition3D = Vector3.zero;
+        startPoint.transform.localScale = Vector3.one * 100;
+
+        attractorTarget.SetParent(end);
+        attractorTarget.anchoredPosition3D = Vector2.zero;
+
+        if (onAttract != null)
+            ui_ParticleAttractor.m_OnAttracted.AddListener(onAttract);
+
+        particle.Play();
+
+        if (OnCompleteParticle != null)
+            RunManager.instance.TaskWaitUntil(() =>
+            {
+                OnCompleteParticle.Invoke(); Destroy(gameObject);
+            }, () => (!particle.IsAlive()));
+    }
 }
