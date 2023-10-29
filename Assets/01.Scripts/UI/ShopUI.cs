@@ -105,7 +105,7 @@ public class ShopUI : MonoBehaviour
                         SaveManager.instance.AddRoyalCandy(25);
                         EventManager.instance.CustomEvent(AnalyticsType.RV, "TimeLimit RoyalCandy 25", true, true);
 
-                        Util.GenerateParticleAttractor(IdleManager.instance.particleUI, royalCandyAttractorEnd, royalCandyAttractorStart
+                        Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd, royalCandyAttractorStart
                         , royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
 
                         ES3.Save<string>("dailyFreeRoyalCandyTime", SaveManager.instance.dailyFreeRoyalCandyTime);
@@ -125,6 +125,9 @@ public class ShopUI : MonoBehaviour
                         SaveManager.instance.dailyFreeMoneyTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
                         SaveManager.instance.GetMoney(300);
                         EventManager.instance.CustomEvent(AnalyticsType.RV, "TimeLimit Money 300", true, true);
+
+                        Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, moneyRVAttractorEnd, moneyRVAttractorStart
+                        , moneyRVAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
 
                         ES3.Save<string>("dailyFreeMoneyTime", SaveManager.instance.dailyFreeMoneyTime);
                     });

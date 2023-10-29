@@ -201,7 +201,7 @@ MonoBehaviour:
   m_ParticleSystem: {fileID: 2873120706088730962}
   m_DestinationRadius: 0.1
   m_DelayRate: 0.15
-  m_MaxSpeed: 5
+  m_MaxSpeed: 10
   m_Movement: 1
   m_OnAttracted:
     m_PersistentCalls:
@@ -335,7 +335,7 @@ ParticleSystem:
   m_GameObject: {fileID: 2873120706088730963}
   serializedVersion: 8
   lengthInSec: 2
-  simulationSpeed: 1
+  simulationSpeed: 0.7
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0

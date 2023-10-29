@@ -6,8 +6,8 @@ public class UIAttractorCustom : MonoBehaviour
 {
     [SerializeField] Coffee.UIExtensions.UIParticleAttractor ui_ParticleAttractor;
     [SerializeField] ParticleSystem particle;
-    [SerializeField] RectTransform attractorTarget;
-    [SerializeField] RectTransform startPoint;
+    [SerializeField]public RectTransform attractorTarget;
+    [SerializeField]public RectTransform startPoint;
 
     public void InitParticle(Material mat, int cycle, ParticleSystem.Burst burst)
     {

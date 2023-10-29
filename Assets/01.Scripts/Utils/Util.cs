@@ -179,6 +179,6 @@ public class Util
         attract.InitParticle(mat, cycle, burst);
         // attract.GetComponentInChildren<ParticleSystem>().Play();
 
-        SaveManager.instance.TaskDelay(5, () => {startPos.SetParent(attract.transform); end.SetParent(attract.transform); Managers.Pool.Push(attract.GetComponent<Poolable>());});
+        SaveManager.instance.TaskDelay(5, () => {attract.attractorTarget.SetParent(attract.transform); attract.startPoint.SetParent(attract.transform); Managers.Pool.Push(attract.GetComponent<Poolable>());});
     }
 }
