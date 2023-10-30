@@ -703,7 +703,7 @@ public class CandyUnlockStatus
 
         percent += p;
 
-        if (percent > goalPercent)
+        if (percent >= goalPercent)
         {
             Unlock();
 

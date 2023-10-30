@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class IdleUpgradeSlot : MonoBehaviour
 {
-    [SerializeField] IdleUpgradeType upgrade;
+    [SerializeField] public IdleUpgradeType upgrade;
 
     [SerializeField] Image btnImage;
     [SerializeField] Text cost;

@@ -14,6 +14,8 @@ public class RunManager : MonoBehaviour
 {
     public static RunManager instance;
 
+    public static int ForceIdleStage = 3;
+
     [TitleGroup("setting Value")] public static float DefaultBulletFireRate = 0.5f;
     [TitleGroup("setting Value")] public float plusFireRate = 0f;
     [TitleGroup("setting Value")] public float addFireRateValue = 1f;
@@ -204,7 +206,7 @@ public class RunManager : MonoBehaviour
             if (ES3.Load<bool>("enableShop"))
                 goToShopBtn.SetActive(true);
 
-        if (StageManager.instance.currentStageNum >= 4)
+        if (StageManager.instance.currentStageNum >= ForceIdleStage)
         {
             startCard.GenearteCards();
         }
@@ -1016,7 +1018,7 @@ public class RunManager : MonoBehaviour
         if (StageManager.instance.currentStageNum == 3)
             CustomReviewManager.instance.StoreReview();
 
-        this.TaskDelay(2.5f, () =>
+        this.TaskDelay(1.8f, () =>
         {
             // if (StageManager.instance.currentStageNum == 4 && forceIdle)
             // {
@@ -1070,7 +1072,7 @@ public class RunManager : MonoBehaviour
 
         bool success = false;
 
-        if (StageManager.instance.currentStageNum > 4 && (RemoteConfigService.Instance.appConfig.GetBool("ForceIdle") ? ES3.KeyExists("NextStageEnable") : true))
+        if (StageManager.instance.currentStageNum > ForceIdleStage && (RemoteConfigService.Instance.appConfig.GetBool("ForceIdle") ? ES3.KeyExists("NextStageEnable") : true))
             success = MondayOFF.AdsManager.ShowInterstitial();
 
         if (success)
@@ -1168,6 +1170,7 @@ public class RunManager : MonoBehaviour
 
     public void ChangeToIdleGame()
     {
+
         runEndUI.SetActive(false);
         runGameUI.SetActive(false);
         particleUI.SetActive(false);

@@ -49,6 +49,8 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("참조")] public UIBase shopUIButton;
     [FoldoutGroup("참조")] public Camera uiCamera;
     [FoldoutGroup("참조")] public Transform particleUI;
+    [FoldoutGroup("참조")] public Transform firstCollector;
+    [FoldoutGroup("참조")] public MoneyDrops bonusMoneyDrops;
 
 
 
@@ -273,6 +275,16 @@ public class IdleManager : MonoBehaviour
         idleCamera.gameObject.SetActive(true);
         joyStickCanvas.SetActive(true);
 
+        if (!ES3.KeyExists("FirstIdleEnter"))
+        {
+            ES3.Save<bool>("FirstIdleEnter", true);
+            idlePlayer.ActiveNaviArrow(firstCollector);
+
+            if (SaveManager.instance.GetCurrentMoney < 125)
+            {
+                bonusMoneyDrops.AddMoney(125 - SaveManager.instance.GetCurrentMoney);
+            }
+        }
 
         if (ES3.KeyExists("NextStageEnable"))
             nextStageBtn.SetActive(ES3.Load<bool>("NextStageEnable"));
@@ -748,6 +760,9 @@ public class IdleManager : MonoBehaviour
 
         upgradeBtn.SetActive(false);
         nextStageBtn.SetActive(false);
+
+        Debug.LogError(1513523);
+
 
         nextStageHighlight.SetActive(false);
 

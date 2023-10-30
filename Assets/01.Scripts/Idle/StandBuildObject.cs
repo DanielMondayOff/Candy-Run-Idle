@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 
 public class StandBuildObject : BuildObject
 {
@@ -51,7 +52,7 @@ public class StandBuildObject : BuildObject
         inventoryUI.Init(targetItemId, standPoints.Where((n) => n.itemObject != null).Count());
         OnChangeInventory(false);
 
-        if (meshRenderer != null)
+        // if (meshRenderer != null)
             meshRenderer.material.mainTextureOffset = materialOffset;
     }
 

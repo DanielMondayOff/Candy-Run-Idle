@@ -100,7 +100,7 @@ public class StageManager : MonoBehaviour
 
         ES3.Save<int>("CurrentStageNum", currentStageNum);
 
-        if (currentStageNum == 4)
+        if (currentStageNum == RunManager.ForceIdleStage)
             ES3.Save("enableShop", true);
 
         MondayOFF.EventTracker.ClearStage(currentStageNum);

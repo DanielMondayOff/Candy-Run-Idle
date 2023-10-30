@@ -42,7 +42,7 @@ public class CandyMachine : BuildObject
     public SkinnedMeshRenderer insideCandyMesh;
 
     [SerializeField] float candyCraftRepeatTime = 1f;
-    [SerializeField] int candyCreaftMaxCount = 10;
+    [SerializeField] int candyCreaftMaxCount = 5;
     [SerializeField] Text maxText;
 
 
@@ -65,8 +65,8 @@ public class CandyMachine : BuildObject
         // candyImage.sprite = SaveManager.instance.FindCandyObjectInReousrce(candyItem.id).icon;
         // test_candyCount.text = "X " + (candyItem.count);
 
-        this.TaskWhile(1.5f, 0, CheckDistBetweenCustomer);
-        this.TaskWhile(2, 0, CandyCraft);
+        this.TaskWhile(1f, 0, CheckDistBetweenCustomer);
+        this.TaskWhile(2.5f, 0, CandyCraft);
 
         UpdateCandyDisplay();
     }
@@ -332,5 +332,7 @@ public class CandyMachine : BuildObject
         SaveManager.instance.AddCandy(list);
 
         OnChangeInventory(true);
+
+        // transform.DOPunchScale(Vector3.one * 0.1f, 0.20f);
     }
 }

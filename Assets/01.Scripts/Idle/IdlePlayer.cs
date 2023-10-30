@@ -60,7 +60,7 @@ public class IdlePlayer : MonoBehaviour
             playerArrow.transform.LookAt(arrowTarget.transform.position + (Vector3.up * 5));
             // playerArrow.transform.rotation = offset;
 
-            if (Vector3.Distance(transform.position, arrowTarget.transform.position) < 8f)
+            if (Vector3.Distance(transform.position, arrowTarget.transform.position) < 10f)
             {
                 playerArrow.transform.DOScale(Vector3.zero, 0.5f);
                 arrowTarget = null;

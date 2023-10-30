@@ -54,7 +54,7 @@ public class IdleCustomer : SerializedMonoBehaviour
 
         RandomSkin();
 
-        requestItemCount = Random.Range(1, 4);
+        requestItemCount = Random.Range(1, 6);
 
         itemId = id;
 

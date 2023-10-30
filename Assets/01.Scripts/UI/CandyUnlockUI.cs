@@ -55,12 +55,12 @@ public class CandyUnlockUI : MonoBehaviour
                 RunManager.instance.unlockedImage.sprite = resource.icon;
                 RunManager.instance.NewCandyUnlockedUI.SetActive(true);
 
-                if (StageManager.instance.currentStageNum == 4 && RunManager.forceIdle)
+                if (StageManager.instance.currentStageNum == RunManager.ForceIdleStage && RunManager.forceIdle)
                 {
                     RunManager.instance.NewCandyUnlockedUI_SellCandyBtn.SetActive(true);
                 }
             }
-            else if (StageManager.instance.currentStageNum == 4 && RunManager.forceIdle)
+            else if (StageManager.instance.currentStageNum == RunManager.ForceIdleStage && RunManager.forceIdle)
             {
                 RunManager.instance.sellCandyBtn.SetActive(true);
             }
