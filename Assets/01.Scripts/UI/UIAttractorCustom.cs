@@ -103,11 +103,11 @@ public class UIAttractorCustom : MonoBehaviour
 
         particle.Play();
 
-        if (OnCompleteParticle != null)
-            RunManager.instance.TaskWaitUntil(() =>
-            {
-                OnCompleteParticle.Invoke(); Destroy(gameObject);
-            }, () => (!particle.IsAlive()));
+        // if (OnCompleteParticle != null)
+        //     RunManager.instance.TaskWaitUntil(() =>
+        //     {
+        //         OnCompleteParticle.Invoke(); Destroy(gameObject);
+        //     }, () => (!particle.IsAlive()));
     }
     public void Init2(Transform end, Transform start, UnityEngine.Events.UnityAction onAttract = null, System.Action OnCompleteParticle = null)
     {

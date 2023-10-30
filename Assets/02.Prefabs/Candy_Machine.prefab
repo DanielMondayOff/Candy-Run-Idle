@@ -718,12 +718,9 @@ MonoBehaviour:
       Entry: 6
       Data: 
   guid: 67cee262-f4df-4ed5-ac4f-c9b571c52575
-  savedata:
-    guid: 67cee262-f4df-4ed5-ac4f-c9b571c52575
-    complete: 0
-    currentMoneyStack: 0
   collector: {fileID: 0}
   buildSize: {x: 1.5, y: 1.5, z: 1.5}
+  SpawnParticle: 0
   candyItem:
     id: 1
     count: 0
@@ -740,6 +737,10 @@ MonoBehaviour:
   isReady: 0
   Debug_distToCustomer: 0
   itemObjectGeneratePoint: {fileID: 8825783649597771810}
+  insideCandyMesh: {fileID: 0}
+  candyCraftRepeatTime: 1
+  candyCreaftMaxCount: 10
+  maxText: {fileID: 0}
 --- !u!65 &6411771165685995173
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -818,6 +819,11 @@ PrefabInstance:
     - target: {fileID: 3357327084959029144, guid: 71a646e4c7d4045149ed9ec85dc5f909,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3452959502626074986, guid: 71a646e4c7d4045149ed9ec85dc5f909,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7097458227670134996, guid: 71a646e4c7d4045149ed9ec85dc5f909,
@@ -985,7 +991,7 @@ PrefabInstance:
     - target: {fileID: 3452959502626074986, guid: 71a646e4c7d4045149ed9ec85dc5f909,
         type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9095605934323236486, guid: 71a646e4c7d4045149ed9ec85dc5f909,
         type: 3}

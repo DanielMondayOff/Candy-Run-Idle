@@ -49,7 +49,7 @@ public class CandyHead : MonoBehaviour
         }
     }
 
-    public void CutCandy(List<GameObject> list, float length = 100f, bool torque = true)
+    public Transform CutCandy(List<GameObject> list, float length = 100f, bool torque = true)
     {
         var candy = Instantiate(cutCandyPrefab, cutCandyPos.position, Quaternion.identity);
 
@@ -64,6 +64,8 @@ public class CandyHead : MonoBehaviour
             candy.GetComponentInChildren<Rigidbody>().AddTorque(Random.insideUnitSphere * Random.Range(3f, 10f), ForceMode.Impulse);
 
         list.Add(candy);
+
+        return candy.transform;
 
         //new Vector3(Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f), Random.Range(-0.1f, 0.1f)
     }

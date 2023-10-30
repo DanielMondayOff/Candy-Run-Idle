@@ -169,6 +169,8 @@ public class SaveManager : MonoBehaviour
         if (!ES3.KeyExists("enableRoyalCandyText"))
         {
             ES3.Save<bool>("enableRoyalCandyText", true);
+
+            Util.RemoveMissingReferences<Text>(royalCandyTextList);
             royalCandyTextList.ForEach((n) => n.GetComponent<RoyalCandyText>().ChangeVisible(true));
         }
 
@@ -186,6 +188,7 @@ public class SaveManager : MonoBehaviour
 
     public void OnChangeRoyalCandy()
     {
+        Util.RemoveMissingReferences<Text>(royalCandyTextList);
         royalCandyTextList.ForEach((n) => n.text = royalCandy.ToString());
 
         onRoyalCandyChangeEvent.Invoke();
@@ -301,6 +304,9 @@ public class SaveManager : MonoBehaviour
 
     public void AddRoyalCandyText(Text text)
     {
+        if (royalCandyTextList.Contains(text))
+            return;
+
         royalCandyTextList.Add(text);
 
         OnChangeRoyalCandy();
@@ -308,6 +314,7 @@ public class SaveManager : MonoBehaviour
 
     public void AddRVTicketText(Text text)
     {
+        Util.RemoveMissingReferences<Text>(rvTicketTextList);
         rvTicketTextList.Add(text);
 
         OnChangeRvTicket();
@@ -416,6 +423,7 @@ public class SaveManager : MonoBehaviour
         if (!ES3.KeyExists("enableRVTickText"))
         {
             ES3.Save<bool>("enableRVTickText", true);
+            Util.RemoveMissingReferences<Text>(rvTicketTextList);
             rvTicketTextList.ForEach((n) => n.GetComponent<RVTicketText>().ChangeVisible(true));
         }
 
@@ -427,6 +435,8 @@ public class SaveManager : MonoBehaviour
         RVTicket -= count;
 
         ES3.Save("RVTicket", RVTicket);
+
+        Util.RemoveMissingReferences<Text>(rvTicketTextList);
 
         rvTicketTextList.ForEach((n) => n.text = RVTicket.ToString());
     }

@@ -12,6 +12,7 @@ public class CandyObject : ScriptableObject
     [SerializeField] public Material particleMat;
     [SerializeField] public int cost;
     [SerializeField] public float unlockPoint;
+    [SerializeField] public float moneyForCut;
 
 
     [SerializeField] public CandyObject nextCandy;

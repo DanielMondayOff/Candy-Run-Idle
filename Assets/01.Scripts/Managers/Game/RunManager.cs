@@ -56,6 +56,7 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public GameObject jellyGunStartUI;
     [FoldoutGroup("참조")] public GameObject swipeToStartUI;
     [FoldoutGroup("참조")] public UnityEngine.UI.Text moneyText;
+    [FoldoutGroup("참조")] public Transform moneyImagePos;
     [FoldoutGroup("참조")] public GameObject runGameUI;
     [FoldoutGroup("참조")] public GameObject particleUI;
     [FoldoutGroup("참조")] public GameObject goToShopBtn;
@@ -91,6 +92,7 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public Transform royalCandyTargetTrans;
     [FoldoutGroup("참조")] public CutterSkin[] cutterskins;
 
+    [FoldoutGroup("참조")] public UnityEngine.UI.Text EndCardMoneyText;
 
 
     [FoldoutGroup("CPI1")] public UnityEngine.UI.Text candyStackText;
@@ -163,6 +165,8 @@ public class RunManager : MonoBehaviour
     public void SetForceIdle(bool force) => forceIdle = force;
 
     public bool fireBulletEnable = true;
+
+    float moneyStack = 0;
 
 
     [SerializeField] private CutterSkin currentCutter;
@@ -713,74 +717,8 @@ public class RunManager : MonoBehaviour
 
                     }
                 }
-                // int triangleBaseWidth = Mathf.FloorToInt(Mathf.Sqrt(2 * count)); // 정삼각형의 밑변 길이 계산
-                // int pyramidHeight = triangleBaseWidth / 2 + 1; // 피라미드의 높이 계산
-
-                // int objectCountInCurrentRow = 1; // 각 층의 오브젝트 개수 초기화
-
-                // int cot = 0;
-
-                // for (int y = 0; y < pyramidHeight; y++)
-                // {
-                //     for (int x = 0; x < objectCountInCurrentRow; x++)
-                //     {
-                //         if (y * objectCountInCurrentRow + x >= count)
-                //         {
-                //             break; // 주어진 개수만큼만 생성
-                //         }
-
-                //         // 오브젝트의 위치 계산
-                //         float xPos = x * objectWidth - (objectCountInCurrentRow - 1) * 0.5f * objectWidth;
-                //         float yPos = -y * objectHeight;
-
-                //         // 오브젝트 생성 및 위치 설정
-                //         candyList[cot].transform.localPosition = new Vector3(xPos, yPos, 0);
-
-                //         cot++;
-                //     }
-
-                //     objectCountInCurrentRow += 2; // 다음 층에서는 오브젝트 개수를 2개 늘림
-                // }
-
 
                 break;
-
-                // case CandyArrangeType.Squre:
-
-                //     objectWidth = 1.25f;
-                //     objectHeight = 1.25f;
-
-                //     int squareSideLength = GetSqureSideLength(count);
-
-                //     int cot2 = 0;
-
-                //     startX = -spacing * (count / 2); // 시작 X 좌표 계산
-
-                //     for (int y = 0; y < squareSideLength; y++)
-                //     {
-                //         for (int x = 0; x < squareSideLength; x++)
-                //         {
-                //             if (candyList.Count < cot2)
-                //                 return;
-                //             // 오브젝트의 위치 계산
-                //             // float xPos = (x * objectWidth) - (squareSideLength - 1) * 0.5f * objectWidth;
-
-                //             float xPos;
-                //             if (x % 2 == 1)
-                //                 xPos = (startX + (x * spacing));
-                //             else
-                //                 xPos = startX + (x * spacing) + (spacing / 2f);
-
-                //             float yPos = 0.75f + (y * objectHeight);
-
-                //             // 오브젝트 생성 및 위치 설정
-                //             candyList[cot2].transform.localPosition = new Vector3(xPos, yPos, 0);
-
-                //             cot2++;
-                //         }
-                // }
-
-                //     break;
         }
     }
 
@@ -922,6 +860,8 @@ public class RunManager : MonoBehaviour
 
         touchToCutImage.SetActive(false);
 
+
+
         switch (IdleManager.instance.runGameType)
         {
             case RunGameType.CPI3:
@@ -933,30 +873,48 @@ public class RunManager : MonoBehaviour
                 {
                     candyList.ForEach((n) =>
                     {
-                        n.GetComponentInChildren<CandyHead>().CutCandy(cuttedCandys);
+                        var candyPos = n.GetComponentInChildren<CandyHead>().CutCandy(cuttedCandys);
                         tempCandyInventory.AddCandy(new CandyItem() { candy = n.GetComponentInChildren<CandyHead>().candyObject, count = 1 });
+
+                        var money = n.GetComponentInChildren<CandyHead>().candyObject.moneyForCut;
+
+                        moneyStack += money;
+
+                        GenerateUIAttract(n, candyPos, (int)money);
+
                     });
 
-                    // defaultCandyLength = 0;
                     plusCandyLength = 0;
 
                     ChangeCandysLength(false);
 
                     candyList.ForEach((n) => n.SetActive(false));
 
-                    EndCuttingCandy(tempCandyInventory);
+                    EndCuttingCandy(tempCandyInventory, (int)moneyStack);
                 }
                 else
                 {
                     currentCutter.CutAnimation();
-                    // cutterAnimator.SetTrigger("Cut");
                     cuttingReady = false;
 
-                    candyList.ForEach((n) => tempCandyInventory.AddCandy(new CandyItem() { candy = n.GetComponentInChildren<CandyHead>().candyObject, count = 1 }));
+                    candyList.ForEach((n) =>
+                    {
+                        tempCandyInventory.AddCandy(new CandyItem() { candy = n.GetComponentInChildren<CandyHead>().candyObject, count = 1 });
+                    });
 
                     this.TaskDelay(0.07f / IdleManager.instance.GetCurrentCuttingSpeed(), () =>
                     {
-                        candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().CutCandy(cuttedCandys));
+                        candyList.ForEach((n) =>
+                        {
+                            var candyPos = n.GetComponentInChildren<CandyHead>().CutCandy(cuttedCandys);
+
+                            var money = n.GetComponentInChildren<CandyHead>().candyObject.moneyForCut;
+
+                            moneyStack += money;
+
+                            GenerateUIAttract(n, candyPos, (int)money);
+                        });
+
                         runPlayer.transform.position = cuttingPoint2.position;
                         plusCandyLength -= 100f;
 
@@ -984,7 +942,7 @@ public class RunManager : MonoBehaviour
                 {
                     //Cutting End
 
-                    EndCuttingCandy(tempCandyInventory);
+                    EndCuttingCandy(tempCandyInventory, (int)moneyStack);
 
                     candyList.ForEach((n) => n.SetActive(false));
                 }
@@ -1017,7 +975,21 @@ public class RunManager : MonoBehaviour
         }
     }
 
-    public void EndCuttingCandy(TempCandyInventory temp)
+    void GenerateUIAttract(GameObject n, Transform startPos, int money)
+    {
+        var particle = Managers.Pool.Pop(Resources.Load<GameObject>("Particles/UIAttractor_Money"), RunManager.instance.runGameUI.transform).GetComponentInChildren<UIAttractorCustom>();
+
+        particle.GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero;
+        particle.transform.localScale = Vector3.one;
+
+        Vector2 anchordPos = Camera.main.WorldToViewportPoint(startPos.position);
+
+        particle.GetComponentInChildren<UIAttractorCustom>().Init(RunManager.instance.moneyImagePos, new Vector2(anchordPos.x * RunManager.instance.runGameUI.GetComponent<RectTransform>().sizeDelta.x, anchordPos.y * RunManager.instance.runGameUI.GetComponent<RectTransform>().sizeDelta.y)
+        , onAttract: () => { SaveManager.instance.GetMoney(money); }, OnCompleteParticle: () => { particle.attractorTarget.transform.SetParent(particle.transform); Managers.Pool.Push(particle.GetComponent<Poolable>()); });
+        particle.GetComponentInChildren<ParticleSystem>().Play();
+    }
+
+    public void EndCuttingCandy(TempCandyInventory temp, int money)
     {
         lastCandyInventory = temp;
 
@@ -1035,16 +1007,16 @@ public class RunManager : MonoBehaviour
 
         // temp.candyItems.ForEach((n) => EventManager.instance.CustomEvent(AnalyticsType.RUN, "GetCandyEndCutting_" + n.candy.id + "_" + n.count, true, true));
 
-        SaveManager.instance.AddCandy(temp.candyItems, false);
+        // SaveManager.instance.AddCandy(temp.candyItems, false);
 
         StageManager.instance.ClearStage();
 
-        CandyInventory.instance.CandyGetAnimation(temp.candyItems);
+        // CandyInventory.instance.CandyGetAnimation(temp.candyItems);
 
         if (StageManager.instance.currentStageNum == 3)
             CustomReviewManager.instance.StoreReview();
 
-        this.TaskDelay(3.5f, () =>
+        this.TaskDelay(2.5f, () =>
         {
             // if (StageManager.instance.currentStageNum == 4 && forceIdle)
             // {
@@ -1055,26 +1027,29 @@ public class RunManager : MonoBehaviour
             //     nextStageBtnGroup.SetActive(true);
             // }
 
-
             x2ClaimBtn.SetActive(true);
 
             runEndUI.SetActive(true);
-            candyInventoryUI.SetActive(false);
             jarAnimator.SetBool("Rotate", true);
 
+            EndCardMoneyText.text = money.ToString();
+
+            // =================== 런게임 정산 수정전 ==========================
+            candyInventoryUI.SetActive(false);
             EndCandyInventoryUI.ClearUI();
             EndCandyInventoryUI.GenerateUIfromList(temp.candyItems);
 
             foreach (var text in EndCandyInventoryUI.GetComponentsInChildren<UnityEngine.UI.Text>())
                 text.color = Color.white;
+            // ===================================================
 
             noThanksTask = this.TaskDelay(2f, () => { noThanksBtn.SetActive(true); /*ShowCandyUnlockStatus();*/ });
 
             SaveManager.instance.enableCandyInventoryUIUpdate = true;
         });
 
-        particleUI2.OnClickExpandBtn(true);
-        particleUI2.GetComponentInChildren<CandyInventory>().GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, particleUI2.GetComponentInChildren<CandyInventory>().GetComponent<RectTransform>().anchoredPosition3D.y, 0);
+        // particleUI2.OnClickExpandBtn(true);
+        // particleUI2.GetComponentInChildren<CandyInventory>().GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, particleUI2.GetComponentInChildren<CandyInventory>().GetComponent<RectTransform>().anchoredPosition3D.y, 0);
         jarBlock.SetActive(false);
         particleCanvas.worldCamera = uiCamera;
     }
@@ -1121,10 +1096,13 @@ public class RunManager : MonoBehaviour
 
             x2ClaimBtn.SetActive(false);
 
-            SaveManager.instance.AddCandy(lastCandyInventory.candyItems, false);
+            // SaveManager.instance.AddCandy(lastCandyInventory.candyItems, false);
+
+            SaveManager.instance.GetMoney((int)moneyStack);
+            EndCardMoneyText.text = (moneyStack * 2).ToString();
 
             particleUI.GetComponentInChildren<CandyInventory>(true).gameObject.SetActive(true);
-            particleUI.GetComponentInChildren<CandyInventory>(true).CandyGetAnimation(lastCandyInventory.candyItems);
+            // particleUI.GetComponentInChildren<CandyInventory>(true).CandyGetAnimation(lastCandyInventory.candyItems);
 
             EventManager.instance.CustomEvent(AnalyticsType.RV, "x2Claim", true, true);
 

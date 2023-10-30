@@ -102,7 +102,6 @@ public class DisplayStand : BuildObject
         inventoryUI.Init(itemId, items.Count);
 
         meshRenderer.material.mainTextureOffset = materialOffset;
-
     }
 
     public void Init()

@@ -140,9 +140,9 @@ public class IdleManager : MonoBehaviour
             GetUpgrade(IdleUpgradeType.Income).currentLevel = ES3.Load<IdleUpgrade>("income").currentLevel;
         }
 
-        if (ES3.KeyExists("playerSpeed"))
+        if (ES3.KeyExists("playerSpeedUp"))
         {
-            GetUpgrade(IdleUpgradeType.PlayerSpeedUp).currentLevel = ES3.Load<IdleUpgrade>("playerSpeed").currentLevel;
+            GetUpgrade(IdleUpgradeType.PlayerSpeedUp).currentLevel = ES3.Load<IdleUpgrade>("playerSpeedUp").currentLevel;
 
             playerMovement.SetPlayerMoveSpeed(GetCurrentPlayerSpeed());
         }

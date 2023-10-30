@@ -179,6 +179,17 @@ public class Util
         attract.InitParticle(mat, cycle, burst);
         // attract.GetComponentInChildren<ParticleSystem>().Play();
 
-        SaveManager.instance.TaskDelay(5, () => {attract.attractorTarget.SetParent(attract.transform); attract.startPoint.SetParent(attract.transform); Managers.Pool.Push(attract.GetComponent<Poolable>());});
+        SaveManager.instance.TaskDelay(5, () => { attract.attractorTarget.SetParent(attract.transform); attract.startPoint.SetParent(attract.transform); Managers.Pool.Push(attract.GetComponent<Poolable>()); });
+    }
+
+    public static void RemoveMissingReferences<T>(List<T> list) where T : UnityEngine.Object
+    {
+        for (int i = list.Count - 1; i >= 0; i--)
+        {
+            if (list[i] == null)
+            {
+                list.RemoveAt(i);
+            }
+        }
     }
 }

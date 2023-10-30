@@ -18,4 +18,5 @@ MonoBehaviour:
   particleMat: {fileID: 2100000, guid: fb8eafb65046046f6ae4b933c75e3b56, type: 2}
   cost: 10
   unlockPoint: 3
+  moneyForCut: 5
   nextCandy: {fileID: 0}

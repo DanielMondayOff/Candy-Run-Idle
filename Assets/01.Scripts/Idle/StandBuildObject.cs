@@ -136,7 +136,7 @@ public class StandBuildObject : BuildObject
 
     public void GiveCandyToCustomer(IdleCustomer customer)
     {
-        candyGiveDelay = this.TaskWhile(0.2f, 0, () =>
+        candyGiveDelay = this.TaskWhile(1f, 0, () =>
         {
             if (customer.requestItemCount <= customer.currentItemCount)
             {

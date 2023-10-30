@@ -114,16 +114,17 @@ public class DropedJellyBean : MonoBehaviour
                 EventManager.instance.CustomEvent(AnalyticsType.RUN, "Player Get RoyalCandy", true, true);
 
                 // var particle2 = Managers.Pool.Pop(Resources.Load<GameObject>("Particles/UIAttractor_RoyalCandy"), RunManager.instance.runGameUI.transform);
-                var particle2 = Instantiate(Resources.Load<GameObject>("Particles/UIAttractor_RoyalCandy"), RunManager.instance.runGameUI.transform);
+                var particle2 = Managers.Pool.Pop(Resources.Load<GameObject>("Particles/UIAttractor_RoyalCandy"), RunManager.instance.runGameUI.transform).GetComponent<UIAttractorCustom>();
 
-                // particle2.transform.position = Vector3.zero;
-                // particle.transform.localScale = Vector3.one;
+                particle2.transform.GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero;
+                particle2.transform.localScale = Vector3.one;
 
                 // Vector2 anchordPos = RectTransformUtility.WorldToScreenPoint(Camera.main, transform.position);
 
                 Vector2 anchordPos = Camera.main.WorldToViewportPoint(transform.position);
 
-                particle2.GetComponentInChildren<UIAttractorCustom>().Init(RunManager.instance.royalCandyTargetTrans, new Vector2(anchordPos.x * RunManager.instance.runGameUI.GetComponent<RectTransform>().sizeDelta.x, anchordPos.y * RunManager.instance.runGameUI.GetComponent<RectTransform>().sizeDelta.y));
+                particle2.GetComponentInChildren<UIAttractorCustom>().Init(RunManager.instance.royalCandyTargetTrans, new Vector2(anchordPos.x * RunManager.instance.runGameUI.GetComponent<RectTransform>().sizeDelta.x, anchordPos.y * RunManager.instance.runGameUI.GetComponent<RectTransform>().sizeDelta.y)
+                , () => { particle2.attractorTarget.transform.SetParent(particle2.transform); Managers.Pool.Push(particle2.GetComponent<Poolable>()); });
                 particle2.GetComponentInChildren<ParticleSystem>().Play();
 
                 // RunManager.instance.TaskDelay(3, () => Managers.Pool.Push(particle2.GetComponentInChildren<Poolable>()));

@@ -41,10 +41,15 @@ public class CandyMachine : BuildObject
 
     public SkinnedMeshRenderer insideCandyMesh;
 
+    [SerializeField] float candyCraftRepeatTime = 1f;
+    [SerializeField] int candyCreaftMaxCount = 10;
+    [SerializeField] Text maxText;
+
 
     public void Init()
     {
         candyItem = SaveManager.instance.FindCandyItem(candyItem.id);
+        OnChangeInventory();
 
         if (ES3.KeyExists("AB_Test"))
         {
@@ -60,7 +65,8 @@ public class CandyMachine : BuildObject
         // candyImage.sprite = SaveManager.instance.FindCandyObjectInReousrce(candyItem.id).icon;
         // test_candyCount.text = "X " + (candyItem.count);
 
-        this.TaskWhile(1, 0, CheckDistBetweenCustomer);
+        this.TaskWhile(1.5f, 0, CheckDistBetweenCustomer);
+        this.TaskWhile(2, 0, CandyCraft);
 
         UpdateCandyDisplay();
     }
@@ -184,6 +190,8 @@ public class CandyMachine : BuildObject
         if (currentCandyUI != null)
             currentCandyUI.UpdateUI(candyItem.id, candyItem.count, wiggle: wiggle);
 
+        maxText.gameObject.SetActive(candyCreaftMaxCount <= SaveManager.instance.FindCandyItem(candyItem.id).count);
+
         // if (wiggle)
         //     CandyCanvas.transform.DOPunchScale(CandyCanvas.transform.localScale * 0.3f, 0.2f, 2);
 
@@ -207,12 +215,13 @@ public class CandyMachine : BuildObject
 
     public void UpdateCandyDisplay()
     {
-        candyDeco.transform.DOMoveY(Mathf.Clamp(-6f + (candyItem.count * 0.3f), -6f, 0), 0.5f);
+        candyDeco.transform.DOLocalMoveY(Mathf.Clamp(-6f + (candyItem.count * 0.6f), -6f, 0), 0.2f);
+        // Debug.LogError(-6f + (candyItem.count * 0.6f));
 
         if (insideCandyMesh != null)
         {
-            insideCandyMesh.SetBlendShapeWeight(0, Mathf.Clamp(100f - (float)candyItem.count, 0, 100));
-            insideCandyMesh.SetBlendShapeWeight(1, Mathf.Clamp(100f - (float)candyItem.count, 0, 100));
+            insideCandyMesh.SetBlendShapeWeight(0, Mathf.Clamp(10f - (float)candyItem.count, 0, 10));
+            insideCandyMesh.SetBlendShapeWeight(1, Mathf.Clamp(10f - (float)candyItem.count, 0, 10));
         }
     }
 
@@ -311,5 +320,17 @@ public class CandyMachine : BuildObject
             onComplete.Invoke();
 
         return;
+    }
+
+    public void CandyCraft()
+    {
+        if (!IdleManager.instance.playIdle || candyCreaftMaxCount <= SaveManager.instance.FindCandyItem(candyItem.id).count)
+            return;
+
+        List<CandyItem> list = new List<CandyItem>();
+        list.Add(new CandyItem() { candy = SaveManager.instance.FindCandyObject(candyItem.id), count = 1 });
+        SaveManager.instance.AddCandy(list);
+
+        OnChangeInventory(true);
     }
 }

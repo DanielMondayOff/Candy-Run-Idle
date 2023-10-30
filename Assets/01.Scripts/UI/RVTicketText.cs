@@ -18,7 +18,7 @@ public class RVTicketText : MonoBehaviour
     }
 
     private void OnDestroy() {
-        SaveManager.instance.RemoveRVTicketText(GetComponent<UnityEngine.UI.Text>());
+        // SaveManager.instance.RemoveRVTicketText(GetComponent<UnityEngine.UI.Text>());
     }
 
     public void ChangeVisible(bool visible)
