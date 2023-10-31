@@ -31,16 +31,16 @@ public class IdleUpgradeSlot : MonoBehaviour
 
     public void OnClickUpgradeBtn_RV()
     {
-        MondayOFF.AdsManager.ShowRewarded(() =>
-        {
-            EventManager.instance.CustomEvent(AnalyticsType.RV, "Upgrade_" + upgrade, true, true);
+        AdManager.instance.ShowRewarded(() =>
+                            {
+                                EventManager.instance.CustomEvent(AnalyticsType.RV, "Upgrade_" + upgrade, true, true);
 
-            IdleManager.instance.Upgrade(upgrade);
+                                IdleManager.instance.Upgrade(upgrade);
 
-            SetUpgradeCostText();
-            SetLevelText();
-            CheckingBtn();
-        });
+                                SetUpgradeCostText();
+                                SetLevelText();
+                                CheckingBtn();
+                            }, "Upgrade_" + upgrade);
     }
 
     public void OnClickUpgradeBtn()

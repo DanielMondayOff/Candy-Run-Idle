@@ -16,6 +16,7 @@ public class Counter : MonoBehaviour
 
     [SerializeField] Vector3 selfCounterDefaultScale = new Vector3(8, 8, 8);
 
+    [SerializeField] CameraManager cameraManager;
 
     [SerializeField] bool counterReady = false;
 
@@ -47,6 +48,8 @@ public class Counter : MonoBehaviour
                 {
                     IdleManager.instance.idlePlayer.ActiveNaviArrow(selfCounter.transform);
                     ES3.Save<bool>("FirstCounter", true);
+
+                    cameraManager.SwapCameraSec(transform);
                 }
             }
 

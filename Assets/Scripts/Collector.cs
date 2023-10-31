@@ -213,7 +213,11 @@ public class Collector : MonoBehaviour
                 StopCoroutine(collectCoroutine);
                 collectCoroutine = null;
 
-                MondayOFF.AdsManager.ShowRewarded(() => { OnCompleteCollect(); EventManager.instance.CustomEvent(AnalyticsType.RV, "CollectorRV_" + guid, true, true); });
+                AdManager.instance.ShowRewarded(() =>
+                    {
+                        OnCompleteCollect();
+                        EventManager.instance.CustomEvent(AnalyticsType.RV, "CollectorRV_" + guid, true, true);
+                    }, "CollectorRV_" + guid);
             }
             else if (GetRemainMoney() <= 0)
             {

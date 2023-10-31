@@ -6,6 +6,14 @@ public class iapManager : MonoBehaviour
 {
     public static iapManager instance;
 
+    public const string iap_royalCandy150 = "candyshopmaster_royalcandy150";
+    public const string iap_royalCandy350 = "candyshopmaster_royalcandy350";
+    public const string iap_royalCandy1000 = "candyshopmaster_royalcandy1000";
+    public const string iap_rvTicket10 = "candyshopmaster_rv10";
+    public const string iap_rvTicket20 = "candyshopmaster_rv20";
+    public const string iap_rvTicket50 = "candyshopmaster_rv50";
+
+
     private void Awake()
     {
         if (instance != null)
@@ -33,8 +41,5 @@ public class iapManager : MonoBehaviour
         }
     }
 
-    public void PurchaseIap(string id)
-    {
-        MondayOFF.IAPManager.PurchaseProduct(id);
-    }
+
 }

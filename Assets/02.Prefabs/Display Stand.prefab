@@ -1460,6 +1460,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CandyInventoryUI
       objectReference: {fileID: 0}
+    - target: {fileID: 3357327084959029144, guid: 71a646e4c7d4045149ed9ec85dc5f909,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9095605934323236486, guid: 71a646e4c7d4045149ed9ec85dc5f909,
         type: 3}
       propertyPath: m_Pivot.x

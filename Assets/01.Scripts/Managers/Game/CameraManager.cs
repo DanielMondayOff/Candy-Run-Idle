@@ -12,6 +12,8 @@ public class CameraManager : SerializedMonoBehaviour
 
     [SerializeField] CinemachineVirtualCamera currentVirtualCamera;
 
+    [SerializeField] Transform[] firstFocusTrans;
+
     public static CameraManager instance;
 
     private void Awake()
@@ -47,12 +49,40 @@ public class CameraManager : SerializedMonoBehaviour
 
     }
 
-    public void SwapCameraSec(float sec, Transform target)
+    public void SwapCameraSec(Transform target)
     {
         var lastTarget = currentVirtualCamera.m_Follow;
 
         currentVirtualCamera.m_Follow = target;
 
-        this.TaskDelay(sec, () => currentVirtualCamera.m_Follow = lastTarget);
+        this.TaskDelay(2.5f, () => currentVirtualCamera.m_Follow = lastTarget);
+    }
+
+    public void FirstCameraFocus()
+    {
+
+        if (ES3.KeyExists("FirstCameraFocus"))
+            return;
+
+        ES3.Save<bool>("FirstCameraFocus", true);
+
+        var lastTarget = currentVirtualCamera.m_Follow;
+
+        currentVirtualCamera.m_Follow = firstFocusTrans[0];
+        this.TaskDelay(2.5f, () => currentVirtualCamera.m_Follow = firstFocusTrans[1]);
+        this.TaskDelay(5f, () => currentVirtualCamera.m_Follow = lastTarget);
+
+        // for (int i = 0; i < firstFocusTrans.Length; i++)
+        // {
+        //     this.TaskDelay(2.5f, () =>
+        //     {
+        //         if (i == (firstFocusTrans.Length - 1))
+        //             currentVirtualCamera.m_Follow = lastTarget;
+        //         else
+        //         {
+        //             currentVirtualCamera.m_Follow = firstFocusTrans[i];
+        //         }
+        //     });
+        // }
     }
 }

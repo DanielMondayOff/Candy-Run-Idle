@@ -66,12 +66,12 @@ public class SkinActiveUI : MonoBehaviour
 
     public void OnClickRVBtn()
     {
-        MondayOFF.AdsManager.ShowRewarded(() =>
-        {
-            SaveManager.instance.WatchedRVOnceForSkin(type, id);
-            EventManager.instance.CustomEvent(AnalyticsType.RV, "Skin_ " + type + " _ " + id, true, true);
-            UpdateUI();
-        });
+        AdManager.instance.ShowRewarded(() =>
+                    {
+                        SaveManager.instance.WatchedRVOnceForSkin(type, id);
+                        EventManager.instance.CustomEvent(AnalyticsType.RV, "Skin_ " + type + " _ " + id, true, true);
+                        UpdateUI();
+                    }, "Skin_ " + type + " _ " + id);
     }
 
     public void UpdateUI()

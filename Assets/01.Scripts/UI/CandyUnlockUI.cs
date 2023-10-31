@@ -115,18 +115,18 @@ public class CandyUnlockUI : MonoBehaviour
 
     public void RV_UnlockCandy()
     {
-        MondayOFF.AdsManager.ShowRewarded(() =>
-        {
-            var _currentStatus = SaveManager.instance.GetCandyUnlockStatuses().Where((n) => !n.unlocked).OrderBy((n) => n.id).First();
+        AdManager.instance.ShowRewarded(() =>
+                    {
+                        var _currentStatus = SaveManager.instance.GetCandyUnlockStatuses().Where((n) => !n.unlocked).OrderBy((n) => n.id).First();
 
-            _currentStatus.unlocked = true;
+                        _currentStatus.unlocked = true;
 
-            var resource = Resources.LoadAll<CandyObject>("Candy").First((n) => n.id == _currentStatus.id);
+                        var resource = Resources.LoadAll<CandyObject>("Candy").First((n) => n.id == _currentStatus.id);
 
-            RunManager.instance.unlockedImage.sprite = resource.icon;
-            RunManager.instance.NewCandyUnlockedUI.SetActive(true);
+                        RunManager.instance.unlockedImage.sprite = resource.icon;
+                        RunManager.instance.NewCandyUnlockedUI.SetActive(true);
 
-            EventManager.instance.CustomEvent(AnalyticsType.RV, "UnlockCandy_" + _currentStatus.id, true, true);
-        });
+                        EventManager.instance.CustomEvent(AnalyticsType.RV, "UnlockCandy_" + _currentStatus.id, true, true);
+                    }, "UnlockCandy_" );
     }
 }

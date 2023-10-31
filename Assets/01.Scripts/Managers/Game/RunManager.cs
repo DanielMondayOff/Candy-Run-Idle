@@ -97,6 +97,7 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public UnityEngine.UI.Text EndCardMoneyText;
 
 
+
     [FoldoutGroup("CPI1")] public UnityEngine.UI.Text candyStackText;
     [FoldoutGroup("CPI1")] public GameObject CPI1Player;
     [FoldoutGroup("CPI1")] public Queue<GameObject> candyStackQueue = new Queue<GameObject>();
@@ -283,6 +284,21 @@ public class RunManager : MonoBehaviour
 
         var cameraData = Camera.main.GetUniversalAdditionalCameraData();
         cameraData.cameraStack.Add(IdleManager.instance.uiCamera);
+
+        if (ES3.KeyExists("focusSellCandy") ? ES3.Load<bool>("focusSellCandy") : false)
+        {
+            var focus = Util.GenerateMask(runGameUI.transform, goToShopBtn.transform.position);
+
+            focus.transform.SetParent(goToShopBtn.GetComponentInChildren<UnityEngine.UI.Text>().transform);
+            focus.transform.localPosition = Vector3.zero;
+            focus.transform.SetParent(runGameUI.transform);
+
+            focus.transform.SetSiblingIndex(goToShopBtn.transform.GetSiblingIndex());
+
+            focus.StartFocus();
+
+            ES3.Save<bool>("focusSellCandy", false);
+        }
     }
 
     private void OnEnable()
@@ -420,6 +436,14 @@ public class RunManager : MonoBehaviour
             StageManager.instance.BackStage();
             SceneManager.UnloadScene("Run");
             SceneManager.LoadScene("Run", LoadSceneMode.Additive);
+        }
+        else if (Input.GetKeyDown(KeyCode.F10))
+        {
+            SaveManager.instance.RVTicketAdd(1);
+        }
+        else if (Input.GetKeyDown(KeyCode.F11))
+        {
+            SaveManager.instance.RVTicketUse(1);
         }
         // else if (Input.GetKeyDown(KeyCode.T))
         // {
@@ -1088,7 +1112,7 @@ public class RunManager : MonoBehaviour
 
     public void OnClickX2ClaimBtn()
     {
-        MondayOFF.AdsManager.ShowRewarded(() =>
+        AdManager.instance.ShowRewarded(() =>
         {
             SaveManager.instance.enableCandyInventoryUIUpdate = false;
 
@@ -1115,7 +1139,7 @@ public class RunManager : MonoBehaviour
                 ShowCandyUnlockStatus();
                 // ResetRunGame();
             });
-        });
+        }, "x2Claim");
 
         if (noThanksTask != null)
         {
@@ -1126,7 +1150,10 @@ public class RunManager : MonoBehaviour
 
     public void OnClickSellCandyBtn()
     {
-        ChangeToIdleGame();
+        // ChangeToIdleGame();
+        ES3.Save<bool>("focusSellCandy", true);
+
+        OnClickNextStage();
     }
 
     public void ResetRunGame()

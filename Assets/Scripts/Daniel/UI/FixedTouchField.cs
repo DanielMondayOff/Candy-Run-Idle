@@ -67,7 +67,9 @@ public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHan
             }
 
             joystickDist = Mathf.Clamp(joystickDist, 0, clampDist);
-            distBetweenJoystickBodyToHandle = joystickDist / clampDist;
+            // distBetweenJoystickBodyToHandle = joystickDist / clampDist;
+            distBetweenJoystickBodyToHandle = 1;
+
 
 
             //}
@@ -122,4 +124,13 @@ public class FixedTouchField : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         JoystickHandle.SetActive(false);
     }
 
+    public void ForcePointerUp()
+    {
+        Pressed = false;
+
+        joystickDir = Vector2.zero;
+
+        JoystickBody.SetActive(false);
+        JoystickHandle.SetActive(false);
+    }
 }

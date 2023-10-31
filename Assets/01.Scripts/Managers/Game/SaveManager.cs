@@ -22,6 +22,7 @@ public class SaveManager : MonoBehaviour
     private List<CandyInventory> inventorys = new List<CandyInventory>();
     [SerializeField] private List<CandyUnlockStatus> candyUnlockStatuses = new List<CandyUnlockStatus>();
     public List<CandyUnlockStatus> GetCandyUnlockStatuses() => candyUnlockStatuses;
+    public List<RVTicketImage> rVTicketImageList = new List<RVTicketImage>();
 
     public List<Text> royalCandyTextList = new List<Text>();
     public List<Text> rvTicketTextList = new List<Text>();
@@ -196,7 +197,12 @@ public class SaveManager : MonoBehaviour
 
     public void OnChangeRvTicket()
     {
+        Util.RemoveMissingReferences<Text>(rvTicketTextList);
+
         rvTicketTextList.ForEach((n) => n.text = RVTicket.ToString());
+        rvTicketTextList.ForEach((n) => n.GetComponent<RVTicketText>().ChangeVisible(true));
+
+        rVTicketImageList.ForEach((n) => n.OnChangeRvTicketCount());
 
         onRVTicketChangeEvent.Invoke();
     }
@@ -423,11 +429,11 @@ public class SaveManager : MonoBehaviour
         if (!ES3.KeyExists("enableRVTickText"))
         {
             ES3.Save<bool>("enableRVTickText", true);
-            Util.RemoveMissingReferences<Text>(rvTicketTextList);
+            // Util.RemoveMissingReferences<Text>(rvTicketTextList);
             rvTicketTextList.ForEach((n) => n.GetComponent<RVTicketText>().ChangeVisible(true));
         }
 
-        rvTicketTextList.ForEach((n) => n.text = RVTicket.ToString());
+        OnChangeRvTicket();
     }
 
     public void RVTicketUse(int count = 1)
@@ -438,7 +444,7 @@ public class SaveManager : MonoBehaviour
 
         Util.RemoveMissingReferences<Text>(rvTicketTextList);
 
-        rvTicketTextList.ForEach((n) => n.text = RVTicket.ToString());
+        OnChangeRvTicket();
     }
 
     public void SaveCurrentCutterSkin(int id)

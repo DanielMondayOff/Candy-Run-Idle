@@ -11,13 +11,19 @@ public class RVTicketText : MonoBehaviour
 
     private void OnEnable()
     {
-        this.TaskWaitUntil(() => SaveManager.instance.AddRVTicketText(GetComponent<UnityEngine.UI.Text>()), () => SaveManager.instance != null);
+        this.TaskWaitUntil(() =>
+        {
+            SaveManager.instance.rvTicketTextList.Add(GetComponent<UnityEngine.UI.Text>());
 
-        if (!alwaysView)
-            ChangeVisible(ES3.KeyExists("enableRVTickText") ? ES3.Load<bool>("enableRVTickText") : false);
+            if (!alwaysView)
+                ChangeVisible(ES3.KeyExists("enableRVTickText") ? ES3.Load<bool>("enableRVTickText") : false);
+        }, () => SaveManager.instance != null);
+
+
     }
 
-    private void OnDestroy() {
+    private void OnDestroy()
+    {
         // SaveManager.instance.RemoveRVTicketText(GetComponent<UnityEngine.UI.Text>());
     }
 

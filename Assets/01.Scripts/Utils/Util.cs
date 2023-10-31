@@ -192,4 +192,11 @@ public class Util
             }
         }
     }
+
+    public static FocusMask GenerateMask(Transform parent, Vector3 pos)
+    {
+        var focus = Managers.Pool.Pop(Resources.Load<GameObject>("FocusMask"), parent).GetComponent<FocusMask>();
+        focus.GetComponent<RectTransform>().anchoredPosition3D = pos;
+        return focus;
+    }
 }

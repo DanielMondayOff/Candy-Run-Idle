@@ -110,7 +110,7 @@ public class CandyMachine : BuildObject
                 if (candyItem.count <= 0)
                 {
                     if (delayTimer == null)
-                        delayTimer = this.TaskDelay(2.5f, () =>
+                        delayTimer = this.TaskDelay(1f, () =>
                         {
                             customerList[0].Exit();
                             delayTimer = null;

@@ -53,7 +53,7 @@ public class CardSlot : MonoBehaviour
             rv = false;
         }
 
-        cost = UnityEngine.Random.Range(10, 50) * 10;
+        cost = UnityEngine.Random.Range(5, 20) * 10;
         costText.text = cost.ToString();
 
         if (rv)
@@ -70,10 +70,13 @@ public class CardSlot : MonoBehaviour
         if (rv)
         {
             // rv
+            AdManager.instance.ShowRewarded(() =>
+                    {
+                        Upgrade();
+                        EventManager.instance.CustomEvent(AnalyticsType.RV, "RunCard_" + cardType, true, true);
 
-            MondayOFF.AdsManager.ShowRewarded(Upgrade);
+                    }, "RunCard_");
 
-            EventManager.instance.CustomEvent(AnalyticsType.RV, "RunCard_" + cardType, true, true);
         }
         else
         {

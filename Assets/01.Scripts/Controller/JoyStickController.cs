@@ -83,6 +83,14 @@ public class JoyStickController : MonoBehaviour, IPointerDownHandler, IPointerUp
 
     }
 
+    public void ForcePointerUp()
+    {
+        _joystickImage.enabled = false;
+        _joystickHandleImage.enabled = false;
+        UpAction?.Invoke();
+        isMouseDown = false;
+    }
+
     public void Awake()
     {
         _curSpeed = 0;

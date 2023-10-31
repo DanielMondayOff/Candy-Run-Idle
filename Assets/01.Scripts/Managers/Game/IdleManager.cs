@@ -51,8 +51,7 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("참조")] public Transform particleUI;
     [FoldoutGroup("참조")] public Transform firstCollector;
     [FoldoutGroup("참조")] public MoneyDrops bonusMoneyDrops;
-
-
+    [FoldoutGroup("참조")] public FixedTouchField FixedTouchField;
 
 
     public CanvasGroup[] idleUIs;
@@ -79,18 +78,18 @@ public class IdleManager : MonoBehaviour
     // [FoldoutGroup("업그레이드")] public IdleUpgrade[] upgrades;
 
     public readonly float[] workerSpeed = { 6, 6.5f, 7f, 7.5f, 8f, 8.5f, 9f, 10f, 10.5f, 11f, 11.5f };
-    public readonly float[] customerSpawnSpeed = { 4f, 3.75f, 3.5f, 3.25f, 3f, 2.75f, 2.5f, 2.25f, 2f, 1.75f, 1.5f };
+    public readonly float[] customerSpawnSpeed = { 8f, 7.75f, 7.5f, 7.25f, 7f, 6.75f, 6.5f, 6.25f, 6f, 5.75f, 5.5f };
     public readonly float[] maxCustomerCount = { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 };
     public readonly float[] extraIncomePercent = { 1f, 1.1f, 1.2f, 1.3f, 1.4f, 1.5f, 1.6f, 1.7f, 1.8f, 1.9f, 2f };
-    public readonly float[] playerSpeed = { 14, 14.25f, 14.5f, 14.75f, 15f, 15.25f, 15.5f, 15.75f, 16f, 16.25f, 16.5f };
+    public readonly float[] playerSpeed = { 17, 17.25f, 17.5f, 17.75f, 18f, 18.25f, 18.5f, 18.75f, 19f, 19.25f, 19.5f };
     public readonly float[] playerCapacityValue = { 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14 };
     public readonly float[] workerCapacityValue = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 };
 
     public float currentSkinMoveSpeedBonus;
     public int currentSkinMaxStackBonus;
     public float currentSkinCuttingSpeedBonus;
-
     public int maxCustomerCountBonus_Machine = 0;
+    public int maxCustomerRequestBonus = 0;
 
     public float GetCurrentPlayerSpeed() => playerSpeed[GetUpgrade(IdleUpgradeType.PlayerSpeedUp).currentLevel] + (currentSkinMoveSpeedBonus * 100f);
     public int GetCurrentPlayerMaxStack() => (int)playerCapacityValue[GetUpgrade(IdleUpgradeType.PlayerCapacityUp).currentLevel] + (currentSkinMaxStackBonus);
@@ -1073,6 +1072,8 @@ public class IdleManager : MonoBehaviour
     }
 
     public void AddMaxCustomerCount_Machine(int count) => maxCustomerCountBonus_Machine += count;
+
+    public void AddCustomerRequestMax(int value) => maxCustomerRequestBonus += value;
 }
 
 public enum candyBuildType

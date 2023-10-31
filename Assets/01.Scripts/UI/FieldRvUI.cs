@@ -28,29 +28,28 @@ public class FieldRvUI : MonoBehaviour
 
     public void OnClickClameBtn()
     {
-        MondayOFF.AdsManager.ShowRewarded(() =>
-        {
-            switch (type)
-            {
-                case FieldRvType.SpeedUp:
-                    IdleManager.instance.FieldRV_PlayerSpeedUp();
-                    IdleManager.instance.BanFieldRv(type);
-                    break;
+        AdManager.instance.ShowRewarded(() =>
+                            {
+                                switch (type)
+                                {
+                                    case FieldRvType.SpeedUp:
+                                        IdleManager.instance.FieldRV_PlayerSpeedUp();
+                                        IdleManager.instance.BanFieldRv(type);
+                                        break;
 
-                case FieldRvType.Money:
-                    IdleManager.instance.FieldRV_Money(moneyValues[IdleManager.instance.candyMachines.Where((n) => n.isReady).ToList().Count]);
-                    EventManager.instance.CustomEvent(AnalyticsType.RV, type.ToString() + " - " + moneyValues[IdleManager.instance.candyMachines.Where((n) => n.isReady).ToList().Count] + " - " + pos, true, true);
+                                    case FieldRvType.Money:
+                                        IdleManager.instance.FieldRV_Money(moneyValues[IdleManager.instance.candyMachines.Where((n) => n.isReady).ToList().Count]);
+                                        EventManager.instance.CustomEvent(AnalyticsType.RV, type.ToString() + " - " + moneyValues[IdleManager.instance.candyMachines.Where((n) => n.isReady).ToList().Count] + " - " + pos, true, true);
 
-                    break;
+                                        break;
 
-            }
-            EventManager.instance.CustomEvent(AnalyticsType.RV, type.ToString(), true, true);
+                                }
+                                EventManager.instance.CustomEvent(AnalyticsType.RV, type.ToString(), true, true);
 
-            onComplete.Invoke();
+                                onComplete.Invoke();
 
-            Destroy(gameObject);
-
-        });
+                                Destroy(gameObject);
+                            }, type.ToString());
     }
 
     public void OnClickNoThanksBtn()
