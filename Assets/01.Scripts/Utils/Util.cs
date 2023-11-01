@@ -173,13 +173,13 @@ public class Util
 
     public static void GenerateParticleAttractor(Transform parent, Transform end, Transform startPos, Material mat, int cycle, ParticleSystem.Burst burst, UnityEngine.Events.UnityAction onAttract = null, System.Action onComplete = null)
     {
-        var attract = Managers.Pool.Pop(Resources.Load<GameObject>("Particles/UIAttractor_RoyalCandy"), parent).GetComponentInChildren<UIAttractorCustom>();
+        var attract = MonoBehaviour.Instantiate(Resources.Load<GameObject>("Particles/UIAttractor_RoyalCandy"), parent).GetComponentInChildren<UIAttractorCustom>();
 
         attract.Init2(end: end, start: startPos, onAttract: onAttract, OnCompleteParticle: onComplete);
         attract.InitParticle(mat, cycle, burst);
         // attract.GetComponentInChildren<ParticleSystem>().Play();
 
-        SaveManager.instance.TaskDelay(5, () => { attract.attractorTarget.SetParent(attract.transform); attract.startPoint.SetParent(attract.transform); Managers.Pool.Push(attract.GetComponent<Poolable>()); });
+        // SaveManager.instance.TaskDelay(5, () => { attract.attractorTarget.SetParent(attract.transform); attract.startPoint.SetParent(attract.transform); Managers.Pool.Push(attract.GetComponent<Poolable>()); });
     }
 
     public static void RemoveMissingReferences<T>(List<T> list) where T : UnityEngine.Object

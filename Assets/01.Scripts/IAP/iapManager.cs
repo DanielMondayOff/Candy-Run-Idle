@@ -6,6 +6,7 @@ public class iapManager : MonoBehaviour
 {
     public static iapManager instance;
 
+    public const string iap_premium = "candyshopmaster_premium";
     public const string iap_royalCandy150 = "candyshopmaster_royalcandy150";
     public const string iap_royalCandy350 = "candyshopmaster_royalcandy350";
     public const string iap_royalCandy1000 = "candyshopmaster_royalcandy1000";
@@ -26,13 +27,13 @@ public class iapManager : MonoBehaviour
 
         MondayOFF.NoAds.OnNoAds += () => { SaveManager.instance.RVTicketAdd(10); SaveManager.instance.AddRoyalCandy(250); ES3.Save<bool>("PurchaseNoAds", true); IdleManager.instance.shopUI.UpdateLayout(); };
 
-        MondayOFF.IAPManager.RegisterProduct("candyshopmaster_rv10", () => { EventManager.instance.CustomEvent(AnalyticsType.IAP, "Purchase RV Ticket 10", true, true); SaveManager.instance.RVTicketAdd(10); });
-        MondayOFF.IAPManager.RegisterProduct("candyshopmaster_rv20", () => { EventManager.instance.CustomEvent(AnalyticsType.IAP, "Purchase RV Ticket 20", true, true); SaveManager.instance.RVTicketAdd(20); });
-        MondayOFF.IAPManager.RegisterProduct("candyshopmaster_rv50", () => { EventManager.instance.CustomEvent(AnalyticsType.IAP, "Purchase RV Ticket 50", true, true); SaveManager.instance.RVTicketAdd(50); });
+        MondayOFF.IAPManager.RegisterProduct(iap_rvTicket10, () => { EventManager.instance.CustomEvent(AnalyticsType.IAP, "Purchase RV Ticket 10", true, true); SaveManager.instance.RVTicketAdd(10); });
+        MondayOFF.IAPManager.RegisterProduct(iap_rvTicket20, () => { EventManager.instance.CustomEvent(AnalyticsType.IAP, "Purchase RV Ticket 20", true, true); SaveManager.instance.RVTicketAdd(20); });
+        MondayOFF.IAPManager.RegisterProduct(iap_rvTicket50, () => { EventManager.instance.CustomEvent(AnalyticsType.IAP, "Purchase RV Ticket 50", true, true); SaveManager.instance.RVTicketAdd(50); });
 
-        MondayOFF.IAPManager.RegisterProduct("candyshopmaster_royalcandy150", () => { EventManager.instance.CustomEvent(AnalyticsType.IAP, "Purchase Royal Candy 150", true, true); SaveManager.instance.AddRoyalCandy(150); });
-        MondayOFF.IAPManager.RegisterProduct("candyshopmaster_royalcandy350", () => { EventManager.instance.CustomEvent(AnalyticsType.IAP, "Purchase Royal Candy 350", true, true); SaveManager.instance.AddRoyalCandy(350); });
-        MondayOFF.IAPManager.RegisterProduct("candyshopmaster_royalcandy1000", () => { EventManager.instance.CustomEvent(AnalyticsType.IAP, "Purchase Royal Candy 1000", true, true); SaveManager.instance.AddRoyalCandy(1000); });
+        MondayOFF.IAPManager.RegisterProduct(iap_royalCandy150, () => { EventManager.instance.CustomEvent(AnalyticsType.IAP, "Purchase Royal Candy 150", true, true); SaveManager.instance.AddRoyalCandy(150); });
+        MondayOFF.IAPManager.RegisterProduct(iap_royalCandy350, () => { EventManager.instance.CustomEvent(AnalyticsType.IAP, "Purchase Royal Candy 350", true, true); SaveManager.instance.AddRoyalCandy(350); });
+        MondayOFF.IAPManager.RegisterProduct(iap_royalCandy1000, () => { EventManager.instance.CustomEvent(AnalyticsType.IAP, "Purchase Royal Candy 1000", true, true); SaveManager.instance.AddRoyalCandy(1000); });
 
         if ((ES3.KeyExists("PurchasePremium") ? ES3.Load<bool>("PurchasePremium") : false) || (ES3.KeyExists("PurchaseNoAds") ? ES3.Load<bool>("PurchaseNoAds") : false))
         {
@@ -40,6 +41,4 @@ public class iapManager : MonoBehaviour
             MondayOFF.AdsManager.DisableInterstitial();
         }
     }
-
-
 }

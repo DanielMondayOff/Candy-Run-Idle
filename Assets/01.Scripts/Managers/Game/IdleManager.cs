@@ -90,6 +90,9 @@ public class IdleManager : MonoBehaviour
     public float currentSkinCuttingSpeedBonus;
     public int maxCustomerCountBonus_Machine = 0;
     public int maxCustomerRequestBonus = 0;
+    public float customerSpawnTimeBonus = 0;
+
+    public int nextOrderPercent = 45;
 
     public float GetCurrentPlayerSpeed() => playerSpeed[GetUpgrade(IdleUpgradeType.PlayerSpeedUp).currentLevel] + (currentSkinMoveSpeedBonus * 100f);
     public int GetCurrentPlayerMaxStack() => (int)playerCapacityValue[GetUpgrade(IdleUpgradeType.PlayerCapacityUp).currentLevel] + (currentSkinMaxStackBonus);
@@ -210,6 +213,21 @@ public class IdleManager : MonoBehaviour
         Managers.Sound.Play("Wonderland - Rooftops", Define.Sound.Bgm, 0.3f);
 
         // this.TaskWaitUntil(() => { MondayOFF.EventTracker.Initialize(); print("firebaseInit1231451"); }, () => MondayOFF.EveryDay.isInitialized);
+
+        MondayOFF.AdsManager.OnAfterInterstitial += () =>
+        {
+            if (!playIdle)
+                return;
+
+            ES3.Save<int>("IRCount", ES3.KeyExists("IRCount") ? ES3.Load<int>("IRCount") + 1 : 1);
+
+            if ((ES3.KeyExists("IRCount") ? ES3.Load<int>("IRCount") + 1 : 1) >= 4)
+            {
+                ShowIAPPopUp();
+
+                ES3.Save<int>("IRCount", 0);
+            }
+        };
     }
 
     private void Update()
@@ -234,6 +252,19 @@ public class IdleManager : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             Time.timeScale = Time.timeScale - 0.1f;
+        }
+        else if (Input.GetKeyDown(KeyCode.N))
+        {
+            ES3.Save<int>("IRCount", ES3.KeyExists("IRCount") ? ES3.Load<int>("IRCount") + 1 : 1);
+
+            Debug.LogError(ES3.KeyExists("IRCount") ? ES3.Load<int>("IRCount") + 1 : 1);
+
+            if ((ES3.KeyExists("IRCount") ? ES3.Load<int>("IRCount") + 1 : 1) >= 4)
+            {
+                ShowIAPPopUp();
+
+                ES3.Save<int>("IRCount", 0);
+            }
         }
     }
 
@@ -365,11 +396,12 @@ public class IdleManager : MonoBehaviour
 
         customer.transform.position = spawnPoint.position;
 
+        SetTargetCustomer(customer);
+
         customer.Init(spawnPoint);
 
         customers.Add(customer.transform.root.gameObject);
 
-        SetTargetCustomer(customer);
 
         // var order = MakeOrder(customer.GetComponentInChildren<IdleCustomer>());
 
@@ -538,7 +570,14 @@ public class IdleManager : MonoBehaviour
 
     public void SetCustomerSpawnSpeed(float speed)
     {
-        spawnCustomerTask.SetIntervalTime(speed);
+        this.TaskWaitUntil(() => spawnCustomerTask.SetIntervalTime(speed), () => spawnCustomerTask != null);
+    }
+
+    public void AddCustomerSpawnSpeedBonus(float speed)
+    {
+        customerSpawnTimeBonus += speed;
+
+        SetCustomerSpawnSpeed(8 - customerSpawnTimeBonus);
     }
 
     public void SpawnWorker(int count)
@@ -632,77 +671,83 @@ public class IdleManager : MonoBehaviour
     {
         List<candyBuildType> randomList = new List<candyBuildType>();
 
-        // var useableCandyMachines = candyMachines.Where((n) => n.isReady && n.candyItem != null && n.CheckHasQueue());
-
         var useableCandySlots = candySlots.Where((n) => n.isReady && n.CheckHasQueue() && n.IsEnableEnqueue());
-
-        var useableCandyDisplayStand = candyDisplayStandList.Where((n) => n.isReady && n.CheckHasQueue() && n.IsEnableEnqueue());
-
         var useableStandBuild = standBuildList.Where((n) => n.isReady && n.CheckHasQueue() && n.IsEnableEnqueue());
 
-        // if (useableCandyMachines.ToArray().Length > 0)
-        //     randomList.Add(candyBuildType.CandyMachine);
+        List<IdleCustomer.CustomerOrder> orders = new List<IdleCustomer.CustomerOrder>();
 
-        if (useableCandySlots.ToArray().Length > 0)
-            randomList.Add(candyBuildType.CandySlot);
+        List<CandySlot> candySlotList = new List<CandySlot>();
+        List<StandBuildObject> standList = new List<StandBuildObject>();
+        int percent = nextOrderPercent;
 
-        if (useableCandyDisplayStand.ToArray().Length > 0)
+        do
         {
-            randomList.Add(candyBuildType.CandyDisplayStand);
-            randomList.Add(candyBuildType.CandyDisplayStand);
-            randomList.Add(candyBuildType.CandyDisplayStand);
-            randomList.Add(candyBuildType.CandyDisplayStand);
-            randomList.Add(candyBuildType.CandyDisplayStand);
+            NextOrder();
         }
+        while (randomList.Count > 0 && Random.Range(0, 100) < percent);
 
-        if (useableStandBuild.ToArray().Length > 0)
-            for (int i = 0; i < 5; i++)
-                randomList.Add(candyBuildType.StandBuild);
 
-        if (randomList.Count > 0)
+        void NextOrder()
         {
-            switch (randomList[Random.Range(0, randomList.Count)])
+            randomList.Clear();
+
+            BuildObject build = null;
+
+
+            percent -= 15;
+
+            if (useableCandySlots.ToArray().Length > 0 && useableCandySlots.Where((n) => !candySlotList.Contains(n)).Count() > 0)
+                randomList.Add(candyBuildType.CandySlot);
+
+
+            if (useableStandBuild.ToArray().Length > 0 && useableStandBuild.Where((n) => !standList.Contains(n)).Count() > 0)
             {
-                // case candyBuildType.CandyMachine:
-                //     useableCandyMachines.OrderBy(x => Random.value).FirstOrDefault().EnqueueCustomer(customer);
-
-                //     return;
-
-                case candyBuildType.CandyDisplayStand:
-                    useableCandyDisplayStand.OrderBy(x => Random.value).FirstOrDefault().EnqueueCustomer(customer);
-                    return;
-
-                case candyBuildType.CandySlot:
-                    useableCandySlots.OrderBy(x => Random.value).FirstOrDefault().EnqueueCustomer(customer);
-                    return;
-
-                case candyBuildType.StandBuild:
-                    useableStandBuild.OrderBy(x => Random.value).FirstOrDefault().EnqueueCustomer(customer);
-                    return;
+                for (int i = 0; i < 5; i++)
+                    randomList.Add(candyBuildType.StandBuild);
             }
+
+            if (randomList.Count > 0)
+            {
+                switch (randomList[Random.Range(0, randomList.Count)])
+                {
+
+                    case candyBuildType.CandySlot:
+                        var temp = useableCandySlots.Where((n) => !candySlotList.Contains(n)).OrderBy(x => Random.value).First();
+
+                        build = temp;
+
+                        candySlotList.Add(temp);
+
+                        if (randomList.Contains(candyBuildType.CandySlot))
+                            randomList.Remove(candyBuildType.CandySlot);
+
+                        break;
+
+                    case candyBuildType.StandBuild:
+
+                        var temp2 = useableStandBuild.Where((n) => !standList.Contains(n)).OrderBy(x => Random.value).First();
+
+                        build = temp2;
+
+                        if (randomList.Contains(candyBuildType.StandBuild))
+                            randomList.Remove(candyBuildType.StandBuild);
+
+                        standList.Add(temp2);
+
+                        break;
+                }
+            }
+
+            orders.Add(new IdleCustomer.CustomerOrder() { targetBuildObject = build, requestItemCount = Random.Range(0, 3) + maxCustomerRequestBonus });
+
+            customer.orders = orders;
+
+            customer.StartShopping();
+
         }
-
-        // print(useableCandyMachines.ToArray().Length);
-
-        // if (useableCandyMachines.ToArray().Length > 0)
-        // {
-
-        //     // customer.SetDestination() useableCandyMachines.OrderBy(x => Random.value).FirstOrDefault().;
-        // }
-
-
-        // print(useableCandySlots.ToArray().Length);
-
-        // if (useableCandySlots.ToArray().Length > 0)
-        // {
-        //     useableCandySlots.OrderBy(x => Random.value).FirstOrDefault().EnqueueCustomer(customer);
-
-        //     return;
-        //     // customer.SetDestination() useableCandyMachines.OrderBy(x => Random.value).FirstOrDefault().;
-        // }
 
         //타겟을 못찾았을시 5초뒤에 다시 시도
-        this.TaskDelay(5f, () => SetTargetCustomer(customer));
+        // this.TaskDelay(5f, () => SetTargetCustomer(customer));
     }
 
     public void PopParticle(string path, Vector3 pos, Transform parent = null)
@@ -1074,6 +1119,28 @@ public class IdleManager : MonoBehaviour
     public void AddMaxCustomerCount_Machine(int count) => maxCustomerCountBonus_Machine += count;
 
     public void AddCustomerRequestMax(int value) => maxCustomerRequestBonus += value;
+
+    public void ShowIAPPopUp()
+    {
+        List<GameObject> popupList = new List<GameObject>();
+
+        if (ES3.KeyExists("PurchasePremium") ? !ES3.Load<bool>("PurchasePremium") : true)
+            popupList.Add(Resources.Load<GameObject>("UI/IAP_PopUp_Premium"));
+
+        if (ES3.KeyExists("PurchaseNoAds") ? !ES3.Load<bool>("PurchaseNoAds") : true)
+            popupList.Add(Resources.Load<GameObject>("UI/IAP_PopUp_NoAds"));
+
+        if (popupList.Count > 0)
+        {
+            var popup = Managers.Pool.Pop(popupList[Random.Range(0, popupList.Count)], idleUI.transform);
+
+            popup.GetComponent<RectTransform>().localScale = Vector3.one;
+            popup.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
+            popup.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
+            popup.GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero;
+
+        }
+    }
 }
 
 public enum candyBuildType

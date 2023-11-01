@@ -115,8 +115,10 @@ public class MoneyDrops : SaveableObject
                     if (ES3.KeyExists("NextStageEnable"))
                         if (ES3.Load<bool>("NextStageEnable") && IdleManager.instance.playIdle)
                         {
-                            IdleManager.instance.FixedTouchField.ForcePointerUp();
                             success = MondayOFF.AdsManager.ShowInterstitial();
+
+                            if (success)
+                                IdleManager.instance.FixedTouchField.ForcePointerUp();
                         }
 
                 }
@@ -130,8 +132,10 @@ public class MoneyDrops : SaveableObject
                     if (ES3.KeyExists("NextStageEnable"))
                         if (ES3.Load<bool>("NextStageEnable") && IdleManager.instance.playIdle)
                         {
-                            IdleManager.instance.FixedTouchField.ForcePointerUp();
                             success = MondayOFF.AdsManager.ShowInterstitial();
+
+                            if (success)
+                                IdleManager.instance.FixedTouchField.ForcePointerUp();
                         }
                 }
 

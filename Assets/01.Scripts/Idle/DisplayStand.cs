@@ -60,7 +60,7 @@ public class DisplayStand : BuildObject
 
     public float Debug_distToCustomer;
 
-    [SerializeField]public CandyInventoryUI inventoryUI;
+    [SerializeField] public CandyInventoryUI inventoryUI;
 
     // [SerializeField] Canvas CandyCanvas;
     // [SerializeField] Text test_candyName;
@@ -212,7 +212,7 @@ public class DisplayStand : BuildObject
     public void EnqueueCustomer(IdleCustomer newCustomer)
     {
         customerList.Add(newCustomer);
-        newCustomer.itemId = itemId;
+        // newCustomer.itemId = itemId;
 
         newCustomer.UpdateUI();
         UpdateLine();
@@ -272,7 +272,7 @@ public class DisplayStand : BuildObject
 
         candyGiveDelay = this.TaskWhile(0.2f, 0, () =>
         {
-            if (customer.requestItemCount <= customer.currentItemCount)
+            if (customer.currentOrder.requestItemCount <= customer.currentOrder.currentItemCount)
             {
                 customerList.Remove(customer);
                 IdleManager.instance.counter.EnqueueCustomer(customer);
@@ -297,8 +297,17 @@ public class DisplayStand : BuildObject
                     if (punchTween != null ? !punchTween.IsPlaying() : true)
                         punchTween = transform.DOPunchScale(Vector3.one * 0.1f, 0.5f);
                     EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Candy Give_" + itemId, true, true);
-                    customer.currentItemCount++;
+                    customer.currentOrder.currentItemCount++;
                     customer.UpdateUI();
+
+                    if (ES3.KeyExists("NextStageEnable"))
+                        if (ES3.Load<bool>("NextStageEnable") && IdleManager.instance.playIdle)
+                        {
+                            bool success = MondayOFF.AdsManager.ShowInterstitial();
+
+                            if (success)
+                                IdleManager.instance.FixedTouchField.ForcePointerUp();
+                        }
                 }
             }
 

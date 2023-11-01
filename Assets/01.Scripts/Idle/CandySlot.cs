@@ -28,8 +28,11 @@ public class CandySlot : BuildObject
         this.TaskWhile(1, 0, CheckDistBetweenCustomer);
     }
 
-    public void EnqueueCustomer(IdleCustomer newCustomer)
+    public override void EnqueueCustomer(IdleCustomer newCustomer)
     {
+        if (customerList.Contains(newCustomer))
+            return;
+
         customerList.Add(newCustomer);
 
         UpdateLine();
@@ -65,7 +68,7 @@ public class CandySlot : BuildObject
 
         // SaveManager.instance.TakeCandy(customer.candyInventory.candy.id, 1);
 
-        customer.Exit();
+        customer.CompleteCurrentOrder();
 
         customer.UpdateCandyJar();
 

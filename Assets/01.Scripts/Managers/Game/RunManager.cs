@@ -95,7 +95,10 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public CutterSkin[] cutterskins;
 
     [FoldoutGroup("참조")] public UnityEngine.UI.Text EndCardMoneyText;
+    [FoldoutGroup("참조")] public Transform GetMoneyImage;
+    [FoldoutGroup("참조")] public Transform x2clameStartPos;
 
+    [FoldoutGroup("참조")] public Material moneyMat;
 
 
     [FoldoutGroup("CPI1")] public UnityEngine.UI.Text candyStackText;
@@ -1131,6 +1134,12 @@ public class RunManager : MonoBehaviour
             // particleUI.GetComponentInChildren<CandyInventory>(true).CandyGetAnimation(lastCandyInventory.candyItems);
 
             EventManager.instance.CustomEvent(AnalyticsType.RV, "x2Claim", true, true);
+
+            this.TaskDelay(0, () =>
+                                                {
+                                                    Util.GenerateParticleAttractor(RunManager.instance.runGameUI.transform, GetMoneyImage, x2clameStartPos
+                            , moneyMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
+                                                });
 
             this.TaskDelay(2.5f, () =>
             {

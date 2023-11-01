@@ -30,9 +30,20 @@ public class IdleCustomer : SerializedMonoBehaviour
 
     public bool waitForCandy = false;
 
-    public int itemId = 0;
-    public int requestItemCount = 1;
-    public int currentItemCount = 0;
+    public List<CustomerOrder> orders = new List<CustomerOrder>();
+    public CustomerOrder currentOrder = null;
+    public int currentOrderNum;
+
+    // public int itemId = 0;
+    // public int requestItemCount = 1;
+    // public int currentItemCount = 0;
+
+    public class CustomerOrder
+    {
+        public BuildObject targetBuildObject;
+        public int requestItemCount = 1;
+        public int currentItemCount = 0;
+    }
 
     public int CalculateTotalCost()
     {
@@ -44,6 +55,7 @@ public class IdleCustomer : SerializedMonoBehaviour
                 cost += item.Value.GetItem.CalculateTotalCost();
         }
 
+
         return cost;
     }
 
@@ -54,9 +66,9 @@ public class IdleCustomer : SerializedMonoBehaviour
 
         RandomSkin();
 
-        requestItemCount = Random.Range(1, 3 + IdleManager.instance.maxCustomerRequestBonus);
+        // requestItemCount = Random.Range(1, 3 + IdleManager.instance.maxCustomerRequestBonus);
 
-        itemId = id;
+        // itemId = id;
 
         UpdateUI();
 
@@ -93,6 +105,8 @@ public class IdleCustomer : SerializedMonoBehaviour
 
     public void SetDestination(Vector3 pos, System.Action onComplete = null)
     {
+        agent.enabled = true;
+
         agent.SetDestination(pos);
         if (onComplete != null)
             this.TaskWaitUntil(() => { onComplete.Invoke(); animator.SetBool("Move", false); }, () => (agent.remainingDistance < 0.2f));
@@ -240,12 +254,39 @@ public class IdleCustomer : SerializedMonoBehaviour
 
     public void UpdateUI()
     {
-        if (requestItemCount <= currentItemCount || itemId == 0)
+        if (currentOrder.requestItemCount <= currentOrder.currentItemCount || currentOrder.targetBuildObject.targetItemId == 0)
             candyInventoryUI.gameObject.SetActive(false);
         else
         {
             candyInventoryUI.gameObject.SetActive(true);
-            candyInventoryUI.UpdateUI(itemId, requestItemCount - currentItemCount, true, false);
+            candyInventoryUI.UpdateUI(currentOrder.targetBuildObject.targetItemId, currentOrder.requestItemCount - currentOrder.currentItemCount, true, false);
+        }
+    }
+
+    public void StartShopping()
+    {
+        if (orders.Count <= 0)
+        {
+            Debug.LogError("order가 없습니다");
+            return;
+        }
+        else
+        {
+            currentOrder = orders[0];
+            currentOrder.targetBuildObject.EnqueueCustomer(this);
+        }
+    }
+
+    public void CompleteCurrentOrder()
+    {
+        if (currentOrderNum + 1 >= orders.Count)
+            IdleManager.instance.counter.EnqueueCustomer(this);
+        // Exit();
+        else
+        {
+            currentOrderNum++;
+            currentOrder = orders[currentOrderNum];
+            currentOrder.targetBuildObject.EnqueueCustomer(this);
         }
     }
 }

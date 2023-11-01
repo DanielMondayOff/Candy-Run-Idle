@@ -14,6 +14,8 @@ public class BuildObject : SaveableObject
 
     [SerializeField] bool SpawnParticle = false;
 
+    public int targetItemId;
+
     private void Awake()
     {
         Sleep();
@@ -69,6 +71,11 @@ public class BuildObject : SaveableObject
     {
         transform.localScale = Vector3.zero;
         gameObject.SetActive(false);
+    }
+
+    public virtual void EnqueueCustomer(IdleCustomer newCustomer)
+    {
+
     }
 }
 

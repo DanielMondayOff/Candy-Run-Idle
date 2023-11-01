@@ -320,6 +320,10 @@ public class SaveManager : MonoBehaviour
 
     public void AddRVTicketText(Text text)
     {
+        if (rvTicketTextList.Contains(text))
+            return;
+
+
         Util.RemoveMissingReferences<Text>(rvTicketTextList);
         rvTicketTextList.Add(text);
 
@@ -429,7 +433,7 @@ public class SaveManager : MonoBehaviour
         if (!ES3.KeyExists("enableRVTickText"))
         {
             ES3.Save<bool>("enableRVTickText", true);
-            // Util.RemoveMissingReferences<Text>(rvTicketTextList);
+            Util.RemoveMissingReferences<Text>(rvTicketTextList);
             rvTicketTextList.ForEach((n) => n.GetComponent<RVTicketText>().ChangeVisible(true));
         }
 

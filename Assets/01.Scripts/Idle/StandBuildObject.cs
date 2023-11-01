@@ -26,7 +26,7 @@ public class StandBuildObject : BuildObject
     [SerializeField] public CandyMachine currentMachine;
     [SerializeField] List<IdleCustomer> customerList = new List<IdleCustomer>();
 
-    public int targetItemId;
+    // public int targetItemId;
     public int maxQueueCount = 3;
 
     public bool isReady = false;
@@ -53,7 +53,7 @@ public class StandBuildObject : BuildObject
         OnChangeInventory(false);
 
         // if (meshRenderer != null)
-            meshRenderer.material.mainTextureOffset = materialOffset;
+        meshRenderer.material.mainTextureOffset = materialOffset;
     }
 
     public void Init()
@@ -139,10 +139,13 @@ public class StandBuildObject : BuildObject
     {
         candyGiveDelay = this.TaskWhile(1f, 0, () =>
         {
-            if (customer.requestItemCount <= customer.currentItemCount)
+            if (customer.currentOrder.requestItemCount <= customer.currentOrder.currentItemCount)
             {
                 customerList.Remove(customer);
-                IdleManager.instance.counter.EnqueueCustomer(customer);
+
+                customer.CompleteCurrentOrder();
+                //카운터로 가거나 
+
                 UpdateLine();
 
                 if (candyGiveDelay != null)
@@ -174,7 +177,7 @@ public class StandBuildObject : BuildObject
 
                     OnChangeInventory(true);
                     EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Candy Give_" + targetItemId, true, true);
-                    customer.currentItemCount++;
+                    customer.currentOrder.currentItemCount++;
                     customer.UpdateUI();
 
                     // if (punchTween != null ? !punchTween.IsPlaying() : true)
@@ -225,10 +228,13 @@ public class StandBuildObject : BuildObject
 
     public bool IsEnableEnqueue() => maxQueueCount > customerList.Count;
 
-    public void EnqueueCustomer(IdleCustomer newCustomer)
+    public override void EnqueueCustomer(IdleCustomer newCustomer)
     {
+        if (customerList.Contains(newCustomer))
+            return;
+
         customerList.Add(newCustomer);
-        newCustomer.itemId = targetItemId;
+        // newCustomer.itemId = targetItemId;
         newCustomer.UpdateUI();
 
         UpdateLine();
