@@ -160,38 +160,74 @@ public class ShopUI : MonoBehaviour
         {
             EventManager.instance.CustomEvent(AnalyticsType.IAP, id, true, true);
 
-            switch (id)
-            {
-                case iapManager.iap_royalCandy150:
-                    Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd, royalCandy150Start
-                    , royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
-                    break;
+            // switch (id)
+            // {
+            //     case iapManager.iap_royalCandy150:
+            //         Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd, royalCandy150Start
+            //         , royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
+            //         break;
 
-                case iapManager.iap_royalCandy350:
-                    Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd, royalCandy350Start
-                    , royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
-                    break;
+            //     case iapManager.iap_royalCandy350:
+            //         Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd, royalCandy350Start
+            //         , royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
+            //         break;
 
-                case iapManager.iap_royalCandy1000:
-                    Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd, royalCandy1000Start
-                    , royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
-                    break;
+            //     case iapManager.iap_royalCandy1000:
+            //         Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd, royalCandy1000Start
+            //         , royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
+            //         break;
 
-                case iapManager.iap_rvTicket10:
-                    Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, RVTicketEnd, RVTicket10Start
-                                        , rvTicketMat, 1, new ParticleSystem.Burst(0.8f / ((float)10), (short)10, (short)10, 1, 0.8f / ((float)10)));
-                    break;
+            //     case iapManager.iap_rvTicket10:
+            //         Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, RVTicketEnd, RVTicket10Start
+            //                             , rvTicketMat, 1, new ParticleSystem.Burst(0.8f / ((float)10), (short)10, (short)10, 1, 0.8f / ((float)10)));
+            //         break;
 
-                case iapManager.iap_rvTicket20:
-                    Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, RVTicketEnd, RVTicket20Start
-                                                            , rvTicketMat, 1, new ParticleSystem.Burst(0.8f / ((float)10), (short)10, (short)10, 1, 0.8f / ((float)10)));
-                    break;
+            //     case iapManager.iap_rvTicket20:
+            //         Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, RVTicketEnd, RVTicket20Start
+            //                                                 , rvTicketMat, 1, new ParticleSystem.Burst(0.8f / ((float)10), (short)10, (short)10, 1, 0.8f / ((float)10)));
+            //         break;
 
-                case iapManager.iap_rvTicket50:
-                    Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, RVTicketEnd, RVTicket50Start
-                                                            , rvTicketMat, 1, new ParticleSystem.Burst(0.8f / ((float)10), (short)10, (short)10, 1, 0.8f / ((float)10)));
-                    break;
-            }
+            //     case iapManager.iap_rvTicket50:
+            //         Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, RVTicketEnd, RVTicket50Start
+            //                                                 , rvTicketMat, 1, new ParticleSystem.Burst(0.8f / ((float)10), (short)10, (short)10, 1, 0.8f / ((float)10)));
+            //         break;
+            // }
+        }
+    }
+
+    public void PurchaseParticle(string id)
+    {
+        switch (id)
+        {
+            case iapManager.iap_royalCandy150:
+                Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd, royalCandy150Start
+                , royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
+                break;
+
+            case iapManager.iap_royalCandy350:
+                Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd, royalCandy350Start
+                , royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
+                break;
+
+            case iapManager.iap_royalCandy1000:
+                Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd, royalCandy1000Start
+                , royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
+                break;
+
+            case iapManager.iap_rvTicket10:
+                Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, RVTicketEnd, RVTicket10Start
+                                    , rvTicketMat, 1, new ParticleSystem.Burst(0.8f / ((float)10), (short)10, (short)10, 1, 0.8f / ((float)10)));
+                break;
+
+            case iapManager.iap_rvTicket20:
+                Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, RVTicketEnd, RVTicket20Start
+                                                        , rvTicketMat, 1, new ParticleSystem.Burst(0.8f / ((float)10), (short)10, (short)10, 1, 0.8f / ((float)10)));
+                break;
+
+            case iapManager.iap_rvTicket50:
+                Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, RVTicketEnd, RVTicket50Start
+                                                        , rvTicketMat, 1, new ParticleSystem.Burst(0.8f / ((float)10), (short)10, (short)10, 1, 0.8f / ((float)10)));
+                break;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using DG.Tweening;
 
 public class CandyUnlockUI : MonoBehaviour
 {
@@ -10,7 +11,8 @@ public class CandyUnlockUI : MonoBehaviour
     [SerializeField] Image candyImage_black;
     [SerializeField] Transform collectTarget;
     [SerializeField] Transform clameBtn;
-    // [SerializeField] Transform noThanksBtnƒ;
+    [SerializeField] Transform noThanksBtn;
+    [SerializeField] GameObject noThanksBtn_ForceIdle;
 
     [SerializeField] Text percentText;
 
@@ -39,58 +41,101 @@ public class CandyUnlockUI : MonoBehaviour
         candyImage.sprite = resource.icon;
         candyImage_black.sprite = resource.icon;
 
+        // Debug.LogError(currentStatus.GetCurrentPercent());
         percentText.text = Mathf.FloorToInt(currentStatus.GetCurrentPercent()) + "%";
+        candyImage_black.fillAmount = (Mathf.Clamp(1 - (currentStatus.GetCurrentPercent() * 0.01f), 0f, 1f));
 
-        ChangeFillRate(1f - (currentStatus.GetCurrentPercent() * 0.01f));
+        // ChangeFillRate(1f - (currentStatus.GetCurrentPercent() * 0.01f));
 
         // currentStatus = current;
-        dynamicPanel.Expand();
+        // dynamicPanel.Expand();
 
-        this.TaskDelay(1.5f, StartFillAnimation);
+        this.TaskDelay(0.5f, StartFillAnimation);
+        // StartFillAnimation();
 
-        this.TaskDelay(4.5f, () =>
+        RunManager.instance.showNewCandyUnlockTask = this.TaskDelay(4f, () =>
         {
             if (currentStatus.unlocked)
             {
-                RunManager.instance.unlockedImage.sprite = resource.icon;
-                RunManager.instance.NewCandyUnlockedUI.SetActive(true);
+                ShowNewCandyUnlockUI(resource);
+                // RunManager.instance.unlockedImage.sprite = resource.icon;
+                // RunManager.instance.NewCandyUnlockedUI.SetActive(true);
 
-                if (StageManager.instance.currentStageNum == RunManager.ForceIdleStage && RunManager.forceIdle)
-                {
-                    RunManager.instance.NewCandyUnlockedUI_SellCandyBtn.SetActive(true);
-                }
+                // if (StageManager.instance.currentStageNum == RunManager.ForceIdleStage && RunManager.forceIdle)
+                // {
+                //     RunManager.instance.NewCandyUnlockedUI_SellCandyBtn.SetActive(true);
+                // }
             }
             else if (StageManager.instance.currentStageNum == RunManager.ForceIdleStage && RunManager.forceIdle)
             {
-                RunManager.instance.sellCandyBtn.SetActive(true);
+                noThanksBtn_ForceIdle.SetActive(true);
+                // RunManager.instance.sellCandyBtn.SetActive(true);
             }
             else
             {
-                clameBtn.gameObject.SetActive(true);
+                // clameBtn.gameObject.SetActive(true);
+
+                if (StageManager.instance.currentStageNum == RunManager.ForceIdleStage && RunManager.forceIdle)
+                {
+                    noThanksBtn_ForceIdle.SetActive(true);
+                }
+                else
+                    noThanksBtn.gameObject.SetActive(true);
             }
         });
     }
 
+    public void ShowNewCandyUnlockUI(CandyObject resource)
+    {
+        RunManager.instance.unlockedImage.sprite = resource.icon;
+        RunManager.instance.NewCandyUnlockedUI.SetActive(true);
+
+        if (StageManager.instance.currentStageNum == RunManager.ForceIdleStage && RunManager.forceIdle)
+        {
+            RunManager.instance.NewCandyUnlockedUI_SellCandyBtn.SetActive(true);
+        }
+    }
+
     public void HideUI()
     {
-        dynamicPanel.Collapse();
+        // dynamicPanel.Collapse();
     }
 
     public void StartFillAnimation()
     {
-        StartCoroutine(coroutin());
+        // StartCoroutine(coroutin());
 
-        IEnumerator coroutin()
+        float point = 0;
+
+        var candyList = RunManager.instance.GetLastCandyInventory();
+
+        for (int i = 0; i < candyList.candyItems.Count(); i++)
         {
-            var candyList = RunManager.instance.GetLastCandyInventory();
-
-            for (int i = 0; i < candyList.candyItems.Count(); i++)
-            {
-                yield return new WaitForSeconds(0.2f);
-                float point = Resources.LoadAll<CandyObject>("Candy").Where((n) => n.id == candyList.candyItems[i].candy.id).First().unlockPoint;
-                uIAttractorCustoms[i].Init(candyList.candyItems[i], onAttract: () => { FillOnLive(point); });
-            }
+            point += Resources.LoadAll<CandyObject>("Candy").Where((n) => n.id == candyList.candyItems[i].candy.id).First().unlockPoint * candyList.candyItems[i].count;
         }
+
+        // Debug.LogError(point);
+
+        currentStatus.AddPercent(point);
+
+        if (currentStatus.unlocked)
+            RunManager.instance.showNewCandyUnlock = true;
+        // Debug.LogError(currentStatus.GetCurrentPercent());
+
+
+        candyImage_black.DOFillAmount(Mathf.Clamp(1 - (currentStatus.GetCurrentPercent() * 0.01f), 0f, 1f), 1.5f).OnUpdate(() => percentText.text = (int)((1f - candyImage_black.fillAmount) * 100) + "%").SetEase(Ease.OutQuad);
+
+        // IEnumerator coroutin()
+        // {
+        //     var candyList = RunManager.instance.GetLastCandyInventory();
+
+        //     for (int i = 0; i < candyList.candyItems.Count(); i++)
+        //     {
+        //         yield return new WaitForSeconds(0.2f);
+        //         float point = Resources.LoadAll<CandyObject>("Candy").Where((n) => n.id == candyList.candyItems[i].candy.id).First().unlockPoint;
+        // uIAttractorCustoms[i].Init(candyList.candyItems[i], onAttract: () => { FillOnLive(point); });
+        //     }
+        // }
     }
 
     public void FillOnLive(float point)
@@ -127,6 +172,6 @@ public class CandyUnlockUI : MonoBehaviour
                         RunManager.instance.NewCandyUnlockedUI.SetActive(true);
 
                         EventManager.instance.CustomEvent(AnalyticsType.RV, "UnlockCandy_" + _currentStatus.id, true, true);
-                    }, "UnlockCandy_" );
+                    }, "UnlockCandy_");
     }
 }

@@ -23,7 +23,7 @@ public class iapManager : MonoBehaviour
 
     private void Start()
     {
-        MondayOFF.IAPManager.RegisterProduct("candyshopmaster_premium", () =>
+        MondayOFF.IAPManager.RegisterProduct(iap_premium, () =>
         {
             EventManager.instance.CustomEvent(AnalyticsType.IAP, "Purchase Premium Pack", true, true);
             SaveManager.instance.RVTicketAdd(20);
@@ -52,23 +52,29 @@ public class iapManager : MonoBehaviour
         {
             EventManager.instance.CustomEvent(AnalyticsType.IAP, "Purchase RV Ticket 10", true, true);
             SaveManager.instance.RVTicketAdd(10);
+            IdleManager.instance.shopUI.PurchaseParticle(iap_rvTicket10);
         });
 
         MondayOFF.IAPManager.RegisterProduct(iap_rvTicket20, () =>
         {
             EventManager.instance.CustomEvent(AnalyticsType.IAP, "Purchase RV Ticket 20", true, true);
             SaveManager.instance.RVTicketAdd(20);
+            IdleManager.instance.shopUI.PurchaseParticle(iap_rvTicket20);
+
         });
 
         MondayOFF.IAPManager.RegisterProduct(iap_rvTicket50, () =>
         {
             EventManager.instance.CustomEvent(AnalyticsType.IAP, "Purchase RV Ticket 50", true, true);
             SaveManager.instance.RVTicketAdd(50);
+            IdleManager.instance.shopUI.PurchaseParticle(iap_rvTicket50);
+
         });
 
         MondayOFF.IAPManager.RegisterProduct(iap_royalCandy150, () =>
         {
             EventManager.instance.CustomEvent(AnalyticsType.IAP, "Purchase Royal Candy 150", true, true);
+            IdleManager.instance.shopUI.PurchaseParticle(iap_royalCandy150);
             SaveManager.instance.AddRoyalCandy(150);
         });
 
@@ -76,12 +82,14 @@ public class iapManager : MonoBehaviour
         {
             EventManager.instance.CustomEvent(AnalyticsType.IAP, "Purchase Royal Candy 350", true, true);
             SaveManager.instance.AddRoyalCandy(350);
+            IdleManager.instance.shopUI.PurchaseParticle(iap_royalCandy350);
         });
 
         MondayOFF.IAPManager.RegisterProduct(iap_royalCandy1000, () =>
         {
             EventManager.instance.CustomEvent(AnalyticsType.IAP, "Purchase Royal Candy 1000", true, true);
             SaveManager.instance.AddRoyalCandy(1000);
+            IdleManager.instance.shopUI.PurchaseParticle(iap_royalCandy1000);
         });
 
         if ((ES3.KeyExists("PurchasePremium") ? ES3.Load<bool>("PurchasePremium") : false) || (ES3.KeyExists("PurchaseNoAds") ? ES3.Load<bool>("PurchaseNoAds") : false))

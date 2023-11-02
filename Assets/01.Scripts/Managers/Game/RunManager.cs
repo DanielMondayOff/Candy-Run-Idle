@@ -174,6 +174,9 @@ public class RunManager : MonoBehaviour
 
     float moneyStack = 0;
 
+    public bool showNewCandyUnlock = false;
+    public TaskUtil.DelayTaskMethod showNewCandyUnlockTask;
+
 
     [SerializeField] private CutterSkin currentCutter;
 
@@ -1056,6 +1059,8 @@ public class RunManager : MonoBehaviour
             //     nextStageBtnGroup.SetActive(true);
             // }
 
+            ShowCandyUnlockStatus();
+
             x2ClaimBtn.SetActive(true);
 
             runEndUI.SetActive(true);
@@ -1115,6 +1120,11 @@ public class RunManager : MonoBehaviour
 
     public void OnClickX2ClaimBtn()
     {
+        if (showNewCandyUnlock && MondayOFF.AdsManager.IsRewardedReady())
+        {
+            showNewCandyUnlockTask.Kill();
+        }
+
         AdManager.instance.ShowRewarded(() =>
         {
             SaveManager.instance.enableCandyInventoryUIUpdate = false;
@@ -1145,8 +1155,14 @@ public class RunManager : MonoBehaviour
             {
                 SaveManager.instance.enableCandyInventoryUIUpdate = true;
                 particleUI.GetComponentInChildren<CandyInventory>(true).gameObject.SetActive(false);
-                ShowCandyUnlockStatus();
-                // ResetRunGame();
+                // ShowCandyUnlockStatus();
+
+                if (showNewCandyUnlock)
+                {
+                    candyUnlockUI.ShowNewCandyUnlockUI(Resources.LoadAll<CandyObject>("Candy").First((n) => n.id == candyUnlockUI.currentStatus.id));
+                }
+                else
+                    ResetRunGame();
             });
         }, "x2Claim");
 
@@ -1321,7 +1337,7 @@ public class RunManager : MonoBehaviour
 
         // var status = SaveManager.instance.GetCandyUnlockStatuses();
         //아직 해금 안한 사탕이 있다면
-        if (CandyUnlockUI.instance.currentStatus != null)
+        if (candyUnlockUI.currentStatus != null)
         {
             candyUnlockUI.ShowUI();
 
@@ -1329,11 +1345,14 @@ public class RunManager : MonoBehaviour
         }
         else
         {
-            OnClickNextStage();
+            if (StageManager.instance.currentStageNum == RunManager.ForceIdleStage && RunManager.forceIdle)
+            {
+                OnClickSellCandyBtn();
+            }
+            else
+                OnClickNextStage();
         }
     }
-
-
 
     #region CPI1
 
