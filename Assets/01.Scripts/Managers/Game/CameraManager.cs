@@ -14,6 +14,9 @@ public class CameraManager : SerializedMonoBehaviour
 
     [SerializeField] Transform[] firstFocusTrans;
 
+    [SerializeField] Transform[] secondFocusTrans;
+
+
     public static CameraManager instance;
 
     private void Awake()
@@ -84,5 +87,18 @@ public class CameraManager : SerializedMonoBehaviour
         //         }
         //     });
         // }
+    }
+
+    public void SecondCameraFocus()
+    {
+        if (ES3.KeyExists("SecondCameraFocus"))
+            return;
+
+        ES3.Save<bool>("SecondCameraFocus", true);
+
+        var lastTarget = currentVirtualCamera.m_Follow;
+
+        currentVirtualCamera.m_Follow = secondFocusTrans[0];
+        this.TaskDelay(2.5f, () => currentVirtualCamera.m_Follow = lastTarget);
     }
 }
