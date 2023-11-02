@@ -180,6 +180,15 @@ public class StandBuildObject : BuildObject
                     customer.currentOrder.currentItemCount++;
                     customer.UpdateUI();
 
+                    if (ES3.KeyExists("NextStageEnable"))
+                        if (ES3.Load<bool>("NextStageEnable") && IdleManager.instance.playIdle)
+                        {
+                            bool success = MondayOFF.AdsManager.ShowInterstitial();
+
+                            if (success)
+                                IdleManager.instance.FixedTouchField.ForcePointerUp();
+                        }
+
                     // if (punchTween != null ? !punchTween.IsPlaying() : true)
                     //     punchTween = transform.DOPunchScale(Vector3.one * 0.1f, 0.5f);
                 }

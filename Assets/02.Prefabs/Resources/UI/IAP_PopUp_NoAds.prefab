@@ -619,7 +619,7 @@ CanvasGroup:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4631225629214369094}
   m_Enabled: 1
-  m_Alpha: 1
+  m_Alpha: 0
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
@@ -652,7 +652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   updateType: 0
   isSpeedBased: 0
-  hasOnStart: 0
+  hasOnStart: 1
   hasOnPlay: 1
   hasOnUpdate: 0
   hasOnStepComplete: 0
@@ -660,9 +660,6 @@ MonoBehaviour:
   hasOnTweenCreated: 0
   hasOnRewind: 0
   onStart:
-    m_PersistentCalls:
-      m_Calls: []
-  onPlay:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4631225629214369115}
@@ -677,6 +674,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onPlay:
+    m_PersistentCalls:
+      m_Calls: []
   onUpdate:
     m_PersistentCalls:
       m_Calls: []
@@ -902,7 +902,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -100, y: -465}
+  m_AnchoredPosition: {x: -105, y: -712}
   m_SizeDelta: {x: 108, y: 108}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4631225629461208797
@@ -1278,20 +1278,18 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: ebdcff940901c4288a86b6b177d982b8, type: 3}
-    m_FontSize: 45
+    m_FontSize: 55
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 4
-    m_MaxSize: 50
+    m_MaxSize: 55
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '250
-
-'
+  m_Text: 10
 --- !u!114 &4631225630512871944
 MonoBehaviour:
   m_ObjectHideFlags: 0

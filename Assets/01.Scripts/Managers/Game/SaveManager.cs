@@ -14,6 +14,7 @@ public class SaveManager : MonoBehaviour
     [SerializeField] int money;
     public int GetCurrentMoney => money;
     [SerializeField] int royalCandy;
+    public int GetRoyalCandy => royalCandy;
 
     [SerializeField] bool enableShop = false;
     public bool GetEnableShop => enableShop;
@@ -471,9 +472,9 @@ public class SaveManager : MonoBehaviour
         ES3.Save("idlePlayerSkin", id);
     }
 
-    public void PurchaseSkin(SkinType type, int id, int price)
+    public void PurchaseSkin(SkinType type, int id, int price, bool select = true)
     {
-        if (money < price)
+        if (royalCandy < price)
         {
             Debug.LogError("돈이 부족합니다 " + type + " " + id);
             return;
@@ -484,6 +485,8 @@ public class SaveManager : MonoBehaviour
             Debug.LogError("이미 소지중인 스킨입니다 " + type + " " + id);
             return;
         }
+
+        SaveManager.instance.UseRoyalCandy(price);
 
         switch (type)
         {
@@ -497,6 +500,10 @@ public class SaveManager : MonoBehaviour
         }
 
         GainSkin(type, id);
+
+        EventManager.instance.CustomEvent(AnalyticsType.IAP, "Purchase Skin_" + type + "_" + id, true, true);
+
+        IdleManager.instance.skinUI.SelectSkin(type, id);
     }
 
     public SkinSaveData GetSkinSaveData(SkinType type, int id)

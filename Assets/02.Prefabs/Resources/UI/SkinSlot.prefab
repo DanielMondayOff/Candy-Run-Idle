@@ -987,7 +987,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7545769585753589763}
         m_TargetAssemblyTypeName: SkinActiveUI, Assembly-CSharp
-        m_MethodName: OnClickMoneyBtn
+        m_MethodName: OnClickRoyalCandyButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

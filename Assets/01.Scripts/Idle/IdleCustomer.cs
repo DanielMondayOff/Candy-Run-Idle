@@ -285,6 +285,10 @@ public class IdleCustomer : SerializedMonoBehaviour
         else
         {
             currentOrderNum++;
+
+            if (orders[currentOrderNum] == null)
+                Exit();
+
             currentOrder = orders[currentOrderNum];
             currentOrder.targetBuildObject.EnqueueCustomer(this);
         }

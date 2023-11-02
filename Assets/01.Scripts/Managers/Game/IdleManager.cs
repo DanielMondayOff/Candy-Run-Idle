@@ -94,7 +94,7 @@ public class IdleManager : MonoBehaviour
 
     public int nextOrderPercent = 45;
 
-    public float GetCurrentPlayerSpeed() => playerSpeed[GetUpgrade(IdleUpgradeType.PlayerSpeedUp).currentLevel] + (currentSkinMoveSpeedBonus * 100f);
+    public float GetCurrentPlayerSpeed() => playerSpeed[GetUpgrade(IdleUpgradeType.PlayerSpeedUp).currentLevel] * (currentSkinMoveSpeedBonus + 1f);
     public int GetCurrentPlayerMaxStack() => (int)playerCapacityValue[GetUpgrade(IdleUpgradeType.PlayerCapacityUp).currentLevel] + (currentSkinMaxStackBonus);
     public float GetCurrentCuttingSpeed() => RunManager.instance.candyCuttingSpeed + currentSkinCuttingSpeedBonus;
 
@@ -219,15 +219,17 @@ public class IdleManager : MonoBehaviour
             if (!playIdle)
                 return;
 
-            ES3.Save<int>("IRCount", ES3.KeyExists("IRCount") ? ES3.Load<int>("IRCount") + 1 : 1);
+            ES3.Save<int>("IRCount", ES3.KeyExists("IRCount") ? ES3.Load<int>("IRCount") + 1 : 3);
 
-            if ((ES3.KeyExists("IRCount") ? ES3.Load<int>("IRCount") + 1 : 1) >= 4)
+            if ((ES3.KeyExists("IRCount") ? ES3.Load<int>("IRCount") : 1) >= 4)
             {
                 ShowIAPPopUp();
 
                 ES3.Save<int>("IRCount", 0);
             }
         };
+
+        SaveManager.instance.onRoyalCandyChangeEvent.AddListener(IdleManager.instance.skinUI.UpdateSlotUI);
     }
 
     private void Update()
@@ -255,11 +257,12 @@ public class IdleManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.N))
         {
-            ES3.Save<int>("IRCount", ES3.KeyExists("IRCount") ? ES3.Load<int>("IRCount") + 1 : 1);
+            if (!playIdle)
+                return;
 
-            Debug.LogError(ES3.KeyExists("IRCount") ? ES3.Load<int>("IRCount") + 1 : 1);
+            ES3.Save<int>("IRCount", ES3.KeyExists("IRCount") ? ES3.Load<int>("IRCount") + 1 : 3);
 
-            if ((ES3.KeyExists("IRCount") ? ES3.Load<int>("IRCount") + 1 : 1) >= 4)
+            if ((ES3.KeyExists("IRCount") ? ES3.Load<int>("IRCount") : 1) >= 4)
             {
                 ShowIAPPopUp();
 
@@ -684,7 +687,7 @@ public class IdleManager : MonoBehaviour
         {
             NextOrder();
         }
-        while (randomList.Count > 0 && Random.Range(0, 100) < percent);
+        while (randomList.Count > 0 && Random.Range(0, 100) < percent && useableStandBuild.Count() > 1);
 
 
         void NextOrder()
@@ -734,11 +737,18 @@ public class IdleManager : MonoBehaviour
 
                         standList.Add(temp2);
 
+                        if (standList.Count == useableStandBuild.Count())
+                            randomList.Clear();
+
                         break;
                 }
             }
 
-            orders.Add(new IdleCustomer.CustomerOrder() { targetBuildObject = build, requestItemCount = Random.Range(0, 3) + maxCustomerRequestBonus });
+            var newOrder = new IdleCustomer.CustomerOrder() { targetBuildObject = build, requestItemCount = Random.Range(1, 3) + maxCustomerRequestBonus };
+
+            orders.Add(newOrder);
+
+            // Debug.LogError(newOrder.targetBuildObject.name + " - " + newOrder.requestItemCount);
 
             customer.orders = orders;
 
@@ -1120,25 +1130,51 @@ public class IdleManager : MonoBehaviour
 
     public void AddCustomerRequestMax(int value) => maxCustomerRequestBonus += value;
 
-    public void ShowIAPPopUp()
+    public void ShowIAPPopUp(string name = "", Transform parent = null)
     {
         List<GameObject> popupList = new List<GameObject>();
 
-        if (ES3.KeyExists("PurchasePremium") ? !ES3.Load<bool>("PurchasePremium") : true)
-            popupList.Add(Resources.Load<GameObject>("UI/IAP_PopUp_Premium"));
-
-        if (ES3.KeyExists("PurchaseNoAds") ? !ES3.Load<bool>("PurchaseNoAds") : true)
-            popupList.Add(Resources.Load<GameObject>("UI/IAP_PopUp_NoAds"));
-
-        if (popupList.Count > 0)
+        if (name.Equals(""))
         {
-            var popup = Managers.Pool.Pop(popupList[Random.Range(0, popupList.Count)], idleUI.transform);
+            if (ES3.KeyExists("PurchasePremium") ? !ES3.Load<bool>("PurchasePremium") : true)
+                popupList.Add(Resources.Load<GameObject>("UI/IAP_PopUp_Premium"));
+
+            if (ES3.KeyExists("PurchaseNoAds") ? !ES3.Load<bool>("PurchaseNoAds") : true)
+                popupList.Add(Resources.Load<GameObject>("UI/IAP_PopUp_NoAds"));
+
+            if (popupList.Count > 0)
+            {
+                var popup = Instantiate(popupList[Random.Range(0, popupList.Count)], (parent == null) ? idleUI.transform : parent);
+                // var popup = Managers.Pool.Pop(popupList[Random.Range(0, popupList.Count)], idleUI.transform);
+
+                foreach (var dotween in GetComponentsInChildren<DG.Tweening.DOTweenAnimation>())
+                {
+
+                }
+
+                popup.GetComponent<RectTransform>().localScale = Vector3.one;
+                popup.GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero;
+
+                SetStretch(popup.GetComponent<RectTransform>(), 0, 0, 0, 0);
+
+                EventManager.instance.CustomEvent(AnalyticsType.IAP, "Show Popup IAP Offer_" + popup.name, true, true);
+            }
+        }
+        else
+        {
+            var popup = Instantiate(Resources.Load<GameObject>(name), (parent == null) ? idleUI.transform : parent);
 
             popup.GetComponent<RectTransform>().localScale = Vector3.one;
-            popup.GetComponent<RectTransform>().anchorMin = new Vector2(0, 0);
-            popup.GetComponent<RectTransform>().anchorMax = new Vector2(1, 1);
             popup.GetComponent<RectTransform>().anchoredPosition3D = Vector3.zero;
 
+            SetStretch(popup.GetComponent<RectTransform>(), 0, 0, 0, 0);
+        }
+
+        void SetStretch(RectTransform rectTransform, float left, float right, float top, float bottom)
+        {
+            // anchorMin과 anchorMax를 조절하여 Stretch를 변경
+            rectTransform.offsetMin = new Vector2(left, bottom);
+            rectTransform.offsetMax = new Vector2(1 - right, 1 - top);
         }
     }
 }

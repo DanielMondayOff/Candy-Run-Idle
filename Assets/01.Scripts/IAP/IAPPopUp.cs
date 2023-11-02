@@ -18,6 +18,7 @@ public class IAPPopUp : MonoBehaviour
 
     public void OnClickExitBtn()
     {
-        Managers.Pool.Push(GetComponent<Poolable>());
+        // Managers.Pool.Push(GetComponent<Poolable>());
+        Destroy(gameObject);
     }
 }

@@ -53,6 +53,8 @@ public class SkinUI : MonoBehaviour
             }
         }
 
+        UpdateSlotUI();
+
     }
 
     public void EnableUsedIcon(SkinType type, string es3Key)
@@ -121,6 +123,11 @@ public class SkinUI : MonoBehaviour
         }
     }
 
+    public void SelectSkin(SkinType type, int id)
+    {
+        GetComponentsInChildren<SkinActiveUI>().Where((n) => n.type == type && n.id == id).First().OnClick();
+    }
+
     public void ChangeSkinName(string name)
     {
         skinName.text = name;
@@ -137,5 +144,11 @@ public class SkinUI : MonoBehaviour
         {
             skin.DisableUsedIcon();
         }
+    }
+
+    public void UpdateSlotUI()
+    {
+        foreach (var slot in GetComponentsInChildren<SkinActiveUI>())
+            slot.UpdateUI();
     }
 }

@@ -33,7 +33,8 @@ public class NoAdsBtn : MonoBehaviour
 
     public void OnClickNoAdsBtn()
     {
-        MondayOFF.NoAds.Purchase();
+        IdleManager.instance.ShowIAPPopUp("UI/IAP_PopUp_NoAds", IdleManager.instance.playIdle ? IdleManager.instance.idleUI.transform : RunManager.instance.runGameUI.transform);
+        // MondayOFF.NoAds.Purchase();
     }
 
     private void OnDestroy()

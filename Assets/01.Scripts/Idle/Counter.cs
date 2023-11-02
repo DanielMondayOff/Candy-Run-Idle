@@ -35,6 +35,9 @@ public class Counter : MonoBehaviour
 
     public void EnqueueCustomer(IdleCustomer newCustomer)
     {
+        if (customerList.Contains(newCustomer))
+            return;
+
         customerList.Add(newCustomer);
         UpdateLine();
     }

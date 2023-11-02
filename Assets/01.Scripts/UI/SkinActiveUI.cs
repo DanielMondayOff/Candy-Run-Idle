@@ -80,12 +80,15 @@ public class SkinActiveUI : MonoBehaviour
 
         var obj = SaveManager.instance.FindSkinObject(type, id);
 
+        clameBtn.gameObject.SetActive(obj.onlyPurcahse);
+
         if (save != null)
         {
             if (save.complete)
             {
                 moneyBtn.gameObject.SetActive(false);
                 RVBtn.gameObject.SetActive(false);
+                clameBtn.gameObject.SetActive(false);
             }
             else
             {
@@ -93,6 +96,12 @@ public class SkinActiveUI : MonoBehaviour
                     moneyBtn.GetComponentInChildren<Text>().text = obj.requireRoyalCandy.ToString();
                 else
                     moneyBtn.gameObject.SetActive(false);
+
+                if (SaveManager.instance.GetRoyalCandy >= obj.requireRoyalCandy)
+                    moneyBtn.GetComponentInChildren<Text>().color = Color.white;
+                else
+                    moneyBtn.GetComponentInChildren<Text>().color = Color.red;
+
 
                 if (obj.requireRV > 0)
                     RVBtn.GetComponentInChildren<Text>().text = ((save != null) ? save.watchedRV : 0) + " / " + obj.requireRV;
@@ -107,12 +116,16 @@ public class SkinActiveUI : MonoBehaviour
             else
                 moneyBtn.gameObject.SetActive(false);
 
+            if (SaveManager.instance.GetRoyalCandy >= obj.requireRoyalCandy)
+                moneyBtn.GetComponentInChildren<Text>().color = Color.white;
+            else
+                moneyBtn.GetComponentInChildren<Text>().color = Color.red;
+
             if (obj.requireRV > 0)
                 RVBtn.GetComponentInChildren<UnityEngine.UI.Text>().text = 0 + " / " + obj.requireRV;
             else
                 RVBtn.gameObject.SetActive(false);
         }
-        clameBtn.gameObject.SetActive(obj.onlyPurcahse);
 
         lockIcon.SetActive(!SaveManager.instance.CheckSkinHave(type, id));
     }
