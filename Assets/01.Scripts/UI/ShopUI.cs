@@ -146,7 +146,6 @@ public class ShopUI : MonoBehaviour
             moneyRVRemainTimeText.text = SaveManager.GetFormatedStringFromSecond(lefttime);
         }
 
-        Debug.LogError((ES3.KeyExists("TimeLimitRoyalCandy10LimitCount") ? ES3.Load<int>("TimeLimitRoyalCandy10LimitCount") : royalCandy_10MaxCount));
         royalcandyRVLimitCountText_10.text = "Available " + (ES3.KeyExists("TimeLimitRoyalCandy10LimitCount") ? ES3.Load<int>("TimeLimitRoyalCandy10LimitCount") : royalCandy_10MaxCount) + "/" + royalCandy_10MaxCount;
         royalcandyRVLimitCountText_50.text = "Available " + (ES3.KeyExists("TimeLimitRoyalCandy50LimitCount") ? ES3.Load<int>("TimeLimitRoyalCandy50LimitCount") : royalCandy_50MaxCount) + "/" + royalCandy_50MaxCount;
         moneyRVLimitCountText.text = "Available " + (ES3.KeyExists("TimeLimitMoney100LimitCount") ? ES3.Load<int>("TimeLimitMoney100LimitCount") : money100_MaxCount) + "/" + money100_MaxCount;

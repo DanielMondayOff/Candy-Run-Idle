@@ -150,7 +150,7 @@ public class DropedJellyBean : MonoBehaviour
         {
             value += 5f;
             meshRenderer.transform.localScale = new Vector3(meshRenderer.transform.localScale.x + 0.04f, meshRenderer.transform.localScale.y + 0.04f, meshRenderer.transform.localScale.z + 0.04f);
-            meshRenderer.transform.DOPunchScale(Vector3.one * 0.15f, 0.15f, 1, 0.1f);
+            meshRenderer.transform.DOPunchScale(Vector3.one * 0.3f, 0.22f, 1, 0.1f);
             other.GetComponentInChildren<Bullet>().Push();
             // Destroy(other.gameObject);
         }
