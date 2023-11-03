@@ -44,7 +44,9 @@ public class SaveManager : MonoBehaviour
     public int cutterSkinID = 0;
     public int IdlePlayerSkinID = 0;
 
-    public string dailyFreeRoyalCandyTime = "2000-01-01 01:01:01";
+    public string dailyFreeRoyalCandy10Time = "2000-01-01 01:01:01";
+    public string dailyFreeRoyalCandy50Time = "2000-01-01 01:01:01";
+
     public string dailyFreeMoneyTime = "2000-01-01 01:01:01";
 
     public List<SkinSaveData> skinSaveDataList = new List<SkinSaveData>();
@@ -104,11 +106,14 @@ public class SaveManager : MonoBehaviour
         if (ES3.KeyExists("SkinSaveData"))
             skinSaveDataList = ES3.Load<List<SkinSaveData>>("SkinSaveData");
 
-        if (ES3.KeyExists("dailyFreeRoyalCandyTime"))
-            dailyFreeRoyalCandyTime = ES3.Load<string>("dailyFreeRoyalCandyTime");
+        if (ES3.KeyExists("dailyFreeRoyalCandy10Time"))
+            dailyFreeRoyalCandy10Time = ES3.Load<string>("dailyFreeRoyalCandy10Time");
 
-        if (ES3.KeyExists("dailyFreeMoneyTime"))
-            dailyFreeMoneyTime = ES3.Load<string>("dailyFreeMoneyTime");
+        if (ES3.KeyExists("dailyFreeRoyalCandy50Time"))
+            dailyFreeRoyalCandy50Time = ES3.Load<string>("dailyFreeRoyalCandy50Time");
+
+        if (ES3.KeyExists("dailyFreeMoney100Time"))
+            dailyFreeMoneyTime = ES3.Load<string>("dailyFreeMoney100Time");
     }
 
     private void Start()
@@ -127,7 +132,7 @@ public class SaveManager : MonoBehaviour
 
         this.TaskWhile(1, 0, () =>
         {
-            shopDotsList.ForEach((n) => n.ChangeVisible(IsTimeLimitRVReady(dailyFreeMoneyTime) || IsTimeLimitRVReady(dailyFreeRoyalCandyTime)));
+            shopDotsList.ForEach((n) => n.ChangeVisible(IsTimeLimitRVReady(dailyFreeMoneyTime) || IsTimeLimitRVReady(dailyFreeRoyalCandy10Time) || IsTimeLimitRVReady(dailyFreeRoyalCandy50Time)));
         });
 
     }

@@ -7,22 +7,40 @@ using Sirenix.OdinInspector;
 public class ShopUI : MonoBehaviour
 {
 
+    public static int royalCandy_10MaxCount = 5;
+    public static int royalCandy_50MaxCount = 1;
+    public static int money100_MaxCount = 3;
+
+
+
     [SerializeField] GameObject premiumPack;
     [SerializeField] GameObject noAdsPack;
 
-    [FoldoutGroup("TimeLimit")][SerializeField] GameObject royalCandyRVGainText;
-    [FoldoutGroup("TimeLimit")][SerializeField] GameObject royalCandyRVTimeLimitObject;
-    [FoldoutGroup("TimeLimit")][SerializeField] UnityEngine.UI.Text royalCandyRVRemainTimeText;
-    [FoldoutGroup("TimeLimit")][SerializeField] Transform royalCandyAttractorStart;
-    [FoldoutGroup("TimeLimit")][SerializeField] Transform royalCandyAttractorEnd;
+    [FoldoutGroup("TimeLimit")][SerializeField] GameObject royalCandyRVGainText_10;
+    [FoldoutGroup("TimeLimit")][SerializeField] GameObject royalCandyRVTimeLimitObject_10;
+    [FoldoutGroup("TimeLimit")][SerializeField] UnityEngine.UI.Text royalcandyRVLimitCountText_10;
+    [FoldoutGroup("TimeLimit")][SerializeField] UnityEngine.UI.Text royalCandyRVRemainTimeText_10;
+    [FoldoutGroup("TimeLimit")][SerializeField] Transform royalCandyAttractorStart_10;
+    [FoldoutGroup("TimeLimit")][SerializeField] Transform royalCandyAttractorEnd_10;
+
+    [Space]
+
+    [FoldoutGroup("TimeLimit")][SerializeField] GameObject royalCandyRVGainText_50;
+    [FoldoutGroup("TimeLimit")][SerializeField] GameObject royalCandyRVTimeLimitObject_50;
+    [FoldoutGroup("TimeLimit")][SerializeField] UnityEngine.UI.Text royalcandyRVLimitCountText_50;
+    [FoldoutGroup("TimeLimit")][SerializeField] UnityEngine.UI.Text royalCandyRVRemainTimeText_50;
+    [FoldoutGroup("TimeLimit")][SerializeField] Transform royalCandyAttractorStart_50;
+    [FoldoutGroup("TimeLimit")][SerializeField] Transform royalCandyAttractorEnd_50;
+
+
     [FoldoutGroup("TimeLimit")][SerializeField] Material royalCandyAttractorMat;
     [FoldoutGroup("TimeLimit")][SerializeField] Material rvTicketMat;
 
-
-
+    [Space]
 
     [FoldoutGroup("TimeLimit")][SerializeField] GameObject moneyRVGainText;
     [FoldoutGroup("TimeLimit")][SerializeField] GameObject moneyRVTimeLimitObject;
+    [FoldoutGroup("TimeLimit")][SerializeField] UnityEngine.UI.Text moneyRVLimitCountText;
     [FoldoutGroup("TimeLimit")][SerializeField] UnityEngine.UI.Text moneyRVRemainTimeText;
     [FoldoutGroup("TimeLimit")][SerializeField] Transform moneyRVAttractorStart;
     [FoldoutGroup("TimeLimit")][SerializeField] Transform moneyRVAttractorEnd;
@@ -67,25 +85,52 @@ public class ShopUI : MonoBehaviour
     {
         bool any = false;
 
-        if (SaveManager.instance.IsTimeLimitRVReady(SaveManager.instance.dailyFreeRoyalCandyTime))
+        if (SaveManager.instance.IsTimeLimitRVReady(SaveManager.instance.dailyFreeRoyalCandy10Time))
         {
-            royalCandyRVGainText.SetActive(true);
-            royalCandyRVTimeLimitObject.SetActive(false);
+            if ((ES3.KeyExists("TimeLimitRoyalCandy10LimitCount") ? ES3.Load<int>("TimeLimitRoyalCandy10LimitCount") : royalCandy_10MaxCount) == 0)
+                ES3.Save<int>("TimeLimitRoyalCandy10LimitCount", royalCandy_10MaxCount);
+
+            royalCandyRVGainText_10.SetActive(true);
+            royalCandyRVTimeLimitObject_10.SetActive(false);
 
             any = true;
         }
         else
         {
-            royalCandyRVGainText.SetActive(false);
-            royalCandyRVTimeLimitObject.SetActive(true);
+            royalCandyRVGainText_10.SetActive(false);
+            royalCandyRVTimeLimitObject_10.SetActive(true);
 
-            var lefttime = (int)SaveManager.instance.GetLeftTime(SaveManager.instance.dailyFreeRoyalCandyTime);
+            var lefttime = (int)SaveManager.instance.GetLeftTime(SaveManager.instance.dailyFreeRoyalCandy10Time);
 
-            royalCandyRVRemainTimeText.text = SaveManager.GetFormatedStringFromSecond(lefttime);
+            royalCandyRVRemainTimeText_10.text = SaveManager.GetFormatedStringFromSecond(lefttime);
+        }
+
+        if (SaveManager.instance.IsTimeLimitRVReady(SaveManager.instance.dailyFreeRoyalCandy50Time))
+        {
+            if ((ES3.KeyExists("TimeLimitRoyalCandy50LimitCount") ? ES3.Load<int>("TimeLimitRoyalCandy50LimitCount") : royalCandy_50MaxCount) == 0)
+                ES3.Save<int>("TimeLimitRoyalCandy50LimitCount", royalCandy_50MaxCount);
+
+            royalCandyRVGainText_50.SetActive(true);
+            royalCandyRVTimeLimitObject_50.SetActive(false);
+
+            any = true;
+        }
+        else
+        {
+
+            royalCandyRVGainText_50.SetActive(false);
+            royalCandyRVTimeLimitObject_50.SetActive(true);
+
+            var lefttime = (int)SaveManager.instance.GetLeftTime(SaveManager.instance.dailyFreeRoyalCandy50Time);
+
+            royalCandyRVRemainTimeText_50.text = SaveManager.GetFormatedStringFromSecond(lefttime);
         }
 
         if (SaveManager.instance.IsTimeLimitRVReady(SaveManager.instance.dailyFreeMoneyTime))
         {
+            if ((ES3.KeyExists("TimeLimitMoney100LimitCount") ? ES3.Load<int>("TimeLimitMoney100LimitCount") : money100_MaxCount) == 0)
+                ES3.Save<int>("TimeLimitMoney100LimitCount", money100_MaxCount);
+
             moneyRVGainText.SetActive(true);
             moneyRVTimeLimitObject.SetActive(false);
 
@@ -100,26 +145,72 @@ public class ShopUI : MonoBehaviour
 
             moneyRVRemainTimeText.text = SaveManager.GetFormatedStringFromSecond(lefttime);
         }
+
+        Debug.LogError((ES3.KeyExists("TimeLimitRoyalCandy10LimitCount") ? ES3.Load<int>("TimeLimitRoyalCandy10LimitCount") : royalCandy_10MaxCount));
+        royalcandyRVLimitCountText_10.text = "Available " + (ES3.KeyExists("TimeLimitRoyalCandy10LimitCount") ? ES3.Load<int>("TimeLimitRoyalCandy10LimitCount") : royalCandy_10MaxCount) + "/" + royalCandy_10MaxCount;
+        royalcandyRVLimitCountText_50.text = "Available " + (ES3.KeyExists("TimeLimitRoyalCandy50LimitCount") ? ES3.Load<int>("TimeLimitRoyalCandy50LimitCount") : royalCandy_50MaxCount) + "/" + royalCandy_50MaxCount;
+        moneyRVLimitCountText.text = "Available " + (ES3.KeyExists("TimeLimitMoney100LimitCount") ? ES3.Load<int>("TimeLimitMoney100LimitCount") : money100_MaxCount) + "/" + money100_MaxCount;
     }
 
-    public void OnClickLimitCandyRV()
+    public void OnClickLimitCandyRV_10()
     {
-        if (SaveManager.instance.IsTimeLimitRVReady(SaveManager.instance.dailyFreeRoyalCandyTime))
+        if (SaveManager.instance.IsTimeLimitRVReady(SaveManager.instance.dailyFreeRoyalCandy10Time))
         {
             AdManager.instance.ShowRewarded(() =>
                     {
-                        SaveManager.instance.dailyFreeRoyalCandyTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                        SaveManager.instance.AddRoyalCandy(25);
-                        EventManager.instance.CustomEvent(AnalyticsType.RV, "TimeLimit RoyalCandy 25", true, true);
+                        ES3.Save<int>("TimeLimitRoyalCandy10LimitCount", (ES3.KeyExists("TimeLimitRoyalCandy10LimitCount") ? ES3.Load<int>("TimeLimitRoyalCandy10LimitCount") : royalCandy_10MaxCount) - 1);
+
+                        if ((ES3.KeyExists("TimeLimitRoyalCandy10LimitCount") ? ES3.Load<int>("TimeLimitRoyalCandy10LimitCount") : royalCandy_10MaxCount) <= 0)
+                        {
+                            SaveManager.instance.dailyFreeRoyalCandy10Time = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                            ES3.Save<string>("dailyFreeRoyalCandy10Time", SaveManager.instance.dailyFreeRoyalCandy10Time);
+                        }
+                        else
+                        {
+
+                        }
+
+                        SaveManager.instance.AddRoyalCandy(10);
+                        EventManager.instance.CustomEvent(AnalyticsType.RV, "TimeLimit RoyalCandy 10", true, true);
 
                         this.TaskDelay(0.5f, () =>
                                                 {
-                                                    Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd, royalCandyAttractorStart
+                                                    Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd_10, royalCandyAttractorStart_10
+                            , royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)10), (short)10, (short)10, 1, 0.8f / ((float)10)));
+                                                });
+
+                    }, "TimeLimit RoyalCandy 10");
+        }
+    }
+
+    public void OnClickLimitCandyRV_50()
+    {
+        if (SaveManager.instance.IsTimeLimitRVReady(SaveManager.instance.dailyFreeRoyalCandy50Time))
+        {
+            AdManager.instance.ShowRewarded(() =>
+                    {
+                        ES3.Save<int>("TimeLimitRoyalCandy50LimitCount", (ES3.KeyExists("TimeLimitRoyalCandy50LimitCount") ? ES3.Load<int>("TimeLimitRoyalCandy50LimitCount") : royalCandy_50MaxCount) - 1);
+
+                        if ((ES3.KeyExists("TimeLimitRoyalCandy50LimitCount") ? ES3.Load<int>("TimeLimitRoyalCandy50LimitCount") : royalCandy_10MaxCount) <= 0)
+                        {
+                            SaveManager.instance.dailyFreeRoyalCandy50Time = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                            ES3.Save<string>("dailyFreeRoyalCandy50Time", SaveManager.instance.dailyFreeRoyalCandy50Time);
+                        }
+                        else
+                        {
+
+                        }
+
+                        SaveManager.instance.AddRoyalCandy(50);
+                        EventManager.instance.CustomEvent(AnalyticsType.RV, "TimeLimit RoyalCandy 50", true, true);
+
+                        this.TaskDelay(0.5f, () =>
+                                                {
+                                                    Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd_50, royalCandyAttractorStart_50
                             , royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
                                                 });
 
-                        ES3.Save<string>("dailyFreeRoyalCandyTime", SaveManager.instance.dailyFreeRoyalCandyTime);
-                    }, "TimeLimit RoyalCandy 25");
+                    }, "TimeLimit RoyalCandy 50");
         }
     }
 
@@ -130,9 +221,20 @@ public class ShopUI : MonoBehaviour
             // Debug.LogError(SaveManager.instance.GetLeftTime(SaveManager.instance.dailyFreeMoneyTime));
             AdManager.instance.ShowRewarded(() =>
                     {
-                        SaveManager.instance.dailyFreeMoneyTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                        SaveManager.instance.GetMoney(300);
-                        EventManager.instance.CustomEvent(AnalyticsType.RV, "TimeLimit Money 300", true, true);
+                        ES3.Save<int>("TimeLimitMoney100LimitCount", (ES3.KeyExists("TimeLimitMoney100LimitCount") ? ES3.Load<int>("TimeLimitMoney100LimitCount") : money100_MaxCount) - 1);
+
+                        if ((ES3.KeyExists("TimeLimitMoney100LimitCount") ? ES3.Load<int>("TimeLimitMoney100LimitCount") : money100_MaxCount) <= 0)
+                        {
+                            SaveManager.instance.dailyFreeMoneyTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                            ES3.Save<string>("dailyFreeMoney100Time", SaveManager.instance.dailyFreeMoneyTime);
+                        }
+                        else
+                        {
+
+                        }
+
+                        SaveManager.instance.GetMoney(100);
+                        EventManager.instance.CustomEvent(AnalyticsType.RV, "TimeLimit Money 100", true, true);
 
                         this.TaskDelay(0.5f, () =>
                         {
@@ -140,8 +242,8 @@ public class ShopUI : MonoBehaviour
                         , moneyRVAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
                         });
 
-                        ES3.Save<string>("dailyFreeMoneyTime", SaveManager.instance.dailyFreeMoneyTime);
-                    }, "TimeLimit Money 300");
+                        ES3.Save<string>("dailyFreeMoney100Time", SaveManager.instance.dailyFreeMoneyTime);
+                    }, "TimeLimit Money 100");
         }
     }
 
@@ -200,17 +302,17 @@ public class ShopUI : MonoBehaviour
         switch (id)
         {
             case iapManager.iap_royalCandy150:
-                Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd, royalCandy150Start
+                Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd_50, royalCandy150Start
                 , royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
                 break;
 
             case iapManager.iap_royalCandy350:
-                Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd, royalCandy350Start
+                Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd_50, royalCandy350Start
                 , royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
                 break;
 
             case iapManager.iap_royalCandy1000:
-                Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd, royalCandy1000Start
+                Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd_50, royalCandy1000Start
                 , royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
                 break;
 

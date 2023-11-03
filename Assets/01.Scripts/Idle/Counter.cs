@@ -65,7 +65,8 @@ public class Counter : MonoBehaviour
             {
                 //계산하기
 
-                MMVibrationManager.Haptic(HapticTypes.MediumImpact);
+                if (IdleManager.instance.playIdle)
+                    MMVibrationManager.Haptic(HapticTypes.MediumImpact);
 
                 customerList[0].SetTimer(1.5f);
 

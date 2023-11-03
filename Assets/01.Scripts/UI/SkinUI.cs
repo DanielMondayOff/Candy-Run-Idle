@@ -125,6 +125,9 @@ public class SkinUI : MonoBehaviour
 
     public void SelectSkin(SkinType type, int id)
     {
+        if (GetComponentsInChildren<SkinActiveUI>().Length <= 0)
+            return;
+
         GetComponentsInChildren<SkinActiveUI>().Where((n) => n.type == type && n.id == id).First().OnClick();
     }
 

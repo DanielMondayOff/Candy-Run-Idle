@@ -254,7 +254,8 @@ public class CandyMachine : BuildObject
 
             player.AddItemStack(obj);
 
-            MMVibrationManager.Haptic(HapticTypes.MediumImpact);
+            if (IdleManager.instance.playIdle)
+                MMVibrationManager.Haptic(HapticTypes.MediumImpact);
 
             EventManager.instance.CustomEvent(AnalyticsType.IDLE, "Player Take Candy_" + candyItem.id, true, true);
 
