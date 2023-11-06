@@ -301,7 +301,7 @@ public class DisplayStand : BuildObject
                     customer.UpdateUI();
 
                     if (ES3.KeyExists("NextStageEnable"))
-                        if (ES3.Load<bool>("NextStageEnable") && IdleManager.instance.playIdle)
+                        if (ES3.Load<bool>("NextStageEnable") && IdleManager.instance.playIdle && !IdleManager.instance.stopAds)
                         {
                             bool success = MondayOFF.AdsManager.ShowInterstitial();
 

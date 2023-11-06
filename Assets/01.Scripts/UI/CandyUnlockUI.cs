@@ -43,14 +43,20 @@ public class CandyUnlockUI : MonoBehaviour
 
         // Debug.LogError(currentStatus.GetCurrentPercent());
         percentText.text = Mathf.FloorToInt(currentStatus.GetCurrentPercent()) + "%";
-        candyImage_black.fillAmount = (Mathf.Clamp(1 - (currentStatus.GetCurrentPercent() * 0.01f), 0f, 1f));
+        candyImage_black.fillAmount = (Mathf.Clamp(1f - (currentStatus.GetCurrentPercent() * 0.01f), 0f, 1f));
 
         // ChangeFillRate(1f - (currentStatus.GetCurrentPercent() * 0.01f));
 
         // currentStatus = current;
         // dynamicPanel.Expand();
 
-        this.TaskDelay(0.5f, StartFillAnimation);
+        var candyList = RunManager.instance.GetLastCandyInventory();
+
+        float point = 34;
+
+        currentStatus.AddPercent(point);
+
+        this.TaskDelay(0.5f, () => StartFillAnimation(Mathf.Clamp(1f - (currentStatus.GetCurrentPercent() * 0.01f), 0f, 1f)));
         // StartFillAnimation();
 
         RunManager.instance.showNewCandyUnlockTask = this.TaskDelay(4f, () =>
@@ -101,29 +107,30 @@ public class CandyUnlockUI : MonoBehaviour
         // dynamicPanel.Collapse();
     }
 
-    public void StartFillAnimation()
+    public void StartFillAnimation(float EndPoint)
     {
         // StartCoroutine(coroutin());
 
-        float point = 0;
+        // float point = 0;
 
-        var candyList = RunManager.instance.GetLastCandyInventory();
+        // var candyList = RunManager.instance.GetLastCandyInventory();
 
-        for (int i = 0; i < candyList.candyItems.Count(); i++)
-        {
-            point += Resources.LoadAll<CandyObject>("Candy").Where((n) => n.id == candyList.candyItems[i].candy.id).First().unlockPoint * candyList.candyItems[i].count;
-        }
+        // for (int i = 0; i < candyList.candyItems.Count(); i++)
+        // {
+        //     point += Resources.LoadAll<CandyObject>("Candy").Where((n) => n.id == candyList.candyItems[i].candy.id).First().unlockPoint * candyList.candyItems[i].count;
+        // }
 
         // Debug.LogError(point);
 
-        currentStatus.AddPercent(point);
+        // currentStatus.AddPercent(point);
 
         if (currentStatus.unlocked)
             RunManager.instance.showNewCandyUnlock = true;
         // Debug.LogError(currentStatus.GetCurrentPercent());
 
+        candyImage_black.DOFillAmount(EndPoint, 1.5f).OnUpdate(() => percentText.text = (int)((1f - candyImage_black.fillAmount) * 100) + "%").SetEase(Ease.OutQuad);
 
-        candyImage_black.DOFillAmount(Mathf.Clamp(1 - (currentStatus.GetCurrentPercent() * 0.01f), 0f, 1f), 1.5f).OnUpdate(() => percentText.text = (int)((1f - candyImage_black.fillAmount) * 100) + "%").SetEase(Ease.OutQuad);
+        // candyImage_black.DOFillAmount(Mathf.Clamp(1 - (currentStatus.GetCurrentPercent() * 0.01f), 0f, 1f), 1.5f).OnUpdate(() => percentText.text = (int)((1f - candyImage_black.fillAmount) * 100) + "%").SetEase(Ease.OutQuad);
 
         // IEnumerator coroutin()
         // {

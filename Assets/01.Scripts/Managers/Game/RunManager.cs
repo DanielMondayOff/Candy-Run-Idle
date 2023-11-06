@@ -1032,7 +1032,7 @@ public class RunManager : MonoBehaviour
         else
             candyUnlockUI.currentStatus = null;
 
-        SaveManager.instance.AddUnlockPoint(lastCandyInventory.candyItems);
+        SaveManager.instance.AddUnlockPoint(34); /*lastCandyInventory.candyItems*/
 
         SaveManager.instance.enableCandyInventoryUIUpdate = false;
         cuttingPhase = false;
@@ -1050,14 +1050,6 @@ public class RunManager : MonoBehaviour
 
         this.TaskDelay(1.8f, () =>
         {
-            // if (StageManager.instance.currentStageNum == 4 && forceIdle)
-            // {
-            //     sellCandyBtn.SetActive(true);
-            // }
-            // else if (StageManager.instance.currentStageNum > 4)
-            // {
-            //     nextStageBtnGroup.SetActive(true);
-            // }
 
             ShowCandyUnlockStatus();
 
@@ -1082,8 +1074,6 @@ public class RunManager : MonoBehaviour
             SaveManager.instance.enableCandyInventoryUIUpdate = true;
         });
 
-        // particleUI2.OnClickExpandBtn(true);
-        // particleUI2.GetComponentInChildren<CandyInventory>().GetComponent<RectTransform>().anchoredPosition3D = new Vector3(0, particleUI2.GetComponentInChildren<CandyInventory>().GetComponent<RectTransform>().anchoredPosition3D.y, 0);
         jarBlock.SetActive(false);
         particleCanvas.worldCamera = uiCamera;
     }
@@ -1104,7 +1094,7 @@ public class RunManager : MonoBehaviour
 
         bool success = false;
 
-        if (StageManager.instance.currentStageNum > ForceIdleStage && (RemoteConfigService.Instance.appConfig.GetBool("ForceIdle") ? ES3.KeyExists("NextStageEnable") : true))
+        if (StageManager.instance.currentStageNum > ForceIdleStage && (RemoteConfigService.Instance.appConfig.GetBool("ForceIdle") ? ES3.KeyExists("NextStageEnable") : true) && !IdleManager.instance.stopAds)
             success = MondayOFF.AdsManager.ShowInterstitial();
 
         if (success)
@@ -1260,8 +1250,12 @@ public class RunManager : MonoBehaviour
     {
         cuttedCandys.ForEach((n) => Destroy(n));
 
-        SceneManager.UnloadSceneAsync("Run");
-        SceneManager.LoadScene("Run", LoadSceneMode.Additive);
+        // SceneManager.UnloadSceneAsync("Run");
+        // var async = SceneManager.LoadSceneAsync("Run", LoadSceneMode.Additive);
+
+        // async.completed
+
+        // CameraManager.instance.ChangeCamera("follow");
 
         runGameUI.SetActive(true);
         particleUI.SetActive(true);

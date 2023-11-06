@@ -58,7 +58,7 @@ public class CameraManager : SerializedMonoBehaviour
 
         currentVirtualCamera.m_Follow = target;
 
-        this.TaskDelay(2.5f, () => currentVirtualCamera.m_Follow = lastTarget);
+        this.TaskDelay(1.25f, () => currentVirtualCamera.m_Follow = lastTarget);
     }
 
     public void FirstCameraFocus()
@@ -72,8 +72,8 @@ public class CameraManager : SerializedMonoBehaviour
         var lastTarget = currentVirtualCamera.m_Follow;
 
         currentVirtualCamera.m_Follow = firstFocusTrans[0];
-        this.TaskDelay(1.5f, () => currentVirtualCamera.m_Follow = firstFocusTrans[1]);
-        this.TaskDelay(3f, () => currentVirtualCamera.m_Follow = lastTarget);
+        this.TaskDelay(1.25f, () => currentVirtualCamera.m_Follow = firstFocusTrans[1]);
+        this.TaskDelay(2.5f, () => currentVirtualCamera.m_Follow = lastTarget);
 
         // for (int i = 0; i < firstFocusTrans.Length; i++)
         // {
@@ -99,6 +99,6 @@ public class CameraManager : SerializedMonoBehaviour
         var lastTarget = currentVirtualCamera.m_Follow;
 
         currentVirtualCamera.m_Follow = secondFocusTrans[0];
-        this.TaskDelay(1.5f, () => currentVirtualCamera.m_Follow = lastTarget);
+        this.TaskDelay(1.25f, () => currentVirtualCamera.m_Follow = lastTarget);
     }
 }

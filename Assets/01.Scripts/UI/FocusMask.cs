@@ -9,9 +9,17 @@ public class FocusMask : MonoBehaviour
 
     [SerializeField] GameObject black;
 
+    public void OnStart()
+    {
+        transform.localScale = Vector3.one * 10;
+    }
+
     public void StartFocus()
     {
-        tween.DOPlay();
+        transform.localScale = Vector3.one * 10;
+
+        GetComponent<Animator>().SetTrigger("focus");
+        // tween.DOPlay();
     }
 
     public void OnCompleteFocus()
@@ -21,8 +29,6 @@ public class FocusMask : MonoBehaviour
 
     public void PushFonus()
     {
-        transform.localScale = Vector3.one * 100;
-
         Managers.Pool.Push(GetComponent<Poolable>());
     }
 }

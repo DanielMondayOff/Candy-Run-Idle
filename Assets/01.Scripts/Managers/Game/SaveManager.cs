@@ -410,6 +410,26 @@ public class SaveManager : MonoBehaviour
         SaveCandyUnlockStatus(candyUnlockStatuses);
     }
 
+    public void AddUnlockPoint(int point)
+    {
+        var currentUnlockStatus = candyUnlockStatuses.Where((n) => !n.unlocked).OrderBy((n) => n.id).ToArray();
+
+        if (currentUnlockStatus.Length > 0)
+        {
+            float totalPoint = point;
+
+            while (totalPoint > 0 && currentUnlockStatus != null && currentUnlockStatus.Length > 0)
+            {
+                totalPoint = currentUnlockStatus[0].AddPercent(totalPoint);
+
+                if (candyUnlockStatuses.Where((n) => !n.unlocked).Count() > 0)
+                    currentUnlockStatus[0] = candyUnlockStatuses.Where((n) => !n.unlocked).OrderBy((n) => n.id).ToArray()[0];
+            }
+        }
+
+        SaveCandyUnlockStatus(candyUnlockStatuses);
+    }
+
     public void AddCandyUnlockPercent(int id, float precent = 1f)
     {
         var list = candyUnlockStatuses.Where((n) => n.id == id).Where((n) => !n.unlocked).ToList();
@@ -537,6 +557,8 @@ public class SaveManager : MonoBehaviour
             {
                 data.complete = true;
                 ES3.Save<List<SkinSaveData>>("SkinSaveData", skinSaveDataList);
+
+                IdleManager.instance.skinUI.SelectSkin(type, id);
             }
         }
         else
@@ -615,7 +637,7 @@ public class SaveManager : MonoBehaviour
     {
         // try
         // {
-        return 86400f - GetTimeDiff(DateTime.ParseExact(time, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture)).TotalSeconds;
+        return 28800 - GetTimeDiff(DateTime.ParseExact(time, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture)).TotalSeconds;
         // }
         // catch (FormatException e)
         // {

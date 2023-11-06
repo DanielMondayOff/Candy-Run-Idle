@@ -105,6 +105,9 @@ public class IdleManager : MonoBehaviour
 
     private List<FieldRvType> bannedFieldRv = new List<FieldRvType>();
 
+    private GameObject nextStageBtnFocus = null;
+    public bool stopAds = false;
+
 
     //==============================================================================================================================
 
@@ -269,6 +272,29 @@ public class IdleManager : MonoBehaviour
                 ES3.Save<int>("IRCount", 0);
             }
         }
+        else if (Input.GetKeyDown(KeyCode.B))
+        {
+            if (ES3.KeyExists("NextStageFocusMask") ? !ES3.Load<bool>("NextStageFocusMask") : true)
+            {
+                this.TaskDelay(2.5f, () =>
+                {
+
+                    nextStageBtn.SetActive(true);
+
+                    var focus = Util.GenerateMask(idleUI.transform, nextStageBtn.GetComponentInChildren<UnityEngine.UI.Text>(true).transform.position);
+
+                    nextStageBtnFocus = focus.gameObject;
+
+                    focus.transform.SetParent(nextStageBtn.GetComponentInChildren<UnityEngine.UI.Text>(true).transform);
+                    focus.transform.localPosition = Vector3.zero;
+                    focus.transform.SetParent(idleUI.transform);
+
+                    focus.transform.SetSiblingIndex(nextStageBtn.transform.GetSiblingIndex());
+
+                    focus.StartFocus();
+                });
+            }
+        }
     }
 
     public void testbtn()
@@ -389,7 +415,7 @@ public class IdleManager : MonoBehaviour
 
     public void GenenrateCustomer()
     {
-        print("customer Spawn : " + maxCustomerCount[GetUpgrade(IdleUpgradeType.Promotion).currentLevel] + " / " + spawnCustomerTask.GetIntervalTime());
+        // print("customer Spawn : " + maxCustomerCount[GetUpgrade(IdleUpgradeType.Promotion).currentLevel] + " / " + spawnCustomerTask.GetIntervalTime());
 
         if (/*SaveManager.instance.candyInventory.Count <= 0 || */ !playIdle || maxCustomerCount[GetUpgrade(IdleUpgradeType.Promotion).currentLevel] + maxCustomerCountBonus_Machine <= customers.Count || candyMachines.Where((n => n.isReady)).Count() == 0)
             return;
@@ -487,10 +513,10 @@ public class IdleManager : MonoBehaviour
 
     public void PlayRunGame()
     {
+        stopAds = false;
         playIdle = false;
         idleUI.SetActive(false);
-        CameraManager.instance.ChangeCamera("follow");
-        RunManager.instance.ChangeToRunGame();
+        // RunManager.instance.ChangeToRunGame();
 
         EventManager.instance.CustomEvent(AnalyticsType.UI, "GoToRun", true, true);
 
@@ -505,6 +531,10 @@ public class IdleManager : MonoBehaviour
 
         RunManager.instance.blackPanel.SetActive(false);
 
+        if (nextStageBtnFocus != null)
+            Destroy(nextStageBtnFocus);
+
+        // this.TaskDelay(0.1f, () => CameraManager.instance.ChangeCamera("follow"));
         // Managers.Sound.BgmOnOff(false);
     }
 
@@ -832,21 +862,37 @@ public class IdleManager : MonoBehaviour
         else
             return;
 
-        nextStageBtn.SetActive(true);
+        nextStageHighlight.SetActive(ES3.KeyExists("NextStageEnable") ? ES3.Load<bool>("NextStageEnable") : false);
 
-        if (ES3.KeyExists("NextStageEnable"))
-        {
-            if (ES3.Load<bool>("NextStageEnable"))
-                nextStageHighlight.SetActive(true);
-        }
-        else
-            nextStageHighlight.SetActive(true);
-
-        ES3.Save<bool>("NextStageEnable", true);
         ES3.Save<bool>("enableIAPShop", true);
-        shopUIButton.Show();
+        // shopUIButton.Show();
         ES3.Save<bool>("enableSkin", true);
-        skinUIButton.Show();
+        // skinUIButton.Show();
+        ES3.Save<bool>("NextStageEnable", true);
+
+        stopAds = true;
+
+        if (ES3.KeyExists("NextStageFocusMask") ? !ES3.Load<bool>("NextStageFocusMask") : true)
+        {
+            this.TaskDelay(2.5f, () =>
+            {
+                ES3.Save<bool>("NextStageFocusMask", true);
+
+                nextStageBtn.SetActive(true);
+
+                var focus = Util.GenerateMask(idleUI.transform, nextStageBtn.GetComponentInChildren<UnityEngine.UI.Text>(true).transform.position);
+
+                nextStageBtnFocus = focus.gameObject;
+
+                focus.transform.SetParent(nextStageBtn.GetComponentInChildren<UnityEngine.UI.Text>(true).transform);
+                focus.transform.localPosition = Vector3.zero;
+                focus.transform.SetParent(idleUI.transform);
+
+                focus.transform.SetSiblingIndex(nextStageBtn.transform.GetSiblingIndex());
+
+                focus.StartFocus();
+            });
+        }
     }
 
     public void ChangeUpgradeBtnActive(bool active)
