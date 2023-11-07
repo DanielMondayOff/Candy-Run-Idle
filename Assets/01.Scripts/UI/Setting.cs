@@ -10,6 +10,7 @@ public class Setting : MonoBehaviour
         var ui = Managers.UI.ShowPopupUI<UI_Popup>("UI_PopupSetting", transform.parent);
 
         var rect = ui.GetComponent<RectTransform>();
+        rect.GetComponent<Canvas>().sortingOrder = 200;
 
         rect.anchorMin = new Vector3(0, 0);
         rect.anchorMax = new Vector3(1, 1);
@@ -19,11 +20,13 @@ public class Setting : MonoBehaviour
 
         rect.localScale = Vector3.one;
 
+        rect.anchoredPosition3D = Vector3.zero;
+
         EventManager.instance.CustomEvent(AnalyticsType.UI, "OpenSetting", true, true);
 
 
         // MondayOFF.EventTracker.LogCustomEvent(
-        // "UI",
+        // "UI",+
         // new Dictionary<string, string> { { "UI_TYPE", "OpenSetting" } }
         // );
     }
