@@ -99,6 +99,8 @@ public class RunManager : MonoBehaviour
     [FoldoutGroup("참조")] public Transform x2clameStartPos;
 
     [FoldoutGroup("참조")] public Material moneyMat;
+    [FoldoutGroup("참조")] public Cinemachine.CinemachineVirtualCamera rungame;
+
 
 
     [FoldoutGroup("CPI1")] public UnityEngine.UI.Text candyStackText;
@@ -188,6 +190,9 @@ public class RunManager : MonoBehaviour
 
     private void Start()
     {
+        runGameUI.SetActive(true);
+        CameraManager.instance.ChangeCamera("follow");
+
         fireTask = this.TaskWhile(RunManager.instance.GetCurrentFireRate(), 1, () =>
         {
             if (fireBullet && !cuttingPhase && !isGameEnd && fireBulletEnable)
@@ -1250,16 +1255,16 @@ public class RunManager : MonoBehaviour
     {
         cuttedCandys.ForEach((n) => Destroy(n));
 
-        // SceneManager.UnloadSceneAsync("Run");
-        // var async = SceneManager.LoadSceneAsync("Run", LoadSceneMode.Additive);
+        SceneManager.UnloadSceneAsync("Run");
+        var async = SceneManager.LoadSceneAsync("Run", LoadSceneMode.Additive);
 
         // async.completed
 
-        // CameraManager.instance.ChangeCamera("follow");
+        // IdleManager.instance.TaskWaitUntil(() => CameraManager.instance.ChangeCamera("follow"), () => );
 
-        runGameUI.SetActive(true);
-        particleUI.SetActive(true);
-        canvas.SetActive(true);
+        // runGameUI.SetActive(true);
+        // particleUI.SetActive(true);
+        // canvas.SetActive(true);
     }
 
     void OnChangeCandyList()

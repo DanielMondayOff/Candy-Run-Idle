@@ -516,7 +516,7 @@ public class IdleManager : MonoBehaviour
         stopAds = false;
         playIdle = false;
         idleUI.SetActive(false);
-        // RunManager.instance.ChangeToRunGame();
+        RunManager.instance.ChangeToRunGame();
 
         EventManager.instance.CustomEvent(AnalyticsType.UI, "GoToRun", true, true);
 
@@ -525,7 +525,7 @@ public class IdleManager : MonoBehaviour
         // new Dictionary<string, string> { { "UI_TYPE", "GoToRun" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
         // );
 
-        idleCamera.gameObject.SetActive(false);
+        // idleCamera.gameObject.SetActive(false);
         nextStageHighlight.SetActive(false);
         joyStickCanvas.SetActive(false);
 

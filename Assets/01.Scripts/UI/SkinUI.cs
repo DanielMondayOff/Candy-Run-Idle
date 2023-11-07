@@ -35,18 +35,17 @@ public class SkinUI : MonoBehaviour
 
             if (ES3.KeyExists("cutterSkin"))
             {
-                SkinRenderManager.instance.ChangeSkinRender(SkinType.Cutter, ES3.Load<int>("cutterSkin"));
                 ChangeSkinName(SaveManager.instance.FindSkinObject(SkinType.Cutter, ES3.Load<int>("cutterSkin")).skinName);
                 // IdleManager.instance.skinUI.ChangeStat(SaveManager.instance.FindSkinObject(SkinType.Cutter, ES3.Load<int>("cutterSkin")).GetStatText());
-
-                ChangeStat(SaveManager.instance.FindSkinObject(SkinType.Cutter, ES3.Load<int>("cutterSkin")).GetStatText());
 
                 EnableUsedIcon(SkinType.Cutter, "cutterSkin");
             }
 
             if (ES3.KeyExists("idlePlayerSkin"))
             {
+                SkinRenderManager.instance.ChangeSkinRender(SkinType.IdlePlayer, ES3.Load<int>("idlePlayerSkin"));
                 ChangeSkinName(SaveManager.instance.FindSkinObject(SkinType.IdlePlayer, ES3.Load<int>("idlePlayerSkin")).skinName);
+                ChangeStat(SaveManager.instance.FindSkinObject(SkinType.IdlePlayer, ES3.Load<int>("idlePlayerSkin")).GetStatText());
                 // IdleManager.instance.skinUI.ChangeStat(SaveManager.instance.FindSkinObject(SkinType.IdlePlayer, ES3.Load<int>("idlePlayerSkin")).GetStatText());
 
                 EnableUsedIcon(SkinType.IdlePlayer, "idlePlayerSkin");
