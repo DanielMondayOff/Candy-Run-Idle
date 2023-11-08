@@ -22,5 +22,10 @@ public class RunEndLine : MonoBehaviour
                     break;
             }
         }
+
+        if (other.CompareTag("Player2") && !RunManager.instance.isGameEnd)
+        {
+            RunRunManager.instance.EndStage();
+        }
     }
 }

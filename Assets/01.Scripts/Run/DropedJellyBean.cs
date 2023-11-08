@@ -28,6 +28,8 @@ public class DropedJellyBean : MonoBehaviour
 
     public bool changeJellyColor = true;
 
+    private Tweener tweener = null;
+
     private void Start()
     {
         meshRenderer = GetComponentInChildren<MeshRenderer>();
@@ -92,7 +94,17 @@ public class DropedJellyBean : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player2"))
+        {
+            transform.SetParent(RunRunManager.instance.magTrans1);
+            Tween tween = transform.DOLocalJump(Vector3.zero, 3, 1, 0.4f)
+            .OnComplete(() =>
+            {
+                RunRunManager.instance.AddBullet();
+                gameObject.SetActive(false);
+            });
+        }
+        else if (other.CompareTag("Player"))
         {
             var particle = Managers.Pool.Pop(Managers.Resource.Load<GameObject>("Particles/Jelly Particle"));
 

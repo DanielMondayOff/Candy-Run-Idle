@@ -132,5 +132,6 @@ public enum AnalyticsType
     IAP,
     RV,
     ADS,
-    AB_TEST
+    AB_TEST,
+    TEST
 }

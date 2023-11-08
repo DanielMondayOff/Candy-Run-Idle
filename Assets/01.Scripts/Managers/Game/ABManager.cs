@@ -19,6 +19,11 @@ public class ABManager : SerializedMonoBehaviour
         instance = this;
     }
 
+    private void Start()
+    {
+        SelectStart("A");
+    }
+
     public void SelectStart(string word)
     {
         if (ES3.KeyExists("NextStageEnable"))
@@ -92,10 +97,7 @@ public class ABManager : SerializedMonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        SelectStart("A");
-    }
+
 
     //     async Task Start()
     //     {

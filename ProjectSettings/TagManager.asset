@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Bullet
   - Worker
+  - Player2
   layers:
   - Default
   - TransparentFX

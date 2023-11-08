@@ -41,7 +41,8 @@ public class StageManager : MonoBehaviour
 
     private void Start()
     {
-        GenearteCurrentStage();
+        if (IdleManager.instance != null)
+            GenearteCurrentStage();
     }
 
     public void GenearteCurrentStage()

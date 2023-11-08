@@ -24,6 +24,9 @@ public class RunMapGenerator : MonoBehaviour
     [SerializeField] GameObject[] randomObjectPrefabs;
     [SerializeField] GameObject[] tripleShotPillerPrefabs;
 
+    [SerializeField] GameObject[] runrunMapPart;
+
+
 
     [SerializeField] List<Transform> mapPoints = new List<Transform>();
 
@@ -189,6 +192,14 @@ public class RunMapGenerator : MonoBehaviour
 
         // 딕셔너리에 등록된 항목 중 하나도 선택되지 않았을 경우 기본값 반환
         return default(T);
+    }
+
+    public void GenearteRandomRunRunMap()
+    {
+        foreach (var point in mapPoints)
+        {
+            var part = Instantiate(runrunMapPart[Random.Range(0, runrunMapPart.Length)], point);
+        }
     }
 }
 

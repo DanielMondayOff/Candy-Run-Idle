@@ -62,6 +62,11 @@ public class RunObstacle : MonoBehaviour
             // new Dictionary<string, string> { { "RUN_TYPE", "hitByObstacle" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }
             // );
         }
+
+        if (other.CompareTag("Player2") && !isUsed)
+        {
+            Destroy();
+        }
     }
 
     public void TakeDamage()

@@ -29,7 +29,9 @@ public class Bullet : MonoBehaviour
 
         StartRotation();
 
-        pushDelay = RunManager.instance.TaskDelay(RunManager.instance.GetBulletRange() / 100f, () => { GetComponentInChildren<Bullet>().Push(); });
+        pushDelay = RunManager.instance.TaskDelay(RunManager.instance.GetBulletRange() / 100f * ((RunRunManager.instance != null) ? 2f : 1f), () => { GetComponentInChildren<Bullet>().Push(); });
+
+        GetComponentInChildren<TrailRenderer>(true).enabled = true;
     }
 
     void StartRotation()
@@ -76,5 +78,9 @@ public class Bullet : MonoBehaviour
         rotateTween.Kill();
         if (pushDelay != null)
             pushDelay.Kill();
+
+        GetComponentInChildren<TrailRenderer>(true).Clear();
+        GetComponentInChildren<TrailRenderer>(true).enabled = false;
+
     }
 }

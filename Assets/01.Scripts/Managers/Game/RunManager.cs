@@ -197,118 +197,129 @@ public class RunManager : MonoBehaviour
         {
             if (fireBullet && !cuttingPhase && !isGameEnd && fireBulletEnable)
             {
-                candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().GenerateBullet());
+                if (RunRunManager.instance != null)
+                {
+                    if (RunRunManager.instance.currentBulletCount > 0)
+                    {
+                        candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().GenerateBullet());
+                        RunRunManager.instance.UseBullet();
+                    }
+                }
 
                 if (StageManager.instance.IsAllowJellyGun)
                     Managers.Sound.Play("J.BoB - Mobile Game - Interface Short Woody Click", volume: 0.5f, pitch: Random.Range(0.8f, 1f));
             }
         });
 
-        CandyInventory.instance.SyncCurrentCandyUI();
-
-        if (StageManager.instance.currentStageNum == 2)
+        if (IdleManager.instance != null)
         {
-            swipeToStartUI.SetActive(false);
-            jellyGunStartUI.SetActive(true);
-
-            enableSwipe = false;
-        }
-
-        if (ES3.KeyExists("enableShop"))
-            if (ES3.Load<bool>("enableShop"))
-                goToShopBtn.SetActive(true);
-
-        if (StageManager.instance.currentStageNum >= ForceIdleStage)
-        {
-            startCard.GenearteCards();
-        }
-
-        if (ES3.KeyExists("AB_Test"))
-            if (ES3.Load<string>("AB_Test").Equals("A"))
-                blackPanel.SetActive(false);
-
-        if (ES3.KeyExists("NextStageEnable"))
-            if (ES3.Load<bool>("NextStageEnable"))
-                blackPanel.SetActive(false);
-
-        // currentCandyArrangeType = ES3.KeyExists("CandyArrangeType") ? ES3.Load<CandyArrangeType>("CandyArrangeType") : CandyArrangeType.Horizontal;
-
-        // ABManager.instance.SelectStart("B");
-
-        // MondayOFF.AdsManager.ShowBanner();
-
-        // this.TaskDelay(3f, TestCrash3);
-
-        switch (IdleManager.instance.runGameType)
-        {
-            case RunGameType.Default:
-                DefaultPlayer.SetActive(true);
-
-                maxCandyLength = 2000;
-                break;
-
-            case RunGameType.CPI1:
-                DefaultPlayer.SetActive(false);
-                CPI1Player.SetActive(true);
-
-                railRenderer.materials[0].DOOffset(new Vector2(0, 100), 40).SetLoops(-1);
-
-                endStand.SetActive(true);
-                cutterAnimator.gameObject.SetActive(false);
-                jarAnimator.gameObject.SetActive(false);
-
-                railRenderer.gameObject.SetActive(true);
-
-                maxCandyLength = 9999;
-                break;
-
-            case RunGameType.CPI2:
-                candyCountTextParent.SetActive(true);
-
-                maxCandyLength = 9999;
-                break;
-
-            case RunGameType.CPI3:
-                candyLengthTextParent.SetActive(true);
-
-                maxCandyLength = 9999;
-                break;
-
-
-        }
-
-        this.TaskWhile(0.2f, 0, () => { if (candyStackQueue.Count > 0 && enableCandyStack) currentPlayerCandyJar.StackCandy(candyStackQueue.Dequeue()); });
-
-        if (ES3.KeyExists("cutterSkin"))
-        {
-            foreach (var skin in GetComponentsInChildren<SkinActiveUI>())
+            if (StageManager.instance.currentStageNum == 2)
             {
-                if (skin.type == SkinType.Cutter && skin.id == ES3.Load<int>("cutterSkin"))
-                    skin.EnableUsedIcon();
+                swipeToStartUI.SetActive(false);
+                jellyGunStartUI.SetActive(true);
+
+                enableSwipe = false;
             }
-            ChangeCutterSkin(ES3.Load<int>("cutterSkin"));
-        }
-        else
-        {
-            ChangeCutterSkin(0);
-        }
 
-        var cameraData = Camera.main.GetUniversalAdditionalCameraData();
-        cameraData.cameraStack.Add(IdleManager.instance.uiCamera);
+            if (ES3.KeyExists("enableShop"))
+                if (ES3.Load<bool>("enableShop"))
+                    goToShopBtn.SetActive(true);
 
-        if (ES3.KeyExists("focusSellCandy") ? ES3.Load<bool>("focusSellCandy") : false)
-        {
-            var focus = Util.GenerateMask(runGameUI.transform, goToShopBtn.transform.position);
+            if (StageManager.instance.currentStageNum >= ForceIdleStage)
+            {
+                startCard.GenearteCards();
+            }
 
-            focus.transform.SetParent(goToShopBtn.GetComponentInChildren<UnityEngine.UI.Text>().transform);
-            focus.transform.localPosition = Vector3.zero;
-            focus.transform.SetParent(runGameUI.transform);
+            if (ES3.KeyExists("AB_Test"))
+                if (ES3.Load<string>("AB_Test").Equals("A"))
+                    blackPanel.SetActive(false);
 
-            focus.transform.SetSiblingIndex(goToShopBtn.transform.GetSiblingIndex());
+            if (ES3.KeyExists("NextStageEnable"))
+                if (ES3.Load<bool>("NextStageEnable"))
+                    blackPanel.SetActive(false);
 
-            focus.StartFocus();
+            // currentCandyArrangeType = ES3.KeyExists("CandyArrangeType") ? ES3.Load<CandyArrangeType>("CandyArrangeType") : CandyArrangeType.Horizontal;
 
-            ES3.Save<bool>("focusSellCandy", false);
+            // ABManager.instance.SelectStart("B");
+
+            // MondayOFF.AdsManager.ShowBanner();
+
+            // this.TaskDelay(3f, TestCrash3);
+
+            switch (IdleManager.instance.runGameType)
+            {
+                case RunGameType.Default:
+                    DefaultPlayer.SetActive(true);
+
+                    maxCandyLength = 2000;
+                    break;
+
+                case RunGameType.CPI1:
+                    DefaultPlayer.SetActive(false);
+                    CPI1Player.SetActive(true);
+
+                    railRenderer.materials[0].DOOffset(new Vector2(0, 100), 40).SetLoops(-1);
+
+                    endStand.SetActive(true);
+                    cutterAnimator.gameObject.SetActive(false);
+                    jarAnimator.gameObject.SetActive(false);
+
+                    railRenderer.gameObject.SetActive(true);
+
+                    maxCandyLength = 9999;
+                    break;
+
+                case RunGameType.CPI2:
+                    candyCountTextParent.SetActive(true);
+
+                    maxCandyLength = 9999;
+                    break;
+
+                case RunGameType.CPI3:
+                    candyLengthTextParent.SetActive(true);
+
+                    maxCandyLength = 9999;
+                    break;
+
+
+            }
+
+            this.TaskWhile(0.2f, 0, () => { if (candyStackQueue.Count > 0 && enableCandyStack) currentPlayerCandyJar.StackCandy(candyStackQueue.Dequeue()); });
+
+            if (ES3.KeyExists("cutterSkin"))
+            {
+                foreach (var skin in GetComponentsInChildren<SkinActiveUI>())
+                {
+                    if (skin.type == SkinType.Cutter && skin.id == ES3.Load<int>("cutterSkin"))
+                        skin.EnableUsedIcon();
+                }
+                ChangeCutterSkin(ES3.Load<int>("cutterSkin"));
+            }
+            else
+            {
+                ChangeCutterSkin(0);
+            }
+
+            var cameraData = Camera.main.GetUniversalAdditionalCameraData();
+            cameraData.cameraStack.Add(IdleManager.instance.uiCamera);
+
+            if (ES3.KeyExists("focusSellCandy") ? ES3.Load<bool>("focusSellCandy") : false)
+            {
+                var focus = Util.GenerateMask(runGameUI.transform, goToShopBtn.transform.position);
+
+                focus.transform.SetParent(goToShopBtn.GetComponentInChildren<UnityEngine.UI.Text>().transform);
+                focus.transform.localPosition = Vector3.zero;
+                focus.transform.SetParent(runGameUI.transform);
+
+                focus.transform.SetSiblingIndex(goToShopBtn.transform.GetSiblingIndex());
+
+                focus.StartFocus();
+
+                ES3.Save<bool>("focusSellCandy", false);
+            }
+
+            if (candyInventoryUI != null)
+                CandyInventory.instance.SyncCurrentCandyUI();
         }
     }
 
