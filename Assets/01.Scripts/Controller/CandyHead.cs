@@ -17,8 +17,11 @@ public class CandyHead : MonoBehaviour
 
     public void GenerateBullet()
     {
-        if (!StageManager.instance.IsAllowJellyGun)
+
+        if (!StageManager.instance.IsAllowJellyGun && RunRunManager.instance == null)
             return;
+
+
 
         if (RunManager.instance.tripleShot)
         {

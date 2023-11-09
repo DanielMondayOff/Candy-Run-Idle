@@ -92,7 +92,7 @@ public class iapManager : MonoBehaviour
             IdleManager.instance.shopUI.PurchaseParticle(iap_royalCandy1000);
         });
 
-        Debug.LogError((ES3.KeyExists("PurchasePremium") ? ES3.Load<bool>("PurchasePremium") : false));
+        // Debug.LogError((ES3.KeyExists("PurchasePremium") ? ES3.Load<bool>("PurchasePremium") : false));
 
         if ((ES3.KeyExists("PurchasePremium") ? ES3.Load<bool>("PurchasePremium") : false) || (ES3.KeyExists("PurchaseNoAds") ? ES3.Load<bool>("PurchaseNoAds") : false))
         {

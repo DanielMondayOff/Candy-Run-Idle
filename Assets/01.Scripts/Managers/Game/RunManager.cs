@@ -201,10 +201,14 @@ public class RunManager : MonoBehaviour
                 {
                     if (RunRunManager.instance.currentBulletCount > 0)
                     {
-                        candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().GenerateBullet());
+                        candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>(true).GenerateBullet());
                         RunRunManager.instance.UseBullet();
+                        RunRunManager.instance.gunKnockBack();
+
                     }
                 }
+                else
+                    candyList.ForEach((n) => n.GetComponentInChildren<CandyHead>().GenerateBullet());
 
                 if (StageManager.instance.IsAllowJellyGun)
                     Managers.Sound.Play("J.BoB - Mobile Game - Interface Short Woody Click", volume: 0.5f, pitch: Random.Range(0.8f, 1f));
@@ -488,7 +492,13 @@ public class RunManager : MonoBehaviour
 
         StageManager.instance.TryStage();
 
-        EventManager.instance.CustomEvent(AnalyticsType.RUN, "RunTryStage - " + StageManager.instance.currentStageNum, true, true);
+        if (RunRunManager.instance == null)
+            EventManager.instance.CustomEvent(AnalyticsType.RUN, "RunTryStage - " + StageManager.instance.currentStageNum, true, true);
+
+        if (RunRunManager.instance != null)
+        {
+            RunRunManager.instance.StartStage();
+        }
     }
 
     public float GetCurrentFireRate()

@@ -15,14 +15,28 @@ public class RunRunManager : MonoBehaviour
 
     public int currentBulletCount = 0;
     public Text bulletCountText;
+    public Text scoreText;
 
     public Transform magTrans1;
     public GameObject mag;
     public GameObject EndCard;
 
+    public GameObject head;
+    public GameObject player;
+    public GameObject gun;
+
+
     private System.Action onChangeBulletCountEvent;
 
     private Tween boink = null;
+
+    private bool gameStarted = false;
+    private bool jumping = false;
+    private bool headOut = false;
+
+    [SerializeField] private float distance;
+
+    [SerializeField] private AnimationCurve jumpAnimationCurve;
 
 
     private void Awake()
@@ -40,6 +54,20 @@ public class RunRunManager : MonoBehaviour
         StageNum = ES3.KeyExists("RunRunCurrentStage") ? ES3.Load<int>("RunRunCurrentStage") : 0;
 
         EventManager.instance.CustomEvent(AnalyticsType.TEST, "RunRun - TryStage - " + StageNum);
+    }
+
+    private void Update()
+    {
+        distance = Vector3.Distance(player.transform.position, head.transform.position);
+
+        if (head.transform.position.z > 170 && !jumping)
+        {
+            HeadOut();
+        }
+        else if (Vector3.Distance(player.transform.position, head.transform.position) < 30f && !jumping && gameStarted && !headOut)
+        {
+            HeadJump();
+        }
     }
 
     public void RunRunStart()
@@ -67,12 +95,22 @@ public class RunRunManager : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
+    public void StartStage()
+    {
+        gameStarted = true;
+    }
+
     public void EndStage()
     {
+        if (!gameStarted)
+            return;
+        gameStarted = false;
+
         StageNum += 1;
 
         ES3.Save<int>("RunRunCurrentStage", StageNum);
 
+        scoreText.transform.parent.gameObject.SetActive(false);
         EndCard.GetComponentInChildren<Text>().text = "Score : " + score;
         EndCard.SetActive(true);
 
@@ -82,4 +120,32 @@ public class RunRunManager : MonoBehaviour
         RunManager.instance.joyStickCanvas.GetComponent<JoyStickController>().ForcePointerUp();
     }
 
+    public void HeadJump()
+    {
+        jumping = true;
+        head.GetComponent<Animator>().SetTrigger("Jump");
+
+        head.transform.DOJump(new Vector3(Random.Range(-1, 2) * 3, 0, head.transform.position.z + 15f), 3, 1, 1.6f).SetEase(jumpAnimationCurve).OnComplete(() => { jumping = false; });
+    }
+
+    public void AddScore(int value)
+    {
+        score += value;
+
+        scoreText.text = score.ToString();
+    }
+
+    public void gunKnockBack()
+    {
+        gun.transform.DOLocalMoveZ(-7f, 0.15f).SetLoops(1);
+        gun.transform.DOShakePosition(0.2f);
+    }
+
+    public void HeadOut()
+    {
+        headOut = true;
+
+        head.GetComponent<Animator>().SetTrigger("Jump");
+        head.transform.DOMoveY(-50, 1.5f).SetEase(jumpAnimationCurve).OnComplete(() => EndStage());
+    }
 }
