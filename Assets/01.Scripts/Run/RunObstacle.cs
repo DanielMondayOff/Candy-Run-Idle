@@ -112,6 +112,9 @@ public class RunObstacle : MonoBehaviour
 
         EventManager.instance.CustomEvent(AnalyticsType.RUN, "destroyObstacle", true, true);
 
+        if (RunRunManager.instance != null)
+            RunRunManager.instance.AddScore(20);
+
         // MondayOFF.EventTracker.LogCustomEvent(
         // "RUN",
         // new Dictionary<string, string> { { "RUN_TYPE", "destroyObstacle" }, { "StageNum", StageManager.instance.currentStageNum.ToString() } }

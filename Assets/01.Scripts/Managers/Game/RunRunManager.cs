@@ -12,10 +12,12 @@ public class RunRunManager : MonoBehaviour
 
     public static int StageNum = 0;
     public int score = 0;
+    public int currentMoney = 0;
 
     public int currentBulletCount = 0;
     public Text bulletCountText;
     public Text scoreText;
+    public Text moneyText;
 
     public Transform magTrans1;
     public GameObject mag;
@@ -52,7 +54,8 @@ public class RunRunManager : MonoBehaviour
         RunRunStart();
 
         StageNum = ES3.KeyExists("RunRunCurrentStage") ? ES3.Load<int>("RunRunCurrentStage") : 0;
-
+        currentMoney = StageNum = ES3.KeyExists("RunRunCurrentMoney") ? ES3.Load<int>("RunRunCurrentMoney") : 0;
+        this.TaskDelay(0.001f, () => moneyText.text = currentMoney.ToString());
         EventManager.instance.CustomEvent(AnalyticsType.TEST, "RunRun - TryStage - " + StageNum);
     }
 
@@ -141,11 +144,32 @@ public class RunRunManager : MonoBehaviour
         gun.transform.DOShakePosition(0.2f);
     }
 
+    public void AddMoney(int value)
+    {
+        currentMoney += value;
+
+        ES3.Save<int>("RunRunCurrentMoney", currentMoney);
+        moneyText.text = currentMoney.ToString();
+    }
+
     public void HeadOut()
     {
         headOut = true;
 
         head.GetComponent<Animator>().SetTrigger("Jump");
         head.transform.DOMoveY(-50, 1.5f).SetEase(jumpAnimationCurve).OnComplete(() => EndStage());
+    }
+
+    public void GenerateEmoji(string path)
+    {
+        var emojis = Resources.LoadAll<GameObject>(path);
+
+        var emoji = Managers.Pool.Pop(emojis[Random.Range(0, emojis.Length)]);
+
+        emoji.transform.position = head.transform.position + (Vector3.back * 0.5f);
+
+        emoji.GetComponent<ParticleSystem>().Play();
+
+        this.TaskDelay(5f, () => Managers.Pool.Push(emoji));
     }
 }
