@@ -30,8 +30,6 @@ MonoBehaviour:
     referenceMode: 2
     serializationDepthLimit: 64
     assemblyNames:
-    - ACTk.Editor
-    - ACTk.Runtime
     - Adverty.PlatformSpecific.Editor
     - AdvertyPlatformSpecific
     - Amazon.Editor
@@ -39,7 +37,6 @@ MonoBehaviour:
     - Assembly-CSharp
     - Assembly-CSharp-firstpass
     - Cinemachine
-    - CodeStage.Maintainer.Editor
     - Coffee.CFX_Demo_With_UIParticle
     - Coffee.NanoMonitor
     - Coffee.UIParticle
@@ -55,8 +52,6 @@ MonoBehaviour:
     - Google.Play.Common
     - Google.Play.Core
     - Google.Play.Review
-    - LeTai.TrueShadow
-    - LeTai.TrueShadow.Editor
     - Lofelt.NiceVibrations
     - Lofelt.NiceVibrations.Editor
     - MaxSdk.Scripts
