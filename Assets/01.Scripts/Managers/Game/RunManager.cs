@@ -471,6 +471,10 @@ public class RunManager : MonoBehaviour
         {
             SaveManager.instance.RVTicketUse(1);
         }
+        else if (Input.GetKeyDown(KeyCode.V))
+        {
+            MondayOFF.AdsManager.ShowInterstitial();
+        }
         // else if (Input.GetKeyDown(KeyCode.T))
         // {
         //     candyStackQueue.Enqueue(1);
@@ -1119,6 +1123,8 @@ public class RunManager : MonoBehaviour
         // CameraManager.instance.ChangeCamera("follow");
 
         bool success = false;
+
+        Debug.LogError(StageManager.instance.currentStageNum > ForceIdleStage && ES3.KeyExists("NextStageEnable") && !IdleManager.instance.stopAds);
 
         if (StageManager.instance.currentStageNum > ForceIdleStage && (RemoteConfigService.Instance.appConfig.GetBool("ForceIdle") ? ES3.KeyExists("NextStageEnable") : true) && !IdleManager.instance.stopAds)
             success = MondayOFF.AdsManager.ShowInterstitial();
