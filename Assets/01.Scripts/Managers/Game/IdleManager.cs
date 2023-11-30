@@ -106,8 +106,6 @@ public class IdleManager : MonoBehaviour
     private List<FieldRvType> bannedFieldRv = new List<FieldRvType>();
 
     private GameObject nextStageBtnFocus = null;
-    public bool stopAds = false;
-
 
     //==============================================================================================================================
 
@@ -513,7 +511,6 @@ public class IdleManager : MonoBehaviour
 
     public void PlayRunGame()
     {
-        stopAds = false;
         playIdle = false;
         idleUI.SetActive(false);
         RunManager.instance.ChangeToRunGame();
@@ -533,6 +530,8 @@ public class IdleManager : MonoBehaviour
 
         if (nextStageBtnFocus != null)
             Destroy(nextStageBtnFocus);
+
+        MondayOFF.AdsManager.ChangeAdvertyCamera(Camera.main);
 
         // this.TaskDelay(0.1f, () => CameraManager.instance.ChangeCamera("follow"));
         // Managers.Sound.BgmOnOff(false);
@@ -869,8 +868,6 @@ public class IdleManager : MonoBehaviour
         ES3.Save<bool>("enableSkin", true);
         // skinUIButton.Show();
         ES3.Save<bool>("NextStageEnable", true);
-
-        stopAds = true;
 
         if (ES3.KeyExists("NextStageFocusMask") ? !ES3.Load<bool>("NextStageFocusMask") : true)
         {

@@ -33,7 +33,7 @@ MonoBehaviour:
     AOS_APS_IS_SlotID: 776183e4-18ca-4a62-81e6-76d9804195e9
     AOS_APS_RV_SlotID: a888ff47-5f9f-4f8b-9f1a-42cf8445802d
     AOS_APS_BN_SlotID: 049cc7b9-1b3b-46be-8f73-46793fd247a0
-    AOS_PlayOnApiKey: 
+    AOS_PlayOnApiKey: 90ed8e91-f99d-4522-ad9e-aaa4b9dc67be
     AOS_AdvertyApiKey: NzAzMjJkYTQtYmIyZi00YmE3LWJhMmItMmZhZDFjZmUwMmMxJGh0dHBzOi8vYWRzZXJ2ZXIuYWR2ZXJ0eS5jb20=
     iOS_IS_AdUnitID: 8274ccccfed259bf
     iOS_RV_AdUnitID: 9e7e7d89bed9b245
@@ -45,15 +45,15 @@ MonoBehaviour:
     iOS_APS_IS_SlotID: 29f8a881-9fbe-4374-98c6-7ba58da6fea2
     iOS_APS_RV_SlotID: 0cf5fa50-05d4-427f-8c5f-fdd80a83b683
     iOS_APS_BN_SlotID: 4a975480-6a2a-4485-8614-186c39976f27
-    iOS_PlayOnApiKey: 
-    iOS_storeID: 
+    iOS_PlayOnApiKey: f7a8c0d8-9f5c-4ee3-be2c-f8e5ece99ba2
+    iOS_storeID: 6458976521
     iOS_AdvertyApiKey: MTI3MDM3ZWMtYWQ0Mi00YzRkLWEyZjUtNTE0NzU0ZTgzMDUxJGh0dHBzOi8vYWRzZXJ2ZXIuYWR2ZXJ0eS5jb20=
     showPlayOnAfterInterstitial: 1
     playOnInterstitialCount: 2
     playOnPosition:
-      useScreenPositioning: 0
+      useScreenPositioning: 1
       playOnLogoAnchor: 0
-      playOnLogoOffset: {x: 0, y: 150}
+      playOnLogoOffset: {x: 10, y: 120}
       playOnLogoSize: 64
     initializeAdvertyOnAwake: 1
   gameId: 
