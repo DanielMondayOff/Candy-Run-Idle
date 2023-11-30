@@ -1124,9 +1124,9 @@ public class RunManager : MonoBehaviour
 
         bool success = false;
 
-        Debug.LogError(StageManager.instance.currentStageNum > ForceIdleStage && ES3.KeyExists("NextStageEnable") && !IdleManager.instance.stopAds);
+        // Debug.LogError(StageManager.instance.currentStageNum > ForceIdleStage && ES3.KeyExists("NextStageEnable"));
 
-        if (StageManager.instance.currentStageNum > ForceIdleStage && (RemoteConfigService.Instance.appConfig.GetBool("ForceIdle") ? ES3.KeyExists("NextStageEnable") : true) && !IdleManager.instance.stopAds)
+        if (StageManager.instance.currentStageNum > ForceIdleStage && (RemoteConfigService.Instance.appConfig.GetBool("ForceIdle") ? ES3.KeyExists("NextStageEnable") : true))
             success = MondayOFF.AdsManager.ShowInterstitial();
 
         if (success)
@@ -1257,6 +1257,8 @@ public class RunManager : MonoBehaviour
         // SceneManager.LoadScene("Idle");
 
         EventManager.instance.CustomEvent(AnalyticsType.UI, "GoToIdle", true, true);
+
+        MondayOFF.AdsManager.ChangeAdvertyCamera(Camera.main);
 
         // MondayOFF.EventTracker.LogCustomEvent(
         // "UI",

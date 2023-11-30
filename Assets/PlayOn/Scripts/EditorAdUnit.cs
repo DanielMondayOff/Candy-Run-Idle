@@ -109,7 +109,7 @@ public class EditorAdUnit : MonoBehaviour
         rect.anchorMin = new Vector2(0.5f, 0.5f);
         rect.sizeDelta = new Vector2((_size.x + 0.5f) * deviceScale / canvas.scaleFactor, (_size.y + 0.5f) * deviceScale / canvas.scaleFactor);
 
-        Debug.LogError((_size.x + 0.5f) + " " + deviceScale + " " + canvas.scaleFactor);
+        // Debug.LogError((_size.x + 0.5f) + " " + deviceScale + " " + canvas.scaleFactor);
 
         float xPos = _xOffset * deviceScale + 0.5f;
         float yPos = _yOffset * deviceScale + 0.5f;
@@ -158,8 +158,8 @@ public class EditorAdUnit : MonoBehaviour
         }
         rect.position = new Vector3(xPos, yPos, 0);
 
-        Debug.LogError(_location);
-        Debug.LogError(rect.anchoredPosition.x + " " + rect.anchoredPosition.y + " " + rect.sizeDelta);
+        // Debug.LogError(_location);
+        // Debug.LogError(rect.anchoredPosition.x + " " + rect.anchoredPosition.y + " " + rect.sizeDelta);
     }
 }
 #endif
