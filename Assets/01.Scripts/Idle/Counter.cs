@@ -24,6 +24,8 @@ public class Counter : MonoBehaviour
 
     Tween groundTween = null;
 
+    bool counterEmployer = false;
+
 
     private void Start()
     {
@@ -65,7 +67,7 @@ public class Counter : MonoBehaviour
             {
                 //계산하기
 
-                if (IdleManager.instance.playIdle)
+                if (IdleManager.instance.playIdle && !counterEmployer)
                     MMVibrationManager.Haptic(HapticTypes.MediumImpact);
 
                 customerList[0].SetTimer(1.5f);
@@ -137,5 +139,7 @@ public class Counter : MonoBehaviour
         ES3.Save<bool>("hireCasher", true);
 
         IdleManager.instance.PopParticle("Particles/FX_ShardRock_Dust_End_01", casher.transform.position + Vector3.up * 3);
+
+        counterEmployer = true;
     }
 }

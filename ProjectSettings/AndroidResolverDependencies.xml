@@ -25,10 +25,11 @@
     <package>com.applovin.mediation:ironsource-adapter:7.5.1.0.0</package>
     <package>com.applovin.mediation:mintegral-adapter:16.5.11.0</package>
     <package>com.applovin.mediation:mobilefuse-adapter:1.6.2.0</package>
+    <package>com.applovin.mediation:ogury-presage-adapter:5.6.1.0</package>
     <package>com.applovin.mediation:unityads-adapter:4.8.0.0</package>
     <package>com.applovin.mediation:verve-adapter:2.19.0.0</package>
     <package>com.applovin.mediation:vungle-adapter:6.12.1.1</package>
-    <package>com.applovin:applovin-sdk:11.11.3</package>
+    <package>com.applovin:applovin-sdk:11.11.2</package>
     <package>com.facebook.android:facebook-applinks:[16.0.1,17)</package>
     <package>com.facebook.android:facebook-core:[16.0.1,17)</package>
     <package>com.facebook.android:facebook-gamingservices:[16.0.1,17)</package>

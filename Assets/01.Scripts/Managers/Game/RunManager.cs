@@ -1099,7 +1099,7 @@ public class RunManager : MonoBehaviour
                 text.color = Color.white;
             // ===================================================
 
-            noThanksTask = this.TaskDelay(2f, () => { noThanksBtn.SetActive(true); /*ShowCandyUnlockStatus();*/ });
+            // noThanksTask = this.TaskDelay(0.1f, () => { Debug.LogError(11123213); noThanksBtn.SetActive(true); /*ShowCandyUnlockStatus();*/ });
 
             SaveManager.instance.enableCandyInventoryUIUpdate = true;
         });

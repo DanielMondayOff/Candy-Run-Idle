@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0da90100806d46409dc5f2bb6272482, type: 3}
   m_Name: EverydaySettings
   m_EditorClassIdentifier: 
-  initializeOnLaunch: 0
+  initializeOnLaunch: 1
   logLevel: 3
   isTestMode: 0
   adSettings:

@@ -26,6 +26,9 @@
         maven {
             url "https://dl-maven-android.mintegral.com/repository/mbridge_android_sdk_oversea" // Assets/MaxSdk/Mediation/Mintegral/Editor/Dependencies.xml:8
         }
+        maven {
+            url "https://maven.ogury.co" // Assets/MaxSdk/Mediation/OguryPresage/Editor/Dependencies.xml:8
+        }
         mavenLocal()
         mavenCentral()
     }
@@ -62,10 +65,11 @@ dependencies {
     implementation 'com.applovin.mediation:ironsource-adapter:7.5.1.0.0' // Assets/MaxSdk/Mediation/IronSource/Editor/Dependencies.xml:8
     implementation 'com.applovin.mediation:mintegral-adapter:16.5.11.0' // Assets/MaxSdk/Mediation/Mintegral/Editor/Dependencies.xml:8
     implementation 'com.applovin.mediation:mobilefuse-adapter:1.6.2.0' // Assets/MaxSdk/Mediation/MobileFuse/Editor/Dependencies.xml:4
+    implementation 'com.applovin.mediation:ogury-presage-adapter:5.6.1.0' // Assets/MaxSdk/Mediation/OguryPresage/Editor/Dependencies.xml:8
     implementation 'com.applovin.mediation:unityads-adapter:4.8.0.0' // Assets/MaxSdk/Mediation/UnityAds/Editor/Dependencies.xml:4
     implementation 'com.applovin.mediation:verve-adapter:2.19.0.0' // Assets/MaxSdk/Mediation/Verve/Editor/Dependencies.xml:4
     implementation 'com.applovin.mediation:vungle-adapter:6.12.1.1' // Assets/MaxSdk/Mediation/Vungle/Editor/Dependencies.xml:4
-    implementation 'com.applovin:applovin-sdk:11.11.3' // Assets/MaxSdk/AppLovin/Editor/Dependencies.xml:4
+    implementation 'com.applovin:applovin-sdk:11.11.2' // Assets/MaxSdk/AppLovin/Editor/Dependencies.xml:4
     implementation 'com.facebook.android:facebook-applinks:[16.0.1,17)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:6
     implementation 'com.facebook.android:facebook-core:[16.0.1,17)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:5
     implementation 'com.facebook.android:facebook-gamingservices:[16.0.1,17)' // Assets/FacebookSDK/Plugins/Editor/Dependencies.xml:9

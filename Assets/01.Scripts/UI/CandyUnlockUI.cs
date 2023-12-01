@@ -59,7 +59,7 @@ public class CandyUnlockUI : MonoBehaviour
         this.TaskDelay(0.5f, () => StartFillAnimation(Mathf.Clamp(1f - (currentStatus.GetCurrentPercent() * 0.01f), 0f, 1f)));
         // StartFillAnimation();
 
-        RunManager.instance.showNewCandyUnlockTask = this.TaskDelay(4f, () =>
+        RunManager.instance.showNewCandyUnlockTask = this.TaskDelay(2.8f, () =>
         {
             if (currentStatus.unlocked)
             {
