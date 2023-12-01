@@ -19,6 +19,8 @@ public class SceneChanger : MonoBehaviour
 
     public static string Quality = "Balanced";
 
+    public static bool shopBtnAlwaysShown = true;
+
     private void Awake()
     {
         if (instance == null)
@@ -56,7 +58,10 @@ public class SceneChanger : MonoBehaviour
     {
         var str = RemoteConfigService.Instance.appConfig.GetString("QualitySetting", "Balanced");
 
+        shopBtnAlwaysShown = RemoteConfigService.Instance.appConfig.GetBool("ShopBtn");
+
         Debug.Log("QualitySetting: " + str);
+        Debug.Log("shopBtnAlwaysShown: " + shopBtnAlwaysShown);
 
         switch (str)
         {
