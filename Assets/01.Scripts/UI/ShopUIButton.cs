@@ -17,7 +17,7 @@ public class ShopUIButton : UIBase
 
     private void Awake()
     {
-        if (SceneChanger.shopBtnAlwaysShown)
+        if (!SceneChanger.shopBtnAlwaysShown)
         {
 
         }

@@ -24,8 +24,8 @@ namespace MondayOFF
             InitializeImpl();
         }
 
-        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
-        private static void AfterSceneLoad()
+        // [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+        public static void AfterSceneLoad()
         {
             initializationStatus = InitializationStatus.NotInitialized;
             if (EverydaySettings.Instance.initializeOnLaunch)

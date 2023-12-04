@@ -52,6 +52,8 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("참조")] public Transform firstCollector;
     [FoldoutGroup("참조")] public MoneyDrops bonusMoneyDrops;
     [FoldoutGroup("참조")] public FixedTouchField FixedTouchField;
+    [FoldoutGroup("참조")] public GameObject iapLoadingScreen;
+
 
 
     public CanvasGroup[] idleUIs;
@@ -231,6 +233,19 @@ public class IdleManager : MonoBehaviour
         };
 
         SaveManager.instance.onRoyalCandyChangeEvent.AddListener(IdleManager.instance.skinUI.UpdateSlotUI);
+
+        MondayOFF.IAPManager.OnBeforePurchase += () =>
+        {
+            if (iapLoadingScreen != null)
+                Destroy(iapLoadingScreen);
+            iapLoadingScreen = Instantiate(Resources.Load<GameObject>("UI/Loading"), null);
+        };
+
+        MondayOFF.IAPManager.OnAfterPurchase += (result) =>
+        {
+            if (iapLoadingScreen != null)
+                Destroy(iapLoadingScreen);
+        };
     }
 
     private void Update()
