@@ -5504,60 +5504,64 @@ struct IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3  : public MonoBehav
 	MoneyDrops_t44FB489D59FC443F8EE33FCA2BFACD2985908D06* ___bonusMoneyDrops_38;
 	// FixedTouchField IdleManager::FixedTouchField
 	FixedTouchField_t9C7E2E9DF95FF3E1531C753E5D4E49D70D8C8DF6* ___FixedTouchField_39;
+	// UnityEngine.GameObject IdleManager::iapLoadingScreen
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___iapLoadingScreen_40;
 	// UnityEngine.CanvasGroup[] IdleManager::idleUIs
-	CanvasGroupU5BU5D_tFCEB11EC9CA43261966FD158E1A6B5D07C28E4C7* ___idleUIs_40;
+	CanvasGroupU5BU5D_tFCEB11EC9CA43261966FD158E1A6B5D07C28E4C7* ___idleUIs_41;
 	// UnityEngine.Color IdleManager::activeBtnColor
-	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___activeBtnColor_41;
+	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___activeBtnColor_42;
 	// UnityEngine.Color IdleManager::deactiveBtnColor
-	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___deactiveBtnColor_42;
+	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___deactiveBtnColor_43;
 	// UnityEngine.Color IdleManager::activeCostColor
-	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___activeCostColor_43;
+	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___activeCostColor_44;
 	// UnityEngine.Color IdleManager::deactiveCostColor
-	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___deactiveCostColor_44;
+	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___deactiveCostColor_45;
 	// IdleUpgrade[] IdleManager::upgrades
-	IdleUpgradeU5BU5D_tFE10760C14BFB5CFC97E50645A4621AA17C9EC80* ___upgrades_45;
+	IdleUpgradeU5BU5D_tFE10760C14BFB5CFC97E50645A4621AA17C9EC80* ___upgrades_46;
 	// System.Single[] IdleManager::workerSpeed
-	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___workerSpeed_46;
+	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___workerSpeed_47;
 	// System.Single[] IdleManager::customerSpawnSpeed
-	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___customerSpawnSpeed_47;
+	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___customerSpawnSpeed_48;
 	// System.Single[] IdleManager::maxCustomerCount
-	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___maxCustomerCount_48;
+	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___maxCustomerCount_49;
 	// System.Single[] IdleManager::extraIncomePercent
-	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___extraIncomePercent_49;
+	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___extraIncomePercent_50;
 	// System.Single[] IdleManager::playerSpeed
-	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___playerSpeed_50;
+	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___playerSpeed_51;
 	// System.Single[] IdleManager::playerCapacityValue
-	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___playerCapacityValue_51;
+	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___playerCapacityValue_52;
 	// System.Single[] IdleManager::workerCapacityValue
-	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___workerCapacityValue_52;
+	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___workerCapacityValue_53;
 	// System.Single IdleManager::currentSkinMoveSpeedBonus
-	float ___currentSkinMoveSpeedBonus_53;
+	float ___currentSkinMoveSpeedBonus_54;
 	// System.Int32 IdleManager::currentSkinMaxStackBonus
-	int32_t ___currentSkinMaxStackBonus_54;
+	int32_t ___currentSkinMaxStackBonus_55;
 	// System.Single IdleManager::currentSkinCuttingSpeedBonus
-	float ___currentSkinCuttingSpeedBonus_55;
+	float ___currentSkinCuttingSpeedBonus_56;
 	// System.Int32 IdleManager::maxCustomerCountBonus_Machine
-	int32_t ___maxCustomerCountBonus_Machine_56;
+	int32_t ___maxCustomerCountBonus_Machine_57;
 	// System.Int32 IdleManager::maxCustomerRequestBonus
-	int32_t ___maxCustomerRequestBonus_57;
+	int32_t ___maxCustomerRequestBonus_58;
 	// System.Single IdleManager::customerSpawnTimeBonus
-	float ___customerSpawnTimeBonus_58;
+	float ___customerSpawnTimeBonus_59;
 	// System.Int32 IdleManager::nextOrderPercent
-	int32_t ___nextOrderPercent_59;
+	int32_t ___nextOrderPercent_60;
 	// System.Boolean IdleManager::playIdle
-	bool ___playIdle_60;
+	bool ___playIdle_61;
+	// System.Boolean IdleManager::puaseIRADs
+	bool ___puaseIRADs_62;
 	// TaskUtil/WhileTaskMethod IdleManager::spawnCustomerTask
-	WhileTaskMethod_t99DF70B75D9462CD8009D2D3AAC351E43EBD401F* ___spawnCustomerTask_61;
+	WhileTaskMethod_t99DF70B75D9462CD8009D2D3AAC351E43EBD401F* ___spawnCustomerTask_63;
 	// TaskUtil/DelayTaskMethod IdleManager::fieldRvSpeedUpTask
-	DelayTaskMethod_t21AD69DC57037983DB52980F102DC2906E454622* ___fieldRvSpeedUpTask_62;
+	DelayTaskMethod_t21AD69DC57037983DB52980F102DC2906E454622* ___fieldRvSpeedUpTask_64;
 	// System.Collections.Generic.List`1<FieldRvType> IdleManager::bannedFieldRv
-	List_1_t12469A6CD8497333B05298C8F31C0D1335BEA298* ___bannedFieldRv_63;
+	List_1_t12469A6CD8497333B05298C8F31C0D1335BEA298* ___bannedFieldRv_65;
 	// UnityEngine.GameObject IdleManager::nextStageBtnFocus
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___nextStageBtnFocus_64;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___nextStageBtnFocus_66;
 	// System.Collections.Generic.List`1<DisplayStand> IdleManager::candyDisplayStandList
-	List_1_t2F294256B3E242FAE8DE1C4BA814EE7FCB50AC00* ___candyDisplayStandList_65;
+	List_1_t2F294256B3E242FAE8DE1C4BA814EE7FCB50AC00* ___candyDisplayStandList_67;
 	// System.Collections.Generic.List`1<StandBuildObject> IdleManager::standBuildList
-	List_1_t9130446DE92E5054C422E7D9FD3EDE0E0E1AB786* ___standBuildList_66;
+	List_1_t9130446DE92E5054C422E7D9FD3EDE0E0E1AB786* ___standBuildList_68;
 };
 
 // IdlePlayerSkin_
@@ -9040,7 +9044,7 @@ struct EventManager_t2FAA3AA5EE7E33EE027BB7CA68ABCF128E3C579A_StaticFields
 struct IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields
 {
 	// IdleManager IdleManager::instance
-	IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* ___instance_67;
+	IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* ___instance_69;
 };
 
 // IdleManager
@@ -13179,7 +13183,7 @@ IL_00be:
 IL_00d7:
 	{
 		// IdleManager.instance.CheckingCandyMachine();
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_30 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_30 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_30);
 		IdleManager_CheckingCandyMachine_m53287CEDF6EA278E9AEF9BD476869787A2E70C5D(L_30, NULL);
 		// }
@@ -14706,7 +14710,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SaveManager_SaveCurrentCutterSkin_m17BB9
 		int32_t L_0 = ___0_id;
 		__this->___cutterSkinID_21 = L_0;
 		// IdleManager.instance.currentSkinCuttingSpeedBonus = FindSkinObject(SkinType.Cutter, id).GetCuttingSpeedBonus();
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_1 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_1 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		int32_t L_2 = ___0_id;
 		SkinObject_t633A9AF1939FDD211AFCFA490ACDF97899B7F20D* L_3;
 		L_3 = SaveManager_FindSkinObject_m491A7676BABEAFB5A7AD070F7E647FF39AC06C72(__this, 0, L_2, NULL);
@@ -14714,7 +14718,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SaveManager_SaveCurrentCutterSkin_m17BB9
 		float L_4;
 		L_4 = VirtualFuncInvoker0< float >::Invoke(7 /* System.Single SkinObject::GetCuttingSpeedBonus() */, L_3);
 		NullCheck(L_1);
-		L_1->___currentSkinCuttingSpeedBonus_55 = L_4;
+		L_1->___currentSkinCuttingSpeedBonus_56 = L_4;
 		// ES3.Save("cutterSkin", id);
 		int32_t L_5 = ___0_id;
 		ES3_Save_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m3B4CBCCA2E3053C54C3BF3A687C32BAFC4B94751(_stringLiteral7F1A82C322042FC3EEF77F7F1FB007C46386E317, L_5, ES3_Save_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m3B4CBCCA2E3053C54C3BF3A687C32BAFC4B94751_RuntimeMethod_var);
@@ -14738,7 +14742,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SaveManager_SaveCurrentIdlePlayerSkin_mF
 		int32_t L_0 = ___0_id;
 		__this->___IdlePlayerSkinID_22 = L_0;
 		// IdleManager.instance.currentSkinMoveSpeedBonus = FindSkinObject(SkinType.IdlePlayer, id).GetMoveSpeedBonus();
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_1 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_1 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		int32_t L_2 = ___0_id;
 		SkinObject_t633A9AF1939FDD211AFCFA490ACDF97899B7F20D* L_3;
 		L_3 = SaveManager_FindSkinObject_m491A7676BABEAFB5A7AD070F7E647FF39AC06C72(__this, 1, L_2, NULL);
@@ -14746,9 +14750,9 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SaveManager_SaveCurrentIdlePlayerSkin_mF
 		float L_4;
 		L_4 = VirtualFuncInvoker0< float >::Invoke(6 /* System.Single SkinObject::GetMoveSpeedBonus() */, L_3);
 		NullCheck(L_1);
-		L_1->___currentSkinMoveSpeedBonus_53 = L_4;
+		L_1->___currentSkinMoveSpeedBonus_54 = L_4;
 		// IdleManager.instance.currentSkinMaxStackBonus = FindSkinObject(SkinType.IdlePlayer, id).GetMaxStackBonus();
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_5 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_5 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		int32_t L_6 = ___0_id;
 		SkinObject_t633A9AF1939FDD211AFCFA490ACDF97899B7F20D* L_7;
 		L_7 = SaveManager_FindSkinObject_m491A7676BABEAFB5A7AD070F7E647FF39AC06C72(__this, 1, L_6, NULL);
@@ -14756,7 +14760,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SaveManager_SaveCurrentIdlePlayerSkin_mF
 		int32_t L_8;
 		L_8 = VirtualFuncInvoker0< int32_t >::Invoke(8 /* System.Int32 SkinObject::GetMaxStackBonus() */, L_7);
 		NullCheck(L_5);
-		L_5->___currentSkinMaxStackBonus_54 = L_8;
+		L_5->___currentSkinMaxStackBonus_55 = L_8;
 		// ES3.Save("idlePlayerSkin", id);
 		int32_t L_9 = ___0_id;
 		ES3_Save_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m3B4CBCCA2E3053C54C3BF3A687C32BAFC4B94751(_stringLiteralE603F4D110F4160919C248724A5C64AD0A79CC53, L_9, ES3_Save_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m3B4CBCCA2E3053C54C3BF3A687C32BAFC4B94751_RuntimeMethod_var);
@@ -14945,7 +14949,7 @@ IL_00d3:
 		NullCheck(L_42);
 		EventManager_CustomEvent_m2CC1F4F090D79E9CDAAC75C732DB70629E1662A0(L_42, 3, L_50, (bool)1, (bool)1, NULL);
 		// IdleManager.instance.skinUI.SelectSkin(type, id);
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_51 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_51 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_51);
 		SkinUI_tF56F5478D84A76B4906D5D017E23F05D9A603BAC* L_52 = L_51->___skinUI_31;
 		U3CU3Ec__DisplayClass68_0_tB8E2C0D86E181191D8A97E8F51D9E408B00A7DEF* L_53 = V_0;
@@ -15081,7 +15085,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SaveManager_WatchedRVOnceForSkin_mE2D843
 		List_1_t2ECFD1A3322CEE2A7C56588FBEE4C809EC53D9AF* L_14 = __this->___skinSaveDataList_26;
 		ES3_Save_TisList_1_t2ECFD1A3322CEE2A7C56588FBEE4C809EC53D9AF_mBED1885B98DF642D3496CF364C0F16DA9DF359E2(_stringLiteral02F399F13B1E60835632480E6B2E3558CA1A41FE, L_14, ES3_Save_TisList_1_t2ECFD1A3322CEE2A7C56588FBEE4C809EC53D9AF_mBED1885B98DF642D3496CF364C0F16DA9DF359E2_RuntimeMethod_var);
 		// IdleManager.instance.skinUI.SelectSkin(type, id);
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_15 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_15 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_15);
 		SkinUI_tF56F5478D84A76B4906D5D017E23F05D9A603BAC* L_16 = L_15->___skinUI_31;
 		int32_t L_17 = ___0_type;
@@ -17678,7 +17682,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StageManager_Start_mB48B0B4DF576DA5386BB
 	}
 	{
 		// if (IdleManager.instance != null)
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
 		bool L_1;
 		L_1 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_0, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
@@ -17746,7 +17750,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void StageManager_GenearteCurrentStage_m4CF2B
 IL_0024:
 	{
 		// switch (IdleManager.instance.runGameType)
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_5 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_5 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_5);
 		int32_t L_6 = L_5->___runGameType_29;
 		V_0 = L_6;
@@ -20503,7 +20507,7 @@ IL_025f:
 		NullCheck(L_91);
 		GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92(L_91, (bool)0, NULL);
 		// switch (IdleManager.instance.runGameType)
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_92 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_92 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_92);
 		int32_t L_93 = L_92->___runGameType_29;
 		if ((!(((uint32_t)L_93) == ((uint32_t)2))))
@@ -22152,7 +22156,7 @@ IL_009b:
 		NullCheck(L_43);
 		ParticleSystem_Play_mD943E601BFE16CB9BB5D1F5E6AED5C36F5F11EF5(L_43, NULL);
 		// IdleManager.instance.TaskDelay(5, () => Managers.Pool.Push(particle.GetComponent<Poolable>()));
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_44 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_44 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		U3CU3Ec__DisplayClass17_0_tD6BBDA3AA7637F20F89E779713727FF01CCE1975* L_45 = V_1;
 		Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07* L_46 = (Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07*)il2cpp_codegen_object_new(Action_tD00B0A84D7945E50C2DFFC28EFEE6ED44ED2AD07_il2cpp_TypeInfo_var);
 		NullCheck(L_46);
@@ -23214,7 +23218,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void RunEndLine_OnTriggerEnter_m86A4E6B09DF42
 	}
 	{
 		// switch (IdleManager.instance.runGameType)
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_4 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_4 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_4);
 		int32_t L_5 = L_4->___runGameType_29;
 		V_0 = L_5;
@@ -28525,7 +28529,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FieldRvUI_Start_mE41A13C7F5BE83AC9799EB0
 		// moneyText.text = "+ " + moneyValues[IdleManager.instance.candyMachines.Where((n) => n.isReady).ToList().Count];
 		Text_tD60B2346DAA6666BF0D822FF607F0B220C2B9E62* L_2 = __this->___moneyText_5;
 		Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C* L_3 = __this->___moneyValues_9;
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_4 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_4 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_4);
 		List_1_t3E632FFECE17EA4B3E1DE770E00AC373354D51AB* L_5 = L_4->___candyMachines_9;
 		il2cpp_codegen_runtime_class_init_inline(U3CU3Ec_tC4B2D88112A9FFE2C2FD6B3F25AAC55E4CEB8BDF_il2cpp_TypeInfo_var);
@@ -28780,11 +28784,11 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void FieldRvUI_U3COnClickClameBtnU3Eb__8_0_mD
 IL_0013:
 	{
 		// IdleManager.instance.FieldRV_PlayerSpeedUp();
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_3 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_3 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_3);
 		IdleManager_FieldRV_PlayerSpeedUp_m21B5CA1763388FAA3FD840BCB2502D988B0BE98D(L_3, NULL);
 		// IdleManager.instance.BanFieldRv(type);
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_4 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_4 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		int32_t L_5 = __this->___type_4;
 		NullCheck(L_4);
 		IdleManager_BanFieldRv_m0F6061876AC95825159C1CA77246D03CB4B402C7(L_4, L_5, NULL);
@@ -28795,9 +28799,9 @@ IL_0013:
 IL_0032:
 	{
 		// IdleManager.instance.FieldRV_Money(moneyValues[IdleManager.instance.candyMachines.Where((n) => n.isReady).ToList().Count]);
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_6 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_6 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C* L_7 = __this->___moneyValues_9;
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_8 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_8 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_8);
 		List_1_t3E632FFECE17EA4B3E1DE770E00AC373354D51AB* L_9 = L_8->___candyMachines_9;
 		il2cpp_codegen_runtime_class_init_inline(U3CU3Ec_tC4B2D88112A9FFE2C2FD6B3F25AAC55E4CEB8BDF_il2cpp_TypeInfo_var);
@@ -28862,7 +28866,7 @@ IL_0066:
 		(L_26)->SetAt(static_cast<il2cpp_array_size_t>(1), (String_t*)_stringLiteral960E5E7F211EFF3243DF14EDD1901DC9EF314D62);
 		StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248* L_27 = L_26;
 		Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C* L_28 = __this->___moneyValues_9;
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_29 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_29 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_29);
 		List_1_t3E632FFECE17EA4B3E1DE770E00AC373354D51AB* L_30 = L_29->___candyMachines_9;
 		il2cpp_codegen_runtime_class_init_inline(U3CU3Ec_tC4B2D88112A9FFE2C2FD6B3F25AAC55E4CEB8BDF_il2cpp_TypeInfo_var);
@@ -29140,7 +29144,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool IdleUpgradeSlot_get_isPossibleUpgrade_mA
 	{
 		// public bool isPossibleUpgrade => SaveManager.instance.CheckPossibleUpgrade(IdleManager.instance.GetCurrentUpgradeCost(upgrade));
 		SaveManager_t8C78B99FC298BDDDADBD6EE95F9107F6B55ED2F5* L_0 = ((SaveManager_t8C78B99FC298BDDDADBD6EE95F9107F6B55ED2F5_StaticFields*)il2cpp_codegen_static_fields_for(SaveManager_t8C78B99FC298BDDDADBD6EE95F9107F6B55ED2F5_il2cpp_TypeInfo_var))->___instance_28;
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_1 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_1 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		int32_t L_2 = __this->___upgrade_4;
 		NullCheck(L_1);
 		int32_t L_3;
@@ -29162,7 +29166,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t IdleUpgradeSlot_get_GetUpgradeCost_m3
 	}
 	{
 		// public int GetUpgradeCost => IdleManager.instance.GetCurrentUpgradeCost(upgrade);
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		int32_t L_1 = __this->___upgrade_4;
 		NullCheck(L_0);
 		int32_t L_2;
@@ -29262,7 +29266,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void IdleUpgradeSlot_OnClickUpgradeBtn_m4D6FF
 	}
 	{
 		// IdleManager.instance.TryUpgrade(upgrade);
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		int32_t L_1 = __this->___upgrade_4;
 		NullCheck(L_0);
 		IdleManager_TryUpgrade_m7E35ADB9565052BC82A763C746843E81654F4B69(L_0, L_1, NULL);
@@ -29290,7 +29294,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void IdleUpgradeSlot_CheckingBtn_mE9992957943
 	{
 		// if (SaveManager.instance.CheckPossibleUpgrade(IdleManager.instance.GetCurrentUpgradeCost(upgrade)))
 		SaveManager_t8C78B99FC298BDDDADBD6EE95F9107F6B55ED2F5* L_0 = ((SaveManager_t8C78B99FC298BDDDADBD6EE95F9107F6B55ED2F5_StaticFields*)il2cpp_codegen_static_fields_for(SaveManager_t8C78B99FC298BDDDADBD6EE95F9107F6B55ED2F5_il2cpp_TypeInfo_var))->___instance_28;
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_1 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_1 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		int32_t L_2 = __this->___upgrade_4;
 		NullCheck(L_1);
 		int32_t L_3;
@@ -29306,16 +29310,16 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void IdleUpgradeSlot_CheckingBtn_mE9992957943
 	{
 		// btnImage.color = IdleManager.instance.activeBtnColor;
 		Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E* L_5 = __this->___btnImage_5;
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_6 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_6 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_6);
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_7 = L_6->___activeBtnColor_41;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_7 = L_6->___activeBtnColor_42;
 		NullCheck(L_5);
 		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23 /* System.Void UnityEngine.UI.Graphic::set_color(UnityEngine.Color) */, L_5, L_7);
 		// cost.color = IdleManager.instance.activeCostColor;
 		Text_tD60B2346DAA6666BF0D822FF607F0B220C2B9E62* L_8 = __this->___cost_6;
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_9 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_9 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_9);
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_10 = L_9->___activeCostColor_43;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_10 = L_9->___activeCostColor_44;
 		NullCheck(L_8);
 		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23 /* System.Void UnityEngine.UI.Graphic::set_color(UnityEngine.Color) */, L_8, L_10);
 		// btnImage.GetComponent<Button>().enabled = true;
@@ -29332,16 +29336,16 @@ IL_0058:
 	{
 		// btnImage.color = IdleManager.instance.deactiveBtnColor;
 		Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E* L_13 = __this->___btnImage_5;
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_14 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_14 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_14);
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_15 = L_14->___deactiveBtnColor_42;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_15 = L_14->___deactiveBtnColor_43;
 		NullCheck(L_13);
 		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23 /* System.Void UnityEngine.UI.Graphic::set_color(UnityEngine.Color) */, L_13, L_15);
 		// cost.color = IdleManager.instance.deactiveCostColor;
 		Text_tD60B2346DAA6666BF0D822FF607F0B220C2B9E62* L_16 = __this->___cost_6;
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_17 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_17 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_17);
-		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_18 = L_17->___deactiveCostColor_44;
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_18 = L_17->___deactiveCostColor_45;
 		NullCheck(L_16);
 		VirtualActionInvoker1< Color_tD001788D726C3A7F1379BEED0260B9591F440C1F >::Invoke(23 /* System.Void UnityEngine.UI.Graphic::set_color(UnityEngine.Color) */, L_16, L_18);
 		// btnImage.GetComponent<Button>().enabled = false;
@@ -29368,7 +29372,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void IdleUpgradeSlot_SetUpgradeCostText_m055F
 	int32_t V_1 = 0;
 	{
 		// var value = IdleManager.instance.GetUpgrade(upgrade);
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		int32_t L_1 = __this->___upgrade_4;
 		NullCheck(L_0);
 		IdleUpgrade_tF86EF249C2ABEB87F694C83DF709A84F07DFD099* L_2;
@@ -29399,7 +29403,7 @@ IL_002c:
 	{
 		// cost.text = IdleManager.instance.GetUpgradeCost(upgrade).ToString();
 		Text_tD60B2346DAA6666BF0D822FF607F0B220C2B9E62* L_8 = __this->___cost_6;
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_9 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_9 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		int32_t L_10 = __this->___upgrade_4;
 		NullCheck(L_9);
 		int32_t L_11;
@@ -29427,7 +29431,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void IdleUpgradeSlot_SetLevelText_mA5A7D6F056
 	{
 		// level.text = "LV." + (IdleManager.instance.GetUpgrade(upgrade).currentLevel + 1);
 		Text_tD60B2346DAA6666BF0D822FF607F0B220C2B9E62* L_0 = __this->___level_7;
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_1 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_1 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		int32_t L_2 = __this->___upgrade_4;
 		NullCheck(L_1);
 		IdleUpgrade_tF86EF249C2ABEB87F694C83DF709A84F07DFD099* L_3;
@@ -29477,7 +29481,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void IdleUpgradeSlot_U3COnClickUpgradeBtn_RVU
 		NullCheck(L_0);
 		EventManager_CustomEvent_m2CC1F4F090D79E9CDAAC75C732DB70629E1662A0(L_0, 4, L_4, (bool)1, (bool)1, NULL);
 		// IdleManager.instance.Upgrade(upgrade);
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_5 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_5 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		int32_t L_6 = __this->___upgrade_4;
 		NullCheck(L_5);
 		IdleManager_Upgrade_m0F922FA411335126F1A7C88A4333B5ADD4B8D680(L_5, L_6, NULL);
@@ -30177,10 +30181,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NoAdsBtn_OnClickNoAdsBtn_mA56C454FB36B48
 	IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* G_B3_2 = NULL;
 	{
 		// IdleManager.instance.ShowIAPPopUp("UI/IAP_PopUp_NoAds", IdleManager.instance.playIdle ? IdleManager.instance.idleUI.transform : RunManager.instance.runGameUI.transform);
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_1 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_1 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_1);
-		bool L_2 = L_1->___playIdle_60;
+		bool L_2 = L_1->___playIdle_61;
 		G_B1_0 = _stringLiteralC09C43F6D0D3E0077AFE07149F0C5B5B461A6925;
 		G_B1_1 = L_0;
 		if (L_2)
@@ -30206,7 +30210,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NoAdsBtn_OnClickNoAdsBtn_mA56C454FB36B48
 
 IL_0027:
 	{
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_6 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_6 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_6);
 		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_7 = L_6->___idleUI_14;
 		NullCheck(L_7);
@@ -33307,7 +33311,7 @@ IL_005b:
 	{
 		// Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd_50, royalCandy150Start
 		// , royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_12 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_12 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_12);
 		ShopUI_t962C10A7606C823D4BD8CA1BE8C8A0BF882C05CA* L_13 = L_12->___shopUI_32;
 		NullCheck(L_13);
@@ -33329,7 +33333,7 @@ IL_0099:
 	{
 		// Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd_50, royalCandy350Start
 		// , royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_19 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_19 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_19);
 		ShopUI_t962C10A7606C823D4BD8CA1BE8C8A0BF882C05CA* L_20 = L_19->___shopUI_32;
 		NullCheck(L_20);
@@ -33351,7 +33355,7 @@ IL_00d7:
 	{
 		// Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd_50, royalCandy1000Start
 		// , royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_26 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_26 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_26);
 		ShopUI_t962C10A7606C823D4BD8CA1BE8C8A0BF882C05CA* L_27 = L_26->___shopUI_32;
 		NullCheck(L_27);
@@ -33373,7 +33377,7 @@ IL_0115:
 	{
 		// Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, RVTicketEnd, RVTicket10Start
 		//                     , rvTicketMat, 1, new ParticleSystem.Burst(0.8f / ((float)10), (short)10, (short)10, 1, 0.8f / ((float)10)));
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_33 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_33 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_33);
 		ShopUI_t962C10A7606C823D4BD8CA1BE8C8A0BF882C05CA* L_34 = L_33->___shopUI_32;
 		NullCheck(L_34);
@@ -33395,7 +33399,7 @@ IL_0153:
 	{
 		// Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, RVTicketEnd, RVTicket20Start
 		//                                         , rvTicketMat, 1, new ParticleSystem.Burst(0.8f / ((float)10), (short)10, (short)10, 1, 0.8f / ((float)10)));
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_40 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_40 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_40);
 		ShopUI_t962C10A7606C823D4BD8CA1BE8C8A0BF882C05CA* L_41 = L_40->___shopUI_32;
 		NullCheck(L_41);
@@ -33417,7 +33421,7 @@ IL_0191:
 	{
 		// Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, RVTicketEnd, RVTicket50Start
 		//                                         , rvTicketMat, 1, new ParticleSystem.Burst(0.8f / ((float)10), (short)10, (short)10, 1, 0.8f / ((float)10)));
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_47 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_47 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_47);
 		ShopUI_t962C10A7606C823D4BD8CA1BE8C8A0BF882C05CA* L_48 = L_47->___shopUI_32;
 		NullCheck(L_48);
@@ -33605,7 +33609,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShopUI_U3COnClickLimitCandyRV_10U3Eb__37
 	{
 		//                         Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd_10, royalCandyAttractorStart_10
 		// , royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)10), (short)10, (short)10, 1, 0.8f / ((float)10)));
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_0);
 		ShopUI_t962C10A7606C823D4BD8CA1BE8C8A0BF882C05CA* L_1 = L_0->___shopUI_32;
 		NullCheck(L_1);
@@ -33766,7 +33770,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShopUI_U3COnClickLimitCandyRV_50U3Eb__38
 	{
 		//                         Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, royalCandyAttractorEnd_50, royalCandyAttractorStart_50
 		// , royalCandyAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_0);
 		ShopUI_t962C10A7606C823D4BD8CA1BE8C8A0BF882C05CA* L_1 = L_0->___shopUI_32;
 		NullCheck(L_1);
@@ -33932,7 +33936,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShopUI_U3COnClickLimitMoneyRVU3Eb__39_1_
 	{
 		//     Util.GenerateParticleAttractor(IdleManager.instance.shopUI.transform, moneyRVAttractorEnd, moneyRVAttractorStart
 		// , moneyRVAttractorMat, 1, new ParticleSystem.Burst(0.8f / ((float)25), (short)25, (short)25, 1, 0.8f / ((float)25)));
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_0);
 		ShopUI_t962C10A7606C823D4BD8CA1BE8C8A0BF882C05CA* L_1 = L_0->___shopUI_32;
 		NullCheck(L_1);

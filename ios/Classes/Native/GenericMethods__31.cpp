@@ -658,6 +658,5228 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NoiseModule_set_remapYMultiplier_m8316E4
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NoiseModule_set_remapZ_mAE7A90C23BFD7E10D2C53981911572AC8A2B5541 (NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0* __this, MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 ___0_value, const RuntimeMethod* method) ;
 // System.Void UnityEngine.ParticleSystem/NoiseModule::set_remapZMultiplier(System.Single)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NoiseModule_set_remapZMultiplier_mCEDE52028CD07D0F6ABBEC5F6985416217E57F42 (NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0* __this, float ___0_value, const RuntimeMethod* method) ;
+// System.Object ES3Types.ES3Type_MinMaxCurve::Read<System.Int32Enum>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_MinMaxCurve_Read_TisInt32Enum_tCBAC8BA2BFF3A845FA599F303093BBBA374B6F0C_m3DC74EF1F959CE98FEBF6531E405DEB772813BA6_gshared (ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral27906925D50A15B990B586241F08C8ED14226340);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral36587A0761A180514C267B50EA888F89871F71DF);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD4A11128F810D574390DA344F324014E964D1876);
+		s_Il2CppMethodInitialized = true;
+	}
+	MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	String_t* V_1 = NULL;
+	uint32_t V_2 = 0;
+	{
+		// var instance = new UnityEngine.ParticleSystem.MinMaxCurve();
+		il2cpp_codegen_initobj((&V_0), sizeof(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23));
+		goto IL_01d3;
+	}
+
+IL_000d:
+	{
+		String_t* L_0 = V_1;
+		uint32_t L_1;
+		L_1 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_0, NULL);
+		V_2 = L_1;
+		uint32_t L_2 = V_2;
+		if ((!(((uint32_t)L_2) <= ((uint32_t)((int32_t)-725866558)))))
+		{
+			goto IL_0054;
+		}
+	}
+	{
+		uint32_t L_3 = V_2;
+		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)740975083)))))
+		{
+			goto IL_003c;
+		}
+	}
+	{
+		uint32_t L_4 = V_2;
+		if ((((int32_t)L_4) == ((int32_t)((int32_t)110225957))))
+		{
+			goto IL_0105;
+		}
+	}
+	{
+		uint32_t L_5 = V_2;
+		if ((((int32_t)L_5) == ((int32_t)((int32_t)740975083))))
+		{
+			goto IL_009c;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_003c:
+	{
+		uint32_t L_6 = V_2;
+		if ((((int32_t)L_6) == ((int32_t)((int32_t)-1724381676))))
+		{
+			goto IL_011a;
+		}
+	}
+	{
+		uint32_t L_7 = V_2;
+		if ((((int32_t)L_7) == ((int32_t)((int32_t)-725866558))))
+		{
+			goto IL_00b1;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0054:
+	{
+		uint32_t L_8 = V_2;
+		if ((!(((uint32_t)L_8) <= ((uint32_t)((int32_t)-559473464)))))
+		{
+			goto IL_0074;
+		}
+	}
+	{
+		uint32_t L_9 = V_2;
+		if ((((int32_t)L_9) == ((int32_t)((int32_t)-581632105))))
+		{
+			goto IL_00f0;
+		}
+	}
+	{
+		uint32_t L_10 = V_2;
+		if ((((int32_t)L_10) == ((int32_t)((int32_t)-559473464))))
+		{
+			goto IL_00c6;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0074:
+	{
+		uint32_t L_11 = V_2;
+		if ((((int32_t)L_11) == ((int32_t)((int32_t)-345465511))))
+		{
+			goto IL_00db;
+		}
+	}
+	{
+		uint32_t L_12 = V_2;
+		if ((!(((uint32_t)L_12) == ((uint32_t)((int32_t)-328277998)))))
+		{
+			goto IL_01cd;
+		}
+	}
+	{
+		String_t* L_13 = V_1;
+		bool L_14;
+		L_14 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_13, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (L_14)
+		{
+			goto IL_012f;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_009c:
+	{
+		String_t* L_15 = V_1;
+		bool L_16;
+		L_16 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_15, _stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14, NULL);
+		if (L_16)
+		{
+			goto IL_0141;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00b1:
+	{
+		String_t* L_17 = V_1;
+		bool L_18;
+		L_18 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_17, _stringLiteral27906925D50A15B990B586241F08C8ED14226340, NULL);
+		if (L_18)
+		{
+			goto IL_0155;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00c6:
+	{
+		String_t* L_19 = V_1;
+		bool L_20;
+		L_20 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_19, _stringLiteralD4A11128F810D574390DA344F324014E964D1876, NULL);
+		if (L_20)
+		{
+			goto IL_0169;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00db:
+	{
+		String_t* L_21 = V_1;
+		bool L_22;
+		L_22 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_21, _stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12, NULL);
+		if (L_22)
+		{
+			goto IL_017d;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00f0:
+	{
+		String_t* L_23 = V_1;
+		bool L_24;
+		L_24 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_23, _stringLiteral36587A0761A180514C267B50EA888F89871F71DF, NULL);
+		if (L_24)
+		{
+			goto IL_0191;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0105:
+	{
+		String_t* L_25 = V_1;
+		bool L_26;
+		L_26 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_25, _stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0, NULL);
+		if (L_26)
+		{
+			goto IL_01a5;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_011a:
+	{
+		String_t* L_27 = V_1;
+		bool L_28;
+		L_28 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_27, _stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F, NULL);
+		if (L_28)
+		{
+			goto IL_01b9;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_012f:
+	{
+		// instance.mode = reader.Read<UnityEngine.ParticleSystemCurveMode>();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_29 = ___0_reader;
+		NullCheck(L_29);
+		int32_t L_30;
+		L_30 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var, L_29);
+		MinMaxCurve_set_mode_m6870C4CA0FE7AF1029F45040B827C9F0A6A80A86((&V_0), L_30, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0141:
+	{
+		// instance.curveMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_31 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_32 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_31);
+		float L_33;
+		L_33 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_31, L_32);
+		MinMaxCurve_set_curveMultiplier_m9FCF7F21AECE399ACD9FEB9ADEEBD93FD12DDABC((&V_0), L_33, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0155:
+	{
+		// instance.curveMax = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_34 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_35 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_34);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_36;
+		L_36 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_34, L_35);
+		MinMaxCurve_set_curveMax_m39B9E8AE4E62E874DA99AA7108C2C47C6CA333DF((&V_0), L_36, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0169:
+	{
+		// instance.curveMin = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_37 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_38 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_37);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_39;
+		L_39 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_37, L_38);
+		MinMaxCurve_set_curveMin_m17ADE22B882B75CBE87836C85C477A05122D9E75((&V_0), L_39, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_017d:
+	{
+		// instance.constantMax = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_40 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_41 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_40);
+		float L_42;
+		L_42 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_40, L_41);
+		MinMaxCurve_set_constantMax_mDB7B011E5B1EA76429B2A1FFDE6C06E82D290DC1((&V_0), L_42, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0191:
+	{
+		// instance.constantMin = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_43 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_44 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_43);
+		float L_45;
+		L_45 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_43, L_44);
+		MinMaxCurve_set_constantMin_mBF7CF2A9F167AD06C327EE6EA37BA427E1CE548C((&V_0), L_45, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01a5:
+	{
+		// instance.constant = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_46 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_47 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_46);
+		float L_48;
+		L_48 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_46, L_47);
+		MinMaxCurve_set_constant_mB6E4F22F67D3ED641FEBB387351F17451BB6A897((&V_0), L_48, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01b9:
+	{
+		// instance.curve = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_49 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_50 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_49);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_51;
+		L_51 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_49, L_50);
+		MinMaxCurve_set_curve_mC745A6526FBF122F96DA597997DFAB9D7D2529BF((&V_0), L_51, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01cd:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_52 = ___0_reader;
+		NullCheck(L_52);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_52);
+	}
+
+IL_01d3:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_53 = ___0_reader;
+		NullCheck(L_53);
+		String_t* L_54;
+		L_54 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_53);
+		String_t* L_55 = L_54;
+		V_1 = L_55;
+		if (L_55)
+		{
+			goto IL_000d;
+		}
+	}
+	{
+		// return instance;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_56 = V_0;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_57 = L_56;
+		RuntimeObject* L_58 = Box(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var, &L_57);
+		return L_58;
+	}
+}
+// System.Object ES3Types.ES3Type_MinMaxCurve::Read<System.Int64>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_MinMaxCurve_Read_TisInt64_t092CFB123BE63C28ACDAF65C68F21A526050DBA3_m6B1F5B925879640308E9E698E8DD1023FBB6BEA6_gshared (ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral27906925D50A15B990B586241F08C8ED14226340);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral36587A0761A180514C267B50EA888F89871F71DF);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD4A11128F810D574390DA344F324014E964D1876);
+		s_Il2CppMethodInitialized = true;
+	}
+	MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	String_t* V_1 = NULL;
+	uint32_t V_2 = 0;
+	{
+		// var instance = new UnityEngine.ParticleSystem.MinMaxCurve();
+		il2cpp_codegen_initobj((&V_0), sizeof(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23));
+		goto IL_01d3;
+	}
+
+IL_000d:
+	{
+		String_t* L_0 = V_1;
+		uint32_t L_1;
+		L_1 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_0, NULL);
+		V_2 = L_1;
+		uint32_t L_2 = V_2;
+		if ((!(((uint32_t)L_2) <= ((uint32_t)((int32_t)-725866558)))))
+		{
+			goto IL_0054;
+		}
+	}
+	{
+		uint32_t L_3 = V_2;
+		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)740975083)))))
+		{
+			goto IL_003c;
+		}
+	}
+	{
+		uint32_t L_4 = V_2;
+		if ((((int32_t)L_4) == ((int32_t)((int32_t)110225957))))
+		{
+			goto IL_0105;
+		}
+	}
+	{
+		uint32_t L_5 = V_2;
+		if ((((int32_t)L_5) == ((int32_t)((int32_t)740975083))))
+		{
+			goto IL_009c;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_003c:
+	{
+		uint32_t L_6 = V_2;
+		if ((((int32_t)L_6) == ((int32_t)((int32_t)-1724381676))))
+		{
+			goto IL_011a;
+		}
+	}
+	{
+		uint32_t L_7 = V_2;
+		if ((((int32_t)L_7) == ((int32_t)((int32_t)-725866558))))
+		{
+			goto IL_00b1;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0054:
+	{
+		uint32_t L_8 = V_2;
+		if ((!(((uint32_t)L_8) <= ((uint32_t)((int32_t)-559473464)))))
+		{
+			goto IL_0074;
+		}
+	}
+	{
+		uint32_t L_9 = V_2;
+		if ((((int32_t)L_9) == ((int32_t)((int32_t)-581632105))))
+		{
+			goto IL_00f0;
+		}
+	}
+	{
+		uint32_t L_10 = V_2;
+		if ((((int32_t)L_10) == ((int32_t)((int32_t)-559473464))))
+		{
+			goto IL_00c6;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0074:
+	{
+		uint32_t L_11 = V_2;
+		if ((((int32_t)L_11) == ((int32_t)((int32_t)-345465511))))
+		{
+			goto IL_00db;
+		}
+	}
+	{
+		uint32_t L_12 = V_2;
+		if ((!(((uint32_t)L_12) == ((uint32_t)((int32_t)-328277998)))))
+		{
+			goto IL_01cd;
+		}
+	}
+	{
+		String_t* L_13 = V_1;
+		bool L_14;
+		L_14 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_13, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (L_14)
+		{
+			goto IL_012f;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_009c:
+	{
+		String_t* L_15 = V_1;
+		bool L_16;
+		L_16 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_15, _stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14, NULL);
+		if (L_16)
+		{
+			goto IL_0141;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00b1:
+	{
+		String_t* L_17 = V_1;
+		bool L_18;
+		L_18 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_17, _stringLiteral27906925D50A15B990B586241F08C8ED14226340, NULL);
+		if (L_18)
+		{
+			goto IL_0155;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00c6:
+	{
+		String_t* L_19 = V_1;
+		bool L_20;
+		L_20 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_19, _stringLiteralD4A11128F810D574390DA344F324014E964D1876, NULL);
+		if (L_20)
+		{
+			goto IL_0169;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00db:
+	{
+		String_t* L_21 = V_1;
+		bool L_22;
+		L_22 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_21, _stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12, NULL);
+		if (L_22)
+		{
+			goto IL_017d;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00f0:
+	{
+		String_t* L_23 = V_1;
+		bool L_24;
+		L_24 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_23, _stringLiteral36587A0761A180514C267B50EA888F89871F71DF, NULL);
+		if (L_24)
+		{
+			goto IL_0191;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0105:
+	{
+		String_t* L_25 = V_1;
+		bool L_26;
+		L_26 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_25, _stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0, NULL);
+		if (L_26)
+		{
+			goto IL_01a5;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_011a:
+	{
+		String_t* L_27 = V_1;
+		bool L_28;
+		L_28 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_27, _stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F, NULL);
+		if (L_28)
+		{
+			goto IL_01b9;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_012f:
+	{
+		// instance.mode = reader.Read<UnityEngine.ParticleSystemCurveMode>();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_29 = ___0_reader;
+		NullCheck(L_29);
+		int32_t L_30;
+		L_30 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var, L_29);
+		MinMaxCurve_set_mode_m6870C4CA0FE7AF1029F45040B827C9F0A6A80A86((&V_0), L_30, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0141:
+	{
+		// instance.curveMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_31 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_32 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_31);
+		float L_33;
+		L_33 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_31, L_32);
+		MinMaxCurve_set_curveMultiplier_m9FCF7F21AECE399ACD9FEB9ADEEBD93FD12DDABC((&V_0), L_33, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0155:
+	{
+		// instance.curveMax = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_34 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_35 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_34);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_36;
+		L_36 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_34, L_35);
+		MinMaxCurve_set_curveMax_m39B9E8AE4E62E874DA99AA7108C2C47C6CA333DF((&V_0), L_36, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0169:
+	{
+		// instance.curveMin = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_37 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_38 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_37);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_39;
+		L_39 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_37, L_38);
+		MinMaxCurve_set_curveMin_m17ADE22B882B75CBE87836C85C477A05122D9E75((&V_0), L_39, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_017d:
+	{
+		// instance.constantMax = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_40 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_41 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_40);
+		float L_42;
+		L_42 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_40, L_41);
+		MinMaxCurve_set_constantMax_mDB7B011E5B1EA76429B2A1FFDE6C06E82D290DC1((&V_0), L_42, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0191:
+	{
+		// instance.constantMin = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_43 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_44 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_43);
+		float L_45;
+		L_45 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_43, L_44);
+		MinMaxCurve_set_constantMin_mBF7CF2A9F167AD06C327EE6EA37BA427E1CE548C((&V_0), L_45, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01a5:
+	{
+		// instance.constant = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_46 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_47 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_46);
+		float L_48;
+		L_48 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_46, L_47);
+		MinMaxCurve_set_constant_mB6E4F22F67D3ED641FEBB387351F17451BB6A897((&V_0), L_48, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01b9:
+	{
+		// instance.curve = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_49 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_50 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_49);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_51;
+		L_51 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_49, L_50);
+		MinMaxCurve_set_curve_mC745A6526FBF122F96DA597997DFAB9D7D2529BF((&V_0), L_51, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01cd:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_52 = ___0_reader;
+		NullCheck(L_52);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_52);
+	}
+
+IL_01d3:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_53 = ___0_reader;
+		NullCheck(L_53);
+		String_t* L_54;
+		L_54 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_53);
+		String_t* L_55 = L_54;
+		V_1 = L_55;
+		if (L_55)
+		{
+			goto IL_000d;
+		}
+	}
+	{
+		// return instance;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_56 = V_0;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_57 = L_56;
+		RuntimeObject* L_58 = Box(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var, &L_57);
+		return L_58;
+	}
+}
+// System.Object ES3Types.ES3Type_MinMaxCurve::Read<UnityEngine.LayerMask>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_MinMaxCurve_Read_TisLayerMask_t97CB6BDADEDC3D6423C7BCFEA7F86DA2EC6241DB_m6E788FCFA5DA10F69F994A36E969D641E5A8DD52_gshared (ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral27906925D50A15B990B586241F08C8ED14226340);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral36587A0761A180514C267B50EA888F89871F71DF);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD4A11128F810D574390DA344F324014E964D1876);
+		s_Il2CppMethodInitialized = true;
+	}
+	MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	String_t* V_1 = NULL;
+	uint32_t V_2 = 0;
+	{
+		// var instance = new UnityEngine.ParticleSystem.MinMaxCurve();
+		il2cpp_codegen_initobj((&V_0), sizeof(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23));
+		goto IL_01d3;
+	}
+
+IL_000d:
+	{
+		String_t* L_0 = V_1;
+		uint32_t L_1;
+		L_1 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_0, NULL);
+		V_2 = L_1;
+		uint32_t L_2 = V_2;
+		if ((!(((uint32_t)L_2) <= ((uint32_t)((int32_t)-725866558)))))
+		{
+			goto IL_0054;
+		}
+	}
+	{
+		uint32_t L_3 = V_2;
+		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)740975083)))))
+		{
+			goto IL_003c;
+		}
+	}
+	{
+		uint32_t L_4 = V_2;
+		if ((((int32_t)L_4) == ((int32_t)((int32_t)110225957))))
+		{
+			goto IL_0105;
+		}
+	}
+	{
+		uint32_t L_5 = V_2;
+		if ((((int32_t)L_5) == ((int32_t)((int32_t)740975083))))
+		{
+			goto IL_009c;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_003c:
+	{
+		uint32_t L_6 = V_2;
+		if ((((int32_t)L_6) == ((int32_t)((int32_t)-1724381676))))
+		{
+			goto IL_011a;
+		}
+	}
+	{
+		uint32_t L_7 = V_2;
+		if ((((int32_t)L_7) == ((int32_t)((int32_t)-725866558))))
+		{
+			goto IL_00b1;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0054:
+	{
+		uint32_t L_8 = V_2;
+		if ((!(((uint32_t)L_8) <= ((uint32_t)((int32_t)-559473464)))))
+		{
+			goto IL_0074;
+		}
+	}
+	{
+		uint32_t L_9 = V_2;
+		if ((((int32_t)L_9) == ((int32_t)((int32_t)-581632105))))
+		{
+			goto IL_00f0;
+		}
+	}
+	{
+		uint32_t L_10 = V_2;
+		if ((((int32_t)L_10) == ((int32_t)((int32_t)-559473464))))
+		{
+			goto IL_00c6;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0074:
+	{
+		uint32_t L_11 = V_2;
+		if ((((int32_t)L_11) == ((int32_t)((int32_t)-345465511))))
+		{
+			goto IL_00db;
+		}
+	}
+	{
+		uint32_t L_12 = V_2;
+		if ((!(((uint32_t)L_12) == ((uint32_t)((int32_t)-328277998)))))
+		{
+			goto IL_01cd;
+		}
+	}
+	{
+		String_t* L_13 = V_1;
+		bool L_14;
+		L_14 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_13, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (L_14)
+		{
+			goto IL_012f;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_009c:
+	{
+		String_t* L_15 = V_1;
+		bool L_16;
+		L_16 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_15, _stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14, NULL);
+		if (L_16)
+		{
+			goto IL_0141;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00b1:
+	{
+		String_t* L_17 = V_1;
+		bool L_18;
+		L_18 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_17, _stringLiteral27906925D50A15B990B586241F08C8ED14226340, NULL);
+		if (L_18)
+		{
+			goto IL_0155;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00c6:
+	{
+		String_t* L_19 = V_1;
+		bool L_20;
+		L_20 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_19, _stringLiteralD4A11128F810D574390DA344F324014E964D1876, NULL);
+		if (L_20)
+		{
+			goto IL_0169;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00db:
+	{
+		String_t* L_21 = V_1;
+		bool L_22;
+		L_22 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_21, _stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12, NULL);
+		if (L_22)
+		{
+			goto IL_017d;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00f0:
+	{
+		String_t* L_23 = V_1;
+		bool L_24;
+		L_24 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_23, _stringLiteral36587A0761A180514C267B50EA888F89871F71DF, NULL);
+		if (L_24)
+		{
+			goto IL_0191;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0105:
+	{
+		String_t* L_25 = V_1;
+		bool L_26;
+		L_26 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_25, _stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0, NULL);
+		if (L_26)
+		{
+			goto IL_01a5;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_011a:
+	{
+		String_t* L_27 = V_1;
+		bool L_28;
+		L_28 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_27, _stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F, NULL);
+		if (L_28)
+		{
+			goto IL_01b9;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_012f:
+	{
+		// instance.mode = reader.Read<UnityEngine.ParticleSystemCurveMode>();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_29 = ___0_reader;
+		NullCheck(L_29);
+		int32_t L_30;
+		L_30 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var, L_29);
+		MinMaxCurve_set_mode_m6870C4CA0FE7AF1029F45040B827C9F0A6A80A86((&V_0), L_30, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0141:
+	{
+		// instance.curveMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_31 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_32 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_31);
+		float L_33;
+		L_33 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_31, L_32);
+		MinMaxCurve_set_curveMultiplier_m9FCF7F21AECE399ACD9FEB9ADEEBD93FD12DDABC((&V_0), L_33, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0155:
+	{
+		// instance.curveMax = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_34 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_35 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_34);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_36;
+		L_36 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_34, L_35);
+		MinMaxCurve_set_curveMax_m39B9E8AE4E62E874DA99AA7108C2C47C6CA333DF((&V_0), L_36, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0169:
+	{
+		// instance.curveMin = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_37 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_38 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_37);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_39;
+		L_39 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_37, L_38);
+		MinMaxCurve_set_curveMin_m17ADE22B882B75CBE87836C85C477A05122D9E75((&V_0), L_39, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_017d:
+	{
+		// instance.constantMax = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_40 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_41 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_40);
+		float L_42;
+		L_42 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_40, L_41);
+		MinMaxCurve_set_constantMax_mDB7B011E5B1EA76429B2A1FFDE6C06E82D290DC1((&V_0), L_42, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0191:
+	{
+		// instance.constantMin = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_43 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_44 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_43);
+		float L_45;
+		L_45 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_43, L_44);
+		MinMaxCurve_set_constantMin_mBF7CF2A9F167AD06C327EE6EA37BA427E1CE548C((&V_0), L_45, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01a5:
+	{
+		// instance.constant = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_46 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_47 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_46);
+		float L_48;
+		L_48 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_46, L_47);
+		MinMaxCurve_set_constant_mB6E4F22F67D3ED641FEBB387351F17451BB6A897((&V_0), L_48, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01b9:
+	{
+		// instance.curve = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_49 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_50 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_49);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_51;
+		L_51 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_49, L_50);
+		MinMaxCurve_set_curve_mC745A6526FBF122F96DA597997DFAB9D7D2529BF((&V_0), L_51, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01cd:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_52 = ___0_reader;
+		NullCheck(L_52);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_52);
+	}
+
+IL_01d3:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_53 = ___0_reader;
+		NullCheck(L_53);
+		String_t* L_54;
+		L_54 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_53);
+		String_t* L_55 = L_54;
+		V_1 = L_55;
+		if (L_55)
+		{
+			goto IL_000d;
+		}
+	}
+	{
+		// return instance;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_56 = V_0;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_57 = L_56;
+		RuntimeObject* L_58 = Box(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var, &L_57);
+		return L_58;
+	}
+}
+// System.Object ES3Types.ES3Type_MinMaxCurve::Read<UnityEngine.Matrix4x4>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_MinMaxCurve_Read_TisMatrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6_mBBF124593C5CD3CEA596AB14DA83E4416A702C9D_gshared (ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral27906925D50A15B990B586241F08C8ED14226340);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral36587A0761A180514C267B50EA888F89871F71DF);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD4A11128F810D574390DA344F324014E964D1876);
+		s_Il2CppMethodInitialized = true;
+	}
+	MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	String_t* V_1 = NULL;
+	uint32_t V_2 = 0;
+	{
+		// var instance = new UnityEngine.ParticleSystem.MinMaxCurve();
+		il2cpp_codegen_initobj((&V_0), sizeof(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23));
+		goto IL_01d3;
+	}
+
+IL_000d:
+	{
+		String_t* L_0 = V_1;
+		uint32_t L_1;
+		L_1 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_0, NULL);
+		V_2 = L_1;
+		uint32_t L_2 = V_2;
+		if ((!(((uint32_t)L_2) <= ((uint32_t)((int32_t)-725866558)))))
+		{
+			goto IL_0054;
+		}
+	}
+	{
+		uint32_t L_3 = V_2;
+		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)740975083)))))
+		{
+			goto IL_003c;
+		}
+	}
+	{
+		uint32_t L_4 = V_2;
+		if ((((int32_t)L_4) == ((int32_t)((int32_t)110225957))))
+		{
+			goto IL_0105;
+		}
+	}
+	{
+		uint32_t L_5 = V_2;
+		if ((((int32_t)L_5) == ((int32_t)((int32_t)740975083))))
+		{
+			goto IL_009c;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_003c:
+	{
+		uint32_t L_6 = V_2;
+		if ((((int32_t)L_6) == ((int32_t)((int32_t)-1724381676))))
+		{
+			goto IL_011a;
+		}
+	}
+	{
+		uint32_t L_7 = V_2;
+		if ((((int32_t)L_7) == ((int32_t)((int32_t)-725866558))))
+		{
+			goto IL_00b1;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0054:
+	{
+		uint32_t L_8 = V_2;
+		if ((!(((uint32_t)L_8) <= ((uint32_t)((int32_t)-559473464)))))
+		{
+			goto IL_0074;
+		}
+	}
+	{
+		uint32_t L_9 = V_2;
+		if ((((int32_t)L_9) == ((int32_t)((int32_t)-581632105))))
+		{
+			goto IL_00f0;
+		}
+	}
+	{
+		uint32_t L_10 = V_2;
+		if ((((int32_t)L_10) == ((int32_t)((int32_t)-559473464))))
+		{
+			goto IL_00c6;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0074:
+	{
+		uint32_t L_11 = V_2;
+		if ((((int32_t)L_11) == ((int32_t)((int32_t)-345465511))))
+		{
+			goto IL_00db;
+		}
+	}
+	{
+		uint32_t L_12 = V_2;
+		if ((!(((uint32_t)L_12) == ((uint32_t)((int32_t)-328277998)))))
+		{
+			goto IL_01cd;
+		}
+	}
+	{
+		String_t* L_13 = V_1;
+		bool L_14;
+		L_14 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_13, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (L_14)
+		{
+			goto IL_012f;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_009c:
+	{
+		String_t* L_15 = V_1;
+		bool L_16;
+		L_16 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_15, _stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14, NULL);
+		if (L_16)
+		{
+			goto IL_0141;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00b1:
+	{
+		String_t* L_17 = V_1;
+		bool L_18;
+		L_18 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_17, _stringLiteral27906925D50A15B990B586241F08C8ED14226340, NULL);
+		if (L_18)
+		{
+			goto IL_0155;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00c6:
+	{
+		String_t* L_19 = V_1;
+		bool L_20;
+		L_20 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_19, _stringLiteralD4A11128F810D574390DA344F324014E964D1876, NULL);
+		if (L_20)
+		{
+			goto IL_0169;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00db:
+	{
+		String_t* L_21 = V_1;
+		bool L_22;
+		L_22 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_21, _stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12, NULL);
+		if (L_22)
+		{
+			goto IL_017d;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00f0:
+	{
+		String_t* L_23 = V_1;
+		bool L_24;
+		L_24 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_23, _stringLiteral36587A0761A180514C267B50EA888F89871F71DF, NULL);
+		if (L_24)
+		{
+			goto IL_0191;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0105:
+	{
+		String_t* L_25 = V_1;
+		bool L_26;
+		L_26 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_25, _stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0, NULL);
+		if (L_26)
+		{
+			goto IL_01a5;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_011a:
+	{
+		String_t* L_27 = V_1;
+		bool L_28;
+		L_28 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_27, _stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F, NULL);
+		if (L_28)
+		{
+			goto IL_01b9;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_012f:
+	{
+		// instance.mode = reader.Read<UnityEngine.ParticleSystemCurveMode>();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_29 = ___0_reader;
+		NullCheck(L_29);
+		int32_t L_30;
+		L_30 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var, L_29);
+		MinMaxCurve_set_mode_m6870C4CA0FE7AF1029F45040B827C9F0A6A80A86((&V_0), L_30, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0141:
+	{
+		// instance.curveMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_31 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_32 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_31);
+		float L_33;
+		L_33 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_31, L_32);
+		MinMaxCurve_set_curveMultiplier_m9FCF7F21AECE399ACD9FEB9ADEEBD93FD12DDABC((&V_0), L_33, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0155:
+	{
+		// instance.curveMax = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_34 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_35 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_34);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_36;
+		L_36 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_34, L_35);
+		MinMaxCurve_set_curveMax_m39B9E8AE4E62E874DA99AA7108C2C47C6CA333DF((&V_0), L_36, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0169:
+	{
+		// instance.curveMin = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_37 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_38 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_37);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_39;
+		L_39 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_37, L_38);
+		MinMaxCurve_set_curveMin_m17ADE22B882B75CBE87836C85C477A05122D9E75((&V_0), L_39, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_017d:
+	{
+		// instance.constantMax = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_40 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_41 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_40);
+		float L_42;
+		L_42 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_40, L_41);
+		MinMaxCurve_set_constantMax_mDB7B011E5B1EA76429B2A1FFDE6C06E82D290DC1((&V_0), L_42, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0191:
+	{
+		// instance.constantMin = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_43 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_44 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_43);
+		float L_45;
+		L_45 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_43, L_44);
+		MinMaxCurve_set_constantMin_mBF7CF2A9F167AD06C327EE6EA37BA427E1CE548C((&V_0), L_45, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01a5:
+	{
+		// instance.constant = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_46 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_47 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_46);
+		float L_48;
+		L_48 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_46, L_47);
+		MinMaxCurve_set_constant_mB6E4F22F67D3ED641FEBB387351F17451BB6A897((&V_0), L_48, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01b9:
+	{
+		// instance.curve = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_49 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_50 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_49);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_51;
+		L_51 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_49, L_50);
+		MinMaxCurve_set_curve_mC745A6526FBF122F96DA597997DFAB9D7D2529BF((&V_0), L_51, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01cd:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_52 = ___0_reader;
+		NullCheck(L_52);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_52);
+	}
+
+IL_01d3:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_53 = ___0_reader;
+		NullCheck(L_53);
+		String_t* L_54;
+		L_54 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_53);
+		String_t* L_55 = L_54;
+		V_1 = L_55;
+		if (L_55)
+		{
+			goto IL_000d;
+		}
+	}
+	{
+		// return instance;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_56 = V_0;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_57 = L_56;
+		RuntimeObject* L_58 = Box(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var, &L_57);
+		return L_58;
+	}
+}
+// System.Object ES3Types.ES3Type_MinMaxCurve::Read<System.Object>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_MinMaxCurve_Read_TisRuntimeObject_m3660BC9515316A3ABFDD66EADFA37F291A6E4B14_gshared (ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral27906925D50A15B990B586241F08C8ED14226340);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral36587A0761A180514C267B50EA888F89871F71DF);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD4A11128F810D574390DA344F324014E964D1876);
+		s_Il2CppMethodInitialized = true;
+	}
+	MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	String_t* V_1 = NULL;
+	uint32_t V_2 = 0;
+	{
+		// var instance = new UnityEngine.ParticleSystem.MinMaxCurve();
+		il2cpp_codegen_initobj((&V_0), sizeof(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23));
+		goto IL_01d3;
+	}
+
+IL_000d:
+	{
+		String_t* L_0 = V_1;
+		uint32_t L_1;
+		L_1 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_0, NULL);
+		V_2 = L_1;
+		uint32_t L_2 = V_2;
+		if ((!(((uint32_t)L_2) <= ((uint32_t)((int32_t)-725866558)))))
+		{
+			goto IL_0054;
+		}
+	}
+	{
+		uint32_t L_3 = V_2;
+		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)740975083)))))
+		{
+			goto IL_003c;
+		}
+	}
+	{
+		uint32_t L_4 = V_2;
+		if ((((int32_t)L_4) == ((int32_t)((int32_t)110225957))))
+		{
+			goto IL_0105;
+		}
+	}
+	{
+		uint32_t L_5 = V_2;
+		if ((((int32_t)L_5) == ((int32_t)((int32_t)740975083))))
+		{
+			goto IL_009c;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_003c:
+	{
+		uint32_t L_6 = V_2;
+		if ((((int32_t)L_6) == ((int32_t)((int32_t)-1724381676))))
+		{
+			goto IL_011a;
+		}
+	}
+	{
+		uint32_t L_7 = V_2;
+		if ((((int32_t)L_7) == ((int32_t)((int32_t)-725866558))))
+		{
+			goto IL_00b1;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0054:
+	{
+		uint32_t L_8 = V_2;
+		if ((!(((uint32_t)L_8) <= ((uint32_t)((int32_t)-559473464)))))
+		{
+			goto IL_0074;
+		}
+	}
+	{
+		uint32_t L_9 = V_2;
+		if ((((int32_t)L_9) == ((int32_t)((int32_t)-581632105))))
+		{
+			goto IL_00f0;
+		}
+	}
+	{
+		uint32_t L_10 = V_2;
+		if ((((int32_t)L_10) == ((int32_t)((int32_t)-559473464))))
+		{
+			goto IL_00c6;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0074:
+	{
+		uint32_t L_11 = V_2;
+		if ((((int32_t)L_11) == ((int32_t)((int32_t)-345465511))))
+		{
+			goto IL_00db;
+		}
+	}
+	{
+		uint32_t L_12 = V_2;
+		if ((!(((uint32_t)L_12) == ((uint32_t)((int32_t)-328277998)))))
+		{
+			goto IL_01cd;
+		}
+	}
+	{
+		String_t* L_13 = V_1;
+		bool L_14;
+		L_14 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_13, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (L_14)
+		{
+			goto IL_012f;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_009c:
+	{
+		String_t* L_15 = V_1;
+		bool L_16;
+		L_16 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_15, _stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14, NULL);
+		if (L_16)
+		{
+			goto IL_0141;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00b1:
+	{
+		String_t* L_17 = V_1;
+		bool L_18;
+		L_18 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_17, _stringLiteral27906925D50A15B990B586241F08C8ED14226340, NULL);
+		if (L_18)
+		{
+			goto IL_0155;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00c6:
+	{
+		String_t* L_19 = V_1;
+		bool L_20;
+		L_20 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_19, _stringLiteralD4A11128F810D574390DA344F324014E964D1876, NULL);
+		if (L_20)
+		{
+			goto IL_0169;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00db:
+	{
+		String_t* L_21 = V_1;
+		bool L_22;
+		L_22 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_21, _stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12, NULL);
+		if (L_22)
+		{
+			goto IL_017d;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00f0:
+	{
+		String_t* L_23 = V_1;
+		bool L_24;
+		L_24 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_23, _stringLiteral36587A0761A180514C267B50EA888F89871F71DF, NULL);
+		if (L_24)
+		{
+			goto IL_0191;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0105:
+	{
+		String_t* L_25 = V_1;
+		bool L_26;
+		L_26 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_25, _stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0, NULL);
+		if (L_26)
+		{
+			goto IL_01a5;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_011a:
+	{
+		String_t* L_27 = V_1;
+		bool L_28;
+		L_28 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_27, _stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F, NULL);
+		if (L_28)
+		{
+			goto IL_01b9;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_012f:
+	{
+		// instance.mode = reader.Read<UnityEngine.ParticleSystemCurveMode>();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_29 = ___0_reader;
+		NullCheck(L_29);
+		int32_t L_30;
+		L_30 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var, L_29);
+		MinMaxCurve_set_mode_m6870C4CA0FE7AF1029F45040B827C9F0A6A80A86((&V_0), L_30, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0141:
+	{
+		// instance.curveMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_31 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_32 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_31);
+		float L_33;
+		L_33 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_31, L_32);
+		MinMaxCurve_set_curveMultiplier_m9FCF7F21AECE399ACD9FEB9ADEEBD93FD12DDABC((&V_0), L_33, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0155:
+	{
+		// instance.curveMax = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_34 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_35 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_34);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_36;
+		L_36 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_34, L_35);
+		MinMaxCurve_set_curveMax_m39B9E8AE4E62E874DA99AA7108C2C47C6CA333DF((&V_0), L_36, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0169:
+	{
+		// instance.curveMin = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_37 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_38 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_37);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_39;
+		L_39 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_37, L_38);
+		MinMaxCurve_set_curveMin_m17ADE22B882B75CBE87836C85C477A05122D9E75((&V_0), L_39, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_017d:
+	{
+		// instance.constantMax = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_40 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_41 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_40);
+		float L_42;
+		L_42 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_40, L_41);
+		MinMaxCurve_set_constantMax_mDB7B011E5B1EA76429B2A1FFDE6C06E82D290DC1((&V_0), L_42, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0191:
+	{
+		// instance.constantMin = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_43 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_44 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_43);
+		float L_45;
+		L_45 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_43, L_44);
+		MinMaxCurve_set_constantMin_mBF7CF2A9F167AD06C327EE6EA37BA427E1CE548C((&V_0), L_45, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01a5:
+	{
+		// instance.constant = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_46 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_47 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_46);
+		float L_48;
+		L_48 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_46, L_47);
+		MinMaxCurve_set_constant_mB6E4F22F67D3ED641FEBB387351F17451BB6A897((&V_0), L_48, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01b9:
+	{
+		// instance.curve = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_49 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_50 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_49);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_51;
+		L_51 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_49, L_50);
+		MinMaxCurve_set_curve_mC745A6526FBF122F96DA597997DFAB9D7D2529BF((&V_0), L_51, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01cd:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_52 = ___0_reader;
+		NullCheck(L_52);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_52);
+	}
+
+IL_01d3:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_53 = ___0_reader;
+		NullCheck(L_53);
+		String_t* L_54;
+		L_54 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_53);
+		String_t* L_55 = L_54;
+		V_1 = L_55;
+		if (L_55)
+		{
+			goto IL_000d;
+		}
+	}
+	{
+		// return instance;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_56 = V_0;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_57 = L_56;
+		RuntimeObject* L_58 = Box(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var, &L_57);
+		return L_58;
+	}
+}
+// System.Object ES3Types.ES3Type_MinMaxCurve::Read<UnityEngine.Quaternion>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_MinMaxCurve_Read_TisQuaternion_tDA59F214EF07D7700B26E40E562F267AF7306974_mBF4D6423FE3EEFFED53C8E68CADB86E206D2B630_gshared (ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral27906925D50A15B990B586241F08C8ED14226340);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral36587A0761A180514C267B50EA888F89871F71DF);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD4A11128F810D574390DA344F324014E964D1876);
+		s_Il2CppMethodInitialized = true;
+	}
+	MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	String_t* V_1 = NULL;
+	uint32_t V_2 = 0;
+	{
+		// var instance = new UnityEngine.ParticleSystem.MinMaxCurve();
+		il2cpp_codegen_initobj((&V_0), sizeof(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23));
+		goto IL_01d3;
+	}
+
+IL_000d:
+	{
+		String_t* L_0 = V_1;
+		uint32_t L_1;
+		L_1 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_0, NULL);
+		V_2 = L_1;
+		uint32_t L_2 = V_2;
+		if ((!(((uint32_t)L_2) <= ((uint32_t)((int32_t)-725866558)))))
+		{
+			goto IL_0054;
+		}
+	}
+	{
+		uint32_t L_3 = V_2;
+		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)740975083)))))
+		{
+			goto IL_003c;
+		}
+	}
+	{
+		uint32_t L_4 = V_2;
+		if ((((int32_t)L_4) == ((int32_t)((int32_t)110225957))))
+		{
+			goto IL_0105;
+		}
+	}
+	{
+		uint32_t L_5 = V_2;
+		if ((((int32_t)L_5) == ((int32_t)((int32_t)740975083))))
+		{
+			goto IL_009c;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_003c:
+	{
+		uint32_t L_6 = V_2;
+		if ((((int32_t)L_6) == ((int32_t)((int32_t)-1724381676))))
+		{
+			goto IL_011a;
+		}
+	}
+	{
+		uint32_t L_7 = V_2;
+		if ((((int32_t)L_7) == ((int32_t)((int32_t)-725866558))))
+		{
+			goto IL_00b1;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0054:
+	{
+		uint32_t L_8 = V_2;
+		if ((!(((uint32_t)L_8) <= ((uint32_t)((int32_t)-559473464)))))
+		{
+			goto IL_0074;
+		}
+	}
+	{
+		uint32_t L_9 = V_2;
+		if ((((int32_t)L_9) == ((int32_t)((int32_t)-581632105))))
+		{
+			goto IL_00f0;
+		}
+	}
+	{
+		uint32_t L_10 = V_2;
+		if ((((int32_t)L_10) == ((int32_t)((int32_t)-559473464))))
+		{
+			goto IL_00c6;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0074:
+	{
+		uint32_t L_11 = V_2;
+		if ((((int32_t)L_11) == ((int32_t)((int32_t)-345465511))))
+		{
+			goto IL_00db;
+		}
+	}
+	{
+		uint32_t L_12 = V_2;
+		if ((!(((uint32_t)L_12) == ((uint32_t)((int32_t)-328277998)))))
+		{
+			goto IL_01cd;
+		}
+	}
+	{
+		String_t* L_13 = V_1;
+		bool L_14;
+		L_14 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_13, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (L_14)
+		{
+			goto IL_012f;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_009c:
+	{
+		String_t* L_15 = V_1;
+		bool L_16;
+		L_16 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_15, _stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14, NULL);
+		if (L_16)
+		{
+			goto IL_0141;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00b1:
+	{
+		String_t* L_17 = V_1;
+		bool L_18;
+		L_18 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_17, _stringLiteral27906925D50A15B990B586241F08C8ED14226340, NULL);
+		if (L_18)
+		{
+			goto IL_0155;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00c6:
+	{
+		String_t* L_19 = V_1;
+		bool L_20;
+		L_20 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_19, _stringLiteralD4A11128F810D574390DA344F324014E964D1876, NULL);
+		if (L_20)
+		{
+			goto IL_0169;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00db:
+	{
+		String_t* L_21 = V_1;
+		bool L_22;
+		L_22 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_21, _stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12, NULL);
+		if (L_22)
+		{
+			goto IL_017d;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00f0:
+	{
+		String_t* L_23 = V_1;
+		bool L_24;
+		L_24 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_23, _stringLiteral36587A0761A180514C267B50EA888F89871F71DF, NULL);
+		if (L_24)
+		{
+			goto IL_0191;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0105:
+	{
+		String_t* L_25 = V_1;
+		bool L_26;
+		L_26 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_25, _stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0, NULL);
+		if (L_26)
+		{
+			goto IL_01a5;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_011a:
+	{
+		String_t* L_27 = V_1;
+		bool L_28;
+		L_28 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_27, _stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F, NULL);
+		if (L_28)
+		{
+			goto IL_01b9;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_012f:
+	{
+		// instance.mode = reader.Read<UnityEngine.ParticleSystemCurveMode>();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_29 = ___0_reader;
+		NullCheck(L_29);
+		int32_t L_30;
+		L_30 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var, L_29);
+		MinMaxCurve_set_mode_m6870C4CA0FE7AF1029F45040B827C9F0A6A80A86((&V_0), L_30, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0141:
+	{
+		// instance.curveMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_31 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_32 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_31);
+		float L_33;
+		L_33 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_31, L_32);
+		MinMaxCurve_set_curveMultiplier_m9FCF7F21AECE399ACD9FEB9ADEEBD93FD12DDABC((&V_0), L_33, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0155:
+	{
+		// instance.curveMax = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_34 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_35 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_34);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_36;
+		L_36 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_34, L_35);
+		MinMaxCurve_set_curveMax_m39B9E8AE4E62E874DA99AA7108C2C47C6CA333DF((&V_0), L_36, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0169:
+	{
+		// instance.curveMin = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_37 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_38 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_37);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_39;
+		L_39 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_37, L_38);
+		MinMaxCurve_set_curveMin_m17ADE22B882B75CBE87836C85C477A05122D9E75((&V_0), L_39, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_017d:
+	{
+		// instance.constantMax = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_40 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_41 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_40);
+		float L_42;
+		L_42 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_40, L_41);
+		MinMaxCurve_set_constantMax_mDB7B011E5B1EA76429B2A1FFDE6C06E82D290DC1((&V_0), L_42, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0191:
+	{
+		// instance.constantMin = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_43 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_44 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_43);
+		float L_45;
+		L_45 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_43, L_44);
+		MinMaxCurve_set_constantMin_mBF7CF2A9F167AD06C327EE6EA37BA427E1CE548C((&V_0), L_45, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01a5:
+	{
+		// instance.constant = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_46 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_47 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_46);
+		float L_48;
+		L_48 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_46, L_47);
+		MinMaxCurve_set_constant_mB6E4F22F67D3ED641FEBB387351F17451BB6A897((&V_0), L_48, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01b9:
+	{
+		// instance.curve = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_49 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_50 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_49);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_51;
+		L_51 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_49, L_50);
+		MinMaxCurve_set_curve_mC745A6526FBF122F96DA597997DFAB9D7D2529BF((&V_0), L_51, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01cd:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_52 = ___0_reader;
+		NullCheck(L_52);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_52);
+	}
+
+IL_01d3:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_53 = ___0_reader;
+		NullCheck(L_53);
+		String_t* L_54;
+		L_54 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_53);
+		String_t* L_55 = L_54;
+		V_1 = L_55;
+		if (L_55)
+		{
+			goto IL_000d;
+		}
+	}
+	{
+		// return instance;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_56 = V_0;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_57 = L_56;
+		RuntimeObject* L_58 = Box(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var, &L_57);
+		return L_58;
+	}
+}
+// System.Object ES3Types.ES3Type_MinMaxCurve::Read<UnityEngine.Rect>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_MinMaxCurve_Read_TisRect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D_mB71C94FE365100AE20BA12B3F32622F557136799_gshared (ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral27906925D50A15B990B586241F08C8ED14226340);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral36587A0761A180514C267B50EA888F89871F71DF);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD4A11128F810D574390DA344F324014E964D1876);
+		s_Il2CppMethodInitialized = true;
+	}
+	MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	String_t* V_1 = NULL;
+	uint32_t V_2 = 0;
+	{
+		// var instance = new UnityEngine.ParticleSystem.MinMaxCurve();
+		il2cpp_codegen_initobj((&V_0), sizeof(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23));
+		goto IL_01d3;
+	}
+
+IL_000d:
+	{
+		String_t* L_0 = V_1;
+		uint32_t L_1;
+		L_1 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_0, NULL);
+		V_2 = L_1;
+		uint32_t L_2 = V_2;
+		if ((!(((uint32_t)L_2) <= ((uint32_t)((int32_t)-725866558)))))
+		{
+			goto IL_0054;
+		}
+	}
+	{
+		uint32_t L_3 = V_2;
+		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)740975083)))))
+		{
+			goto IL_003c;
+		}
+	}
+	{
+		uint32_t L_4 = V_2;
+		if ((((int32_t)L_4) == ((int32_t)((int32_t)110225957))))
+		{
+			goto IL_0105;
+		}
+	}
+	{
+		uint32_t L_5 = V_2;
+		if ((((int32_t)L_5) == ((int32_t)((int32_t)740975083))))
+		{
+			goto IL_009c;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_003c:
+	{
+		uint32_t L_6 = V_2;
+		if ((((int32_t)L_6) == ((int32_t)((int32_t)-1724381676))))
+		{
+			goto IL_011a;
+		}
+	}
+	{
+		uint32_t L_7 = V_2;
+		if ((((int32_t)L_7) == ((int32_t)((int32_t)-725866558))))
+		{
+			goto IL_00b1;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0054:
+	{
+		uint32_t L_8 = V_2;
+		if ((!(((uint32_t)L_8) <= ((uint32_t)((int32_t)-559473464)))))
+		{
+			goto IL_0074;
+		}
+	}
+	{
+		uint32_t L_9 = V_2;
+		if ((((int32_t)L_9) == ((int32_t)((int32_t)-581632105))))
+		{
+			goto IL_00f0;
+		}
+	}
+	{
+		uint32_t L_10 = V_2;
+		if ((((int32_t)L_10) == ((int32_t)((int32_t)-559473464))))
+		{
+			goto IL_00c6;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0074:
+	{
+		uint32_t L_11 = V_2;
+		if ((((int32_t)L_11) == ((int32_t)((int32_t)-345465511))))
+		{
+			goto IL_00db;
+		}
+	}
+	{
+		uint32_t L_12 = V_2;
+		if ((!(((uint32_t)L_12) == ((uint32_t)((int32_t)-328277998)))))
+		{
+			goto IL_01cd;
+		}
+	}
+	{
+		String_t* L_13 = V_1;
+		bool L_14;
+		L_14 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_13, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (L_14)
+		{
+			goto IL_012f;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_009c:
+	{
+		String_t* L_15 = V_1;
+		bool L_16;
+		L_16 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_15, _stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14, NULL);
+		if (L_16)
+		{
+			goto IL_0141;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00b1:
+	{
+		String_t* L_17 = V_1;
+		bool L_18;
+		L_18 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_17, _stringLiteral27906925D50A15B990B586241F08C8ED14226340, NULL);
+		if (L_18)
+		{
+			goto IL_0155;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00c6:
+	{
+		String_t* L_19 = V_1;
+		bool L_20;
+		L_20 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_19, _stringLiteralD4A11128F810D574390DA344F324014E964D1876, NULL);
+		if (L_20)
+		{
+			goto IL_0169;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00db:
+	{
+		String_t* L_21 = V_1;
+		bool L_22;
+		L_22 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_21, _stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12, NULL);
+		if (L_22)
+		{
+			goto IL_017d;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00f0:
+	{
+		String_t* L_23 = V_1;
+		bool L_24;
+		L_24 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_23, _stringLiteral36587A0761A180514C267B50EA888F89871F71DF, NULL);
+		if (L_24)
+		{
+			goto IL_0191;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0105:
+	{
+		String_t* L_25 = V_1;
+		bool L_26;
+		L_26 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_25, _stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0, NULL);
+		if (L_26)
+		{
+			goto IL_01a5;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_011a:
+	{
+		String_t* L_27 = V_1;
+		bool L_28;
+		L_28 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_27, _stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F, NULL);
+		if (L_28)
+		{
+			goto IL_01b9;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_012f:
+	{
+		// instance.mode = reader.Read<UnityEngine.ParticleSystemCurveMode>();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_29 = ___0_reader;
+		NullCheck(L_29);
+		int32_t L_30;
+		L_30 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var, L_29);
+		MinMaxCurve_set_mode_m6870C4CA0FE7AF1029F45040B827C9F0A6A80A86((&V_0), L_30, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0141:
+	{
+		// instance.curveMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_31 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_32 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_31);
+		float L_33;
+		L_33 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_31, L_32);
+		MinMaxCurve_set_curveMultiplier_m9FCF7F21AECE399ACD9FEB9ADEEBD93FD12DDABC((&V_0), L_33, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0155:
+	{
+		// instance.curveMax = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_34 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_35 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_34);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_36;
+		L_36 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_34, L_35);
+		MinMaxCurve_set_curveMax_m39B9E8AE4E62E874DA99AA7108C2C47C6CA333DF((&V_0), L_36, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0169:
+	{
+		// instance.curveMin = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_37 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_38 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_37);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_39;
+		L_39 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_37, L_38);
+		MinMaxCurve_set_curveMin_m17ADE22B882B75CBE87836C85C477A05122D9E75((&V_0), L_39, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_017d:
+	{
+		// instance.constantMax = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_40 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_41 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_40);
+		float L_42;
+		L_42 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_40, L_41);
+		MinMaxCurve_set_constantMax_mDB7B011E5B1EA76429B2A1FFDE6C06E82D290DC1((&V_0), L_42, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0191:
+	{
+		// instance.constantMin = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_43 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_44 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_43);
+		float L_45;
+		L_45 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_43, L_44);
+		MinMaxCurve_set_constantMin_mBF7CF2A9F167AD06C327EE6EA37BA427E1CE548C((&V_0), L_45, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01a5:
+	{
+		// instance.constant = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_46 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_47 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_46);
+		float L_48;
+		L_48 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_46, L_47);
+		MinMaxCurve_set_constant_mB6E4F22F67D3ED641FEBB387351F17451BB6A897((&V_0), L_48, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01b9:
+	{
+		// instance.curve = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_49 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_50 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_49);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_51;
+		L_51 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_49, L_50);
+		MinMaxCurve_set_curve_mC745A6526FBF122F96DA597997DFAB9D7D2529BF((&V_0), L_51, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01cd:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_52 = ___0_reader;
+		NullCheck(L_52);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_52);
+	}
+
+IL_01d3:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_53 = ___0_reader;
+		NullCheck(L_53);
+		String_t* L_54;
+		L_54 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_53);
+		String_t* L_55 = L_54;
+		V_1 = L_55;
+		if (L_55)
+		{
+			goto IL_000d;
+		}
+	}
+	{
+		// return instance;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_56 = V_0;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_57 = L_56;
+		RuntimeObject* L_58 = Box(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var, &L_57);
+		return L_58;
+	}
+}
+// System.Object ES3Types.ES3Type_MinMaxCurve::Read<UnityEngine.RenderTextureDescriptor>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_MinMaxCurve_Read_TisRenderTextureDescriptor_t69845881CE6437E4E61F92074F2F84079F23FA46_m74CC6993A8A6401973294A4EE878DA5101886331_gshared (ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral27906925D50A15B990B586241F08C8ED14226340);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral36587A0761A180514C267B50EA888F89871F71DF);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD4A11128F810D574390DA344F324014E964D1876);
+		s_Il2CppMethodInitialized = true;
+	}
+	MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	String_t* V_1 = NULL;
+	uint32_t V_2 = 0;
+	{
+		// var instance = new UnityEngine.ParticleSystem.MinMaxCurve();
+		il2cpp_codegen_initobj((&V_0), sizeof(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23));
+		goto IL_01d3;
+	}
+
+IL_000d:
+	{
+		String_t* L_0 = V_1;
+		uint32_t L_1;
+		L_1 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_0, NULL);
+		V_2 = L_1;
+		uint32_t L_2 = V_2;
+		if ((!(((uint32_t)L_2) <= ((uint32_t)((int32_t)-725866558)))))
+		{
+			goto IL_0054;
+		}
+	}
+	{
+		uint32_t L_3 = V_2;
+		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)740975083)))))
+		{
+			goto IL_003c;
+		}
+	}
+	{
+		uint32_t L_4 = V_2;
+		if ((((int32_t)L_4) == ((int32_t)((int32_t)110225957))))
+		{
+			goto IL_0105;
+		}
+	}
+	{
+		uint32_t L_5 = V_2;
+		if ((((int32_t)L_5) == ((int32_t)((int32_t)740975083))))
+		{
+			goto IL_009c;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_003c:
+	{
+		uint32_t L_6 = V_2;
+		if ((((int32_t)L_6) == ((int32_t)((int32_t)-1724381676))))
+		{
+			goto IL_011a;
+		}
+	}
+	{
+		uint32_t L_7 = V_2;
+		if ((((int32_t)L_7) == ((int32_t)((int32_t)-725866558))))
+		{
+			goto IL_00b1;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0054:
+	{
+		uint32_t L_8 = V_2;
+		if ((!(((uint32_t)L_8) <= ((uint32_t)((int32_t)-559473464)))))
+		{
+			goto IL_0074;
+		}
+	}
+	{
+		uint32_t L_9 = V_2;
+		if ((((int32_t)L_9) == ((int32_t)((int32_t)-581632105))))
+		{
+			goto IL_00f0;
+		}
+	}
+	{
+		uint32_t L_10 = V_2;
+		if ((((int32_t)L_10) == ((int32_t)((int32_t)-559473464))))
+		{
+			goto IL_00c6;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0074:
+	{
+		uint32_t L_11 = V_2;
+		if ((((int32_t)L_11) == ((int32_t)((int32_t)-345465511))))
+		{
+			goto IL_00db;
+		}
+	}
+	{
+		uint32_t L_12 = V_2;
+		if ((!(((uint32_t)L_12) == ((uint32_t)((int32_t)-328277998)))))
+		{
+			goto IL_01cd;
+		}
+	}
+	{
+		String_t* L_13 = V_1;
+		bool L_14;
+		L_14 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_13, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (L_14)
+		{
+			goto IL_012f;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_009c:
+	{
+		String_t* L_15 = V_1;
+		bool L_16;
+		L_16 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_15, _stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14, NULL);
+		if (L_16)
+		{
+			goto IL_0141;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00b1:
+	{
+		String_t* L_17 = V_1;
+		bool L_18;
+		L_18 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_17, _stringLiteral27906925D50A15B990B586241F08C8ED14226340, NULL);
+		if (L_18)
+		{
+			goto IL_0155;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00c6:
+	{
+		String_t* L_19 = V_1;
+		bool L_20;
+		L_20 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_19, _stringLiteralD4A11128F810D574390DA344F324014E964D1876, NULL);
+		if (L_20)
+		{
+			goto IL_0169;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00db:
+	{
+		String_t* L_21 = V_1;
+		bool L_22;
+		L_22 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_21, _stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12, NULL);
+		if (L_22)
+		{
+			goto IL_017d;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00f0:
+	{
+		String_t* L_23 = V_1;
+		bool L_24;
+		L_24 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_23, _stringLiteral36587A0761A180514C267B50EA888F89871F71DF, NULL);
+		if (L_24)
+		{
+			goto IL_0191;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0105:
+	{
+		String_t* L_25 = V_1;
+		bool L_26;
+		L_26 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_25, _stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0, NULL);
+		if (L_26)
+		{
+			goto IL_01a5;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_011a:
+	{
+		String_t* L_27 = V_1;
+		bool L_28;
+		L_28 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_27, _stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F, NULL);
+		if (L_28)
+		{
+			goto IL_01b9;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_012f:
+	{
+		// instance.mode = reader.Read<UnityEngine.ParticleSystemCurveMode>();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_29 = ___0_reader;
+		NullCheck(L_29);
+		int32_t L_30;
+		L_30 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var, L_29);
+		MinMaxCurve_set_mode_m6870C4CA0FE7AF1029F45040B827C9F0A6A80A86((&V_0), L_30, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0141:
+	{
+		// instance.curveMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_31 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_32 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_31);
+		float L_33;
+		L_33 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_31, L_32);
+		MinMaxCurve_set_curveMultiplier_m9FCF7F21AECE399ACD9FEB9ADEEBD93FD12DDABC((&V_0), L_33, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0155:
+	{
+		// instance.curveMax = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_34 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_35 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_34);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_36;
+		L_36 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_34, L_35);
+		MinMaxCurve_set_curveMax_m39B9E8AE4E62E874DA99AA7108C2C47C6CA333DF((&V_0), L_36, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0169:
+	{
+		// instance.curveMin = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_37 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_38 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_37);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_39;
+		L_39 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_37, L_38);
+		MinMaxCurve_set_curveMin_m17ADE22B882B75CBE87836C85C477A05122D9E75((&V_0), L_39, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_017d:
+	{
+		// instance.constantMax = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_40 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_41 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_40);
+		float L_42;
+		L_42 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_40, L_41);
+		MinMaxCurve_set_constantMax_mDB7B011E5B1EA76429B2A1FFDE6C06E82D290DC1((&V_0), L_42, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0191:
+	{
+		// instance.constantMin = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_43 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_44 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_43);
+		float L_45;
+		L_45 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_43, L_44);
+		MinMaxCurve_set_constantMin_mBF7CF2A9F167AD06C327EE6EA37BA427E1CE548C((&V_0), L_45, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01a5:
+	{
+		// instance.constant = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_46 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_47 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_46);
+		float L_48;
+		L_48 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_46, L_47);
+		MinMaxCurve_set_constant_mB6E4F22F67D3ED641FEBB387351F17451BB6A897((&V_0), L_48, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01b9:
+	{
+		// instance.curve = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_49 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_50 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_49);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_51;
+		L_51 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_49, L_50);
+		MinMaxCurve_set_curve_mC745A6526FBF122F96DA597997DFAB9D7D2529BF((&V_0), L_51, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01cd:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_52 = ___0_reader;
+		NullCheck(L_52);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_52);
+	}
+
+IL_01d3:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_53 = ___0_reader;
+		NullCheck(L_53);
+		String_t* L_54;
+		L_54 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_53);
+		String_t* L_55 = L_54;
+		V_1 = L_55;
+		if (L_55)
+		{
+			goto IL_000d;
+		}
+	}
+	{
+		// return instance;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_56 = V_0;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_57 = L_56;
+		RuntimeObject* L_58 = Box(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var, &L_57);
+		return L_58;
+	}
+}
+// System.Object ES3Types.ES3Type_MinMaxCurve::Read<System.Single>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_MinMaxCurve_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_mA7FA10B8E2A4EFB4C6B5761FDAAFDB1EEA7EF4BA_gshared (ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral27906925D50A15B990B586241F08C8ED14226340);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral36587A0761A180514C267B50EA888F89871F71DF);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD4A11128F810D574390DA344F324014E964D1876);
+		s_Il2CppMethodInitialized = true;
+	}
+	MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	String_t* V_1 = NULL;
+	uint32_t V_2 = 0;
+	{
+		// var instance = new UnityEngine.ParticleSystem.MinMaxCurve();
+		il2cpp_codegen_initobj((&V_0), sizeof(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23));
+		goto IL_01d3;
+	}
+
+IL_000d:
+	{
+		String_t* L_0 = V_1;
+		uint32_t L_1;
+		L_1 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_0, NULL);
+		V_2 = L_1;
+		uint32_t L_2 = V_2;
+		if ((!(((uint32_t)L_2) <= ((uint32_t)((int32_t)-725866558)))))
+		{
+			goto IL_0054;
+		}
+	}
+	{
+		uint32_t L_3 = V_2;
+		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)740975083)))))
+		{
+			goto IL_003c;
+		}
+	}
+	{
+		uint32_t L_4 = V_2;
+		if ((((int32_t)L_4) == ((int32_t)((int32_t)110225957))))
+		{
+			goto IL_0105;
+		}
+	}
+	{
+		uint32_t L_5 = V_2;
+		if ((((int32_t)L_5) == ((int32_t)((int32_t)740975083))))
+		{
+			goto IL_009c;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_003c:
+	{
+		uint32_t L_6 = V_2;
+		if ((((int32_t)L_6) == ((int32_t)((int32_t)-1724381676))))
+		{
+			goto IL_011a;
+		}
+	}
+	{
+		uint32_t L_7 = V_2;
+		if ((((int32_t)L_7) == ((int32_t)((int32_t)-725866558))))
+		{
+			goto IL_00b1;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0054:
+	{
+		uint32_t L_8 = V_2;
+		if ((!(((uint32_t)L_8) <= ((uint32_t)((int32_t)-559473464)))))
+		{
+			goto IL_0074;
+		}
+	}
+	{
+		uint32_t L_9 = V_2;
+		if ((((int32_t)L_9) == ((int32_t)((int32_t)-581632105))))
+		{
+			goto IL_00f0;
+		}
+	}
+	{
+		uint32_t L_10 = V_2;
+		if ((((int32_t)L_10) == ((int32_t)((int32_t)-559473464))))
+		{
+			goto IL_00c6;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0074:
+	{
+		uint32_t L_11 = V_2;
+		if ((((int32_t)L_11) == ((int32_t)((int32_t)-345465511))))
+		{
+			goto IL_00db;
+		}
+	}
+	{
+		uint32_t L_12 = V_2;
+		if ((!(((uint32_t)L_12) == ((uint32_t)((int32_t)-328277998)))))
+		{
+			goto IL_01cd;
+		}
+	}
+	{
+		String_t* L_13 = V_1;
+		bool L_14;
+		L_14 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_13, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (L_14)
+		{
+			goto IL_012f;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_009c:
+	{
+		String_t* L_15 = V_1;
+		bool L_16;
+		L_16 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_15, _stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14, NULL);
+		if (L_16)
+		{
+			goto IL_0141;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00b1:
+	{
+		String_t* L_17 = V_1;
+		bool L_18;
+		L_18 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_17, _stringLiteral27906925D50A15B990B586241F08C8ED14226340, NULL);
+		if (L_18)
+		{
+			goto IL_0155;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00c6:
+	{
+		String_t* L_19 = V_1;
+		bool L_20;
+		L_20 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_19, _stringLiteralD4A11128F810D574390DA344F324014E964D1876, NULL);
+		if (L_20)
+		{
+			goto IL_0169;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00db:
+	{
+		String_t* L_21 = V_1;
+		bool L_22;
+		L_22 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_21, _stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12, NULL);
+		if (L_22)
+		{
+			goto IL_017d;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00f0:
+	{
+		String_t* L_23 = V_1;
+		bool L_24;
+		L_24 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_23, _stringLiteral36587A0761A180514C267B50EA888F89871F71DF, NULL);
+		if (L_24)
+		{
+			goto IL_0191;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0105:
+	{
+		String_t* L_25 = V_1;
+		bool L_26;
+		L_26 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_25, _stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0, NULL);
+		if (L_26)
+		{
+			goto IL_01a5;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_011a:
+	{
+		String_t* L_27 = V_1;
+		bool L_28;
+		L_28 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_27, _stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F, NULL);
+		if (L_28)
+		{
+			goto IL_01b9;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_012f:
+	{
+		// instance.mode = reader.Read<UnityEngine.ParticleSystemCurveMode>();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_29 = ___0_reader;
+		NullCheck(L_29);
+		int32_t L_30;
+		L_30 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var, L_29);
+		MinMaxCurve_set_mode_m6870C4CA0FE7AF1029F45040B827C9F0A6A80A86((&V_0), L_30, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0141:
+	{
+		// instance.curveMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_31 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_32 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_31);
+		float L_33;
+		L_33 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_31, L_32);
+		MinMaxCurve_set_curveMultiplier_m9FCF7F21AECE399ACD9FEB9ADEEBD93FD12DDABC((&V_0), L_33, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0155:
+	{
+		// instance.curveMax = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_34 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_35 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_34);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_36;
+		L_36 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_34, L_35);
+		MinMaxCurve_set_curveMax_m39B9E8AE4E62E874DA99AA7108C2C47C6CA333DF((&V_0), L_36, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0169:
+	{
+		// instance.curveMin = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_37 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_38 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_37);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_39;
+		L_39 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_37, L_38);
+		MinMaxCurve_set_curveMin_m17ADE22B882B75CBE87836C85C477A05122D9E75((&V_0), L_39, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_017d:
+	{
+		// instance.constantMax = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_40 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_41 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_40);
+		float L_42;
+		L_42 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_40, L_41);
+		MinMaxCurve_set_constantMax_mDB7B011E5B1EA76429B2A1FFDE6C06E82D290DC1((&V_0), L_42, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0191:
+	{
+		// instance.constantMin = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_43 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_44 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_43);
+		float L_45;
+		L_45 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_43, L_44);
+		MinMaxCurve_set_constantMin_mBF7CF2A9F167AD06C327EE6EA37BA427E1CE548C((&V_0), L_45, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01a5:
+	{
+		// instance.constant = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_46 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_47 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_46);
+		float L_48;
+		L_48 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_46, L_47);
+		MinMaxCurve_set_constant_mB6E4F22F67D3ED641FEBB387351F17451BB6A897((&V_0), L_48, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01b9:
+	{
+		// instance.curve = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_49 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_50 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_49);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_51;
+		L_51 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_49, L_50);
+		MinMaxCurve_set_curve_mC745A6526FBF122F96DA597997DFAB9D7D2529BF((&V_0), L_51, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01cd:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_52 = ___0_reader;
+		NullCheck(L_52);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_52);
+	}
+
+IL_01d3:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_53 = ___0_reader;
+		NullCheck(L_53);
+		String_t* L_54;
+		L_54 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_53);
+		String_t* L_55 = L_54;
+		V_1 = L_55;
+		if (L_55)
+		{
+			goto IL_000d;
+		}
+	}
+	{
+		// return instance;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_56 = V_0;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_57 = L_56;
+		RuntimeObject* L_58 = Box(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var, &L_57);
+		return L_58;
+	}
+}
+// System.Object ES3Types.ES3Type_MinMaxCurve::Read<UnityEngine.Vector2>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_MinMaxCurve_Read_TisVector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7_m3E73BAB98E84842C6B0943E5004FB60F7F70DC21_gshared (ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral27906925D50A15B990B586241F08C8ED14226340);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral36587A0761A180514C267B50EA888F89871F71DF);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD4A11128F810D574390DA344F324014E964D1876);
+		s_Il2CppMethodInitialized = true;
+	}
+	MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	String_t* V_1 = NULL;
+	uint32_t V_2 = 0;
+	{
+		// var instance = new UnityEngine.ParticleSystem.MinMaxCurve();
+		il2cpp_codegen_initobj((&V_0), sizeof(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23));
+		goto IL_01d3;
+	}
+
+IL_000d:
+	{
+		String_t* L_0 = V_1;
+		uint32_t L_1;
+		L_1 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_0, NULL);
+		V_2 = L_1;
+		uint32_t L_2 = V_2;
+		if ((!(((uint32_t)L_2) <= ((uint32_t)((int32_t)-725866558)))))
+		{
+			goto IL_0054;
+		}
+	}
+	{
+		uint32_t L_3 = V_2;
+		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)740975083)))))
+		{
+			goto IL_003c;
+		}
+	}
+	{
+		uint32_t L_4 = V_2;
+		if ((((int32_t)L_4) == ((int32_t)((int32_t)110225957))))
+		{
+			goto IL_0105;
+		}
+	}
+	{
+		uint32_t L_5 = V_2;
+		if ((((int32_t)L_5) == ((int32_t)((int32_t)740975083))))
+		{
+			goto IL_009c;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_003c:
+	{
+		uint32_t L_6 = V_2;
+		if ((((int32_t)L_6) == ((int32_t)((int32_t)-1724381676))))
+		{
+			goto IL_011a;
+		}
+	}
+	{
+		uint32_t L_7 = V_2;
+		if ((((int32_t)L_7) == ((int32_t)((int32_t)-725866558))))
+		{
+			goto IL_00b1;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0054:
+	{
+		uint32_t L_8 = V_2;
+		if ((!(((uint32_t)L_8) <= ((uint32_t)((int32_t)-559473464)))))
+		{
+			goto IL_0074;
+		}
+	}
+	{
+		uint32_t L_9 = V_2;
+		if ((((int32_t)L_9) == ((int32_t)((int32_t)-581632105))))
+		{
+			goto IL_00f0;
+		}
+	}
+	{
+		uint32_t L_10 = V_2;
+		if ((((int32_t)L_10) == ((int32_t)((int32_t)-559473464))))
+		{
+			goto IL_00c6;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0074:
+	{
+		uint32_t L_11 = V_2;
+		if ((((int32_t)L_11) == ((int32_t)((int32_t)-345465511))))
+		{
+			goto IL_00db;
+		}
+	}
+	{
+		uint32_t L_12 = V_2;
+		if ((!(((uint32_t)L_12) == ((uint32_t)((int32_t)-328277998)))))
+		{
+			goto IL_01cd;
+		}
+	}
+	{
+		String_t* L_13 = V_1;
+		bool L_14;
+		L_14 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_13, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (L_14)
+		{
+			goto IL_012f;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_009c:
+	{
+		String_t* L_15 = V_1;
+		bool L_16;
+		L_16 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_15, _stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14, NULL);
+		if (L_16)
+		{
+			goto IL_0141;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00b1:
+	{
+		String_t* L_17 = V_1;
+		bool L_18;
+		L_18 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_17, _stringLiteral27906925D50A15B990B586241F08C8ED14226340, NULL);
+		if (L_18)
+		{
+			goto IL_0155;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00c6:
+	{
+		String_t* L_19 = V_1;
+		bool L_20;
+		L_20 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_19, _stringLiteralD4A11128F810D574390DA344F324014E964D1876, NULL);
+		if (L_20)
+		{
+			goto IL_0169;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00db:
+	{
+		String_t* L_21 = V_1;
+		bool L_22;
+		L_22 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_21, _stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12, NULL);
+		if (L_22)
+		{
+			goto IL_017d;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00f0:
+	{
+		String_t* L_23 = V_1;
+		bool L_24;
+		L_24 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_23, _stringLiteral36587A0761A180514C267B50EA888F89871F71DF, NULL);
+		if (L_24)
+		{
+			goto IL_0191;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0105:
+	{
+		String_t* L_25 = V_1;
+		bool L_26;
+		L_26 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_25, _stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0, NULL);
+		if (L_26)
+		{
+			goto IL_01a5;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_011a:
+	{
+		String_t* L_27 = V_1;
+		bool L_28;
+		L_28 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_27, _stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F, NULL);
+		if (L_28)
+		{
+			goto IL_01b9;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_012f:
+	{
+		// instance.mode = reader.Read<UnityEngine.ParticleSystemCurveMode>();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_29 = ___0_reader;
+		NullCheck(L_29);
+		int32_t L_30;
+		L_30 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var, L_29);
+		MinMaxCurve_set_mode_m6870C4CA0FE7AF1029F45040B827C9F0A6A80A86((&V_0), L_30, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0141:
+	{
+		// instance.curveMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_31 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_32 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_31);
+		float L_33;
+		L_33 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_31, L_32);
+		MinMaxCurve_set_curveMultiplier_m9FCF7F21AECE399ACD9FEB9ADEEBD93FD12DDABC((&V_0), L_33, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0155:
+	{
+		// instance.curveMax = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_34 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_35 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_34);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_36;
+		L_36 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_34, L_35);
+		MinMaxCurve_set_curveMax_m39B9E8AE4E62E874DA99AA7108C2C47C6CA333DF((&V_0), L_36, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0169:
+	{
+		// instance.curveMin = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_37 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_38 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_37);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_39;
+		L_39 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_37, L_38);
+		MinMaxCurve_set_curveMin_m17ADE22B882B75CBE87836C85C477A05122D9E75((&V_0), L_39, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_017d:
+	{
+		// instance.constantMax = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_40 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_41 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_40);
+		float L_42;
+		L_42 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_40, L_41);
+		MinMaxCurve_set_constantMax_mDB7B011E5B1EA76429B2A1FFDE6C06E82D290DC1((&V_0), L_42, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0191:
+	{
+		// instance.constantMin = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_43 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_44 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_43);
+		float L_45;
+		L_45 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_43, L_44);
+		MinMaxCurve_set_constantMin_mBF7CF2A9F167AD06C327EE6EA37BA427E1CE548C((&V_0), L_45, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01a5:
+	{
+		// instance.constant = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_46 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_47 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_46);
+		float L_48;
+		L_48 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_46, L_47);
+		MinMaxCurve_set_constant_mB6E4F22F67D3ED641FEBB387351F17451BB6A897((&V_0), L_48, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01b9:
+	{
+		// instance.curve = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_49 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_50 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_49);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_51;
+		L_51 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_49, L_50);
+		MinMaxCurve_set_curve_mC745A6526FBF122F96DA597997DFAB9D7D2529BF((&V_0), L_51, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01cd:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_52 = ___0_reader;
+		NullCheck(L_52);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_52);
+	}
+
+IL_01d3:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_53 = ___0_reader;
+		NullCheck(L_53);
+		String_t* L_54;
+		L_54 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_53);
+		String_t* L_55 = L_54;
+		V_1 = L_55;
+		if (L_55)
+		{
+			goto IL_000d;
+		}
+	}
+	{
+		// return instance;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_56 = V_0;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_57 = L_56;
+		RuntimeObject* L_58 = Box(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var, &L_57);
+		return L_58;
+	}
+}
+// System.Object ES3Types.ES3Type_MinMaxCurve::Read<UnityEngine.Vector3>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_MinMaxCurve_Read_TisVector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2_mBB070D90446E9C88A5AFCEC027B96974A8FA12D3_gshared (ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral27906925D50A15B990B586241F08C8ED14226340);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral36587A0761A180514C267B50EA888F89871F71DF);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD4A11128F810D574390DA344F324014E964D1876);
+		s_Il2CppMethodInitialized = true;
+	}
+	MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	String_t* V_1 = NULL;
+	uint32_t V_2 = 0;
+	{
+		// var instance = new UnityEngine.ParticleSystem.MinMaxCurve();
+		il2cpp_codegen_initobj((&V_0), sizeof(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23));
+		goto IL_01d3;
+	}
+
+IL_000d:
+	{
+		String_t* L_0 = V_1;
+		uint32_t L_1;
+		L_1 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_0, NULL);
+		V_2 = L_1;
+		uint32_t L_2 = V_2;
+		if ((!(((uint32_t)L_2) <= ((uint32_t)((int32_t)-725866558)))))
+		{
+			goto IL_0054;
+		}
+	}
+	{
+		uint32_t L_3 = V_2;
+		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)740975083)))))
+		{
+			goto IL_003c;
+		}
+	}
+	{
+		uint32_t L_4 = V_2;
+		if ((((int32_t)L_4) == ((int32_t)((int32_t)110225957))))
+		{
+			goto IL_0105;
+		}
+	}
+	{
+		uint32_t L_5 = V_2;
+		if ((((int32_t)L_5) == ((int32_t)((int32_t)740975083))))
+		{
+			goto IL_009c;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_003c:
+	{
+		uint32_t L_6 = V_2;
+		if ((((int32_t)L_6) == ((int32_t)((int32_t)-1724381676))))
+		{
+			goto IL_011a;
+		}
+	}
+	{
+		uint32_t L_7 = V_2;
+		if ((((int32_t)L_7) == ((int32_t)((int32_t)-725866558))))
+		{
+			goto IL_00b1;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0054:
+	{
+		uint32_t L_8 = V_2;
+		if ((!(((uint32_t)L_8) <= ((uint32_t)((int32_t)-559473464)))))
+		{
+			goto IL_0074;
+		}
+	}
+	{
+		uint32_t L_9 = V_2;
+		if ((((int32_t)L_9) == ((int32_t)((int32_t)-581632105))))
+		{
+			goto IL_00f0;
+		}
+	}
+	{
+		uint32_t L_10 = V_2;
+		if ((((int32_t)L_10) == ((int32_t)((int32_t)-559473464))))
+		{
+			goto IL_00c6;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0074:
+	{
+		uint32_t L_11 = V_2;
+		if ((((int32_t)L_11) == ((int32_t)((int32_t)-345465511))))
+		{
+			goto IL_00db;
+		}
+	}
+	{
+		uint32_t L_12 = V_2;
+		if ((!(((uint32_t)L_12) == ((uint32_t)((int32_t)-328277998)))))
+		{
+			goto IL_01cd;
+		}
+	}
+	{
+		String_t* L_13 = V_1;
+		bool L_14;
+		L_14 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_13, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (L_14)
+		{
+			goto IL_012f;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_009c:
+	{
+		String_t* L_15 = V_1;
+		bool L_16;
+		L_16 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_15, _stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14, NULL);
+		if (L_16)
+		{
+			goto IL_0141;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00b1:
+	{
+		String_t* L_17 = V_1;
+		bool L_18;
+		L_18 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_17, _stringLiteral27906925D50A15B990B586241F08C8ED14226340, NULL);
+		if (L_18)
+		{
+			goto IL_0155;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00c6:
+	{
+		String_t* L_19 = V_1;
+		bool L_20;
+		L_20 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_19, _stringLiteralD4A11128F810D574390DA344F324014E964D1876, NULL);
+		if (L_20)
+		{
+			goto IL_0169;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00db:
+	{
+		String_t* L_21 = V_1;
+		bool L_22;
+		L_22 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_21, _stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12, NULL);
+		if (L_22)
+		{
+			goto IL_017d;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00f0:
+	{
+		String_t* L_23 = V_1;
+		bool L_24;
+		L_24 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_23, _stringLiteral36587A0761A180514C267B50EA888F89871F71DF, NULL);
+		if (L_24)
+		{
+			goto IL_0191;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0105:
+	{
+		String_t* L_25 = V_1;
+		bool L_26;
+		L_26 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_25, _stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0, NULL);
+		if (L_26)
+		{
+			goto IL_01a5;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_011a:
+	{
+		String_t* L_27 = V_1;
+		bool L_28;
+		L_28 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_27, _stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F, NULL);
+		if (L_28)
+		{
+			goto IL_01b9;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_012f:
+	{
+		// instance.mode = reader.Read<UnityEngine.ParticleSystemCurveMode>();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_29 = ___0_reader;
+		NullCheck(L_29);
+		int32_t L_30;
+		L_30 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var, L_29);
+		MinMaxCurve_set_mode_m6870C4CA0FE7AF1029F45040B827C9F0A6A80A86((&V_0), L_30, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0141:
+	{
+		// instance.curveMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_31 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_32 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_31);
+		float L_33;
+		L_33 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_31, L_32);
+		MinMaxCurve_set_curveMultiplier_m9FCF7F21AECE399ACD9FEB9ADEEBD93FD12DDABC((&V_0), L_33, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0155:
+	{
+		// instance.curveMax = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_34 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_35 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_34);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_36;
+		L_36 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_34, L_35);
+		MinMaxCurve_set_curveMax_m39B9E8AE4E62E874DA99AA7108C2C47C6CA333DF((&V_0), L_36, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0169:
+	{
+		// instance.curveMin = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_37 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_38 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_37);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_39;
+		L_39 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_37, L_38);
+		MinMaxCurve_set_curveMin_m17ADE22B882B75CBE87836C85C477A05122D9E75((&V_0), L_39, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_017d:
+	{
+		// instance.constantMax = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_40 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_41 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_40);
+		float L_42;
+		L_42 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_40, L_41);
+		MinMaxCurve_set_constantMax_mDB7B011E5B1EA76429B2A1FFDE6C06E82D290DC1((&V_0), L_42, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0191:
+	{
+		// instance.constantMin = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_43 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_44 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_43);
+		float L_45;
+		L_45 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_43, L_44);
+		MinMaxCurve_set_constantMin_mBF7CF2A9F167AD06C327EE6EA37BA427E1CE548C((&V_0), L_45, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01a5:
+	{
+		// instance.constant = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_46 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_47 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_46);
+		float L_48;
+		L_48 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_46, L_47);
+		MinMaxCurve_set_constant_mB6E4F22F67D3ED641FEBB387351F17451BB6A897((&V_0), L_48, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01b9:
+	{
+		// instance.curve = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_49 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_50 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_49);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_51;
+		L_51 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_49, L_50);
+		MinMaxCurve_set_curve_mC745A6526FBF122F96DA597997DFAB9D7D2529BF((&V_0), L_51, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01cd:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_52 = ___0_reader;
+		NullCheck(L_52);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_52);
+	}
+
+IL_01d3:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_53 = ___0_reader;
+		NullCheck(L_53);
+		String_t* L_54;
+		L_54 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_53);
+		String_t* L_55 = L_54;
+		V_1 = L_55;
+		if (L_55)
+		{
+			goto IL_000d;
+		}
+	}
+	{
+		// return instance;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_56 = V_0;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_57 = L_56;
+		RuntimeObject* L_58 = Box(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var, &L_57);
+		return L_58;
+	}
+}
+// System.Object ES3Types.ES3Type_MinMaxCurve::Read<UnityEngine.Vector4>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_MinMaxCurve_Read_TisVector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3_m835857921667E5864DBC854D663F195938393F07_gshared (ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral27906925D50A15B990B586241F08C8ED14226340);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral36587A0761A180514C267B50EA888F89871F71DF);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD4A11128F810D574390DA344F324014E964D1876);
+		s_Il2CppMethodInitialized = true;
+	}
+	MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	String_t* V_1 = NULL;
+	uint32_t V_2 = 0;
+	{
+		// var instance = new UnityEngine.ParticleSystem.MinMaxCurve();
+		il2cpp_codegen_initobj((&V_0), sizeof(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23));
+		goto IL_01d3;
+	}
+
+IL_000d:
+	{
+		String_t* L_0 = V_1;
+		uint32_t L_1;
+		L_1 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_0, NULL);
+		V_2 = L_1;
+		uint32_t L_2 = V_2;
+		if ((!(((uint32_t)L_2) <= ((uint32_t)((int32_t)-725866558)))))
+		{
+			goto IL_0054;
+		}
+	}
+	{
+		uint32_t L_3 = V_2;
+		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)740975083)))))
+		{
+			goto IL_003c;
+		}
+	}
+	{
+		uint32_t L_4 = V_2;
+		if ((((int32_t)L_4) == ((int32_t)((int32_t)110225957))))
+		{
+			goto IL_0105;
+		}
+	}
+	{
+		uint32_t L_5 = V_2;
+		if ((((int32_t)L_5) == ((int32_t)((int32_t)740975083))))
+		{
+			goto IL_009c;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_003c:
+	{
+		uint32_t L_6 = V_2;
+		if ((((int32_t)L_6) == ((int32_t)((int32_t)-1724381676))))
+		{
+			goto IL_011a;
+		}
+	}
+	{
+		uint32_t L_7 = V_2;
+		if ((((int32_t)L_7) == ((int32_t)((int32_t)-725866558))))
+		{
+			goto IL_00b1;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0054:
+	{
+		uint32_t L_8 = V_2;
+		if ((!(((uint32_t)L_8) <= ((uint32_t)((int32_t)-559473464)))))
+		{
+			goto IL_0074;
+		}
+	}
+	{
+		uint32_t L_9 = V_2;
+		if ((((int32_t)L_9) == ((int32_t)((int32_t)-581632105))))
+		{
+			goto IL_00f0;
+		}
+	}
+	{
+		uint32_t L_10 = V_2;
+		if ((((int32_t)L_10) == ((int32_t)((int32_t)-559473464))))
+		{
+			goto IL_00c6;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0074:
+	{
+		uint32_t L_11 = V_2;
+		if ((((int32_t)L_11) == ((int32_t)((int32_t)-345465511))))
+		{
+			goto IL_00db;
+		}
+	}
+	{
+		uint32_t L_12 = V_2;
+		if ((!(((uint32_t)L_12) == ((uint32_t)((int32_t)-328277998)))))
+		{
+			goto IL_01cd;
+		}
+	}
+	{
+		String_t* L_13 = V_1;
+		bool L_14;
+		L_14 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_13, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (L_14)
+		{
+			goto IL_012f;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_009c:
+	{
+		String_t* L_15 = V_1;
+		bool L_16;
+		L_16 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_15, _stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14, NULL);
+		if (L_16)
+		{
+			goto IL_0141;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00b1:
+	{
+		String_t* L_17 = V_1;
+		bool L_18;
+		L_18 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_17, _stringLiteral27906925D50A15B990B586241F08C8ED14226340, NULL);
+		if (L_18)
+		{
+			goto IL_0155;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00c6:
+	{
+		String_t* L_19 = V_1;
+		bool L_20;
+		L_20 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_19, _stringLiteralD4A11128F810D574390DA344F324014E964D1876, NULL);
+		if (L_20)
+		{
+			goto IL_0169;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00db:
+	{
+		String_t* L_21 = V_1;
+		bool L_22;
+		L_22 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_21, _stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12, NULL);
+		if (L_22)
+		{
+			goto IL_017d;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00f0:
+	{
+		String_t* L_23 = V_1;
+		bool L_24;
+		L_24 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_23, _stringLiteral36587A0761A180514C267B50EA888F89871F71DF, NULL);
+		if (L_24)
+		{
+			goto IL_0191;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0105:
+	{
+		String_t* L_25 = V_1;
+		bool L_26;
+		L_26 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_25, _stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0, NULL);
+		if (L_26)
+		{
+			goto IL_01a5;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_011a:
+	{
+		String_t* L_27 = V_1;
+		bool L_28;
+		L_28 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_27, _stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F, NULL);
+		if (L_28)
+		{
+			goto IL_01b9;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_012f:
+	{
+		// instance.mode = reader.Read<UnityEngine.ParticleSystemCurveMode>();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_29 = ___0_reader;
+		NullCheck(L_29);
+		int32_t L_30;
+		L_30 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var, L_29);
+		MinMaxCurve_set_mode_m6870C4CA0FE7AF1029F45040B827C9F0A6A80A86((&V_0), L_30, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0141:
+	{
+		// instance.curveMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_31 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_32 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_31);
+		float L_33;
+		L_33 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_31, L_32);
+		MinMaxCurve_set_curveMultiplier_m9FCF7F21AECE399ACD9FEB9ADEEBD93FD12DDABC((&V_0), L_33, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0155:
+	{
+		// instance.curveMax = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_34 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_35 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_34);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_36;
+		L_36 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_34, L_35);
+		MinMaxCurve_set_curveMax_m39B9E8AE4E62E874DA99AA7108C2C47C6CA333DF((&V_0), L_36, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0169:
+	{
+		// instance.curveMin = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_37 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_38 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_37);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_39;
+		L_39 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_37, L_38);
+		MinMaxCurve_set_curveMin_m17ADE22B882B75CBE87836C85C477A05122D9E75((&V_0), L_39, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_017d:
+	{
+		// instance.constantMax = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_40 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_41 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_40);
+		float L_42;
+		L_42 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_40, L_41);
+		MinMaxCurve_set_constantMax_mDB7B011E5B1EA76429B2A1FFDE6C06E82D290DC1((&V_0), L_42, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0191:
+	{
+		// instance.constantMin = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_43 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_44 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_43);
+		float L_45;
+		L_45 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_43, L_44);
+		MinMaxCurve_set_constantMin_mBF7CF2A9F167AD06C327EE6EA37BA427E1CE548C((&V_0), L_45, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01a5:
+	{
+		// instance.constant = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_46 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_47 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_46);
+		float L_48;
+		L_48 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_46, L_47);
+		MinMaxCurve_set_constant_mB6E4F22F67D3ED641FEBB387351F17451BB6A897((&V_0), L_48, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01b9:
+	{
+		// instance.curve = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_49 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_50 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_49);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_51;
+		L_51 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_49, L_50);
+		MinMaxCurve_set_curve_mC745A6526FBF122F96DA597997DFAB9D7D2529BF((&V_0), L_51, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01cd:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_52 = ___0_reader;
+		NullCheck(L_52);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_52);
+	}
+
+IL_01d3:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_53 = ___0_reader;
+		NullCheck(L_53);
+		String_t* L_54;
+		L_54 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_53);
+		String_t* L_55 = L_54;
+		V_1 = L_55;
+		if (L_55)
+		{
+			goto IL_000d;
+		}
+	}
+	{
+		// return instance;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_56 = V_0;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_57 = L_56;
+		RuntimeObject* L_58 = Box(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var, &L_57);
+		return L_58;
+	}
+}
+// System.Object ES3Types.ES3Type_MinMaxCurve::Read<UnityEngine.ParticleSystem/MinMaxCurve>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_MinMaxCurve_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_m72CD5EA3170578D29EB653800E578EDCE631A03E_gshared (ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral27906925D50A15B990B586241F08C8ED14226340);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral36587A0761A180514C267B50EA888F89871F71DF);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD4A11128F810D574390DA344F324014E964D1876);
+		s_Il2CppMethodInitialized = true;
+	}
+	MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	String_t* V_1 = NULL;
+	uint32_t V_2 = 0;
+	{
+		// var instance = new UnityEngine.ParticleSystem.MinMaxCurve();
+		il2cpp_codegen_initobj((&V_0), sizeof(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23));
+		goto IL_01d3;
+	}
+
+IL_000d:
+	{
+		String_t* L_0 = V_1;
+		uint32_t L_1;
+		L_1 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_0, NULL);
+		V_2 = L_1;
+		uint32_t L_2 = V_2;
+		if ((!(((uint32_t)L_2) <= ((uint32_t)((int32_t)-725866558)))))
+		{
+			goto IL_0054;
+		}
+	}
+	{
+		uint32_t L_3 = V_2;
+		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)740975083)))))
+		{
+			goto IL_003c;
+		}
+	}
+	{
+		uint32_t L_4 = V_2;
+		if ((((int32_t)L_4) == ((int32_t)((int32_t)110225957))))
+		{
+			goto IL_0105;
+		}
+	}
+	{
+		uint32_t L_5 = V_2;
+		if ((((int32_t)L_5) == ((int32_t)((int32_t)740975083))))
+		{
+			goto IL_009c;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_003c:
+	{
+		uint32_t L_6 = V_2;
+		if ((((int32_t)L_6) == ((int32_t)((int32_t)-1724381676))))
+		{
+			goto IL_011a;
+		}
+	}
+	{
+		uint32_t L_7 = V_2;
+		if ((((int32_t)L_7) == ((int32_t)((int32_t)-725866558))))
+		{
+			goto IL_00b1;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0054:
+	{
+		uint32_t L_8 = V_2;
+		if ((!(((uint32_t)L_8) <= ((uint32_t)((int32_t)-559473464)))))
+		{
+			goto IL_0074;
+		}
+	}
+	{
+		uint32_t L_9 = V_2;
+		if ((((int32_t)L_9) == ((int32_t)((int32_t)-581632105))))
+		{
+			goto IL_00f0;
+		}
+	}
+	{
+		uint32_t L_10 = V_2;
+		if ((((int32_t)L_10) == ((int32_t)((int32_t)-559473464))))
+		{
+			goto IL_00c6;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0074:
+	{
+		uint32_t L_11 = V_2;
+		if ((((int32_t)L_11) == ((int32_t)((int32_t)-345465511))))
+		{
+			goto IL_00db;
+		}
+	}
+	{
+		uint32_t L_12 = V_2;
+		if ((!(((uint32_t)L_12) == ((uint32_t)((int32_t)-328277998)))))
+		{
+			goto IL_01cd;
+		}
+	}
+	{
+		String_t* L_13 = V_1;
+		bool L_14;
+		L_14 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_13, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (L_14)
+		{
+			goto IL_012f;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_009c:
+	{
+		String_t* L_15 = V_1;
+		bool L_16;
+		L_16 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_15, _stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14, NULL);
+		if (L_16)
+		{
+			goto IL_0141;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00b1:
+	{
+		String_t* L_17 = V_1;
+		bool L_18;
+		L_18 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_17, _stringLiteral27906925D50A15B990B586241F08C8ED14226340, NULL);
+		if (L_18)
+		{
+			goto IL_0155;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00c6:
+	{
+		String_t* L_19 = V_1;
+		bool L_20;
+		L_20 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_19, _stringLiteralD4A11128F810D574390DA344F324014E964D1876, NULL);
+		if (L_20)
+		{
+			goto IL_0169;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00db:
+	{
+		String_t* L_21 = V_1;
+		bool L_22;
+		L_22 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_21, _stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12, NULL);
+		if (L_22)
+		{
+			goto IL_017d;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00f0:
+	{
+		String_t* L_23 = V_1;
+		bool L_24;
+		L_24 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_23, _stringLiteral36587A0761A180514C267B50EA888F89871F71DF, NULL);
+		if (L_24)
+		{
+			goto IL_0191;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0105:
+	{
+		String_t* L_25 = V_1;
+		bool L_26;
+		L_26 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_25, _stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0, NULL);
+		if (L_26)
+		{
+			goto IL_01a5;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_011a:
+	{
+		String_t* L_27 = V_1;
+		bool L_28;
+		L_28 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_27, _stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F, NULL);
+		if (L_28)
+		{
+			goto IL_01b9;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_012f:
+	{
+		// instance.mode = reader.Read<UnityEngine.ParticleSystemCurveMode>();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_29 = ___0_reader;
+		NullCheck(L_29);
+		int32_t L_30;
+		L_30 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var, L_29);
+		MinMaxCurve_set_mode_m6870C4CA0FE7AF1029F45040B827C9F0A6A80A86((&V_0), L_30, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0141:
+	{
+		// instance.curveMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_31 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_32 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_31);
+		float L_33;
+		L_33 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_31, L_32);
+		MinMaxCurve_set_curveMultiplier_m9FCF7F21AECE399ACD9FEB9ADEEBD93FD12DDABC((&V_0), L_33, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0155:
+	{
+		// instance.curveMax = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_34 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_35 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_34);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_36;
+		L_36 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_34, L_35);
+		MinMaxCurve_set_curveMax_m39B9E8AE4E62E874DA99AA7108C2C47C6CA333DF((&V_0), L_36, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0169:
+	{
+		// instance.curveMin = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_37 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_38 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_37);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_39;
+		L_39 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_37, L_38);
+		MinMaxCurve_set_curveMin_m17ADE22B882B75CBE87836C85C477A05122D9E75((&V_0), L_39, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_017d:
+	{
+		// instance.constantMax = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_40 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_41 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_40);
+		float L_42;
+		L_42 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_40, L_41);
+		MinMaxCurve_set_constantMax_mDB7B011E5B1EA76429B2A1FFDE6C06E82D290DC1((&V_0), L_42, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0191:
+	{
+		// instance.constantMin = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_43 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_44 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_43);
+		float L_45;
+		L_45 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_43, L_44);
+		MinMaxCurve_set_constantMin_mBF7CF2A9F167AD06C327EE6EA37BA427E1CE548C((&V_0), L_45, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01a5:
+	{
+		// instance.constant = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_46 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_47 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_46);
+		float L_48;
+		L_48 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_46, L_47);
+		MinMaxCurve_set_constant_mB6E4F22F67D3ED641FEBB387351F17451BB6A897((&V_0), L_48, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01b9:
+	{
+		// instance.curve = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_49 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_50 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_49);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_51;
+		L_51 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_49, L_50);
+		MinMaxCurve_set_curve_mC745A6526FBF122F96DA597997DFAB9D7D2529BF((&V_0), L_51, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01cd:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_52 = ___0_reader;
+		NullCheck(L_52);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_52);
+	}
+
+IL_01d3:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_53 = ___0_reader;
+		NullCheck(L_53);
+		String_t* L_54;
+		L_54 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_53);
+		String_t* L_55 = L_54;
+		V_1 = L_55;
+		if (L_55)
+		{
+			goto IL_000d;
+		}
+	}
+	{
+		// return instance;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_56 = V_0;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_57 = L_56;
+		RuntimeObject* L_58 = Box(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var, &L_57);
+		return L_58;
+	}
+}
+// System.Object ES3Types.ES3Type_MinMaxCurve::Read<UnityEngine.ParticleSystem/MinMaxGradient>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_MinMaxCurve_Read_TisMinMaxGradient_tFF31B8EC2855D0074AB86E8B37BEA6609070AC69_m111814DF4DA06D5B9C69A29E1E932E636C2A2ECD_gshared (ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral27906925D50A15B990B586241F08C8ED14226340);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral36587A0761A180514C267B50EA888F89871F71DF);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD4A11128F810D574390DA344F324014E964D1876);
+		s_Il2CppMethodInitialized = true;
+	}
+	MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	String_t* V_1 = NULL;
+	uint32_t V_2 = 0;
+	{
+		// var instance = new UnityEngine.ParticleSystem.MinMaxCurve();
+		il2cpp_codegen_initobj((&V_0), sizeof(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23));
+		goto IL_01d3;
+	}
+
+IL_000d:
+	{
+		String_t* L_0 = V_1;
+		uint32_t L_1;
+		L_1 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_0, NULL);
+		V_2 = L_1;
+		uint32_t L_2 = V_2;
+		if ((!(((uint32_t)L_2) <= ((uint32_t)((int32_t)-725866558)))))
+		{
+			goto IL_0054;
+		}
+	}
+	{
+		uint32_t L_3 = V_2;
+		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)740975083)))))
+		{
+			goto IL_003c;
+		}
+	}
+	{
+		uint32_t L_4 = V_2;
+		if ((((int32_t)L_4) == ((int32_t)((int32_t)110225957))))
+		{
+			goto IL_0105;
+		}
+	}
+	{
+		uint32_t L_5 = V_2;
+		if ((((int32_t)L_5) == ((int32_t)((int32_t)740975083))))
+		{
+			goto IL_009c;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_003c:
+	{
+		uint32_t L_6 = V_2;
+		if ((((int32_t)L_6) == ((int32_t)((int32_t)-1724381676))))
+		{
+			goto IL_011a;
+		}
+	}
+	{
+		uint32_t L_7 = V_2;
+		if ((((int32_t)L_7) == ((int32_t)((int32_t)-725866558))))
+		{
+			goto IL_00b1;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0054:
+	{
+		uint32_t L_8 = V_2;
+		if ((!(((uint32_t)L_8) <= ((uint32_t)((int32_t)-559473464)))))
+		{
+			goto IL_0074;
+		}
+	}
+	{
+		uint32_t L_9 = V_2;
+		if ((((int32_t)L_9) == ((int32_t)((int32_t)-581632105))))
+		{
+			goto IL_00f0;
+		}
+	}
+	{
+		uint32_t L_10 = V_2;
+		if ((((int32_t)L_10) == ((int32_t)((int32_t)-559473464))))
+		{
+			goto IL_00c6;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0074:
+	{
+		uint32_t L_11 = V_2;
+		if ((((int32_t)L_11) == ((int32_t)((int32_t)-345465511))))
+		{
+			goto IL_00db;
+		}
+	}
+	{
+		uint32_t L_12 = V_2;
+		if ((!(((uint32_t)L_12) == ((uint32_t)((int32_t)-328277998)))))
+		{
+			goto IL_01cd;
+		}
+	}
+	{
+		String_t* L_13 = V_1;
+		bool L_14;
+		L_14 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_13, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (L_14)
+		{
+			goto IL_012f;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_009c:
+	{
+		String_t* L_15 = V_1;
+		bool L_16;
+		L_16 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_15, _stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14, NULL);
+		if (L_16)
+		{
+			goto IL_0141;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00b1:
+	{
+		String_t* L_17 = V_1;
+		bool L_18;
+		L_18 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_17, _stringLiteral27906925D50A15B990B586241F08C8ED14226340, NULL);
+		if (L_18)
+		{
+			goto IL_0155;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00c6:
+	{
+		String_t* L_19 = V_1;
+		bool L_20;
+		L_20 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_19, _stringLiteralD4A11128F810D574390DA344F324014E964D1876, NULL);
+		if (L_20)
+		{
+			goto IL_0169;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00db:
+	{
+		String_t* L_21 = V_1;
+		bool L_22;
+		L_22 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_21, _stringLiteralB5831A880405F69C8EF7F43534BF4D880F2B9A12, NULL);
+		if (L_22)
+		{
+			goto IL_017d;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_00f0:
+	{
+		String_t* L_23 = V_1;
+		bool L_24;
+		L_24 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_23, _stringLiteral36587A0761A180514C267B50EA888F89871F71DF, NULL);
+		if (L_24)
+		{
+			goto IL_0191;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_0105:
+	{
+		String_t* L_25 = V_1;
+		bool L_26;
+		L_26 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_25, _stringLiteral87E6319336195D789899F4791CCD5F2437BCC0B0, NULL);
+		if (L_26)
+		{
+			goto IL_01a5;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_011a:
+	{
+		String_t* L_27 = V_1;
+		bool L_28;
+		L_28 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_27, _stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F, NULL);
+		if (L_28)
+		{
+			goto IL_01b9;
+		}
+	}
+	{
+		goto IL_01cd;
+	}
+
+IL_012f:
+	{
+		// instance.mode = reader.Read<UnityEngine.ParticleSystemCurveMode>();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_29 = ___0_reader;
+		NullCheck(L_29);
+		int32_t L_30;
+		L_30 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemCurveMode_t8BE38B5D6B050709BAE31B5556CFC3DA69FC8405_mDB2EA9DC94E153636389B418974FB12A4B9707BC_RuntimeMethod_var, L_29);
+		MinMaxCurve_set_mode_m6870C4CA0FE7AF1029F45040B827C9F0A6A80A86((&V_0), L_30, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0141:
+	{
+		// instance.curveMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_31 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_32 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_31);
+		float L_33;
+		L_33 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_31, L_32);
+		MinMaxCurve_set_curveMultiplier_m9FCF7F21AECE399ACD9FEB9ADEEBD93FD12DDABC((&V_0), L_33, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0155:
+	{
+		// instance.curveMax = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_34 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_35 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_34);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_36;
+		L_36 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_34, L_35);
+		MinMaxCurve_set_curveMax_m39B9E8AE4E62E874DA99AA7108C2C47C6CA333DF((&V_0), L_36, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0169:
+	{
+		// instance.curveMin = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_37 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_38 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_37);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_39;
+		L_39 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_37, L_38);
+		MinMaxCurve_set_curveMin_m17ADE22B882B75CBE87836C85C477A05122D9E75((&V_0), L_39, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_017d:
+	{
+		// instance.constantMax = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_40 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_41 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_40);
+		float L_42;
+		L_42 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_40, L_41);
+		MinMaxCurve_set_constantMax_mDB7B011E5B1EA76429B2A1FFDE6C06E82D290DC1((&V_0), L_42, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_0191:
+	{
+		// instance.constantMin = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_43 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_44 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_43);
+		float L_45;
+		L_45 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_43, L_44);
+		MinMaxCurve_set_constantMin_mBF7CF2A9F167AD06C327EE6EA37BA427E1CE548C((&V_0), L_45, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01a5:
+	{
+		// instance.constant = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_46 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_47 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_46);
+		float L_48;
+		L_48 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_46, L_47);
+		MinMaxCurve_set_constant_mB6E4F22F67D3ED641FEBB387351F17451BB6A897((&V_0), L_48, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01b9:
+	{
+		// instance.curve = reader.Read<UnityEngine.AnimationCurve>(ES3Type_AnimationCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_49 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_50 = ((ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_AnimationCurve_t160FAF0246EBCBDACA93D303A36A6E2090FA5733_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_49);
+		AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354* L_51;
+		L_51 = GenericVirtualFuncInvoker1< AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisAnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354_m186EB3D04D95C953ADB9ABDEEADBF8244F3ED286_RuntimeMethod_var, L_49, L_50);
+		MinMaxCurve_set_curve_mC745A6526FBF122F96DA597997DFAB9D7D2529BF((&V_0), L_51, NULL);
+		// break;
+		goto IL_01d3;
+	}
+
+IL_01cd:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_52 = ___0_reader;
+		NullCheck(L_52);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_52);
+	}
+
+IL_01d3:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_53 = ___0_reader;
+		NullCheck(L_53);
+		String_t* L_54;
+		L_54 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_53);
+		String_t* L_55 = L_54;
+		V_1 = L_55;
+		if (L_55)
+		{
+			goto IL_000d;
+		}
+	}
+	{
+		// return instance;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_56 = V_0;
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_57 = L_56;
+		RuntimeObject* L_58 = Box(MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_il2cpp_TypeInfo_var, &L_57);
+		return L_58;
+	}
+}
 // System.Void ES3Types.ES3Type_MinMaxCurve::ReadInto<System.Object>(ES3Reader,System.Object)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_MinMaxCurve_ReadInto_TisRuntimeObject_mFDDEE82B41C772BC46B25B9189B7D57F171FB87A_gshared (ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
 {
@@ -15902,4522 +21124,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_NoiseModule_Read_TisMi
 }
 // System.Void ES3Types.ES3Type_NoiseModule::ReadInto<System.Object>(ES3Reader,System.Object)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_NoiseModule_ReadInto_TisRuntimeObject_m91F655E5E7D89220F782F3A2BAC1EC1E8C261A8A_gshared (ES3Type_NoiseModule_t998B4A42542B685DF3AAB803DCC33F658BBE0B04* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemNoiseQuality_tC6DC0BFAA4AF9CD37103CC2CC216C43FC016E924_m22221BA19E2BDFA5111FBD7C66E17FF73767025E_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral038B9C7914B4F5565F9D2DD1F7E0B346B50E4FA7);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1B024D537329B86AB0DF96B2A714180F442F53E9);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1EBE1EAAA5EE95D55EC360B8DA659C0ACABC623E);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral395FE53770E7E93DC3BB5CF6FD9CECF13AA5C36D);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral3A91D337442EA721D81265946B3502D017B35431);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral4443C70B3183C8BACC25EFE8D0B6ADBFFF8139FF);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral445672210322BF6A27776AA5980F90EAFCF22E8E);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral5506962CD736328B4844CD75A860794FE5B29F07);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral61E2E1B35D38D87FE73CDFEAA02EA8014FB8BC41);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral75F43404387B0DD1D93B4E0D201F2AD83FD02176);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral7A5BB2AA8ED2CE5942DF517BE8AF9006DBC25357);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral7EAAB49310BF4909AB185E687EE1D1F4FECECB51);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral88BEF2219C9F78FE4C09207E72A3A0538D70522F);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral91EA72444038CB2DF6CD7169DDC36D970C608580);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral98FFDEF5B80911AB67760FFFA9785DDD6BA91CDE);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAC83591FA98F20B86EEFD70657E6ED44D556313C);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB15828A904AB53E17469DBF5A4ABBF8B5164AB28);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralC5F2406640F4F08577B3ADFE0B94DDC1B821F406);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralCBD01100EAC4B5729FA86B78163C192541140D1D);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD8D3C2194F3A8DDF93F0623BD1927FEEABACC8DE);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralDEAE713DF83A3A752895E5EC7ED2E28AEED2EA0A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralEA2E49EE262F11DB28AE7EBC29DB82C6EE9557F9);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralEF65109317E1DF79845D5868309B0E9BFB10384B);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF1339A0A7019BCB976947C2D08A24450598124CF);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF1343DC9A4902B963209412495148EE532A73DEF);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF2B9DF9171C32A086DE79857720B1EEE049859B2);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B);
-		s_Il2CppMethodInitialized = true;
-	}
-	NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0 V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	String_t* V_1 = NULL;
-	uint32_t V_2 = 0;
-	{
-		// var instance = (UnityEngine.ParticleSystem.NoiseModule)obj;
-		RuntimeObject* L_0 = ___1_obj;
-		V_0 = ((*(NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0*)((NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0*)(NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0*)UnBox(L_0, NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0_il2cpp_TypeInfo_var))));
-		goto IL_0656;
-	}
-
-IL_000c:
-	{
-		String_t* L_1 = V_1;
-		uint32_t L_2;
-		L_2 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_1, NULL);
-		V_2 = L_2;
-		uint32_t L_3 = V_2;
-		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)1832685215)))))
-		{
-			goto IL_00e6;
-		}
-	}
-	{
-		uint32_t L_4 = V_2;
-		if ((!(((uint32_t)L_4) <= ((uint32_t)((int32_t)854058160)))))
-		{
-			goto IL_007a;
-		}
-	}
-	{
-		uint32_t L_5 = V_2;
-		if ((!(((uint32_t)L_5) <= ((uint32_t)((int32_t)190084455)))))
-		{
-			goto IL_0054;
-		}
-	}
-	{
-		uint32_t L_6 = V_2;
-		if ((((int32_t)L_6) == ((int32_t)((int32_t)49525662))))
-		{
-			goto IL_01c6;
-		}
-	}
-	{
-		uint32_t L_7 = V_2;
-		if ((((int32_t)L_7) == ((int32_t)((int32_t)96119838))))
-		{
-			goto IL_03be;
-		}
-	}
-	{
-		uint32_t L_8 = V_2;
-		if ((((int32_t)L_8) == ((int32_t)((int32_t)190084455))))
-		{
-			goto IL_0316;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0054:
-	{
-		uint32_t L_9 = V_2;
-		if ((((int32_t)L_9) == ((int32_t)((int32_t)608739593))))
-		{
-			goto IL_02ec;
-		}
-	}
-	{
-		uint32_t L_10 = V_2;
-		if ((((int32_t)L_10) == ((int32_t)((int32_t)800267265))))
-		{
-			goto IL_0298;
-		}
-	}
-	{
-		uint32_t L_11 = V_2;
-		if ((((int32_t)L_11) == ((int32_t)((int32_t)854058160))))
-		{
-			goto IL_0259;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_007a:
-	{
-		uint32_t L_12 = V_2;
-		if ((!(((uint32_t)L_12) <= ((uint32_t)((int32_t)1211446584)))))
-		{
-			goto IL_00a8;
-		}
-	}
-	{
-		uint32_t L_13 = V_2;
-		if ((((int32_t)L_13) == ((int32_t)((int32_t)1137906375))))
-		{
-			goto IL_0205;
-		}
-	}
-	{
-		uint32_t L_14 = V_2;
-		if ((((int32_t)L_14) == ((int32_t)((int32_t)1174656921))))
-		{
-			goto IL_036a;
-		}
-	}
-	{
-		uint32_t L_15 = V_2;
-		if ((((int32_t)L_15) == ((int32_t)((int32_t)1211446584))))
-		{
-			goto IL_021a;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_00a8:
-	{
-		uint32_t L_16 = V_2;
-		if ((!(((uint32_t)L_16) <= ((uint32_t)((int32_t)1245001822)))))
-		{
-			goto IL_00cb;
-		}
-	}
-	{
-		uint32_t L_17 = V_2;
-		if ((((int32_t)L_17) == ((int32_t)((int32_t)1228224203))))
-		{
-			goto IL_0244;
-		}
-	}
-	{
-		uint32_t L_18 = V_2;
-		if ((((int32_t)L_18) == ((int32_t)((int32_t)1245001822))))
-		{
-			goto IL_026e;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_00cb:
-	{
-		uint32_t L_19 = V_2;
-		if ((((int32_t)L_19) == ((int32_t)((int32_t)1479031685))))
-		{
-			goto IL_01db;
-		}
-	}
-	{
-		uint32_t L_20 = V_2;
-		if ((((int32_t)L_20) == ((int32_t)((int32_t)1832685215))))
-		{
-			goto IL_022f;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_00e6:
-	{
-		uint32_t L_21 = V_2;
-		if ((!(((uint32_t)L_21) <= ((uint32_t)((int32_t)-1151223659)))))
-		{
-			goto IL_015a;
-		}
-	}
-	{
-		uint32_t L_22 = V_2;
-		if ((!(((uint32_t)L_22) <= ((uint32_t)((int32_t)-1697296346)))))
-		{
-			goto IL_011c;
-		}
-	}
-	{
-		uint32_t L_23 = V_2;
-		if ((((int32_t)L_23) == ((int32_t)((int32_t)1953622726))))
-		{
-			goto IL_0355;
-		}
-	}
-	{
-		uint32_t L_24 = V_2;
-		if ((((int32_t)L_24) == ((int32_t)((int32_t)-1760681759))))
-		{
-			goto IL_0283;
-		}
-	}
-	{
-		uint32_t L_25 = V_2;
-		if ((((int32_t)L_25) == ((int32_t)((int32_t)-1697296346))))
-		{
-			goto IL_0301;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_011c:
-	{
-		uint32_t L_26 = V_2;
-		if ((!(((uint32_t)L_26) <= ((uint32_t)((int32_t)-1404870093)))))
-		{
-			goto IL_013f;
-		}
-	}
-	{
-		uint32_t L_27 = V_2;
-		if ((((int32_t)L_27) == ((int32_t)((int32_t)-1412380868))))
-		{
-			goto IL_032b;
-		}
-	}
-	{
-		uint32_t L_28 = V_2;
-		if ((((int32_t)L_28) == ((int32_t)((int32_t)-1404870093))))
-		{
-			goto IL_0340;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_013f:
-	{
-		uint32_t L_29 = V_2;
-		if ((((int32_t)L_29) == ((int32_t)((int32_t)-1276098610))))
-		{
-			goto IL_02d7;
-		}
-	}
-	{
-		uint32_t L_30 = V_2;
-		if ((((int32_t)L_30) == ((int32_t)((int32_t)-1151223659))))
-		{
-			goto IL_02ad;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_015a:
-	{
-		uint32_t L_31 = V_2;
-		if ((!(((uint32_t)L_31) <= ((uint32_t)((int32_t)-313239878)))))
-		{
-			goto IL_0188;
-		}
-	}
-	{
-		uint32_t L_32 = V_2;
-		if ((((int32_t)L_32) == ((int32_t)((int32_t)-528869200))))
-		{
-			goto IL_01f0;
-		}
-	}
-	{
-		uint32_t L_33 = V_2;
-		if ((((int32_t)L_33) == ((int32_t)((int32_t)-346795116))))
-		{
-			goto IL_03d3;
-		}
-	}
-	{
-		uint32_t L_34 = V_2;
-		if ((((int32_t)L_34) == ((int32_t)((int32_t)-313239878))))
-		{
-			goto IL_037f;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0188:
-	{
-		uint32_t L_35 = V_2;
-		if ((!(((uint32_t)L_35) <= ((uint32_t)((int32_t)-44770453)))))
-		{
-			goto IL_01ab;
-		}
-	}
-	{
-		uint32_t L_36 = V_2;
-		if ((((int32_t)L_36) == ((int32_t)((int32_t)-296462259))))
-		{
-			goto IL_03a9;
-		}
-	}
-	{
-		uint32_t L_37 = V_2;
-		if ((((int32_t)L_37) == ((int32_t)((int32_t)-44770453))))
-		{
-			goto IL_03e8;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_01ab:
-	{
-		uint32_t L_38 = V_2;
-		if ((((int32_t)L_38) == ((int32_t)((int32_t)-11444963))))
-		{
-			goto IL_0394;
-		}
-	}
-	{
-		uint32_t L_39 = V_2;
-		if ((((int32_t)L_39) == ((int32_t)((int32_t)-7684324))))
-		{
-			goto IL_02c2;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_01c6:
-	{
-		String_t* L_40 = V_1;
-		bool L_41;
-		L_41 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_40, _stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B, NULL);
-		if (L_41)
-		{
-			goto IL_03fd;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_01db:
-	{
-		String_t* L_42 = V_1;
-		bool L_43;
-		L_43 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_42, _stringLiteral1B024D537329B86AB0DF96B2A714180F442F53E9, NULL);
-		if (L_43)
-		{
-			goto IL_0414;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_01f0:
-	{
-		String_t* L_44 = V_1;
-		bool L_45;
-		L_45 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_44, _stringLiteralEF65109317E1DF79845D5868309B0E9BFB10384B, NULL);
-		if (L_45)
-		{
-			goto IL_042b;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0205:
-	{
-		String_t* L_46 = V_1;
-		bool L_47;
-		L_47 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_46, _stringLiteral038B9C7914B4F5565F9D2DD1F7E0B346B50E4FA7, NULL);
-		if (L_47)
-		{
-			goto IL_0442;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_021a:
-	{
-		String_t* L_48 = V_1;
-		bool L_49;
-		L_49 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_48, _stringLiteral4443C70B3183C8BACC25EFE8D0B6ADBFFF8139FF, NULL);
-		if (L_49)
-		{
-			goto IL_0459;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_022f:
-	{
-		String_t* L_50 = V_1;
-		bool L_51;
-		L_51 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_50, _stringLiteral88BEF2219C9F78FE4C09207E72A3A0538D70522F, NULL);
-		if (L_51)
-		{
-			goto IL_0470;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0244:
-	{
-		String_t* L_52 = V_1;
-		bool L_53;
-		L_53 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_52, _stringLiteralF1343DC9A4902B963209412495148EE532A73DEF, NULL);
-		if (L_53)
-		{
-			goto IL_0487;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0259:
-	{
-		String_t* L_54 = V_1;
-		bool L_55;
-		L_55 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_54, _stringLiteralF1339A0A7019BCB976947C2D08A24450598124CF, NULL);
-		if (L_55)
-		{
-			goto IL_049e;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_026e:
-	{
-		String_t* L_56 = V_1;
-		bool L_57;
-		L_57 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_56, _stringLiteralB15828A904AB53E17469DBF5A4ABBF8B5164AB28, NULL);
-		if (L_57)
-		{
-			goto IL_04b5;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0283:
-	{
-		String_t* L_58 = V_1;
-		bool L_59;
-		L_59 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_58, _stringLiteral7A5BB2AA8ED2CE5942DF517BE8AF9006DBC25357, NULL);
-		if (L_59)
-		{
-			goto IL_04cc;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0298:
-	{
-		String_t* L_60 = V_1;
-		bool L_61;
-		L_61 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_60, _stringLiteral7EAAB49310BF4909AB185E687EE1D1F4FECECB51, NULL);
-		if (L_61)
-		{
-			goto IL_04e3;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_02ad:
-	{
-		String_t* L_62 = V_1;
-		bool L_63;
-		L_63 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_62, _stringLiteralAC83591FA98F20B86EEFD70657E6ED44D556313C, NULL);
-		if (L_63)
-		{
-			goto IL_04fa;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_02c2:
-	{
-		String_t* L_64 = V_1;
-		bool L_65;
-		L_65 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_64, _stringLiteralF2B9DF9171C32A086DE79857720B1EEE049859B2, NULL);
-		if (L_65)
-		{
-			goto IL_0511;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_02d7:
-	{
-		String_t* L_66 = V_1;
-		bool L_67;
-		L_67 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_66, _stringLiteralD8D3C2194F3A8DDF93F0623BD1927FEEABACC8DE, NULL);
-		if (L_67)
-		{
-			goto IL_0528;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_02ec:
-	{
-		String_t* L_68 = V_1;
-		bool L_69;
-		L_69 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_68, _stringLiteral3A91D337442EA721D81265946B3502D017B35431, NULL);
-		if (L_69)
-		{
-			goto IL_053f;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0301:
-	{
-		String_t* L_70 = V_1;
-		bool L_71;
-		L_71 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_70, _stringLiteralC5F2406640F4F08577B3ADFE0B94DDC1B821F406, NULL);
-		if (L_71)
-		{
-			goto IL_0556;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0316:
-	{
-		String_t* L_72 = V_1;
-		bool L_73;
-		L_73 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_72, _stringLiteral91EA72444038CB2DF6CD7169DDC36D970C608580, NULL);
-		if (L_73)
-		{
-			goto IL_0568;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_032b:
-	{
-		String_t* L_74 = V_1;
-		bool L_75;
-		L_75 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_74, _stringLiteral445672210322BF6A27776AA5980F90EAFCF22E8E, NULL);
-		if (L_75)
-		{
-			goto IL_057f;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0340:
-	{
-		String_t* L_76 = V_1;
-		bool L_77;
-		L_77 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_76, _stringLiteral61E2E1B35D38D87FE73CDFEAA02EA8014FB8BC41, NULL);
-		if (L_77)
-		{
-			goto IL_0596;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0355:
-	{
-		String_t* L_78 = V_1;
-		bool L_79;
-		L_79 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_78, _stringLiteralDEAE713DF83A3A752895E5EC7ED2E28AEED2EA0A, NULL);
-		if (L_79)
-		{
-			goto IL_05ad;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_036a:
-	{
-		String_t* L_80 = V_1;
-		bool L_81;
-		L_81 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_80, _stringLiteral98FFDEF5B80911AB67760FFFA9785DDD6BA91CDE, NULL);
-		if (L_81)
-		{
-			goto IL_05c4;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_037f:
-	{
-		String_t* L_82 = V_1;
-		bool L_83;
-		L_83 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_82, _stringLiteralCBD01100EAC4B5729FA86B78163C192541140D1D, NULL);
-		if (L_83)
-		{
-			goto IL_05d8;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0394:
-	{
-		String_t* L_84 = V_1;
-		bool L_85;
-		L_85 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_84, _stringLiteral75F43404387B0DD1D93B4E0D201F2AD83FD02176, NULL);
-		if (L_85)
-		{
-			goto IL_05ec;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_03a9:
-	{
-		String_t* L_86 = V_1;
-		bool L_87;
-		L_87 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_86, _stringLiteral1EBE1EAAA5EE95D55EC360B8DA659C0ACABC623E, NULL);
-		if (L_87)
-		{
-			goto IL_0600;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_03be:
-	{
-		String_t* L_88 = V_1;
-		bool L_89;
-		L_89 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_88, _stringLiteral395FE53770E7E93DC3BB5CF6FD9CECF13AA5C36D, NULL);
-		if (L_89)
-		{
-			goto IL_0614;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_03d3:
-	{
-		String_t* L_90 = V_1;
-		bool L_91;
-		L_91 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_90, _stringLiteralEA2E49EE262F11DB28AE7EBC29DB82C6EE9557F9, NULL);
-		if (L_91)
-		{
-			goto IL_0628;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_03e8:
-	{
-		String_t* L_92 = V_1;
-		bool L_93;
-		L_93 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_92, _stringLiteral5506962CD736328B4844CD75A860794FE5B29F07, NULL);
-		if (L_93)
-		{
-			goto IL_063c;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_03fd:
-	{
-		// instance.enabled = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_94 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_95 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_94);
-		bool L_96;
-		L_96 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_94, L_95);
-		NoiseModule_set_enabled_m2BC18924D45F2AB9E6D7558A299B06C42FE0E655((&V_0), L_96, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0414:
-	{
-		// instance.separateAxes = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_97 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_98 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_97);
-		bool L_99;
-		L_99 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_97, L_98);
-		NoiseModule_set_separateAxes_m5F43E425E30079428CA258EF8A3CDD73827B6E4E((&V_0), L_99, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_042b:
-	{
-		// instance.strength = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_100 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_101 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_100);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_102;
-		L_102 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_100, L_101);
-		NoiseModule_set_strength_m244E401B03D2704B76D7F98F8C393EE47D8D0812((&V_0), L_102, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0442:
-	{
-		// instance.strengthMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_103 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_104 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_103);
-		float L_105;
-		L_105 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_103, L_104);
-		NoiseModule_set_strengthMultiplier_mFE019DCE55E1D8C470207E4224E1BA5D094DA357((&V_0), L_105, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0459:
-	{
-		// instance.strengthX = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_106 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_107 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_106);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_108;
-		L_108 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_106, L_107);
-		NoiseModule_set_strengthX_m8FE8C66343B2F98B266F60DDC9CDEEF2939FED16((&V_0), L_108, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0470:
-	{
-		// instance.strengthXMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_109 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_110 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_109);
-		float L_111;
-		L_111 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_109, L_110);
-		NoiseModule_set_strengthXMultiplier_m87EDC350B40F36A41BFE2D7639D811CA596DFEB2((&V_0), L_111, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0487:
-	{
-		// instance.strengthY = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_112 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_113 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_112);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_114;
-		L_114 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_112, L_113);
-		NoiseModule_set_strengthY_m3B1AF971AB432E3BCF0CFF1DDAB56919D5062D1F((&V_0), L_114, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_049e:
-	{
-		// instance.strengthYMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_115 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_116 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_115);
-		float L_117;
-		L_117 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_115, L_116);
-		NoiseModule_set_strengthYMultiplier_mBF7AC9D5A4D367BF84F069D21FD20D5E97A57D89((&V_0), L_117, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_04b5:
-	{
-		// instance.strengthZ = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_118 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_119 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_118);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_120;
-		L_120 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_118, L_119);
-		NoiseModule_set_strengthZ_m517559EFC9F1CC4F172639D73971458CBDDD0143((&V_0), L_120, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_04cc:
-	{
-		// instance.strengthZMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_121 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_122 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_121);
-		float L_123;
-		L_123 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_121, L_122);
-		NoiseModule_set_strengthZMultiplier_m9403AB9A084216F42665501426AD26B0E88305C4((&V_0), L_123, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_04e3:
-	{
-		// instance.frequency = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_124 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_125 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_124);
-		float L_126;
-		L_126 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_124, L_125);
-		NoiseModule_set_frequency_m70759B0A2D3852CF45F5F387C14F9AEA25E3E828((&V_0), L_126, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_04fa:
-	{
-		// instance.damping = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_127 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_128 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_127);
-		bool L_129;
-		L_129 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_127, L_128);
-		NoiseModule_set_damping_m121F36B4B2B44302EE91CD14DF9041EEB6CC35C3((&V_0), L_129, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0511:
-	{
-		// instance.octaveCount = reader.Read<System.Int32>(ES3Type_int.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_130 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_131 = ((ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_130);
-		int32_t L_132;
-		L_132 = GenericVirtualFuncInvoker1< int32_t, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var, L_130, L_131);
-		NoiseModule_set_octaveCount_m894782C18FEA785F023F311F597EFE58B43B1C55((&V_0), L_132, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0528:
-	{
-		// instance.octaveMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_133 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_134 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_133);
-		float L_135;
-		L_135 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_133, L_134);
-		NoiseModule_set_octaveMultiplier_m42720D4CD59B435AAAE4FC93DEB3A83ADA9C3FBB((&V_0), L_135, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_053f:
-	{
-		// instance.octaveScale = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_136 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_137 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_136);
-		float L_138;
-		L_138 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_136, L_137);
-		NoiseModule_set_octaveScale_m6C66795C9BE24401D80D79792F971DC51C4FCEFA((&V_0), L_138, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0556:
-	{
-		// instance.quality = reader.Read<UnityEngine.ParticleSystemNoiseQuality>();
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_139 = ___0_reader;
-		NullCheck(L_139);
-		int32_t L_140;
-		L_140 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemNoiseQuality_tC6DC0BFAA4AF9CD37103CC2CC216C43FC016E924_m22221BA19E2BDFA5111FBD7C66E17FF73767025E_RuntimeMethod_var, L_139);
-		NoiseModule_set_quality_m40D2AAC19BE53F0BF9A41A9761D1E940438C8AC4((&V_0), L_140, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0568:
-	{
-		// instance.scrollSpeed = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_141 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_142 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_141);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_143;
-		L_143 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_141, L_142);
-		NoiseModule_set_scrollSpeed_m205B2E8602998D007EFA9F550C633F30633FB6DC((&V_0), L_143, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_057f:
-	{
-		// instance.scrollSpeedMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_144 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_145 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_144);
-		float L_146;
-		L_146 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_144, L_145);
-		NoiseModule_set_scrollSpeedMultiplier_m849996D65CC65FB5D3C525ADCAF5119E5B4CBF14((&V_0), L_146, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0596:
-	{
-		// instance.remapEnabled = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_147 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_148 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_147);
-		bool L_149;
-		L_149 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_147, L_148);
-		NoiseModule_set_remapEnabled_mA5571C98B13D8839E801A65B0A628E41B462E395((&V_0), L_149, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_05ad:
-	{
-		// instance.remap = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_150 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_151 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_150);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_152;
-		L_152 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_150, L_151);
-		NoiseModule_set_remap_m3C8B3AC1CEB098D957CF6BC8F1A522953ED9F439((&V_0), L_152, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_05c4:
-	{
-		// instance.remapMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_153 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_154 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_153);
-		float L_155;
-		L_155 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_153, L_154);
-		NoiseModule_set_remapMultiplier_mCB638181B26CF82A61C17E3F0D6D6E63C561E9C4((&V_0), L_155, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_05d8:
-	{
-		// instance.remapX = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_156 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_157 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_156);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_158;
-		L_158 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_156, L_157);
-		NoiseModule_set_remapX_m15ADCD92890B6C21A29E06C438CA20C6A99D01AA((&V_0), L_158, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_05ec:
-	{
-		// instance.remapXMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_159 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_160 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_159);
-		float L_161;
-		L_161 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_159, L_160);
-		NoiseModule_set_remapXMultiplier_m4C5B29FEC2B917E5AAD4A59DFF163517A886F347((&V_0), L_161, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0600:
-	{
-		// instance.remapY = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_162 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_163 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_162);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_164;
-		L_164 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_162, L_163);
-		NoiseModule_set_remapY_mD04EB94428E91D6C4839CC20ABFC19A42B9F7F6E((&V_0), L_164, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0614:
-	{
-		// instance.remapYMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_165 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_166 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_165);
-		float L_167;
-		L_167 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_165, L_166);
-		NoiseModule_set_remapYMultiplier_m8316E402501D85E1B9796FDF8C8A6DAE07B49325((&V_0), L_167, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0628:
-	{
-		// instance.remapZ = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_168 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_169 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_168);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_170;
-		L_170 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_168, L_169);
-		NoiseModule_set_remapZ_mAE7A90C23BFD7E10D2C53981911572AC8A2B5541((&V_0), L_170, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_063c:
-	{
-		// instance.remapZMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_171 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_172 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_171);
-		float L_173;
-		L_173 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_171, L_172);
-		NoiseModule_set_remapZMultiplier_mCEDE52028CD07D0F6ABBEC5F6985416217E57F42((&V_0), L_173, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0650:
-	{
-		// reader.Skip();
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_174 = ___0_reader;
-		NullCheck(L_174);
-		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_174);
-	}
-
-IL_0656:
-	{
-		// while((propertyName = reader.ReadPropertyName()) != null)
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_175 = ___0_reader;
-		NullCheck(L_175);
-		String_t* L_176;
-		L_176 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_175);
-		String_t* L_177 = L_176;
-		V_1 = L_177;
-		if (L_177)
-		{
-			goto IL_000c;
-		}
-	}
-	{
-		// }
-		return;
-	}
-}
-// System.Void ES3Types.ES3Type_NoiseModule::ReadInto<UnityEngine.ParticleSystem/CollisionModule>(ES3Reader,System.Object)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_NoiseModule_ReadInto_TisCollisionModule_tEE4892D4872C2907164A66DC424F1CFA1D527083_m3ABF4B2B5F51FB22B9F4077E5952750CFB6DB779_gshared (ES3Type_NoiseModule_t998B4A42542B685DF3AAB803DCC33F658BBE0B04* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemNoiseQuality_tC6DC0BFAA4AF9CD37103CC2CC216C43FC016E924_m22221BA19E2BDFA5111FBD7C66E17FF73767025E_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral038B9C7914B4F5565F9D2DD1F7E0B346B50E4FA7);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1B024D537329B86AB0DF96B2A714180F442F53E9);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1EBE1EAAA5EE95D55EC360B8DA659C0ACABC623E);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral395FE53770E7E93DC3BB5CF6FD9CECF13AA5C36D);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral3A91D337442EA721D81265946B3502D017B35431);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral4443C70B3183C8BACC25EFE8D0B6ADBFFF8139FF);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral445672210322BF6A27776AA5980F90EAFCF22E8E);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral5506962CD736328B4844CD75A860794FE5B29F07);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral61E2E1B35D38D87FE73CDFEAA02EA8014FB8BC41);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral75F43404387B0DD1D93B4E0D201F2AD83FD02176);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral7A5BB2AA8ED2CE5942DF517BE8AF9006DBC25357);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral7EAAB49310BF4909AB185E687EE1D1F4FECECB51);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral88BEF2219C9F78FE4C09207E72A3A0538D70522F);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral91EA72444038CB2DF6CD7169DDC36D970C608580);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral98FFDEF5B80911AB67760FFFA9785DDD6BA91CDE);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAC83591FA98F20B86EEFD70657E6ED44D556313C);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB15828A904AB53E17469DBF5A4ABBF8B5164AB28);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralC5F2406640F4F08577B3ADFE0B94DDC1B821F406);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralCBD01100EAC4B5729FA86B78163C192541140D1D);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD8D3C2194F3A8DDF93F0623BD1927FEEABACC8DE);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralDEAE713DF83A3A752895E5EC7ED2E28AEED2EA0A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralEA2E49EE262F11DB28AE7EBC29DB82C6EE9557F9);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralEF65109317E1DF79845D5868309B0E9BFB10384B);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF1339A0A7019BCB976947C2D08A24450598124CF);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF1343DC9A4902B963209412495148EE532A73DEF);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF2B9DF9171C32A086DE79857720B1EEE049859B2);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B);
-		s_Il2CppMethodInitialized = true;
-	}
-	NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0 V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	String_t* V_1 = NULL;
-	uint32_t V_2 = 0;
-	{
-		// var instance = (UnityEngine.ParticleSystem.NoiseModule)obj;
-		RuntimeObject* L_0 = ___1_obj;
-		V_0 = ((*(NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0*)((NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0*)(NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0*)UnBox(L_0, NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0_il2cpp_TypeInfo_var))));
-		goto IL_0656;
-	}
-
-IL_000c:
-	{
-		String_t* L_1 = V_1;
-		uint32_t L_2;
-		L_2 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_1, NULL);
-		V_2 = L_2;
-		uint32_t L_3 = V_2;
-		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)1832685215)))))
-		{
-			goto IL_00e6;
-		}
-	}
-	{
-		uint32_t L_4 = V_2;
-		if ((!(((uint32_t)L_4) <= ((uint32_t)((int32_t)854058160)))))
-		{
-			goto IL_007a;
-		}
-	}
-	{
-		uint32_t L_5 = V_2;
-		if ((!(((uint32_t)L_5) <= ((uint32_t)((int32_t)190084455)))))
-		{
-			goto IL_0054;
-		}
-	}
-	{
-		uint32_t L_6 = V_2;
-		if ((((int32_t)L_6) == ((int32_t)((int32_t)49525662))))
-		{
-			goto IL_01c6;
-		}
-	}
-	{
-		uint32_t L_7 = V_2;
-		if ((((int32_t)L_7) == ((int32_t)((int32_t)96119838))))
-		{
-			goto IL_03be;
-		}
-	}
-	{
-		uint32_t L_8 = V_2;
-		if ((((int32_t)L_8) == ((int32_t)((int32_t)190084455))))
-		{
-			goto IL_0316;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0054:
-	{
-		uint32_t L_9 = V_2;
-		if ((((int32_t)L_9) == ((int32_t)((int32_t)608739593))))
-		{
-			goto IL_02ec;
-		}
-	}
-	{
-		uint32_t L_10 = V_2;
-		if ((((int32_t)L_10) == ((int32_t)((int32_t)800267265))))
-		{
-			goto IL_0298;
-		}
-	}
-	{
-		uint32_t L_11 = V_2;
-		if ((((int32_t)L_11) == ((int32_t)((int32_t)854058160))))
-		{
-			goto IL_0259;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_007a:
-	{
-		uint32_t L_12 = V_2;
-		if ((!(((uint32_t)L_12) <= ((uint32_t)((int32_t)1211446584)))))
-		{
-			goto IL_00a8;
-		}
-	}
-	{
-		uint32_t L_13 = V_2;
-		if ((((int32_t)L_13) == ((int32_t)((int32_t)1137906375))))
-		{
-			goto IL_0205;
-		}
-	}
-	{
-		uint32_t L_14 = V_2;
-		if ((((int32_t)L_14) == ((int32_t)((int32_t)1174656921))))
-		{
-			goto IL_036a;
-		}
-	}
-	{
-		uint32_t L_15 = V_2;
-		if ((((int32_t)L_15) == ((int32_t)((int32_t)1211446584))))
-		{
-			goto IL_021a;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_00a8:
-	{
-		uint32_t L_16 = V_2;
-		if ((!(((uint32_t)L_16) <= ((uint32_t)((int32_t)1245001822)))))
-		{
-			goto IL_00cb;
-		}
-	}
-	{
-		uint32_t L_17 = V_2;
-		if ((((int32_t)L_17) == ((int32_t)((int32_t)1228224203))))
-		{
-			goto IL_0244;
-		}
-	}
-	{
-		uint32_t L_18 = V_2;
-		if ((((int32_t)L_18) == ((int32_t)((int32_t)1245001822))))
-		{
-			goto IL_026e;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_00cb:
-	{
-		uint32_t L_19 = V_2;
-		if ((((int32_t)L_19) == ((int32_t)((int32_t)1479031685))))
-		{
-			goto IL_01db;
-		}
-	}
-	{
-		uint32_t L_20 = V_2;
-		if ((((int32_t)L_20) == ((int32_t)((int32_t)1832685215))))
-		{
-			goto IL_022f;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_00e6:
-	{
-		uint32_t L_21 = V_2;
-		if ((!(((uint32_t)L_21) <= ((uint32_t)((int32_t)-1151223659)))))
-		{
-			goto IL_015a;
-		}
-	}
-	{
-		uint32_t L_22 = V_2;
-		if ((!(((uint32_t)L_22) <= ((uint32_t)((int32_t)-1697296346)))))
-		{
-			goto IL_011c;
-		}
-	}
-	{
-		uint32_t L_23 = V_2;
-		if ((((int32_t)L_23) == ((int32_t)((int32_t)1953622726))))
-		{
-			goto IL_0355;
-		}
-	}
-	{
-		uint32_t L_24 = V_2;
-		if ((((int32_t)L_24) == ((int32_t)((int32_t)-1760681759))))
-		{
-			goto IL_0283;
-		}
-	}
-	{
-		uint32_t L_25 = V_2;
-		if ((((int32_t)L_25) == ((int32_t)((int32_t)-1697296346))))
-		{
-			goto IL_0301;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_011c:
-	{
-		uint32_t L_26 = V_2;
-		if ((!(((uint32_t)L_26) <= ((uint32_t)((int32_t)-1404870093)))))
-		{
-			goto IL_013f;
-		}
-	}
-	{
-		uint32_t L_27 = V_2;
-		if ((((int32_t)L_27) == ((int32_t)((int32_t)-1412380868))))
-		{
-			goto IL_032b;
-		}
-	}
-	{
-		uint32_t L_28 = V_2;
-		if ((((int32_t)L_28) == ((int32_t)((int32_t)-1404870093))))
-		{
-			goto IL_0340;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_013f:
-	{
-		uint32_t L_29 = V_2;
-		if ((((int32_t)L_29) == ((int32_t)((int32_t)-1276098610))))
-		{
-			goto IL_02d7;
-		}
-	}
-	{
-		uint32_t L_30 = V_2;
-		if ((((int32_t)L_30) == ((int32_t)((int32_t)-1151223659))))
-		{
-			goto IL_02ad;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_015a:
-	{
-		uint32_t L_31 = V_2;
-		if ((!(((uint32_t)L_31) <= ((uint32_t)((int32_t)-313239878)))))
-		{
-			goto IL_0188;
-		}
-	}
-	{
-		uint32_t L_32 = V_2;
-		if ((((int32_t)L_32) == ((int32_t)((int32_t)-528869200))))
-		{
-			goto IL_01f0;
-		}
-	}
-	{
-		uint32_t L_33 = V_2;
-		if ((((int32_t)L_33) == ((int32_t)((int32_t)-346795116))))
-		{
-			goto IL_03d3;
-		}
-	}
-	{
-		uint32_t L_34 = V_2;
-		if ((((int32_t)L_34) == ((int32_t)((int32_t)-313239878))))
-		{
-			goto IL_037f;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0188:
-	{
-		uint32_t L_35 = V_2;
-		if ((!(((uint32_t)L_35) <= ((uint32_t)((int32_t)-44770453)))))
-		{
-			goto IL_01ab;
-		}
-	}
-	{
-		uint32_t L_36 = V_2;
-		if ((((int32_t)L_36) == ((int32_t)((int32_t)-296462259))))
-		{
-			goto IL_03a9;
-		}
-	}
-	{
-		uint32_t L_37 = V_2;
-		if ((((int32_t)L_37) == ((int32_t)((int32_t)-44770453))))
-		{
-			goto IL_03e8;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_01ab:
-	{
-		uint32_t L_38 = V_2;
-		if ((((int32_t)L_38) == ((int32_t)((int32_t)-11444963))))
-		{
-			goto IL_0394;
-		}
-	}
-	{
-		uint32_t L_39 = V_2;
-		if ((((int32_t)L_39) == ((int32_t)((int32_t)-7684324))))
-		{
-			goto IL_02c2;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_01c6:
-	{
-		String_t* L_40 = V_1;
-		bool L_41;
-		L_41 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_40, _stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B, NULL);
-		if (L_41)
-		{
-			goto IL_03fd;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_01db:
-	{
-		String_t* L_42 = V_1;
-		bool L_43;
-		L_43 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_42, _stringLiteral1B024D537329B86AB0DF96B2A714180F442F53E9, NULL);
-		if (L_43)
-		{
-			goto IL_0414;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_01f0:
-	{
-		String_t* L_44 = V_1;
-		bool L_45;
-		L_45 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_44, _stringLiteralEF65109317E1DF79845D5868309B0E9BFB10384B, NULL);
-		if (L_45)
-		{
-			goto IL_042b;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0205:
-	{
-		String_t* L_46 = V_1;
-		bool L_47;
-		L_47 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_46, _stringLiteral038B9C7914B4F5565F9D2DD1F7E0B346B50E4FA7, NULL);
-		if (L_47)
-		{
-			goto IL_0442;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_021a:
-	{
-		String_t* L_48 = V_1;
-		bool L_49;
-		L_49 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_48, _stringLiteral4443C70B3183C8BACC25EFE8D0B6ADBFFF8139FF, NULL);
-		if (L_49)
-		{
-			goto IL_0459;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_022f:
-	{
-		String_t* L_50 = V_1;
-		bool L_51;
-		L_51 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_50, _stringLiteral88BEF2219C9F78FE4C09207E72A3A0538D70522F, NULL);
-		if (L_51)
-		{
-			goto IL_0470;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0244:
-	{
-		String_t* L_52 = V_1;
-		bool L_53;
-		L_53 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_52, _stringLiteralF1343DC9A4902B963209412495148EE532A73DEF, NULL);
-		if (L_53)
-		{
-			goto IL_0487;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0259:
-	{
-		String_t* L_54 = V_1;
-		bool L_55;
-		L_55 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_54, _stringLiteralF1339A0A7019BCB976947C2D08A24450598124CF, NULL);
-		if (L_55)
-		{
-			goto IL_049e;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_026e:
-	{
-		String_t* L_56 = V_1;
-		bool L_57;
-		L_57 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_56, _stringLiteralB15828A904AB53E17469DBF5A4ABBF8B5164AB28, NULL);
-		if (L_57)
-		{
-			goto IL_04b5;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0283:
-	{
-		String_t* L_58 = V_1;
-		bool L_59;
-		L_59 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_58, _stringLiteral7A5BB2AA8ED2CE5942DF517BE8AF9006DBC25357, NULL);
-		if (L_59)
-		{
-			goto IL_04cc;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0298:
-	{
-		String_t* L_60 = V_1;
-		bool L_61;
-		L_61 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_60, _stringLiteral7EAAB49310BF4909AB185E687EE1D1F4FECECB51, NULL);
-		if (L_61)
-		{
-			goto IL_04e3;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_02ad:
-	{
-		String_t* L_62 = V_1;
-		bool L_63;
-		L_63 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_62, _stringLiteralAC83591FA98F20B86EEFD70657E6ED44D556313C, NULL);
-		if (L_63)
-		{
-			goto IL_04fa;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_02c2:
-	{
-		String_t* L_64 = V_1;
-		bool L_65;
-		L_65 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_64, _stringLiteralF2B9DF9171C32A086DE79857720B1EEE049859B2, NULL);
-		if (L_65)
-		{
-			goto IL_0511;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_02d7:
-	{
-		String_t* L_66 = V_1;
-		bool L_67;
-		L_67 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_66, _stringLiteralD8D3C2194F3A8DDF93F0623BD1927FEEABACC8DE, NULL);
-		if (L_67)
-		{
-			goto IL_0528;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_02ec:
-	{
-		String_t* L_68 = V_1;
-		bool L_69;
-		L_69 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_68, _stringLiteral3A91D337442EA721D81265946B3502D017B35431, NULL);
-		if (L_69)
-		{
-			goto IL_053f;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0301:
-	{
-		String_t* L_70 = V_1;
-		bool L_71;
-		L_71 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_70, _stringLiteralC5F2406640F4F08577B3ADFE0B94DDC1B821F406, NULL);
-		if (L_71)
-		{
-			goto IL_0556;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0316:
-	{
-		String_t* L_72 = V_1;
-		bool L_73;
-		L_73 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_72, _stringLiteral91EA72444038CB2DF6CD7169DDC36D970C608580, NULL);
-		if (L_73)
-		{
-			goto IL_0568;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_032b:
-	{
-		String_t* L_74 = V_1;
-		bool L_75;
-		L_75 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_74, _stringLiteral445672210322BF6A27776AA5980F90EAFCF22E8E, NULL);
-		if (L_75)
-		{
-			goto IL_057f;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0340:
-	{
-		String_t* L_76 = V_1;
-		bool L_77;
-		L_77 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_76, _stringLiteral61E2E1B35D38D87FE73CDFEAA02EA8014FB8BC41, NULL);
-		if (L_77)
-		{
-			goto IL_0596;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0355:
-	{
-		String_t* L_78 = V_1;
-		bool L_79;
-		L_79 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_78, _stringLiteralDEAE713DF83A3A752895E5EC7ED2E28AEED2EA0A, NULL);
-		if (L_79)
-		{
-			goto IL_05ad;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_036a:
-	{
-		String_t* L_80 = V_1;
-		bool L_81;
-		L_81 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_80, _stringLiteral98FFDEF5B80911AB67760FFFA9785DDD6BA91CDE, NULL);
-		if (L_81)
-		{
-			goto IL_05c4;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_037f:
-	{
-		String_t* L_82 = V_1;
-		bool L_83;
-		L_83 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_82, _stringLiteralCBD01100EAC4B5729FA86B78163C192541140D1D, NULL);
-		if (L_83)
-		{
-			goto IL_05d8;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0394:
-	{
-		String_t* L_84 = V_1;
-		bool L_85;
-		L_85 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_84, _stringLiteral75F43404387B0DD1D93B4E0D201F2AD83FD02176, NULL);
-		if (L_85)
-		{
-			goto IL_05ec;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_03a9:
-	{
-		String_t* L_86 = V_1;
-		bool L_87;
-		L_87 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_86, _stringLiteral1EBE1EAAA5EE95D55EC360B8DA659C0ACABC623E, NULL);
-		if (L_87)
-		{
-			goto IL_0600;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_03be:
-	{
-		String_t* L_88 = V_1;
-		bool L_89;
-		L_89 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_88, _stringLiteral395FE53770E7E93DC3BB5CF6FD9CECF13AA5C36D, NULL);
-		if (L_89)
-		{
-			goto IL_0614;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_03d3:
-	{
-		String_t* L_90 = V_1;
-		bool L_91;
-		L_91 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_90, _stringLiteralEA2E49EE262F11DB28AE7EBC29DB82C6EE9557F9, NULL);
-		if (L_91)
-		{
-			goto IL_0628;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_03e8:
-	{
-		String_t* L_92 = V_1;
-		bool L_93;
-		L_93 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_92, _stringLiteral5506962CD736328B4844CD75A860794FE5B29F07, NULL);
-		if (L_93)
-		{
-			goto IL_063c;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_03fd:
-	{
-		// instance.enabled = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_94 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_95 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_94);
-		bool L_96;
-		L_96 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_94, L_95);
-		NoiseModule_set_enabled_m2BC18924D45F2AB9E6D7558A299B06C42FE0E655((&V_0), L_96, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0414:
-	{
-		// instance.separateAxes = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_97 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_98 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_97);
-		bool L_99;
-		L_99 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_97, L_98);
-		NoiseModule_set_separateAxes_m5F43E425E30079428CA258EF8A3CDD73827B6E4E((&V_0), L_99, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_042b:
-	{
-		// instance.strength = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_100 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_101 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_100);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_102;
-		L_102 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_100, L_101);
-		NoiseModule_set_strength_m244E401B03D2704B76D7F98F8C393EE47D8D0812((&V_0), L_102, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0442:
-	{
-		// instance.strengthMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_103 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_104 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_103);
-		float L_105;
-		L_105 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_103, L_104);
-		NoiseModule_set_strengthMultiplier_mFE019DCE55E1D8C470207E4224E1BA5D094DA357((&V_0), L_105, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0459:
-	{
-		// instance.strengthX = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_106 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_107 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_106);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_108;
-		L_108 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_106, L_107);
-		NoiseModule_set_strengthX_m8FE8C66343B2F98B266F60DDC9CDEEF2939FED16((&V_0), L_108, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0470:
-	{
-		// instance.strengthXMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_109 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_110 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_109);
-		float L_111;
-		L_111 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_109, L_110);
-		NoiseModule_set_strengthXMultiplier_m87EDC350B40F36A41BFE2D7639D811CA596DFEB2((&V_0), L_111, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0487:
-	{
-		// instance.strengthY = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_112 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_113 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_112);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_114;
-		L_114 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_112, L_113);
-		NoiseModule_set_strengthY_m3B1AF971AB432E3BCF0CFF1DDAB56919D5062D1F((&V_0), L_114, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_049e:
-	{
-		// instance.strengthYMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_115 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_116 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_115);
-		float L_117;
-		L_117 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_115, L_116);
-		NoiseModule_set_strengthYMultiplier_mBF7AC9D5A4D367BF84F069D21FD20D5E97A57D89((&V_0), L_117, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_04b5:
-	{
-		// instance.strengthZ = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_118 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_119 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_118);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_120;
-		L_120 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_118, L_119);
-		NoiseModule_set_strengthZ_m517559EFC9F1CC4F172639D73971458CBDDD0143((&V_0), L_120, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_04cc:
-	{
-		// instance.strengthZMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_121 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_122 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_121);
-		float L_123;
-		L_123 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_121, L_122);
-		NoiseModule_set_strengthZMultiplier_m9403AB9A084216F42665501426AD26B0E88305C4((&V_0), L_123, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_04e3:
-	{
-		// instance.frequency = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_124 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_125 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_124);
-		float L_126;
-		L_126 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_124, L_125);
-		NoiseModule_set_frequency_m70759B0A2D3852CF45F5F387C14F9AEA25E3E828((&V_0), L_126, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_04fa:
-	{
-		// instance.damping = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_127 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_128 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_127);
-		bool L_129;
-		L_129 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_127, L_128);
-		NoiseModule_set_damping_m121F36B4B2B44302EE91CD14DF9041EEB6CC35C3((&V_0), L_129, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0511:
-	{
-		// instance.octaveCount = reader.Read<System.Int32>(ES3Type_int.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_130 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_131 = ((ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_130);
-		int32_t L_132;
-		L_132 = GenericVirtualFuncInvoker1< int32_t, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var, L_130, L_131);
-		NoiseModule_set_octaveCount_m894782C18FEA785F023F311F597EFE58B43B1C55((&V_0), L_132, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0528:
-	{
-		// instance.octaveMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_133 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_134 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_133);
-		float L_135;
-		L_135 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_133, L_134);
-		NoiseModule_set_octaveMultiplier_m42720D4CD59B435AAAE4FC93DEB3A83ADA9C3FBB((&V_0), L_135, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_053f:
-	{
-		// instance.octaveScale = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_136 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_137 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_136);
-		float L_138;
-		L_138 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_136, L_137);
-		NoiseModule_set_octaveScale_m6C66795C9BE24401D80D79792F971DC51C4FCEFA((&V_0), L_138, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0556:
-	{
-		// instance.quality = reader.Read<UnityEngine.ParticleSystemNoiseQuality>();
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_139 = ___0_reader;
-		NullCheck(L_139);
-		int32_t L_140;
-		L_140 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemNoiseQuality_tC6DC0BFAA4AF9CD37103CC2CC216C43FC016E924_m22221BA19E2BDFA5111FBD7C66E17FF73767025E_RuntimeMethod_var, L_139);
-		NoiseModule_set_quality_m40D2AAC19BE53F0BF9A41A9761D1E940438C8AC4((&V_0), L_140, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0568:
-	{
-		// instance.scrollSpeed = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_141 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_142 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_141);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_143;
-		L_143 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_141, L_142);
-		NoiseModule_set_scrollSpeed_m205B2E8602998D007EFA9F550C633F30633FB6DC((&V_0), L_143, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_057f:
-	{
-		// instance.scrollSpeedMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_144 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_145 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_144);
-		float L_146;
-		L_146 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_144, L_145);
-		NoiseModule_set_scrollSpeedMultiplier_m849996D65CC65FB5D3C525ADCAF5119E5B4CBF14((&V_0), L_146, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0596:
-	{
-		// instance.remapEnabled = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_147 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_148 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_147);
-		bool L_149;
-		L_149 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_147, L_148);
-		NoiseModule_set_remapEnabled_mA5571C98B13D8839E801A65B0A628E41B462E395((&V_0), L_149, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_05ad:
-	{
-		// instance.remap = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_150 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_151 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_150);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_152;
-		L_152 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_150, L_151);
-		NoiseModule_set_remap_m3C8B3AC1CEB098D957CF6BC8F1A522953ED9F439((&V_0), L_152, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_05c4:
-	{
-		// instance.remapMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_153 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_154 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_153);
-		float L_155;
-		L_155 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_153, L_154);
-		NoiseModule_set_remapMultiplier_mCB638181B26CF82A61C17E3F0D6D6E63C561E9C4((&V_0), L_155, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_05d8:
-	{
-		// instance.remapX = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_156 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_157 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_156);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_158;
-		L_158 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_156, L_157);
-		NoiseModule_set_remapX_m15ADCD92890B6C21A29E06C438CA20C6A99D01AA((&V_0), L_158, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_05ec:
-	{
-		// instance.remapXMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_159 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_160 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_159);
-		float L_161;
-		L_161 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_159, L_160);
-		NoiseModule_set_remapXMultiplier_m4C5B29FEC2B917E5AAD4A59DFF163517A886F347((&V_0), L_161, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0600:
-	{
-		// instance.remapY = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_162 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_163 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_162);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_164;
-		L_164 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_162, L_163);
-		NoiseModule_set_remapY_mD04EB94428E91D6C4839CC20ABFC19A42B9F7F6E((&V_0), L_164, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0614:
-	{
-		// instance.remapYMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_165 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_166 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_165);
-		float L_167;
-		L_167 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_165, L_166);
-		NoiseModule_set_remapYMultiplier_m8316E402501D85E1B9796FDF8C8A6DAE07B49325((&V_0), L_167, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0628:
-	{
-		// instance.remapZ = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_168 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_169 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_168);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_170;
-		L_170 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_168, L_169);
-		NoiseModule_set_remapZ_mAE7A90C23BFD7E10D2C53981911572AC8A2B5541((&V_0), L_170, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_063c:
-	{
-		// instance.remapZMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_171 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_172 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_171);
-		float L_173;
-		L_173 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_171, L_172);
-		NoiseModule_set_remapZMultiplier_mCEDE52028CD07D0F6ABBEC5F6985416217E57F42((&V_0), L_173, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0650:
-	{
-		// reader.Skip();
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_174 = ___0_reader;
-		NullCheck(L_174);
-		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_174);
-	}
-
-IL_0656:
-	{
-		// while((propertyName = reader.ReadPropertyName()) != null)
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_175 = ___0_reader;
-		NullCheck(L_175);
-		String_t* L_176;
-		L_176 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_175);
-		String_t* L_177 = L_176;
-		V_1 = L_177;
-		if (L_177)
-		{
-			goto IL_000c;
-		}
-	}
-	{
-		// }
-		return;
-	}
-}
-// System.Void ES3Types.ES3Type_NoiseModule::ReadInto<UnityEngine.ParticleSystem/ColorBySpeedModule>(ES3Reader,System.Object)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_NoiseModule_ReadInto_TisColorBySpeedModule_t808C4CC668431DDE51D5AD98A81C78DDB944948B_m7B1EA5E0970BC0E8B17BDE25121D120840DF9F48_gshared (ES3Type_NoiseModule_t998B4A42542B685DF3AAB803DCC33F658BBE0B04* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemNoiseQuality_tC6DC0BFAA4AF9CD37103CC2CC216C43FC016E924_m22221BA19E2BDFA5111FBD7C66E17FF73767025E_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral038B9C7914B4F5565F9D2DD1F7E0B346B50E4FA7);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1B024D537329B86AB0DF96B2A714180F442F53E9);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1EBE1EAAA5EE95D55EC360B8DA659C0ACABC623E);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral395FE53770E7E93DC3BB5CF6FD9CECF13AA5C36D);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral3A91D337442EA721D81265946B3502D017B35431);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral4443C70B3183C8BACC25EFE8D0B6ADBFFF8139FF);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral445672210322BF6A27776AA5980F90EAFCF22E8E);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral5506962CD736328B4844CD75A860794FE5B29F07);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral61E2E1B35D38D87FE73CDFEAA02EA8014FB8BC41);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral75F43404387B0DD1D93B4E0D201F2AD83FD02176);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral7A5BB2AA8ED2CE5942DF517BE8AF9006DBC25357);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral7EAAB49310BF4909AB185E687EE1D1F4FECECB51);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral88BEF2219C9F78FE4C09207E72A3A0538D70522F);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral91EA72444038CB2DF6CD7169DDC36D970C608580);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral98FFDEF5B80911AB67760FFFA9785DDD6BA91CDE);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAC83591FA98F20B86EEFD70657E6ED44D556313C);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB15828A904AB53E17469DBF5A4ABBF8B5164AB28);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralC5F2406640F4F08577B3ADFE0B94DDC1B821F406);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralCBD01100EAC4B5729FA86B78163C192541140D1D);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD8D3C2194F3A8DDF93F0623BD1927FEEABACC8DE);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralDEAE713DF83A3A752895E5EC7ED2E28AEED2EA0A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralEA2E49EE262F11DB28AE7EBC29DB82C6EE9557F9);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralEF65109317E1DF79845D5868309B0E9BFB10384B);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF1339A0A7019BCB976947C2D08A24450598124CF);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF1343DC9A4902B963209412495148EE532A73DEF);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF2B9DF9171C32A086DE79857720B1EEE049859B2);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B);
-		s_Il2CppMethodInitialized = true;
-	}
-	NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0 V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	String_t* V_1 = NULL;
-	uint32_t V_2 = 0;
-	{
-		// var instance = (UnityEngine.ParticleSystem.NoiseModule)obj;
-		RuntimeObject* L_0 = ___1_obj;
-		V_0 = ((*(NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0*)((NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0*)(NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0*)UnBox(L_0, NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0_il2cpp_TypeInfo_var))));
-		goto IL_0656;
-	}
-
-IL_000c:
-	{
-		String_t* L_1 = V_1;
-		uint32_t L_2;
-		L_2 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_1, NULL);
-		V_2 = L_2;
-		uint32_t L_3 = V_2;
-		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)1832685215)))))
-		{
-			goto IL_00e6;
-		}
-	}
-	{
-		uint32_t L_4 = V_2;
-		if ((!(((uint32_t)L_4) <= ((uint32_t)((int32_t)854058160)))))
-		{
-			goto IL_007a;
-		}
-	}
-	{
-		uint32_t L_5 = V_2;
-		if ((!(((uint32_t)L_5) <= ((uint32_t)((int32_t)190084455)))))
-		{
-			goto IL_0054;
-		}
-	}
-	{
-		uint32_t L_6 = V_2;
-		if ((((int32_t)L_6) == ((int32_t)((int32_t)49525662))))
-		{
-			goto IL_01c6;
-		}
-	}
-	{
-		uint32_t L_7 = V_2;
-		if ((((int32_t)L_7) == ((int32_t)((int32_t)96119838))))
-		{
-			goto IL_03be;
-		}
-	}
-	{
-		uint32_t L_8 = V_2;
-		if ((((int32_t)L_8) == ((int32_t)((int32_t)190084455))))
-		{
-			goto IL_0316;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0054:
-	{
-		uint32_t L_9 = V_2;
-		if ((((int32_t)L_9) == ((int32_t)((int32_t)608739593))))
-		{
-			goto IL_02ec;
-		}
-	}
-	{
-		uint32_t L_10 = V_2;
-		if ((((int32_t)L_10) == ((int32_t)((int32_t)800267265))))
-		{
-			goto IL_0298;
-		}
-	}
-	{
-		uint32_t L_11 = V_2;
-		if ((((int32_t)L_11) == ((int32_t)((int32_t)854058160))))
-		{
-			goto IL_0259;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_007a:
-	{
-		uint32_t L_12 = V_2;
-		if ((!(((uint32_t)L_12) <= ((uint32_t)((int32_t)1211446584)))))
-		{
-			goto IL_00a8;
-		}
-	}
-	{
-		uint32_t L_13 = V_2;
-		if ((((int32_t)L_13) == ((int32_t)((int32_t)1137906375))))
-		{
-			goto IL_0205;
-		}
-	}
-	{
-		uint32_t L_14 = V_2;
-		if ((((int32_t)L_14) == ((int32_t)((int32_t)1174656921))))
-		{
-			goto IL_036a;
-		}
-	}
-	{
-		uint32_t L_15 = V_2;
-		if ((((int32_t)L_15) == ((int32_t)((int32_t)1211446584))))
-		{
-			goto IL_021a;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_00a8:
-	{
-		uint32_t L_16 = V_2;
-		if ((!(((uint32_t)L_16) <= ((uint32_t)((int32_t)1245001822)))))
-		{
-			goto IL_00cb;
-		}
-	}
-	{
-		uint32_t L_17 = V_2;
-		if ((((int32_t)L_17) == ((int32_t)((int32_t)1228224203))))
-		{
-			goto IL_0244;
-		}
-	}
-	{
-		uint32_t L_18 = V_2;
-		if ((((int32_t)L_18) == ((int32_t)((int32_t)1245001822))))
-		{
-			goto IL_026e;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_00cb:
-	{
-		uint32_t L_19 = V_2;
-		if ((((int32_t)L_19) == ((int32_t)((int32_t)1479031685))))
-		{
-			goto IL_01db;
-		}
-	}
-	{
-		uint32_t L_20 = V_2;
-		if ((((int32_t)L_20) == ((int32_t)((int32_t)1832685215))))
-		{
-			goto IL_022f;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_00e6:
-	{
-		uint32_t L_21 = V_2;
-		if ((!(((uint32_t)L_21) <= ((uint32_t)((int32_t)-1151223659)))))
-		{
-			goto IL_015a;
-		}
-	}
-	{
-		uint32_t L_22 = V_2;
-		if ((!(((uint32_t)L_22) <= ((uint32_t)((int32_t)-1697296346)))))
-		{
-			goto IL_011c;
-		}
-	}
-	{
-		uint32_t L_23 = V_2;
-		if ((((int32_t)L_23) == ((int32_t)((int32_t)1953622726))))
-		{
-			goto IL_0355;
-		}
-	}
-	{
-		uint32_t L_24 = V_2;
-		if ((((int32_t)L_24) == ((int32_t)((int32_t)-1760681759))))
-		{
-			goto IL_0283;
-		}
-	}
-	{
-		uint32_t L_25 = V_2;
-		if ((((int32_t)L_25) == ((int32_t)((int32_t)-1697296346))))
-		{
-			goto IL_0301;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_011c:
-	{
-		uint32_t L_26 = V_2;
-		if ((!(((uint32_t)L_26) <= ((uint32_t)((int32_t)-1404870093)))))
-		{
-			goto IL_013f;
-		}
-	}
-	{
-		uint32_t L_27 = V_2;
-		if ((((int32_t)L_27) == ((int32_t)((int32_t)-1412380868))))
-		{
-			goto IL_032b;
-		}
-	}
-	{
-		uint32_t L_28 = V_2;
-		if ((((int32_t)L_28) == ((int32_t)((int32_t)-1404870093))))
-		{
-			goto IL_0340;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_013f:
-	{
-		uint32_t L_29 = V_2;
-		if ((((int32_t)L_29) == ((int32_t)((int32_t)-1276098610))))
-		{
-			goto IL_02d7;
-		}
-	}
-	{
-		uint32_t L_30 = V_2;
-		if ((((int32_t)L_30) == ((int32_t)((int32_t)-1151223659))))
-		{
-			goto IL_02ad;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_015a:
-	{
-		uint32_t L_31 = V_2;
-		if ((!(((uint32_t)L_31) <= ((uint32_t)((int32_t)-313239878)))))
-		{
-			goto IL_0188;
-		}
-	}
-	{
-		uint32_t L_32 = V_2;
-		if ((((int32_t)L_32) == ((int32_t)((int32_t)-528869200))))
-		{
-			goto IL_01f0;
-		}
-	}
-	{
-		uint32_t L_33 = V_2;
-		if ((((int32_t)L_33) == ((int32_t)((int32_t)-346795116))))
-		{
-			goto IL_03d3;
-		}
-	}
-	{
-		uint32_t L_34 = V_2;
-		if ((((int32_t)L_34) == ((int32_t)((int32_t)-313239878))))
-		{
-			goto IL_037f;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0188:
-	{
-		uint32_t L_35 = V_2;
-		if ((!(((uint32_t)L_35) <= ((uint32_t)((int32_t)-44770453)))))
-		{
-			goto IL_01ab;
-		}
-	}
-	{
-		uint32_t L_36 = V_2;
-		if ((((int32_t)L_36) == ((int32_t)((int32_t)-296462259))))
-		{
-			goto IL_03a9;
-		}
-	}
-	{
-		uint32_t L_37 = V_2;
-		if ((((int32_t)L_37) == ((int32_t)((int32_t)-44770453))))
-		{
-			goto IL_03e8;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_01ab:
-	{
-		uint32_t L_38 = V_2;
-		if ((((int32_t)L_38) == ((int32_t)((int32_t)-11444963))))
-		{
-			goto IL_0394;
-		}
-	}
-	{
-		uint32_t L_39 = V_2;
-		if ((((int32_t)L_39) == ((int32_t)((int32_t)-7684324))))
-		{
-			goto IL_02c2;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_01c6:
-	{
-		String_t* L_40 = V_1;
-		bool L_41;
-		L_41 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_40, _stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B, NULL);
-		if (L_41)
-		{
-			goto IL_03fd;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_01db:
-	{
-		String_t* L_42 = V_1;
-		bool L_43;
-		L_43 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_42, _stringLiteral1B024D537329B86AB0DF96B2A714180F442F53E9, NULL);
-		if (L_43)
-		{
-			goto IL_0414;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_01f0:
-	{
-		String_t* L_44 = V_1;
-		bool L_45;
-		L_45 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_44, _stringLiteralEF65109317E1DF79845D5868309B0E9BFB10384B, NULL);
-		if (L_45)
-		{
-			goto IL_042b;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0205:
-	{
-		String_t* L_46 = V_1;
-		bool L_47;
-		L_47 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_46, _stringLiteral038B9C7914B4F5565F9D2DD1F7E0B346B50E4FA7, NULL);
-		if (L_47)
-		{
-			goto IL_0442;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_021a:
-	{
-		String_t* L_48 = V_1;
-		bool L_49;
-		L_49 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_48, _stringLiteral4443C70B3183C8BACC25EFE8D0B6ADBFFF8139FF, NULL);
-		if (L_49)
-		{
-			goto IL_0459;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_022f:
-	{
-		String_t* L_50 = V_1;
-		bool L_51;
-		L_51 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_50, _stringLiteral88BEF2219C9F78FE4C09207E72A3A0538D70522F, NULL);
-		if (L_51)
-		{
-			goto IL_0470;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0244:
-	{
-		String_t* L_52 = V_1;
-		bool L_53;
-		L_53 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_52, _stringLiteralF1343DC9A4902B963209412495148EE532A73DEF, NULL);
-		if (L_53)
-		{
-			goto IL_0487;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0259:
-	{
-		String_t* L_54 = V_1;
-		bool L_55;
-		L_55 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_54, _stringLiteralF1339A0A7019BCB976947C2D08A24450598124CF, NULL);
-		if (L_55)
-		{
-			goto IL_049e;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_026e:
-	{
-		String_t* L_56 = V_1;
-		bool L_57;
-		L_57 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_56, _stringLiteralB15828A904AB53E17469DBF5A4ABBF8B5164AB28, NULL);
-		if (L_57)
-		{
-			goto IL_04b5;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0283:
-	{
-		String_t* L_58 = V_1;
-		bool L_59;
-		L_59 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_58, _stringLiteral7A5BB2AA8ED2CE5942DF517BE8AF9006DBC25357, NULL);
-		if (L_59)
-		{
-			goto IL_04cc;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0298:
-	{
-		String_t* L_60 = V_1;
-		bool L_61;
-		L_61 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_60, _stringLiteral7EAAB49310BF4909AB185E687EE1D1F4FECECB51, NULL);
-		if (L_61)
-		{
-			goto IL_04e3;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_02ad:
-	{
-		String_t* L_62 = V_1;
-		bool L_63;
-		L_63 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_62, _stringLiteralAC83591FA98F20B86EEFD70657E6ED44D556313C, NULL);
-		if (L_63)
-		{
-			goto IL_04fa;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_02c2:
-	{
-		String_t* L_64 = V_1;
-		bool L_65;
-		L_65 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_64, _stringLiteralF2B9DF9171C32A086DE79857720B1EEE049859B2, NULL);
-		if (L_65)
-		{
-			goto IL_0511;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_02d7:
-	{
-		String_t* L_66 = V_1;
-		bool L_67;
-		L_67 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_66, _stringLiteralD8D3C2194F3A8DDF93F0623BD1927FEEABACC8DE, NULL);
-		if (L_67)
-		{
-			goto IL_0528;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_02ec:
-	{
-		String_t* L_68 = V_1;
-		bool L_69;
-		L_69 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_68, _stringLiteral3A91D337442EA721D81265946B3502D017B35431, NULL);
-		if (L_69)
-		{
-			goto IL_053f;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0301:
-	{
-		String_t* L_70 = V_1;
-		bool L_71;
-		L_71 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_70, _stringLiteralC5F2406640F4F08577B3ADFE0B94DDC1B821F406, NULL);
-		if (L_71)
-		{
-			goto IL_0556;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0316:
-	{
-		String_t* L_72 = V_1;
-		bool L_73;
-		L_73 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_72, _stringLiteral91EA72444038CB2DF6CD7169DDC36D970C608580, NULL);
-		if (L_73)
-		{
-			goto IL_0568;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_032b:
-	{
-		String_t* L_74 = V_1;
-		bool L_75;
-		L_75 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_74, _stringLiteral445672210322BF6A27776AA5980F90EAFCF22E8E, NULL);
-		if (L_75)
-		{
-			goto IL_057f;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0340:
-	{
-		String_t* L_76 = V_1;
-		bool L_77;
-		L_77 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_76, _stringLiteral61E2E1B35D38D87FE73CDFEAA02EA8014FB8BC41, NULL);
-		if (L_77)
-		{
-			goto IL_0596;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0355:
-	{
-		String_t* L_78 = V_1;
-		bool L_79;
-		L_79 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_78, _stringLiteralDEAE713DF83A3A752895E5EC7ED2E28AEED2EA0A, NULL);
-		if (L_79)
-		{
-			goto IL_05ad;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_036a:
-	{
-		String_t* L_80 = V_1;
-		bool L_81;
-		L_81 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_80, _stringLiteral98FFDEF5B80911AB67760FFFA9785DDD6BA91CDE, NULL);
-		if (L_81)
-		{
-			goto IL_05c4;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_037f:
-	{
-		String_t* L_82 = V_1;
-		bool L_83;
-		L_83 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_82, _stringLiteralCBD01100EAC4B5729FA86B78163C192541140D1D, NULL);
-		if (L_83)
-		{
-			goto IL_05d8;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0394:
-	{
-		String_t* L_84 = V_1;
-		bool L_85;
-		L_85 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_84, _stringLiteral75F43404387B0DD1D93B4E0D201F2AD83FD02176, NULL);
-		if (L_85)
-		{
-			goto IL_05ec;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_03a9:
-	{
-		String_t* L_86 = V_1;
-		bool L_87;
-		L_87 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_86, _stringLiteral1EBE1EAAA5EE95D55EC360B8DA659C0ACABC623E, NULL);
-		if (L_87)
-		{
-			goto IL_0600;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_03be:
-	{
-		String_t* L_88 = V_1;
-		bool L_89;
-		L_89 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_88, _stringLiteral395FE53770E7E93DC3BB5CF6FD9CECF13AA5C36D, NULL);
-		if (L_89)
-		{
-			goto IL_0614;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_03d3:
-	{
-		String_t* L_90 = V_1;
-		bool L_91;
-		L_91 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_90, _stringLiteralEA2E49EE262F11DB28AE7EBC29DB82C6EE9557F9, NULL);
-		if (L_91)
-		{
-			goto IL_0628;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_03e8:
-	{
-		String_t* L_92 = V_1;
-		bool L_93;
-		L_93 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_92, _stringLiteral5506962CD736328B4844CD75A860794FE5B29F07, NULL);
-		if (L_93)
-		{
-			goto IL_063c;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_03fd:
-	{
-		// instance.enabled = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_94 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_95 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_94);
-		bool L_96;
-		L_96 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_94, L_95);
-		NoiseModule_set_enabled_m2BC18924D45F2AB9E6D7558A299B06C42FE0E655((&V_0), L_96, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0414:
-	{
-		// instance.separateAxes = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_97 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_98 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_97);
-		bool L_99;
-		L_99 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_97, L_98);
-		NoiseModule_set_separateAxes_m5F43E425E30079428CA258EF8A3CDD73827B6E4E((&V_0), L_99, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_042b:
-	{
-		// instance.strength = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_100 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_101 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_100);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_102;
-		L_102 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_100, L_101);
-		NoiseModule_set_strength_m244E401B03D2704B76D7F98F8C393EE47D8D0812((&V_0), L_102, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0442:
-	{
-		// instance.strengthMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_103 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_104 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_103);
-		float L_105;
-		L_105 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_103, L_104);
-		NoiseModule_set_strengthMultiplier_mFE019DCE55E1D8C470207E4224E1BA5D094DA357((&V_0), L_105, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0459:
-	{
-		// instance.strengthX = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_106 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_107 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_106);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_108;
-		L_108 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_106, L_107);
-		NoiseModule_set_strengthX_m8FE8C66343B2F98B266F60DDC9CDEEF2939FED16((&V_0), L_108, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0470:
-	{
-		// instance.strengthXMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_109 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_110 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_109);
-		float L_111;
-		L_111 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_109, L_110);
-		NoiseModule_set_strengthXMultiplier_m87EDC350B40F36A41BFE2D7639D811CA596DFEB2((&V_0), L_111, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0487:
-	{
-		// instance.strengthY = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_112 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_113 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_112);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_114;
-		L_114 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_112, L_113);
-		NoiseModule_set_strengthY_m3B1AF971AB432E3BCF0CFF1DDAB56919D5062D1F((&V_0), L_114, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_049e:
-	{
-		// instance.strengthYMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_115 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_116 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_115);
-		float L_117;
-		L_117 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_115, L_116);
-		NoiseModule_set_strengthYMultiplier_mBF7AC9D5A4D367BF84F069D21FD20D5E97A57D89((&V_0), L_117, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_04b5:
-	{
-		// instance.strengthZ = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_118 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_119 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_118);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_120;
-		L_120 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_118, L_119);
-		NoiseModule_set_strengthZ_m517559EFC9F1CC4F172639D73971458CBDDD0143((&V_0), L_120, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_04cc:
-	{
-		// instance.strengthZMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_121 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_122 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_121);
-		float L_123;
-		L_123 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_121, L_122);
-		NoiseModule_set_strengthZMultiplier_m9403AB9A084216F42665501426AD26B0E88305C4((&V_0), L_123, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_04e3:
-	{
-		// instance.frequency = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_124 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_125 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_124);
-		float L_126;
-		L_126 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_124, L_125);
-		NoiseModule_set_frequency_m70759B0A2D3852CF45F5F387C14F9AEA25E3E828((&V_0), L_126, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_04fa:
-	{
-		// instance.damping = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_127 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_128 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_127);
-		bool L_129;
-		L_129 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_127, L_128);
-		NoiseModule_set_damping_m121F36B4B2B44302EE91CD14DF9041EEB6CC35C3((&V_0), L_129, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0511:
-	{
-		// instance.octaveCount = reader.Read<System.Int32>(ES3Type_int.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_130 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_131 = ((ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_130);
-		int32_t L_132;
-		L_132 = GenericVirtualFuncInvoker1< int32_t, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var, L_130, L_131);
-		NoiseModule_set_octaveCount_m894782C18FEA785F023F311F597EFE58B43B1C55((&V_0), L_132, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0528:
-	{
-		// instance.octaveMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_133 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_134 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_133);
-		float L_135;
-		L_135 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_133, L_134);
-		NoiseModule_set_octaveMultiplier_m42720D4CD59B435AAAE4FC93DEB3A83ADA9C3FBB((&V_0), L_135, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_053f:
-	{
-		// instance.octaveScale = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_136 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_137 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_136);
-		float L_138;
-		L_138 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_136, L_137);
-		NoiseModule_set_octaveScale_m6C66795C9BE24401D80D79792F971DC51C4FCEFA((&V_0), L_138, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0556:
-	{
-		// instance.quality = reader.Read<UnityEngine.ParticleSystemNoiseQuality>();
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_139 = ___0_reader;
-		NullCheck(L_139);
-		int32_t L_140;
-		L_140 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemNoiseQuality_tC6DC0BFAA4AF9CD37103CC2CC216C43FC016E924_m22221BA19E2BDFA5111FBD7C66E17FF73767025E_RuntimeMethod_var, L_139);
-		NoiseModule_set_quality_m40D2AAC19BE53F0BF9A41A9761D1E940438C8AC4((&V_0), L_140, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0568:
-	{
-		// instance.scrollSpeed = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_141 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_142 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_141);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_143;
-		L_143 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_141, L_142);
-		NoiseModule_set_scrollSpeed_m205B2E8602998D007EFA9F550C633F30633FB6DC((&V_0), L_143, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_057f:
-	{
-		// instance.scrollSpeedMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_144 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_145 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_144);
-		float L_146;
-		L_146 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_144, L_145);
-		NoiseModule_set_scrollSpeedMultiplier_m849996D65CC65FB5D3C525ADCAF5119E5B4CBF14((&V_0), L_146, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0596:
-	{
-		// instance.remapEnabled = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_147 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_148 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_147);
-		bool L_149;
-		L_149 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_147, L_148);
-		NoiseModule_set_remapEnabled_mA5571C98B13D8839E801A65B0A628E41B462E395((&V_0), L_149, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_05ad:
-	{
-		// instance.remap = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_150 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_151 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_150);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_152;
-		L_152 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_150, L_151);
-		NoiseModule_set_remap_m3C8B3AC1CEB098D957CF6BC8F1A522953ED9F439((&V_0), L_152, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_05c4:
-	{
-		// instance.remapMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_153 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_154 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_153);
-		float L_155;
-		L_155 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_153, L_154);
-		NoiseModule_set_remapMultiplier_mCB638181B26CF82A61C17E3F0D6D6E63C561E9C4((&V_0), L_155, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_05d8:
-	{
-		// instance.remapX = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_156 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_157 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_156);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_158;
-		L_158 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_156, L_157);
-		NoiseModule_set_remapX_m15ADCD92890B6C21A29E06C438CA20C6A99D01AA((&V_0), L_158, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_05ec:
-	{
-		// instance.remapXMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_159 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_160 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_159);
-		float L_161;
-		L_161 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_159, L_160);
-		NoiseModule_set_remapXMultiplier_m4C5B29FEC2B917E5AAD4A59DFF163517A886F347((&V_0), L_161, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0600:
-	{
-		// instance.remapY = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_162 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_163 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_162);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_164;
-		L_164 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_162, L_163);
-		NoiseModule_set_remapY_mD04EB94428E91D6C4839CC20ABFC19A42B9F7F6E((&V_0), L_164, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0614:
-	{
-		// instance.remapYMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_165 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_166 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_165);
-		float L_167;
-		L_167 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_165, L_166);
-		NoiseModule_set_remapYMultiplier_m8316E402501D85E1B9796FDF8C8A6DAE07B49325((&V_0), L_167, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0628:
-	{
-		// instance.remapZ = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_168 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_169 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_168);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_170;
-		L_170 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_168, L_169);
-		NoiseModule_set_remapZ_mAE7A90C23BFD7E10D2C53981911572AC8A2B5541((&V_0), L_170, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_063c:
-	{
-		// instance.remapZMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_171 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_172 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_171);
-		float L_173;
-		L_173 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_171, L_172);
-		NoiseModule_set_remapZMultiplier_mCEDE52028CD07D0F6ABBEC5F6985416217E57F42((&V_0), L_173, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0650:
-	{
-		// reader.Skip();
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_174 = ___0_reader;
-		NullCheck(L_174);
-		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_174);
-	}
-
-IL_0656:
-	{
-		// while((propertyName = reader.ReadPropertyName()) != null)
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_175 = ___0_reader;
-		NullCheck(L_175);
-		String_t* L_176;
-		L_176 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_175);
-		String_t* L_177 = L_176;
-		V_1 = L_177;
-		if (L_177)
-		{
-			goto IL_000c;
-		}
-	}
-	{
-		// }
-		return;
-	}
-}
-// System.Void ES3Types.ES3Type_NoiseModule::ReadInto<UnityEngine.ParticleSystem/ColorOverLifetimeModule>(ES3Reader,System.Object)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_NoiseModule_ReadInto_TisColorOverLifetimeModule_t758EC8315B6C19D78C418D942CD1F94FE7EEE9D9_mC3C54A33875DCB903B3FCED59CE1B468F13C7757_gshared (ES3Type_NoiseModule_t998B4A42542B685DF3AAB803DCC33F658BBE0B04* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemNoiseQuality_tC6DC0BFAA4AF9CD37103CC2CC216C43FC016E924_m22221BA19E2BDFA5111FBD7C66E17FF73767025E_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral038B9C7914B4F5565F9D2DD1F7E0B346B50E4FA7);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1B024D537329B86AB0DF96B2A714180F442F53E9);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1EBE1EAAA5EE95D55EC360B8DA659C0ACABC623E);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral395FE53770E7E93DC3BB5CF6FD9CECF13AA5C36D);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral3A91D337442EA721D81265946B3502D017B35431);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral4443C70B3183C8BACC25EFE8D0B6ADBFFF8139FF);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral445672210322BF6A27776AA5980F90EAFCF22E8E);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral5506962CD736328B4844CD75A860794FE5B29F07);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral61E2E1B35D38D87FE73CDFEAA02EA8014FB8BC41);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral75F43404387B0DD1D93B4E0D201F2AD83FD02176);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral7A5BB2AA8ED2CE5942DF517BE8AF9006DBC25357);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral7EAAB49310BF4909AB185E687EE1D1F4FECECB51);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral88BEF2219C9F78FE4C09207E72A3A0538D70522F);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral91EA72444038CB2DF6CD7169DDC36D970C608580);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral98FFDEF5B80911AB67760FFFA9785DDD6BA91CDE);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAC83591FA98F20B86EEFD70657E6ED44D556313C);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralB15828A904AB53E17469DBF5A4ABBF8B5164AB28);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralC5F2406640F4F08577B3ADFE0B94DDC1B821F406);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralCBD01100EAC4B5729FA86B78163C192541140D1D);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD8D3C2194F3A8DDF93F0623BD1927FEEABACC8DE);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralDEAE713DF83A3A752895E5EC7ED2E28AEED2EA0A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralEA2E49EE262F11DB28AE7EBC29DB82C6EE9557F9);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralEF65109317E1DF79845D5868309B0E9BFB10384B);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF1339A0A7019BCB976947C2D08A24450598124CF);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF1343DC9A4902B963209412495148EE532A73DEF);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF2B9DF9171C32A086DE79857720B1EEE049859B2);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B);
-		s_Il2CppMethodInitialized = true;
-	}
-	NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0 V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	String_t* V_1 = NULL;
-	uint32_t V_2 = 0;
-	{
-		// var instance = (UnityEngine.ParticleSystem.NoiseModule)obj;
-		RuntimeObject* L_0 = ___1_obj;
-		V_0 = ((*(NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0*)((NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0*)(NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0*)UnBox(L_0, NoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0_il2cpp_TypeInfo_var))));
-		goto IL_0656;
-	}
-
-IL_000c:
-	{
-		String_t* L_1 = V_1;
-		uint32_t L_2;
-		L_2 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_1, NULL);
-		V_2 = L_2;
-		uint32_t L_3 = V_2;
-		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)1832685215)))))
-		{
-			goto IL_00e6;
-		}
-	}
-	{
-		uint32_t L_4 = V_2;
-		if ((!(((uint32_t)L_4) <= ((uint32_t)((int32_t)854058160)))))
-		{
-			goto IL_007a;
-		}
-	}
-	{
-		uint32_t L_5 = V_2;
-		if ((!(((uint32_t)L_5) <= ((uint32_t)((int32_t)190084455)))))
-		{
-			goto IL_0054;
-		}
-	}
-	{
-		uint32_t L_6 = V_2;
-		if ((((int32_t)L_6) == ((int32_t)((int32_t)49525662))))
-		{
-			goto IL_01c6;
-		}
-	}
-	{
-		uint32_t L_7 = V_2;
-		if ((((int32_t)L_7) == ((int32_t)((int32_t)96119838))))
-		{
-			goto IL_03be;
-		}
-	}
-	{
-		uint32_t L_8 = V_2;
-		if ((((int32_t)L_8) == ((int32_t)((int32_t)190084455))))
-		{
-			goto IL_0316;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0054:
-	{
-		uint32_t L_9 = V_2;
-		if ((((int32_t)L_9) == ((int32_t)((int32_t)608739593))))
-		{
-			goto IL_02ec;
-		}
-	}
-	{
-		uint32_t L_10 = V_2;
-		if ((((int32_t)L_10) == ((int32_t)((int32_t)800267265))))
-		{
-			goto IL_0298;
-		}
-	}
-	{
-		uint32_t L_11 = V_2;
-		if ((((int32_t)L_11) == ((int32_t)((int32_t)854058160))))
-		{
-			goto IL_0259;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_007a:
-	{
-		uint32_t L_12 = V_2;
-		if ((!(((uint32_t)L_12) <= ((uint32_t)((int32_t)1211446584)))))
-		{
-			goto IL_00a8;
-		}
-	}
-	{
-		uint32_t L_13 = V_2;
-		if ((((int32_t)L_13) == ((int32_t)((int32_t)1137906375))))
-		{
-			goto IL_0205;
-		}
-	}
-	{
-		uint32_t L_14 = V_2;
-		if ((((int32_t)L_14) == ((int32_t)((int32_t)1174656921))))
-		{
-			goto IL_036a;
-		}
-	}
-	{
-		uint32_t L_15 = V_2;
-		if ((((int32_t)L_15) == ((int32_t)((int32_t)1211446584))))
-		{
-			goto IL_021a;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_00a8:
-	{
-		uint32_t L_16 = V_2;
-		if ((!(((uint32_t)L_16) <= ((uint32_t)((int32_t)1245001822)))))
-		{
-			goto IL_00cb;
-		}
-	}
-	{
-		uint32_t L_17 = V_2;
-		if ((((int32_t)L_17) == ((int32_t)((int32_t)1228224203))))
-		{
-			goto IL_0244;
-		}
-	}
-	{
-		uint32_t L_18 = V_2;
-		if ((((int32_t)L_18) == ((int32_t)((int32_t)1245001822))))
-		{
-			goto IL_026e;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_00cb:
-	{
-		uint32_t L_19 = V_2;
-		if ((((int32_t)L_19) == ((int32_t)((int32_t)1479031685))))
-		{
-			goto IL_01db;
-		}
-	}
-	{
-		uint32_t L_20 = V_2;
-		if ((((int32_t)L_20) == ((int32_t)((int32_t)1832685215))))
-		{
-			goto IL_022f;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_00e6:
-	{
-		uint32_t L_21 = V_2;
-		if ((!(((uint32_t)L_21) <= ((uint32_t)((int32_t)-1151223659)))))
-		{
-			goto IL_015a;
-		}
-	}
-	{
-		uint32_t L_22 = V_2;
-		if ((!(((uint32_t)L_22) <= ((uint32_t)((int32_t)-1697296346)))))
-		{
-			goto IL_011c;
-		}
-	}
-	{
-		uint32_t L_23 = V_2;
-		if ((((int32_t)L_23) == ((int32_t)((int32_t)1953622726))))
-		{
-			goto IL_0355;
-		}
-	}
-	{
-		uint32_t L_24 = V_2;
-		if ((((int32_t)L_24) == ((int32_t)((int32_t)-1760681759))))
-		{
-			goto IL_0283;
-		}
-	}
-	{
-		uint32_t L_25 = V_2;
-		if ((((int32_t)L_25) == ((int32_t)((int32_t)-1697296346))))
-		{
-			goto IL_0301;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_011c:
-	{
-		uint32_t L_26 = V_2;
-		if ((!(((uint32_t)L_26) <= ((uint32_t)((int32_t)-1404870093)))))
-		{
-			goto IL_013f;
-		}
-	}
-	{
-		uint32_t L_27 = V_2;
-		if ((((int32_t)L_27) == ((int32_t)((int32_t)-1412380868))))
-		{
-			goto IL_032b;
-		}
-	}
-	{
-		uint32_t L_28 = V_2;
-		if ((((int32_t)L_28) == ((int32_t)((int32_t)-1404870093))))
-		{
-			goto IL_0340;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_013f:
-	{
-		uint32_t L_29 = V_2;
-		if ((((int32_t)L_29) == ((int32_t)((int32_t)-1276098610))))
-		{
-			goto IL_02d7;
-		}
-	}
-	{
-		uint32_t L_30 = V_2;
-		if ((((int32_t)L_30) == ((int32_t)((int32_t)-1151223659))))
-		{
-			goto IL_02ad;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_015a:
-	{
-		uint32_t L_31 = V_2;
-		if ((!(((uint32_t)L_31) <= ((uint32_t)((int32_t)-313239878)))))
-		{
-			goto IL_0188;
-		}
-	}
-	{
-		uint32_t L_32 = V_2;
-		if ((((int32_t)L_32) == ((int32_t)((int32_t)-528869200))))
-		{
-			goto IL_01f0;
-		}
-	}
-	{
-		uint32_t L_33 = V_2;
-		if ((((int32_t)L_33) == ((int32_t)((int32_t)-346795116))))
-		{
-			goto IL_03d3;
-		}
-	}
-	{
-		uint32_t L_34 = V_2;
-		if ((((int32_t)L_34) == ((int32_t)((int32_t)-313239878))))
-		{
-			goto IL_037f;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0188:
-	{
-		uint32_t L_35 = V_2;
-		if ((!(((uint32_t)L_35) <= ((uint32_t)((int32_t)-44770453)))))
-		{
-			goto IL_01ab;
-		}
-	}
-	{
-		uint32_t L_36 = V_2;
-		if ((((int32_t)L_36) == ((int32_t)((int32_t)-296462259))))
-		{
-			goto IL_03a9;
-		}
-	}
-	{
-		uint32_t L_37 = V_2;
-		if ((((int32_t)L_37) == ((int32_t)((int32_t)-44770453))))
-		{
-			goto IL_03e8;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_01ab:
-	{
-		uint32_t L_38 = V_2;
-		if ((((int32_t)L_38) == ((int32_t)((int32_t)-11444963))))
-		{
-			goto IL_0394;
-		}
-	}
-	{
-		uint32_t L_39 = V_2;
-		if ((((int32_t)L_39) == ((int32_t)((int32_t)-7684324))))
-		{
-			goto IL_02c2;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_01c6:
-	{
-		String_t* L_40 = V_1;
-		bool L_41;
-		L_41 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_40, _stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B, NULL);
-		if (L_41)
-		{
-			goto IL_03fd;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_01db:
-	{
-		String_t* L_42 = V_1;
-		bool L_43;
-		L_43 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_42, _stringLiteral1B024D537329B86AB0DF96B2A714180F442F53E9, NULL);
-		if (L_43)
-		{
-			goto IL_0414;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_01f0:
-	{
-		String_t* L_44 = V_1;
-		bool L_45;
-		L_45 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_44, _stringLiteralEF65109317E1DF79845D5868309B0E9BFB10384B, NULL);
-		if (L_45)
-		{
-			goto IL_042b;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0205:
-	{
-		String_t* L_46 = V_1;
-		bool L_47;
-		L_47 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_46, _stringLiteral038B9C7914B4F5565F9D2DD1F7E0B346B50E4FA7, NULL);
-		if (L_47)
-		{
-			goto IL_0442;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_021a:
-	{
-		String_t* L_48 = V_1;
-		bool L_49;
-		L_49 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_48, _stringLiteral4443C70B3183C8BACC25EFE8D0B6ADBFFF8139FF, NULL);
-		if (L_49)
-		{
-			goto IL_0459;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_022f:
-	{
-		String_t* L_50 = V_1;
-		bool L_51;
-		L_51 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_50, _stringLiteral88BEF2219C9F78FE4C09207E72A3A0538D70522F, NULL);
-		if (L_51)
-		{
-			goto IL_0470;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0244:
-	{
-		String_t* L_52 = V_1;
-		bool L_53;
-		L_53 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_52, _stringLiteralF1343DC9A4902B963209412495148EE532A73DEF, NULL);
-		if (L_53)
-		{
-			goto IL_0487;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0259:
-	{
-		String_t* L_54 = V_1;
-		bool L_55;
-		L_55 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_54, _stringLiteralF1339A0A7019BCB976947C2D08A24450598124CF, NULL);
-		if (L_55)
-		{
-			goto IL_049e;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_026e:
-	{
-		String_t* L_56 = V_1;
-		bool L_57;
-		L_57 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_56, _stringLiteralB15828A904AB53E17469DBF5A4ABBF8B5164AB28, NULL);
-		if (L_57)
-		{
-			goto IL_04b5;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0283:
-	{
-		String_t* L_58 = V_1;
-		bool L_59;
-		L_59 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_58, _stringLiteral7A5BB2AA8ED2CE5942DF517BE8AF9006DBC25357, NULL);
-		if (L_59)
-		{
-			goto IL_04cc;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0298:
-	{
-		String_t* L_60 = V_1;
-		bool L_61;
-		L_61 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_60, _stringLiteral7EAAB49310BF4909AB185E687EE1D1F4FECECB51, NULL);
-		if (L_61)
-		{
-			goto IL_04e3;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_02ad:
-	{
-		String_t* L_62 = V_1;
-		bool L_63;
-		L_63 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_62, _stringLiteralAC83591FA98F20B86EEFD70657E6ED44D556313C, NULL);
-		if (L_63)
-		{
-			goto IL_04fa;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_02c2:
-	{
-		String_t* L_64 = V_1;
-		bool L_65;
-		L_65 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_64, _stringLiteralF2B9DF9171C32A086DE79857720B1EEE049859B2, NULL);
-		if (L_65)
-		{
-			goto IL_0511;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_02d7:
-	{
-		String_t* L_66 = V_1;
-		bool L_67;
-		L_67 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_66, _stringLiteralD8D3C2194F3A8DDF93F0623BD1927FEEABACC8DE, NULL);
-		if (L_67)
-		{
-			goto IL_0528;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_02ec:
-	{
-		String_t* L_68 = V_1;
-		bool L_69;
-		L_69 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_68, _stringLiteral3A91D337442EA721D81265946B3502D017B35431, NULL);
-		if (L_69)
-		{
-			goto IL_053f;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0301:
-	{
-		String_t* L_70 = V_1;
-		bool L_71;
-		L_71 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_70, _stringLiteralC5F2406640F4F08577B3ADFE0B94DDC1B821F406, NULL);
-		if (L_71)
-		{
-			goto IL_0556;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0316:
-	{
-		String_t* L_72 = V_1;
-		bool L_73;
-		L_73 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_72, _stringLiteral91EA72444038CB2DF6CD7169DDC36D970C608580, NULL);
-		if (L_73)
-		{
-			goto IL_0568;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_032b:
-	{
-		String_t* L_74 = V_1;
-		bool L_75;
-		L_75 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_74, _stringLiteral445672210322BF6A27776AA5980F90EAFCF22E8E, NULL);
-		if (L_75)
-		{
-			goto IL_057f;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0340:
-	{
-		String_t* L_76 = V_1;
-		bool L_77;
-		L_77 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_76, _stringLiteral61E2E1B35D38D87FE73CDFEAA02EA8014FB8BC41, NULL);
-		if (L_77)
-		{
-			goto IL_0596;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0355:
-	{
-		String_t* L_78 = V_1;
-		bool L_79;
-		L_79 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_78, _stringLiteralDEAE713DF83A3A752895E5EC7ED2E28AEED2EA0A, NULL);
-		if (L_79)
-		{
-			goto IL_05ad;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_036a:
-	{
-		String_t* L_80 = V_1;
-		bool L_81;
-		L_81 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_80, _stringLiteral98FFDEF5B80911AB67760FFFA9785DDD6BA91CDE, NULL);
-		if (L_81)
-		{
-			goto IL_05c4;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_037f:
-	{
-		String_t* L_82 = V_1;
-		bool L_83;
-		L_83 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_82, _stringLiteralCBD01100EAC4B5729FA86B78163C192541140D1D, NULL);
-		if (L_83)
-		{
-			goto IL_05d8;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_0394:
-	{
-		String_t* L_84 = V_1;
-		bool L_85;
-		L_85 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_84, _stringLiteral75F43404387B0DD1D93B4E0D201F2AD83FD02176, NULL);
-		if (L_85)
-		{
-			goto IL_05ec;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_03a9:
-	{
-		String_t* L_86 = V_1;
-		bool L_87;
-		L_87 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_86, _stringLiteral1EBE1EAAA5EE95D55EC360B8DA659C0ACABC623E, NULL);
-		if (L_87)
-		{
-			goto IL_0600;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_03be:
-	{
-		String_t* L_88 = V_1;
-		bool L_89;
-		L_89 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_88, _stringLiteral395FE53770E7E93DC3BB5CF6FD9CECF13AA5C36D, NULL);
-		if (L_89)
-		{
-			goto IL_0614;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_03d3:
-	{
-		String_t* L_90 = V_1;
-		bool L_91;
-		L_91 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_90, _stringLiteralEA2E49EE262F11DB28AE7EBC29DB82C6EE9557F9, NULL);
-		if (L_91)
-		{
-			goto IL_0628;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_03e8:
-	{
-		String_t* L_92 = V_1;
-		bool L_93;
-		L_93 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_92, _stringLiteral5506962CD736328B4844CD75A860794FE5B29F07, NULL);
-		if (L_93)
-		{
-			goto IL_063c;
-		}
-	}
-	{
-		goto IL_0650;
-	}
-
-IL_03fd:
-	{
-		// instance.enabled = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_94 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_95 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_94);
-		bool L_96;
-		L_96 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_94, L_95);
-		NoiseModule_set_enabled_m2BC18924D45F2AB9E6D7558A299B06C42FE0E655((&V_0), L_96, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0414:
-	{
-		// instance.separateAxes = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_97 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_98 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_97);
-		bool L_99;
-		L_99 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_97, L_98);
-		NoiseModule_set_separateAxes_m5F43E425E30079428CA258EF8A3CDD73827B6E4E((&V_0), L_99, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_042b:
-	{
-		// instance.strength = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_100 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_101 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_100);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_102;
-		L_102 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_100, L_101);
-		NoiseModule_set_strength_m244E401B03D2704B76D7F98F8C393EE47D8D0812((&V_0), L_102, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0442:
-	{
-		// instance.strengthMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_103 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_104 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_103);
-		float L_105;
-		L_105 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_103, L_104);
-		NoiseModule_set_strengthMultiplier_mFE019DCE55E1D8C470207E4224E1BA5D094DA357((&V_0), L_105, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0459:
-	{
-		// instance.strengthX = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_106 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_107 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_106);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_108;
-		L_108 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_106, L_107);
-		NoiseModule_set_strengthX_m8FE8C66343B2F98B266F60DDC9CDEEF2939FED16((&V_0), L_108, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0470:
-	{
-		// instance.strengthXMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_109 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_110 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_109);
-		float L_111;
-		L_111 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_109, L_110);
-		NoiseModule_set_strengthXMultiplier_m87EDC350B40F36A41BFE2D7639D811CA596DFEB2((&V_0), L_111, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0487:
-	{
-		// instance.strengthY = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_112 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_113 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_112);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_114;
-		L_114 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_112, L_113);
-		NoiseModule_set_strengthY_m3B1AF971AB432E3BCF0CFF1DDAB56919D5062D1F((&V_0), L_114, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_049e:
-	{
-		// instance.strengthYMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_115 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_116 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_115);
-		float L_117;
-		L_117 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_115, L_116);
-		NoiseModule_set_strengthYMultiplier_mBF7AC9D5A4D367BF84F069D21FD20D5E97A57D89((&V_0), L_117, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_04b5:
-	{
-		// instance.strengthZ = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_118 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_119 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_118);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_120;
-		L_120 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_118, L_119);
-		NoiseModule_set_strengthZ_m517559EFC9F1CC4F172639D73971458CBDDD0143((&V_0), L_120, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_04cc:
-	{
-		// instance.strengthZMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_121 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_122 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_121);
-		float L_123;
-		L_123 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_121, L_122);
-		NoiseModule_set_strengthZMultiplier_m9403AB9A084216F42665501426AD26B0E88305C4((&V_0), L_123, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_04e3:
-	{
-		// instance.frequency = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_124 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_125 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_124);
-		float L_126;
-		L_126 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_124, L_125);
-		NoiseModule_set_frequency_m70759B0A2D3852CF45F5F387C14F9AEA25E3E828((&V_0), L_126, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_04fa:
-	{
-		// instance.damping = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_127 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_128 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_127);
-		bool L_129;
-		L_129 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_127, L_128);
-		NoiseModule_set_damping_m121F36B4B2B44302EE91CD14DF9041EEB6CC35C3((&V_0), L_129, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0511:
-	{
-		// instance.octaveCount = reader.Read<System.Int32>(ES3Type_int.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_130 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_131 = ((ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_130);
-		int32_t L_132;
-		L_132 = GenericVirtualFuncInvoker1< int32_t, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var, L_130, L_131);
-		NoiseModule_set_octaveCount_m894782C18FEA785F023F311F597EFE58B43B1C55((&V_0), L_132, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0528:
-	{
-		// instance.octaveMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_133 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_134 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_133);
-		float L_135;
-		L_135 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_133, L_134);
-		NoiseModule_set_octaveMultiplier_m42720D4CD59B435AAAE4FC93DEB3A83ADA9C3FBB((&V_0), L_135, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_053f:
-	{
-		// instance.octaveScale = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_136 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_137 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_136);
-		float L_138;
-		L_138 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_136, L_137);
-		NoiseModule_set_octaveScale_m6C66795C9BE24401D80D79792F971DC51C4FCEFA((&V_0), L_138, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0556:
-	{
-		// instance.quality = reader.Read<UnityEngine.ParticleSystemNoiseQuality>();
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_139 = ___0_reader;
-		NullCheck(L_139);
-		int32_t L_140;
-		L_140 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemNoiseQuality_tC6DC0BFAA4AF9CD37103CC2CC216C43FC016E924_m22221BA19E2BDFA5111FBD7C66E17FF73767025E_RuntimeMethod_var, L_139);
-		NoiseModule_set_quality_m40D2AAC19BE53F0BF9A41A9761D1E940438C8AC4((&V_0), L_140, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0568:
-	{
-		// instance.scrollSpeed = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_141 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_142 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_141);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_143;
-		L_143 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_141, L_142);
-		NoiseModule_set_scrollSpeed_m205B2E8602998D007EFA9F550C633F30633FB6DC((&V_0), L_143, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_057f:
-	{
-		// instance.scrollSpeedMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_144 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_145 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_144);
-		float L_146;
-		L_146 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_144, L_145);
-		NoiseModule_set_scrollSpeedMultiplier_m849996D65CC65FB5D3C525ADCAF5119E5B4CBF14((&V_0), L_146, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0596:
-	{
-		// instance.remapEnabled = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_147 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_148 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_147);
-		bool L_149;
-		L_149 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_147, L_148);
-		NoiseModule_set_remapEnabled_mA5571C98B13D8839E801A65B0A628E41B462E395((&V_0), L_149, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_05ad:
-	{
-		// instance.remap = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_150 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_151 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_150);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_152;
-		L_152 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_150, L_151);
-		NoiseModule_set_remap_m3C8B3AC1CEB098D957CF6BC8F1A522953ED9F439((&V_0), L_152, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_05c4:
-	{
-		// instance.remapMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_153 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_154 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_153);
-		float L_155;
-		L_155 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_153, L_154);
-		NoiseModule_set_remapMultiplier_mCB638181B26CF82A61C17E3F0D6D6E63C561E9C4((&V_0), L_155, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_05d8:
-	{
-		// instance.remapX = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_156 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_157 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_156);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_158;
-		L_158 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_156, L_157);
-		NoiseModule_set_remapX_m15ADCD92890B6C21A29E06C438CA20C6A99D01AA((&V_0), L_158, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_05ec:
-	{
-		// instance.remapXMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_159 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_160 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_159);
-		float L_161;
-		L_161 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_159, L_160);
-		NoiseModule_set_remapXMultiplier_m4C5B29FEC2B917E5AAD4A59DFF163517A886F347((&V_0), L_161, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0600:
-	{
-		// instance.remapY = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_162 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_163 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_162);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_164;
-		L_164 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_162, L_163);
-		NoiseModule_set_remapY_mD04EB94428E91D6C4839CC20ABFC19A42B9F7F6E((&V_0), L_164, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0614:
-	{
-		// instance.remapYMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_165 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_166 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_165);
-		float L_167;
-		L_167 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_165, L_166);
-		NoiseModule_set_remapYMultiplier_m8316E402501D85E1B9796FDF8C8A6DAE07B49325((&V_0), L_167, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0628:
-	{
-		// instance.remapZ = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_168 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_169 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_168);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_170;
-		L_170 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_168, L_169);
-		NoiseModule_set_remapZ_mAE7A90C23BFD7E10D2C53981911572AC8A2B5541((&V_0), L_170, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_063c:
-	{
-		// instance.remapZMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_171 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_172 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_171);
-		float L_173;
-		L_173 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_171, L_172);
-		NoiseModule_set_remapZMultiplier_mCEDE52028CD07D0F6ABBEC5F6985416217E57F42((&V_0), L_173, NULL);
-		// break;
-		goto IL_0656;
-	}
-
-IL_0650:
-	{
-		// reader.Skip();
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_174 = ___0_reader;
-		NullCheck(L_174);
-		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_174);
-	}
-
-IL_0656:
-	{
-		// while((propertyName = reader.ReadPropertyName()) != null)
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_175 = ___0_reader;
-		NullCheck(L_175);
-		String_t* L_176;
-		L_176 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_175);
-		String_t* L_177 = L_176;
-		V_1 = L_177;
-		if (L_177)
-		{
-			goto IL_000c;
-		}
-	}
-	{
-		// }
-		return;
-	}
-}
-// System.Void ES3Types.ES3Type_NoiseModule::ReadInto<UnityEngine.ParticleSystem/EmissionModule>(ES3Reader,System.Object)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_NoiseModule_ReadInto_TisEmissionModule_t0F469FA4A08003F6D9C610D2F716A9DFDB9A3678_m027FA9E494EBDB58DDF0C9080359505D605853EA_gshared (ES3Type_NoiseModule_t998B4A42542B685DF3AAB803DCC33F658BBE0B04* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)

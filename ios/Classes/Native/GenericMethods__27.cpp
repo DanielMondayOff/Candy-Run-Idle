@@ -41,6 +41,18 @@ struct VirtualFuncInvoker0
 		return ((Func)invokeData.methodPtr)(obj, invokeData.method);
 	}
 };
+template <typename T1>
+struct GenericVirtualActionInvoker1
+{
+	typedef void (*Action)(void*, T1, const RuntimeMethod*);
+
+	static inline void Invoke (const RuntimeMethod* method, RuntimeObject* obj, T1 p1)
+	{
+		VirtualInvokeData invokeData;
+		il2cpp_codegen_get_generic_virtual_invoke_data(method, obj, &invokeData);
+		((Action)invokeData.methodPtr)(obj, p1, invokeData.method);
+	}
+};
 template <typename T1, typename T2>
 struct GenericVirtualActionInvoker2
 {
@@ -99,14 +111,28 @@ struct InterfaceFuncInvoker0
 	}
 };
 
+// System.Collections.Generic.HashSet`1<ES3Internal.ES3ReferenceMgrBase>
+struct HashSet_1_t0158E5AAE7FB98897A8BB7020CDE5326B1451AF0;
+// System.Collections.Generic.List`1<ES3Internal.ES3Prefab>
+struct List_1_tE486319846BE0263BA39D26C970BF7F6BF000992;
 // System.Collections.Generic.List`1<UnityEngine.UI.Image>
 struct List_1_tE6BB71ABF15905EFA2BE92C38A2716547AEADB19;
 // UnityEngine.UI.CoroutineTween.TweenRunner`1<UnityEngine.UI.CoroutineTween.ColorTween>
 struct TweenRunner_1_t5BB0582F926E75E2FE795492679A6CF55A4B4BC4;
 // ES3Internal.ES3Member[]
 struct ES3MemberU5BU5D_t5320E3A904B7810CCE7F613C15284E403EAEF8DC;
+// UnityEngine.GradientAlphaKey[]
+struct GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E;
+// UnityEngine.GradientColorKey[]
+struct GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18;
+// System.IntPtr[]
+struct IntPtrU5BU5D_tFD177F8C806A6921AD7150264CCC62FA00CAD832;
 // System.Object[]
 struct ObjectU5BU5D_t8061030B0A12A55D5AD8652A20C922FE99450918;
+// System.Diagnostics.StackTrace[]
+struct StackTraceU5BU5D_t32FBCB20930EAF5BAE3F450FF75228E5450DA0DF;
+// System.Type[]
+struct TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB;
 // UnityEngine.Vector2[]
 struct Vector2U5BU5D_tFEBBC94BCC6C9C88277BA04047D2B3FDB6ED7FDA;
 // UnityEngine.Vector3[]
@@ -115,16 +141,32 @@ struct Vector3U5BU5D_tFF1859CCE176131B909E2044F76443064254679C;
 struct AnimationCurve_tCBFFAAD05CEBB35EF8D8631BD99914BE1A6BB354;
 // UnityEngine.Behaviour
 struct Behaviour_t01970CFBBA658497AE30F311C447DB0440BAB7FA;
+// System.Reflection.Binder
+struct Binder_t91BFCE95A7057FADF4D8A1A342AFE52872246235;
 // UnityEngine.Canvas
 struct Canvas_t2DB4CEFDFF732884866C83F11ABF75F5AE8FFB26;
 // UnityEngine.CanvasRenderer
 struct CanvasRenderer_tAB9A55A976C4E3B2B37D0CE5616E5685A8B43860;
+// ES3Internal.ES3IdRefDictionary
+struct ES3IdRefDictionary_t43D9EA30B527E8A846606DB754AC2A0B679C3F35;
 // ES3Reader
 struct ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B;
+// ES3Internal.ES3RefIdDictionary
+struct ES3RefIdDictionary_t0D669FD883AC932EA94C96AF5F5B3CA217019068;
+// ES3Internal.ES3ReferenceMgrBase
+struct ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9;
 // ES3Settings
 struct ES3Settings_t65AC4582C03C21A9D3090FE498071C470A130BF2;
 // ES3Types.ES3Type
 struct ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE;
+// ES3Types.ES3Type_ForceOverLifetimeModule
+struct ES3Type_ForceOverLifetimeModule_tEB39AA7CA8489DF9C2BC3DD1E5980D5D4226103D;
+// ES3Types.ES3Type_GameObject
+struct ES3Type_GameObject_tC1960F2F6CCFE9F26418AD22D1D18870BE1DE6A4;
+// ES3Types.ES3Type_Gradient
+struct ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5;
+// ES3Types.ES3Type_GradientAlphaKey
+struct ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1;
 // ES3Types.ES3Type_GradientColorKey
 struct ES3Type_GradientColorKey_tB03021E575CD75D019172CE503F059182FBF6F10;
 // ES3Types.ES3Type_Guid
@@ -145,12 +187,18 @@ struct ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B;
 struct ES3Type_LightsModule_t6C4B2237386396F333FAE9A74A25FBF42F8F9017;
 // UnityEngine.Flare
 struct Flare_t9DCE15756AD8F104B1D9024509B30E46FEF124C8;
+// UnityEngine.GameObject
+struct GameObject_t76FEDD663AB33C991A9C9A23129337651094216F;
 // UnityEngine.Gradient
 struct Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E;
+// System.Collections.IDictionary
+struct IDictionary_t6D03155AF1FA9083817AA5B6AD7DEEACC26AB220;
 // System.Collections.IEnumerator
 struct IEnumerator_t7B609C2FFA6EB5167D9C62A0C32A21DE2F666DAA;
 // UnityEngine.UI.Image
 struct Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E;
+// System.InvalidOperationException
+struct InvalidOperationException_t5DDE4D49B7405FAAB1E4576F4715A42A3FAD4BAB;
 // UnityEngine.Events.InvokableCallList
 struct InvokableCallList_t309E1C8C7CE885A0D2F98C84CEA77A8935688382;
 // UnityEngine.Light
@@ -159,6 +207,8 @@ struct Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3;
 struct MaskableGraphic_tFC5B6BE351C90DE53744DF2A70940242774B361E;
 // UnityEngine.Material
 struct Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3;
+// System.Reflection.MemberFilter
+struct MemberFilter_tF644F1AE82F611B677CE1964D5A3277DDA21D553;
 // UnityEngine.Mesh
 struct Mesh_t6D9C539763A09BC2B12AEAEF36F6DFFC98AE63D4;
 // UnityEngine.MonoBehaviour
@@ -169,10 +219,14 @@ struct Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C;
 struct ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1;
 // UnityEngine.Events.PersistentCallGroup
 struct PersistentCallGroup_tB826EDF15DC80F71BCBCD8E410FD959A04C33F25;
+// System.Random
+struct Random_t79716069EDE67D1D7734F60AE402D0CA3FB6B4C8;
 // UnityEngine.UI.RectMask2D
 struct RectMask2D_tACF92BE999C791A665BD1ADEABF5BCEB82846670;
 // UnityEngine.RectTransform
 struct RectTransform_t6C5DA5E41A89E0F488B001E45E58963480E543A5;
+// System.Runtime.Serialization.SafeSerializationManager
+struct SafeSerializationManager_tCBB85B95DFD1634237140CD892E82D06ECB3F5E6;
 // UnityEngine.Sprite
 struct Sprite_tAFF74BC83CD68037494CB0B4F28CBDF8971CAB99;
 // System.String
@@ -181,6 +235,8 @@ struct String_t;
 struct Texture_t791CBB51219779964E0E8A2ED7C1AA5F92A4A700;
 // UnityEngine.Texture2D
 struct Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4;
+// UnityEngine.Transform
+struct Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1;
 // System.Type
 struct Type_t;
 // UnityEngine.Events.UnityAction
@@ -195,7 +251,12 @@ struct ES3ReaderPropertyEnumerator_tF9A132CC74810289A45CB0F31DFD50B506CED09A;
 struct CullStateChangedEvent_t6073CD0D951EC1256BF74B8F9107D68FC89B99B8;
 
 IL2CPP_EXTERN_C RuntimeClass* Boolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* ES3TypeMgr_t2059E7C8FA1F7EAE15CE82B787581AA45D1BCC54_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* ES3Type_ES3PrefabInternal_t0A75647DEDA525454C3B32E42D439624650BCCF9_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* ES3Type_Material_t60AA0029AE3738375B427D1D6C5004D0B4728BC6_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var;
@@ -205,45 +266,67 @@ IL2CPP_EXTERN_C RuntimeClass* ES3Type_enum_tDDA9DC1B8A325D31B6542A0EC3D419A7E01C
 IL2CPP_EXTERN_C RuntimeClass* ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* ES3Type_string_tEE4C8F55053F345064CB52CE0C28F6E31830D3D3_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* GameObject_t76FEDD663AB33C991A9C9A23129337651094216F_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Guid_t_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* IDisposable_t030E0496B4E0E4E4F086825007979AF51F7248C5_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* IEnumerator_t7B609C2FFA6EB5167D9C62A0C32A21DE2F666DAA_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* InheritVelocityModule_tB71B2EDCAF328647DDB6BC79541D7C5E76C19562_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* IntPtr_t_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* InvalidOperationException_t5DDE4D49B7405FAAB1E4576F4715A42A3FAD4BAB_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Keyframe_tB9C67DCBFE10C0AE9C52CB5C66E944255C9254F0_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* LayerMask_t97CB6BDADEDC3D6423C7BCFEA7F86DA2EC6241DB_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C RuntimeClass* Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var;
 IL2CPP_EXTERN_C RuntimeClass* String_t_il2cpp_TypeInfo_var;
+IL2CPP_EXTERN_C String_t* _stringLiteral00EE2035D1C1084808BE268F9D59D68FF8B3154B;
 IL2CPP_EXTERN_C String_t* _stringLiteral0328E4C169674B568EFB792EBE915956BAD34591;
 IL2CPP_EXTERN_C String_t* _stringLiteral05CAACB43AE60632DFAEDD8AFD98A0C279C2A0F7;
+IL2CPP_EXTERN_C String_t* _stringLiteral062DB096C728515E033CF8C48A1C1F0B9A79384B;
 IL2CPP_EXTERN_C String_t* _stringLiteral072FD16FCD5FDEE6DF9288BBCA5AFBFA16B04581;
 IL2CPP_EXTERN_C String_t* _stringLiteral0CC00500118DA98B6C014B8C1B86E718F29753C1;
 IL2CPP_EXTERN_C String_t* _stringLiteral1057AAF5EE3CDF423CF6BCC588476E559687CDE6;
+IL2CPP_EXTERN_C String_t* _stringLiteral14726239567BD9C665FF32AAD1C578583B8D23E5;
 IL2CPP_EXTERN_C String_t* _stringLiteral14D90B05F1E6A953500F5EA60AB1C8785F81FDC9;
 IL2CPP_EXTERN_C String_t* _stringLiteral227C22F51E4B6583CFC54387461605DDBBB00D14;
 IL2CPP_EXTERN_C String_t* _stringLiteral2AC7F98E5022908E09788532C95599452352D34A;
 IL2CPP_EXTERN_C String_t* _stringLiteral2DF6BE039619B8C79CFE5623304A49915B93C4F8;
+IL2CPP_EXTERN_C String_t* _stringLiteral2F8690361553406965679AEF125F896BC5FC61F5;
 IL2CPP_EXTERN_C String_t* _stringLiteral3450A2BB8216F70D528215A296AEDB3D212C7EED;
 IL2CPP_EXTERN_C String_t* _stringLiteral3D90276AC22457A8BF64ADE21D38391EA08E282A;
+IL2CPP_EXTERN_C String_t* _stringLiteral406C5B69EBEF916B4FB4B17F8F5F5F0B5BA6565D;
 IL2CPP_EXTERN_C String_t* _stringLiteral40B9968876DFBA959A505AA3EC0E9D9D26C14E45;
 IL2CPP_EXTERN_C String_t* _stringLiteral44B679A4FEA54FC0DBB1CECD512FC3FCFFE445F4;
 IL2CPP_EXTERN_C String_t* _stringLiteral46F273EF641E07D271D91E0DC24A4392582671F8;
 IL2CPP_EXTERN_C String_t* _stringLiteral4845015737DC41475709911228278216EE4DC3AF;
+IL2CPP_EXTERN_C String_t* _stringLiteral4B247C13053AB16D1668B60F2A407C881E8EEC64;
+IL2CPP_EXTERN_C String_t* _stringLiteral4B289DF8867DF87B3704A5D40028776AE05B2CFB;
 IL2CPP_EXTERN_C String_t* _stringLiteral509D57D2D3AC4C6FAE8D21D19FF2B9D787C81954;
 IL2CPP_EXTERN_C String_t* _stringLiteral52D353FB908B8123B513952855EB88F081A1A06A;
 IL2CPP_EXTERN_C String_t* _stringLiteral543DF576B25A766BF2794443DFD117351B5FD4A8;
 IL2CPP_EXTERN_C String_t* _stringLiteral5828D05DE5A70D7EFBBA4D58EC00343F3E9A6AB8;
 IL2CPP_EXTERN_C String_t* _stringLiteral5C72E9556FB79F24E1412FC01F0728F363348949;
 IL2CPP_EXTERN_C String_t* _stringLiteral60126327537B7B8E6EE33C43FE0C5CA8BCC3A06A;
+IL2CPP_EXTERN_C String_t* _stringLiteral61E82DA0446E729A1FD7BFC40790DE0A9C8C65EA;
 IL2CPP_EXTERN_C String_t* _stringLiteral629998EE8A4BEB3AD2F947D3D95862F0F22227B2;
 IL2CPP_EXTERN_C String_t* _stringLiteral6BB583963232F37A0FF4AE07B9A25FBD839D39A3;
 IL2CPP_EXTERN_C String_t* _stringLiteral6C9DED8087C891AE33ACFFCE806DBFF63795F56F;
+IL2CPP_EXTERN_C String_t* _stringLiteral72A731D064EB75DC3D80E1718EA650C90C3D0EA9;
+IL2CPP_EXTERN_C String_t* _stringLiteral734D834219E25F6AC949E3C4A33AA80BB578DC1A;
 IL2CPP_EXTERN_C String_t* _stringLiteral74755E5875E97ED362B5BF8BC9FA5F7F3F45080C;
 IL2CPP_EXTERN_C String_t* _stringLiteral77682CE598EDE490DCDE276E250422EA9BEA739F;
+IL2CPP_EXTERN_C String_t* _stringLiteral85548395928C7261DFC929F8E4DCA42310D46F8F;
+IL2CPP_EXTERN_C String_t* _stringLiteral8C6F88DEE0DFE3513BB8B44A8CF0FEE437F4EFFB;
+IL2CPP_EXTERN_C String_t* _stringLiteral9384C6EF2DA5C0BD5274A0DACFF291D0ABBFD8B1;
 IL2CPP_EXTERN_C String_t* _stringLiteral93C208E83E88E77020CE91612101CB879A8EE914;
+IL2CPP_EXTERN_C String_t* _stringLiteral9CE1604D659135925CCC4DD1F526AFFE42E689F1;
+IL2CPP_EXTERN_C String_t* _stringLiteral9E61658953B4F9BB4A05E3D2D2BC18990BADE934;
+IL2CPP_EXTERN_C String_t* _stringLiteral9FF7A8A0CF603B20A1F5510A7D95439FF5AF3A56;
 IL2CPP_EXTERN_C String_t* _stringLiteralA2DB56FF90ECEEEC49C5E8C66FCD72DF2771D010;
 IL2CPP_EXTERN_C String_t* _stringLiteralA5C933C3A8FFEEDCA056E433AD8C52F89A0D82D2;
 IL2CPP_EXTERN_C String_t* _stringLiteralA7BDB785A56A806C6EBDCF6CE22AC54527D67A72;
@@ -255,18 +338,25 @@ IL2CPP_EXTERN_C String_t* _stringLiteralC220E5ABB03B498FA9E8AE08256C71E0C463D910
 IL2CPP_EXTERN_C String_t* _stringLiteralC2D2CD4FCE3637EFAB02ED989C6D1CD37B7FDC2F;
 IL2CPP_EXTERN_C String_t* _stringLiteralC54638A97A3D6853F9D015A20E04AE7EEE96CE3C;
 IL2CPP_EXTERN_C String_t* _stringLiteralC960A835F875EC8DC4DAE61D11CE089EF2BF8416;
+IL2CPP_EXTERN_C String_t* _stringLiteralCE18B047107AA23D1AA9B2ED32D316148E02655F;
 IL2CPP_EXTERN_C String_t* _stringLiteralD3693DEC20B7D59C7D81A9ED461E4A90888F5492;
 IL2CPP_EXTERN_C String_t* _stringLiteralD3DAE436D34E1BFB3B81BD5C319049A2E9F9BF3D;
 IL2CPP_EXTERN_C String_t* _stringLiteralD42593B36009988B7DFCED5665C5E429C09E1B1B;
 IL2CPP_EXTERN_C String_t* _stringLiteralD6CDC595B4AC4C195FE6D150D773C11621CB1B0B;
 IL2CPP_EXTERN_C String_t* _stringLiteralD7365A084921FB0EE98C5197247132620727BAD9;
+IL2CPP_EXTERN_C String_t* _stringLiteralD89836A6E8D87268C1D78D21683335C964F2ECCB;
 IL2CPP_EXTERN_C String_t* _stringLiteralDD0F04E0A3F0BA1F904E0E27720F367F4228C69D;
 IL2CPP_EXTERN_C String_t* _stringLiteralDDDFAED6662866BB4093459B94D0D0AFC4756ED6;
+IL2CPP_EXTERN_C String_t* _stringLiteralE1291C4D47635E327ECFE39842BD1A93F58C61A2;
 IL2CPP_EXTERN_C String_t* _stringLiteralEFE5CC21BFBE09498A868CDF341E3DD037864F0B;
 IL2CPP_EXTERN_C String_t* _stringLiteralF3C6C902DBF80139640F6554F0C3392016A8ADF7;
+IL2CPP_EXTERN_C String_t* _stringLiteralF7C03E97995F6950303A46C204A216735E6B4582;
 IL2CPP_EXTERN_C String_t* _stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B;
 IL2CPP_EXTERN_C String_t* _stringLiteralFF1FCA243EC6560E19277456101964385EA36D01;
+IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_ReadInto_TisGameObject_t76FEDD663AB33C991A9C9A23129337651094216F_m181EE4054D416078E82D9A47DC2A0AB4AC28E018_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_ReadProperty_TisString_t_m3F39A4B1CB3E98162E7636CBAB12F69DAE28E5F6_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var;
@@ -275,6 +365,9 @@ IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_Read_TisColor_tD001788D726C3A7F13
 IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_Read_TisCullStateChangedEvent_t6073CD0D951EC1256BF74B8F9107D68FC89B99B8_m73F51B57F02EAF4411CA7269B8B36FFB61A710E9_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_Read_TisFillMethod_t36837ED12068DF1582CC20489D571B0BCAA7AD19_mC7D08B29E57468299E9FC2AA0F6E2F38B46E2DE6_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_Read_TisFlare_t9DCE15756AD8F104B1D9024509B30E46FEF124C8_m8C498CB0040FB51CA7F6DD590C0778B1A378F6C3_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_Read_TisGameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF_m34A1A8D80B254890396A8CFE24D06B5864CC1F96_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_Read_TisGameObject_t76FEDD663AB33C991A9C9A23129337651094216F_m88F5AE4F47F57108F2D11503B0CF0F3A8B39DE95_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_Read_TisHideFlags_tC514182ACEFD3B847988C45D5DB812FF6DB1BF4A_m4CE4E7FFBFD072F67381630FE2B482D488B7513D_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_Read_TisHideFlags_tC514182ACEFD3B847988C45D5DB812FF6DB1BF4A_mAD145C79A94F1FF793F1788ECCFDAD436FAAF5B1_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var;
@@ -286,11 +379,19 @@ IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_Read_TisLight_t1E68479B7782AF2050
 IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_Read_TisMaterial_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3_m7FEA24B84D907CF156B4011CB6208112FA4AFD52_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_Read_TisParticleSystemInheritVelocityMode_tEFEBF61C842DBA3D2B2A02250E9342B9E9BB8550_mCF366260E58A77C2BB5842986A9297EEC0C94679_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_Read_TisParticleSystemSimulationSpace_tB3693D8A3C0FCE63D060546071006AC4ABC60B05_m053F1F4CA188B1945189ACC22015EDAB6E2C89E3_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_Read_TisSprite_tAFF74BC83CD68037494CB0B4F28CBDF8971CAB99_m57987108AA25694462069F74A68455A0721D37BC_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_Read_TisString_t_m8512BF9EA1392BE2CA7E9A116D833D533495E1D6_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_Read_TisTexture_t791CBB51219779964E0E8A2ED7C1AA5F92A4A700_mBD1E6E8D27E20974F0FBAD1F0D11A8313AB9106E_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* ES3Reader_Read_TisType_t81D6F138C2FC745112D5247CD91BD483EDFFC041_m770E52A527A852F2C3D2E60B61720529827C345F_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* ES3Type_GameObject_ReadObject_TisRuntimeObject_m89C2CCDA55BF1716D0226557499E9192C58BC8FA_RuntimeMethod_var;
+struct Exception_t_marshaled_com;
+struct Exception_t_marshaled_pinvoke;
 
+struct GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF;
+struct GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E;
+struct GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18;
 
 IL2CPP_EXTERN_C_BEGIN
 IL2CPP_EXTERN_C_END
@@ -339,6 +440,11 @@ struct ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE  : public RuntimeObject
 	bool ___isUnsupported_11;
 	// System.Int32 ES3Types.ES3Type::priority
 	int32_t ___priority_12;
+};
+
+// System.Reflection.MemberInfo
+struct MemberInfo_t  : public RuntimeObject
+{
 };
 
 // System.String
@@ -415,6 +521,13 @@ struct Color_tD001788D726C3A7F1379BEED0260B9591F440C1F
 	float ___a_3;
 };
 
+// ES3Types.ES3CollectionType
+struct ES3CollectionType_t44F700ABD9762AA11192E0508699C23DBF3DE151  : public ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE
+{
+	// ES3Types.ES3Type ES3Types.ES3CollectionType::elementType
+	ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* ___elementType_13;
+};
+
 // ES3Types.ES3ObjectType
 struct ES3ObjectType_tED2C85C0990B4C915D41A74652D5396676911EB6  : public ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE
 {
@@ -422,6 +535,26 @@ struct ES3ObjectType_tED2C85C0990B4C915D41A74652D5396676911EB6  : public ES3Type
 
 // ES3Types.ES3Type_Color
 struct ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41  : public ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE
+{
+};
+
+// ES3Types.ES3Type_ES3PrefabInternal
+struct ES3Type_ES3PrefabInternal_t0A75647DEDA525454C3B32E42D439624650BCCF9  : public ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE
+{
+};
+
+// ES3Types.ES3Type_ForceOverLifetimeModule
+struct ES3Type_ForceOverLifetimeModule_tEB39AA7CA8489DF9C2BC3DD1E5980D5D4226103D  : public ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE
+{
+};
+
+// ES3Types.ES3Type_Gradient
+struct ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5  : public ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE
+{
+};
+
+// ES3Types.ES3Type_GradientAlphaKey
+struct ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1  : public ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE
 {
 };
 
@@ -490,6 +623,15 @@ struct ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24  : public ES3Type_t
 // ES3Types.ES3Type_string
 struct ES3Type_string_tEE4C8F55053F345064CB52CE0C28F6E31830D3D3  : public ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE
 {
+};
+
+// UnityEngine.GradientAlphaKey
+struct GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 
+{
+	// System.Single UnityEngine.GradientAlphaKey::alpha
+	float ___alpha_0;
+	// System.Single UnityEngine.GradientAlphaKey::time
+	float ___time_1;
 };
 
 // System.Guid
@@ -726,6 +868,23 @@ struct Void_t4861ACF8F4594C3437BB48B6E56783494B843915
 	};
 };
 
+// UnityEngine.ParticleSystem/ForceOverLifetimeModule
+struct ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976 
+{
+	// UnityEngine.ParticleSystem UnityEngine.ParticleSystem/ForceOverLifetimeModule::m_ParticleSystem
+	ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* ___m_ParticleSystem_0;
+};
+// Native definition for P/Invoke marshalling of UnityEngine.ParticleSystem/ForceOverLifetimeModule
+struct ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976_marshaled_pinvoke
+{
+	ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* ___m_ParticleSystem_0;
+};
+// Native definition for COM marshalling of UnityEngine.ParticleSystem/ForceOverLifetimeModule
+struct ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976_marshaled_com
+{
+	ParticleSystem_tB19986EE308BD63D36FB6025EEEAFBEDB97C67C1* ___m_ParticleSystem_0;
+};
+
 // UnityEngine.ParticleSystem/InheritVelocityModule
 struct InheritVelocityModule_tB71B2EDCAF328647DDB6BC79541D7C5E76C19562 
 {
@@ -786,9 +945,108 @@ struct Bounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3
 	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_Extents_1;
 };
 
+// ES3Types.ES3ArrayType
+struct ES3ArrayType_t0E80C9BB43D4F280B99885B413307C9403534535  : public ES3CollectionType_t44F700ABD9762AA11192E0508699C23DBF3DE151
+{
+};
+
 // ES3Types.ES3UnityObjectType
 struct ES3UnityObjectType_t90799BAE6E6A8C07FDA0BC9DD339D71C31C5ADB6  : public ES3ObjectType_tED2C85C0990B4C915D41A74652D5396676911EB6
 {
+};
+
+// System.Exception
+struct Exception_t  : public RuntimeObject
+{
+	// System.String System.Exception::_className
+	String_t* ____className_1;
+	// System.String System.Exception::_message
+	String_t* ____message_2;
+	// System.Collections.IDictionary System.Exception::_data
+	RuntimeObject* ____data_3;
+	// System.Exception System.Exception::_innerException
+	Exception_t* ____innerException_4;
+	// System.String System.Exception::_helpURL
+	String_t* ____helpURL_5;
+	// System.Object System.Exception::_stackTrace
+	RuntimeObject* ____stackTrace_6;
+	// System.String System.Exception::_stackTraceString
+	String_t* ____stackTraceString_7;
+	// System.String System.Exception::_remoteStackTraceString
+	String_t* ____remoteStackTraceString_8;
+	// System.Int32 System.Exception::_remoteStackIndex
+	int32_t ____remoteStackIndex_9;
+	// System.Object System.Exception::_dynamicMethods
+	RuntimeObject* ____dynamicMethods_10;
+	// System.Int32 System.Exception::_HResult
+	int32_t ____HResult_11;
+	// System.String System.Exception::_source
+	String_t* ____source_12;
+	// System.Runtime.Serialization.SafeSerializationManager System.Exception::_safeSerializationManager
+	SafeSerializationManager_tCBB85B95DFD1634237140CD892E82D06ECB3F5E6* ____safeSerializationManager_13;
+	// System.Diagnostics.StackTrace[] System.Exception::captured_traces
+	StackTraceU5BU5D_t32FBCB20930EAF5BAE3F450FF75228E5450DA0DF* ___captured_traces_14;
+	// System.IntPtr[] System.Exception::native_trace_ips
+	IntPtrU5BU5D_tFD177F8C806A6921AD7150264CCC62FA00CAD832* ___native_trace_ips_15;
+	// System.Int32 System.Exception::caught_in_unmanaged
+	int32_t ___caught_in_unmanaged_16;
+};
+// Native definition for P/Invoke marshalling of System.Exception
+struct Exception_t_marshaled_pinvoke
+{
+	char* ____className_1;
+	char* ____message_2;
+	RuntimeObject* ____data_3;
+	Exception_t_marshaled_pinvoke* ____innerException_4;
+	char* ____helpURL_5;
+	Il2CppIUnknown* ____stackTrace_6;
+	char* ____stackTraceString_7;
+	char* ____remoteStackTraceString_8;
+	int32_t ____remoteStackIndex_9;
+	Il2CppIUnknown* ____dynamicMethods_10;
+	int32_t ____HResult_11;
+	char* ____source_12;
+	SafeSerializationManager_tCBB85B95DFD1634237140CD892E82D06ECB3F5E6* ____safeSerializationManager_13;
+	StackTraceU5BU5D_t32FBCB20930EAF5BAE3F450FF75228E5450DA0DF* ___captured_traces_14;
+	Il2CppSafeArray/*NONE*/* ___native_trace_ips_15;
+	int32_t ___caught_in_unmanaged_16;
+};
+// Native definition for COM marshalling of System.Exception
+struct Exception_t_marshaled_com
+{
+	Il2CppChar* ____className_1;
+	Il2CppChar* ____message_2;
+	RuntimeObject* ____data_3;
+	Exception_t_marshaled_com* ____innerException_4;
+	Il2CppChar* ____helpURL_5;
+	Il2CppIUnknown* ____stackTrace_6;
+	Il2CppChar* ____stackTraceString_7;
+	Il2CppChar* ____remoteStackTraceString_8;
+	int32_t ____remoteStackIndex_9;
+	Il2CppIUnknown* ____dynamicMethods_10;
+	int32_t ____HResult_11;
+	Il2CppChar* ____source_12;
+	SafeSerializationManager_tCBB85B95DFD1634237140CD892E82D06ECB3F5E6* ____safeSerializationManager_13;
+	StackTraceU5BU5D_t32FBCB20930EAF5BAE3F450FF75228E5450DA0DF* ___captured_traces_14;
+	Il2CppSafeArray/*NONE*/* ___native_trace_ips_15;
+	int32_t ___caught_in_unmanaged_16;
+};
+
+// UnityEngine.Gradient
+struct Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E  : public RuntimeObject
+{
+	// System.IntPtr UnityEngine.Gradient::m_Ptr
+	intptr_t ___m_Ptr_0;
+};
+// Native definition for P/Invoke marshalling of UnityEngine.Gradient
+struct Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_marshaled_pinvoke
+{
+	intptr_t ___m_Ptr_0;
+};
+// Native definition for COM marshalling of UnityEngine.Gradient
+struct Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_marshaled_com
+{
+	intptr_t ___m_Ptr_0;
 };
 
 // UnityEngine.GradientColorKey
@@ -815,6 +1073,13 @@ struct Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_marshaled_pinvoke
 struct Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_marshaled_com
 {
 	intptr_t ___m_CachedPtr_0;
+};
+
+// System.RuntimeTypeHandle
+struct RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B 
+{
+	// System.IntPtr System.RuntimeTypeHandle::value
+	intptr_t ___value_0;
 };
 
 // UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
@@ -847,6 +1112,23 @@ struct ES3ComponentType_t426927F5E0B9C7305FEF235C02C4FADD592255F0  : public ES3U
 {
 };
 
+// ES3Types.ES3Type_GameObject
+struct ES3Type_GameObject_tC1960F2F6CCFE9F26418AD22D1D18870BE1DE6A4  : public ES3UnityObjectType_t90799BAE6E6A8C07FDA0BC9DD339D71C31C5ADB6
+{
+	// System.Boolean ES3Types.ES3Type_GameObject::saveChildren
+	bool ___saveChildren_16;
+};
+
+// ES3Types.ES3Type_GradientAlphaKeyArray
+struct ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687  : public ES3ArrayType_t0E80C9BB43D4F280B99885B413307C9403534535
+{
+};
+
+// ES3Types.ES3Type_GradientColorKeyArray
+struct ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98  : public ES3ArrayType_t0E80C9BB43D4F280B99885B413307C9403534535
+{
+};
+
 // ES3Types.ES3Type_Material
 struct ES3Type_Material_t60AA0029AE3738375B427D1D6C5004D0B4728BC6  : public ES3UnityObjectType_t90799BAE6E6A8C07FDA0BC9DD339D71C31C5ADB6
 {
@@ -862,6 +1144,11 @@ struct Flare_t9DCE15756AD8F104B1D9024509B30E46FEF124C8  : public Object_tC12DECB
 {
 };
 
+// UnityEngine.GameObject
+struct GameObject_t76FEDD663AB33C991A9C9A23129337651094216F  : public Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C
+{
+};
+
 // UnityEngine.Material
 struct Material_t18053F08F347D0DCA5E1140EC7EC4533DD8A14E3  : public Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C
 {
@@ -872,9 +1159,21 @@ struct Sprite_tAFF74BC83CD68037494CB0B4F28CBDF8971CAB99  : public Object_tC12DEC
 {
 };
 
+// System.SystemException
+struct SystemException_tCC48D868298F4C0705279823E34B00F4FBDB7295  : public Exception_t
+{
+};
+
 // UnityEngine.Texture
 struct Texture_t791CBB51219779964E0E8A2ED7C1AA5F92A4A700  : public Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C
 {
+};
+
+// System.Type
+struct Type_t  : public MemberInfo_t
+{
+	// System.RuntimeTypeHandle System.Type::_impl
+	RuntimeTypeHandle_t332A452B8B6179E4469B69525D0FE82A88030F7B ____impl_8;
 };
 
 // UnityEngine.Behaviour
@@ -892,6 +1191,16 @@ struct ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B  : public ES3Comp
 {
 };
 
+// System.InvalidOperationException
+struct InvalidOperationException_t5DDE4D49B7405FAAB1E4576F4715A42A3FAD4BAB  : public SystemException_tCC48D868298F4C0705279823E34B00F4FBDB7295
+{
+};
+
+// UnityEngine.Transform
+struct Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1  : public Component_t39FBE53E5EFCF4409111FB22C15FF73717632EC3
+{
+};
+
 // UnityEngine.Light
 struct Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3  : public Behaviour_t01970CFBBA658497AE30F311C447DB0440BAB7FA
 {
@@ -902,6 +1211,21 @@ struct Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3  : public Behaviour_t0197
 // UnityEngine.MonoBehaviour
 struct MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71  : public Behaviour_t01970CFBBA658497AE30F311C447DB0440BAB7FA
 {
+};
+
+// ES3Internal.ES3ReferenceMgrBase
+struct ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9  : public MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71
+{
+	// System.Object ES3Internal.ES3ReferenceMgrBase::_lock
+	RuntimeObject* ____lock_4;
+	// System.Boolean ES3Internal.ES3ReferenceMgrBase::openPrefabs
+	bool ___openPrefabs_9;
+	// System.Collections.Generic.List`1<ES3Internal.ES3Prefab> ES3Internal.ES3ReferenceMgrBase::prefabs
+	List_1_tE486319846BE0263BA39D26C970BF7F6BF000992* ___prefabs_10;
+	// ES3Internal.ES3IdRefDictionary ES3Internal.ES3ReferenceMgrBase::idRef
+	ES3IdRefDictionary_t43D9EA30B527E8A846606DB754AC2A0B679C3F35* ___idRef_11;
+	// ES3Internal.ES3RefIdDictionary ES3Internal.ES3ReferenceMgrBase::_refId
+	ES3RefIdDictionary_t0D669FD883AC932EA94C96AF5F5B3CA217019068* ____refId_12;
 };
 
 // UnityEngine.EventSystems.UIBehaviour
@@ -1059,6 +1383,42 @@ struct ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_StaticFields
 
 // ES3Types.ES3Type_Color
 
+// ES3Types.ES3Type_ES3PrefabInternal
+struct ES3Type_ES3PrefabInternal_t0A75647DEDA525454C3B32E42D439624650BCCF9_StaticFields
+{
+	// ES3Types.ES3Type ES3Types.ES3Type_ES3PrefabInternal::Instance
+	ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* ___Instance_13;
+};
+
+// ES3Types.ES3Type_ES3PrefabInternal
+
+// ES3Types.ES3Type_ForceOverLifetimeModule
+struct ES3Type_ForceOverLifetimeModule_tEB39AA7CA8489DF9C2BC3DD1E5980D5D4226103D_StaticFields
+{
+	// ES3Types.ES3Type ES3Types.ES3Type_ForceOverLifetimeModule::Instance
+	ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* ___Instance_13;
+};
+
+// ES3Types.ES3Type_ForceOverLifetimeModule
+
+// ES3Types.ES3Type_Gradient
+struct ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5_StaticFields
+{
+	// ES3Types.ES3Type ES3Types.ES3Type_Gradient::Instance
+	ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* ___Instance_13;
+};
+
+// ES3Types.ES3Type_Gradient
+
+// ES3Types.ES3Type_GradientAlphaKey
+struct ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1_StaticFields
+{
+	// ES3Types.ES3Type ES3Types.ES3Type_GradientAlphaKey::Instance
+	ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* ___Instance_13;
+};
+
+// ES3Types.ES3Type_GradientAlphaKey
+
 // ES3Types.ES3Type_GradientColorKey
 struct ES3Type_GradientColorKey_tB03021E575CD75D019172CE503F059182FBF6F10_StaticFields
 {
@@ -1175,6 +1535,10 @@ struct ES3Type_string_tEE4C8F55053F345064CB52CE0C28F6E31830D3D3_StaticFields
 };
 
 // ES3Types.ES3Type_string
+
+// UnityEngine.GradientAlphaKey
+
+// UnityEngine.GradientAlphaKey
 
 // System.Guid
 struct Guid_t_StaticFields
@@ -1319,6 +1683,10 @@ struct Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3_StaticFields
 
 // System.Void
 
+// UnityEngine.ParticleSystem/ForceOverLifetimeModule
+
+// UnityEngine.ParticleSystem/ForceOverLifetimeModule
+
 // UnityEngine.ParticleSystem/InheritVelocityModule
 
 // UnityEngine.ParticleSystem/InheritVelocityModule
@@ -1334,6 +1702,10 @@ struct Vector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3_StaticFields
 // UnityEngine.Bounds
 
 // UnityEngine.Bounds
+
+// UnityEngine.Gradient
+
+// UnityEngine.Gradient
 
 // UnityEngine.GradientColorKey
 
@@ -1355,6 +1727,33 @@ struct Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_StaticFields
 // UnityEngine.ParticleSystem/MinMaxGradient
 
 // UnityEngine.ParticleSystem/MinMaxGradient
+
+// ES3Types.ES3Type_GameObject
+struct ES3Type_GameObject_tC1960F2F6CCFE9F26418AD22D1D18870BE1DE6A4_StaticFields
+{
+	// ES3Types.ES3Type ES3Types.ES3Type_GameObject::Instance
+	ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* ___Instance_15;
+};
+
+// ES3Types.ES3Type_GameObject
+
+// ES3Types.ES3Type_GradientAlphaKeyArray
+struct ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields
+{
+	// ES3Types.ES3Type ES3Types.ES3Type_GradientAlphaKeyArray::Instance
+	ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* ___Instance_14;
+};
+
+// ES3Types.ES3Type_GradientAlphaKeyArray
+
+// ES3Types.ES3Type_GradientColorKeyArray
+struct ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields
+{
+	// ES3Types.ES3Type ES3Types.ES3Type_GradientColorKeyArray::Instance
+	ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* ___Instance_14;
+};
+
+// ES3Types.ES3Type_GradientColorKeyArray
 
 // ES3Types.ES3Type_Material
 struct ES3Type_Material_t60AA0029AE3738375B427D1D6C5004D0B4728BC6_StaticFields
@@ -1378,6 +1777,10 @@ struct ES3Type_Sprite_t12CE66318CA9CEBA9F08514B630AE12F23266F10_StaticFields
 
 // UnityEngine.Flare
 
+// UnityEngine.GameObject
+
+// UnityEngine.GameObject
+
 // UnityEngine.Material
 
 // UnityEngine.Material
@@ -1394,6 +1797,27 @@ struct Texture_t791CBB51219779964E0E8A2ED7C1AA5F92A4A700_StaticFields
 };
 
 // UnityEngine.Texture
+
+// System.Type
+struct Type_t_StaticFields
+{
+	// System.Reflection.Binder modreq(System.Runtime.CompilerServices.IsVolatile) System.Type::s_defaultBinder
+	Binder_t91BFCE95A7057FADF4D8A1A342AFE52872246235* ___s_defaultBinder_0;
+	// System.Char System.Type::Delimiter
+	Il2CppChar ___Delimiter_1;
+	// System.Type[] System.Type::EmptyTypes
+	TypeU5BU5D_t97234E1129B564EB38B8D85CAC2AD8B5B9522FFB* ___EmptyTypes_2;
+	// System.Object System.Type::Missing
+	RuntimeObject* ___Missing_3;
+	// System.Reflection.MemberFilter System.Type::FilterAttribute
+	MemberFilter_tF644F1AE82F611B677CE1964D5A3277DDA21D553* ___FilterAttribute_4;
+	// System.Reflection.MemberFilter System.Type::FilterName
+	MemberFilter_tF644F1AE82F611B677CE1964D5A3277DDA21D553* ___FilterName_5;
+	// System.Reflection.MemberFilter System.Type::FilterNameIgnoreCase
+	MemberFilter_tF644F1AE82F611B677CE1964D5A3277DDA21D553* ___FilterNameIgnoreCase_6;
+};
+
+// System.Type
 
 // UnityEngine.Behaviour
 
@@ -1417,6 +1841,14 @@ struct ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_StaticFields
 
 // ES3Types.ES3Type_Light
 
+// System.InvalidOperationException
+
+// System.InvalidOperationException
+
+// UnityEngine.Transform
+
+// UnityEngine.Transform
+
 // UnityEngine.Light
 
 // UnityEngine.Light
@@ -1424,6 +1856,19 @@ struct ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_StaticFields
 // UnityEngine.MonoBehaviour
 
 // UnityEngine.MonoBehaviour
+
+// ES3Internal.ES3ReferenceMgrBase
+struct ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9_StaticFields
+{
+	// ES3Internal.ES3ReferenceMgrBase ES3Internal.ES3ReferenceMgrBase::_current
+	ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9* ____current_6;
+	// System.Collections.Generic.HashSet`1<ES3Internal.ES3ReferenceMgrBase> ES3Internal.ES3ReferenceMgrBase::mgrs
+	HashSet_1_t0158E5AAE7FB98897A8BB7020CDE5326B1451AF0* ___mgrs_7;
+	// System.Random ES3Internal.ES3ReferenceMgrBase::rng
+	Random_t79716069EDE67D1D7734F60AE402D0CA3FB6B4C8* ___rng_8;
+};
+
+// ES3Internal.ES3ReferenceMgrBase
 
 // UnityEngine.UI.Graphic
 struct Graphic_tCBFCA4585A19E2B75465AECFEAC43F4016BF7931_StaticFields
@@ -1467,24 +1912,203 @@ struct Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E_StaticFields
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
+// UnityEngine.GameObject[]
+struct GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF  : public RuntimeArray
+{
+	ALIGN_FIELD (8) GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* m_Items[1];
+
+	inline GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* GetAt(il2cpp_array_size_t index) const
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		return m_Items[index];
+	}
+	inline GameObject_t76FEDD663AB33C991A9C9A23129337651094216F** GetAddressAt(il2cpp_array_size_t index)
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		return m_Items + index;
+	}
+	inline void SetAt(il2cpp_array_size_t index, GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* value)
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		m_Items[index] = value;
+		Il2CppCodeGenWriteBarrier((void**)m_Items + index, (void*)value);
+	}
+	inline GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* GetAtUnchecked(il2cpp_array_size_t index) const
+	{
+		return m_Items[index];
+	}
+	inline GameObject_t76FEDD663AB33C991A9C9A23129337651094216F** GetAddressAtUnchecked(il2cpp_array_size_t index)
+	{
+		return m_Items + index;
+	}
+	inline void SetAtUnchecked(il2cpp_array_size_t index, GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* value)
+	{
+		m_Items[index] = value;
+		Il2CppCodeGenWriteBarrier((void**)m_Items + index, (void*)value);
+	}
+};
+// UnityEngine.GradientColorKey[]
+struct GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18  : public RuntimeArray
+{
+	ALIGN_FIELD (8) GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A m_Items[1];
+
+	inline GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A GetAt(il2cpp_array_size_t index) const
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		return m_Items[index];
+	}
+	inline GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A* GetAddressAt(il2cpp_array_size_t index)
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		return m_Items + index;
+	}
+	inline void SetAt(il2cpp_array_size_t index, GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A value)
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		m_Items[index] = value;
+	}
+	inline GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A GetAtUnchecked(il2cpp_array_size_t index) const
+	{
+		return m_Items[index];
+	}
+	inline GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A* GetAddressAtUnchecked(il2cpp_array_size_t index)
+	{
+		return m_Items + index;
+	}
+	inline void SetAtUnchecked(il2cpp_array_size_t index, GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A value)
+	{
+		m_Items[index] = value;
+	}
+};
+// UnityEngine.GradientAlphaKey[]
+struct GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E  : public RuntimeArray
+{
+	ALIGN_FIELD (8) GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 m_Items[1];
+
+	inline GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 GetAt(il2cpp_array_size_t index) const
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		return m_Items[index];
+	}
+	inline GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0* GetAddressAt(il2cpp_array_size_t index)
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		return m_Items + index;
+	}
+	inline void SetAt(il2cpp_array_size_t index, GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 value)
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		m_Items[index] = value;
+	}
+	inline GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 GetAtUnchecked(il2cpp_array_size_t index) const
+	{
+		return m_Items[index];
+	}
+	inline GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0* GetAddressAtUnchecked(il2cpp_array_size_t index)
+	{
+		return m_Items + index;
+	}
+	inline void SetAtUnchecked(il2cpp_array_size_t index, GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 value)
+	{
+		m_Items[index] = value;
+	}
+};
 
 
-// T ES3Reader::ReadProperty<UnityEngine.Color>(ES3Types.ES3Type)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24_gshared (ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* __this, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* ___0_type, const RuntimeMethod* method) ;
-// T ES3Reader::ReadProperty<System.Single>(ES3Types.ES3Type)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_gshared (ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* __this, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* ___0_type, const RuntimeMethod* method) ;
 // T ES3Reader::ReadProperty<System.Object>(ES3Types.ES3Type)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Reader_ReadProperty_TisRuntimeObject_m25CD8B3AE810EB9830D26EAF7CE29982B544887B_gshared (ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* __this, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* ___0_type, const RuntimeMethod* method) ;
-
+// T ES3Reader::ReadProperty<System.Single>(ES3Types.ES3Type)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_gshared (ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* __this, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* ___0_type, const RuntimeMethod* method) ;
 // T ES3Reader::ReadProperty<UnityEngine.Color>(ES3Types.ES3Type)
-inline Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24 (ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* __this, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* ___0_type, const RuntimeMethod* method)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24_gshared (ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* __this, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* ___0_type, const RuntimeMethod* method) ;
+
+// System.UInt32 <PrivateImplementationDetails>::ComputeStringHash(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint32_t U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047 (String_t* ___0_s, const RuntimeMethod* method) ;
+// System.Boolean System.String::op_Equality(System.String,System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1 (String_t* ___0_a, String_t* ___1_b, const RuntimeMethod* method) ;
+// System.Void UnityEngine.ParticleSystem/ForceOverLifetimeModule::set_enabled(System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ForceOverLifetimeModule_set_enabled_mD838E60CDB55A367FC5D2956899314EFCBB20906 (ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976* __this, bool ___0_value, const RuntimeMethod* method) ;
+// System.Void UnityEngine.ParticleSystem/ForceOverLifetimeModule::set_x(UnityEngine.ParticleSystem/MinMaxCurve)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ForceOverLifetimeModule_set_x_m452BDF51A7878D84C62620D419259327B71BAC94 (ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976* __this, MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 ___0_value, const RuntimeMethod* method) ;
+// System.Void UnityEngine.ParticleSystem/ForceOverLifetimeModule::set_y(UnityEngine.ParticleSystem/MinMaxCurve)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ForceOverLifetimeModule_set_y_mA72BA03D839F032C54FD5D20A25C5676D934E8FA (ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976* __this, MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 ___0_value, const RuntimeMethod* method) ;
+// System.Void UnityEngine.ParticleSystem/ForceOverLifetimeModule::set_z(UnityEngine.ParticleSystem/MinMaxCurve)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ForceOverLifetimeModule_set_z_mA043C911ED6E9C0EFA9933A14D2FACEF44FB204D (ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976* __this, MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 ___0_value, const RuntimeMethod* method) ;
+// System.Void UnityEngine.ParticleSystem/ForceOverLifetimeModule::set_xMultiplier(System.Single)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ForceOverLifetimeModule_set_xMultiplier_mA46C1B75A82BB35332FB2DBF0C99299608BB81DF (ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976* __this, float ___0_value, const RuntimeMethod* method) ;
+// System.Void UnityEngine.ParticleSystem/ForceOverLifetimeModule::set_yMultiplier(System.Single)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ForceOverLifetimeModule_set_yMultiplier_m4E10E99371C81EA8EEE75FE043046CC49E3A4490 (ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976* __this, float ___0_value, const RuntimeMethod* method) ;
+// System.Void UnityEngine.ParticleSystem/ForceOverLifetimeModule::set_zMultiplier(System.Single)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ForceOverLifetimeModule_set_zMultiplier_m3C3DC1740A447AD506B14C97BCD49CEB81AFBD42 (ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976* __this, float ___0_value, const RuntimeMethod* method) ;
+// System.Void UnityEngine.ParticleSystem/ForceOverLifetimeModule::set_space(UnityEngine.ParticleSystemSimulationSpace)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ForceOverLifetimeModule_set_space_m0828CB696A7BEAA8E22184BA945E935B2563F061 (ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976* __this, int32_t ___0_value, const RuntimeMethod* method) ;
+// System.Void UnityEngine.ParticleSystem/ForceOverLifetimeModule::set_randomized(System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ForceOverLifetimeModule_set_randomized_mF3E5CE83D00615AE4CD6D8485C3BB6BD0732CFCE (ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976* __this, bool ___0_value, const RuntimeMethod* method) ;
+// ES3Internal.ES3ReferenceMgrBase ES3Internal.ES3ReferenceMgrBase::get_Current()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9* ES3ReferenceMgrBase_get_Current_m9248D94332DE1BC553FA33E0F12C97579DD9AFD3 (const RuntimeMethod* method) ;
+// System.Boolean UnityEngine.Object::op_Equality(UnityEngine.Object,UnityEngine.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605 (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* ___0_x, Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* ___1_y, const RuntimeMethod* method) ;
+// System.Void System.InvalidOperationException::.ctor(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void InvalidOperationException__ctor_mE4CB6F4712AB6D99A2358FBAE2E052B3EE976162 (InvalidOperationException_t5DDE4D49B7405FAAB1E4576F4715A42A3FAD4BAB* __this, String_t* ___0_message, const RuntimeMethod* method) ;
+// System.String ES3Types.ES3Type::ReadPropertyName(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* ES3Type_ReadPropertyName_mC7476E38811641B7ACF0793AF323C8B4DB073F11 (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) ;
+// System.Type ES3Reader::ReadType()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Type_t* ES3Reader_ReadType_m683A53CDB896EFEC4B92AC2D40C7559B61260512 (ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* __this, const RuntimeMethod* method) ;
+// ES3Types.ES3Type ES3Internal.ES3TypeMgr::GetOrCreateES3Type(System.Type,System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* ES3TypeMgr_GetOrCreateES3Type_mD222A5BD03D105BDA2580FF24D473B8EDDF350EE (Type_t* ___0_type, bool ___1_throwException, const RuntimeMethod* method) ;
+// UnityEngine.Object ES3Internal.ES3ReferenceMgrBase::Get(System.Int64,System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* ES3ReferenceMgrBase_Get_m6E6DFACA4BDCFC80CA61746A1ABCF56589560EF5 (ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9* __this, int64_t ___0_id, bool ___1_suppressWarnings, const RuntimeMethod* method) ;
+// UnityEngine.GameObject ES3Types.ES3Type_GameObject::CreateNewGameObject(ES3Internal.ES3ReferenceMgrBase,System.Int64)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ES3Type_GameObject_CreateNewGameObject_mC3C09FD7C6A25A5E9CE1E280B9600F9F9E5CC96E (ES3Type_GameObject_tC1960F2F6CCFE9F26418AD22D1D18870BE1DE6A4* __this, ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9* ___0_refMgr, int64_t ___1_id, const RuntimeMethod* method) ;
+// UnityEngine.Transform UnityEngine.GameObject::get_transform()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* GameObject_get_transform_m0BC10ADFA1632166AE5544BDF9038A2650C2AE56 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, const RuntimeMethod* method) ;
+// System.Int64 ES3Internal.ES3ReferenceMgrBase::Add(UnityEngine.Object,System.Int64)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int64_t ES3ReferenceMgrBase_Add_m25B484B12ABE61EADF526CBD7C1C072F7B439026 (ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9* __this, Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* ___0_obj, int64_t ___1_id, const RuntimeMethod* method) ;
+// System.Boolean UnityEngine.Object::op_Inequality(UnityEngine.Object,UnityEngine.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602 (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* ___0_x, Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* ___1_y, const RuntimeMethod* method) ;
+// System.Collections.IEnumerator ES3Reader/ES3ReaderPropertyEnumerator::GetEnumerator()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3ReaderPropertyEnumerator_GetEnumerator_mB165F4C7E1D6CD13B2FD9BF8D8FD1094242E5A7F (ES3ReaderPropertyEnumerator_tF9A132CC74810289A45CB0F31DFD50B506CED09A* __this, const RuntimeMethod* method) ;
+// System.Void UnityEngine.GameObject::set_layer(System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameObject_set_layer_m6E1AF478A2CC86BD222B96317BEB78B7D89B18D0 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, int32_t ___0_value, const RuntimeMethod* method) ;
+// System.Void UnityEngine.GameObject::set_tag(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameObject_set_tag_m0A41528AFD8C83E1CEC5D769921159897CDD2B24 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, String_t* ___0_value, const RuntimeMethod* method) ;
+// System.Void UnityEngine.Object::set_name(System.String)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Object_set_name_mC79E6DC8FFD72479C90F0C4CC7F42A0FEAF5AE47 (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* __this, String_t* ___0_value, const RuntimeMethod* method) ;
+// System.Void UnityEngine.Object::set_hideFlags(UnityEngine.HideFlags)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Object_set_hideFlags_mACB8BFC903FB3B01BBD427753E791BF28B5E33D4 (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* __this, int32_t ___0_value, const RuntimeMethod* method) ;
+// System.Void UnityEngine.GameObject::SetActive(System.Boolean)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92 (GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* __this, bool ___0_value, const RuntimeMethod* method) ;
+// System.Void UnityEngine.Transform::SetParent(UnityEngine.Transform)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Transform_SetParent_m6677538B60246D958DD91F931C50F969CCBB5250 (Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* __this, Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* ___0_p, const RuntimeMethod* method) ;
+// System.Void ES3Types.ES3Type_GameObject::ReadComponents(ES3Reader,UnityEngine.GameObject)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_GameObject_ReadComponents_m6F756D6B981AB53FA8FD9175A2EA645601AA7323 (ES3Type_GameObject_tC1960F2F6CCFE9F26418AD22D1D18870BE1DE6A4* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___1_go, const RuntimeMethod* method) ;
+// System.Void UnityEngine.Gradient::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Gradient__ctor_m5EC470BB063D4831774C7CDA5D471EBEB5CE7B54 (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* __this, const RuntimeMethod* method) ;
+// T ES3Reader::ReadProperty<UnityEngine.GradientColorKey[]>(ES3Types.ES3Type)
+inline GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A (ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* __this, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* ___0_type, const RuntimeMethod* method)
 {
-	return ((  Color_tD001788D726C3A7F1379BEED0260B9591F440C1F (*) (ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*, const RuntimeMethod*))ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24_gshared)(__this, ___0_type, method);
+	return ((  GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* (*) (ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*, const RuntimeMethod*))ES3Reader_ReadProperty_TisRuntimeObject_m25CD8B3AE810EB9830D26EAF7CE29982B544887B_gshared)(__this, ___0_type, method);
 }
+// T ES3Reader::ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Types.ES3Type)
+inline GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2 (ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* __this, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* ___0_type, const RuntimeMethod* method)
+{
+	return ((  GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* (*) (ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*, const RuntimeMethod*))ES3Reader_ReadProperty_TisRuntimeObject_m25CD8B3AE810EB9830D26EAF7CE29982B544887B_gshared)(__this, ___0_type, method);
+}
+// System.Void UnityEngine.Gradient::SetKeys(UnityEngine.GradientColorKey[],UnityEngine.GradientAlphaKey[])
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8 (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* __this, GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* ___0_colorKeys, GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* ___1_alphaKeys, const RuntimeMethod* method) ;
+// System.Void UnityEngine.Gradient::set_mode(UnityEngine.GradientMode)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210 (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* __this, int32_t ___0_value, const RuntimeMethod* method) ;
 // T ES3Reader::ReadProperty<System.Single>(ES3Types.ES3Type)
 inline float ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3 (ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* __this, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* ___0_type, const RuntimeMethod* method)
 {
 	return ((  float (*) (ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*, const RuntimeMethod*))ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_gshared)(__this, ___0_type, method);
+}
+// System.Void UnityEngine.GradientAlphaKey::.ctor(System.Single,System.Single)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GradientAlphaKey__ctor_m62D622565E6C8BF94E6E90A4CA6C866A5BC3B41B (GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0* __this, float ___0_alpha, float ___1_time, const RuntimeMethod* method) ;
+// T ES3Reader::ReadProperty<UnityEngine.Color>(ES3Types.ES3Type)
+inline Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24 (ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* __this, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* ___0_type, const RuntimeMethod* method)
+{
+	return ((  Color_tD001788D726C3A7F1379BEED0260B9591F440C1F (*) (ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*, const RuntimeMethod*))ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24_gshared)(__this, ___0_type, method);
 }
 // System.Void UnityEngine.GradientColorKey::.ctor(UnityEngine.Color,System.Single)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void GradientColorKey__ctor_mE26D7B8DA1283FDC3ADF628A3AC3E1B7246CD8A1 (GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A* __this, Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___0_col, float ___1_time, const RuntimeMethod* method) ;
@@ -1495,12 +2119,6 @@ inline String_t* ES3Reader_ReadProperty_TisString_t_m3F39A4B1CB3E98162E7636CBAB1
 }
 // System.Guid System.Guid::Parse(System.String)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Guid_t Guid_Parse_mC068B0047F86921D817F600C75C6EBFE15A461D0 (String_t* ___0_input, const RuntimeMethod* method) ;
-// System.Collections.IEnumerator ES3Reader/ES3ReaderPropertyEnumerator::GetEnumerator()
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3ReaderPropertyEnumerator_GetEnumerator_mB165F4C7E1D6CD13B2FD9BF8D8FD1094242E5A7F (ES3ReaderPropertyEnumerator_tF9A132CC74810289A45CB0F31DFD50B506CED09A* __this, const RuntimeMethod* method) ;
-// System.UInt32 <PrivateImplementationDetails>::ComputeStringHash(System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR uint32_t U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047 (String_t* ___0_s, const RuntimeMethod* method) ;
-// System.Boolean System.String::op_Equality(System.String,System.String)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1 (String_t* ___0_a, String_t* ___1_b, const RuntimeMethod* method) ;
 // System.Void UnityEngine.UI.Image::set_sprite(UnityEngine.Sprite)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Image_set_sprite_mC0C248340BA27AAEE56855A3FAFA0D8CA12956DE (Image_tBC1D03F63BF71132E9A5E472B8742F172A011E7E* __this, Sprite_tAFF74BC83CD68037494CB0B4F28CBDF8971CAB99* ___0_value, const RuntimeMethod* method) ;
 // System.Void UnityEngine.UI.Image::set_overrideSprite(UnityEngine.Sprite)
@@ -1533,8 +2151,6 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Reader_SetPrivateProperty_m
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void MonoBehaviour_set_useGUILayout_m56F0C62F4B6889D7472074ECCB56EBA462285134 (MonoBehaviour_t532A11E69716D348D8AA7F854AFCBFCB8AD17F71* __this, bool ___0_value, const RuntimeMethod* method) ;
 // System.Void UnityEngine.Behaviour::set_enabled(System.Boolean)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Behaviour_set_enabled_mF1DCFE60EB09E0529FE9476CA804A3AA2D72B16A (Behaviour_t01970CFBBA658497AE30F311C447DB0440BAB7FA* __this, bool ___0_value, const RuntimeMethod* method) ;
-// System.Void UnityEngine.Object::set_hideFlags(UnityEngine.HideFlags)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Object_set_hideFlags_mACB8BFC903FB3B01BBD427753E791BF28B5E33D4 (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* __this, int32_t ___0_value, const RuntimeMethod* method) ;
 // System.Void UnityEngine.ParticleSystem/InheritVelocityModule::set_enabled(System.Boolean)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void InheritVelocityModule_set_enabled_mD23E89FDA334A1D780AB90B2633C46C83F7AD1C6 (InheritVelocityModule_tB71B2EDCAF328647DDB6BC79541D7C5E76C19562* __this, bool ___0_value, const RuntimeMethod* method) ;
 // System.Void UnityEngine.ParticleSystem/InheritVelocityModule::set_mode(UnityEngine.ParticleSystemInheritVelocityMode)
@@ -1609,6 +2225,5881 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LightsModule_set_intensity_mD1D7564D1ADD
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LightsModule_set_intensityMultiplier_m79E9E71E14F02B6BE7C4EB6C5B3BA8921D1B29F8 (LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E* __this, float ___0_value, const RuntimeMethod* method) ;
 // System.Void UnityEngine.ParticleSystem/LightsModule::set_maxLights(System.Int32)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void LightsModule_set_maxLights_mC423F1C129DAB69F2F145F6AA8160DEE8176F4EC (LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E* __this, int32_t ___0_value, const RuntimeMethod* method) ;
+// System.Void ES3Types.ES3Type_ForceOverLifetimeModule::ReadInto<UnityEngine.ParticleSystem/TextureSheetAnimationModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_ForceOverLifetimeModule_ReadInto_TisTextureSheetAnimationModule_tB53F451F252E24ACC3EF80D770DB4FBE1A13D1F6_mCA26D56409BF0A20D5C20C7250B674D1BA9A2621_gshared (ES3Type_ForceOverLifetimeModule_tEB39AA7CA8489DF9C2BC3DD1E5980D5D4226103D* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemSimulationSpace_tB3693D8A3C0FCE63D060546071006AC4ABC60B05_m053F1F4CA188B1945189ACC22015EDAB6E2C89E3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral062DB096C728515E033CF8C48A1C1F0B9A79384B);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral2F8690361553406965679AEF125F896BC5FC61F5);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral8C6F88DEE0DFE3513BB8B44A8CF0FEE437F4EFFB);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral9384C6EF2DA5C0BD5274A0DACFF291D0ABBFD8B1);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral9CE1604D659135925CCC4DD1F526AFFE42E689F1);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral9E61658953B4F9BB4A05E3D2D2BC18990BADE934);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD89836A6E8D87268C1D78D21683335C964F2ECCB);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralE1291C4D47635E327ECFE39842BD1A93F58C61A2);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B);
+		s_Il2CppMethodInitialized = true;
+	}
+	ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	String_t* V_1 = NULL;
+	uint32_t V_2 = 0;
+	{
+		// var instance = (UnityEngine.ParticleSystem.ForceOverLifetimeModule)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((*(ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976*)((ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976*)(ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976*)UnBox(L_0, ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976_il2cpp_TypeInfo_var))));
+		goto IL_020b;
+	}
+
+IL_000c:
+	{
+		String_t* L_1 = V_1;
+		uint32_t L_2;
+		L_2 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_1, NULL);
+		V_2 = L_2;
+		uint32_t L_3 = V_2;
+		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)1194511624)))))
+		{
+			goto IL_0056;
+		}
+	}
+	{
+		uint32_t L_4 = V_2;
+		if ((!(((uint32_t)L_4) <= ((uint32_t)((int32_t)726266686)))))
+		{
+			goto IL_003b;
+		}
+	}
+	{
+		uint32_t L_5 = V_2;
+		if ((((int32_t)L_5) == ((int32_t)((int32_t)49525662))))
+		{
+			goto IL_0093;
+		}
+	}
+	{
+		uint32_t L_6 = V_2;
+		if ((((int32_t)L_6) == ((int32_t)((int32_t)726266686))))
+		{
+			goto IL_0111;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_003b:
+	{
+		uint32_t L_7 = V_2;
+		if ((((int32_t)L_7) == ((int32_t)((int32_t)894689925))))
+		{
+			goto IL_0126;
+		}
+	}
+	{
+		uint32_t L_8 = V_2;
+		if ((((int32_t)L_8) == ((int32_t)((int32_t)1194511624))))
+		{
+			goto IL_013b;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0056:
+	{
+		uint32_t L_9 = V_2;
+		if ((!(((uint32_t)L_9) <= ((uint32_t)((int32_t)-585050980)))))
+		{
+			goto IL_0076;
+		}
+	}
+	{
+		uint32_t L_10 = V_2;
+		if ((((int32_t)L_10) == ((int32_t)((int32_t)-1013869429))))
+		{
+			goto IL_00fc;
+		}
+	}
+	{
+		uint32_t L_11 = V_2;
+		if ((((int32_t)L_11) == ((int32_t)((int32_t)-585050980))))
+		{
+			goto IL_00e7;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0076:
+	{
+		uint32_t L_12 = V_2;
+		if ((((int32_t)L_12) == ((int32_t)((int32_t)-66302220))))
+		{
+			goto IL_00bd;
+		}
+	}
+	{
+		uint32_t L_13 = V_2;
+		if ((((int32_t)L_13) == ((int32_t)((int32_t)-49524601))))
+		{
+			goto IL_00a8;
+		}
+	}
+	{
+		uint32_t L_14 = V_2;
+		if ((((int32_t)L_14) == ((int32_t)((int32_t)-15969363))))
+		{
+			goto IL_00d2;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0093:
+	{
+		String_t* L_15 = V_1;
+		bool L_16;
+		L_16 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_15, _stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B, NULL);
+		if (L_16)
+		{
+			goto IL_0150;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_00a8:
+	{
+		String_t* L_17 = V_1;
+		bool L_18;
+		L_18 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_17, _stringLiteral062DB096C728515E033CF8C48A1C1F0B9A79384B, NULL);
+		if (L_18)
+		{
+			goto IL_0167;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_00bd:
+	{
+		String_t* L_19 = V_1;
+		bool L_20;
+		L_20 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_19, _stringLiteral9384C6EF2DA5C0BD5274A0DACFF291D0ABBFD8B1, NULL);
+		if (L_20)
+		{
+			goto IL_017e;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_00d2:
+	{
+		String_t* L_21 = V_1;
+		bool L_22;
+		L_22 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_21, _stringLiteral9CE1604D659135925CCC4DD1F526AFFE42E689F1, NULL);
+		if (L_22)
+		{
+			goto IL_0192;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_00e7:
+	{
+		String_t* L_23 = V_1;
+		bool L_24;
+		L_24 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_23, _stringLiteral8C6F88DEE0DFE3513BB8B44A8CF0FEE437F4EFFB, NULL);
+		if (L_24)
+		{
+			goto IL_01a6;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_00fc:
+	{
+		String_t* L_25 = V_1;
+		bool L_26;
+		L_26 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_25, _stringLiteral9E61658953B4F9BB4A05E3D2D2BC18990BADE934, NULL);
+		if (L_26)
+		{
+			goto IL_01ba;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0111:
+	{
+		String_t* L_27 = V_1;
+		bool L_28;
+		L_28 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_27, _stringLiteral2F8690361553406965679AEF125F896BC5FC61F5, NULL);
+		if (L_28)
+		{
+			goto IL_01ce;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0126:
+	{
+		String_t* L_29 = V_1;
+		bool L_30;
+		L_30 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_29, _stringLiteralE1291C4D47635E327ECFE39842BD1A93F58C61A2, NULL);
+		if (L_30)
+		{
+			goto IL_01e2;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_013b:
+	{
+		String_t* L_31 = V_1;
+		bool L_32;
+		L_32 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_31, _stringLiteralD89836A6E8D87268C1D78D21683335C964F2ECCB, NULL);
+		if (L_32)
+		{
+			goto IL_01f1;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0150:
+	{
+		// instance.enabled = reader.Read<System.Boolean>(ES3Type_bool.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_33 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_34 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_33);
+		bool L_35;
+		L_35 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_33, L_34);
+		ForceOverLifetimeModule_set_enabled_mD838E60CDB55A367FC5D2956899314EFCBB20906((&V_0), L_35, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_0167:
+	{
+		// instance.x = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_36 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_37 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_36);
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_38;
+		L_38 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_36, L_37);
+		ForceOverLifetimeModule_set_x_m452BDF51A7878D84C62620D419259327B71BAC94((&V_0), L_38, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_017e:
+	{
+		// instance.y = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_39 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_40 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_39);
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_41;
+		L_41 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_39, L_40);
+		ForceOverLifetimeModule_set_y_mA72BA03D839F032C54FD5D20A25C5676D934E8FA((&V_0), L_41, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_0192:
+	{
+		// instance.z = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_42 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_43 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_42);
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_44;
+		L_44 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_42, L_43);
+		ForceOverLifetimeModule_set_z_mA043C911ED6E9C0EFA9933A14D2FACEF44FB204D((&V_0), L_44, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_01a6:
+	{
+		// instance.xMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_45 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_46 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_45);
+		float L_47;
+		L_47 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_45, L_46);
+		ForceOverLifetimeModule_set_xMultiplier_mA46C1B75A82BB35332FB2DBF0C99299608BB81DF((&V_0), L_47, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_01ba:
+	{
+		// instance.yMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_48 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_49 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_48);
+		float L_50;
+		L_50 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_48, L_49);
+		ForceOverLifetimeModule_set_yMultiplier_m4E10E99371C81EA8EEE75FE043046CC49E3A4490((&V_0), L_50, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_01ce:
+	{
+		// instance.zMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_51 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_52 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_51);
+		float L_53;
+		L_53 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_51, L_52);
+		ForceOverLifetimeModule_set_zMultiplier_m3C3DC1740A447AD506B14C97BCD49CEB81AFBD42((&V_0), L_53, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_01e2:
+	{
+		// instance.space = reader.Read<UnityEngine.ParticleSystemSimulationSpace>();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_54 = ___0_reader;
+		NullCheck(L_54);
+		int32_t L_55;
+		L_55 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemSimulationSpace_tB3693D8A3C0FCE63D060546071006AC4ABC60B05_m053F1F4CA188B1945189ACC22015EDAB6E2C89E3_RuntimeMethod_var, L_54);
+		ForceOverLifetimeModule_set_space_m0828CB696A7BEAA8E22184BA945E935B2563F061((&V_0), L_55, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_01f1:
+	{
+		// instance.randomized = reader.Read<System.Boolean>(ES3Type_bool.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_56 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_57 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_56);
+		bool L_58;
+		L_58 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_56, L_57);
+		ForceOverLifetimeModule_set_randomized_mF3E5CE83D00615AE4CD6D8485C3BB6BD0732CFCE((&V_0), L_58, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_0205:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_59 = ___0_reader;
+		NullCheck(L_59);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_59);
+	}
+
+IL_020b:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_60 = ___0_reader;
+		NullCheck(L_60);
+		String_t* L_61;
+		L_61 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_60);
+		String_t* L_62 = L_61;
+		V_1 = L_62;
+		if (L_62)
+		{
+			goto IL_000c;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_ForceOverLifetimeModule::ReadInto<UnityEngine.ParticleSystem/TrailModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_ForceOverLifetimeModule_ReadInto_TisTrailModule_tC466413E68A674741F1CEAE0CFD7317631E8040D_m256DC568D916001FD64BA66B532A2638A5DF584A_gshared (ES3Type_ForceOverLifetimeModule_tEB39AA7CA8489DF9C2BC3DD1E5980D5D4226103D* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemSimulationSpace_tB3693D8A3C0FCE63D060546071006AC4ABC60B05_m053F1F4CA188B1945189ACC22015EDAB6E2C89E3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral062DB096C728515E033CF8C48A1C1F0B9A79384B);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral2F8690361553406965679AEF125F896BC5FC61F5);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral8C6F88DEE0DFE3513BB8B44A8CF0FEE437F4EFFB);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral9384C6EF2DA5C0BD5274A0DACFF291D0ABBFD8B1);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral9CE1604D659135925CCC4DD1F526AFFE42E689F1);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral9E61658953B4F9BB4A05E3D2D2BC18990BADE934);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD89836A6E8D87268C1D78D21683335C964F2ECCB);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralE1291C4D47635E327ECFE39842BD1A93F58C61A2);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B);
+		s_Il2CppMethodInitialized = true;
+	}
+	ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	String_t* V_1 = NULL;
+	uint32_t V_2 = 0;
+	{
+		// var instance = (UnityEngine.ParticleSystem.ForceOverLifetimeModule)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((*(ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976*)((ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976*)(ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976*)UnBox(L_0, ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976_il2cpp_TypeInfo_var))));
+		goto IL_020b;
+	}
+
+IL_000c:
+	{
+		String_t* L_1 = V_1;
+		uint32_t L_2;
+		L_2 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_1, NULL);
+		V_2 = L_2;
+		uint32_t L_3 = V_2;
+		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)1194511624)))))
+		{
+			goto IL_0056;
+		}
+	}
+	{
+		uint32_t L_4 = V_2;
+		if ((!(((uint32_t)L_4) <= ((uint32_t)((int32_t)726266686)))))
+		{
+			goto IL_003b;
+		}
+	}
+	{
+		uint32_t L_5 = V_2;
+		if ((((int32_t)L_5) == ((int32_t)((int32_t)49525662))))
+		{
+			goto IL_0093;
+		}
+	}
+	{
+		uint32_t L_6 = V_2;
+		if ((((int32_t)L_6) == ((int32_t)((int32_t)726266686))))
+		{
+			goto IL_0111;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_003b:
+	{
+		uint32_t L_7 = V_2;
+		if ((((int32_t)L_7) == ((int32_t)((int32_t)894689925))))
+		{
+			goto IL_0126;
+		}
+	}
+	{
+		uint32_t L_8 = V_2;
+		if ((((int32_t)L_8) == ((int32_t)((int32_t)1194511624))))
+		{
+			goto IL_013b;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0056:
+	{
+		uint32_t L_9 = V_2;
+		if ((!(((uint32_t)L_9) <= ((uint32_t)((int32_t)-585050980)))))
+		{
+			goto IL_0076;
+		}
+	}
+	{
+		uint32_t L_10 = V_2;
+		if ((((int32_t)L_10) == ((int32_t)((int32_t)-1013869429))))
+		{
+			goto IL_00fc;
+		}
+	}
+	{
+		uint32_t L_11 = V_2;
+		if ((((int32_t)L_11) == ((int32_t)((int32_t)-585050980))))
+		{
+			goto IL_00e7;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0076:
+	{
+		uint32_t L_12 = V_2;
+		if ((((int32_t)L_12) == ((int32_t)((int32_t)-66302220))))
+		{
+			goto IL_00bd;
+		}
+	}
+	{
+		uint32_t L_13 = V_2;
+		if ((((int32_t)L_13) == ((int32_t)((int32_t)-49524601))))
+		{
+			goto IL_00a8;
+		}
+	}
+	{
+		uint32_t L_14 = V_2;
+		if ((((int32_t)L_14) == ((int32_t)((int32_t)-15969363))))
+		{
+			goto IL_00d2;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0093:
+	{
+		String_t* L_15 = V_1;
+		bool L_16;
+		L_16 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_15, _stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B, NULL);
+		if (L_16)
+		{
+			goto IL_0150;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_00a8:
+	{
+		String_t* L_17 = V_1;
+		bool L_18;
+		L_18 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_17, _stringLiteral062DB096C728515E033CF8C48A1C1F0B9A79384B, NULL);
+		if (L_18)
+		{
+			goto IL_0167;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_00bd:
+	{
+		String_t* L_19 = V_1;
+		bool L_20;
+		L_20 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_19, _stringLiteral9384C6EF2DA5C0BD5274A0DACFF291D0ABBFD8B1, NULL);
+		if (L_20)
+		{
+			goto IL_017e;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_00d2:
+	{
+		String_t* L_21 = V_1;
+		bool L_22;
+		L_22 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_21, _stringLiteral9CE1604D659135925CCC4DD1F526AFFE42E689F1, NULL);
+		if (L_22)
+		{
+			goto IL_0192;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_00e7:
+	{
+		String_t* L_23 = V_1;
+		bool L_24;
+		L_24 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_23, _stringLiteral8C6F88DEE0DFE3513BB8B44A8CF0FEE437F4EFFB, NULL);
+		if (L_24)
+		{
+			goto IL_01a6;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_00fc:
+	{
+		String_t* L_25 = V_1;
+		bool L_26;
+		L_26 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_25, _stringLiteral9E61658953B4F9BB4A05E3D2D2BC18990BADE934, NULL);
+		if (L_26)
+		{
+			goto IL_01ba;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0111:
+	{
+		String_t* L_27 = V_1;
+		bool L_28;
+		L_28 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_27, _stringLiteral2F8690361553406965679AEF125F896BC5FC61F5, NULL);
+		if (L_28)
+		{
+			goto IL_01ce;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0126:
+	{
+		String_t* L_29 = V_1;
+		bool L_30;
+		L_30 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_29, _stringLiteralE1291C4D47635E327ECFE39842BD1A93F58C61A2, NULL);
+		if (L_30)
+		{
+			goto IL_01e2;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_013b:
+	{
+		String_t* L_31 = V_1;
+		bool L_32;
+		L_32 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_31, _stringLiteralD89836A6E8D87268C1D78D21683335C964F2ECCB, NULL);
+		if (L_32)
+		{
+			goto IL_01f1;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0150:
+	{
+		// instance.enabled = reader.Read<System.Boolean>(ES3Type_bool.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_33 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_34 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_33);
+		bool L_35;
+		L_35 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_33, L_34);
+		ForceOverLifetimeModule_set_enabled_mD838E60CDB55A367FC5D2956899314EFCBB20906((&V_0), L_35, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_0167:
+	{
+		// instance.x = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_36 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_37 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_36);
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_38;
+		L_38 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_36, L_37);
+		ForceOverLifetimeModule_set_x_m452BDF51A7878D84C62620D419259327B71BAC94((&V_0), L_38, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_017e:
+	{
+		// instance.y = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_39 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_40 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_39);
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_41;
+		L_41 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_39, L_40);
+		ForceOverLifetimeModule_set_y_mA72BA03D839F032C54FD5D20A25C5676D934E8FA((&V_0), L_41, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_0192:
+	{
+		// instance.z = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_42 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_43 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_42);
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_44;
+		L_44 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_42, L_43);
+		ForceOverLifetimeModule_set_z_mA043C911ED6E9C0EFA9933A14D2FACEF44FB204D((&V_0), L_44, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_01a6:
+	{
+		// instance.xMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_45 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_46 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_45);
+		float L_47;
+		L_47 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_45, L_46);
+		ForceOverLifetimeModule_set_xMultiplier_mA46C1B75A82BB35332FB2DBF0C99299608BB81DF((&V_0), L_47, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_01ba:
+	{
+		// instance.yMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_48 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_49 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_48);
+		float L_50;
+		L_50 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_48, L_49);
+		ForceOverLifetimeModule_set_yMultiplier_m4E10E99371C81EA8EEE75FE043046CC49E3A4490((&V_0), L_50, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_01ce:
+	{
+		// instance.zMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_51 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_52 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_51);
+		float L_53;
+		L_53 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_51, L_52);
+		ForceOverLifetimeModule_set_zMultiplier_m3C3DC1740A447AD506B14C97BCD49CEB81AFBD42((&V_0), L_53, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_01e2:
+	{
+		// instance.space = reader.Read<UnityEngine.ParticleSystemSimulationSpace>();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_54 = ___0_reader;
+		NullCheck(L_54);
+		int32_t L_55;
+		L_55 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemSimulationSpace_tB3693D8A3C0FCE63D060546071006AC4ABC60B05_m053F1F4CA188B1945189ACC22015EDAB6E2C89E3_RuntimeMethod_var, L_54);
+		ForceOverLifetimeModule_set_space_m0828CB696A7BEAA8E22184BA945E935B2563F061((&V_0), L_55, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_01f1:
+	{
+		// instance.randomized = reader.Read<System.Boolean>(ES3Type_bool.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_56 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_57 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_56);
+		bool L_58;
+		L_58 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_56, L_57);
+		ForceOverLifetimeModule_set_randomized_mF3E5CE83D00615AE4CD6D8485C3BB6BD0732CFCE((&V_0), L_58, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_0205:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_59 = ___0_reader;
+		NullCheck(L_59);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_59);
+	}
+
+IL_020b:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_60 = ___0_reader;
+		NullCheck(L_60);
+		String_t* L_61;
+		L_61 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_60);
+		String_t* L_62 = L_61;
+		V_1 = L_62;
+		if (L_62)
+		{
+			goto IL_000c;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_ForceOverLifetimeModule::ReadInto<UnityEngine.ParticleSystem/TriggerModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_ForceOverLifetimeModule_ReadInto_TisTriggerModule_tDEE844919206259DA831ADCA3B1B2D915CB767B1_mB867276BA861A5DCB27CDA7E1589A3653FF01C23_gshared (ES3Type_ForceOverLifetimeModule_tEB39AA7CA8489DF9C2BC3DD1E5980D5D4226103D* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemSimulationSpace_tB3693D8A3C0FCE63D060546071006AC4ABC60B05_m053F1F4CA188B1945189ACC22015EDAB6E2C89E3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral062DB096C728515E033CF8C48A1C1F0B9A79384B);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral2F8690361553406965679AEF125F896BC5FC61F5);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral8C6F88DEE0DFE3513BB8B44A8CF0FEE437F4EFFB);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral9384C6EF2DA5C0BD5274A0DACFF291D0ABBFD8B1);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral9CE1604D659135925CCC4DD1F526AFFE42E689F1);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral9E61658953B4F9BB4A05E3D2D2BC18990BADE934);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD89836A6E8D87268C1D78D21683335C964F2ECCB);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralE1291C4D47635E327ECFE39842BD1A93F58C61A2);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B);
+		s_Il2CppMethodInitialized = true;
+	}
+	ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	String_t* V_1 = NULL;
+	uint32_t V_2 = 0;
+	{
+		// var instance = (UnityEngine.ParticleSystem.ForceOverLifetimeModule)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((*(ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976*)((ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976*)(ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976*)UnBox(L_0, ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976_il2cpp_TypeInfo_var))));
+		goto IL_020b;
+	}
+
+IL_000c:
+	{
+		String_t* L_1 = V_1;
+		uint32_t L_2;
+		L_2 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_1, NULL);
+		V_2 = L_2;
+		uint32_t L_3 = V_2;
+		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)1194511624)))))
+		{
+			goto IL_0056;
+		}
+	}
+	{
+		uint32_t L_4 = V_2;
+		if ((!(((uint32_t)L_4) <= ((uint32_t)((int32_t)726266686)))))
+		{
+			goto IL_003b;
+		}
+	}
+	{
+		uint32_t L_5 = V_2;
+		if ((((int32_t)L_5) == ((int32_t)((int32_t)49525662))))
+		{
+			goto IL_0093;
+		}
+	}
+	{
+		uint32_t L_6 = V_2;
+		if ((((int32_t)L_6) == ((int32_t)((int32_t)726266686))))
+		{
+			goto IL_0111;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_003b:
+	{
+		uint32_t L_7 = V_2;
+		if ((((int32_t)L_7) == ((int32_t)((int32_t)894689925))))
+		{
+			goto IL_0126;
+		}
+	}
+	{
+		uint32_t L_8 = V_2;
+		if ((((int32_t)L_8) == ((int32_t)((int32_t)1194511624))))
+		{
+			goto IL_013b;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0056:
+	{
+		uint32_t L_9 = V_2;
+		if ((!(((uint32_t)L_9) <= ((uint32_t)((int32_t)-585050980)))))
+		{
+			goto IL_0076;
+		}
+	}
+	{
+		uint32_t L_10 = V_2;
+		if ((((int32_t)L_10) == ((int32_t)((int32_t)-1013869429))))
+		{
+			goto IL_00fc;
+		}
+	}
+	{
+		uint32_t L_11 = V_2;
+		if ((((int32_t)L_11) == ((int32_t)((int32_t)-585050980))))
+		{
+			goto IL_00e7;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0076:
+	{
+		uint32_t L_12 = V_2;
+		if ((((int32_t)L_12) == ((int32_t)((int32_t)-66302220))))
+		{
+			goto IL_00bd;
+		}
+	}
+	{
+		uint32_t L_13 = V_2;
+		if ((((int32_t)L_13) == ((int32_t)((int32_t)-49524601))))
+		{
+			goto IL_00a8;
+		}
+	}
+	{
+		uint32_t L_14 = V_2;
+		if ((((int32_t)L_14) == ((int32_t)((int32_t)-15969363))))
+		{
+			goto IL_00d2;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0093:
+	{
+		String_t* L_15 = V_1;
+		bool L_16;
+		L_16 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_15, _stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B, NULL);
+		if (L_16)
+		{
+			goto IL_0150;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_00a8:
+	{
+		String_t* L_17 = V_1;
+		bool L_18;
+		L_18 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_17, _stringLiteral062DB096C728515E033CF8C48A1C1F0B9A79384B, NULL);
+		if (L_18)
+		{
+			goto IL_0167;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_00bd:
+	{
+		String_t* L_19 = V_1;
+		bool L_20;
+		L_20 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_19, _stringLiteral9384C6EF2DA5C0BD5274A0DACFF291D0ABBFD8B1, NULL);
+		if (L_20)
+		{
+			goto IL_017e;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_00d2:
+	{
+		String_t* L_21 = V_1;
+		bool L_22;
+		L_22 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_21, _stringLiteral9CE1604D659135925CCC4DD1F526AFFE42E689F1, NULL);
+		if (L_22)
+		{
+			goto IL_0192;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_00e7:
+	{
+		String_t* L_23 = V_1;
+		bool L_24;
+		L_24 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_23, _stringLiteral8C6F88DEE0DFE3513BB8B44A8CF0FEE437F4EFFB, NULL);
+		if (L_24)
+		{
+			goto IL_01a6;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_00fc:
+	{
+		String_t* L_25 = V_1;
+		bool L_26;
+		L_26 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_25, _stringLiteral9E61658953B4F9BB4A05E3D2D2BC18990BADE934, NULL);
+		if (L_26)
+		{
+			goto IL_01ba;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0111:
+	{
+		String_t* L_27 = V_1;
+		bool L_28;
+		L_28 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_27, _stringLiteral2F8690361553406965679AEF125F896BC5FC61F5, NULL);
+		if (L_28)
+		{
+			goto IL_01ce;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0126:
+	{
+		String_t* L_29 = V_1;
+		bool L_30;
+		L_30 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_29, _stringLiteralE1291C4D47635E327ECFE39842BD1A93F58C61A2, NULL);
+		if (L_30)
+		{
+			goto IL_01e2;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_013b:
+	{
+		String_t* L_31 = V_1;
+		bool L_32;
+		L_32 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_31, _stringLiteralD89836A6E8D87268C1D78D21683335C964F2ECCB, NULL);
+		if (L_32)
+		{
+			goto IL_01f1;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0150:
+	{
+		// instance.enabled = reader.Read<System.Boolean>(ES3Type_bool.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_33 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_34 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_33);
+		bool L_35;
+		L_35 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_33, L_34);
+		ForceOverLifetimeModule_set_enabled_mD838E60CDB55A367FC5D2956899314EFCBB20906((&V_0), L_35, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_0167:
+	{
+		// instance.x = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_36 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_37 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_36);
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_38;
+		L_38 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_36, L_37);
+		ForceOverLifetimeModule_set_x_m452BDF51A7878D84C62620D419259327B71BAC94((&V_0), L_38, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_017e:
+	{
+		// instance.y = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_39 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_40 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_39);
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_41;
+		L_41 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_39, L_40);
+		ForceOverLifetimeModule_set_y_mA72BA03D839F032C54FD5D20A25C5676D934E8FA((&V_0), L_41, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_0192:
+	{
+		// instance.z = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_42 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_43 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_42);
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_44;
+		L_44 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_42, L_43);
+		ForceOverLifetimeModule_set_z_mA043C911ED6E9C0EFA9933A14D2FACEF44FB204D((&V_0), L_44, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_01a6:
+	{
+		// instance.xMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_45 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_46 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_45);
+		float L_47;
+		L_47 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_45, L_46);
+		ForceOverLifetimeModule_set_xMultiplier_mA46C1B75A82BB35332FB2DBF0C99299608BB81DF((&V_0), L_47, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_01ba:
+	{
+		// instance.yMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_48 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_49 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_48);
+		float L_50;
+		L_50 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_48, L_49);
+		ForceOverLifetimeModule_set_yMultiplier_m4E10E99371C81EA8EEE75FE043046CC49E3A4490((&V_0), L_50, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_01ce:
+	{
+		// instance.zMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_51 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_52 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_51);
+		float L_53;
+		L_53 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_51, L_52);
+		ForceOverLifetimeModule_set_zMultiplier_m3C3DC1740A447AD506B14C97BCD49CEB81AFBD42((&V_0), L_53, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_01e2:
+	{
+		// instance.space = reader.Read<UnityEngine.ParticleSystemSimulationSpace>();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_54 = ___0_reader;
+		NullCheck(L_54);
+		int32_t L_55;
+		L_55 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemSimulationSpace_tB3693D8A3C0FCE63D060546071006AC4ABC60B05_m053F1F4CA188B1945189ACC22015EDAB6E2C89E3_RuntimeMethod_var, L_54);
+		ForceOverLifetimeModule_set_space_m0828CB696A7BEAA8E22184BA945E935B2563F061((&V_0), L_55, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_01f1:
+	{
+		// instance.randomized = reader.Read<System.Boolean>(ES3Type_bool.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_56 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_57 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_56);
+		bool L_58;
+		L_58 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_56, L_57);
+		ForceOverLifetimeModule_set_randomized_mF3E5CE83D00615AE4CD6D8485C3BB6BD0732CFCE((&V_0), L_58, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_0205:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_59 = ___0_reader;
+		NullCheck(L_59);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_59);
+	}
+
+IL_020b:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_60 = ___0_reader;
+		NullCheck(L_60);
+		String_t* L_61;
+		L_61 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_60);
+		String_t* L_62 = L_61;
+		V_1 = L_62;
+		if (L_62)
+		{
+			goto IL_000c;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_ForceOverLifetimeModule::ReadInto<UnityEngine.ParticleSystem/VelocityOverLifetimeModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_ForceOverLifetimeModule_ReadInto_TisVelocityOverLifetimeModule_tB4A3291E3D2E850257EE3F8344AAEDA06D7FCE56_m29AEA4FD69BED8C4015CFC42C10A2E2EB0C3E495_gshared (ES3Type_ForceOverLifetimeModule_tEB39AA7CA8489DF9C2BC3DD1E5980D5D4226103D* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisParticleSystemSimulationSpace_tB3693D8A3C0FCE63D060546071006AC4ABC60B05_m053F1F4CA188B1945189ACC22015EDAB6E2C89E3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral062DB096C728515E033CF8C48A1C1F0B9A79384B);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral2F8690361553406965679AEF125F896BC5FC61F5);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral8C6F88DEE0DFE3513BB8B44A8CF0FEE437F4EFFB);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral9384C6EF2DA5C0BD5274A0DACFF291D0ABBFD8B1);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral9CE1604D659135925CCC4DD1F526AFFE42E689F1);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral9E61658953B4F9BB4A05E3D2D2BC18990BADE934);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralD89836A6E8D87268C1D78D21683335C964F2ECCB);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralE1291C4D47635E327ECFE39842BD1A93F58C61A2);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B);
+		s_Il2CppMethodInitialized = true;
+	}
+	ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976 V_0;
+	memset((&V_0), 0, sizeof(V_0));
+	String_t* V_1 = NULL;
+	uint32_t V_2 = 0;
+	{
+		// var instance = (UnityEngine.ParticleSystem.ForceOverLifetimeModule)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((*(ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976*)((ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976*)(ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976*)UnBox(L_0, ForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976_il2cpp_TypeInfo_var))));
+		goto IL_020b;
+	}
+
+IL_000c:
+	{
+		String_t* L_1 = V_1;
+		uint32_t L_2;
+		L_2 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_1, NULL);
+		V_2 = L_2;
+		uint32_t L_3 = V_2;
+		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)1194511624)))))
+		{
+			goto IL_0056;
+		}
+	}
+	{
+		uint32_t L_4 = V_2;
+		if ((!(((uint32_t)L_4) <= ((uint32_t)((int32_t)726266686)))))
+		{
+			goto IL_003b;
+		}
+	}
+	{
+		uint32_t L_5 = V_2;
+		if ((((int32_t)L_5) == ((int32_t)((int32_t)49525662))))
+		{
+			goto IL_0093;
+		}
+	}
+	{
+		uint32_t L_6 = V_2;
+		if ((((int32_t)L_6) == ((int32_t)((int32_t)726266686))))
+		{
+			goto IL_0111;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_003b:
+	{
+		uint32_t L_7 = V_2;
+		if ((((int32_t)L_7) == ((int32_t)((int32_t)894689925))))
+		{
+			goto IL_0126;
+		}
+	}
+	{
+		uint32_t L_8 = V_2;
+		if ((((int32_t)L_8) == ((int32_t)((int32_t)1194511624))))
+		{
+			goto IL_013b;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0056:
+	{
+		uint32_t L_9 = V_2;
+		if ((!(((uint32_t)L_9) <= ((uint32_t)((int32_t)-585050980)))))
+		{
+			goto IL_0076;
+		}
+	}
+	{
+		uint32_t L_10 = V_2;
+		if ((((int32_t)L_10) == ((int32_t)((int32_t)-1013869429))))
+		{
+			goto IL_00fc;
+		}
+	}
+	{
+		uint32_t L_11 = V_2;
+		if ((((int32_t)L_11) == ((int32_t)((int32_t)-585050980))))
+		{
+			goto IL_00e7;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0076:
+	{
+		uint32_t L_12 = V_2;
+		if ((((int32_t)L_12) == ((int32_t)((int32_t)-66302220))))
+		{
+			goto IL_00bd;
+		}
+	}
+	{
+		uint32_t L_13 = V_2;
+		if ((((int32_t)L_13) == ((int32_t)((int32_t)-49524601))))
+		{
+			goto IL_00a8;
+		}
+	}
+	{
+		uint32_t L_14 = V_2;
+		if ((((int32_t)L_14) == ((int32_t)((int32_t)-15969363))))
+		{
+			goto IL_00d2;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0093:
+	{
+		String_t* L_15 = V_1;
+		bool L_16;
+		L_16 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_15, _stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B, NULL);
+		if (L_16)
+		{
+			goto IL_0150;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_00a8:
+	{
+		String_t* L_17 = V_1;
+		bool L_18;
+		L_18 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_17, _stringLiteral062DB096C728515E033CF8C48A1C1F0B9A79384B, NULL);
+		if (L_18)
+		{
+			goto IL_0167;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_00bd:
+	{
+		String_t* L_19 = V_1;
+		bool L_20;
+		L_20 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_19, _stringLiteral9384C6EF2DA5C0BD5274A0DACFF291D0ABBFD8B1, NULL);
+		if (L_20)
+		{
+			goto IL_017e;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_00d2:
+	{
+		String_t* L_21 = V_1;
+		bool L_22;
+		L_22 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_21, _stringLiteral9CE1604D659135925CCC4DD1F526AFFE42E689F1, NULL);
+		if (L_22)
+		{
+			goto IL_0192;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_00e7:
+	{
+		String_t* L_23 = V_1;
+		bool L_24;
+		L_24 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_23, _stringLiteral8C6F88DEE0DFE3513BB8B44A8CF0FEE437F4EFFB, NULL);
+		if (L_24)
+		{
+			goto IL_01a6;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_00fc:
+	{
+		String_t* L_25 = V_1;
+		bool L_26;
+		L_26 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_25, _stringLiteral9E61658953B4F9BB4A05E3D2D2BC18990BADE934, NULL);
+		if (L_26)
+		{
+			goto IL_01ba;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0111:
+	{
+		String_t* L_27 = V_1;
+		bool L_28;
+		L_28 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_27, _stringLiteral2F8690361553406965679AEF125F896BC5FC61F5, NULL);
+		if (L_28)
+		{
+			goto IL_01ce;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0126:
+	{
+		String_t* L_29 = V_1;
+		bool L_30;
+		L_30 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_29, _stringLiteralE1291C4D47635E327ECFE39842BD1A93F58C61A2, NULL);
+		if (L_30)
+		{
+			goto IL_01e2;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_013b:
+	{
+		String_t* L_31 = V_1;
+		bool L_32;
+		L_32 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_31, _stringLiteralD89836A6E8D87268C1D78D21683335C964F2ECCB, NULL);
+		if (L_32)
+		{
+			goto IL_01f1;
+		}
+	}
+	{
+		goto IL_0205;
+	}
+
+IL_0150:
+	{
+		// instance.enabled = reader.Read<System.Boolean>(ES3Type_bool.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_33 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_34 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_33);
+		bool L_35;
+		L_35 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_33, L_34);
+		ForceOverLifetimeModule_set_enabled_mD838E60CDB55A367FC5D2956899314EFCBB20906((&V_0), L_35, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_0167:
+	{
+		// instance.x = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_36 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_37 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_36);
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_38;
+		L_38 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_36, L_37);
+		ForceOverLifetimeModule_set_x_m452BDF51A7878D84C62620D419259327B71BAC94((&V_0), L_38, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_017e:
+	{
+		// instance.y = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_39 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_40 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_39);
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_41;
+		L_41 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_39, L_40);
+		ForceOverLifetimeModule_set_y_mA72BA03D839F032C54FD5D20A25C5676D934E8FA((&V_0), L_41, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_0192:
+	{
+		// instance.z = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_42 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_43 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_42);
+		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_44;
+		L_44 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_42, L_43);
+		ForceOverLifetimeModule_set_z_mA043C911ED6E9C0EFA9933A14D2FACEF44FB204D((&V_0), L_44, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_01a6:
+	{
+		// instance.xMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_45 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_46 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_45);
+		float L_47;
+		L_47 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_45, L_46);
+		ForceOverLifetimeModule_set_xMultiplier_mA46C1B75A82BB35332FB2DBF0C99299608BB81DF((&V_0), L_47, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_01ba:
+	{
+		// instance.yMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_48 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_49 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_48);
+		float L_50;
+		L_50 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_48, L_49);
+		ForceOverLifetimeModule_set_yMultiplier_m4E10E99371C81EA8EEE75FE043046CC49E3A4490((&V_0), L_50, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_01ce:
+	{
+		// instance.zMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_51 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_52 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_51);
+		float L_53;
+		L_53 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_51, L_52);
+		ForceOverLifetimeModule_set_zMultiplier_m3C3DC1740A447AD506B14C97BCD49CEB81AFBD42((&V_0), L_53, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_01e2:
+	{
+		// instance.space = reader.Read<UnityEngine.ParticleSystemSimulationSpace>();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_54 = ___0_reader;
+		NullCheck(L_54);
+		int32_t L_55;
+		L_55 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisParticleSystemSimulationSpace_tB3693D8A3C0FCE63D060546071006AC4ABC60B05_m053F1F4CA188B1945189ACC22015EDAB6E2C89E3_RuntimeMethod_var, L_54);
+		ForceOverLifetimeModule_set_space_m0828CB696A7BEAA8E22184BA945E935B2563F061((&V_0), L_55, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_01f1:
+	{
+		// instance.randomized = reader.Read<System.Boolean>(ES3Type_bool.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_56 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_57 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_56);
+		bool L_58;
+		L_58 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_56, L_57);
+		ForceOverLifetimeModule_set_randomized_mF3E5CE83D00615AE4CD6D8485C3BB6BD0732CFCE((&V_0), L_58, NULL);
+		// break;
+		goto IL_020b;
+	}
+
+IL_0205:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_59 = ___0_reader;
+		NullCheck(L_59);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_59);
+	}
+
+IL_020b:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_60 = ___0_reader;
+		NullCheck(L_60);
+		String_t* L_61;
+		L_61 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_60);
+		String_t* L_62 = L_61;
+		V_1 = L_62;
+		if (L_62)
+		{
+			goto IL_000c;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Object ES3Types.ES3Type_GameObject::ReadObject<System.Object>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GameObject_ReadObject_TisRuntimeObject_m89C2CCDA55BF1716D0226557499E9192C58BC8FA_gshared (ES3Type_GameObject_tC1960F2F6CCFE9F26418AD22D1D18870BE1DE6A4* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadInto_TisGameObject_t76FEDD663AB33C991A9C9A23129337651094216F_m181EE4054D416078E82D9A47DC2A0AB4AC28E018_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGameObject_t76FEDD663AB33C991A9C9A23129337651094216F_m88F5AE4F47F57108F2D11503B0CF0F3A8B39DE95_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3TypeMgr_t2059E7C8FA1F7EAE15CE82B787581AA45D1BCC54_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_ES3PrefabInternal_t0A75647DEDA525454C3B32E42D439624650BCCF9_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GameObject_t76FEDD663AB33C991A9C9A23129337651094216F_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral14726239567BD9C665FF32AAD1C578583B8D23E5);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral4B289DF8867DF87B3704A5D40028776AE05B2CFB);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral61E82DA0446E729A1FD7BFC40790DE0A9C8C65EA);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral85548395928C7261DFC929F8E4DCA42310D46F8F);
+		s_Il2CppMethodInitialized = true;
+	}
+	Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* V_0 = NULL;
+	ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9* V_1 = NULL;
+	int64_t V_2 = 0;
+	String_t* V_3 = NULL;
+	int64_t V_4 = 0;
+	{
+		// UnityEngine.Object obj = null;
+		V_0 = (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL;
+		// var refMgr = ES3ReferenceMgrBase.Current;
+		il2cpp_codegen_runtime_class_init_inline(ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9_il2cpp_TypeInfo_var);
+		ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9* L_0;
+		L_0 = ES3ReferenceMgrBase_get_Current_m9248D94332DE1BC553FA33E0F12C97579DD9AFD3(NULL);
+		V_1 = L_0;
+		// long id = 0;
+		V_2 = ((int64_t)0);
+	}
+
+IL_000b:
+	{
+		// if (refMgr == null)
+		ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9* L_1 = V_1;
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		bool L_2;
+		L_2 = Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605((Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)L_1, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (!L_2)
+		{
+			goto IL_001f;
+		}
+	}
+	{
+		// throw new InvalidOperationException("An Easy Save 3 Manager is required to load references. To add one to your scene, exit playmode and go to Assets > Easy Save 3 > Add Manager to Scene");
+		InvalidOperationException_t5DDE4D49B7405FAAB1E4576F4715A42A3FAD4BAB* L_3 = (InvalidOperationException_t5DDE4D49B7405FAAB1E4576F4715A42A3FAD4BAB*)il2cpp_codegen_object_new(((RuntimeClass*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&InvalidOperationException_t5DDE4D49B7405FAAB1E4576F4715A42A3FAD4BAB_il2cpp_TypeInfo_var)));
+		NullCheck(L_3);
+		InvalidOperationException__ctor_mE4CB6F4712AB6D99A2358FBAE2E052B3EE976162(L_3, ((String_t*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&_stringLiteral406C5B69EBEF916B4FB4B17F8F5F5F0B5BA6565D)), NULL);
+		IL2CPP_RAISE_MANAGED_EXCEPTION(L_3, ((RuntimeMethod*)il2cpp_codegen_initialize_runtime_metadata_inline((uintptr_t*)&ES3Type_GameObject_ReadObject_TisRuntimeObject_m89C2CCDA55BF1716D0226557499E9192C58BC8FA_RuntimeMethod_var)));
+	}
+
+IL_001f:
+	{
+		// var propertyName = ReadPropertyName(reader);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_4 = ___0_reader;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		String_t* L_5;
+		L_5 = ES3Type_ReadPropertyName_mC7476E38811641B7ACF0793AF323C8B4DB073F11((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_4, NULL);
+		V_3 = L_5;
+		// if (propertyName == ES3Type.typeFieldName)
+		String_t* L_6 = V_3;
+		bool L_7;
+		L_7 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_6, _stringLiteral85548395928C7261DFC929F8E4DCA42310D46F8F, NULL);
+		if (!L_7)
+		{
+			goto IL_0047;
+		}
+	}
+	{
+		// return ES3TypeMgr.GetOrCreateES3Type(reader.ReadType()).Read<T>(reader);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_8 = ___0_reader;
+		NullCheck(L_8);
+		Type_t* L_9;
+		L_9 = ES3Reader_ReadType_m683A53CDB896EFEC4B92AC2D40C7559B61260512(L_8, NULL);
+		il2cpp_codegen_runtime_class_init_inline(ES3TypeMgr_t2059E7C8FA1F7EAE15CE82B787581AA45D1BCC54_il2cpp_TypeInfo_var);
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_10;
+		L_10 = ES3TypeMgr_GetOrCreateES3Type_mD222A5BD03D105BDA2580FF24D473B8EDDF350EE(L_9, (bool)1, NULL);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_10);
+		RuntimeObject* L_12;
+		L_12 = GenericVirtualFuncInvoker1< RuntimeObject*, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), L_10, L_11);
+		return L_12;
+	}
+
+IL_0047:
+	{
+		// else if (propertyName == ES3ReferenceMgrBase.referencePropertyName)
+		String_t* L_13 = V_3;
+		bool L_14;
+		L_14 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_13, _stringLiteral61E82DA0446E729A1FD7BFC40790DE0A9C8C65EA, NULL);
+		if (!L_14)
+		{
+			goto IL_0066;
+		}
+	}
+	{
+		// id = reader.Read_ref();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_15 = ___0_reader;
+		NullCheck(L_15);
+		int64_t L_16;
+		L_16 = VirtualFuncInvoker0< int64_t >::Invoke(20 /* System.Int64 ES3Reader::Read_ref() */, L_15);
+		V_2 = L_16;
+		// obj = refMgr.Get(id, true);
+		ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9* L_17 = V_1;
+		int64_t L_18 = V_2;
+		NullCheck(L_17);
+		Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* L_19;
+		L_19 = ES3ReferenceMgrBase_Get_m6E6DFACA4BDCFC80CA61746A1ABCF56589560EF5(L_17, L_18, (bool)1, NULL);
+		V_0 = L_19;
+		goto IL_000b;
+	}
+
+IL_0066:
+	{
+		// else if (propertyName == transformPropertyName)
+		String_t* L_20 = V_3;
+		bool L_21;
+		L_21 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_20, _stringLiteral14726239567BD9C665FF32AAD1C578583B8D23E5, NULL);
+		if (!L_21)
+		{
+			goto IL_00a6;
+		}
+	}
+	{
+		// long transformID = reader.Read_ref();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_22 = ___0_reader;
+		NullCheck(L_22);
+		int64_t L_23;
+		L_23 = VirtualFuncInvoker0< int64_t >::Invoke(20 /* System.Int64 ES3Reader::Read_ref() */, L_22);
+		V_4 = L_23;
+		// if (obj == null)
+		Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* L_24 = V_0;
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		bool L_25;
+		L_25 = Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605(L_24, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (!L_25)
+		{
+			goto IL_008d;
+		}
+	}
+	{
+		// obj = CreateNewGameObject(refMgr, id);
+		ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9* L_26 = V_1;
+		int64_t L_27 = V_2;
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_28;
+		L_28 = ES3Type_GameObject_CreateNewGameObject_mC3C09FD7C6A25A5E9CE1E280B9600F9F9E5CC96E(__this, L_26, L_27, NULL);
+		V_0 = (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)L_28;
+	}
+
+IL_008d:
+	{
+		// refMgr.Add(((GameObject)obj).transform, transformID);
+		ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9* L_29 = V_1;
+		Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* L_30 = V_0;
+		NullCheck(((GameObject_t76FEDD663AB33C991A9C9A23129337651094216F*)CastclassSealed((RuntimeObject*)L_30, GameObject_t76FEDD663AB33C991A9C9A23129337651094216F_il2cpp_TypeInfo_var)));
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_31;
+		L_31 = GameObject_get_transform_m0BC10ADFA1632166AE5544BDF9038A2650C2AE56(((GameObject_t76FEDD663AB33C991A9C9A23129337651094216F*)CastclassSealed((RuntimeObject*)L_30, GameObject_t76FEDD663AB33C991A9C9A23129337651094216F_il2cpp_TypeInfo_var)), NULL);
+		int64_t L_32 = V_4;
+		NullCheck(L_29);
+		int64_t L_33;
+		L_33 = ES3ReferenceMgrBase_Add_m25B484B12ABE61EADF526CBD7C1C072F7B439026(L_29, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)L_31, L_32, NULL);
+		goto IL_000b;
+	}
+
+IL_00a6:
+	{
+		// else if (propertyName == prefabPropertyName)
+		String_t* L_34 = V_3;
+		bool L_35;
+		L_35 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_34, _stringLiteral4B289DF8867DF87B3704A5D40028776AE05B2CFB, NULL);
+		if (!L_35)
+		{
+			goto IL_00f3;
+		}
+	}
+	{
+		// if (obj != null || ES3ReferenceMgrBase.Current == null)
+		Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* L_36 = V_0;
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		bool L_37;
+		L_37 = Object_op_Inequality_mD0BE578448EAA61948F25C32F8DD55AB1F778602(L_36, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (L_37)
+		{
+			goto IL_00c9;
+		}
+	}
+	{
+		il2cpp_codegen_runtime_class_init_inline(ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9_il2cpp_TypeInfo_var);
+		ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9* L_38;
+		L_38 = ES3ReferenceMgrBase_get_Current_m9248D94332DE1BC553FA33E0F12C97579DD9AFD3(NULL);
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		bool L_39;
+		L_39 = Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605((Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)L_38, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (!L_39)
+		{
+			goto IL_00d5;
+		}
+	}
+
+IL_00c9:
+	{
+		// reader.ReadInto<GameObject>(obj); // ReadInto to apply the prefab references.
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_40 = ___0_reader;
+		Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* L_41 = V_0;
+		NullCheck(L_40);
+		GenericVirtualActionInvoker1< RuntimeObject* >::Invoke(ES3Reader_ReadInto_TisGameObject_t76FEDD663AB33C991A9C9A23129337651094216F_m181EE4054D416078E82D9A47DC2A0AB4AC28E018_RuntimeMethod_var, L_40, (RuntimeObject*)L_41);
+		goto IL_000b;
+	}
+
+IL_00d5:
+	{
+		// obj = reader.Read<GameObject>(ES3Type_ES3PrefabInternal.Instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_42 = ___0_reader;
+		il2cpp_codegen_runtime_class_init_inline(ES3Type_ES3PrefabInternal_t0A75647DEDA525454C3B32E42D439624650BCCF9_il2cpp_TypeInfo_var);
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_43 = ((ES3Type_ES3PrefabInternal_t0A75647DEDA525454C3B32E42D439624650BCCF9_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_ES3PrefabInternal_t0A75647DEDA525454C3B32E42D439624650BCCF9_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_42);
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_44;
+		L_44 = GenericVirtualFuncInvoker1< GameObject_t76FEDD663AB33C991A9C9A23129337651094216F*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisGameObject_t76FEDD663AB33C991A9C9A23129337651094216F_m88F5AE4F47F57108F2D11503B0CF0F3A8B39DE95_RuntimeMethod_var, L_42, L_43);
+		V_0 = (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)L_44;
+		// ES3ReferenceMgrBase.Current.Add(obj, id);
+		il2cpp_codegen_runtime_class_init_inline(ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9_il2cpp_TypeInfo_var);
+		ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9* L_45;
+		L_45 = ES3ReferenceMgrBase_get_Current_m9248D94332DE1BC553FA33E0F12C97579DD9AFD3(NULL);
+		Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* L_46 = V_0;
+		int64_t L_47 = V_2;
+		NullCheck(L_45);
+		int64_t L_48;
+		L_48 = ES3ReferenceMgrBase_Add_m25B484B12ABE61EADF526CBD7C1C072F7B439026(L_45, L_46, L_47, NULL);
+		goto IL_000b;
+	}
+
+IL_00f3:
+	{
+		// else if (propertyName == null)
+		String_t* L_49 = V_3;
+		if (L_49)
+		{
+			goto IL_00f8;
+		}
+	}
+	{
+		// return obj;
+		Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* L_50 = V_0;
+		return (RuntimeObject*)L_50;
+	}
+
+IL_00f8:
+	{
+		// reader.overridePropertiesName = propertyName;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_51 = ___0_reader;
+		String_t* L_52 = V_3;
+		NullCheck(L_51);
+		L_51->___overridePropertiesName_2 = L_52;
+		Il2CppCodeGenWriteBarrier((void**)(&L_51->___overridePropertiesName_2), (void*)L_52);
+		// if (obj == null)
+		Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* L_53 = V_0;
+		il2cpp_codegen_runtime_class_init_inline(Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_il2cpp_TypeInfo_var);
+		bool L_54;
+		L_54 = Object_op_Equality_mB6120F782D83091EF56A198FCEBCF066DB4A9605(L_53, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)NULL, NULL);
+		if (!L_54)
+		{
+			goto IL_0111;
+		}
+	}
+	{
+		// obj = CreateNewGameObject(refMgr, id);
+		ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9* L_55 = V_1;
+		int64_t L_56 = V_2;
+		GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_57;
+		L_57 = ES3Type_GameObject_CreateNewGameObject_mC3C09FD7C6A25A5E9CE1E280B9600F9F9E5CC96E(__this, L_55, L_56, NULL);
+		V_0 = (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)L_57;
+	}
+
+IL_0111:
+	{
+		// ReadInto<T>(reader, obj);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_58 = ___0_reader;
+		Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* L_59 = V_0;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		GenericVirtualActionInvoker2< ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 1), (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_58, (RuntimeObject*)L_59);
+		// return obj;
+		Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C* L_60 = V_0;
+		return (RuntimeObject*)L_60;
+	}
+}
+// System.Void ES3Types.ES3Type_GameObject::ReadObject<System.Object>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_GameObject_ReadObject_TisRuntimeObject_mB1A569FB5D81CF90F33325FA9DF46F692D215116_gshared (ES3Type_GameObject_tC1960F2F6CCFE9F26418AD22D1D18870BE1DE6A4* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF_m34A1A8D80B254890396A8CFE24D06B5864CC1F96_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisHideFlags_tC514182ACEFD3B847988C45D5DB812FF6DB1BF4A_mAD145C79A94F1FF793F1788ECCFDAD436FAAF5B1_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisString_t_m8512BF9EA1392BE2CA7E9A116D833D533495E1D6_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_string_tEE4C8F55053F345064CB52CE0C28F6E31830D3D3_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GameObject_t76FEDD663AB33C991A9C9A23129337651094216F_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&IDisposable_t030E0496B4E0E4E4F086825007979AF51F7248C5_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&IEnumerator_t7B609C2FFA6EB5167D9C62A0C32A21DE2F666DAA_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&String_t_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral00EE2035D1C1084808BE268F9D59D68FF8B3154B);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral4B247C13053AB16D1668B60F2A407C881E8EEC64);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral61E82DA0446E729A1FD7BFC40790DE0A9C8C65EA);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral72A731D064EB75DC3D80E1718EA650C90C3D0EA9);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral734D834219E25F6AC949E3C4A33AA80BB578DC1A);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral9FF7A8A0CF603B20A1F5510A7D95439FF5AF3A56);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralC220E5ABB03B498FA9E8AE08256C71E0C463D910);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralCE18B047107AA23D1AA9B2ED32D316148E02655F);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF7C03E97995F6950303A46C204A216735E6B4582);
+		s_Il2CppMethodInitialized = true;
+	}
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* V_0 = NULL;
+	RuntimeObject* V_1 = NULL;
+	String_t* V_2 = NULL;
+	Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* V_3 = NULL;
+	uint32_t V_4 = 0;
+	GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* V_5 = NULL;
+	int32_t V_6 = 0;
+	RuntimeObject* V_7 = NULL;
+	{
+		// var instance = (UnityEngine.GameObject)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((GameObject_t76FEDD663AB33C991A9C9A23129337651094216F*)CastclassSealed((RuntimeObject*)L_0, GameObject_t76FEDD663AB33C991A9C9A23129337651094216F_il2cpp_TypeInfo_var));
+		// foreach (string propertyName in reader.Properties)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_1 = ___0_reader;
+		NullCheck(L_1);
+		ES3ReaderPropertyEnumerator_tF9A132CC74810289A45CB0F31DFD50B506CED09A* L_2;
+		L_2 = VirtualFuncInvoker0< ES3ReaderPropertyEnumerator_tF9A132CC74810289A45CB0F31DFD50B506CED09A* >::Invoke(39 /* ES3Reader/ES3ReaderPropertyEnumerator ES3Reader::get_Properties() */, L_1);
+		NullCheck(L_2);
+		RuntimeObject* L_3;
+		L_3 = ES3ReaderPropertyEnumerator_GetEnumerator_mB165F4C7E1D6CD13B2FD9BF8D8FD1094242E5A7F(L_2, NULL);
+		V_1 = L_3;
+	}
+	{
+		auto __finallyBlock = il2cpp::utils::Finally([&]
+		{
+
+FINALLY_0240:
+			{// begin finally (depth: 1)
+				{
+					RuntimeObject* L_4 = V_1;
+					V_7 = ((RuntimeObject*)IsInst((RuntimeObject*)L_4, IDisposable_t030E0496B4E0E4E4F086825007979AF51F7248C5_il2cpp_TypeInfo_var));
+					RuntimeObject* L_5 = V_7;
+					if (!L_5)
+					{
+						goto IL_0253;
+					}
+				}
+				{
+					RuntimeObject* L_6 = V_7;
+					NullCheck(L_6);
+					InterfaceActionInvoker0::Invoke(0 /* System.Void System.IDisposable::Dispose() */, IDisposable_t030E0496B4E0E4E4F086825007979AF51F7248C5_il2cpp_TypeInfo_var, L_6);
+				}
+
+IL_0253:
+				{
+					return;
+				}
+			}// end finally (depth: 1)
+		});
+		try
+		{// begin try (depth: 1)
+			{
+				goto IL_0233_1;
+			}
+
+IL_0018_1:
+			{
+				// foreach (string propertyName in reader.Properties)
+				RuntimeObject* L_7 = V_1;
+				NullCheck(L_7);
+				RuntimeObject* L_8;
+				L_8 = InterfaceFuncInvoker0< RuntimeObject* >::Invoke(1 /* System.Object System.Collections.IEnumerator::get_Current() */, IEnumerator_t7B609C2FFA6EB5167D9C62A0C32A21DE2F666DAA_il2cpp_TypeInfo_var, L_7);
+				V_2 = ((String_t*)CastclassSealed((RuntimeObject*)L_8, String_t_il2cpp_TypeInfo_var));
+				String_t* L_9 = V_2;
+				uint32_t L_10;
+				L_10 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_9, NULL);
+				V_4 = L_10;
+				uint32_t L_11 = V_4;
+				if ((!(((uint32_t)L_11) <= ((uint32_t)((int32_t)1739180498)))))
+				{
+					goto IL_0078_1;
+				}
+			}
+			{
+				uint32_t L_12 = V_4;
+				if ((!(((uint32_t)L_12) <= ((uint32_t)((int32_t)128336118)))))
+				{
+					goto IL_005b_1;
+				}
+			}
+			{
+				uint32_t L_13 = V_4;
+				if ((((int32_t)L_13) == ((int32_t)((int32_t)36885379))))
+				{
+					goto IL_00d3_1;
+				}
+			}
+			{
+				uint32_t L_14 = V_4;
+				if ((((int32_t)L_14) == ((int32_t)((int32_t)128336118))))
+				{
+					goto IL_00e8_1;
+				}
+			}
+			{
+				goto IL_022d_1;
+			}
+
+IL_005b_1:
+			{
+				uint32_t L_15 = V_4;
+				if ((((int32_t)L_15) == ((int32_t)((int32_t)469045609))))
+				{
+					goto IL_0166_1;
+				}
+			}
+			{
+				uint32_t L_16 = V_4;
+				if ((((int32_t)L_16) == ((int32_t)((int32_t)1739180498))))
+				{
+					goto IL_0151_1;
+				}
+			}
+			{
+				goto IL_022d_1;
+			}
+
+IL_0078_1:
+			{
+				uint32_t L_17 = V_4;
+				if ((!(((uint32_t)L_17) <= ((uint32_t)((int32_t)-1778964077)))))
+				{
+					goto IL_009b_1;
+				}
+			}
+			{
+				uint32_t L_18 = V_4;
+				if ((((int32_t)L_18) == ((int32_t)((int32_t)-1925595674))))
+				{
+					goto IL_0112_1;
+				}
+			}
+			{
+				uint32_t L_19 = V_4;
+				if ((((int32_t)L_19) == ((int32_t)((int32_t)-1778964077))))
+				{
+					goto IL_00fd_1;
+				}
+			}
+			{
+				goto IL_022d_1;
+			}
+
+IL_009b_1:
+			{
+				uint32_t L_20 = V_4;
+				if ((((int32_t)L_20) == ((int32_t)((int32_t)-1251490400))))
+				{
+					goto IL_00be_1;
+				}
+			}
+			{
+				uint32_t L_21 = V_4;
+				if ((((int32_t)L_21) == ((int32_t)((int32_t)-646604497))))
+				{
+					goto IL_013c_1;
+				}
+			}
+			{
+				uint32_t L_22 = V_4;
+				if ((((int32_t)L_22) == ((int32_t)((int32_t)-350400524))))
+				{
+					goto IL_0127_1;
+				}
+			}
+			{
+				goto IL_022d_1;
+			}
+
+IL_00be_1:
+			{
+				String_t* L_23 = V_2;
+				bool L_24;
+				L_24 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_23, _stringLiteral61E82DA0446E729A1FD7BFC40790DE0A9C8C65EA, NULL);
+				if (L_24)
+				{
+					goto IL_017b_1;
+				}
+			}
+			{
+				goto IL_022d_1;
+			}
+
+IL_00d3_1:
+			{
+				String_t* L_25 = V_2;
+				bool L_26;
+				L_26 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_25, _stringLiteral4B247C13053AB16D1668B60F2A407C881E8EEC64, NULL);
+				if (L_26)
+				{
+					goto IL_0233_1;
+				}
+			}
+			{
+				goto IL_022d_1;
+			}
+
+IL_00e8_1:
+			{
+				String_t* L_27 = V_2;
+				bool L_28;
+				L_28 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_27, _stringLiteral72A731D064EB75DC3D80E1718EA650C90C3D0EA9, NULL);
+				if (L_28)
+				{
+					goto IL_0192_1;
+				}
+			}
+			{
+				goto IL_022d_1;
+			}
+
+IL_00fd_1:
+			{
+				String_t* L_29 = V_2;
+				bool L_30;
+				L_30 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_29, _stringLiteral9FF7A8A0CF603B20A1F5510A7D95439FF5AF3A56, NULL);
+				if (L_30)
+				{
+					goto IL_01a8_1;
+				}
+			}
+			{
+				goto IL_022d_1;
+			}
+
+IL_0112_1:
+			{
+				String_t* L_31 = V_2;
+				bool L_32;
+				L_32 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_31, _stringLiteralCE18B047107AA23D1AA9B2ED32D316148E02655F, NULL);
+				if (L_32)
+				{
+					goto IL_01bb_1;
+				}
+			}
+			{
+				goto IL_022d_1;
+			}
+
+IL_0127_1:
+			{
+				String_t* L_33 = V_2;
+				bool L_34;
+				L_34 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_33, _stringLiteralC220E5ABB03B498FA9E8AE08256C71E0C463D910, NULL);
+				if (L_34)
+				{
+					goto IL_01ce_1;
+				}
+			}
+			{
+				goto IL_022d_1;
+			}
+
+IL_013c_1:
+			{
+				String_t* L_35 = V_2;
+				bool L_36;
+				L_36 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_35, _stringLiteral734D834219E25F6AC949E3C4A33AA80BB578DC1A, NULL);
+				if (L_36)
+				{
+					goto IL_01dc_1;
+				}
+			}
+			{
+				goto IL_022d_1;
+			}
+
+IL_0151_1:
+			{
+				String_t* L_37 = V_2;
+				bool L_38;
+				L_38 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_37, _stringLiteral00EE2035D1C1084808BE268F9D59D68FF8B3154B, NULL);
+				if (L_38)
+				{
+					goto IL_01ef_1;
+				}
+			}
+			{
+				goto IL_022d_1;
+			}
+
+IL_0166_1:
+			{
+				String_t* L_39 = V_2;
+				bool L_40;
+				L_40 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_39, _stringLiteralF7C03E97995F6950303A46C204A216735E6B4582, NULL);
+				if (L_40)
+				{
+					goto IL_0223_1;
+				}
+			}
+			{
+				goto IL_022d_1;
+			}
+
+IL_017b_1:
+			{
+				// ES3ReferenceMgr.Current.Add(instance, reader.Read_ref());
+				il2cpp_codegen_runtime_class_init_inline(ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9_il2cpp_TypeInfo_var);
+				ES3ReferenceMgrBase_t587A48515469E73A9AA80F73449C45B15385F6A9* L_41;
+				L_41 = ES3ReferenceMgrBase_get_Current_m9248D94332DE1BC553FA33E0F12C97579DD9AFD3(NULL);
+				GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_42 = V_0;
+				ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_43 = ___0_reader;
+				NullCheck(L_43);
+				int64_t L_44;
+				L_44 = VirtualFuncInvoker0< int64_t >::Invoke(20 /* System.Int64 ES3Reader::Read_ref() */, L_43);
+				NullCheck(L_41);
+				int64_t L_45;
+				L_45 = ES3ReferenceMgrBase_Add_m25B484B12ABE61EADF526CBD7C1C072F7B439026(L_41, (Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)L_42, L_44, NULL);
+				// break;
+				goto IL_0233_1;
+			}
+
+IL_0192_1:
+			{
+				// instance.layer = reader.Read<System.Int32>(ES3Type_int.Instance);
+				GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_46 = V_0;
+				ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_47 = ___0_reader;
+				ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_48 = ((ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var))->___Instance_13;
+				NullCheck(L_47);
+				int32_t L_49;
+				L_49 = GenericVirtualFuncInvoker1< int32_t, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var, L_47, L_48);
+				NullCheck(L_46);
+				GameObject_set_layer_m6E1AF478A2CC86BD222B96317BEB78B7D89B18D0(L_46, L_49, NULL);
+				// break;
+				goto IL_0233_1;
+			}
+
+IL_01a8_1:
+			{
+				// instance.tag = reader.Read<System.String>(ES3Type_string.Instance);
+				GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_50 = V_0;
+				ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_51 = ___0_reader;
+				ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_52 = ((ES3Type_string_tEE4C8F55053F345064CB52CE0C28F6E31830D3D3_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_string_tEE4C8F55053F345064CB52CE0C28F6E31830D3D3_il2cpp_TypeInfo_var))->___Instance_13;
+				NullCheck(L_51);
+				String_t* L_53;
+				L_53 = GenericVirtualFuncInvoker1< String_t*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisString_t_m8512BF9EA1392BE2CA7E9A116D833D533495E1D6_RuntimeMethod_var, L_51, L_52);
+				NullCheck(L_50);
+				GameObject_set_tag_m0A41528AFD8C83E1CEC5D769921159897CDD2B24(L_50, L_53, NULL);
+				// break;
+				goto IL_0233_1;
+			}
+
+IL_01bb_1:
+			{
+				// instance.name = reader.Read<System.String>(ES3Type_string.Instance);
+				GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_54 = V_0;
+				ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_55 = ___0_reader;
+				ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_56 = ((ES3Type_string_tEE4C8F55053F345064CB52CE0C28F6E31830D3D3_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_string_tEE4C8F55053F345064CB52CE0C28F6E31830D3D3_il2cpp_TypeInfo_var))->___Instance_13;
+				NullCheck(L_55);
+				String_t* L_57;
+				L_57 = GenericVirtualFuncInvoker1< String_t*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisString_t_m8512BF9EA1392BE2CA7E9A116D833D533495E1D6_RuntimeMethod_var, L_55, L_56);
+				NullCheck((Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)L_54);
+				Object_set_name_mC79E6DC8FFD72479C90F0C4CC7F42A0FEAF5AE47((Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)L_54, L_57, NULL);
+				// break;
+				goto IL_0233_1;
+			}
+
+IL_01ce_1:
+			{
+				// instance.hideFlags = reader.Read<UnityEngine.HideFlags>();
+				GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_58 = V_0;
+				ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_59 = ___0_reader;
+				NullCheck(L_59);
+				int32_t L_60;
+				L_60 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisHideFlags_tC514182ACEFD3B847988C45D5DB812FF6DB1BF4A_mAD145C79A94F1FF793F1788ECCFDAD436FAAF5B1_RuntimeMethod_var, L_59);
+				NullCheck((Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)L_58);
+				Object_set_hideFlags_mACB8BFC903FB3B01BBD427753E791BF28B5E33D4((Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C*)L_58, L_60, NULL);
+				// break;
+				goto IL_0233_1;
+			}
+
+IL_01dc_1:
+			{
+				// instance.SetActive(reader.Read<bool>(ES3Type_bool.Instance));
+				GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_61 = V_0;
+				ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_62 = ___0_reader;
+				ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_63 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
+				NullCheck(L_62);
+				bool L_64;
+				L_64 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_62, L_63);
+				NullCheck(L_61);
+				GameObject_SetActive_m638E92E1E75E519E5B24CF150B08CA8E0CDFAB92(L_61, L_64, NULL);
+				// break;
+				goto IL_0233_1;
+			}
+
+IL_01ef_1:
+			{
+				// var children = reader.Read<GameObject[]>();
+				ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_65 = ___0_reader;
+				NullCheck(L_65);
+				GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* L_66;
+				L_66 = GenericVirtualFuncInvoker0< GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* >::Invoke(ES3Reader_Read_TisGameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF_m34A1A8D80B254890396A8CFE24D06B5864CC1F96_RuntimeMethod_var, L_65);
+				// var parent = instance.transform;
+				GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_67 = V_0;
+				NullCheck(L_67);
+				Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_68;
+				L_68 = GameObject_get_transform_m0BC10ADFA1632166AE5544BDF9038A2650C2AE56(L_67, NULL);
+				V_3 = L_68;
+				// foreach (var child in children)
+				V_5 = L_66;
+				V_6 = 0;
+				goto IL_0219_1;
+			}
+
+IL_0203_1:
+			{
+				// foreach (var child in children)
+				GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* L_69 = V_5;
+				int32_t L_70 = V_6;
+				NullCheck(L_69);
+				int32_t L_71 = L_70;
+				GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_72 = (L_69)->GetAt(static_cast<il2cpp_array_size_t>(L_71));
+				// child.transform.SetParent(parent);
+				NullCheck(L_72);
+				Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_73;
+				L_73 = GameObject_get_transform_m0BC10ADFA1632166AE5544BDF9038A2650C2AE56(L_72, NULL);
+				Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_74 = V_3;
+				NullCheck(L_73);
+				Transform_SetParent_m6677538B60246D958DD91F931C50F969CCBB5250(L_73, L_74, NULL);
+				int32_t L_75 = V_6;
+				V_6 = ((int32_t)il2cpp_codegen_add(L_75, 1));
+			}
+
+IL_0219_1:
+			{
+				// foreach (var child in children)
+				int32_t L_76 = V_6;
+				GameObjectU5BU5D_tFF67550DFCE87096D7A3734EA15B75896B2722CF* L_77 = V_5;
+				NullCheck(L_77);
+				if ((((int32_t)L_76) < ((int32_t)((int32_t)(((RuntimeArray*)L_77)->max_length)))))
+				{
+					goto IL_0203_1;
+				}
+			}
+			{
+				// break;
+				goto IL_0233_1;
+			}
+
+IL_0223_1:
+			{
+				// ReadComponents(reader, instance);
+				ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_78 = ___0_reader;
+				GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* L_79 = V_0;
+				ES3Type_GameObject_ReadComponents_m6F756D6B981AB53FA8FD9175A2EA645601AA7323(__this, L_78, L_79, NULL);
+				// break;
+				goto IL_0233_1;
+			}
+
+IL_022d_1:
+			{
+				// reader.Skip();
+				ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_80 = ___0_reader;
+				NullCheck(L_80);
+				VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_80);
+			}
+
+IL_0233_1:
+			{
+				// foreach (string propertyName in reader.Properties)
+				RuntimeObject* L_81 = V_1;
+				NullCheck(L_81);
+				bool L_82;
+				L_82 = InterfaceFuncInvoker0< bool >::Invoke(0 /* System.Boolean System.Collections.IEnumerator::MoveNext() */, IEnumerator_t7B609C2FFA6EB5167D9C62A0C32A21DE2F666DAA_il2cpp_TypeInfo_var, L_81);
+				if (L_82)
+				{
+					goto IL_0018_1;
+				}
+			}
+			{
+				goto IL_0254;
+			}
+		}// end try (depth: 1)
+		catch(Il2CppExceptionWrapper& e)
+		{
+			__finallyBlock.StoreException(e.ex);
+		}
+	}
+
+IL_0254:
+	{
+		// }
+		return;
+	}
+}
+// System.Object ES3Types.ES3Type_GameObject::ReadUnityObject<System.Object>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GameObject_ReadUnityObject_TisRuntimeObject_m064DBD180BF23F69B808D3BE87A0AD8682701AB7_gshared (ES3Type_GameObject_tC1960F2F6CCFE9F26418AD22D1D18870BE1DE6A4* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	{
+		// protected override object ReadUnityObject<T>(ES3Reader reader) { return null; }
+		return NULL;
+	}
+}
+// System.Void ES3Types.ES3Type_GameObject::ReadUnityObject<System.Object>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_GameObject_ReadUnityObject_TisRuntimeObject_m88826D5185CF4A6C59A6B10DC21D70348544A134_gshared (ES3Type_GameObject_tC1960F2F6CCFE9F26418AD22D1D18870BE1DE6A4* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	{
+		// protected override void ReadUnityObject<T>(ES3Reader reader, object obj) { }
+		return;
+	}
+}
+// System.Object ES3Types.ES3Type_Gradient::Read<System.Boolean>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_Gradient_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m2484FDCC4A29DAB2FC73104A25FCE6EE41D6F41A_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	{
+		// var instance = new UnityEngine.Gradient();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_0 = (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)il2cpp_codegen_object_new(Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		Gradient__ctor_m5EC470BB063D4831774C7CDA5D471EBEB5CE7B54(L_0, NULL);
+		V_0 = L_0;
+		// ReadInto<T>(reader, instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_1 = ___0_reader;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_2 = V_0;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		GenericVirtualActionInvoker2< ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_1, (RuntimeObject*)L_2);
+		// return instance;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_3 = V_0;
+		return (RuntimeObject*)L_3;
+	}
+}
+// System.Object ES3Types.ES3Type_Gradient::Read<UnityEngine.Bounds>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_Gradient_Read_TisBounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3_mB411D1D87244B65E436A5D014DCF0980721211FE_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	{
+		// var instance = new UnityEngine.Gradient();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_0 = (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)il2cpp_codegen_object_new(Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		Gradient__ctor_m5EC470BB063D4831774C7CDA5D471EBEB5CE7B54(L_0, NULL);
+		V_0 = L_0;
+		// ReadInto<T>(reader, instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_1 = ___0_reader;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_2 = V_0;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		GenericVirtualActionInvoker2< ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_1, (RuntimeObject*)L_2);
+		// return instance;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_3 = V_0;
+		return (RuntimeObject*)L_3;
+	}
+}
+// System.Object ES3Types.ES3Type_Gradient::Read<System.Byte>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_Gradient_Read_TisByte_t94D9231AC217BE4D2E004C4CD32DF6D099EA41A3_m21246EAAB288DE7023E8879B31A8DB01E71E3626_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	{
+		// var instance = new UnityEngine.Gradient();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_0 = (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)il2cpp_codegen_object_new(Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		Gradient__ctor_m5EC470BB063D4831774C7CDA5D471EBEB5CE7B54(L_0, NULL);
+		V_0 = L_0;
+		// ReadInto<T>(reader, instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_1 = ___0_reader;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_2 = V_0;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		GenericVirtualActionInvoker2< ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_1, (RuntimeObject*)L_2);
+		// return instance;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_3 = V_0;
+		return (RuntimeObject*)L_3;
+	}
+}
+// System.Object ES3Types.ES3Type_Gradient::Read<UnityEngine.Color>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_Gradient_Read_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mFDC8A688955EAB83CF8D99EA6F8BAF3E40EE888E_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	{
+		// var instance = new UnityEngine.Gradient();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_0 = (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)il2cpp_codegen_object_new(Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		Gradient__ctor_m5EC470BB063D4831774C7CDA5D471EBEB5CE7B54(L_0, NULL);
+		V_0 = L_0;
+		// ReadInto<T>(reader, instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_1 = ___0_reader;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_2 = V_0;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		GenericVirtualActionInvoker2< ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_1, (RuntimeObject*)L_2);
+		// return instance;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_3 = V_0;
+		return (RuntimeObject*)L_3;
+	}
+}
+// System.Object ES3Types.ES3Type_Gradient::Read<System.Int16>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_Gradient_Read_TisInt16_tB8EF286A9C33492FA6E6D6E67320BE93E794A175_m2AD5EC31EA577EA17C580D5E7E25F5458DDEC84C_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	{
+		// var instance = new UnityEngine.Gradient();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_0 = (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)il2cpp_codegen_object_new(Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		Gradient__ctor_m5EC470BB063D4831774C7CDA5D471EBEB5CE7B54(L_0, NULL);
+		V_0 = L_0;
+		// ReadInto<T>(reader, instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_1 = ___0_reader;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_2 = V_0;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		GenericVirtualActionInvoker2< ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_1, (RuntimeObject*)L_2);
+		// return instance;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_3 = V_0;
+		return (RuntimeObject*)L_3;
+	}
+}
+// System.Object ES3Types.ES3Type_Gradient::Read<System.Int32>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_Gradient_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m83C8B15C33D3C5E7E8EED1C7EF9659202E7E39E0_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	{
+		// var instance = new UnityEngine.Gradient();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_0 = (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)il2cpp_codegen_object_new(Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		Gradient__ctor_m5EC470BB063D4831774C7CDA5D471EBEB5CE7B54(L_0, NULL);
+		V_0 = L_0;
+		// ReadInto<T>(reader, instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_1 = ___0_reader;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_2 = V_0;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		GenericVirtualActionInvoker2< ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_1, (RuntimeObject*)L_2);
+		// return instance;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_3 = V_0;
+		return (RuntimeObject*)L_3;
+	}
+}
+// System.Object ES3Types.ES3Type_Gradient::Read<System.Int32Enum>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_Gradient_Read_TisInt32Enum_tCBAC8BA2BFF3A845FA599F303093BBBA374B6F0C_m6E372735B6FD96ADCA9A18AC567033AFAED818CD_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	{
+		// var instance = new UnityEngine.Gradient();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_0 = (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)il2cpp_codegen_object_new(Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		Gradient__ctor_m5EC470BB063D4831774C7CDA5D471EBEB5CE7B54(L_0, NULL);
+		V_0 = L_0;
+		// ReadInto<T>(reader, instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_1 = ___0_reader;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_2 = V_0;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		GenericVirtualActionInvoker2< ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_1, (RuntimeObject*)L_2);
+		// return instance;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_3 = V_0;
+		return (RuntimeObject*)L_3;
+	}
+}
+// System.Object ES3Types.ES3Type_Gradient::Read<System.Int64>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_Gradient_Read_TisInt64_t092CFB123BE63C28ACDAF65C68F21A526050DBA3_m35E4FC7E71046D090E8E60597A1D8BDB51069EF6_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	{
+		// var instance = new UnityEngine.Gradient();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_0 = (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)il2cpp_codegen_object_new(Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		Gradient__ctor_m5EC470BB063D4831774C7CDA5D471EBEB5CE7B54(L_0, NULL);
+		V_0 = L_0;
+		// ReadInto<T>(reader, instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_1 = ___0_reader;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_2 = V_0;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		GenericVirtualActionInvoker2< ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_1, (RuntimeObject*)L_2);
+		// return instance;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_3 = V_0;
+		return (RuntimeObject*)L_3;
+	}
+}
+// System.Object ES3Types.ES3Type_Gradient::Read<UnityEngine.LayerMask>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_Gradient_Read_TisLayerMask_t97CB6BDADEDC3D6423C7BCFEA7F86DA2EC6241DB_m4DFF4859EF9C52217021ABD240E7C79C3475CBAA_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	{
+		// var instance = new UnityEngine.Gradient();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_0 = (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)il2cpp_codegen_object_new(Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		Gradient__ctor_m5EC470BB063D4831774C7CDA5D471EBEB5CE7B54(L_0, NULL);
+		V_0 = L_0;
+		// ReadInto<T>(reader, instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_1 = ___0_reader;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_2 = V_0;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		GenericVirtualActionInvoker2< ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_1, (RuntimeObject*)L_2);
+		// return instance;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_3 = V_0;
+		return (RuntimeObject*)L_3;
+	}
+}
+// System.Object ES3Types.ES3Type_Gradient::Read<UnityEngine.Matrix4x4>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_Gradient_Read_TisMatrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6_mF9C667E2C43F3B94953B9E8C0AC3F294EC10FC9C_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	{
+		// var instance = new UnityEngine.Gradient();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_0 = (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)il2cpp_codegen_object_new(Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		Gradient__ctor_m5EC470BB063D4831774C7CDA5D471EBEB5CE7B54(L_0, NULL);
+		V_0 = L_0;
+		// ReadInto<T>(reader, instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_1 = ___0_reader;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_2 = V_0;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		GenericVirtualActionInvoker2< ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_1, (RuntimeObject*)L_2);
+		// return instance;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_3 = V_0;
+		return (RuntimeObject*)L_3;
+	}
+}
+// System.Object ES3Types.ES3Type_Gradient::Read<System.Object>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_Gradient_Read_TisRuntimeObject_m84F47B5689A514D1DA8E5B4A80B002487DFD9C13_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	{
+		// var instance = new UnityEngine.Gradient();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_0 = (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)il2cpp_codegen_object_new(Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		Gradient__ctor_m5EC470BB063D4831774C7CDA5D471EBEB5CE7B54(L_0, NULL);
+		V_0 = L_0;
+		// ReadInto<T>(reader, instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_1 = ___0_reader;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_2 = V_0;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		GenericVirtualActionInvoker2< ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_1, (RuntimeObject*)L_2);
+		// return instance;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_3 = V_0;
+		return (RuntimeObject*)L_3;
+	}
+}
+// System.Object ES3Types.ES3Type_Gradient::Read<UnityEngine.Quaternion>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_Gradient_Read_TisQuaternion_tDA59F214EF07D7700B26E40E562F267AF7306974_m7E01B70C3C3574326175F7798D6170D75A2C477E_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	{
+		// var instance = new UnityEngine.Gradient();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_0 = (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)il2cpp_codegen_object_new(Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		Gradient__ctor_m5EC470BB063D4831774C7CDA5D471EBEB5CE7B54(L_0, NULL);
+		V_0 = L_0;
+		// ReadInto<T>(reader, instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_1 = ___0_reader;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_2 = V_0;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		GenericVirtualActionInvoker2< ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_1, (RuntimeObject*)L_2);
+		// return instance;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_3 = V_0;
+		return (RuntimeObject*)L_3;
+	}
+}
+// System.Object ES3Types.ES3Type_Gradient::Read<UnityEngine.Rect>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_Gradient_Read_TisRect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D_mEA86C09D7CB10AAEE034E1D3D389B749367F8BA1_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	{
+		// var instance = new UnityEngine.Gradient();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_0 = (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)il2cpp_codegen_object_new(Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		Gradient__ctor_m5EC470BB063D4831774C7CDA5D471EBEB5CE7B54(L_0, NULL);
+		V_0 = L_0;
+		// ReadInto<T>(reader, instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_1 = ___0_reader;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_2 = V_0;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		GenericVirtualActionInvoker2< ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_1, (RuntimeObject*)L_2);
+		// return instance;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_3 = V_0;
+		return (RuntimeObject*)L_3;
+	}
+}
+// System.Object ES3Types.ES3Type_Gradient::Read<UnityEngine.RenderTextureDescriptor>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_Gradient_Read_TisRenderTextureDescriptor_t69845881CE6437E4E61F92074F2F84079F23FA46_m56ED69B853E221037DA451C9DF631EBFCF9B415C_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	{
+		// var instance = new UnityEngine.Gradient();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_0 = (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)il2cpp_codegen_object_new(Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		Gradient__ctor_m5EC470BB063D4831774C7CDA5D471EBEB5CE7B54(L_0, NULL);
+		V_0 = L_0;
+		// ReadInto<T>(reader, instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_1 = ___0_reader;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_2 = V_0;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		GenericVirtualActionInvoker2< ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_1, (RuntimeObject*)L_2);
+		// return instance;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_3 = V_0;
+		return (RuntimeObject*)L_3;
+	}
+}
+// System.Object ES3Types.ES3Type_Gradient::Read<System.Single>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_Gradient_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m3DA23EF8B0F901DD0018D7B6F8392EFDE692FC7F_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	{
+		// var instance = new UnityEngine.Gradient();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_0 = (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)il2cpp_codegen_object_new(Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		Gradient__ctor_m5EC470BB063D4831774C7CDA5D471EBEB5CE7B54(L_0, NULL);
+		V_0 = L_0;
+		// ReadInto<T>(reader, instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_1 = ___0_reader;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_2 = V_0;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		GenericVirtualActionInvoker2< ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_1, (RuntimeObject*)L_2);
+		// return instance;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_3 = V_0;
+		return (RuntimeObject*)L_3;
+	}
+}
+// System.Object ES3Types.ES3Type_Gradient::Read<UnityEngine.Vector2>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_Gradient_Read_TisVector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7_mDEC5FDAE9653627D6AD249F388A6D566F5FCAB3F_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	{
+		// var instance = new UnityEngine.Gradient();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_0 = (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)il2cpp_codegen_object_new(Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		Gradient__ctor_m5EC470BB063D4831774C7CDA5D471EBEB5CE7B54(L_0, NULL);
+		V_0 = L_0;
+		// ReadInto<T>(reader, instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_1 = ___0_reader;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_2 = V_0;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		GenericVirtualActionInvoker2< ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_1, (RuntimeObject*)L_2);
+		// return instance;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_3 = V_0;
+		return (RuntimeObject*)L_3;
+	}
+}
+// System.Object ES3Types.ES3Type_Gradient::Read<UnityEngine.Vector3>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_Gradient_Read_TisVector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2_m67417C530DF6B2063620C432F9B95323FD67082E_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	{
+		// var instance = new UnityEngine.Gradient();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_0 = (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)il2cpp_codegen_object_new(Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		Gradient__ctor_m5EC470BB063D4831774C7CDA5D471EBEB5CE7B54(L_0, NULL);
+		V_0 = L_0;
+		// ReadInto<T>(reader, instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_1 = ___0_reader;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_2 = V_0;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		GenericVirtualActionInvoker2< ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_1, (RuntimeObject*)L_2);
+		// return instance;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_3 = V_0;
+		return (RuntimeObject*)L_3;
+	}
+}
+// System.Object ES3Types.ES3Type_Gradient::Read<UnityEngine.Vector4>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_Gradient_Read_TisVector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3_m1B7742275375510EF9C60382535F24761C31CCBC_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	{
+		// var instance = new UnityEngine.Gradient();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_0 = (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)il2cpp_codegen_object_new(Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		Gradient__ctor_m5EC470BB063D4831774C7CDA5D471EBEB5CE7B54(L_0, NULL);
+		V_0 = L_0;
+		// ReadInto<T>(reader, instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_1 = ___0_reader;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_2 = V_0;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		GenericVirtualActionInvoker2< ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_1, (RuntimeObject*)L_2);
+		// return instance;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_3 = V_0;
+		return (RuntimeObject*)L_3;
+	}
+}
+// System.Object ES3Types.ES3Type_Gradient::Read<UnityEngine.ParticleSystem/MinMaxCurve>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_Gradient_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_m8079730B4177E538437A0ED2F32E9BCCCA0550AD_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	{
+		// var instance = new UnityEngine.Gradient();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_0 = (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)il2cpp_codegen_object_new(Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		Gradient__ctor_m5EC470BB063D4831774C7CDA5D471EBEB5CE7B54(L_0, NULL);
+		V_0 = L_0;
+		// ReadInto<T>(reader, instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_1 = ___0_reader;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_2 = V_0;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		GenericVirtualActionInvoker2< ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_1, (RuntimeObject*)L_2);
+		// return instance;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_3 = V_0;
+		return (RuntimeObject*)L_3;
+	}
+}
+// System.Object ES3Types.ES3Type_Gradient::Read<UnityEngine.ParticleSystem/MinMaxGradient>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_Gradient_Read_TisMinMaxGradient_tFF31B8EC2855D0074AB86E8B37BEA6609070AC69_m5D7EEAC9FB23F174CE32E4410A316A6897C4DC02_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	{
+		// var instance = new UnityEngine.Gradient();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_0 = (Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)il2cpp_codegen_object_new(Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		NullCheck(L_0);
+		Gradient__ctor_m5EC470BB063D4831774C7CDA5D471EBEB5CE7B54(L_0, NULL);
+		V_0 = L_0;
+		// ReadInto<T>(reader, instance);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_1 = ___0_reader;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_2 = V_0;
+		NullCheck((ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this);
+		GenericVirtualActionInvoker2< ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B*, RuntimeObject* >::Invoke(il2cpp_rgctx_method(method->rgctx_data, 0), (ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE*)__this, L_1, (RuntimeObject*)L_2);
+		// return instance;
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_3 = V_0;
+		return (RuntimeObject*)L_3;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<System.Object>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisRuntimeObject_mA31A9757F7816434D058E93C60064AEFB9C3EB11_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<UnityEngine.ParticleSystem/CollisionModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisCollisionModule_tEE4892D4872C2907164A66DC424F1CFA1D527083_m7BB3B785E1FFA9C6FAA7CBFC4BF1BD43B119BB61_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<UnityEngine.ParticleSystem/ColorBySpeedModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisColorBySpeedModule_t808C4CC668431DDE51D5AD98A81C78DDB944948B_m88CDEB4A63FD599D3BA405119AC396C97CEC78D5_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<UnityEngine.ParticleSystem/ColorOverLifetimeModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisColorOverLifetimeModule_t758EC8315B6C19D78C418D942CD1F94FE7EEE9D9_m70140B37134D68FF3F8764F5E625D8FD5E1AB13A_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<UnityEngine.ParticleSystem/EmissionModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisEmissionModule_t0F469FA4A08003F6D9C610D2F716A9DFDB9A3678_mEF456615E3926791A39C5340C620D57BAE8930E2_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<UnityEngine.ParticleSystem/ExternalForcesModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisExternalForcesModule_t4494E21ECF96F072432EF4DDC5F84BAF84912FC7_m96B8C4CCFDBEB21B97B6D050B42F74BC11C3D167_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<UnityEngine.ParticleSystem/ForceOverLifetimeModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisForceOverLifetimeModule_t4859776EAF945AEA86044CAB63CA7A8AC8C14976_m7ADFA7E4DCCD474191A1FE2B63ECE1C6E8951BDA_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<UnityEngine.ParticleSystem/InheritVelocityModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisInheritVelocityModule_tB71B2EDCAF328647DDB6BC79541D7C5E76C19562_mA938B97C89A265DEA3BAD011DA781725B7A374B2_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<UnityEngine.ParticleSystem/LightsModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisLightsModule_t720242ED070FD6C55E59B7536322829A22884C7E_m0C1B6F597A9CACD7530D415374632399B4D73E20_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<UnityEngine.ParticleSystem/LimitVelocityOverLifetimeModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisLimitVelocityOverLifetimeModule_tC52CF1434E2639EE5D81DD6BA269FF38CA17D8B1_m513FF4ECBFD09E533DD102B4C5CE34A04A3B4657_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<UnityEngine.ParticleSystem/MainModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisMainModule_tC7ECD8330C14B0808478A748048988A6085CE2A9_m4F7F346DB02A9DD81FD71A303937740F777D12AB_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<UnityEngine.ParticleSystem/NoiseModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisNoiseModule_tF8D6CB544A887C0C93D05A228B65E41DBD1F3AE0_mD44743C5CE839B6A9EDB8F17F230C063D95B7DD3_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<UnityEngine.ParticleSystem/RotationBySpeedModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisRotationBySpeedModule_tBCB7E7C1B402D1492310016D5F8FBBA4C15C26A6_mF3AFA43FFD7F2FC0850B5C3D652590AB2911BE6C_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<UnityEngine.ParticleSystem/RotationOverLifetimeModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisRotationOverLifetimeModule_tEE08858451167B6DDE6DD36FDCF11E74C77D79E6_m125DCC5EE805BD618098DC7BDC521AD77BD859F7_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<UnityEngine.ParticleSystem/ShapeModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisShapeModule_tAA38A0C5305DF2F9D96F89D4B8F762E2D034D8B2_mDB217483E81B7FA08A7D06DBD7201F31888E44FF_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<UnityEngine.ParticleSystem/SizeBySpeedModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisSizeBySpeedModule_t73995CB54A0D1B06BA100EA77972D37CDF7B4DC4_m0E6346ECF20431FF028AF548989E39355B755E9A_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<UnityEngine.ParticleSystem/SizeOverLifetimeModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisSizeOverLifetimeModule_t6711CE9659123CAA5BFBFDFA9F53174CD979AC0C_m6A7631EBFB52DCD8A5CC4D275F15764A3D527544_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<UnityEngine.ParticleSystem/SubEmittersModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisSubEmittersModule_t94F5AD231EAFB50A16E697186A630B07BF8B949B_mA424B1652F91306BAA30D24094BB16784378187A_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<UnityEngine.ParticleSystem/TextureSheetAnimationModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisTextureSheetAnimationModule_tB53F451F252E24ACC3EF80D770DB4FBE1A13D1F6_mA45B3435BB29C76DF0E2087B63AACA75E07B5BAE_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<UnityEngine.ParticleSystem/TrailModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisTrailModule_tC466413E68A674741F1CEAE0CFD7317631E8040D_m56B28FA348361A5076D2407F2C577216FB9300E4_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<UnityEngine.ParticleSystem/TriggerModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisTriggerModule_tDEE844919206259DA831ADCA3B1B2D915CB767B1_m8C602A66FF8F9D63D000BDE8E082CDDBF47C733C_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Void ES3Types.ES3Type_Gradient::ReadInto<UnityEngine.ParticleSystem/VelocityOverLifetimeModule>(ES3Reader,System.Object)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_Gradient_ReadInto_TisVelocityOverLifetimeModule_tB4A3291E3D2E850257EE3F8344AAEDA06D7FCE56_mF9826314BEA1915DCE5636A97D858AB6E5863102_gshared (ES3Type_Gradient_tF895A2109649EB2A9C445652CA8E4C98A66318E5* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74);
+		s_Il2CppMethodInitialized = true;
+	}
+	Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* V_0 = NULL;
+	String_t* V_1 = NULL;
+	{
+		// var instance = (UnityEngine.Gradient)obj;
+		RuntimeObject* L_0 = ___1_obj;
+		V_0 = ((Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E*)CastclassClass((RuntimeObject*)L_0, Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E_il2cpp_TypeInfo_var));
+		// instance.SetKeys(
+		//     reader.ReadProperty<UnityEngine.GradientColorKey[]>(ES3Type_GradientColorKeyArray.Instance),
+		//     reader.ReadProperty<UnityEngine.GradientAlphaKey[]>(ES3Type_GradientAlphaKeyArray.Instance)
+		// );
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_1 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_2 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_3 = ((ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientColorKeyArray_t568E9AC1D7082D700EB5E88C9912192540A8AA98_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_2);
+		GradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18* L_4;
+		L_4 = ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A(L_2, L_3, ES3Reader_ReadProperty_TisGradientColorKeyU5BU5D_tB8929E6EE130CA1F3C1664B300BE83A95A642C18_m54B71742779B9F9E65BE6EB051ED62877A2ED88A_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_5 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_6 = ((ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_GradientAlphaKeyArray_tD3BF6BC1FCF6CC2CF86F2A2A2E858C0C2C77E687_il2cpp_TypeInfo_var))->___Instance_14;
+		NullCheck(L_5);
+		GradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E* L_7;
+		L_7 = ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2(L_5, L_6, ES3Reader_ReadProperty_TisGradientAlphaKeyU5BU5D_tA5D7ED787780B5C01635C8C59B15B2BC01AEC50E_mF242DF77FD3F7F1334F020B6FABE4A10E9D880C2_RuntimeMethod_var);
+		NullCheck(L_1);
+		Gradient_SetKeys_mE03CE269C19C4F08F1ED57F7151082304DDBB5D8(L_1, L_4, L_7, NULL);
+		goto IL_0046;
+	}
+
+IL_0025:
+	{
+		String_t* L_8 = V_1;
+		bool L_9;
+		L_9 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_8, _stringLiteralAF248E82BE9EBA1ADBF067429FAEE5A5B6E05A74, NULL);
+		if (!L_9)
+		{
+			goto IL_0040;
+		}
+	}
+	{
+		// instance.mode = reader.Read<UnityEngine.GradientMode>();
+		Gradient_tA7FEBE2FDB4929FFF6C997134841046F713DAC1E* L_10 = V_0;
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_11 = ___0_reader;
+		NullCheck(L_11);
+		int32_t L_12;
+		L_12 = GenericVirtualFuncInvoker0< int32_t >::Invoke(ES3Reader_Read_TisGradientMode_t135269499DA9DDC9186011F26704EBCEE6E8033C_mFB0948FDC5873E5BE5687F54ABEF59744B4C7F2F_RuntimeMethod_var, L_11);
+		NullCheck(L_10);
+		Gradient_set_mode_m4C84E6ABEFA6C11EE08E07A3969F9DC0AC579210(L_10, L_12, NULL);
+		// break;
+		goto IL_0046;
+	}
+
+IL_0040:
+	{
+		// reader.Skip();
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_13 = ___0_reader;
+		NullCheck(L_13);
+		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_13);
+	}
+
+IL_0046:
+	{
+		// while((propertyName = reader.ReadPropertyName()) != null)
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_14 = ___0_reader;
+		NullCheck(L_14);
+		String_t* L_15;
+		L_15 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_14);
+		String_t* L_16 = L_15;
+		V_1 = L_16;
+		if (L_16)
+		{
+			goto IL_0025;
+		}
+	}
+	{
+		// }
+		return;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientAlphaKey::Read<System.Boolean>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientAlphaKey_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m0040AD72F34F44C6E834C698D8FB4F6F6DDD8804_gshared (ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientAlphaKey(reader.ReadProperty<float>(ES3Type_float.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		float L_2;
+		L_2 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_0, L_1, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientAlphaKey__ctor_m62D622565E6C8BF94E6E90A4CA6C866A5BC3B41B((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientAlphaKey::Read<UnityEngine.Bounds>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientAlphaKey_Read_TisBounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3_mBD48B61148D7B53B647C910EBC1629E4D5E3C6C0_gshared (ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientAlphaKey(reader.ReadProperty<float>(ES3Type_float.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		float L_2;
+		L_2 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_0, L_1, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientAlphaKey__ctor_m62D622565E6C8BF94E6E90A4CA6C866A5BC3B41B((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientAlphaKey::Read<System.Byte>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientAlphaKey_Read_TisByte_t94D9231AC217BE4D2E004C4CD32DF6D099EA41A3_mCD5D4D30AF7DFED2CB304D663D363833C147C7E6_gshared (ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientAlphaKey(reader.ReadProperty<float>(ES3Type_float.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		float L_2;
+		L_2 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_0, L_1, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientAlphaKey__ctor_m62D622565E6C8BF94E6E90A4CA6C866A5BC3B41B((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientAlphaKey::Read<UnityEngine.Color>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientAlphaKey_Read_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_m1102ABE4D77793D911F1F976F97FE693D2C61CB3_gshared (ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientAlphaKey(reader.ReadProperty<float>(ES3Type_float.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		float L_2;
+		L_2 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_0, L_1, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientAlphaKey__ctor_m62D622565E6C8BF94E6E90A4CA6C866A5BC3B41B((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientAlphaKey::Read<System.Int16>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientAlphaKey_Read_TisInt16_tB8EF286A9C33492FA6E6D6E67320BE93E794A175_m3DF2D01090806B8EA64A2537448B5A956EE953C6_gshared (ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientAlphaKey(reader.ReadProperty<float>(ES3Type_float.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		float L_2;
+		L_2 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_0, L_1, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientAlphaKey__ctor_m62D622565E6C8BF94E6E90A4CA6C866A5BC3B41B((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientAlphaKey::Read<System.Int32>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientAlphaKey_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_mB97C1C01E0A5442D89A1FAEA31B8E212178D33E4_gshared (ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientAlphaKey(reader.ReadProperty<float>(ES3Type_float.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		float L_2;
+		L_2 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_0, L_1, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientAlphaKey__ctor_m62D622565E6C8BF94E6E90A4CA6C866A5BC3B41B((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientAlphaKey::Read<System.Int32Enum>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientAlphaKey_Read_TisInt32Enum_tCBAC8BA2BFF3A845FA599F303093BBBA374B6F0C_mA8DB713E4CFFEBC5F256DF937D1DA1503287A908_gshared (ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientAlphaKey(reader.ReadProperty<float>(ES3Type_float.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		float L_2;
+		L_2 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_0, L_1, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientAlphaKey__ctor_m62D622565E6C8BF94E6E90A4CA6C866A5BC3B41B((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientAlphaKey::Read<System.Int64>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientAlphaKey_Read_TisInt64_t092CFB123BE63C28ACDAF65C68F21A526050DBA3_m4117EFB1B16ECDE47AEA349F48117ACA5C41C169_gshared (ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientAlphaKey(reader.ReadProperty<float>(ES3Type_float.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		float L_2;
+		L_2 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_0, L_1, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientAlphaKey__ctor_m62D622565E6C8BF94E6E90A4CA6C866A5BC3B41B((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientAlphaKey::Read<UnityEngine.LayerMask>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientAlphaKey_Read_TisLayerMask_t97CB6BDADEDC3D6423C7BCFEA7F86DA2EC6241DB_m1575AC028A179DCC20B7EABC09F6A98800DDCC9D_gshared (ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientAlphaKey(reader.ReadProperty<float>(ES3Type_float.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		float L_2;
+		L_2 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_0, L_1, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientAlphaKey__ctor_m62D622565E6C8BF94E6E90A4CA6C866A5BC3B41B((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientAlphaKey::Read<UnityEngine.Matrix4x4>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientAlphaKey_Read_TisMatrix4x4_tDB70CF134A14BA38190C59AA700BCE10E2AED3E6_m17300783C09240AACC9460216C18E6601EE40B7A_gshared (ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientAlphaKey(reader.ReadProperty<float>(ES3Type_float.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		float L_2;
+		L_2 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_0, L_1, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientAlphaKey__ctor_m62D622565E6C8BF94E6E90A4CA6C866A5BC3B41B((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientAlphaKey::Read<System.Object>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientAlphaKey_Read_TisRuntimeObject_m313B0A9332F88137C127BEB88B8838BED465A0C6_gshared (ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientAlphaKey(reader.ReadProperty<float>(ES3Type_float.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		float L_2;
+		L_2 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_0, L_1, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientAlphaKey__ctor_m62D622565E6C8BF94E6E90A4CA6C866A5BC3B41B((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientAlphaKey::Read<UnityEngine.Quaternion>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientAlphaKey_Read_TisQuaternion_tDA59F214EF07D7700B26E40E562F267AF7306974_m55F0221E50CF44B55667874BAD21FD6AB149020D_gshared (ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientAlphaKey(reader.ReadProperty<float>(ES3Type_float.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		float L_2;
+		L_2 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_0, L_1, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientAlphaKey__ctor_m62D622565E6C8BF94E6E90A4CA6C866A5BC3B41B((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientAlphaKey::Read<UnityEngine.Rect>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientAlphaKey_Read_TisRect_tA04E0F8A1830E767F40FB27ECD8D309303571F0D_mB8C1E55053D54ABFD1D87E2D4283B32B5A27A6B8_gshared (ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientAlphaKey(reader.ReadProperty<float>(ES3Type_float.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		float L_2;
+		L_2 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_0, L_1, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientAlphaKey__ctor_m62D622565E6C8BF94E6E90A4CA6C866A5BC3B41B((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientAlphaKey::Read<UnityEngine.RenderTextureDescriptor>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientAlphaKey_Read_TisRenderTextureDescriptor_t69845881CE6437E4E61F92074F2F84079F23FA46_m524B914E3EBB77DFE4F3A1514E68B8741243FD54_gshared (ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientAlphaKey(reader.ReadProperty<float>(ES3Type_float.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		float L_2;
+		L_2 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_0, L_1, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientAlphaKey__ctor_m62D622565E6C8BF94E6E90A4CA6C866A5BC3B41B((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientAlphaKey::Read<System.Single>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientAlphaKey_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_mA57C132AB26F6FEB9E35BD0E51252816261D9446_gshared (ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientAlphaKey(reader.ReadProperty<float>(ES3Type_float.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		float L_2;
+		L_2 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_0, L_1, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientAlphaKey__ctor_m62D622565E6C8BF94E6E90A4CA6C866A5BC3B41B((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientAlphaKey::Read<UnityEngine.Vector2>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientAlphaKey_Read_TisVector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7_m17A983C8B4FDF377C84FA4D58F88F048D0F7B628_gshared (ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientAlphaKey(reader.ReadProperty<float>(ES3Type_float.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		float L_2;
+		L_2 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_0, L_1, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientAlphaKey__ctor_m62D622565E6C8BF94E6E90A4CA6C866A5BC3B41B((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientAlphaKey::Read<UnityEngine.Vector3>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientAlphaKey_Read_TisVector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2_mBA6C19214FC1EE0D7A30B94CA2BAE1889D17BEB2_gshared (ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientAlphaKey(reader.ReadProperty<float>(ES3Type_float.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		float L_2;
+		L_2 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_0, L_1, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientAlphaKey__ctor_m62D622565E6C8BF94E6E90A4CA6C866A5BC3B41B((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientAlphaKey::Read<UnityEngine.Vector4>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientAlphaKey_Read_TisVector4_t58B63D32F48C0DBF50DE2C60794C4676C80EDBE3_m6F6C39089074B64CA2EB3E5A2A49F85170BBAF7D_gshared (ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientAlphaKey(reader.ReadProperty<float>(ES3Type_float.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		float L_2;
+		L_2 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_0, L_1, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientAlphaKey__ctor_m62D622565E6C8BF94E6E90A4CA6C866A5BC3B41B((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientAlphaKey::Read<UnityEngine.ParticleSystem/MinMaxCurve>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientAlphaKey_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_m4F00B7672DABBDFE145A0CE8BF54422E7746FEDA_gshared (ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientAlphaKey(reader.ReadProperty<float>(ES3Type_float.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		float L_2;
+		L_2 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_0, L_1, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientAlphaKey__ctor_m62D622565E6C8BF94E6E90A4CA6C866A5BC3B41B((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientAlphaKey::Read<UnityEngine.ParticleSystem/MinMaxGradient>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientAlphaKey_Read_TisMinMaxGradient_tFF31B8EC2855D0074AB86E8B37BEA6609070AC69_mD25F00B0E890E59F4CDDED79A22B9B2F5CF99AFD_gshared (ES3Type_GradientAlphaKey_t0212776FD0B7E7C3A18C21CE96AFAB85B1934AA1* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientAlphaKey(reader.ReadProperty<float>(ES3Type_float.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		float L_2;
+		L_2 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_0, L_1, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientAlphaKey__ctor_m62D622565E6C8BF94E6E90A4CA6C866A5BC3B41B((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0 L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientAlphaKey_tF469955E4BBAF1044320D956CD8D990F1A26EAA0_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientColorKey::Read<System.Boolean>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientColorKey_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m62A7EFFFAC3F633E4BA44D7DDA241F18AAA26001_gshared (ES3Type_GradientColorKey_tB03021E575CD75D019172CE503F059182FBF6F10* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientColorKey(reader.ReadProperty<Color>(ES3Type_Color.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_2;
+		L_2 = ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24(L_0, L_1, ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientColorKey__ctor_mE26D7B8DA1283FDC3ADF628A3AC3E1B7246CD8A1((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientColorKey::Read<UnityEngine.Bounds>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientColorKey_Read_TisBounds_t367E830C64BBF235ED8C3B2F8CF6254FDCAD39C3_m23CACC16A009A1F35F795C4448E117A980051D9F_gshared (ES3Type_GradientColorKey_tB03021E575CD75D019172CE503F059182FBF6F10* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientColorKey(reader.ReadProperty<Color>(ES3Type_Color.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_2;
+		L_2 = ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24(L_0, L_1, ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientColorKey__ctor_mE26D7B8DA1283FDC3ADF628A3AC3E1B7246CD8A1((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientColorKey::Read<System.Byte>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientColorKey_Read_TisByte_t94D9231AC217BE4D2E004C4CD32DF6D099EA41A3_m220F1DEA9C3357A358ACD1A7AB630DE35071D734_gshared (ES3Type_GradientColorKey_tB03021E575CD75D019172CE503F059182FBF6F10* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientColorKey(reader.ReadProperty<Color>(ES3Type_Color.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_2;
+		L_2 = ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24(L_0, L_1, ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientColorKey__ctor_mE26D7B8DA1283FDC3ADF628A3AC3E1B7246CD8A1((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientColorKey::Read<UnityEngine.Color>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientColorKey_Read_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_m257ADE7476DE18EEBDC7F36C9AFE3CDA6562B59B_gshared (ES3Type_GradientColorKey_tB03021E575CD75D019172CE503F059182FBF6F10* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientColorKey(reader.ReadProperty<Color>(ES3Type_Color.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_2;
+		L_2 = ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24(L_0, L_1, ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientColorKey__ctor_mE26D7B8DA1283FDC3ADF628A3AC3E1B7246CD8A1((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientColorKey::Read<System.Int16>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientColorKey_Read_TisInt16_tB8EF286A9C33492FA6E6D6E67320BE93E794A175_m320F3C7D38CDCE9AC648EFDE592817A6AC8C4700_gshared (ES3Type_GradientColorKey_tB03021E575CD75D019172CE503F059182FBF6F10* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientColorKey(reader.ReadProperty<Color>(ES3Type_Color.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_2;
+		L_2 = ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24(L_0, L_1, ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientColorKey__ctor_mE26D7B8DA1283FDC3ADF628A3AC3E1B7246CD8A1((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientColorKey::Read<System.Int32>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientColorKey_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_mB1461B4B153B2A5A48728EF7B50A37B1193770E8_gshared (ES3Type_GradientColorKey_tB03021E575CD75D019172CE503F059182FBF6F10* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientColorKey(reader.ReadProperty<Color>(ES3Type_Color.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_2;
+		L_2 = ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24(L_0, L_1, ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientColorKey__ctor_mE26D7B8DA1283FDC3ADF628A3AC3E1B7246CD8A1((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
+// System.Object ES3Types.ES3Type_GradientColorKey::Read<System.Int32Enum>(ES3Reader)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientColorKey_Read_TisInt32Enum_tCBAC8BA2BFF3A845FA599F303093BBBA374B6F0C_mF8870334823C8FBF7BDE7D7D6110156C65B74106_gshared (ES3Type_GradientColorKey_tB03021E575CD75D019172CE503F059182FBF6F10* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A_il2cpp_TypeInfo_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// return new UnityEngine.GradientColorKey(reader.ReadProperty<Color>(ES3Type_Color.Instance),
+		//                                         reader.ReadProperty<float>(ES3Type_float.Instance));
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_0 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_1 = ((ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_Color_t60CD5EDAC4EDBF16914820CB856E256A44B01E41_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_0);
+		Color_tD001788D726C3A7F1379BEED0260B9591F440C1F L_2;
+		L_2 = ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24(L_0, L_1, ES3Reader_ReadProperty_TisColor_tD001788D726C3A7F1379BEED0260B9591F440C1F_mA0D5236E234ACE008B8E9189830C61FEDCFA5C24_RuntimeMethod_var);
+		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_3 = ___0_reader;
+		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_4 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
+		NullCheck(L_3);
+		float L_5;
+		L_5 = ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3(L_3, L_4, ES3Reader_ReadProperty_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m61C4943658D8B3FDA7FF458940ACA56A727031B3_RuntimeMethod_var);
+		GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A L_6;
+		memset((&L_6), 0, sizeof(L_6));
+		GradientColorKey__ctor_mE26D7B8DA1283FDC3ADF628A3AC3E1B7246CD8A1((&L_6), L_2, L_5, /*hidden argument*/NULL);
+		GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A L_7 = L_6;
+		RuntimeObject* L_8 = Box(GradientColorKey_tBD03A613338639E3774A10265CC5F3619C13421A_il2cpp_TypeInfo_var, &L_7);
+		return L_8;
+	}
+}
 // System.Object ES3Types.ES3Type_GradientColorKey::Read<System.Int64>(ES3Reader)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR RuntimeObject* ES3Type_GradientColorKey_Read_TisInt64_t092CFB123BE63C28ACDAF65C68F21A526050DBA3_m8A0B79051E3C589F5435A43A008E43B0D1C96D4F_gshared (ES3Type_GradientColorKey_tB03021E575CD75D019172CE503F059182FBF6F10* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, const RuntimeMethod* method) 
 {
@@ -17978,4704 +24469,6 @@ IL_02bb:
 }
 // System.Void ES3Types.ES3Type_LightsModule::ReadInto<UnityEngine.ParticleSystem/RotationBySpeedModule>(ES3Reader,System.Object)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_LightsModule_ReadInto_TisRotationBySpeedModule_tBCB7E7C1B402D1492310016D5F8FBBA4C15C26A6_mD9F3AA2605EFC7504207AF6D47BE6F510A3B3921_gshared (ES3Type_LightsModule_t6C4B2237386396F333FAE9A74A25FBF42F8F9017* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisLight_t1E68479B7782AF2050FAA02A5DC612FD034F18F3_m53DDA5E20E75C27589D5A9F6B39BD7CA7C61AD1F_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral072FD16FCD5FDEE6DF9288BBCA5AFBFA16B04581);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1057AAF5EE3CDF423CF6BCC588476E559687CDE6);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral2AC7F98E5022908E09788532C95599452352D34A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral40B9968876DFBA959A505AA3EC0E9D9D26C14E45);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral4845015737DC41475709911228278216EE4DC3AF);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral509D57D2D3AC4C6FAE8D21D19FF2B9D787C81954);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral52D353FB908B8123B513952855EB88F081A1A06A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral60126327537B7B8E6EE33C43FE0C5CA8BCC3A06A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral77682CE598EDE490DCDE276E250422EA9BEA739F);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral93C208E83E88E77020CE91612101CB879A8EE914);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralA2DB56FF90ECEEEC49C5E8C66FCD72DF2771D010);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B);
-		s_Il2CppMethodInitialized = true;
-	}
-	LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	String_t* V_1 = NULL;
-	uint32_t V_2 = 0;
-	{
-		// var instance = (UnityEngine.ParticleSystem.LightsModule)obj;
-		RuntimeObject* L_0 = ___1_obj;
-		V_0 = ((*(LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)((LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)(LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)UnBox(L_0, LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E_il2cpp_TypeInfo_var))));
-		goto IL_02bb;
-	}
-
-IL_000c:
-	{
-		String_t* L_1 = V_1;
-		uint32_t L_2;
-		L_2 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_1, NULL);
-		V_2 = L_2;
-		uint32_t L_3 = V_2;
-		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)-1604400485)))))
-		{
-			goto IL_006f;
-		}
-	}
-	{
-		uint32_t L_4 = V_2;
-		if ((!(((uint32_t)L_4) <= ((uint32_t)((int32_t)680602789)))))
-		{
-			goto IL_0049;
-		}
-	}
-	{
-		uint32_t L_5 = V_2;
-		if ((((int32_t)L_5) == ((int32_t)((int32_t)49525662))))
-		{
-			goto IL_00ba;
-		}
-	}
-	{
-		uint32_t L_6 = V_2;
-		if ((((int32_t)L_6) == ((int32_t)((int32_t)258704408))))
-		{
-			goto IL_0138;
-		}
-	}
-	{
-		uint32_t L_7 = V_2;
-		if ((((int32_t)L_7) == ((int32_t)((int32_t)680602789))))
-		{
-			goto IL_00e4;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0049:
-	{
-		uint32_t L_8 = V_2;
-		if ((((int32_t)L_8) == ((int32_t)((int32_t)2057398597))))
-		{
-			goto IL_0162;
-		}
-	}
-	{
-		uint32_t L_9 = V_2;
-		if ((((int32_t)L_9) == ((int32_t)((int32_t)-2057050870))))
-		{
-			goto IL_0177;
-		}
-	}
-	{
-		uint32_t L_10 = V_2;
-		if ((((int32_t)L_10) == ((int32_t)((int32_t)-1604400485))))
-		{
-			goto IL_0123;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_006f:
-	{
-		uint32_t L_11 = V_2;
-		if ((!(((uint32_t)L_11) <= ((uint32_t)((int32_t)-667110935)))))
-		{
-			goto IL_0097;
-		}
-	}
-	{
-		uint32_t L_12 = V_2;
-		if ((((int32_t)L_12) == ((int32_t)((int32_t)-1055777148))))
-		{
-			goto IL_00cf;
-		}
-	}
-	{
-		uint32_t L_13 = V_2;
-		if ((((int32_t)L_13) == ((int32_t)((int32_t)-796669776))))
-		{
-			goto IL_01a1;
-		}
-	}
-	{
-		uint32_t L_14 = V_2;
-		if ((((int32_t)L_14) == ((int32_t)((int32_t)-667110935))))
-		{
-			goto IL_010e;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0097:
-	{
-		uint32_t L_15 = V_2;
-		if ((((int32_t)L_15) == ((int32_t)((int32_t)-493019601))))
-		{
-			goto IL_00f9;
-		}
-	}
-	{
-		uint32_t L_16 = V_2;
-		if ((((int32_t)L_16) == ((int32_t)((int32_t)-86242094))))
-		{
-			goto IL_014d;
-		}
-	}
-	{
-		uint32_t L_17 = V_2;
-		if ((((int32_t)L_17) == ((int32_t)((int32_t)-24986963))))
-		{
-			goto IL_018c;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00ba:
-	{
-		String_t* L_18 = V_1;
-		bool L_19;
-		L_19 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_18, _stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B, NULL);
-		if (L_19)
-		{
-			goto IL_01b6;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00cf:
-	{
-		String_t* L_20 = V_1;
-		bool L_21;
-		L_21 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_20, _stringLiteral60126327537B7B8E6EE33C43FE0C5CA8BCC3A06A, NULL);
-		if (L_21)
-		{
-			goto IL_01cd;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00e4:
-	{
-		String_t* L_22 = V_1;
-		bool L_23;
-		L_23 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_22, _stringLiteral509D57D2D3AC4C6FAE8D21D19FF2B9D787C81954, NULL);
-		if (L_23)
-		{
-			goto IL_01e4;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00f9:
-	{
-		String_t* L_24 = V_1;
-		bool L_25;
-		L_25 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_24, _stringLiteral1057AAF5EE3CDF423CF6BCC588476E559687CDE6, NULL);
-		if (L_25)
-		{
-			goto IL_01fb;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_010e:
-	{
-		String_t* L_26 = V_1;
-		bool L_27;
-		L_27 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_26, _stringLiteral2AC7F98E5022908E09788532C95599452352D34A, NULL);
-		if (L_27)
-		{
-			goto IL_0212;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0123:
-	{
-		String_t* L_28 = V_1;
-		bool L_29;
-		L_29 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_28, _stringLiteral93C208E83E88E77020CE91612101CB879A8EE914, NULL);
-		if (L_29)
-		{
-			goto IL_0229;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0138:
-	{
-		String_t* L_30 = V_1;
-		bool L_31;
-		L_31 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_30, _stringLiteral072FD16FCD5FDEE6DF9288BBCA5AFBFA16B04581, NULL);
-		if (L_31)
-		{
-			goto IL_023d;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_014d:
-	{
-		String_t* L_32 = V_1;
-		bool L_33;
-		L_33 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_32, _stringLiteral4845015737DC41475709911228278216EE4DC3AF, NULL);
-		if (L_33)
-		{
-			goto IL_0251;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0162:
-	{
-		String_t* L_34 = V_1;
-		bool L_35;
-		L_35 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_34, _stringLiteralA2DB56FF90ECEEEC49C5E8C66FCD72DF2771D010, NULL);
-		if (L_35)
-		{
-			goto IL_0265;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0177:
-	{
-		String_t* L_36 = V_1;
-		bool L_37;
-		L_37 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_36, _stringLiteral40B9968876DFBA959A505AA3EC0E9D9D26C14E45, NULL);
-		if (L_37)
-		{
-			goto IL_0279;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_018c:
-	{
-		String_t* L_38 = V_1;
-		bool L_39;
-		L_39 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_38, _stringLiteral77682CE598EDE490DCDE276E250422EA9BEA739F, NULL);
-		if (L_39)
-		{
-			goto IL_028d;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_01a1:
-	{
-		String_t* L_40 = V_1;
-		bool L_41;
-		L_41 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_40, _stringLiteral52D353FB908B8123B513952855EB88F081A1A06A, NULL);
-		if (L_41)
-		{
-			goto IL_02a1;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_01b6:
-	{
-		// instance.enabled = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_42 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_43 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_42);
-		bool L_44;
-		L_44 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_42, L_43);
-		LightsModule_set_enabled_mCA61408EE4B83423BB92B032567BA63005379DCE((&V_0), L_44, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01cd:
-	{
-		// instance.ratio = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_45 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_46 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_45);
-		float L_47;
-		L_47 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_45, L_46);
-		LightsModule_set_ratio_mE1B9F5C45EB2E0822BF47F28F0510B5ECF2C87FC((&V_0), L_47, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01e4:
-	{
-		// instance.useRandomDistribution = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_48 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_49 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_48);
-		bool L_50;
-		L_50 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_48, L_49);
-		LightsModule_set_useRandomDistribution_mB5EEC3EE5E510F2F27C779C25FD584B6FEA879D9((&V_0), L_50, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01fb:
-	{
-		// instance.light = reader.Read<UnityEngine.Light>(ES3Type_Light.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_51 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_52 = ((ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_il2cpp_TypeInfo_var))->___Instance_14;
-		NullCheck(L_51);
-		Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3* L_53;
-		L_53 = GenericVirtualFuncInvoker1< Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisLight_t1E68479B7782AF2050FAA02A5DC612FD034F18F3_m53DDA5E20E75C27589D5A9F6B39BD7CA7C61AD1F_RuntimeMethod_var, L_51, L_52);
-		LightsModule_set_light_m54F655151E83BA1CF8ECDF92B8D18F06463B2D59((&V_0), L_53, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0212:
-	{
-		// instance.useParticleColor = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_54 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_55 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_54);
-		bool L_56;
-		L_56 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_54, L_55);
-		LightsModule_set_useParticleColor_mC91DC556C20A786D4E8190842094B557204C74B0((&V_0), L_56, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0229:
-	{
-		// instance.sizeAffectsRange = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_57 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_58 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_57);
-		bool L_59;
-		L_59 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_57, L_58);
-		LightsModule_set_sizeAffectsRange_mBAAE49AC54AE79237649DD0AA715F43B0510356A((&V_0), L_59, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_023d:
-	{
-		// instance.alphaAffectsIntensity = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_60 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_61 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_60);
-		bool L_62;
-		L_62 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_60, L_61);
-		LightsModule_set_alphaAffectsIntensity_m79B804EA7C98543C733F3E0355DB01B8E1845995((&V_0), L_62, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0251:
-	{
-		// instance.range = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_63 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_64 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_63);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_65;
-		L_65 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_63, L_64);
-		LightsModule_set_range_m3DA6A5EE3021CB5A4787AEAE4DCA675E3050C5E4((&V_0), L_65, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0265:
-	{
-		// instance.rangeMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_66 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_67 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_66);
-		float L_68;
-		L_68 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_66, L_67);
-		LightsModule_set_rangeMultiplier_m881D705C505C908F9F05F24EFBFC61DD2F01B23F((&V_0), L_68, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0279:
-	{
-		// instance.intensity = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_69 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_70 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_69);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_71;
-		L_71 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_69, L_70);
-		LightsModule_set_intensity_mD1D7564D1ADD14C5755043F1146A8D56C228A519((&V_0), L_71, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_028d:
-	{
-		// instance.intensityMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_72 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_73 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_72);
-		float L_74;
-		L_74 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_72, L_73);
-		LightsModule_set_intensityMultiplier_m79E9E71E14F02B6BE7C4EB6C5B3BA8921D1B29F8((&V_0), L_74, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_02a1:
-	{
-		// instance.maxLights = reader.Read<System.Int32>(ES3Type_int.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_75 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_76 = ((ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_75);
-		int32_t L_77;
-		L_77 = GenericVirtualFuncInvoker1< int32_t, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var, L_75, L_76);
-		LightsModule_set_maxLights_mC423F1C129DAB69F2F145F6AA8160DEE8176F4EC((&V_0), L_77, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_02b5:
-	{
-		// reader.Skip();
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_78 = ___0_reader;
-		NullCheck(L_78);
-		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_78);
-	}
-
-IL_02bb:
-	{
-		// while((propertyName = reader.ReadPropertyName()) != null)
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_79 = ___0_reader;
-		NullCheck(L_79);
-		String_t* L_80;
-		L_80 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_79);
-		String_t* L_81 = L_80;
-		V_1 = L_81;
-		if (L_81)
-		{
-			goto IL_000c;
-		}
-	}
-	{
-		// }
-		return;
-	}
-}
-// System.Void ES3Types.ES3Type_LightsModule::ReadInto<UnityEngine.ParticleSystem/RotationOverLifetimeModule>(ES3Reader,System.Object)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_LightsModule_ReadInto_TisRotationOverLifetimeModule_tEE08858451167B6DDE6DD36FDCF11E74C77D79E6_mF8648E646C252AABD6B65BA092BAD0EC3D0B676C_gshared (ES3Type_LightsModule_t6C4B2237386396F333FAE9A74A25FBF42F8F9017* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisLight_t1E68479B7782AF2050FAA02A5DC612FD034F18F3_m53DDA5E20E75C27589D5A9F6B39BD7CA7C61AD1F_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral072FD16FCD5FDEE6DF9288BBCA5AFBFA16B04581);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1057AAF5EE3CDF423CF6BCC588476E559687CDE6);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral2AC7F98E5022908E09788532C95599452352D34A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral40B9968876DFBA959A505AA3EC0E9D9D26C14E45);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral4845015737DC41475709911228278216EE4DC3AF);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral509D57D2D3AC4C6FAE8D21D19FF2B9D787C81954);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral52D353FB908B8123B513952855EB88F081A1A06A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral60126327537B7B8E6EE33C43FE0C5CA8BCC3A06A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral77682CE598EDE490DCDE276E250422EA9BEA739F);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral93C208E83E88E77020CE91612101CB879A8EE914);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralA2DB56FF90ECEEEC49C5E8C66FCD72DF2771D010);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B);
-		s_Il2CppMethodInitialized = true;
-	}
-	LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	String_t* V_1 = NULL;
-	uint32_t V_2 = 0;
-	{
-		// var instance = (UnityEngine.ParticleSystem.LightsModule)obj;
-		RuntimeObject* L_0 = ___1_obj;
-		V_0 = ((*(LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)((LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)(LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)UnBox(L_0, LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E_il2cpp_TypeInfo_var))));
-		goto IL_02bb;
-	}
-
-IL_000c:
-	{
-		String_t* L_1 = V_1;
-		uint32_t L_2;
-		L_2 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_1, NULL);
-		V_2 = L_2;
-		uint32_t L_3 = V_2;
-		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)-1604400485)))))
-		{
-			goto IL_006f;
-		}
-	}
-	{
-		uint32_t L_4 = V_2;
-		if ((!(((uint32_t)L_4) <= ((uint32_t)((int32_t)680602789)))))
-		{
-			goto IL_0049;
-		}
-	}
-	{
-		uint32_t L_5 = V_2;
-		if ((((int32_t)L_5) == ((int32_t)((int32_t)49525662))))
-		{
-			goto IL_00ba;
-		}
-	}
-	{
-		uint32_t L_6 = V_2;
-		if ((((int32_t)L_6) == ((int32_t)((int32_t)258704408))))
-		{
-			goto IL_0138;
-		}
-	}
-	{
-		uint32_t L_7 = V_2;
-		if ((((int32_t)L_7) == ((int32_t)((int32_t)680602789))))
-		{
-			goto IL_00e4;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0049:
-	{
-		uint32_t L_8 = V_2;
-		if ((((int32_t)L_8) == ((int32_t)((int32_t)2057398597))))
-		{
-			goto IL_0162;
-		}
-	}
-	{
-		uint32_t L_9 = V_2;
-		if ((((int32_t)L_9) == ((int32_t)((int32_t)-2057050870))))
-		{
-			goto IL_0177;
-		}
-	}
-	{
-		uint32_t L_10 = V_2;
-		if ((((int32_t)L_10) == ((int32_t)((int32_t)-1604400485))))
-		{
-			goto IL_0123;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_006f:
-	{
-		uint32_t L_11 = V_2;
-		if ((!(((uint32_t)L_11) <= ((uint32_t)((int32_t)-667110935)))))
-		{
-			goto IL_0097;
-		}
-	}
-	{
-		uint32_t L_12 = V_2;
-		if ((((int32_t)L_12) == ((int32_t)((int32_t)-1055777148))))
-		{
-			goto IL_00cf;
-		}
-	}
-	{
-		uint32_t L_13 = V_2;
-		if ((((int32_t)L_13) == ((int32_t)((int32_t)-796669776))))
-		{
-			goto IL_01a1;
-		}
-	}
-	{
-		uint32_t L_14 = V_2;
-		if ((((int32_t)L_14) == ((int32_t)((int32_t)-667110935))))
-		{
-			goto IL_010e;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0097:
-	{
-		uint32_t L_15 = V_2;
-		if ((((int32_t)L_15) == ((int32_t)((int32_t)-493019601))))
-		{
-			goto IL_00f9;
-		}
-	}
-	{
-		uint32_t L_16 = V_2;
-		if ((((int32_t)L_16) == ((int32_t)((int32_t)-86242094))))
-		{
-			goto IL_014d;
-		}
-	}
-	{
-		uint32_t L_17 = V_2;
-		if ((((int32_t)L_17) == ((int32_t)((int32_t)-24986963))))
-		{
-			goto IL_018c;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00ba:
-	{
-		String_t* L_18 = V_1;
-		bool L_19;
-		L_19 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_18, _stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B, NULL);
-		if (L_19)
-		{
-			goto IL_01b6;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00cf:
-	{
-		String_t* L_20 = V_1;
-		bool L_21;
-		L_21 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_20, _stringLiteral60126327537B7B8E6EE33C43FE0C5CA8BCC3A06A, NULL);
-		if (L_21)
-		{
-			goto IL_01cd;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00e4:
-	{
-		String_t* L_22 = V_1;
-		bool L_23;
-		L_23 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_22, _stringLiteral509D57D2D3AC4C6FAE8D21D19FF2B9D787C81954, NULL);
-		if (L_23)
-		{
-			goto IL_01e4;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00f9:
-	{
-		String_t* L_24 = V_1;
-		bool L_25;
-		L_25 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_24, _stringLiteral1057AAF5EE3CDF423CF6BCC588476E559687CDE6, NULL);
-		if (L_25)
-		{
-			goto IL_01fb;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_010e:
-	{
-		String_t* L_26 = V_1;
-		bool L_27;
-		L_27 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_26, _stringLiteral2AC7F98E5022908E09788532C95599452352D34A, NULL);
-		if (L_27)
-		{
-			goto IL_0212;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0123:
-	{
-		String_t* L_28 = V_1;
-		bool L_29;
-		L_29 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_28, _stringLiteral93C208E83E88E77020CE91612101CB879A8EE914, NULL);
-		if (L_29)
-		{
-			goto IL_0229;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0138:
-	{
-		String_t* L_30 = V_1;
-		bool L_31;
-		L_31 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_30, _stringLiteral072FD16FCD5FDEE6DF9288BBCA5AFBFA16B04581, NULL);
-		if (L_31)
-		{
-			goto IL_023d;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_014d:
-	{
-		String_t* L_32 = V_1;
-		bool L_33;
-		L_33 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_32, _stringLiteral4845015737DC41475709911228278216EE4DC3AF, NULL);
-		if (L_33)
-		{
-			goto IL_0251;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0162:
-	{
-		String_t* L_34 = V_1;
-		bool L_35;
-		L_35 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_34, _stringLiteralA2DB56FF90ECEEEC49C5E8C66FCD72DF2771D010, NULL);
-		if (L_35)
-		{
-			goto IL_0265;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0177:
-	{
-		String_t* L_36 = V_1;
-		bool L_37;
-		L_37 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_36, _stringLiteral40B9968876DFBA959A505AA3EC0E9D9D26C14E45, NULL);
-		if (L_37)
-		{
-			goto IL_0279;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_018c:
-	{
-		String_t* L_38 = V_1;
-		bool L_39;
-		L_39 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_38, _stringLiteral77682CE598EDE490DCDE276E250422EA9BEA739F, NULL);
-		if (L_39)
-		{
-			goto IL_028d;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_01a1:
-	{
-		String_t* L_40 = V_1;
-		bool L_41;
-		L_41 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_40, _stringLiteral52D353FB908B8123B513952855EB88F081A1A06A, NULL);
-		if (L_41)
-		{
-			goto IL_02a1;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_01b6:
-	{
-		// instance.enabled = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_42 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_43 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_42);
-		bool L_44;
-		L_44 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_42, L_43);
-		LightsModule_set_enabled_mCA61408EE4B83423BB92B032567BA63005379DCE((&V_0), L_44, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01cd:
-	{
-		// instance.ratio = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_45 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_46 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_45);
-		float L_47;
-		L_47 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_45, L_46);
-		LightsModule_set_ratio_mE1B9F5C45EB2E0822BF47F28F0510B5ECF2C87FC((&V_0), L_47, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01e4:
-	{
-		// instance.useRandomDistribution = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_48 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_49 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_48);
-		bool L_50;
-		L_50 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_48, L_49);
-		LightsModule_set_useRandomDistribution_mB5EEC3EE5E510F2F27C779C25FD584B6FEA879D9((&V_0), L_50, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01fb:
-	{
-		// instance.light = reader.Read<UnityEngine.Light>(ES3Type_Light.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_51 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_52 = ((ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_il2cpp_TypeInfo_var))->___Instance_14;
-		NullCheck(L_51);
-		Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3* L_53;
-		L_53 = GenericVirtualFuncInvoker1< Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisLight_t1E68479B7782AF2050FAA02A5DC612FD034F18F3_m53DDA5E20E75C27589D5A9F6B39BD7CA7C61AD1F_RuntimeMethod_var, L_51, L_52);
-		LightsModule_set_light_m54F655151E83BA1CF8ECDF92B8D18F06463B2D59((&V_0), L_53, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0212:
-	{
-		// instance.useParticleColor = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_54 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_55 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_54);
-		bool L_56;
-		L_56 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_54, L_55);
-		LightsModule_set_useParticleColor_mC91DC556C20A786D4E8190842094B557204C74B0((&V_0), L_56, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0229:
-	{
-		// instance.sizeAffectsRange = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_57 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_58 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_57);
-		bool L_59;
-		L_59 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_57, L_58);
-		LightsModule_set_sizeAffectsRange_mBAAE49AC54AE79237649DD0AA715F43B0510356A((&V_0), L_59, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_023d:
-	{
-		// instance.alphaAffectsIntensity = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_60 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_61 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_60);
-		bool L_62;
-		L_62 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_60, L_61);
-		LightsModule_set_alphaAffectsIntensity_m79B804EA7C98543C733F3E0355DB01B8E1845995((&V_0), L_62, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0251:
-	{
-		// instance.range = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_63 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_64 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_63);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_65;
-		L_65 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_63, L_64);
-		LightsModule_set_range_m3DA6A5EE3021CB5A4787AEAE4DCA675E3050C5E4((&V_0), L_65, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0265:
-	{
-		// instance.rangeMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_66 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_67 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_66);
-		float L_68;
-		L_68 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_66, L_67);
-		LightsModule_set_rangeMultiplier_m881D705C505C908F9F05F24EFBFC61DD2F01B23F((&V_0), L_68, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0279:
-	{
-		// instance.intensity = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_69 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_70 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_69);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_71;
-		L_71 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_69, L_70);
-		LightsModule_set_intensity_mD1D7564D1ADD14C5755043F1146A8D56C228A519((&V_0), L_71, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_028d:
-	{
-		// instance.intensityMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_72 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_73 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_72);
-		float L_74;
-		L_74 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_72, L_73);
-		LightsModule_set_intensityMultiplier_m79E9E71E14F02B6BE7C4EB6C5B3BA8921D1B29F8((&V_0), L_74, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_02a1:
-	{
-		// instance.maxLights = reader.Read<System.Int32>(ES3Type_int.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_75 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_76 = ((ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_75);
-		int32_t L_77;
-		L_77 = GenericVirtualFuncInvoker1< int32_t, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var, L_75, L_76);
-		LightsModule_set_maxLights_mC423F1C129DAB69F2F145F6AA8160DEE8176F4EC((&V_0), L_77, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_02b5:
-	{
-		// reader.Skip();
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_78 = ___0_reader;
-		NullCheck(L_78);
-		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_78);
-	}
-
-IL_02bb:
-	{
-		// while((propertyName = reader.ReadPropertyName()) != null)
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_79 = ___0_reader;
-		NullCheck(L_79);
-		String_t* L_80;
-		L_80 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_79);
-		String_t* L_81 = L_80;
-		V_1 = L_81;
-		if (L_81)
-		{
-			goto IL_000c;
-		}
-	}
-	{
-		// }
-		return;
-	}
-}
-// System.Void ES3Types.ES3Type_LightsModule::ReadInto<UnityEngine.ParticleSystem/ShapeModule>(ES3Reader,System.Object)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_LightsModule_ReadInto_TisShapeModule_tAA38A0C5305DF2F9D96F89D4B8F762E2D034D8B2_m529A02A5045F6B1CB983BF61B1F0FD0775A3C457_gshared (ES3Type_LightsModule_t6C4B2237386396F333FAE9A74A25FBF42F8F9017* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisLight_t1E68479B7782AF2050FAA02A5DC612FD034F18F3_m53DDA5E20E75C27589D5A9F6B39BD7CA7C61AD1F_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral072FD16FCD5FDEE6DF9288BBCA5AFBFA16B04581);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1057AAF5EE3CDF423CF6BCC588476E559687CDE6);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral2AC7F98E5022908E09788532C95599452352D34A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral40B9968876DFBA959A505AA3EC0E9D9D26C14E45);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral4845015737DC41475709911228278216EE4DC3AF);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral509D57D2D3AC4C6FAE8D21D19FF2B9D787C81954);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral52D353FB908B8123B513952855EB88F081A1A06A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral60126327537B7B8E6EE33C43FE0C5CA8BCC3A06A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral77682CE598EDE490DCDE276E250422EA9BEA739F);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral93C208E83E88E77020CE91612101CB879A8EE914);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralA2DB56FF90ECEEEC49C5E8C66FCD72DF2771D010);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B);
-		s_Il2CppMethodInitialized = true;
-	}
-	LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	String_t* V_1 = NULL;
-	uint32_t V_2 = 0;
-	{
-		// var instance = (UnityEngine.ParticleSystem.LightsModule)obj;
-		RuntimeObject* L_0 = ___1_obj;
-		V_0 = ((*(LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)((LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)(LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)UnBox(L_0, LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E_il2cpp_TypeInfo_var))));
-		goto IL_02bb;
-	}
-
-IL_000c:
-	{
-		String_t* L_1 = V_1;
-		uint32_t L_2;
-		L_2 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_1, NULL);
-		V_2 = L_2;
-		uint32_t L_3 = V_2;
-		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)-1604400485)))))
-		{
-			goto IL_006f;
-		}
-	}
-	{
-		uint32_t L_4 = V_2;
-		if ((!(((uint32_t)L_4) <= ((uint32_t)((int32_t)680602789)))))
-		{
-			goto IL_0049;
-		}
-	}
-	{
-		uint32_t L_5 = V_2;
-		if ((((int32_t)L_5) == ((int32_t)((int32_t)49525662))))
-		{
-			goto IL_00ba;
-		}
-	}
-	{
-		uint32_t L_6 = V_2;
-		if ((((int32_t)L_6) == ((int32_t)((int32_t)258704408))))
-		{
-			goto IL_0138;
-		}
-	}
-	{
-		uint32_t L_7 = V_2;
-		if ((((int32_t)L_7) == ((int32_t)((int32_t)680602789))))
-		{
-			goto IL_00e4;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0049:
-	{
-		uint32_t L_8 = V_2;
-		if ((((int32_t)L_8) == ((int32_t)((int32_t)2057398597))))
-		{
-			goto IL_0162;
-		}
-	}
-	{
-		uint32_t L_9 = V_2;
-		if ((((int32_t)L_9) == ((int32_t)((int32_t)-2057050870))))
-		{
-			goto IL_0177;
-		}
-	}
-	{
-		uint32_t L_10 = V_2;
-		if ((((int32_t)L_10) == ((int32_t)((int32_t)-1604400485))))
-		{
-			goto IL_0123;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_006f:
-	{
-		uint32_t L_11 = V_2;
-		if ((!(((uint32_t)L_11) <= ((uint32_t)((int32_t)-667110935)))))
-		{
-			goto IL_0097;
-		}
-	}
-	{
-		uint32_t L_12 = V_2;
-		if ((((int32_t)L_12) == ((int32_t)((int32_t)-1055777148))))
-		{
-			goto IL_00cf;
-		}
-	}
-	{
-		uint32_t L_13 = V_2;
-		if ((((int32_t)L_13) == ((int32_t)((int32_t)-796669776))))
-		{
-			goto IL_01a1;
-		}
-	}
-	{
-		uint32_t L_14 = V_2;
-		if ((((int32_t)L_14) == ((int32_t)((int32_t)-667110935))))
-		{
-			goto IL_010e;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0097:
-	{
-		uint32_t L_15 = V_2;
-		if ((((int32_t)L_15) == ((int32_t)((int32_t)-493019601))))
-		{
-			goto IL_00f9;
-		}
-	}
-	{
-		uint32_t L_16 = V_2;
-		if ((((int32_t)L_16) == ((int32_t)((int32_t)-86242094))))
-		{
-			goto IL_014d;
-		}
-	}
-	{
-		uint32_t L_17 = V_2;
-		if ((((int32_t)L_17) == ((int32_t)((int32_t)-24986963))))
-		{
-			goto IL_018c;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00ba:
-	{
-		String_t* L_18 = V_1;
-		bool L_19;
-		L_19 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_18, _stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B, NULL);
-		if (L_19)
-		{
-			goto IL_01b6;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00cf:
-	{
-		String_t* L_20 = V_1;
-		bool L_21;
-		L_21 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_20, _stringLiteral60126327537B7B8E6EE33C43FE0C5CA8BCC3A06A, NULL);
-		if (L_21)
-		{
-			goto IL_01cd;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00e4:
-	{
-		String_t* L_22 = V_1;
-		bool L_23;
-		L_23 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_22, _stringLiteral509D57D2D3AC4C6FAE8D21D19FF2B9D787C81954, NULL);
-		if (L_23)
-		{
-			goto IL_01e4;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00f9:
-	{
-		String_t* L_24 = V_1;
-		bool L_25;
-		L_25 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_24, _stringLiteral1057AAF5EE3CDF423CF6BCC588476E559687CDE6, NULL);
-		if (L_25)
-		{
-			goto IL_01fb;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_010e:
-	{
-		String_t* L_26 = V_1;
-		bool L_27;
-		L_27 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_26, _stringLiteral2AC7F98E5022908E09788532C95599452352D34A, NULL);
-		if (L_27)
-		{
-			goto IL_0212;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0123:
-	{
-		String_t* L_28 = V_1;
-		bool L_29;
-		L_29 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_28, _stringLiteral93C208E83E88E77020CE91612101CB879A8EE914, NULL);
-		if (L_29)
-		{
-			goto IL_0229;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0138:
-	{
-		String_t* L_30 = V_1;
-		bool L_31;
-		L_31 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_30, _stringLiteral072FD16FCD5FDEE6DF9288BBCA5AFBFA16B04581, NULL);
-		if (L_31)
-		{
-			goto IL_023d;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_014d:
-	{
-		String_t* L_32 = V_1;
-		bool L_33;
-		L_33 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_32, _stringLiteral4845015737DC41475709911228278216EE4DC3AF, NULL);
-		if (L_33)
-		{
-			goto IL_0251;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0162:
-	{
-		String_t* L_34 = V_1;
-		bool L_35;
-		L_35 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_34, _stringLiteralA2DB56FF90ECEEEC49C5E8C66FCD72DF2771D010, NULL);
-		if (L_35)
-		{
-			goto IL_0265;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0177:
-	{
-		String_t* L_36 = V_1;
-		bool L_37;
-		L_37 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_36, _stringLiteral40B9968876DFBA959A505AA3EC0E9D9D26C14E45, NULL);
-		if (L_37)
-		{
-			goto IL_0279;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_018c:
-	{
-		String_t* L_38 = V_1;
-		bool L_39;
-		L_39 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_38, _stringLiteral77682CE598EDE490DCDE276E250422EA9BEA739F, NULL);
-		if (L_39)
-		{
-			goto IL_028d;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_01a1:
-	{
-		String_t* L_40 = V_1;
-		bool L_41;
-		L_41 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_40, _stringLiteral52D353FB908B8123B513952855EB88F081A1A06A, NULL);
-		if (L_41)
-		{
-			goto IL_02a1;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_01b6:
-	{
-		// instance.enabled = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_42 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_43 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_42);
-		bool L_44;
-		L_44 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_42, L_43);
-		LightsModule_set_enabled_mCA61408EE4B83423BB92B032567BA63005379DCE((&V_0), L_44, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01cd:
-	{
-		// instance.ratio = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_45 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_46 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_45);
-		float L_47;
-		L_47 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_45, L_46);
-		LightsModule_set_ratio_mE1B9F5C45EB2E0822BF47F28F0510B5ECF2C87FC((&V_0), L_47, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01e4:
-	{
-		// instance.useRandomDistribution = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_48 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_49 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_48);
-		bool L_50;
-		L_50 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_48, L_49);
-		LightsModule_set_useRandomDistribution_mB5EEC3EE5E510F2F27C779C25FD584B6FEA879D9((&V_0), L_50, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01fb:
-	{
-		// instance.light = reader.Read<UnityEngine.Light>(ES3Type_Light.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_51 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_52 = ((ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_il2cpp_TypeInfo_var))->___Instance_14;
-		NullCheck(L_51);
-		Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3* L_53;
-		L_53 = GenericVirtualFuncInvoker1< Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisLight_t1E68479B7782AF2050FAA02A5DC612FD034F18F3_m53DDA5E20E75C27589D5A9F6B39BD7CA7C61AD1F_RuntimeMethod_var, L_51, L_52);
-		LightsModule_set_light_m54F655151E83BA1CF8ECDF92B8D18F06463B2D59((&V_0), L_53, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0212:
-	{
-		// instance.useParticleColor = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_54 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_55 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_54);
-		bool L_56;
-		L_56 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_54, L_55);
-		LightsModule_set_useParticleColor_mC91DC556C20A786D4E8190842094B557204C74B0((&V_0), L_56, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0229:
-	{
-		// instance.sizeAffectsRange = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_57 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_58 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_57);
-		bool L_59;
-		L_59 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_57, L_58);
-		LightsModule_set_sizeAffectsRange_mBAAE49AC54AE79237649DD0AA715F43B0510356A((&V_0), L_59, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_023d:
-	{
-		// instance.alphaAffectsIntensity = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_60 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_61 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_60);
-		bool L_62;
-		L_62 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_60, L_61);
-		LightsModule_set_alphaAffectsIntensity_m79B804EA7C98543C733F3E0355DB01B8E1845995((&V_0), L_62, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0251:
-	{
-		// instance.range = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_63 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_64 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_63);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_65;
-		L_65 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_63, L_64);
-		LightsModule_set_range_m3DA6A5EE3021CB5A4787AEAE4DCA675E3050C5E4((&V_0), L_65, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0265:
-	{
-		// instance.rangeMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_66 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_67 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_66);
-		float L_68;
-		L_68 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_66, L_67);
-		LightsModule_set_rangeMultiplier_m881D705C505C908F9F05F24EFBFC61DD2F01B23F((&V_0), L_68, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0279:
-	{
-		// instance.intensity = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_69 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_70 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_69);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_71;
-		L_71 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_69, L_70);
-		LightsModule_set_intensity_mD1D7564D1ADD14C5755043F1146A8D56C228A519((&V_0), L_71, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_028d:
-	{
-		// instance.intensityMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_72 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_73 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_72);
-		float L_74;
-		L_74 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_72, L_73);
-		LightsModule_set_intensityMultiplier_m79E9E71E14F02B6BE7C4EB6C5B3BA8921D1B29F8((&V_0), L_74, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_02a1:
-	{
-		// instance.maxLights = reader.Read<System.Int32>(ES3Type_int.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_75 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_76 = ((ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_75);
-		int32_t L_77;
-		L_77 = GenericVirtualFuncInvoker1< int32_t, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var, L_75, L_76);
-		LightsModule_set_maxLights_mC423F1C129DAB69F2F145F6AA8160DEE8176F4EC((&V_0), L_77, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_02b5:
-	{
-		// reader.Skip();
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_78 = ___0_reader;
-		NullCheck(L_78);
-		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_78);
-	}
-
-IL_02bb:
-	{
-		// while((propertyName = reader.ReadPropertyName()) != null)
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_79 = ___0_reader;
-		NullCheck(L_79);
-		String_t* L_80;
-		L_80 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_79);
-		String_t* L_81 = L_80;
-		V_1 = L_81;
-		if (L_81)
-		{
-			goto IL_000c;
-		}
-	}
-	{
-		// }
-		return;
-	}
-}
-// System.Void ES3Types.ES3Type_LightsModule::ReadInto<UnityEngine.ParticleSystem/SizeBySpeedModule>(ES3Reader,System.Object)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_LightsModule_ReadInto_TisSizeBySpeedModule_t73995CB54A0D1B06BA100EA77972D37CDF7B4DC4_m107FCF4F9AB7C03AFA4D46F82C45960FE5FF5B02_gshared (ES3Type_LightsModule_t6C4B2237386396F333FAE9A74A25FBF42F8F9017* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisLight_t1E68479B7782AF2050FAA02A5DC612FD034F18F3_m53DDA5E20E75C27589D5A9F6B39BD7CA7C61AD1F_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral072FD16FCD5FDEE6DF9288BBCA5AFBFA16B04581);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1057AAF5EE3CDF423CF6BCC588476E559687CDE6);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral2AC7F98E5022908E09788532C95599452352D34A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral40B9968876DFBA959A505AA3EC0E9D9D26C14E45);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral4845015737DC41475709911228278216EE4DC3AF);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral509D57D2D3AC4C6FAE8D21D19FF2B9D787C81954);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral52D353FB908B8123B513952855EB88F081A1A06A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral60126327537B7B8E6EE33C43FE0C5CA8BCC3A06A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral77682CE598EDE490DCDE276E250422EA9BEA739F);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral93C208E83E88E77020CE91612101CB879A8EE914);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralA2DB56FF90ECEEEC49C5E8C66FCD72DF2771D010);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B);
-		s_Il2CppMethodInitialized = true;
-	}
-	LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	String_t* V_1 = NULL;
-	uint32_t V_2 = 0;
-	{
-		// var instance = (UnityEngine.ParticleSystem.LightsModule)obj;
-		RuntimeObject* L_0 = ___1_obj;
-		V_0 = ((*(LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)((LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)(LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)UnBox(L_0, LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E_il2cpp_TypeInfo_var))));
-		goto IL_02bb;
-	}
-
-IL_000c:
-	{
-		String_t* L_1 = V_1;
-		uint32_t L_2;
-		L_2 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_1, NULL);
-		V_2 = L_2;
-		uint32_t L_3 = V_2;
-		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)-1604400485)))))
-		{
-			goto IL_006f;
-		}
-	}
-	{
-		uint32_t L_4 = V_2;
-		if ((!(((uint32_t)L_4) <= ((uint32_t)((int32_t)680602789)))))
-		{
-			goto IL_0049;
-		}
-	}
-	{
-		uint32_t L_5 = V_2;
-		if ((((int32_t)L_5) == ((int32_t)((int32_t)49525662))))
-		{
-			goto IL_00ba;
-		}
-	}
-	{
-		uint32_t L_6 = V_2;
-		if ((((int32_t)L_6) == ((int32_t)((int32_t)258704408))))
-		{
-			goto IL_0138;
-		}
-	}
-	{
-		uint32_t L_7 = V_2;
-		if ((((int32_t)L_7) == ((int32_t)((int32_t)680602789))))
-		{
-			goto IL_00e4;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0049:
-	{
-		uint32_t L_8 = V_2;
-		if ((((int32_t)L_8) == ((int32_t)((int32_t)2057398597))))
-		{
-			goto IL_0162;
-		}
-	}
-	{
-		uint32_t L_9 = V_2;
-		if ((((int32_t)L_9) == ((int32_t)((int32_t)-2057050870))))
-		{
-			goto IL_0177;
-		}
-	}
-	{
-		uint32_t L_10 = V_2;
-		if ((((int32_t)L_10) == ((int32_t)((int32_t)-1604400485))))
-		{
-			goto IL_0123;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_006f:
-	{
-		uint32_t L_11 = V_2;
-		if ((!(((uint32_t)L_11) <= ((uint32_t)((int32_t)-667110935)))))
-		{
-			goto IL_0097;
-		}
-	}
-	{
-		uint32_t L_12 = V_2;
-		if ((((int32_t)L_12) == ((int32_t)((int32_t)-1055777148))))
-		{
-			goto IL_00cf;
-		}
-	}
-	{
-		uint32_t L_13 = V_2;
-		if ((((int32_t)L_13) == ((int32_t)((int32_t)-796669776))))
-		{
-			goto IL_01a1;
-		}
-	}
-	{
-		uint32_t L_14 = V_2;
-		if ((((int32_t)L_14) == ((int32_t)((int32_t)-667110935))))
-		{
-			goto IL_010e;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0097:
-	{
-		uint32_t L_15 = V_2;
-		if ((((int32_t)L_15) == ((int32_t)((int32_t)-493019601))))
-		{
-			goto IL_00f9;
-		}
-	}
-	{
-		uint32_t L_16 = V_2;
-		if ((((int32_t)L_16) == ((int32_t)((int32_t)-86242094))))
-		{
-			goto IL_014d;
-		}
-	}
-	{
-		uint32_t L_17 = V_2;
-		if ((((int32_t)L_17) == ((int32_t)((int32_t)-24986963))))
-		{
-			goto IL_018c;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00ba:
-	{
-		String_t* L_18 = V_1;
-		bool L_19;
-		L_19 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_18, _stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B, NULL);
-		if (L_19)
-		{
-			goto IL_01b6;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00cf:
-	{
-		String_t* L_20 = V_1;
-		bool L_21;
-		L_21 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_20, _stringLiteral60126327537B7B8E6EE33C43FE0C5CA8BCC3A06A, NULL);
-		if (L_21)
-		{
-			goto IL_01cd;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00e4:
-	{
-		String_t* L_22 = V_1;
-		bool L_23;
-		L_23 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_22, _stringLiteral509D57D2D3AC4C6FAE8D21D19FF2B9D787C81954, NULL);
-		if (L_23)
-		{
-			goto IL_01e4;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00f9:
-	{
-		String_t* L_24 = V_1;
-		bool L_25;
-		L_25 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_24, _stringLiteral1057AAF5EE3CDF423CF6BCC588476E559687CDE6, NULL);
-		if (L_25)
-		{
-			goto IL_01fb;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_010e:
-	{
-		String_t* L_26 = V_1;
-		bool L_27;
-		L_27 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_26, _stringLiteral2AC7F98E5022908E09788532C95599452352D34A, NULL);
-		if (L_27)
-		{
-			goto IL_0212;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0123:
-	{
-		String_t* L_28 = V_1;
-		bool L_29;
-		L_29 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_28, _stringLiteral93C208E83E88E77020CE91612101CB879A8EE914, NULL);
-		if (L_29)
-		{
-			goto IL_0229;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0138:
-	{
-		String_t* L_30 = V_1;
-		bool L_31;
-		L_31 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_30, _stringLiteral072FD16FCD5FDEE6DF9288BBCA5AFBFA16B04581, NULL);
-		if (L_31)
-		{
-			goto IL_023d;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_014d:
-	{
-		String_t* L_32 = V_1;
-		bool L_33;
-		L_33 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_32, _stringLiteral4845015737DC41475709911228278216EE4DC3AF, NULL);
-		if (L_33)
-		{
-			goto IL_0251;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0162:
-	{
-		String_t* L_34 = V_1;
-		bool L_35;
-		L_35 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_34, _stringLiteralA2DB56FF90ECEEEC49C5E8C66FCD72DF2771D010, NULL);
-		if (L_35)
-		{
-			goto IL_0265;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0177:
-	{
-		String_t* L_36 = V_1;
-		bool L_37;
-		L_37 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_36, _stringLiteral40B9968876DFBA959A505AA3EC0E9D9D26C14E45, NULL);
-		if (L_37)
-		{
-			goto IL_0279;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_018c:
-	{
-		String_t* L_38 = V_1;
-		bool L_39;
-		L_39 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_38, _stringLiteral77682CE598EDE490DCDE276E250422EA9BEA739F, NULL);
-		if (L_39)
-		{
-			goto IL_028d;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_01a1:
-	{
-		String_t* L_40 = V_1;
-		bool L_41;
-		L_41 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_40, _stringLiteral52D353FB908B8123B513952855EB88F081A1A06A, NULL);
-		if (L_41)
-		{
-			goto IL_02a1;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_01b6:
-	{
-		// instance.enabled = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_42 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_43 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_42);
-		bool L_44;
-		L_44 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_42, L_43);
-		LightsModule_set_enabled_mCA61408EE4B83423BB92B032567BA63005379DCE((&V_0), L_44, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01cd:
-	{
-		// instance.ratio = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_45 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_46 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_45);
-		float L_47;
-		L_47 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_45, L_46);
-		LightsModule_set_ratio_mE1B9F5C45EB2E0822BF47F28F0510B5ECF2C87FC((&V_0), L_47, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01e4:
-	{
-		// instance.useRandomDistribution = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_48 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_49 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_48);
-		bool L_50;
-		L_50 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_48, L_49);
-		LightsModule_set_useRandomDistribution_mB5EEC3EE5E510F2F27C779C25FD584B6FEA879D9((&V_0), L_50, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01fb:
-	{
-		// instance.light = reader.Read<UnityEngine.Light>(ES3Type_Light.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_51 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_52 = ((ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_il2cpp_TypeInfo_var))->___Instance_14;
-		NullCheck(L_51);
-		Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3* L_53;
-		L_53 = GenericVirtualFuncInvoker1< Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisLight_t1E68479B7782AF2050FAA02A5DC612FD034F18F3_m53DDA5E20E75C27589D5A9F6B39BD7CA7C61AD1F_RuntimeMethod_var, L_51, L_52);
-		LightsModule_set_light_m54F655151E83BA1CF8ECDF92B8D18F06463B2D59((&V_0), L_53, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0212:
-	{
-		// instance.useParticleColor = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_54 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_55 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_54);
-		bool L_56;
-		L_56 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_54, L_55);
-		LightsModule_set_useParticleColor_mC91DC556C20A786D4E8190842094B557204C74B0((&V_0), L_56, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0229:
-	{
-		// instance.sizeAffectsRange = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_57 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_58 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_57);
-		bool L_59;
-		L_59 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_57, L_58);
-		LightsModule_set_sizeAffectsRange_mBAAE49AC54AE79237649DD0AA715F43B0510356A((&V_0), L_59, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_023d:
-	{
-		// instance.alphaAffectsIntensity = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_60 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_61 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_60);
-		bool L_62;
-		L_62 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_60, L_61);
-		LightsModule_set_alphaAffectsIntensity_m79B804EA7C98543C733F3E0355DB01B8E1845995((&V_0), L_62, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0251:
-	{
-		// instance.range = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_63 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_64 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_63);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_65;
-		L_65 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_63, L_64);
-		LightsModule_set_range_m3DA6A5EE3021CB5A4787AEAE4DCA675E3050C5E4((&V_0), L_65, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0265:
-	{
-		// instance.rangeMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_66 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_67 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_66);
-		float L_68;
-		L_68 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_66, L_67);
-		LightsModule_set_rangeMultiplier_m881D705C505C908F9F05F24EFBFC61DD2F01B23F((&V_0), L_68, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0279:
-	{
-		// instance.intensity = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_69 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_70 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_69);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_71;
-		L_71 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_69, L_70);
-		LightsModule_set_intensity_mD1D7564D1ADD14C5755043F1146A8D56C228A519((&V_0), L_71, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_028d:
-	{
-		// instance.intensityMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_72 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_73 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_72);
-		float L_74;
-		L_74 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_72, L_73);
-		LightsModule_set_intensityMultiplier_m79E9E71E14F02B6BE7C4EB6C5B3BA8921D1B29F8((&V_0), L_74, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_02a1:
-	{
-		// instance.maxLights = reader.Read<System.Int32>(ES3Type_int.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_75 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_76 = ((ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_75);
-		int32_t L_77;
-		L_77 = GenericVirtualFuncInvoker1< int32_t, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var, L_75, L_76);
-		LightsModule_set_maxLights_mC423F1C129DAB69F2F145F6AA8160DEE8176F4EC((&V_0), L_77, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_02b5:
-	{
-		// reader.Skip();
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_78 = ___0_reader;
-		NullCheck(L_78);
-		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_78);
-	}
-
-IL_02bb:
-	{
-		// while((propertyName = reader.ReadPropertyName()) != null)
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_79 = ___0_reader;
-		NullCheck(L_79);
-		String_t* L_80;
-		L_80 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_79);
-		String_t* L_81 = L_80;
-		V_1 = L_81;
-		if (L_81)
-		{
-			goto IL_000c;
-		}
-	}
-	{
-		// }
-		return;
-	}
-}
-// System.Void ES3Types.ES3Type_LightsModule::ReadInto<UnityEngine.ParticleSystem/SizeOverLifetimeModule>(ES3Reader,System.Object)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_LightsModule_ReadInto_TisSizeOverLifetimeModule_t6711CE9659123CAA5BFBFDFA9F53174CD979AC0C_m4007A01042A2C74A6D0B077871225841E6F32065_gshared (ES3Type_LightsModule_t6C4B2237386396F333FAE9A74A25FBF42F8F9017* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisLight_t1E68479B7782AF2050FAA02A5DC612FD034F18F3_m53DDA5E20E75C27589D5A9F6B39BD7CA7C61AD1F_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral072FD16FCD5FDEE6DF9288BBCA5AFBFA16B04581);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1057AAF5EE3CDF423CF6BCC588476E559687CDE6);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral2AC7F98E5022908E09788532C95599452352D34A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral40B9968876DFBA959A505AA3EC0E9D9D26C14E45);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral4845015737DC41475709911228278216EE4DC3AF);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral509D57D2D3AC4C6FAE8D21D19FF2B9D787C81954);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral52D353FB908B8123B513952855EB88F081A1A06A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral60126327537B7B8E6EE33C43FE0C5CA8BCC3A06A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral77682CE598EDE490DCDE276E250422EA9BEA739F);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral93C208E83E88E77020CE91612101CB879A8EE914);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralA2DB56FF90ECEEEC49C5E8C66FCD72DF2771D010);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B);
-		s_Il2CppMethodInitialized = true;
-	}
-	LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	String_t* V_1 = NULL;
-	uint32_t V_2 = 0;
-	{
-		// var instance = (UnityEngine.ParticleSystem.LightsModule)obj;
-		RuntimeObject* L_0 = ___1_obj;
-		V_0 = ((*(LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)((LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)(LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)UnBox(L_0, LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E_il2cpp_TypeInfo_var))));
-		goto IL_02bb;
-	}
-
-IL_000c:
-	{
-		String_t* L_1 = V_1;
-		uint32_t L_2;
-		L_2 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_1, NULL);
-		V_2 = L_2;
-		uint32_t L_3 = V_2;
-		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)-1604400485)))))
-		{
-			goto IL_006f;
-		}
-	}
-	{
-		uint32_t L_4 = V_2;
-		if ((!(((uint32_t)L_4) <= ((uint32_t)((int32_t)680602789)))))
-		{
-			goto IL_0049;
-		}
-	}
-	{
-		uint32_t L_5 = V_2;
-		if ((((int32_t)L_5) == ((int32_t)((int32_t)49525662))))
-		{
-			goto IL_00ba;
-		}
-	}
-	{
-		uint32_t L_6 = V_2;
-		if ((((int32_t)L_6) == ((int32_t)((int32_t)258704408))))
-		{
-			goto IL_0138;
-		}
-	}
-	{
-		uint32_t L_7 = V_2;
-		if ((((int32_t)L_7) == ((int32_t)((int32_t)680602789))))
-		{
-			goto IL_00e4;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0049:
-	{
-		uint32_t L_8 = V_2;
-		if ((((int32_t)L_8) == ((int32_t)((int32_t)2057398597))))
-		{
-			goto IL_0162;
-		}
-	}
-	{
-		uint32_t L_9 = V_2;
-		if ((((int32_t)L_9) == ((int32_t)((int32_t)-2057050870))))
-		{
-			goto IL_0177;
-		}
-	}
-	{
-		uint32_t L_10 = V_2;
-		if ((((int32_t)L_10) == ((int32_t)((int32_t)-1604400485))))
-		{
-			goto IL_0123;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_006f:
-	{
-		uint32_t L_11 = V_2;
-		if ((!(((uint32_t)L_11) <= ((uint32_t)((int32_t)-667110935)))))
-		{
-			goto IL_0097;
-		}
-	}
-	{
-		uint32_t L_12 = V_2;
-		if ((((int32_t)L_12) == ((int32_t)((int32_t)-1055777148))))
-		{
-			goto IL_00cf;
-		}
-	}
-	{
-		uint32_t L_13 = V_2;
-		if ((((int32_t)L_13) == ((int32_t)((int32_t)-796669776))))
-		{
-			goto IL_01a1;
-		}
-	}
-	{
-		uint32_t L_14 = V_2;
-		if ((((int32_t)L_14) == ((int32_t)((int32_t)-667110935))))
-		{
-			goto IL_010e;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0097:
-	{
-		uint32_t L_15 = V_2;
-		if ((((int32_t)L_15) == ((int32_t)((int32_t)-493019601))))
-		{
-			goto IL_00f9;
-		}
-	}
-	{
-		uint32_t L_16 = V_2;
-		if ((((int32_t)L_16) == ((int32_t)((int32_t)-86242094))))
-		{
-			goto IL_014d;
-		}
-	}
-	{
-		uint32_t L_17 = V_2;
-		if ((((int32_t)L_17) == ((int32_t)((int32_t)-24986963))))
-		{
-			goto IL_018c;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00ba:
-	{
-		String_t* L_18 = V_1;
-		bool L_19;
-		L_19 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_18, _stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B, NULL);
-		if (L_19)
-		{
-			goto IL_01b6;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00cf:
-	{
-		String_t* L_20 = V_1;
-		bool L_21;
-		L_21 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_20, _stringLiteral60126327537B7B8E6EE33C43FE0C5CA8BCC3A06A, NULL);
-		if (L_21)
-		{
-			goto IL_01cd;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00e4:
-	{
-		String_t* L_22 = V_1;
-		bool L_23;
-		L_23 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_22, _stringLiteral509D57D2D3AC4C6FAE8D21D19FF2B9D787C81954, NULL);
-		if (L_23)
-		{
-			goto IL_01e4;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00f9:
-	{
-		String_t* L_24 = V_1;
-		bool L_25;
-		L_25 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_24, _stringLiteral1057AAF5EE3CDF423CF6BCC588476E559687CDE6, NULL);
-		if (L_25)
-		{
-			goto IL_01fb;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_010e:
-	{
-		String_t* L_26 = V_1;
-		bool L_27;
-		L_27 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_26, _stringLiteral2AC7F98E5022908E09788532C95599452352D34A, NULL);
-		if (L_27)
-		{
-			goto IL_0212;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0123:
-	{
-		String_t* L_28 = V_1;
-		bool L_29;
-		L_29 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_28, _stringLiteral93C208E83E88E77020CE91612101CB879A8EE914, NULL);
-		if (L_29)
-		{
-			goto IL_0229;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0138:
-	{
-		String_t* L_30 = V_1;
-		bool L_31;
-		L_31 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_30, _stringLiteral072FD16FCD5FDEE6DF9288BBCA5AFBFA16B04581, NULL);
-		if (L_31)
-		{
-			goto IL_023d;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_014d:
-	{
-		String_t* L_32 = V_1;
-		bool L_33;
-		L_33 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_32, _stringLiteral4845015737DC41475709911228278216EE4DC3AF, NULL);
-		if (L_33)
-		{
-			goto IL_0251;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0162:
-	{
-		String_t* L_34 = V_1;
-		bool L_35;
-		L_35 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_34, _stringLiteralA2DB56FF90ECEEEC49C5E8C66FCD72DF2771D010, NULL);
-		if (L_35)
-		{
-			goto IL_0265;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0177:
-	{
-		String_t* L_36 = V_1;
-		bool L_37;
-		L_37 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_36, _stringLiteral40B9968876DFBA959A505AA3EC0E9D9D26C14E45, NULL);
-		if (L_37)
-		{
-			goto IL_0279;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_018c:
-	{
-		String_t* L_38 = V_1;
-		bool L_39;
-		L_39 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_38, _stringLiteral77682CE598EDE490DCDE276E250422EA9BEA739F, NULL);
-		if (L_39)
-		{
-			goto IL_028d;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_01a1:
-	{
-		String_t* L_40 = V_1;
-		bool L_41;
-		L_41 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_40, _stringLiteral52D353FB908B8123B513952855EB88F081A1A06A, NULL);
-		if (L_41)
-		{
-			goto IL_02a1;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_01b6:
-	{
-		// instance.enabled = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_42 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_43 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_42);
-		bool L_44;
-		L_44 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_42, L_43);
-		LightsModule_set_enabled_mCA61408EE4B83423BB92B032567BA63005379DCE((&V_0), L_44, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01cd:
-	{
-		// instance.ratio = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_45 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_46 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_45);
-		float L_47;
-		L_47 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_45, L_46);
-		LightsModule_set_ratio_mE1B9F5C45EB2E0822BF47F28F0510B5ECF2C87FC((&V_0), L_47, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01e4:
-	{
-		// instance.useRandomDistribution = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_48 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_49 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_48);
-		bool L_50;
-		L_50 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_48, L_49);
-		LightsModule_set_useRandomDistribution_mB5EEC3EE5E510F2F27C779C25FD584B6FEA879D9((&V_0), L_50, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01fb:
-	{
-		// instance.light = reader.Read<UnityEngine.Light>(ES3Type_Light.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_51 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_52 = ((ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_il2cpp_TypeInfo_var))->___Instance_14;
-		NullCheck(L_51);
-		Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3* L_53;
-		L_53 = GenericVirtualFuncInvoker1< Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisLight_t1E68479B7782AF2050FAA02A5DC612FD034F18F3_m53DDA5E20E75C27589D5A9F6B39BD7CA7C61AD1F_RuntimeMethod_var, L_51, L_52);
-		LightsModule_set_light_m54F655151E83BA1CF8ECDF92B8D18F06463B2D59((&V_0), L_53, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0212:
-	{
-		// instance.useParticleColor = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_54 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_55 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_54);
-		bool L_56;
-		L_56 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_54, L_55);
-		LightsModule_set_useParticleColor_mC91DC556C20A786D4E8190842094B557204C74B0((&V_0), L_56, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0229:
-	{
-		// instance.sizeAffectsRange = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_57 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_58 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_57);
-		bool L_59;
-		L_59 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_57, L_58);
-		LightsModule_set_sizeAffectsRange_mBAAE49AC54AE79237649DD0AA715F43B0510356A((&V_0), L_59, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_023d:
-	{
-		// instance.alphaAffectsIntensity = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_60 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_61 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_60);
-		bool L_62;
-		L_62 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_60, L_61);
-		LightsModule_set_alphaAffectsIntensity_m79B804EA7C98543C733F3E0355DB01B8E1845995((&V_0), L_62, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0251:
-	{
-		// instance.range = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_63 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_64 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_63);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_65;
-		L_65 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_63, L_64);
-		LightsModule_set_range_m3DA6A5EE3021CB5A4787AEAE4DCA675E3050C5E4((&V_0), L_65, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0265:
-	{
-		// instance.rangeMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_66 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_67 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_66);
-		float L_68;
-		L_68 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_66, L_67);
-		LightsModule_set_rangeMultiplier_m881D705C505C908F9F05F24EFBFC61DD2F01B23F((&V_0), L_68, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0279:
-	{
-		// instance.intensity = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_69 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_70 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_69);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_71;
-		L_71 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_69, L_70);
-		LightsModule_set_intensity_mD1D7564D1ADD14C5755043F1146A8D56C228A519((&V_0), L_71, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_028d:
-	{
-		// instance.intensityMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_72 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_73 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_72);
-		float L_74;
-		L_74 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_72, L_73);
-		LightsModule_set_intensityMultiplier_m79E9E71E14F02B6BE7C4EB6C5B3BA8921D1B29F8((&V_0), L_74, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_02a1:
-	{
-		// instance.maxLights = reader.Read<System.Int32>(ES3Type_int.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_75 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_76 = ((ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_75);
-		int32_t L_77;
-		L_77 = GenericVirtualFuncInvoker1< int32_t, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var, L_75, L_76);
-		LightsModule_set_maxLights_mC423F1C129DAB69F2F145F6AA8160DEE8176F4EC((&V_0), L_77, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_02b5:
-	{
-		// reader.Skip();
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_78 = ___0_reader;
-		NullCheck(L_78);
-		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_78);
-	}
-
-IL_02bb:
-	{
-		// while((propertyName = reader.ReadPropertyName()) != null)
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_79 = ___0_reader;
-		NullCheck(L_79);
-		String_t* L_80;
-		L_80 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_79);
-		String_t* L_81 = L_80;
-		V_1 = L_81;
-		if (L_81)
-		{
-			goto IL_000c;
-		}
-	}
-	{
-		// }
-		return;
-	}
-}
-// System.Void ES3Types.ES3Type_LightsModule::ReadInto<UnityEngine.ParticleSystem/SubEmittersModule>(ES3Reader,System.Object)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_LightsModule_ReadInto_TisSubEmittersModule_t94F5AD231EAFB50A16E697186A630B07BF8B949B_m124017DAD14A78994AD2292116B889AF8C169420_gshared (ES3Type_LightsModule_t6C4B2237386396F333FAE9A74A25FBF42F8F9017* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisLight_t1E68479B7782AF2050FAA02A5DC612FD034F18F3_m53DDA5E20E75C27589D5A9F6B39BD7CA7C61AD1F_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral072FD16FCD5FDEE6DF9288BBCA5AFBFA16B04581);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1057AAF5EE3CDF423CF6BCC588476E559687CDE6);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral2AC7F98E5022908E09788532C95599452352D34A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral40B9968876DFBA959A505AA3EC0E9D9D26C14E45);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral4845015737DC41475709911228278216EE4DC3AF);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral509D57D2D3AC4C6FAE8D21D19FF2B9D787C81954);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral52D353FB908B8123B513952855EB88F081A1A06A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral60126327537B7B8E6EE33C43FE0C5CA8BCC3A06A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral77682CE598EDE490DCDE276E250422EA9BEA739F);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral93C208E83E88E77020CE91612101CB879A8EE914);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralA2DB56FF90ECEEEC49C5E8C66FCD72DF2771D010);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B);
-		s_Il2CppMethodInitialized = true;
-	}
-	LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	String_t* V_1 = NULL;
-	uint32_t V_2 = 0;
-	{
-		// var instance = (UnityEngine.ParticleSystem.LightsModule)obj;
-		RuntimeObject* L_0 = ___1_obj;
-		V_0 = ((*(LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)((LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)(LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)UnBox(L_0, LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E_il2cpp_TypeInfo_var))));
-		goto IL_02bb;
-	}
-
-IL_000c:
-	{
-		String_t* L_1 = V_1;
-		uint32_t L_2;
-		L_2 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_1, NULL);
-		V_2 = L_2;
-		uint32_t L_3 = V_2;
-		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)-1604400485)))))
-		{
-			goto IL_006f;
-		}
-	}
-	{
-		uint32_t L_4 = V_2;
-		if ((!(((uint32_t)L_4) <= ((uint32_t)((int32_t)680602789)))))
-		{
-			goto IL_0049;
-		}
-	}
-	{
-		uint32_t L_5 = V_2;
-		if ((((int32_t)L_5) == ((int32_t)((int32_t)49525662))))
-		{
-			goto IL_00ba;
-		}
-	}
-	{
-		uint32_t L_6 = V_2;
-		if ((((int32_t)L_6) == ((int32_t)((int32_t)258704408))))
-		{
-			goto IL_0138;
-		}
-	}
-	{
-		uint32_t L_7 = V_2;
-		if ((((int32_t)L_7) == ((int32_t)((int32_t)680602789))))
-		{
-			goto IL_00e4;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0049:
-	{
-		uint32_t L_8 = V_2;
-		if ((((int32_t)L_8) == ((int32_t)((int32_t)2057398597))))
-		{
-			goto IL_0162;
-		}
-	}
-	{
-		uint32_t L_9 = V_2;
-		if ((((int32_t)L_9) == ((int32_t)((int32_t)-2057050870))))
-		{
-			goto IL_0177;
-		}
-	}
-	{
-		uint32_t L_10 = V_2;
-		if ((((int32_t)L_10) == ((int32_t)((int32_t)-1604400485))))
-		{
-			goto IL_0123;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_006f:
-	{
-		uint32_t L_11 = V_2;
-		if ((!(((uint32_t)L_11) <= ((uint32_t)((int32_t)-667110935)))))
-		{
-			goto IL_0097;
-		}
-	}
-	{
-		uint32_t L_12 = V_2;
-		if ((((int32_t)L_12) == ((int32_t)((int32_t)-1055777148))))
-		{
-			goto IL_00cf;
-		}
-	}
-	{
-		uint32_t L_13 = V_2;
-		if ((((int32_t)L_13) == ((int32_t)((int32_t)-796669776))))
-		{
-			goto IL_01a1;
-		}
-	}
-	{
-		uint32_t L_14 = V_2;
-		if ((((int32_t)L_14) == ((int32_t)((int32_t)-667110935))))
-		{
-			goto IL_010e;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0097:
-	{
-		uint32_t L_15 = V_2;
-		if ((((int32_t)L_15) == ((int32_t)((int32_t)-493019601))))
-		{
-			goto IL_00f9;
-		}
-	}
-	{
-		uint32_t L_16 = V_2;
-		if ((((int32_t)L_16) == ((int32_t)((int32_t)-86242094))))
-		{
-			goto IL_014d;
-		}
-	}
-	{
-		uint32_t L_17 = V_2;
-		if ((((int32_t)L_17) == ((int32_t)((int32_t)-24986963))))
-		{
-			goto IL_018c;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00ba:
-	{
-		String_t* L_18 = V_1;
-		bool L_19;
-		L_19 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_18, _stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B, NULL);
-		if (L_19)
-		{
-			goto IL_01b6;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00cf:
-	{
-		String_t* L_20 = V_1;
-		bool L_21;
-		L_21 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_20, _stringLiteral60126327537B7B8E6EE33C43FE0C5CA8BCC3A06A, NULL);
-		if (L_21)
-		{
-			goto IL_01cd;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00e4:
-	{
-		String_t* L_22 = V_1;
-		bool L_23;
-		L_23 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_22, _stringLiteral509D57D2D3AC4C6FAE8D21D19FF2B9D787C81954, NULL);
-		if (L_23)
-		{
-			goto IL_01e4;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00f9:
-	{
-		String_t* L_24 = V_1;
-		bool L_25;
-		L_25 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_24, _stringLiteral1057AAF5EE3CDF423CF6BCC588476E559687CDE6, NULL);
-		if (L_25)
-		{
-			goto IL_01fb;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_010e:
-	{
-		String_t* L_26 = V_1;
-		bool L_27;
-		L_27 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_26, _stringLiteral2AC7F98E5022908E09788532C95599452352D34A, NULL);
-		if (L_27)
-		{
-			goto IL_0212;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0123:
-	{
-		String_t* L_28 = V_1;
-		bool L_29;
-		L_29 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_28, _stringLiteral93C208E83E88E77020CE91612101CB879A8EE914, NULL);
-		if (L_29)
-		{
-			goto IL_0229;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0138:
-	{
-		String_t* L_30 = V_1;
-		bool L_31;
-		L_31 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_30, _stringLiteral072FD16FCD5FDEE6DF9288BBCA5AFBFA16B04581, NULL);
-		if (L_31)
-		{
-			goto IL_023d;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_014d:
-	{
-		String_t* L_32 = V_1;
-		bool L_33;
-		L_33 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_32, _stringLiteral4845015737DC41475709911228278216EE4DC3AF, NULL);
-		if (L_33)
-		{
-			goto IL_0251;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0162:
-	{
-		String_t* L_34 = V_1;
-		bool L_35;
-		L_35 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_34, _stringLiteralA2DB56FF90ECEEEC49C5E8C66FCD72DF2771D010, NULL);
-		if (L_35)
-		{
-			goto IL_0265;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0177:
-	{
-		String_t* L_36 = V_1;
-		bool L_37;
-		L_37 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_36, _stringLiteral40B9968876DFBA959A505AA3EC0E9D9D26C14E45, NULL);
-		if (L_37)
-		{
-			goto IL_0279;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_018c:
-	{
-		String_t* L_38 = V_1;
-		bool L_39;
-		L_39 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_38, _stringLiteral77682CE598EDE490DCDE276E250422EA9BEA739F, NULL);
-		if (L_39)
-		{
-			goto IL_028d;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_01a1:
-	{
-		String_t* L_40 = V_1;
-		bool L_41;
-		L_41 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_40, _stringLiteral52D353FB908B8123B513952855EB88F081A1A06A, NULL);
-		if (L_41)
-		{
-			goto IL_02a1;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_01b6:
-	{
-		// instance.enabled = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_42 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_43 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_42);
-		bool L_44;
-		L_44 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_42, L_43);
-		LightsModule_set_enabled_mCA61408EE4B83423BB92B032567BA63005379DCE((&V_0), L_44, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01cd:
-	{
-		// instance.ratio = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_45 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_46 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_45);
-		float L_47;
-		L_47 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_45, L_46);
-		LightsModule_set_ratio_mE1B9F5C45EB2E0822BF47F28F0510B5ECF2C87FC((&V_0), L_47, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01e4:
-	{
-		// instance.useRandomDistribution = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_48 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_49 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_48);
-		bool L_50;
-		L_50 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_48, L_49);
-		LightsModule_set_useRandomDistribution_mB5EEC3EE5E510F2F27C779C25FD584B6FEA879D9((&V_0), L_50, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01fb:
-	{
-		// instance.light = reader.Read<UnityEngine.Light>(ES3Type_Light.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_51 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_52 = ((ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_il2cpp_TypeInfo_var))->___Instance_14;
-		NullCheck(L_51);
-		Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3* L_53;
-		L_53 = GenericVirtualFuncInvoker1< Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisLight_t1E68479B7782AF2050FAA02A5DC612FD034F18F3_m53DDA5E20E75C27589D5A9F6B39BD7CA7C61AD1F_RuntimeMethod_var, L_51, L_52);
-		LightsModule_set_light_m54F655151E83BA1CF8ECDF92B8D18F06463B2D59((&V_0), L_53, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0212:
-	{
-		// instance.useParticleColor = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_54 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_55 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_54);
-		bool L_56;
-		L_56 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_54, L_55);
-		LightsModule_set_useParticleColor_mC91DC556C20A786D4E8190842094B557204C74B0((&V_0), L_56, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0229:
-	{
-		// instance.sizeAffectsRange = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_57 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_58 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_57);
-		bool L_59;
-		L_59 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_57, L_58);
-		LightsModule_set_sizeAffectsRange_mBAAE49AC54AE79237649DD0AA715F43B0510356A((&V_0), L_59, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_023d:
-	{
-		// instance.alphaAffectsIntensity = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_60 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_61 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_60);
-		bool L_62;
-		L_62 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_60, L_61);
-		LightsModule_set_alphaAffectsIntensity_m79B804EA7C98543C733F3E0355DB01B8E1845995((&V_0), L_62, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0251:
-	{
-		// instance.range = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_63 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_64 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_63);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_65;
-		L_65 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_63, L_64);
-		LightsModule_set_range_m3DA6A5EE3021CB5A4787AEAE4DCA675E3050C5E4((&V_0), L_65, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0265:
-	{
-		// instance.rangeMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_66 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_67 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_66);
-		float L_68;
-		L_68 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_66, L_67);
-		LightsModule_set_rangeMultiplier_m881D705C505C908F9F05F24EFBFC61DD2F01B23F((&V_0), L_68, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0279:
-	{
-		// instance.intensity = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_69 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_70 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_69);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_71;
-		L_71 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_69, L_70);
-		LightsModule_set_intensity_mD1D7564D1ADD14C5755043F1146A8D56C228A519((&V_0), L_71, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_028d:
-	{
-		// instance.intensityMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_72 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_73 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_72);
-		float L_74;
-		L_74 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_72, L_73);
-		LightsModule_set_intensityMultiplier_m79E9E71E14F02B6BE7C4EB6C5B3BA8921D1B29F8((&V_0), L_74, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_02a1:
-	{
-		// instance.maxLights = reader.Read<System.Int32>(ES3Type_int.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_75 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_76 = ((ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_75);
-		int32_t L_77;
-		L_77 = GenericVirtualFuncInvoker1< int32_t, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var, L_75, L_76);
-		LightsModule_set_maxLights_mC423F1C129DAB69F2F145F6AA8160DEE8176F4EC((&V_0), L_77, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_02b5:
-	{
-		// reader.Skip();
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_78 = ___0_reader;
-		NullCheck(L_78);
-		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_78);
-	}
-
-IL_02bb:
-	{
-		// while((propertyName = reader.ReadPropertyName()) != null)
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_79 = ___0_reader;
-		NullCheck(L_79);
-		String_t* L_80;
-		L_80 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_79);
-		String_t* L_81 = L_80;
-		V_1 = L_81;
-		if (L_81)
-		{
-			goto IL_000c;
-		}
-	}
-	{
-		// }
-		return;
-	}
-}
-// System.Void ES3Types.ES3Type_LightsModule::ReadInto<UnityEngine.ParticleSystem/TextureSheetAnimationModule>(ES3Reader,System.Object)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_LightsModule_ReadInto_TisTextureSheetAnimationModule_tB53F451F252E24ACC3EF80D770DB4FBE1A13D1F6_m1AAF86981B8C22F0665D8D07A2C71D68B0E3DA57_gshared (ES3Type_LightsModule_t6C4B2237386396F333FAE9A74A25FBF42F8F9017* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisLight_t1E68479B7782AF2050FAA02A5DC612FD034F18F3_m53DDA5E20E75C27589D5A9F6B39BD7CA7C61AD1F_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral072FD16FCD5FDEE6DF9288BBCA5AFBFA16B04581);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1057AAF5EE3CDF423CF6BCC588476E559687CDE6);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral2AC7F98E5022908E09788532C95599452352D34A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral40B9968876DFBA959A505AA3EC0E9D9D26C14E45);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral4845015737DC41475709911228278216EE4DC3AF);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral509D57D2D3AC4C6FAE8D21D19FF2B9D787C81954);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral52D353FB908B8123B513952855EB88F081A1A06A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral60126327537B7B8E6EE33C43FE0C5CA8BCC3A06A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral77682CE598EDE490DCDE276E250422EA9BEA739F);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral93C208E83E88E77020CE91612101CB879A8EE914);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralA2DB56FF90ECEEEC49C5E8C66FCD72DF2771D010);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B);
-		s_Il2CppMethodInitialized = true;
-	}
-	LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	String_t* V_1 = NULL;
-	uint32_t V_2 = 0;
-	{
-		// var instance = (UnityEngine.ParticleSystem.LightsModule)obj;
-		RuntimeObject* L_0 = ___1_obj;
-		V_0 = ((*(LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)((LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)(LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)UnBox(L_0, LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E_il2cpp_TypeInfo_var))));
-		goto IL_02bb;
-	}
-
-IL_000c:
-	{
-		String_t* L_1 = V_1;
-		uint32_t L_2;
-		L_2 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_1, NULL);
-		V_2 = L_2;
-		uint32_t L_3 = V_2;
-		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)-1604400485)))))
-		{
-			goto IL_006f;
-		}
-	}
-	{
-		uint32_t L_4 = V_2;
-		if ((!(((uint32_t)L_4) <= ((uint32_t)((int32_t)680602789)))))
-		{
-			goto IL_0049;
-		}
-	}
-	{
-		uint32_t L_5 = V_2;
-		if ((((int32_t)L_5) == ((int32_t)((int32_t)49525662))))
-		{
-			goto IL_00ba;
-		}
-	}
-	{
-		uint32_t L_6 = V_2;
-		if ((((int32_t)L_6) == ((int32_t)((int32_t)258704408))))
-		{
-			goto IL_0138;
-		}
-	}
-	{
-		uint32_t L_7 = V_2;
-		if ((((int32_t)L_7) == ((int32_t)((int32_t)680602789))))
-		{
-			goto IL_00e4;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0049:
-	{
-		uint32_t L_8 = V_2;
-		if ((((int32_t)L_8) == ((int32_t)((int32_t)2057398597))))
-		{
-			goto IL_0162;
-		}
-	}
-	{
-		uint32_t L_9 = V_2;
-		if ((((int32_t)L_9) == ((int32_t)((int32_t)-2057050870))))
-		{
-			goto IL_0177;
-		}
-	}
-	{
-		uint32_t L_10 = V_2;
-		if ((((int32_t)L_10) == ((int32_t)((int32_t)-1604400485))))
-		{
-			goto IL_0123;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_006f:
-	{
-		uint32_t L_11 = V_2;
-		if ((!(((uint32_t)L_11) <= ((uint32_t)((int32_t)-667110935)))))
-		{
-			goto IL_0097;
-		}
-	}
-	{
-		uint32_t L_12 = V_2;
-		if ((((int32_t)L_12) == ((int32_t)((int32_t)-1055777148))))
-		{
-			goto IL_00cf;
-		}
-	}
-	{
-		uint32_t L_13 = V_2;
-		if ((((int32_t)L_13) == ((int32_t)((int32_t)-796669776))))
-		{
-			goto IL_01a1;
-		}
-	}
-	{
-		uint32_t L_14 = V_2;
-		if ((((int32_t)L_14) == ((int32_t)((int32_t)-667110935))))
-		{
-			goto IL_010e;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0097:
-	{
-		uint32_t L_15 = V_2;
-		if ((((int32_t)L_15) == ((int32_t)((int32_t)-493019601))))
-		{
-			goto IL_00f9;
-		}
-	}
-	{
-		uint32_t L_16 = V_2;
-		if ((((int32_t)L_16) == ((int32_t)((int32_t)-86242094))))
-		{
-			goto IL_014d;
-		}
-	}
-	{
-		uint32_t L_17 = V_2;
-		if ((((int32_t)L_17) == ((int32_t)((int32_t)-24986963))))
-		{
-			goto IL_018c;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00ba:
-	{
-		String_t* L_18 = V_1;
-		bool L_19;
-		L_19 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_18, _stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B, NULL);
-		if (L_19)
-		{
-			goto IL_01b6;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00cf:
-	{
-		String_t* L_20 = V_1;
-		bool L_21;
-		L_21 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_20, _stringLiteral60126327537B7B8E6EE33C43FE0C5CA8BCC3A06A, NULL);
-		if (L_21)
-		{
-			goto IL_01cd;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00e4:
-	{
-		String_t* L_22 = V_1;
-		bool L_23;
-		L_23 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_22, _stringLiteral509D57D2D3AC4C6FAE8D21D19FF2B9D787C81954, NULL);
-		if (L_23)
-		{
-			goto IL_01e4;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00f9:
-	{
-		String_t* L_24 = V_1;
-		bool L_25;
-		L_25 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_24, _stringLiteral1057AAF5EE3CDF423CF6BCC588476E559687CDE6, NULL);
-		if (L_25)
-		{
-			goto IL_01fb;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_010e:
-	{
-		String_t* L_26 = V_1;
-		bool L_27;
-		L_27 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_26, _stringLiteral2AC7F98E5022908E09788532C95599452352D34A, NULL);
-		if (L_27)
-		{
-			goto IL_0212;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0123:
-	{
-		String_t* L_28 = V_1;
-		bool L_29;
-		L_29 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_28, _stringLiteral93C208E83E88E77020CE91612101CB879A8EE914, NULL);
-		if (L_29)
-		{
-			goto IL_0229;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0138:
-	{
-		String_t* L_30 = V_1;
-		bool L_31;
-		L_31 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_30, _stringLiteral072FD16FCD5FDEE6DF9288BBCA5AFBFA16B04581, NULL);
-		if (L_31)
-		{
-			goto IL_023d;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_014d:
-	{
-		String_t* L_32 = V_1;
-		bool L_33;
-		L_33 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_32, _stringLiteral4845015737DC41475709911228278216EE4DC3AF, NULL);
-		if (L_33)
-		{
-			goto IL_0251;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0162:
-	{
-		String_t* L_34 = V_1;
-		bool L_35;
-		L_35 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_34, _stringLiteralA2DB56FF90ECEEEC49C5E8C66FCD72DF2771D010, NULL);
-		if (L_35)
-		{
-			goto IL_0265;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0177:
-	{
-		String_t* L_36 = V_1;
-		bool L_37;
-		L_37 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_36, _stringLiteral40B9968876DFBA959A505AA3EC0E9D9D26C14E45, NULL);
-		if (L_37)
-		{
-			goto IL_0279;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_018c:
-	{
-		String_t* L_38 = V_1;
-		bool L_39;
-		L_39 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_38, _stringLiteral77682CE598EDE490DCDE276E250422EA9BEA739F, NULL);
-		if (L_39)
-		{
-			goto IL_028d;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_01a1:
-	{
-		String_t* L_40 = V_1;
-		bool L_41;
-		L_41 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_40, _stringLiteral52D353FB908B8123B513952855EB88F081A1A06A, NULL);
-		if (L_41)
-		{
-			goto IL_02a1;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_01b6:
-	{
-		// instance.enabled = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_42 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_43 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_42);
-		bool L_44;
-		L_44 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_42, L_43);
-		LightsModule_set_enabled_mCA61408EE4B83423BB92B032567BA63005379DCE((&V_0), L_44, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01cd:
-	{
-		// instance.ratio = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_45 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_46 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_45);
-		float L_47;
-		L_47 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_45, L_46);
-		LightsModule_set_ratio_mE1B9F5C45EB2E0822BF47F28F0510B5ECF2C87FC((&V_0), L_47, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01e4:
-	{
-		// instance.useRandomDistribution = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_48 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_49 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_48);
-		bool L_50;
-		L_50 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_48, L_49);
-		LightsModule_set_useRandomDistribution_mB5EEC3EE5E510F2F27C779C25FD584B6FEA879D9((&V_0), L_50, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01fb:
-	{
-		// instance.light = reader.Read<UnityEngine.Light>(ES3Type_Light.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_51 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_52 = ((ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_il2cpp_TypeInfo_var))->___Instance_14;
-		NullCheck(L_51);
-		Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3* L_53;
-		L_53 = GenericVirtualFuncInvoker1< Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisLight_t1E68479B7782AF2050FAA02A5DC612FD034F18F3_m53DDA5E20E75C27589D5A9F6B39BD7CA7C61AD1F_RuntimeMethod_var, L_51, L_52);
-		LightsModule_set_light_m54F655151E83BA1CF8ECDF92B8D18F06463B2D59((&V_0), L_53, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0212:
-	{
-		// instance.useParticleColor = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_54 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_55 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_54);
-		bool L_56;
-		L_56 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_54, L_55);
-		LightsModule_set_useParticleColor_mC91DC556C20A786D4E8190842094B557204C74B0((&V_0), L_56, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0229:
-	{
-		// instance.sizeAffectsRange = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_57 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_58 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_57);
-		bool L_59;
-		L_59 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_57, L_58);
-		LightsModule_set_sizeAffectsRange_mBAAE49AC54AE79237649DD0AA715F43B0510356A((&V_0), L_59, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_023d:
-	{
-		// instance.alphaAffectsIntensity = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_60 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_61 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_60);
-		bool L_62;
-		L_62 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_60, L_61);
-		LightsModule_set_alphaAffectsIntensity_m79B804EA7C98543C733F3E0355DB01B8E1845995((&V_0), L_62, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0251:
-	{
-		// instance.range = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_63 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_64 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_63);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_65;
-		L_65 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_63, L_64);
-		LightsModule_set_range_m3DA6A5EE3021CB5A4787AEAE4DCA675E3050C5E4((&V_0), L_65, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0265:
-	{
-		// instance.rangeMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_66 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_67 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_66);
-		float L_68;
-		L_68 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_66, L_67);
-		LightsModule_set_rangeMultiplier_m881D705C505C908F9F05F24EFBFC61DD2F01B23F((&V_0), L_68, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0279:
-	{
-		// instance.intensity = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_69 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_70 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_69);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_71;
-		L_71 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_69, L_70);
-		LightsModule_set_intensity_mD1D7564D1ADD14C5755043F1146A8D56C228A519((&V_0), L_71, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_028d:
-	{
-		// instance.intensityMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_72 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_73 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_72);
-		float L_74;
-		L_74 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_72, L_73);
-		LightsModule_set_intensityMultiplier_m79E9E71E14F02B6BE7C4EB6C5B3BA8921D1B29F8((&V_0), L_74, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_02a1:
-	{
-		// instance.maxLights = reader.Read<System.Int32>(ES3Type_int.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_75 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_76 = ((ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_75);
-		int32_t L_77;
-		L_77 = GenericVirtualFuncInvoker1< int32_t, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var, L_75, L_76);
-		LightsModule_set_maxLights_mC423F1C129DAB69F2F145F6AA8160DEE8176F4EC((&V_0), L_77, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_02b5:
-	{
-		// reader.Skip();
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_78 = ___0_reader;
-		NullCheck(L_78);
-		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_78);
-	}
-
-IL_02bb:
-	{
-		// while((propertyName = reader.ReadPropertyName()) != null)
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_79 = ___0_reader;
-		NullCheck(L_79);
-		String_t* L_80;
-		L_80 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_79);
-		String_t* L_81 = L_80;
-		V_1 = L_81;
-		if (L_81)
-		{
-			goto IL_000c;
-		}
-	}
-	{
-		// }
-		return;
-	}
-}
-// System.Void ES3Types.ES3Type_LightsModule::ReadInto<UnityEngine.ParticleSystem/TrailModule>(ES3Reader,System.Object)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_LightsModule_ReadInto_TisTrailModule_tC466413E68A674741F1CEAE0CFD7317631E8040D_m81BC549A7F422D2D26B9CCAC42141FCA0B9F3511_gshared (ES3Type_LightsModule_t6C4B2237386396F333FAE9A74A25FBF42F8F9017* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisLight_t1E68479B7782AF2050FAA02A5DC612FD034F18F3_m53DDA5E20E75C27589D5A9F6B39BD7CA7C61AD1F_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral072FD16FCD5FDEE6DF9288BBCA5AFBFA16B04581);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1057AAF5EE3CDF423CF6BCC588476E559687CDE6);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral2AC7F98E5022908E09788532C95599452352D34A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral40B9968876DFBA959A505AA3EC0E9D9D26C14E45);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral4845015737DC41475709911228278216EE4DC3AF);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral509D57D2D3AC4C6FAE8D21D19FF2B9D787C81954);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral52D353FB908B8123B513952855EB88F081A1A06A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral60126327537B7B8E6EE33C43FE0C5CA8BCC3A06A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral77682CE598EDE490DCDE276E250422EA9BEA739F);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral93C208E83E88E77020CE91612101CB879A8EE914);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralA2DB56FF90ECEEEC49C5E8C66FCD72DF2771D010);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B);
-		s_Il2CppMethodInitialized = true;
-	}
-	LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	String_t* V_1 = NULL;
-	uint32_t V_2 = 0;
-	{
-		// var instance = (UnityEngine.ParticleSystem.LightsModule)obj;
-		RuntimeObject* L_0 = ___1_obj;
-		V_0 = ((*(LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)((LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)(LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)UnBox(L_0, LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E_il2cpp_TypeInfo_var))));
-		goto IL_02bb;
-	}
-
-IL_000c:
-	{
-		String_t* L_1 = V_1;
-		uint32_t L_2;
-		L_2 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_1, NULL);
-		V_2 = L_2;
-		uint32_t L_3 = V_2;
-		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)-1604400485)))))
-		{
-			goto IL_006f;
-		}
-	}
-	{
-		uint32_t L_4 = V_2;
-		if ((!(((uint32_t)L_4) <= ((uint32_t)((int32_t)680602789)))))
-		{
-			goto IL_0049;
-		}
-	}
-	{
-		uint32_t L_5 = V_2;
-		if ((((int32_t)L_5) == ((int32_t)((int32_t)49525662))))
-		{
-			goto IL_00ba;
-		}
-	}
-	{
-		uint32_t L_6 = V_2;
-		if ((((int32_t)L_6) == ((int32_t)((int32_t)258704408))))
-		{
-			goto IL_0138;
-		}
-	}
-	{
-		uint32_t L_7 = V_2;
-		if ((((int32_t)L_7) == ((int32_t)((int32_t)680602789))))
-		{
-			goto IL_00e4;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0049:
-	{
-		uint32_t L_8 = V_2;
-		if ((((int32_t)L_8) == ((int32_t)((int32_t)2057398597))))
-		{
-			goto IL_0162;
-		}
-	}
-	{
-		uint32_t L_9 = V_2;
-		if ((((int32_t)L_9) == ((int32_t)((int32_t)-2057050870))))
-		{
-			goto IL_0177;
-		}
-	}
-	{
-		uint32_t L_10 = V_2;
-		if ((((int32_t)L_10) == ((int32_t)((int32_t)-1604400485))))
-		{
-			goto IL_0123;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_006f:
-	{
-		uint32_t L_11 = V_2;
-		if ((!(((uint32_t)L_11) <= ((uint32_t)((int32_t)-667110935)))))
-		{
-			goto IL_0097;
-		}
-	}
-	{
-		uint32_t L_12 = V_2;
-		if ((((int32_t)L_12) == ((int32_t)((int32_t)-1055777148))))
-		{
-			goto IL_00cf;
-		}
-	}
-	{
-		uint32_t L_13 = V_2;
-		if ((((int32_t)L_13) == ((int32_t)((int32_t)-796669776))))
-		{
-			goto IL_01a1;
-		}
-	}
-	{
-		uint32_t L_14 = V_2;
-		if ((((int32_t)L_14) == ((int32_t)((int32_t)-667110935))))
-		{
-			goto IL_010e;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0097:
-	{
-		uint32_t L_15 = V_2;
-		if ((((int32_t)L_15) == ((int32_t)((int32_t)-493019601))))
-		{
-			goto IL_00f9;
-		}
-	}
-	{
-		uint32_t L_16 = V_2;
-		if ((((int32_t)L_16) == ((int32_t)((int32_t)-86242094))))
-		{
-			goto IL_014d;
-		}
-	}
-	{
-		uint32_t L_17 = V_2;
-		if ((((int32_t)L_17) == ((int32_t)((int32_t)-24986963))))
-		{
-			goto IL_018c;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00ba:
-	{
-		String_t* L_18 = V_1;
-		bool L_19;
-		L_19 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_18, _stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B, NULL);
-		if (L_19)
-		{
-			goto IL_01b6;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00cf:
-	{
-		String_t* L_20 = V_1;
-		bool L_21;
-		L_21 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_20, _stringLiteral60126327537B7B8E6EE33C43FE0C5CA8BCC3A06A, NULL);
-		if (L_21)
-		{
-			goto IL_01cd;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00e4:
-	{
-		String_t* L_22 = V_1;
-		bool L_23;
-		L_23 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_22, _stringLiteral509D57D2D3AC4C6FAE8D21D19FF2B9D787C81954, NULL);
-		if (L_23)
-		{
-			goto IL_01e4;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00f9:
-	{
-		String_t* L_24 = V_1;
-		bool L_25;
-		L_25 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_24, _stringLiteral1057AAF5EE3CDF423CF6BCC588476E559687CDE6, NULL);
-		if (L_25)
-		{
-			goto IL_01fb;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_010e:
-	{
-		String_t* L_26 = V_1;
-		bool L_27;
-		L_27 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_26, _stringLiteral2AC7F98E5022908E09788532C95599452352D34A, NULL);
-		if (L_27)
-		{
-			goto IL_0212;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0123:
-	{
-		String_t* L_28 = V_1;
-		bool L_29;
-		L_29 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_28, _stringLiteral93C208E83E88E77020CE91612101CB879A8EE914, NULL);
-		if (L_29)
-		{
-			goto IL_0229;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0138:
-	{
-		String_t* L_30 = V_1;
-		bool L_31;
-		L_31 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_30, _stringLiteral072FD16FCD5FDEE6DF9288BBCA5AFBFA16B04581, NULL);
-		if (L_31)
-		{
-			goto IL_023d;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_014d:
-	{
-		String_t* L_32 = V_1;
-		bool L_33;
-		L_33 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_32, _stringLiteral4845015737DC41475709911228278216EE4DC3AF, NULL);
-		if (L_33)
-		{
-			goto IL_0251;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0162:
-	{
-		String_t* L_34 = V_1;
-		bool L_35;
-		L_35 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_34, _stringLiteralA2DB56FF90ECEEEC49C5E8C66FCD72DF2771D010, NULL);
-		if (L_35)
-		{
-			goto IL_0265;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0177:
-	{
-		String_t* L_36 = V_1;
-		bool L_37;
-		L_37 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_36, _stringLiteral40B9968876DFBA959A505AA3EC0E9D9D26C14E45, NULL);
-		if (L_37)
-		{
-			goto IL_0279;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_018c:
-	{
-		String_t* L_38 = V_1;
-		bool L_39;
-		L_39 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_38, _stringLiteral77682CE598EDE490DCDE276E250422EA9BEA739F, NULL);
-		if (L_39)
-		{
-			goto IL_028d;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_01a1:
-	{
-		String_t* L_40 = V_1;
-		bool L_41;
-		L_41 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_40, _stringLiteral52D353FB908B8123B513952855EB88F081A1A06A, NULL);
-		if (L_41)
-		{
-			goto IL_02a1;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_01b6:
-	{
-		// instance.enabled = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_42 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_43 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_42);
-		bool L_44;
-		L_44 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_42, L_43);
-		LightsModule_set_enabled_mCA61408EE4B83423BB92B032567BA63005379DCE((&V_0), L_44, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01cd:
-	{
-		// instance.ratio = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_45 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_46 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_45);
-		float L_47;
-		L_47 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_45, L_46);
-		LightsModule_set_ratio_mE1B9F5C45EB2E0822BF47F28F0510B5ECF2C87FC((&V_0), L_47, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01e4:
-	{
-		// instance.useRandomDistribution = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_48 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_49 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_48);
-		bool L_50;
-		L_50 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_48, L_49);
-		LightsModule_set_useRandomDistribution_mB5EEC3EE5E510F2F27C779C25FD584B6FEA879D9((&V_0), L_50, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01fb:
-	{
-		// instance.light = reader.Read<UnityEngine.Light>(ES3Type_Light.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_51 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_52 = ((ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_il2cpp_TypeInfo_var))->___Instance_14;
-		NullCheck(L_51);
-		Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3* L_53;
-		L_53 = GenericVirtualFuncInvoker1< Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisLight_t1E68479B7782AF2050FAA02A5DC612FD034F18F3_m53DDA5E20E75C27589D5A9F6B39BD7CA7C61AD1F_RuntimeMethod_var, L_51, L_52);
-		LightsModule_set_light_m54F655151E83BA1CF8ECDF92B8D18F06463B2D59((&V_0), L_53, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0212:
-	{
-		// instance.useParticleColor = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_54 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_55 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_54);
-		bool L_56;
-		L_56 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_54, L_55);
-		LightsModule_set_useParticleColor_mC91DC556C20A786D4E8190842094B557204C74B0((&V_0), L_56, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0229:
-	{
-		// instance.sizeAffectsRange = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_57 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_58 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_57);
-		bool L_59;
-		L_59 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_57, L_58);
-		LightsModule_set_sizeAffectsRange_mBAAE49AC54AE79237649DD0AA715F43B0510356A((&V_0), L_59, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_023d:
-	{
-		// instance.alphaAffectsIntensity = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_60 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_61 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_60);
-		bool L_62;
-		L_62 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_60, L_61);
-		LightsModule_set_alphaAffectsIntensity_m79B804EA7C98543C733F3E0355DB01B8E1845995((&V_0), L_62, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0251:
-	{
-		// instance.range = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_63 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_64 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_63);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_65;
-		L_65 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_63, L_64);
-		LightsModule_set_range_m3DA6A5EE3021CB5A4787AEAE4DCA675E3050C5E4((&V_0), L_65, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0265:
-	{
-		// instance.rangeMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_66 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_67 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_66);
-		float L_68;
-		L_68 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_66, L_67);
-		LightsModule_set_rangeMultiplier_m881D705C505C908F9F05F24EFBFC61DD2F01B23F((&V_0), L_68, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0279:
-	{
-		// instance.intensity = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_69 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_70 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_69);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_71;
-		L_71 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_69, L_70);
-		LightsModule_set_intensity_mD1D7564D1ADD14C5755043F1146A8D56C228A519((&V_0), L_71, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_028d:
-	{
-		// instance.intensityMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_72 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_73 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_72);
-		float L_74;
-		L_74 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_72, L_73);
-		LightsModule_set_intensityMultiplier_m79E9E71E14F02B6BE7C4EB6C5B3BA8921D1B29F8((&V_0), L_74, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_02a1:
-	{
-		// instance.maxLights = reader.Read<System.Int32>(ES3Type_int.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_75 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_76 = ((ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_75);
-		int32_t L_77;
-		L_77 = GenericVirtualFuncInvoker1< int32_t, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var, L_75, L_76);
-		LightsModule_set_maxLights_mC423F1C129DAB69F2F145F6AA8160DEE8176F4EC((&V_0), L_77, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_02b5:
-	{
-		// reader.Skip();
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_78 = ___0_reader;
-		NullCheck(L_78);
-		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_78);
-	}
-
-IL_02bb:
-	{
-		// while((propertyName = reader.ReadPropertyName()) != null)
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_79 = ___0_reader;
-		NullCheck(L_79);
-		String_t* L_80;
-		L_80 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_79);
-		String_t* L_81 = L_80;
-		V_1 = L_81;
-		if (L_81)
-		{
-			goto IL_000c;
-		}
-	}
-	{
-		// }
-		return;
-	}
-}
-// System.Void ES3Types.ES3Type_LightsModule::ReadInto<UnityEngine.ParticleSystem/TriggerModule>(ES3Reader,System.Object)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_LightsModule_ReadInto_TisTriggerModule_tDEE844919206259DA831ADCA3B1B2D915CB767B1_m0FA3831C82AF1AC6C80182473A50CE45846EA557_gshared (ES3Type_LightsModule_t6C4B2237386396F333FAE9A74A25FBF42F8F9017* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
-{
-	static bool s_Il2CppMethodInitialized;
-	if (!s_Il2CppMethodInitialized)
-	{
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisLight_t1E68479B7782AF2050FAA02A5DC612FD034F18F3_m53DDA5E20E75C27589D5A9F6B39BD7CA7C61AD1F_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E_il2cpp_TypeInfo_var);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral072FD16FCD5FDEE6DF9288BBCA5AFBFA16B04581);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral1057AAF5EE3CDF423CF6BCC588476E559687CDE6);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral2AC7F98E5022908E09788532C95599452352D34A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral40B9968876DFBA959A505AA3EC0E9D9D26C14E45);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral4845015737DC41475709911228278216EE4DC3AF);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral509D57D2D3AC4C6FAE8D21D19FF2B9D787C81954);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral52D353FB908B8123B513952855EB88F081A1A06A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral60126327537B7B8E6EE33C43FE0C5CA8BCC3A06A);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral77682CE598EDE490DCDE276E250422EA9BEA739F);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteral93C208E83E88E77020CE91612101CB879A8EE914);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralA2DB56FF90ECEEEC49C5E8C66FCD72DF2771D010);
-		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&_stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B);
-		s_Il2CppMethodInitialized = true;
-	}
-	LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E V_0;
-	memset((&V_0), 0, sizeof(V_0));
-	String_t* V_1 = NULL;
-	uint32_t V_2 = 0;
-	{
-		// var instance = (UnityEngine.ParticleSystem.LightsModule)obj;
-		RuntimeObject* L_0 = ___1_obj;
-		V_0 = ((*(LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)((LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)(LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E*)UnBox(L_0, LightsModule_t720242ED070FD6C55E59B7536322829A22884C7E_il2cpp_TypeInfo_var))));
-		goto IL_02bb;
-	}
-
-IL_000c:
-	{
-		String_t* L_1 = V_1;
-		uint32_t L_2;
-		L_2 = U3CPrivateImplementationDetailsU3E_ComputeStringHash_mB4C632184660364C404321BFCA05E1ECF45A5047(L_1, NULL);
-		V_2 = L_2;
-		uint32_t L_3 = V_2;
-		if ((!(((uint32_t)L_3) <= ((uint32_t)((int32_t)-1604400485)))))
-		{
-			goto IL_006f;
-		}
-	}
-	{
-		uint32_t L_4 = V_2;
-		if ((!(((uint32_t)L_4) <= ((uint32_t)((int32_t)680602789)))))
-		{
-			goto IL_0049;
-		}
-	}
-	{
-		uint32_t L_5 = V_2;
-		if ((((int32_t)L_5) == ((int32_t)((int32_t)49525662))))
-		{
-			goto IL_00ba;
-		}
-	}
-	{
-		uint32_t L_6 = V_2;
-		if ((((int32_t)L_6) == ((int32_t)((int32_t)258704408))))
-		{
-			goto IL_0138;
-		}
-	}
-	{
-		uint32_t L_7 = V_2;
-		if ((((int32_t)L_7) == ((int32_t)((int32_t)680602789))))
-		{
-			goto IL_00e4;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0049:
-	{
-		uint32_t L_8 = V_2;
-		if ((((int32_t)L_8) == ((int32_t)((int32_t)2057398597))))
-		{
-			goto IL_0162;
-		}
-	}
-	{
-		uint32_t L_9 = V_2;
-		if ((((int32_t)L_9) == ((int32_t)((int32_t)-2057050870))))
-		{
-			goto IL_0177;
-		}
-	}
-	{
-		uint32_t L_10 = V_2;
-		if ((((int32_t)L_10) == ((int32_t)((int32_t)-1604400485))))
-		{
-			goto IL_0123;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_006f:
-	{
-		uint32_t L_11 = V_2;
-		if ((!(((uint32_t)L_11) <= ((uint32_t)((int32_t)-667110935)))))
-		{
-			goto IL_0097;
-		}
-	}
-	{
-		uint32_t L_12 = V_2;
-		if ((((int32_t)L_12) == ((int32_t)((int32_t)-1055777148))))
-		{
-			goto IL_00cf;
-		}
-	}
-	{
-		uint32_t L_13 = V_2;
-		if ((((int32_t)L_13) == ((int32_t)((int32_t)-796669776))))
-		{
-			goto IL_01a1;
-		}
-	}
-	{
-		uint32_t L_14 = V_2;
-		if ((((int32_t)L_14) == ((int32_t)((int32_t)-667110935))))
-		{
-			goto IL_010e;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0097:
-	{
-		uint32_t L_15 = V_2;
-		if ((((int32_t)L_15) == ((int32_t)((int32_t)-493019601))))
-		{
-			goto IL_00f9;
-		}
-	}
-	{
-		uint32_t L_16 = V_2;
-		if ((((int32_t)L_16) == ((int32_t)((int32_t)-86242094))))
-		{
-			goto IL_014d;
-		}
-	}
-	{
-		uint32_t L_17 = V_2;
-		if ((((int32_t)L_17) == ((int32_t)((int32_t)-24986963))))
-		{
-			goto IL_018c;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00ba:
-	{
-		String_t* L_18 = V_1;
-		bool L_19;
-		L_19 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_18, _stringLiteralF9D225733E1D10F9344C755C4A9C0870CD1DE97B, NULL);
-		if (L_19)
-		{
-			goto IL_01b6;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00cf:
-	{
-		String_t* L_20 = V_1;
-		bool L_21;
-		L_21 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_20, _stringLiteral60126327537B7B8E6EE33C43FE0C5CA8BCC3A06A, NULL);
-		if (L_21)
-		{
-			goto IL_01cd;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00e4:
-	{
-		String_t* L_22 = V_1;
-		bool L_23;
-		L_23 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_22, _stringLiteral509D57D2D3AC4C6FAE8D21D19FF2B9D787C81954, NULL);
-		if (L_23)
-		{
-			goto IL_01e4;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_00f9:
-	{
-		String_t* L_24 = V_1;
-		bool L_25;
-		L_25 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_24, _stringLiteral1057AAF5EE3CDF423CF6BCC588476E559687CDE6, NULL);
-		if (L_25)
-		{
-			goto IL_01fb;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_010e:
-	{
-		String_t* L_26 = V_1;
-		bool L_27;
-		L_27 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_26, _stringLiteral2AC7F98E5022908E09788532C95599452352D34A, NULL);
-		if (L_27)
-		{
-			goto IL_0212;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0123:
-	{
-		String_t* L_28 = V_1;
-		bool L_29;
-		L_29 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_28, _stringLiteral93C208E83E88E77020CE91612101CB879A8EE914, NULL);
-		if (L_29)
-		{
-			goto IL_0229;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0138:
-	{
-		String_t* L_30 = V_1;
-		bool L_31;
-		L_31 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_30, _stringLiteral072FD16FCD5FDEE6DF9288BBCA5AFBFA16B04581, NULL);
-		if (L_31)
-		{
-			goto IL_023d;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_014d:
-	{
-		String_t* L_32 = V_1;
-		bool L_33;
-		L_33 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_32, _stringLiteral4845015737DC41475709911228278216EE4DC3AF, NULL);
-		if (L_33)
-		{
-			goto IL_0251;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0162:
-	{
-		String_t* L_34 = V_1;
-		bool L_35;
-		L_35 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_34, _stringLiteralA2DB56FF90ECEEEC49C5E8C66FCD72DF2771D010, NULL);
-		if (L_35)
-		{
-			goto IL_0265;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_0177:
-	{
-		String_t* L_36 = V_1;
-		bool L_37;
-		L_37 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_36, _stringLiteral40B9968876DFBA959A505AA3EC0E9D9D26C14E45, NULL);
-		if (L_37)
-		{
-			goto IL_0279;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_018c:
-	{
-		String_t* L_38 = V_1;
-		bool L_39;
-		L_39 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_38, _stringLiteral77682CE598EDE490DCDE276E250422EA9BEA739F, NULL);
-		if (L_39)
-		{
-			goto IL_028d;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_01a1:
-	{
-		String_t* L_40 = V_1;
-		bool L_41;
-		L_41 = String_op_Equality_m030E1B219352228970A076136E455C4E568C02C1(L_40, _stringLiteral52D353FB908B8123B513952855EB88F081A1A06A, NULL);
-		if (L_41)
-		{
-			goto IL_02a1;
-		}
-	}
-	{
-		goto IL_02b5;
-	}
-
-IL_01b6:
-	{
-		// instance.enabled = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_42 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_43 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_42);
-		bool L_44;
-		L_44 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_42, L_43);
-		LightsModule_set_enabled_mCA61408EE4B83423BB92B032567BA63005379DCE((&V_0), L_44, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01cd:
-	{
-		// instance.ratio = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_45 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_46 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_45);
-		float L_47;
-		L_47 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_45, L_46);
-		LightsModule_set_ratio_mE1B9F5C45EB2E0822BF47F28F0510B5ECF2C87FC((&V_0), L_47, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01e4:
-	{
-		// instance.useRandomDistribution = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_48 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_49 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_48);
-		bool L_50;
-		L_50 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_48, L_49);
-		LightsModule_set_useRandomDistribution_mB5EEC3EE5E510F2F27C779C25FD584B6FEA879D9((&V_0), L_50, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_01fb:
-	{
-		// instance.light = reader.Read<UnityEngine.Light>(ES3Type_Light.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_51 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_52 = ((ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_Light_t461A9229D8AC8F81B7F65C98EAA1DD013077191B_il2cpp_TypeInfo_var))->___Instance_14;
-		NullCheck(L_51);
-		Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3* L_53;
-		L_53 = GenericVirtualFuncInvoker1< Light_t1E68479B7782AF2050FAA02A5DC612FD034F18F3*, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisLight_t1E68479B7782AF2050FAA02A5DC612FD034F18F3_m53DDA5E20E75C27589D5A9F6B39BD7CA7C61AD1F_RuntimeMethod_var, L_51, L_52);
-		LightsModule_set_light_m54F655151E83BA1CF8ECDF92B8D18F06463B2D59((&V_0), L_53, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0212:
-	{
-		// instance.useParticleColor = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_54 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_55 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_54);
-		bool L_56;
-		L_56 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_54, L_55);
-		LightsModule_set_useParticleColor_mC91DC556C20A786D4E8190842094B557204C74B0((&V_0), L_56, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0229:
-	{
-		// instance.sizeAffectsRange = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_57 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_58 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_57);
-		bool L_59;
-		L_59 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_57, L_58);
-		LightsModule_set_sizeAffectsRange_mBAAE49AC54AE79237649DD0AA715F43B0510356A((&V_0), L_59, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_023d:
-	{
-		// instance.alphaAffectsIntensity = reader.Read<System.Boolean>(ES3Type_bool.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_60 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_61 = ((ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_bool_t994D7EB833640C4A25C4E318B2622CEA7F87C750_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_60);
-		bool L_62;
-		L_62 = GenericVirtualFuncInvoker1< bool, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m23F3EAA3E7E6547B57DF708EA50643BD46C9D99D_RuntimeMethod_var, L_60, L_61);
-		LightsModule_set_alphaAffectsIntensity_m79B804EA7C98543C733F3E0355DB01B8E1845995((&V_0), L_62, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0251:
-	{
-		// instance.range = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_63 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_64 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_63);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_65;
-		L_65 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_63, L_64);
-		LightsModule_set_range_m3DA6A5EE3021CB5A4787AEAE4DCA675E3050C5E4((&V_0), L_65, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0265:
-	{
-		// instance.rangeMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_66 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_67 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_66);
-		float L_68;
-		L_68 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_66, L_67);
-		LightsModule_set_rangeMultiplier_m881D705C505C908F9F05F24EFBFC61DD2F01B23F((&V_0), L_68, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_0279:
-	{
-		// instance.intensity = reader.Read<UnityEngine.ParticleSystem.MinMaxCurve>(ES3Type_MinMaxCurve.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_69 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_70 = ((ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_MinMaxCurve_t46EA458CABE82AABDDFB4CA64BEB72718ABD10A2_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_69);
-		MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23 L_71;
-		L_71 = GenericVirtualFuncInvoker1< MinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisMinMaxCurve_t812D571297EED6498776CC58949A42B172E60E23_mDE155EADAD2AF04ADBCFBD8333B8BDC21CCD4B3B_RuntimeMethod_var, L_69, L_70);
-		LightsModule_set_intensity_mD1D7564D1ADD14C5755043F1146A8D56C228A519((&V_0), L_71, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_028d:
-	{
-		// instance.intensityMultiplier = reader.Read<System.Single>(ES3Type_float.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_72 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_73 = ((ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_float_t20465061009CB845AF69C15BA7E279EE9EE6DEDB_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_72);
-		float L_74;
-		L_74 = GenericVirtualFuncInvoker1< float, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisSingle_t4530F2FF86FCB0DC29F35385CA1BD21BE294761C_m82389A988E440B10B0D4B846EAD361D5DB450E37_RuntimeMethod_var, L_72, L_73);
-		LightsModule_set_intensityMultiplier_m79E9E71E14F02B6BE7C4EB6C5B3BA8921D1B29F8((&V_0), L_74, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_02a1:
-	{
-		// instance.maxLights = reader.Read<System.Int32>(ES3Type_int.Instance);
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_75 = ___0_reader;
-		ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* L_76 = ((ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_StaticFields*)il2cpp_codegen_static_fields_for(ES3Type_int_tF162EC158F9804A932A1C53DBFDF1D16EBD94C24_il2cpp_TypeInfo_var))->___Instance_13;
-		NullCheck(L_75);
-		int32_t L_77;
-		L_77 = GenericVirtualFuncInvoker1< int32_t, ES3Type_tBCC2A6E84E9F0AA990B09B9751DEB7E3F07171FE* >::Invoke(ES3Reader_Read_TisInt32_t680FF22E76F6EFAD4375103CBBFFA0421349384C_m08D298C3E1EAE20F03BD82E6186AE9BD49E6DBC1_RuntimeMethod_var, L_75, L_76);
-		LightsModule_set_maxLights_mC423F1C129DAB69F2F145F6AA8160DEE8176F4EC((&V_0), L_77, NULL);
-		// break;
-		goto IL_02bb;
-	}
-
-IL_02b5:
-	{
-		// reader.Skip();
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_78 = ___0_reader;
-		NullCheck(L_78);
-		VirtualActionInvoker0::Invoke(41 /* System.Void ES3Reader::Skip() */, L_78);
-	}
-
-IL_02bb:
-	{
-		// while((propertyName = reader.ReadPropertyName()) != null)
-		ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* L_79 = ___0_reader;
-		NullCheck(L_79);
-		String_t* L_80;
-		L_80 = VirtualFuncInvoker0< String_t* >::Invoke(21 /* System.String ES3Reader::ReadPropertyName() */, L_79);
-		String_t* L_81 = L_80;
-		V_1 = L_81;
-		if (L_81)
-		{
-			goto IL_000c;
-		}
-	}
-	{
-		// }
-		return;
-	}
-}
-// System.Void ES3Types.ES3Type_LightsModule::ReadInto<UnityEngine.ParticleSystem/VelocityOverLifetimeModule>(ES3Reader,System.Object)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ES3Type_LightsModule_ReadInto_TisVelocityOverLifetimeModule_tB4A3291E3D2E850257EE3F8344AAEDA06D7FCE56_m9F623DA3F7FAB9A5C6819C95188F1C99BADC180A_gshared (ES3Type_LightsModule_t6C4B2237386396F333FAE9A74A25FBF42F8F9017* __this, ES3Reader_t565FA63DEAB412997A1CA67A38C21BA843DABE0B* ___0_reader, RuntimeObject* ___1_obj, const RuntimeMethod* method) 
 {
 	static bool s_Il2CppMethodInitialized;
 	if (!s_Il2CppMethodInitialized)

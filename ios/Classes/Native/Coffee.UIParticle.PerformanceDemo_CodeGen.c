@@ -35,12 +35,12 @@ static Il2CppMethodPointer s_methodPointers[6] =
 };
 static const int32_t s_InvokerIndices[6] = 
 {
-	13093,
-	10211,
-	10211,
-	10211,
-	10403,
-	13093,
+	13229,
+	10326,
+	10326,
+	10326,
+	10518,
+	13229,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_Coffee_UIParticle_PerformanceDemo_CodeGenModule;
 const Il2CppCodeGenModule g_Coffee_UIParticle_PerformanceDemo_CodeGenModule = 

@@ -324,6 +324,7 @@ public class RunManager : MonoBehaviour
 
             if (candyInventoryUI != null)
                 CandyInventory.instance.SyncCurrentCandyUI();
+
         }
     }
 
@@ -1080,23 +1081,33 @@ public class RunManager : MonoBehaviour
 
         this.TaskDelay(1.8f, () =>
         {
-
             ShowCandyUnlockStatus();
 
-            x2ClaimBtn.SetActive(true);
+            if (x2ClaimBtn != null)
+                x2ClaimBtn.SetActive(true);
 
-            runEndUI.SetActive(true);
-            jarAnimator.SetBool("Rotate", true);
+            if (runEndUI != null)
+                runEndUI.SetActive(true);
 
-            EndCardMoneyText.text = money.ToString();
+            if (jarAnimator != null)
+                jarAnimator.SetBool("Rotate", true);
+
+            if (EndCardMoneyText != null)
+                EndCardMoneyText.text = money.ToString();
 
             // =================== 런게임 정산 수정전 ==========================
-            candyInventoryUI.SetActive(false);
-            EndCandyInventoryUI.ClearUI();
-            EndCandyInventoryUI.GenerateUIfromList(temp.candyItems);
 
-            foreach (var text in EndCandyInventoryUI.GetComponentsInChildren<UnityEngine.UI.Text>())
-                text.color = Color.white;
+            if (candyInventoryUI != null)
+                candyInventoryUI.SetActive(false);
+
+            if (EndCandyInventoryUI != null)
+            {
+                EndCandyInventoryUI.ClearUI();
+                EndCandyInventoryUI.GenerateUIfromList(temp.candyItems);
+
+                foreach (var text in EndCandyInventoryUI.GetComponentsInChildren<UnityEngine.UI.Text>())
+                    text.color = Color.white;
+            }
             // ===================================================
 
             // noThanksTask = this.TaskDelay(0.1f, () => { Debug.LogError(11123213); noThanksBtn.SetActive(true); /*ShowCandyUnlockStatus();*/ });

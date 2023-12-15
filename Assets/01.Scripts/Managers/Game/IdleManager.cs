@@ -101,6 +101,7 @@ public class IdleManager : MonoBehaviour
     public float GetCurrentCuttingSpeed() => RunManager.instance.candyCuttingSpeed + currentSkinCuttingSpeedBonus;
 
     public bool playIdle = false;
+    public bool puaseIRADs = false;
 
     private TaskUtil.WhileTaskMethod spawnCustomerTask = null;
     private TaskUtil.DelayTaskMethod fieldRvSpeedUpTask = null;
@@ -527,6 +528,7 @@ public class IdleManager : MonoBehaviour
     public void PlayRunGame()
     {
         playIdle = false;
+        puaseIRADs = false;
         idleUI.SetActive(false);
         RunManager.instance.ChangeToRunGame();
 
@@ -883,6 +885,7 @@ public class IdleManager : MonoBehaviour
         ES3.Save<bool>("enableSkin", true);
         // skinUIButton.Show();
         ES3.Save<bool>("NextStageEnable", true);
+        puaseIRADs = true;
 
         if (ES3.KeyExists("NextStageFocusMask") ? !ES3.Load<bool>("NextStageFocusMask") : true)
         {

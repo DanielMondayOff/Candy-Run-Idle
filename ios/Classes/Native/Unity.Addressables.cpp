@@ -163,8 +163,12 @@ struct Action_1_tE6B50214BDF601CE8F2DAE23EBD61509FF480DC2;
 struct Action_2_t67647DD70912484E9205AC38396D2849ED602730;
 // System.Action`2<UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle,System.Object>
 struct Action_2_t0577EF47136E82877E68C7AAD83FE5528505C84C;
+// System.Action`2<System.Int32,System.Collections.Generic.IList`1<System.Object>>
+struct Action_2_t6615269A8F721CE5FBF431CEA6EAB5D8452F3678;
 // System.Action`4<UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle,UnityEngine.ResourceManagement.ResourceManager/DiagnosticEventType,System.Int32,System.Object>
 struct Action_4_t9DB534B7D8A36A98095AEEA67EAC338F2230BA3D;
+// System.Action`4<System.Int32,System.Object,System.Boolean,System.Exception>
+struct Action_4_t36FB70C586A6E9ECF98E1431F1AAC5911193F415;
 // UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationBase`1<System.Collections.Generic.IList`1<UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle>>
 struct AsyncOperationBase_1_tCC65551FCDC4815E9F1832A0CE7BDA8E2BF09F3D;
 // UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationBase`1<System.Collections.Generic.IList`1<UnityEngine.ResourceManagement.ResourceLocations.IResourceLocation>>
@@ -919,6 +923,7 @@ IL2CPP_EXTERN_C const RuntimeMethod* AsyncOperationHandle_1_get_IsDone_mDD8D42C7
 IL2CPP_EXTERN_C const RuntimeMethod* AsyncOperationHandle_1_get_LocationName_mB9EFF73B3A1BC340C6AFBE888C76FD7C76D8D28D_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* AsyncOperationHandle_1_get_OperationException_m0AC909E76935233AA6ADA10C58DB65E85837A838_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* AsyncOperationHandle_1_get_OperationException_mCF1BDCAFAF089F2168C561674805C1DA975E376A_RuntimeMethod_var;
+IL2CPP_EXTERN_C const RuntimeMethod* AsyncOperationHandle_1_get_PercentComplete_mAE77E1C10262DE20189A636FDA0C487A4CBE33AB_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* AsyncOperationHandle_1_get_Result_m3FF8FC76759077D4125CFC51C7F3558D19091A66_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* AsyncOperationHandle_1_get_Result_m5AC6D5D4F7207460FEBE8A83B6A82019253D1D57_RuntimeMethod_var;
 IL2CPP_EXTERN_C const RuntimeMethod* AsyncOperationHandle_1_get_Result_m7F9FBE56DE53D3672C79D753722BA4B411722ECC_RuntimeMethod_var;
@@ -2985,28 +2990,32 @@ struct ProviderOperation_1_t4D4A6B4FCC41B02842192609420F9447FFE8A6AC  : public A
 {
 	// System.Boolean UnityEngine.ResourceManagement.AsyncOperations.ProviderOperation`1::m_ReleaseDependenciesOnFailure
 	bool ___m_ReleaseDependenciesOnFailure_17;
+	// System.Action`4<System.Int32,System.Object,System.Boolean,System.Exception> UnityEngine.ResourceManagement.AsyncOperations.ProviderOperation`1::m_CompletionCallback
+	Action_4_t36FB70C586A6E9ECF98E1431F1AAC5911193F415* ___m_CompletionCallback_18;
+	// System.Action`2<System.Int32,System.Collections.Generic.IList`1<System.Object>> UnityEngine.ResourceManagement.AsyncOperations.ProviderOperation`1::m_GetDepCallback
+	Action_2_t6615269A8F721CE5FBF431CEA6EAB5D8452F3678* ___m_GetDepCallback_19;
 	// System.Func`1<System.Single> UnityEngine.ResourceManagement.AsyncOperations.ProviderOperation`1::m_GetProgressCallback
-	Func_1_t11C3830580201E0A3A3A2C76523B7905EF40BCF7* ___m_GetProgressCallback_18;
+	Func_1_t11C3830580201E0A3A3A2C76523B7905EF40BCF7* ___m_GetProgressCallback_20;
 	// System.Func`1<UnityEngine.ResourceManagement.AsyncOperations.DownloadStatus> UnityEngine.ResourceManagement.AsyncOperations.ProviderOperation`1::m_GetDownloadProgressCallback
-	Func_1_t935316A94E97B5D059A09BCAB7F1F7990E4A0434* ___m_GetDownloadProgressCallback_19;
+	Func_1_t935316A94E97B5D059A09BCAB7F1F7990E4A0434* ___m_GetDownloadProgressCallback_21;
 	// System.Func`1<System.Boolean> UnityEngine.ResourceManagement.AsyncOperations.ProviderOperation`1::m_WaitForCompletionCallback
-	Func_1_t2BE7F58348C9CC544A8973B3A9E55541DE43C457* ___m_WaitForCompletionCallback_20;
+	Func_1_t2BE7F58348C9CC544A8973B3A9E55541DE43C457* ___m_WaitForCompletionCallback_22;
 	// UnityEngine.ResourceManagement.AsyncOperations.DownloadStatus UnityEngine.ResourceManagement.AsyncOperations.ProviderOperation`1::m_DownloadStatus
-	DownloadStatus_t6815D0707E92EE606CBEF833625E158F2201F97D ___m_DownloadStatus_21;
+	DownloadStatus_t6815D0707E92EE606CBEF833625E158F2201F97D ___m_DownloadStatus_23;
 	// UnityEngine.ResourceManagement.ResourceProviders.IResourceProvider UnityEngine.ResourceManagement.AsyncOperations.ProviderOperation`1::m_Provider
-	RuntimeObject* ___m_Provider_22;
+	RuntimeObject* ___m_Provider_24;
 	// UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<System.Collections.Generic.IList`1<UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle>> UnityEngine.ResourceManagement.AsyncOperations.ProviderOperation`1::m_DepOp
-	AsyncOperationHandle_1_t7854E14EDF49B0D526002237C4BBFAB8D15A5A90 ___m_DepOp_23;
+	AsyncOperationHandle_1_t7854E14EDF49B0D526002237C4BBFAB8D15A5A90 ___m_DepOp_25;
 	// UnityEngine.ResourceManagement.ResourceLocations.IResourceLocation UnityEngine.ResourceManagement.AsyncOperations.ProviderOperation`1::m_Location
-	RuntimeObject* ___m_Location_24;
+	RuntimeObject* ___m_Location_26;
 	// System.Int32 UnityEngine.ResourceManagement.AsyncOperations.ProviderOperation`1::m_ProvideHandleVersion
-	int32_t ___m_ProvideHandleVersion_25;
+	int32_t ___m_ProvideHandleVersion_27;
 	// System.Boolean UnityEngine.ResourceManagement.AsyncOperations.ProviderOperation`1::m_NeedsRelease
-	bool ___m_NeedsRelease_26;
+	bool ___m_NeedsRelease_28;
 	// UnityEngine.ResourceManagement.Util.IOperationCacheKey UnityEngine.ResourceManagement.AsyncOperations.ProviderOperation`1::<UnityEngine.ResourceManagement.AsyncOperations.ICachable.Key>k__BackingField
-	RuntimeObject* ___U3CUnityEngine_ResourceManagement_AsyncOperations_ICachable_KeyU3Ek__BackingField_27;
+	RuntimeObject* ___U3CUnityEngine_ResourceManagement_AsyncOperations_ICachable_KeyU3Ek__BackingField_29;
 	// UnityEngine.ResourceManagement.ResourceManager UnityEngine.ResourceManagement.AsyncOperations.ProviderOperation`1::m_ResourceManager
-	ResourceManager_t23CA39B6F8FB4F38DFCA7F6FDAEE868D709C933D* ___m_ResourceManager_28;
+	ResourceManager_t23CA39B6F8FB4F38DFCA7F6FDAEE868D709C933D* ___m_ResourceManager_30;
 };
 
 // UnityEngine.AddressableAssets.AddressablesImpl
@@ -5556,6 +5565,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t Stack_1_Pop_m59DFD2B5EC8D9044532E0AD0
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Stack_1_Clear_mD550E89582979ECB0D6E6D68F0237FC14708BE85_gshared (Stack_1_tAD790A47551563636908E21E4F08C54C0C323EB5* __this, const RuntimeMethod* method) ;
 // System.Void System.Collections.Generic.Stack`1<System.Int32>::Clear()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Stack_1_Clear_mEE1C6E0AF654AE01D41D12DAF62217D4FE3930E0_gshared (Stack_1_t3197E0F5EA36E611B259A88751D31FC2396FE4B6* __this, const RuntimeMethod* method) ;
+// System.Single UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<System.Object>::get_PercentComplete()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float AsyncOperationHandle_1_get_PercentComplete_mC95AEB023DF1AACCB201A04FEA947ECC770E5A10_gshared (AsyncOperationHandle_1_tDD1D892D87C7A0C3189DD56DDB997AB1A2089A74* __this, const RuntimeMethod* method) ;
 // UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<TObject> UnityEngine.ResourceManagement.ResourceManager::StartOperation<System.Boolean>(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationBase`1<TObject>,UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR AsyncOperationHandle_1_tF0C18B1708F42632D0DCFCD51AFCC737C73CDD66 ResourceManager_StartOperation_TisBoolean_t09A6377A54BE2F9E6985A8149F19234FD7DDFE22_m1067237C1C6A9C81341005BB04E1E0E44206AB44_gshared (ResourceManager_t23CA39B6F8FB4F38DFCA7F6FDAEE868D709C933D* __this, AsyncOperationBase_1_t9B8CD2C389C84545C0CAD66F10A3746E480D09D9* ___0_operation, AsyncOperationHandle_t58B507DCAA6531B85FDBA6188D8E1F7DF89D3F5D ___1_dependency, const RuntimeMethod* method) ;
 // UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<System.Boolean>::op_Implicit(UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<TObject>)
@@ -7049,6 +7060,11 @@ inline void AsyncOperationBase_1__ctor_mF3220BFAFB699E04077EAC57A6E9918238CB4F64
 }
 // System.Void UnityEngine.AddressableAssets.Utility.ResourceManagerDiagnostics::.ctor(UnityEngine.ResourceManagement.ResourceManager)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ResourceManagerDiagnostics__ctor_mF72CD3FA03BE7F127EF30342D928FB4BF5B3C16B (ResourceManagerDiagnostics_t49595E6E9EFEA3A70F3DE5D5AB2DEE8F0E3B3F45* __this, ResourceManager_t23CA39B6F8FB4F38DFCA7F6FDAEE868D709C933D* ___0_resourceManager, const RuntimeMethod* method) ;
+// System.Single UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<UnityEngine.AddressableAssets.Initialization.ResourceManagerRuntimeData>::get_PercentComplete()
+inline float AsyncOperationHandle_1_get_PercentComplete_mAE77E1C10262DE20189A636FDA0C487A4CBE33AB (AsyncOperationHandle_1_tE0FBC9643F615A524F7C241C5125D1F83B6977BD* __this, const RuntimeMethod* method)
+{
+	return ((  float (*) (AsyncOperationHandle_1_tE0FBC9643F615A524F7C241C5125D1F83B6977BD*, const RuntimeMethod*))AsyncOperationHandle_1_get_PercentComplete_mC95AEB023DF1AACCB201A04FEA947ECC770E5A10_gshared)(__this, method);
+}
 // System.Void UnityEngine.ResourceManagement.ResourceProviders.JsonAssetProvider::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void JsonAssetProvider__ctor_mB9C7EE8BCD28AA4995F2B29CB3041582769740C2 (JsonAssetProvider_tDA8FBAA9EAF7DC4CD8F96B0145644401CA29ADDF* __this, const RuntimeMethod* method) ;
 // System.Void UnityEngine.ResourceManagement.ResourceProviders.TextDataProvider::.ctor()
@@ -10874,7 +10890,7 @@ IL_002e_1:
 				AsyncOperationHandle_1_t074166892865CF484A3C77A1E9FB6F5E83DA1DA5 L_20 = V_2;
 				NullCheck(L_18);
 				AsyncOperationHandle_1_t074166892865CF484A3C77A1E9FB6F5E83DA1DA5 L_21;
-				L_21 = InterfaceFuncInvoker2< AsyncOperationHandle_1_t074166892865CF484A3C77A1E9FB6F5E83DA1DA5, ResourceManager_t23CA39B6F8FB4F38DFCA7F6FDAEE868D709C933D*, AsyncOperationHandle_1_t074166892865CF484A3C77A1E9FB6F5E83DA1DA5 >::Invoke(0 /* UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<UnityEngine.ResourceManagement.ResourceProviders.SceneInstance> UnityEngine.ResourceManagement.ResourceProviders.ISceneProvider::ReleaseScene(UnityEngine.ResourceManagement.ResourceManager,UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<UnityEngine.ResourceManagement.ResourceProviders.SceneInstance>) */, ISceneProvider_t8975F536F686AA01DF259F7AAB973512B5098581_il2cpp_TypeInfo_var, L_18, L_19, L_20);
+				L_21 = InterfaceFuncInvoker2< AsyncOperationHandle_1_t074166892865CF484A3C77A1E9FB6F5E83DA1DA5, ResourceManager_t23CA39B6F8FB4F38DFCA7F6FDAEE868D709C933D*, AsyncOperationHandle_1_t074166892865CF484A3C77A1E9FB6F5E83DA1DA5 >::Invoke(1 /* UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<UnityEngine.ResourceManagement.ResourceProviders.SceneInstance> UnityEngine.ResourceManagement.ResourceProviders.ISceneProvider::ReleaseScene(UnityEngine.ResourceManagement.ResourceManager,UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationHandle`1<UnityEngine.ResourceManagement.ResourceProviders.SceneInstance>) */, ISceneProvider_t8975F536F686AA01DF259F7AAB973512B5098581_il2cpp_TypeInfo_var, L_18, L_19, L_20);
 				V_4 = L_21;
 				// AutoReleaseHandleOnCompletion(op);
 				AsyncOperationHandle_1_t074166892865CF484A3C77A1E9FB6F5E83DA1DA5 L_22 = V_4;
@@ -12425,7 +12441,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR AsyncOperationHandle_1_t074166892865CF484A3C7
 		RuntimeObject* L_1 = L_0.___m_InternalOp_0;
 		NullCheck(L_1);
 		bool L_2;
-		L_2 = InterfaceFuncInvoker0< bool >::Invoke(11 /* System.Boolean UnityEngine.ResourceManagement.AsyncOperations.IAsyncOperation::get_IsRunning() */, IAsyncOperation_tAA751C850291C1C50151BE8313DE52B2A894023C_il2cpp_TypeInfo_var, L_1);
+		L_2 = InterfaceFuncInvoker0< bool >::Invoke(14 /* System.Boolean UnityEngine.ResourceManagement.AsyncOperations.IAsyncOperation::get_IsRunning() */, IAsyncOperation_tAA751C850291C1C50151BE8313DE52B2A894023C_il2cpp_TypeInfo_var, L_1);
 		if (!L_2)
 		{
 			goto IL_0017;
@@ -20404,6 +20420,40 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void InitializationOperation__ctor_mA2A202C20
 		Il2CppCodeGenWriteBarrier((void**)(&__this->___m_Diagnostics_21), (void*)L_3);
 		// }
 		return;
+	}
+}
+// System.Single UnityEngine.AddressableAssets.Initialization.InitializationOperation::get_Progress()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR float InitializationOperation_get_Progress_mFB29BE9EEA230CDD4E515DF73E8F0E60732BE80D (InitializationOperation_tF2DD6F78860670C1471F4C60EF9ECA4EADE9BC82* __this, const RuntimeMethod* method) 
+{
+	static bool s_Il2CppMethodInitialized;
+	if (!s_Il2CppMethodInitialized)
+	{
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&AsyncOperationHandle_1_IsValid_m1EA2A5DA758CF2E327C61A7E152A805725950373_RuntimeMethod_var);
+		il2cpp_codegen_initialize_runtime_metadata((uintptr_t*)&AsyncOperationHandle_1_get_PercentComplete_mAE77E1C10262DE20189A636FDA0C487A4CBE33AB_RuntimeMethod_var);
+		s_Il2CppMethodInitialized = true;
+	}
+	{
+		// if (m_rtdOp.IsValid())
+		AsyncOperationHandle_1_tE0FBC9643F615A524F7C241C5125D1F83B6977BD* L_0 = (AsyncOperationHandle_1_tE0FBC9643F615A524F7C241C5125D1F83B6977BD*)(&__this->___m_rtdOp_17);
+		bool L_1;
+		L_1 = AsyncOperationHandle_1_IsValid_m1EA2A5DA758CF2E327C61A7E152A805725950373(L_0, AsyncOperationHandle_1_IsValid_m1EA2A5DA758CF2E327C61A7E152A805725950373_RuntimeMethod_var);
+		if (!L_1)
+		{
+			goto IL_0019;
+		}
+	}
+	{
+		// return m_rtdOp.PercentComplete;
+		AsyncOperationHandle_1_tE0FBC9643F615A524F7C241C5125D1F83B6977BD* L_2 = (AsyncOperationHandle_1_tE0FBC9643F615A524F7C241C5125D1F83B6977BD*)(&__this->___m_rtdOp_17);
+		float L_3;
+		L_3 = AsyncOperationHandle_1_get_PercentComplete_mAE77E1C10262DE20189A636FDA0C487A4CBE33AB(L_2, AsyncOperationHandle_1_get_PercentComplete_mAE77E1C10262DE20189A636FDA0C487A4CBE33AB_RuntimeMethod_var);
+		return L_3;
+	}
+
+IL_0019:
+	{
+		// return 0f;
+		return (0.0f);
 	}
 }
 // System.String UnityEngine.AddressableAssets.Initialization.InitializationOperation::get_DebugName()

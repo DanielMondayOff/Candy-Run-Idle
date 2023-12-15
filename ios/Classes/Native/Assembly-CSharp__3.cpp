@@ -6313,60 +6313,64 @@ struct IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3  : public MonoBehav
 	MoneyDrops_t44FB489D59FC443F8EE33FCA2BFACD2985908D06* ___bonusMoneyDrops_38;
 	// FixedTouchField IdleManager::FixedTouchField
 	FixedTouchField_t9C7E2E9DF95FF3E1531C753E5D4E49D70D8C8DF6* ___FixedTouchField_39;
+	// UnityEngine.GameObject IdleManager::iapLoadingScreen
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___iapLoadingScreen_40;
 	// UnityEngine.CanvasGroup[] IdleManager::idleUIs
-	CanvasGroupU5BU5D_tFCEB11EC9CA43261966FD158E1A6B5D07C28E4C7* ___idleUIs_40;
+	CanvasGroupU5BU5D_tFCEB11EC9CA43261966FD158E1A6B5D07C28E4C7* ___idleUIs_41;
 	// UnityEngine.Color IdleManager::activeBtnColor
-	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___activeBtnColor_41;
+	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___activeBtnColor_42;
 	// UnityEngine.Color IdleManager::deactiveBtnColor
-	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___deactiveBtnColor_42;
+	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___deactiveBtnColor_43;
 	// UnityEngine.Color IdleManager::activeCostColor
-	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___activeCostColor_43;
+	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___activeCostColor_44;
 	// UnityEngine.Color IdleManager::deactiveCostColor
-	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___deactiveCostColor_44;
+	Color_tD001788D726C3A7F1379BEED0260B9591F440C1F ___deactiveCostColor_45;
 	// IdleUpgrade[] IdleManager::upgrades
-	IdleUpgradeU5BU5D_tFE10760C14BFB5CFC97E50645A4621AA17C9EC80* ___upgrades_45;
+	IdleUpgradeU5BU5D_tFE10760C14BFB5CFC97E50645A4621AA17C9EC80* ___upgrades_46;
 	// System.Single[] IdleManager::workerSpeed
-	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___workerSpeed_46;
+	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___workerSpeed_47;
 	// System.Single[] IdleManager::customerSpawnSpeed
-	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___customerSpawnSpeed_47;
+	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___customerSpawnSpeed_48;
 	// System.Single[] IdleManager::maxCustomerCount
-	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___maxCustomerCount_48;
+	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___maxCustomerCount_49;
 	// System.Single[] IdleManager::extraIncomePercent
-	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___extraIncomePercent_49;
+	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___extraIncomePercent_50;
 	// System.Single[] IdleManager::playerSpeed
-	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___playerSpeed_50;
+	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___playerSpeed_51;
 	// System.Single[] IdleManager::playerCapacityValue
-	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___playerCapacityValue_51;
+	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___playerCapacityValue_52;
 	// System.Single[] IdleManager::workerCapacityValue
-	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___workerCapacityValue_52;
+	SingleU5BU5D_t89DEFE97BCEDB5857010E79ECE0F52CF6E93B87C* ___workerCapacityValue_53;
 	// System.Single IdleManager::currentSkinMoveSpeedBonus
-	float ___currentSkinMoveSpeedBonus_53;
+	float ___currentSkinMoveSpeedBonus_54;
 	// System.Int32 IdleManager::currentSkinMaxStackBonus
-	int32_t ___currentSkinMaxStackBonus_54;
+	int32_t ___currentSkinMaxStackBonus_55;
 	// System.Single IdleManager::currentSkinCuttingSpeedBonus
-	float ___currentSkinCuttingSpeedBonus_55;
+	float ___currentSkinCuttingSpeedBonus_56;
 	// System.Int32 IdleManager::maxCustomerCountBonus_Machine
-	int32_t ___maxCustomerCountBonus_Machine_56;
+	int32_t ___maxCustomerCountBonus_Machine_57;
 	// System.Int32 IdleManager::maxCustomerRequestBonus
-	int32_t ___maxCustomerRequestBonus_57;
+	int32_t ___maxCustomerRequestBonus_58;
 	// System.Single IdleManager::customerSpawnTimeBonus
-	float ___customerSpawnTimeBonus_58;
+	float ___customerSpawnTimeBonus_59;
 	// System.Int32 IdleManager::nextOrderPercent
-	int32_t ___nextOrderPercent_59;
+	int32_t ___nextOrderPercent_60;
 	// System.Boolean IdleManager::playIdle
-	bool ___playIdle_60;
+	bool ___playIdle_61;
+	// System.Boolean IdleManager::puaseIRADs
+	bool ___puaseIRADs_62;
 	// TaskUtil/WhileTaskMethod IdleManager::spawnCustomerTask
-	WhileTaskMethod_t99DF70B75D9462CD8009D2D3AAC351E43EBD401F* ___spawnCustomerTask_61;
+	WhileTaskMethod_t99DF70B75D9462CD8009D2D3AAC351E43EBD401F* ___spawnCustomerTask_63;
 	// TaskUtil/DelayTaskMethod IdleManager::fieldRvSpeedUpTask
-	DelayTaskMethod_t21AD69DC57037983DB52980F102DC2906E454622* ___fieldRvSpeedUpTask_62;
+	DelayTaskMethod_t21AD69DC57037983DB52980F102DC2906E454622* ___fieldRvSpeedUpTask_64;
 	// System.Collections.Generic.List`1<FieldRvType> IdleManager::bannedFieldRv
-	List_1_t12469A6CD8497333B05298C8F31C0D1335BEA298* ___bannedFieldRv_63;
+	List_1_t12469A6CD8497333B05298C8F31C0D1335BEA298* ___bannedFieldRv_65;
 	// UnityEngine.GameObject IdleManager::nextStageBtnFocus
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___nextStageBtnFocus_64;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___nextStageBtnFocus_66;
 	// System.Collections.Generic.List`1<DisplayStand> IdleManager::candyDisplayStandList
-	List_1_t2F294256B3E242FAE8DE1C4BA814EE7FCB50AC00* ___candyDisplayStandList_65;
+	List_1_t2F294256B3E242FAE8DE1C4BA814EE7FCB50AC00* ___candyDisplayStandList_67;
 	// System.Collections.Generic.List`1<StandBuildObject> IdleManager::standBuildList
-	List_1_t9130446DE92E5054C422E7D9FD3EDE0E0E1AB786* ___standBuildList_66;
+	List_1_t9130446DE92E5054C422E7D9FD3EDE0E0E1AB786* ___standBuildList_68;
 };
 
 // PlayerMovement
@@ -9471,7 +9475,7 @@ struct EventManager_t2FAA3AA5EE7E33EE027BB7CA68ABCF128E3C579A_StaticFields
 struct IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields
 {
 	// IdleManager IdleManager::instance
-	IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* ___instance_67;
+	IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* ___instance_69;
 };
 
 // IdleManager
@@ -12553,10 +12557,10 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShopUIButton_Awake_mF333EB9B2D3C64DA4828
 	}
 	int32_t G_B4_0 = 0;
 	{
-		// if (SceneChanger.shopBtnAlwaysShown)
+		// if (!SceneChanger.shopBtnAlwaysShown)
 		il2cpp_codegen_runtime_class_init_inline(SceneChanger_tC919AD069A17BDD8C7D94D8DBD5EB709E217DF40_il2cpp_TypeInfo_var);
 		bool L_0 = ((SceneChanger_tC919AD069A17BDD8C7D94D8DBD5EB709E217DF40_StaticFields*)il2cpp_codegen_static_fields_for(SceneChanger_tC919AD069A17BDD8C7D94D8DBD5EB709E217DF40_il2cpp_TypeInfo_var))->___shopBtnAlwaysShown_6;
-		if (L_0)
+		if (!L_0)
 		{
 			goto IL_002e;
 		}
@@ -12614,7 +12618,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void ShopUIButton_OnClickShopBtn_m1597928C90C
 	}
 	{
 		// IdleManager.instance.shopUI.Show();
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_0);
 		ShopUI_t962C10A7606C823D4BD8CA1BE8C8A0BF882C05CA* L_1 = L_0->___shopUI_32;
 		NullCheck(L_1);
@@ -12685,7 +12689,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SkinActiveUI_OnClick_m4064747749AC5CEB51
 		NullCheck(L_0);
 		SkinRenderManager_ChangeSkinRender_mADA63F29526BF1EFA8267D56ED53BC61B55803DD(L_0, L_1, L_2, NULL);
 		// IdleManager.instance.skinUI.ChangeSkinName(SaveManager.instance.FindSkinObject(type, id).skinName);
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_3 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_3 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_3);
 		SkinUI_tF56F5478D84A76B4906D5D017E23F05D9A603BAC* L_4 = L_3->___skinUI_31;
 		SaveManager_t8C78B99FC298BDDDADBD6EE95F9107F6B55ED2F5* L_5 = ((SaveManager_t8C78B99FC298BDDDADBD6EE95F9107F6B55ED2F5_StaticFields*)il2cpp_codegen_static_fields_for(SaveManager_t8C78B99FC298BDDDADBD6EE95F9107F6B55ED2F5_il2cpp_TypeInfo_var))->___instance_28;
@@ -12699,7 +12703,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SkinActiveUI_OnClick_m4064747749AC5CEB51
 		NullCheck(L_4);
 		SkinUI_ChangeSkinName_mEC054D45D3AC6A30C264EDF66FC5A7CCD6FE9C39(L_4, L_9, NULL);
 		// IdleManager.instance.skinUI.ChangeStat(SaveManager.instance.FindSkinObject(type, id).GetStatText());
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_10 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_10 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_10);
 		SkinUI_tF56F5478D84A76B4906D5D017E23F05D9A603BAC* L_11 = L_10->___skinUI_31;
 		SaveManager_t8C78B99FC298BDDDADBD6EE95F9107F6B55ED2F5* L_12 = ((SaveManager_t8C78B99FC298BDDDADBD6EE95F9107F6B55ED2F5_StaticFields*)il2cpp_codegen_static_fields_for(SaveManager_t8C78B99FC298BDDDADBD6EE95F9107F6B55ED2F5_il2cpp_TypeInfo_var))->___instance_28;
@@ -12762,7 +12766,7 @@ IL_0092:
 IL_00a4:
 	{
 		// IdleManager.instance.ChangeIdleSkin(id);
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_26 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_26 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		int32_t L_27 = __this->___id_4;
 		NullCheck(L_26);
 		IdleManager_ChangeIdleSkin_mB50EF5BCC31CB2DFA9371A6B2A43B4C62AF3EDF0(L_26, L_27, NULL);
@@ -12771,7 +12775,7 @@ IL_00a4:
 IL_00b4:
 	{
 		// IdleManager.instance.skinUI.ResetUsed();
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_28 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_28 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_28);
 		SkinUI_tF56F5478D84A76B4906D5D017E23F05D9A603BAC* L_29 = L_28->___skinUI_31;
 		NullCheck(L_29);
@@ -13268,7 +13272,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SkinActiveUI_OnClickClameBtn_mA51BB5E5BE
 	}
 	{
 		// IdleManager.instance.shopUI.Show();
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_0);
 		ShopUI_t962C10A7606C823D4BD8CA1BE8C8A0BF882C05CA* L_1 = L_0->___shopUI_32;
 		NullCheck(L_1);
@@ -14177,7 +14181,7 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void SkinUIButton_OnClickSkinBtn_mBA095433859
 	}
 	{
 		// IdleManager.instance.skinUI.Show();
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_0 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		NullCheck(L_0);
 		SkinUI_tF56F5478D84A76B4906D5D017E23F05D9A603BAC* L_1 = L_0->___skinUI_31;
 		NullCheck(L_1);
@@ -23903,7 +23907,7 @@ IL_0112:
 		NullCheck(L_47);
 		SaveManager_LossMoney_m0A7557647771316B1BF310E9C303C64282DAF4AE(L_47, L_48, NULL);
 		// IdleManager.instance.GenerateDummyMoney("Money Dummy", targetPlayer.position, transform.position);
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_49 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_49 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		Collector_t6F8A96905959E964BF21E2149DF26140E30193B4* L_50 = V_1;
 		NullCheck(L_50);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_51 = L_50->___targetPlayer_19;
@@ -23958,7 +23962,7 @@ IL_0189:
 		NullCheck(L_64);
 		SaveManager_LossMoney_m0A7557647771316B1BF310E9C303C64282DAF4AE(L_64, L_65, NULL);
 		// IdleManager.instance.GenerateDummyMoney("Money Dummy", targetPlayer.position, transform.position);
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_66 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_66 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		Collector_t6F8A96905959E964BF21E2149DF26140E30193B4* L_67 = V_1;
 		NullCheck(L_67);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_68 = L_67->___targetPlayer_19;
@@ -24014,7 +24018,7 @@ IL_01ee:
 		NullCheck(L_81);
 		SaveManager_LossMoney_m0A7557647771316B1BF310E9C303C64282DAF4AE(L_81, L_83, NULL);
 		// IdleManager.instance.GenerateDummyMoney("Money Dummy", targetPlayer.position, transform.position);
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_84 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_84 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		Collector_t6F8A96905959E964BF21E2149DF26140E30193B4* L_85 = V_1;
 		NullCheck(L_85);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_86 = L_85->___targetPlayer_19;
@@ -24072,7 +24076,7 @@ IL_0251:
 		NullCheck(L_100);
 		SaveManager_LossMoney_m0A7557647771316B1BF310E9C303C64282DAF4AE(L_100, L_101, NULL);
 		// IdleManager.instance.GenerateDummyMoney("Money Dummy", targetPlayer.position, transform.position);
-		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_102 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_67;
+		IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3* L_102 = ((IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_StaticFields*)il2cpp_codegen_static_fields_for(IdleManager_t3FEB2B25D7BA1D74E810B69A9F720396F4E72FC3_il2cpp_TypeInfo_var))->___instance_69;
 		Collector_t6F8A96905959E964BF21E2149DF26140E30193B4* L_103 = V_1;
 		NullCheck(L_103);
 		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_104 = L_103->___targetPlayer_19;
