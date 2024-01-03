@@ -25,6 +25,7 @@ namespace MondayOFF
 
         Vector2 _scrollPosition = Vector2.zero;
         GUIStyle _largeAndBoldLabel = null;
+        GUIStyle _textAreaStyle = null;
         Texture2D _logo = null;
         bool _expandAppSettings = true;
         bool _expandGeneralSettings = true;
@@ -46,11 +47,21 @@ namespace MondayOFF
         {
             if (_largeAndBoldLabel == null)
             {
-                _largeAndBoldLabel = new GUIStyle(EditorStyles.largeLabel);
-                _largeAndBoldLabel.fontSize = 16;
-                _largeAndBoldLabel.fontStyle = FontStyle.Bold;
-                // _largeAndBoldLabel.fixedHeight = EditorGUIUtility.singleLineHeight * 1.5f;
-                _largeAndBoldLabel.border = new RectOffset(0, 0, 0, 0);
+                _largeAndBoldLabel = new GUIStyle(EditorStyles.largeLabel)
+                {
+                    fontSize = 16,
+                    fontStyle = FontStyle.Bold,
+                    // _largeAndBoldLabel.fixedHeight = EditorGUIUtility.singleLineHeight * 1.5f;
+                    border = new RectOffset(0, 0, 0, 0)
+                };
+            }
+
+            if (_textAreaStyle == null)
+            {
+                _textAreaStyle = new GUIStyle(EditorStyles.textArea)
+                {
+                    wordWrap = true
+                };
             }
 
             if (_logo == null)
@@ -105,7 +116,6 @@ namespace MondayOFF
             {
                 EditorGUI.indentLevel++;
 
-                // Set Test Mode
                 AddField(
                     "Initialize on Launch [?]",
                     "Initialize Everyday and related third parties on launch",
@@ -113,6 +123,19 @@ namespace MondayOFF
                     (value) => { settings.initializeOnLaunch = (bool)value; },
                     settings
                 );
+
+                if (settings.initializeOnLaunch)
+                {
+                    EditorGUI.indentLevel++;
+                    AddField(
+                        "Initialization Delay [?]",
+                        "Default is 2 seconds. Goal is to display ATT dialog after splash image",
+                        () => EditorGUILayout.Slider(settings.initializationDelay, 0f, 5f),
+                        (value) => { settings.initializationDelay = value; },
+                        settings
+                    );
+                    EditorGUI.indentLevel--;
+                }
 
                 // Show LogLevel
                 AddField(
@@ -185,6 +208,8 @@ namespace MondayOFF
                     },
                     (value) =>
                     {
+                        PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Android, (string)value);
+                        PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.iOS, (string)value);
                         PlayerSettings.applicationIdentifier = value;
                     },
                     null
@@ -259,7 +284,7 @@ namespace MondayOFF
                 EditorGUI.indentLevel++;
                 // AdMob App ID
                 AddField(
-                    "    Android",
+                    "Android",
                     null,
                     () =>
                     {
@@ -274,7 +299,7 @@ namespace MondayOFF
 
                 // AdMob App ID iOS
                 AddField(
-                    "    iOS",
+                    "iOS",
                     null,
                     () =>
                     {

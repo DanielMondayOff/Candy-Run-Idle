@@ -15,22 +15,20 @@ MonoBehaviour:
   enableLogs: 1
   platform: 0
   androidKeyData:
-    APIKey: NzAzMjJkYTQtYmIyZi00YmE3LWJhMmItMmZhZDFjZmUwMmMxJGh0dHBzOi8vYWRzZXJ2ZXIuYWR2ZXJ0eS5jb20=
-    HostUrl: https://adserver.adverty.com/{0}
-    ApplicationKey: 70322da4-bb2f-4ba7-ba2b-2fad1cfe02c1
+    APIKey: 
+    HostUrl: 
+    ApplicationKey: 
   iosKeyData:
-    APIKey: MTI3MDM3ZWMtYWQ0Mi00YzRkLWEyZjUtNTE0NzU0ZTgzMDUxJGh0dHBzOi8vYWRzZXJ2ZXIuYWR2ZXJ0eS5jb20=
-    HostUrl: https://adserver.adverty.com/{0}
-    ApplicationKey: 127037ec-ad42-4c4d-a2f5-514754e83051
+    APIKey: 
+    HostUrl: 
+    ApplicationKey: 
   generalKeyData:
-    APIKey: MTI3MDM3ZWMtYWQ0Mi00YzRkLWEyZjUtNTE0NzU0ZTgzMDUxJGh0dHBzOi8vYWRzZXJ2ZXIuYWR2ZXJ0eS5jb20=
-    HostUrl: https://adserver.adverty.com/{0}
-    ApplicationKey: 127037ec-ad42-4c4d-a2f5-514754e83051
-  isLazyLoadAllowed: 1
+    APIKey: 
+    HostUrl: 
+    ApplicationKey: 
   clickHandling: 0
-  sandboxMode: 1
-  renderPipelineType: URP
-  renderPipelineVersion: 12.1.11
+  sandboxMode: 0
+  renderPipelineType: 
+  renderPipelineVersion: 
   advertyLogLevel: 6
-  reloadDomainEnabled: 1
-  showDebugWebView: 0
+  reloadDomainEnabled: 0

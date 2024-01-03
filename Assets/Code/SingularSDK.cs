@@ -36,7 +36,7 @@ public class SingularSDK : MonoBehaviour
     public bool enableLogging = false;
     public int logLevel = 0;
     public static string fcmDeviceToken = null;
-    public static string facebookAppId;
+    public string facebookAppId;
     public bool clipboardAttribution = false;
     public static string openUri;
     public bool collectOAID = false;
@@ -66,7 +66,7 @@ public class SingularSDK : MonoBehaviour
     private static bool Initialized = false;
 
     private const string UNITY_WRAPPER_NAME = "Unity";
-    private const string UNITY_VERSION = "4.0.19";
+    private const string UNITY_VERSION = "4.2.0";
 
 
 #if UNITY_ANDROID
@@ -102,10 +102,7 @@ public class SingularSDK : MonoBehaviour
         // }
 
         if (instance)
-        {
-            Destroy(this);
             return;
-        }
 
         // Initialize singleton
         instance = this;
@@ -176,9 +173,8 @@ public class SingularSDK : MonoBehaviour
             DEFAULT_SHORT_LINKS_TIMEOUT : instance.shortlinkResolveTimeout);
         config.SetValue("globalProperties", instance.globalProperties);
         config.SetValue("sessionTimeoutSec", instance.sessionTimeoutSec);
-
 #if UNITY_ANDROID
-        config.SetValue("facebookAppId", facebookAppId);
+        config.SetValue("facebookAppId", instance.facebookAppId);
         config.SetValue("customUserId", customUserId);
         config.SetValue("imei", imei);
         config.SetValue("openUri", openUri);
@@ -186,7 +182,7 @@ public class SingularSDK : MonoBehaviour
         config.SetValue("enableDeferredDeepLinks", enableDeferredDeepLinks);
         config.SetValue("enableLogging", instance.enableLogging);
         config.SetValue("logLevel", instance.logLevel);
-        if (SingularSDK.fcmDeviceToken != null) {
+        if (SingularSDK.fcmDeviceToken != null){
             config.SetValue("fcmDeviceToken", SingularSDK.fcmDeviceToken);
         }
         config.SetValue("collectOAID", instance.collectOAID);

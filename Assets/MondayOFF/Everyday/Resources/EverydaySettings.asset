@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0da90100806d46409dc5f2bb6272482, type: 3}
   m_Name: EverydaySettings
   m_EditorClassIdentifier: 
-  initializeOnLaunch: 0
+  initializeOnLaunch: 1
+  initializationDelay: 1.5
   logLevel: 3
   isTestMode: 0
   adSettings:
@@ -30,7 +31,7 @@ MonoBehaviour:
     AOS_RV_Backup_AdUnitID: 
     AOS_BN_Backup_AdUnitID: 
     AOS_APS_AppID: 4f494735-a067-4499-b7bc-245c91313714
-    AOS_APS_IS_SlotID: 776183e4-18ca-4a62-81e6-76d9804195e9
+    AOS_APS_IS_SlotID: 4f494735-a067-4499-b7bc-245c91313714
     AOS_APS_RV_SlotID: a888ff47-5f9f-4f8b-9f1a-42cf8445802d
     AOS_APS_BN_SlotID: 049cc7b9-1b3b-46be-8f73-46793fd247a0
     AOS_PlayOnApiKey: 90ed8e91-f99d-4522-ad9e-aaa4b9dc67be
@@ -57,3 +58,5 @@ MonoBehaviour:
       playOnLogoSize: 64
     initializeAdvertyOnAwake: 1
   gameId: 
+  companyLogo: {fileID: 0}
+  gameSceneName: EverydayTestScene

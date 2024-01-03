@@ -1,3 +1,26 @@
+# v3.0.35
+
+- [Adverty] Updated to 4.2.0
+- [Singular] Updated to 4.2.0
+- [Ads] Added Smaato Adpater
+
+# v3.0.34
+
+- [IAP] Added `OnPurchaseFailed(Product, PurchaseFailureReason)` event
+- [IAP] Added `OnAfterPurchaseWithProductId(PurchaseProcessStatus, string)` event
+- [IAP] `OnAfterPurchase` is now obsolete, use `OnAfterPurchaseWithProductId(PurchaseProcessStatus, string)`instead
+- [Firebase] (Android only) Automatically regenerate `google-services-desktop.json` before build
+- [Settings] Added `InitializationDelay`. Initialization delay is used only when `InitializeOnLaunch` is set to `true`. Goal is to show ATT dialog after splash screen.
+
+# v3.0.33
+
+- [IAP] Added `(string isoCurrencyCode, string localizedPrice) GetLocalizedPrice(string productID)` to `IAPManager`
+- [Privacy] (iOS) Added `Privacy.OpenAppSettings()` to redirect user to current app's settings window
+- [Privacy] (iOS) Added `UserTrackingUsageDescription`in the Everyday Settings
+- [Ads] Added Ogury Adapter
+- [Android] Added Firebase to proguard
+- [Singular] Updated to 4.1.1
+
 # v3.0.32
 
 - [Adverty] Updated to 4.1.8
