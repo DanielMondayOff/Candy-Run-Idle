@@ -52,6 +52,8 @@ public class IdleManager : MonoBehaviour
     [FoldoutGroup("참조")] public Transform firstCollector;
     [FoldoutGroup("참조")] public MoneyDrops bonusMoneyDrops;
     [FoldoutGroup("참조")] public FixedTouchField FixedTouchField;
+    [FoldoutGroup("참조")] public GameObject iapLoadingScreen;
+
 
 
     public CanvasGroup[] idleUIs;
@@ -99,6 +101,7 @@ public class IdleManager : MonoBehaviour
     public float GetCurrentCuttingSpeed() => RunManager.instance.candyCuttingSpeed + currentSkinCuttingSpeedBonus;
 
     public bool playIdle = false;
+    public bool puaseIRADs = false;
 
     private TaskUtil.WhileTaskMethod spawnCustomerTask = null;
     private TaskUtil.DelayTaskMethod fieldRvSpeedUpTask = null;
@@ -231,6 +234,19 @@ public class IdleManager : MonoBehaviour
         };
 
         SaveManager.instance.onRoyalCandyChangeEvent.AddListener(IdleManager.instance.skinUI.UpdateSlotUI);
+
+        MondayOFF.IAPManager.OnBeforePurchase += () =>
+        {
+            if (iapLoadingScreen != null)
+                Destroy(iapLoadingScreen);
+            iapLoadingScreen = Instantiate(Resources.Load<GameObject>("UI/Loading"), null);
+        };
+
+        MondayOFF.IAPManager.OnAfterPurchase += (result) =>
+        {
+            if (iapLoadingScreen != null)
+                Destroy(iapLoadingScreen);
+        };
     }
 
     private void Update()
@@ -512,6 +528,7 @@ public class IdleManager : MonoBehaviour
     public void PlayRunGame()
     {
         playIdle = false;
+        puaseIRADs = false;
         idleUI.SetActive(false);
         RunManager.instance.ChangeToRunGame();
 
@@ -868,6 +885,7 @@ public class IdleManager : MonoBehaviour
         ES3.Save<bool>("enableSkin", true);
         // skinUIButton.Show();
         ES3.Save<bool>("NextStageEnable", true);
+        puaseIRADs = true;
 
         if (ES3.KeyExists("NextStageFocusMask") ? !ES3.Load<bool>("NextStageFocusMask") : true)
         {

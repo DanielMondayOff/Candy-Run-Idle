@@ -21,6 +21,7 @@ namespace MondayOFF
                 StoreListener.OnBeforePurchase -= value;
             }
         }
+        [Obsolete("Please use OnAfterPurchaseWithProduct(PurchaseProcessStatus, string)")]
         public static event Action<bool> OnAfterPurchase
         {
             add
@@ -33,7 +34,44 @@ namespace MondayOFF
             }
         }
 
+        public static event Action<PurchaseProcessStatus, string> OnAfterPurchaseWithProductId
+        {
+            add
+            {
+                StoreListener.OnAfterPurchaseWithProductId += value;
+            }
+            remove
+            {
+                StoreListener.OnAfterPurchaseWithProductId -= value;
+            }
+        }
+
+        public static event Action<Product, PurchaseFailureReason> OnPurchaseFailed
+        {
+            add
+            {
+                StoreListener.OnPurchaseFailedEvent += value;
+            }
+            remove
+            {
+                StoreListener.OnPurchaseFailedEvent -= value;
+            }
+        }
+
+        public static bool IsInitialized => _storeListener != null && _storeListener.isInitialized;
+
         private static StoreListener _storeListener = default;
+
+        public static (string isoCurrencyCode, string localizedPriceString) GetLocalizedPrice(in string productID)
+        {
+            if (_storeListener == null)
+            {
+                EverydayLogger.Info("Store listener is not created yet");
+                return default;
+            }
+
+            return _storeListener.GetLocalizedPrice(productID);
+        }
 
         public static IAPStatus RegisterProduct(in string productID, in Action onPurchase)
         {
@@ -83,14 +121,17 @@ namespace MondayOFF
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
         private static void AfterSceneLoad()
         {
-            System.Threading.Tasks.Task.Run(() =>
-            {
-                while (EverydaySettings.Instance == null)
-                {
-                    System.Threading.Thread.Sleep(100);
-                }
-                EverydaySettings.AdSettings.IsNoAds = () => NoAds.IsNoAds;
-            });
+            // System.Threading.Tasks.Task.Run(() =>
+            // {
+            //     while (EverydaySettings.Instance == null)
+            //     {
+            //         System.Threading.Thread.Sleep(100);
+            //     }
+            //     EverydaySettings.AdSettings.IsNoAds = () => NoAds.IsNoAds;
+            // });
+
+            EverydaySettings.AdSettings.IsNoAds = () => NoAds.IsNoAds;
+
             Initialize();
         }
 

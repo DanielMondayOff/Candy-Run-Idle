@@ -5,7 +5,7 @@
 
 #import "MAUnityAdManager.h"
 
-#define VERSION @"6.0.1"
+#define VERSION @"6.1.2"
 
 #define KEY_WINDOW [UIApplication sharedApplication].keyWindow
 #define DEVICE_SPECIFIC_ADVIEW_AD_FORMAT ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) ? MAAdFormat.leader : MAAdFormat.banner
@@ -265,6 +265,12 @@ static ALUnityBackgroundCallback backgroundCallback;
 
 - (void)setBannerLocalExtraParameterForAdUnitIdentifier:(nullable NSString *)adUnitIdentifier key:(nullable NSString *)key value:(nullable id)value
 {
+    if ( !key )
+    {
+        [self log: @"Failed to set local extra parameter: No key specified"];
+        return;
+    }
+    
     [self setAdViewLocalExtraParameterForAdUnitIdentifier: adUnitIdentifier adFormat: [self adViewAdFormatForAdUnitIdentifier: adUnitIdentifier] key: key value: value];
 }
 
@@ -347,6 +353,12 @@ static ALUnityBackgroundCallback backgroundCallback;
 
 - (void)setMRecLocalExtraParameterForAdUnitIdentifier:(nullable NSString *)adUnitIdentifier key:(nullable NSString *)key value:(nullable id)value
 {
+    if ( !key )
+    {
+        [self log: @"Failed to set local extra parameter: No key specified"];
+        return;
+    }
+    
     [self setAdViewLocalExtraParameterForAdUnitIdentifier: adUnitIdentifier adFormat: MAAdFormat.mrec key: key value: value];
 }
 
@@ -446,6 +458,12 @@ static ALUnityBackgroundCallback backgroundCallback;
 
 - (void)setInterstitialLocalExtraParameterForAdUnitIdentifier:(nullable NSString *)adUnitIdentifier key:(nullable NSString *)key value:(nullable id)value
 {
+    if ( !key )
+    {
+        [self log: @"Failed to set local extra parameter: No key specified"];
+        return;
+    }
+    
     MAInterstitialAd *interstitial = [self retrieveInterstitialForAdUnitIdentifier: adUnitIdentifier];
     [interstitial setLocalExtraParameterForKey: key value: value];
 }
@@ -478,6 +496,12 @@ static ALUnityBackgroundCallback backgroundCallback;
 
 - (void)setAppOpenAdLocalExtraParameterForAdUnitIdentifier:(nullable NSString *)adUnitIdentifier key:(nullable NSString *)key value:(nullable id)value
 {
+    if ( !key )
+    {
+        [self log: @"Failed to set local extra parameter: No key specified"];
+        return;
+    }
+    
     MAAppOpenAd *appOpenAd = [self retrieveAppOpenAdForAdUnitIdentifier: adUnitIdentifier];
     [appOpenAd setLocalExtraParameterForKey: key value: value];
 }
@@ -510,6 +534,12 @@ static ALUnityBackgroundCallback backgroundCallback;
 
 - (void)setRewardedAdLocalExtraParameterForAdUnitIdentifier:(nullable NSString *)adUnitIdentifier key:(nullable NSString *)key value:(nullable id)value;
 {
+    if ( !key )
+    {
+        [self log: @"Failed to set local extra parameter: No key specified"];
+        return;
+    }
+    
     MARewardedAd *rewardedAd = [self retrieveRewardedAdForAdUnitIdentifier: adUnitIdentifier];
     [rewardedAd setLocalExtraParameterForKey: key value: value];
 }
@@ -542,6 +572,12 @@ static ALUnityBackgroundCallback backgroundCallback;
 
 - (void)setRewardedInterstitialAdLocalExtraParameterForAdUnitIdentifier:(nullable NSString *)adUnitIdentifier key:(nullable NSString *)key value:(nullable id)value
 {
+    if ( !key )
+    {
+        [self log: @"Failed to set local extra parameter: No key specified"];
+        return;
+    }
+    
     MARewardedInterstitialAd *rewardedInterstitialAd = [self retrieveRewardedInterstitialAdForAdUnitIdentifier: adUnitIdentifier];
     [rewardedInterstitialAd setLocalExtraParameterForKey: key value: value];
 }
@@ -1282,13 +1318,17 @@ static ALUnityBackgroundCallback backgroundCallback;
     max_unity_dispatch_on_main_thread(^{
         [self log: @"Setting width %f for \"%@\" with ad unit identifier \"%@\"", width, adFormat, adUnitIdentifier];
         
-        CGFloat minWidth = adFormat.size.width;
+        BOOL isBannerOrLeader = adFormat.isBannerOrLeaderAd;
+        
+        // Banners and leaders need to be at least 320pts wide.
+        CGFloat minWidth = isBannerOrLeader ? MAAdFormat.banner.size.width : adFormat.size.width;
         if ( width < minWidth )
         {
-            [self log: @"The provided with: %f is smaller than the minimum required width: %f for ad format: %@. Please set the width higher than the minimum required.", width, minWidth, adFormat];
+            [self log: @"The provided width: %f is smaller than the minimum required width: %f for ad format: %@. Automatically setting width to %f.", width, minWidth, adFormat, minWidth];
         }
         
-        self.adViewWidths[adUnitIdentifier] = @(width);
+        CGFloat widthToSet = MAX( minWidth, width );
+        self.adViewWidths[adUnitIdentifier] = @(widthToSet);
         [self positionAdViewForAdUnitIdentifier: adUnitIdentifier adFormat: adFormat];
     });
 }

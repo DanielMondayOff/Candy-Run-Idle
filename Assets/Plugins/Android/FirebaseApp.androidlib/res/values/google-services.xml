@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_web_client_id">
-  <string name="gcm_defaultSenderId" translatable="false">884073977882</string>
-  <string name="google_storage_bucket" translatable="false">candy-shop-master.appspot.com</string>
-  <string name="project_id" translatable="false">candy-shop-master</string>
-  <string name="google_api_key" translatable="false">AIzaSyAbQ9__tRtv958jIzK7jBKVzcwBMGzdkyc</string>
-  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyAbQ9__tRtv958jIzK7jBKVzcwBMGzdkyc</string>
-  <string name="google_app_id" translatable="false">1:884073977882:android:435c3e9d0f7dc22aab99a3</string>
-  <string name="default_web_client_id" translatable="false">884073977882-te2fc2vu1prquom60928on6lbihcnafk.apps.googleusercontent.com</string>
+  <string name="gcm_defaultSenderId" translatable="false">939488110328</string>
+  <string name="google_storage_bucket" translatable="false">like-a-pizza.appspot.com</string>
+  <string name="project_id" translatable="false">like-a-pizza</string>
+  <string name="google_api_key" translatable="false">AIzaSyCsJ3Wlx5mAtXYPfZJ0P70MKBf176uXJhM</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyCsJ3Wlx5mAtXYPfZJ0P70MKBf176uXJhM</string>
+  <string name="google_app_id" translatable="false">1:939488110328:android:9ee858acaa699db4057d0d</string>
+  <string name="default_web_client_id" translatable="false">939488110328-vaqk6jb0ati1aspgupmc3041doifm736.apps.googleusercontent.com</string>
 </resources>

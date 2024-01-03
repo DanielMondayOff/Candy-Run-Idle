@@ -17,12 +17,18 @@ public class ShopUIButton : UIBase
 
     private void Awake()
     {
-        if (ES3.KeyExists("enableIAPShop") ? ES3.Load<bool>("enableIAPShop") : false)
+        if (!SceneChanger.shopBtnAlwaysShown)
+        {
+
+        }
+        else if (ES3.KeyExists("enableIAPShop") ? ES3.Load<bool>("enableIAPShop") : false)
         {
 
         }
         else
+        {
             gameObject.SetActive(false);
+        }
     }
 
     public void OnClickShopBtn()

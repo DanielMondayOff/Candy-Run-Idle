@@ -1,28 +1,19 @@
 
 using UnityEngine;
 using System.Runtime.InteropServices;
+using System.Collections;
 
-namespace MondayOFF {
-    internal static class Privacy {
+namespace MondayOFF
+{
+    public static class Privacy
+    {
         internal static int IS_GDPR_APPLICABLE => GetGDPRApplicable();
-        internal static string GDPR_STRING => GetTCF2String();
+        internal static string TCString => GetTCF2String();
         internal static string CCPA_STRING = "";
         internal static bool HAS_ATT_CONSENT = true;
 
-        private static AttAuthorizationStatus _attAuthorizationStatus = AttAuthorizationStatus.NotDetermined;
-        private static System.Action<AttAuthorizationStatus> _onAppTrackingAllow = default;
-
-        private static void Initialize(AttAuthorizationStatus authorizationStatus) {
-            EverydayLogger.Info($"Initialize {authorizationStatus}");
-
-            _attAuthorizationStatus = authorizationStatus;
-            HAS_ATT_CONSENT = _attAuthorizationStatus == AttAuthorizationStatus.Authorized;
-
-            // CMP first
-            _onAppTrackingAllow?.Invoke(_attAuthorizationStatus);
-        }
-
-        private static string GetTCF2String() {
+        private static string GetTCF2String()
+        {
 #if UNITY_EDITOR
             return null;
 #endif
@@ -39,11 +30,11 @@ namespace MondayOFF {
             return tcfString;
         }
 
-        private static int GetGDPRApplicable() {
+        private static int GetGDPRApplicable()
+        {
 #if UNITY_EDITOR
             return 0;
 #endif
-
             int isGdprApplicable = 0;
 
 #if UNITY_ANDROID
@@ -60,28 +51,15 @@ namespace MondayOFF {
 
 
 #if UNITY_IOS && !UNITY_EDITOR
-        /// <summary>Requests App Tracking Authorization to a user.</summary>
-        /// <param name="onAllowCallback">Delegate to be called on authorization. True only if the user allows app tracking.</param>
-        internal static void RequestTrackingAuthorization(System.Action<AttAuthorizationStatus> onAllowCallback) {
-            _onAppTrackingAllow = onAllowCallback;
-
-            _RequestTrackingAuthorization(OnCompleteCallback);
+        public static void OpenAppSettings() {
+            _OpenAppSettings();
         }
-
         [DllImport("__Internal")]
-        private static extern void _RequestTrackingAuthorization(System.Action<AttAuthorizationStatus> onAllowCallback);
-
-        [AOT.MonoPInvokeCallback(typeof(System.Action<int>))]
-        private static void OnCompleteCallback(AttAuthorizationStatus status) {
-            Initialize(status);
-        }
-
+        private static extern void _OpenAppSettings();
 #else
-        internal static void RequestTrackingAuthorization(System.Action<AttAuthorizationStatus> onAllowCallback) {
-            _onAppTrackingAllow = onAllowCallback;
-
-            // No action required for Android
-            Initialize(AttAuthorizationStatus.Authorized);
+        public static void OpenAppSettings()
+        {
+            // TODO: Implement for Android Sandbox if needed
         }
 #endif
     }
