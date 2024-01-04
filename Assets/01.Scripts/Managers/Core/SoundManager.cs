@@ -35,6 +35,7 @@ public class SoundManager
         AudioClip audioClip = GetOrAddAudioClip(path, type);
         Play(audioClip, type, volume, pitch);
     }
+    
     private void Play(AudioClip audioClip, Define.Sound type = Define.Sound.Effect, float volume = 1.0f, float pitch = 1.0f)
     {
         if (!Managers.Data.UseSound) return;

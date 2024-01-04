@@ -59,4 +59,4 @@ MonoBehaviour:
     initializeAdvertyOnAwake: 1
   gameId: 
   companyLogo: {fileID: 0}
-  gameSceneName: EverydayTestScene
+  gameSceneName: Idle

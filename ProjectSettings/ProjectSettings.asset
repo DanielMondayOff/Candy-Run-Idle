@@ -134,7 +134,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.6.4
+  bundleVersion: 0.6.5
   preloadedAssets:
   - {fileID: 11400000, guid: ba64010d5ab9e48cdbb9055515b368ac, type: 2}
   metroInputSource: 0
@@ -164,7 +164,7 @@ PlayerSettings:
     iPhone: 8
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
-  AndroidBundleVersionCode: 52
+  AndroidBundleVersionCode: 53
   AndroidMinSdkVersion: 24
   AndroidTargetSdkVersion: 33
   AndroidPreferredInstallLocation: 1
@@ -245,15 +245,14 @@ PlayerSettings:
   useCustomLauncherManifest: 0
   useCustomMainGradleTemplate: 1
   useCustomLauncherGradleManifest: 1
-  useCustomBaseGradleTemplate: 0
+  useCustomBaseGradleTemplate: 1
   useCustomGradlePropertiesTemplate: 1
   useCustomProguardFile: 1
   AndroidTargetArchitectures: 3
   AndroidTargetDevices: 0
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: "/Users/bangseunghwan/Documents/\u110E\u116E\u11AF\u1109\u1175
-    \u1100\u116A\u11AB\u1105\u1167\u11AB/MondayOFF_Keystore.keystore"
+  AndroidKeystoreName: /Users/bangseunghwan/Documents/Release/MondayOFF_Keystore.keystore
   AndroidKeyaliasName: mondayoff
   AndroidBuildApkPerCpuArchitecture: 0
   AndroidTVCompatibility: 0

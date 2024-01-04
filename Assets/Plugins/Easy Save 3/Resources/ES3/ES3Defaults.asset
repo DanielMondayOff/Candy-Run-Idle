@@ -49,6 +49,8 @@ MonoBehaviour:
     - Everyday.Events.Editor
     - Everyday.IAP
     - Everyday.IAP.Editor
+    - Everyday.SplashScreen
+    - Everyday.SplashScreen.Editor
     - Google.Play.Common
     - Google.Play.Core
     - Google.Play.Review

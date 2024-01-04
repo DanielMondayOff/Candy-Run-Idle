@@ -96,7 +96,7 @@ public class iapManager : MonoBehaviour
 
         if ((ES3.KeyExists("PurchasePremium") ? ES3.Load<bool>("PurchasePremium") : false) || (ES3.KeyExists("PurchaseNoAds") ? ES3.Load<bool>("PurchaseNoAds") : false))
         {
-            Debug.LogError("광거 제거 효과");
+            Debug.Log("광거 제거 효과");
             MondayOFF.AdsManager.DisableBanner();
             MondayOFF.AdsManager.DisableInterstitial();
 
