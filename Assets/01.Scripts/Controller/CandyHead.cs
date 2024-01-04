@@ -98,12 +98,9 @@ public class CandyHead : MonoBehaviour
 
                 particle.GetComponentInChildren<ParticleSystem>().Play();
 
-                RunManager.instance.TaskDelay(3, () => Managers.Pool.Push(particle.GetComponentInChildren<Poolable>()));
+                RunManager.instance.TaskDelay(3, () => { if (particle != null) { Managers.Pool.Push(particle.GetComponentInChildren<Poolable>()); } });
             }
-
         });
-
-        print("upgrade");
     }
 
 }

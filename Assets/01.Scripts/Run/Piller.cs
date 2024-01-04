@@ -153,7 +153,7 @@ public class Piller : MonoBehaviour
             particle.transform.position = this.transform.position + (Vector3.up * 2);
             particle.Play();
 
-            IdleManager.instance.TaskDelay(5, () => Managers.Pool.Push(particle.GetComponent<Poolable>()));
+            IdleManager.instance.TaskDelay(5, () => { if (particle != null) { Managers.Pool.Push(particle.GetComponent<Poolable>()); } });
 
             if (GetComponentInParent<PillerSet>() != null)
             {
