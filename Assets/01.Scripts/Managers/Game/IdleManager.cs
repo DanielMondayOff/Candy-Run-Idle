@@ -6,6 +6,7 @@ using Sirenix.OdinInspector;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 using Cinemachine;
+using Firebase.Crashlytics;
 
 public class IdleManager : MonoBehaviour
 {
@@ -169,6 +170,8 @@ public class IdleManager : MonoBehaviour
 
     private void Start()
     {
+        this.TaskDelay(3f, () => throw new System.Exception("test exception please ignore"));
+
         if (ES3.KeyExists("enableShop"))
             if (ES3.Load<bool>("enableShop"))
                 StartIdle(false);

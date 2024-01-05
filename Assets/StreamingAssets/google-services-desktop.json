@@ -7,29 +7,39 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:884073977882:ios:dda77f861e8893c7ab99a3",
+        "mobilesdk_app_id": "1:884073977882:android:435c3e9d0f7dc22aab99a3",
         "android_client_info": {
           "package_name": "com.mondayoff.candyshopmaster"
         }
       },
+      "oauth_client": [
+        {
+          "client_id": "884073977882-te2fc2vu1prquom60928on6lbihcnafk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
-          "current_key": "AIzaSyAjMRvpdhL-FzGIZTQJ_ej9MH442tUFN1Q"
+          "current_key": "AIzaSyAbQ9__tRtv958jIzK7jBKVzcwBMGzdkyc"
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 0
-        },
         "appinvite_service": {
-          "status": 1
+          "other_platform_oauth_client": [
+            {
+              "client_id": "884073977882-te2fc2vu1prquom60928on6lbihcnafk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "884073977882-c53dupfqg889j9cktctt0bvhe1e1po63.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mondayoff.candyshopmaster"
+              }
+            }
+          ]
         }
-      },
-      "oauth_client": [
-        {
-          "client_id": "884073977882-c53dupfqg889j9cktctt0bvhe1e1po63.apps.googleusercontent.com"
-        }
-      ]
+      }
     }
   ],
   "configuration_version": "1"
