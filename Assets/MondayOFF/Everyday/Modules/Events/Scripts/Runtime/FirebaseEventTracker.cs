@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Firebase.Analytics;
-using Firebase.Crashlytics;
+// using Firebase.Crashlytics;
 
 namespace MondayOFF
 {
@@ -121,7 +121,7 @@ namespace MondayOFF
                     // Set a flag here to indicate whether Firebase is ready to use by your app.
                     OnFirebaseInitialized();
 
-                    Crashlytics.ReportUncaughtExceptionsAsFatal = true;
+                    // Crashlytics.ReportUncaughtExceptionsAsFatal = true;
 
                 }
                 else

@@ -6,7 +6,7 @@ using Sirenix.OdinInspector;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 using Cinemachine;
-using Firebase.Crashlytics;
+// using Firebase.Crashlytics;
 
 public class IdleManager : MonoBehaviour
 {
