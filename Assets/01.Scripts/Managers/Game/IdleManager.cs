@@ -702,6 +702,9 @@ public class IdleManager : MonoBehaviour
 
     public Poolable GenerateDummyObject(string path, Vector3 pos)
     {
+        if (Resources.Load<GameObject>(path) == null)
+            return null;
+
         var dummy = Managers.Pool.Pop(Resources.Load<GameObject>(path));
 
         dummy.transform.position = pos;

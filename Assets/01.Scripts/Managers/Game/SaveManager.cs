@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using System.Linq;
 using Sirenix.OdinInspector;
 using System;
+using UnityEditor.Localization.Plugins.XLIFF.V20;
 
 public class SaveManager : MonoBehaviour
 {
@@ -679,12 +680,23 @@ public class SaveManager : MonoBehaviour
 
     public bool IsTimeLimitRVReady(string time)
     {
-        double timeDiff = GetTimeDiff(DateTime.ParseExact(time, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture)).TotalSeconds;
+        DateTime dateTime;
+        double timeDiff;
+        if (DateTime.TryParse(time, out dateTime))
+        {
+            // 정상적으로 파싱된 경우
+            timeDiff = GetTimeDiff(DateTime.ParseExact(time, "yyyy-MM-dd HH:mm:ss", System.Globalization.CultureInfo.InvariantCulture)).TotalSeconds;
 
-        if (timeDiff < 86400f)
-            return false;
+            if (timeDiff < 86400f)
+                return false;
+            else
+                return true;
+        }
         else
-            return true;
+        {
+            // 파싱에 실패한 경우
+            return false;
+        }
     }
 }
 
