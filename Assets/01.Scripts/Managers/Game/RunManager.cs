@@ -873,14 +873,19 @@ public class RunManager : MonoBehaviour
 
     public void CandyLevelUp()
     {
+        var candyListCopy = new List<GameObject>(candyList);
+
         StartCoroutine(candyLevelUp());
 
         IEnumerator candyLevelUp()
         {
-            foreach (var candy in candyList)
+            foreach (var candy in candyListCopy)
             {
                 yield return new WaitForSeconds(0.1f);
-                candy.GetComponentInChildren<CandyHead>().UpgradeCandy();
+
+                if (candy != null)
+                    if (candy.GetComponentInChildren<CandyHead>() != null)
+                        candy.GetComponentInChildren<CandyHead>().UpgradeCandy();
             }
         }
     }

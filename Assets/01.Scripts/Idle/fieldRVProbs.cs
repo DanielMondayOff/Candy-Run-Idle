@@ -91,7 +91,7 @@ public class fieldRVProbs : MonoBehaviour
 
             IdleManager.instance.GenerateFieldRVUI(type, () => { if (gameObject != null) { Destroy(gameObject); } }, pos, () =>
             {
-                IdleManager.instance.TaskDelay(15, () => { if (gameObject != null) { Destroy(gameObject); }; });
+                IdleManager.instance.TaskDelay(15, () => { if (this != null) if (gameObject != null) { Destroy(gameObject); }; });
             });
 
             EventManager.instance.CustomEvent(AnalyticsType.UI, type.ToString() + "- OnActivefieldRV " + pos, true, true);

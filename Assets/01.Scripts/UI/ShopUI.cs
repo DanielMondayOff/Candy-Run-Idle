@@ -59,8 +59,8 @@ public class ShopUI : MonoBehaviour
     {
         SaveManager.instance.TaskWhile(1, 0, UpdateLimitRV);
 
-        UpdateLayout();
         gameObject.SetActive(true);
+        UpdateLayout();
     }
 
     public void Hide()
