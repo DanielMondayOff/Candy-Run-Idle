@@ -1,4 +1,3 @@
-#if UNITY_STANDALONE || UNITY_EDITOR
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +12,7 @@ public class CandyMatChanger : MonoBehaviour
 
     void Update()
     {
+#if UNITY_STANDALONE || UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.G))
         {
             jellyMatNum++;
@@ -28,6 +28,8 @@ public class CandyMatChanger : MonoBehaviour
         {
             transform.rotation = transform.rotation.eulerAngles.x == 90 ? Quaternion.Euler(new Vector3(0, 0, 0)) : Quaternion.Euler(new Vector3(90, 0, 0));
         }
+#endif
+
     }
 
     public void RotateCandy(Vector3 rotate)
@@ -40,4 +42,3 @@ public class CandyMatChanger : MonoBehaviour
         transform.localScale = size;
     }
 }
-#endif

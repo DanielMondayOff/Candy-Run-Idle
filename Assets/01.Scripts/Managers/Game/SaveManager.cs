@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using System.Linq;
 using Sirenix.OdinInspector;
 using System;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
+// using UnityEditor.Localization.Plugins.XLIFF.V20;
 
 public class SaveManager : MonoBehaviour
 {

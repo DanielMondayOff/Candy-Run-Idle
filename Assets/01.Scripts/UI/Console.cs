@@ -1,4 +1,3 @@
-#if UNITY_STANDALONE || UNITY_EDITOR
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +16,7 @@ public class Console : MonoBehaviour
     [SerializeField] UnityEngine.UI.Slider size;
     [SerializeField] UnityEngine.UI.Text text_size;
 
+#if UNITY_STANDALONE || UNITY_EDITOR
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.BackQuote))
@@ -24,6 +24,7 @@ public class Console : MonoBehaviour
             console.SetActive(!console.activeSelf);
         }
     }
+#endif
 
     public void ChangeCandyRotate()
     {
@@ -61,4 +62,3 @@ public class Console : MonoBehaviour
         }
     }
 }
-#endif
